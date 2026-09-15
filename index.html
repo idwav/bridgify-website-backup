@@ -376,6 +376,130 @@ h1,h2,h3,h4,h5,h6,.trust-stat strong,.trust-brands h2,.hub strong{font-family:"C
   .hub{min-height:148px}
   .product-window{min-height:145px}
 }
+
+/* 05 — Audiences */
+.audiences{
+  width:calc(100% - 32px);
+  max-width:1600px;
+  margin:0 auto 32px;
+  padding:clamp(68px,8vw,112px) clamp(28px,5.5vw,88px);
+  border-radius:24px;
+  background:#0b0a0a;
+  color:#fff;
+  overflow:hidden;
+}
+.audiences-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:40px;
+  margin-bottom:clamp(52px,7vw,86px);
+}
+.audiences-kicker{
+  margin:0 0 18px;
+  color:#f47e64;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.16em;
+}
+.audiences h2{
+  margin:0;
+  max-width:760px;
+  font-size:clamp(42px,5vw,76px);
+  font-weight:400;
+  line-height:1;
+  letter-spacing:-.05em;
+}
+.audiences-intro{
+  max-width:370px;
+  margin:0 0 4px;
+  color:#a8a09d;
+  font-size:16px;
+  line-height:1.5;
+}
+.audience-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid #f466493d;
+  border-bottom:1px solid #f466493d;
+}
+.audience-card{
+  position:relative;
+  min-height:310px;
+  padding:40px clamp(22px,2.4vw,38px) 34px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  background:#0d0b0c;
+  transition:background 350ms ease,transform 450ms cubic-bezier(.16,1,.3,1);
+}
+.audience-card+.audience-card{border-left:1px solid #ffffff14}
+.audience-card::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:100%;
+  bottom:-1px;
+  height:2px;
+  background:#f46649;
+  box-shadow:0 0 9px #f46649,0 0 24px #f4664980;
+  transition:right 500ms cubic-bezier(.16,1,.3,1);
+}
+.audience-card:hover{background:#130e10;transform:translateY(-5px)}
+.audience-card:hover::after{right:0}
+.audience-icon{
+  position:absolute;
+  top:38px;
+  left:clamp(22px,2.4vw,38px);
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  color:#ff8b70;
+  font:500 37px/1 "Sofia Sans",sans-serif;
+  letter-spacing:-.08em;
+  text-shadow:0 0 12px #f4664966;
+}
+.audience-icon::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.45;
+  background-image:radial-gradient(circle,#ff9b82 1.15px,transparent 1.4px);
+  background-size:6px 6px;
+  mask-image:radial-gradient(circle,#000 32%,transparent 72%);
+}
+.audience-icon span{position:relative;z-index:1}
+.audience-card h3{
+  margin:0 0 16px;
+  font-size:clamp(24px,2.2vw,34px);
+  font-weight:500;
+  line-height:1;
+  letter-spacing:-.035em;
+}
+.audience-card p{
+  max-width:270px;
+  margin:0;
+  color:#8f8986;
+  font-size:14px;
+  line-height:1.45;
+}
+@media(max-width:900px){
+  .audiences-head{display:block}
+  .audiences-intro{margin-top:26px}
+  .audience-grid{grid-template-columns:repeat(2,1fr)}
+  .audience-card:nth-child(3){border-left:0;border-top:1px solid #ffffff14}
+  .audience-card:nth-child(4){border-top:1px solid #ffffff14}
+}
+@media(max-width:600px){
+  .audiences{width:calc(100% - 12px);margin-bottom:12px;padding:58px 20px;border-radius:18px}
+  .audiences-head{margin-bottom:46px}
+  .audiences h2{font-size:clamp(39px,11vw,54px)}
+  .audience-grid{grid-template-columns:1fr}
+  .audience-card{min-height:240px;padding:34px 22px 28px}
+  .audience-card+.audience-card{border-left:0;border-top:1px solid #ffffff14}
+  .audience-icon{top:28px;left:22px}
+}
 </style>
 </head>
 <body>
@@ -403,6 +527,19 @@ h1,h2,h3,h4,h5,h6,.trust-stat strong,.trust-brands h2,.hub strong{font-family:"C
 <div class="source"><span class="source-icon" aria-hidden="true">···</span>More</div>
 </div><svg class="connectors" viewBox="0 0 150 335" preserveAspectRatio="none" aria-hidden="true"><path d="M0 25 C75 25 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".08" stroke-width="9"/><path d="M0 25 C75 25 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".22" stroke-width="4"/><path d="M0 25 C75 25 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".9" stroke-width="1.3"/><path class="connection-flow" d="M0 25 C75 25 70 168 150 168" fill="none" stroke="#fff0df" stroke-width="1.6"/><path d="M0 73 C75 73 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".08" stroke-width="9"/><path d="M0 73 C75 73 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".22" stroke-width="4"/><path d="M0 73 C75 73 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".9" stroke-width="1.3"/><path class="connection-flow" d="M0 73 C75 73 70 168 150 168" fill="none" stroke="#fff0df" stroke-width="1.6"/><path d="M0 121 C75 121 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".08" stroke-width="9"/><path d="M0 121 C75 121 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".22" stroke-width="4"/><path d="M0 121 C75 121 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".9" stroke-width="1.3"/><path class="connection-flow" d="M0 121 C75 121 70 168 150 168" fill="none" stroke="#fff0df" stroke-width="1.6"/><path d="M0 169 C75 169 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".08" stroke-width="9"/><path d="M0 169 C75 169 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".22" stroke-width="4"/><path d="M0 169 C75 169 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".9" stroke-width="1.3"/><path class="connection-flow" d="M0 169 C75 169 70 168 150 168" fill="none" stroke="#fff0df" stroke-width="1.6"/><path d="M0 217 C75 217 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".08" stroke-width="9"/><path d="M0 217 C75 217 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".22" stroke-width="4"/><path d="M0 217 C75 217 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".9" stroke-width="1.3"/><path class="connection-flow" d="M0 217 C75 217 70 168 150 168" fill="none" stroke="#fff0df" stroke-width="1.6"/><path d="M0 265 C75 265 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".08" stroke-width="9"/><path d="M0 265 C75 265 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".22" stroke-width="4"/><path d="M0 265 C75 265 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".9" stroke-width="1.3"/><path class="connection-flow" d="M0 265 C75 265 70 168 150 168" fill="none" stroke="#fff0df" stroke-width="1.6"/><path d="M0 313 C75 313 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".08" stroke-width="9"/><path d="M0 313 C75 313 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".22" stroke-width="4"/><path d="M0 313 C75 313 70 168 150 168" fill="none" stroke="#f46649" stroke-opacity=".9" stroke-width="1.3"/><path class="connection-flow" d="M0 313 C75 313 70 168 150 168" fill="none" stroke="#fff0df" stroke-width="1.6"/></svg><div class="hub"><span class="hub-dot"></span><strong>Bridgify</strong><small>ONE<br>INFRASTRUCTURE<br>LAYER</small></div><div class="output-arrow" aria-hidden="true"><span class="delivery-pulse"></span></div><div class="product-wrap"><div class="diagram-label">ONE CONNECTION</div><div class="product-window"><div class="window-top"><i></i><i></i><i></i></div><div class="product-body"><div class="product-heading"><div class="product-image" aria-hidden="true">◇</div><div class="product-name">YOUR<br>PRODUCT</div></div><div class="skeleton"></div><div class="skeleton short"></div><div class="skeleton tiny"></div></div></div></div>
   </div>
+ </div>
+</section>
+
+<section class="audiences" id="audiences" aria-labelledby="audiences-title">
+ <div class="audiences-head">
+  <div><div class="audiences-kicker">05 / AUDIENCES</div><h2 id="audiences-title">Built for every way<br>travel is sold.</h2></div>
+  <p class="audiences-intro">One infrastructure layer, shaped around the commercial needs of every travel business.</p>
+ </div>
+ <div class="audience-grid">
+  <article class="audience-card"><div class="audience-icon" aria-hidden="true"><span>◎</span></div><h3>OTAs</h3><p>Launch broader inventories, enrich content and turn global supply into bookable experiences.</p></article>
+  <article class="audience-card"><div class="audience-icon" aria-hidden="true"><span>✈</span></div><h3>Airlines</h3><p>Extend the journey beyond the seat with relevant, connected destination experiences.</p></article>
+  <article class="audience-card"><div class="audience-icon" aria-hidden="true"><span>◇</span></div><h3>Loyalty &amp;<br>Finance</h3><p>Transform points, rewards and cardholder benefits into memorable travel moments.</p></article>
+  <article class="audience-card"><div class="audience-icon" aria-hidden="true"><span>⌘</span></div><h3>Travel Tech</h3><p>Add curated experience supply through one connection built for modern platforms.</p></article>
  </div>
 </section>
 
