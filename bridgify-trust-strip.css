@@ -1,0 +1,24 @@
+/* Homepage supply summary: balanced columns and brand typography. */
+#sources{box-sizing:border-box;width:100%;max-width:none;margin:0;padding:64px 3%;display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:0;align-items:center;color:#180f10;background:#eee9de}
+#sources .trust-copy{min-width:0;padding:0 48px 0 0}
+#sources .trust-copy h2{margin:0 0 16px;font-family:Chillax,sans-serif;font-size:clamp(25px,2vw,34px);font-weight:500;line-height:1.25;letter-spacing:-1px}
+#sources .trust-copy p{margin:0;max-width:340px;font-size:16px;line-height:1.6;color:#786b64}
+#sources .trust-stat{grid-column:auto;box-sizing:border-box;min-width:0;min-height:112px;padding:8px 28px;border:0;border-left:1px solid #180f1026;display:flex;justify-content:center;gap:14px}
+#sources .trust-stat strong{font-family:Chillax,sans-serif;font-size:clamp(32px,3vw,48px);font-weight:500;line-height:1.1;letter-spacing:-1.8px;white-space:normal}
+#sources .trust-stat span{font-size:15px;line-height:1.4;color:#786b64}
+@media(max-width:1000px){#sources{padding:44px 32px;grid-template-columns:repeat(3,1fr);row-gap:32px}#sources .trust-copy{grid-column:1/-1;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:32px}#sources .trust-copy h2{margin:0;max-width:340px}#sources .trust-stat{padding:0 24px}#sources .trust-stat:nth-child(2){border-left:0;padding-left:0}}
+@media(max-width:520px){#sources{padding:36px 24px;gap:24px 0}#sources .trust-copy{display:block}#sources .trust-copy h2{margin-bottom:14px;font-size:28px}#sources .trust-stat{min-height:78px;padding:0 12px;gap:10px}#sources .trust-stat strong{font-size:25px;letter-spacing:-1px}#sources .trust-stat span{font-size:12px}#sources .trust-stat:last-child{padding-right:0}}
+/* One shared alignment for homepage content and section frames. */
+:root{--home-frame:10px;--home-gutter:calc(3vw + 10px)}
+#home .content{margin-left:calc(var(--home-gutter) - var(--home-frame))}
+#sources,.solutions{max-width:none;width:100%;box-sizing:border-box;padding-left:var(--home-gutter);padding-right:var(--home-gutter)}
+#global{box-sizing:border-box;width:calc(100% - 2 * var(--home-frame));max-width:none;margin-left:var(--home-frame);margin-right:var(--home-frame);padding-left:calc(var(--home-gutter) - var(--home-frame) - 1px);padding-right:calc(var(--home-gutter) - var(--home-frame) - 1px)}
+#global .aggregation-layout{max-width:none;width:100%}
+.final-cta{padding-left:var(--home-frame);padding-right:var(--home-frame)}
+.final-cta-panel{padding-left:calc(var(--home-gutter) - var(--home-frame));padding-right:calc(var(--home-gutter) - var(--home-frame))}
+@media(max-width:700px){:root{--home-frame:6px;--home-gutter:24px}}
+/* Keep every homepage section on the same content rails. */
+#global .aggregation-layout{margin:0}
+#global .aggregation-diagram{box-sizing:border-box;max-width:none;width:100%}
+section.solutions,section.audiences{box-sizing:border-box;width:100%;max-width:none;margin-left:0;margin-right:0;padding-left:var(--home-gutter);padding-right:var(--home-gutter)}
+.solutions .solution-grid,.audiences .audience-grid{width:100%;max-width:none;margin-left:0;margin-right:0}

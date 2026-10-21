@@ -1,0 +1,33 @@
+/* Shared dark slab material: same construction as Marketplace 01. */
+#global .aggregation-diagram{border:1px solid #a66d524f;border-top-color:#dca58a70;background:radial-gradient(ellipse at 50% 45%,#f466490a,transparent 65%),radial-gradient(#f4664920 .7px,transparent .9px),#100e0f;background-size:auto,20px 20px,auto;border-radius:20px;box-shadow:inset 0 1px 1px #fff2,0 2px 0 #36221d,0 5px 0 #100b0a,0 12px 18px #0005}
+#global .source,#global .hub,#global .product-window{background:linear-gradient(145deg,#312c2d 0%,#1b1718 18%,#111011 75%,#211819);border:1px solid #f4a07c;border-top-color:#ffceb0;color:#fff8f1;box-shadow:inset 0 1px 2px #fff6,inset 0 -1px 2px #f4664960,0 2px 0 #513025,0 4px 0 #281a16,0 7px 0 #130e0c,0 12px 12px #0009,0 0 7px #f4664945,0 0 24px #f466491c;transform:none}
+#global .source{border-radius:9px;position:relative}
+#global .hub{border-radius:17px}
+#global .hub:before{content:'';position:absolute;inset:5px;border:1px solid #f5b18b55;border-top-color:#ffdac18c;border-radius:12px;box-shadow:inset 0 1px 2px #fff1,inset 0 -1px 2px #0007;pointer-events:none;background:none}
+#global .hub:after{content:'';position:absolute;top:-1px;left:15%;right:25%;height:2px;background:linear-gradient(90deg,transparent,#ff854e,#ffe4c4,#ff854e,transparent);box-shadow:0 0 8px #ff8c58,0 0 20px #f4664960;border:0;border-radius:50%;pointer-events:none}
+#global .source:after{content:'';position:absolute;top:0;left:12%;right:30%;height:1px;background:linear-gradient(90deg,transparent,#ffdfc1,transparent);box-shadow:0 0 7px #f4664980;pointer-events:none}
+#global .product-window{border-radius:13px;overflow:visible}
+#global .window-top{border-radius:12px 12px 0 0;background:linear-gradient(120deg,#ffffff1a,transparent 65%);border-bottom:1px solid #f466493d;box-shadow:inset 0 1px 1px #fff4}
+#global .product-image{border:1px solid #ef9d7880;border-top-color:#ffd2b5;background:linear-gradient(145deg,#33282a,#100d0e);box-shadow:inset 0 1px 1px #fff3,0 2px 0 #3b251f,0 4px 0 #140d0c,0 6px 8px #0008,0 0 12px #f466491c}
+#global .hub strong{color:#fff7ed;text-shadow:0 0 12px #ffe4ca25}
+#global .source-icon{filter:drop-shadow(0 0 3px #f4664970)}
+#global .connectors{filter:drop-shadow(0 0 3px #ff774b60)}
+#global .output-arrow{background:#f88d64;box-shadow:0 0 5px #f4664980,0 0 14px #f4664940}
+@media(max-width:600px){#global .aggregation-diagram{border-radius:13px}#global .hub{border-radius:12px}#global .hub:before{inset:4px;border-radius:8px}#global .source{border-radius:6px}}
+/* Connection nodes share the panels' one-pixel coral outline. */
+#global .hub-dot{box-sizing:border-box;border:1px solid #f4a07c;background:#fff4e5}
+#global .icon-node{stroke:#f4a07c;stroke-width:1px;vector-effect:non-scaling-stroke;fill:#fff4e5}
+#global .delivery-pulse{box-sizing:border-box;border:1px solid #f4a07c;background:#fff4e5}
+/* Pronounced machined depth, retaining the frontal reference composition. */
+#global .aggregation-diagram{background:radial-gradient(ellipse at 51% 50%,#f4664914,transparent 60%),radial-gradient(#f4664926 .7px,transparent .9px),linear-gradient(145deg,#1d191a,#0b0a0b 32%,#110d0e);background-size:auto,20px 20px,auto;box-shadow:inset 0 2px 2px #ffffff20,inset 0 -2px 4px #0008,0 2px 0 #513326,0 4px 0 #302019,0 7px 0 #1c1410,0 10px 0 #100c0a,0 19px 22px #0008}
+#global .source,#global .hub,#global .product-window{background:linear-gradient(145deg,#3b3435 0%,#282223 8%,#191617 22%,#100e0f 67%,#211719 100%);border:1px solid #ffa87d;border-top-color:#ffe2c5;box-shadow:inset 1px 2px 2px #ffffff70,inset -1px -2px 3px #f4664955,0 2px 0 #7e4831,0 4px 0 #513025,0 6px 0 #36221b,0 9px 0 #251914,0 12px 0 #17100d,0 16px 0 #0c0908,3px 22px 12px #000b,9px 30px 25px #0008,0 0 9px #f4664966,0 0 28px #f4664926}
+#global .source{box-shadow:inset 0 2px 2px #ffffff60,inset 0 -1px 2px #f4664960,0 2px 0 #76432f,0 4px 0 #482b20,0 6px 0 #291c15,0 8px 0 #130d0a,2px 12px 8px #000a,5px 17px 15px #0006,0 0 8px #f4664960}
+#global .hub:before{inset:6px;border:1px solid #c98f7070;border-top-color:#ffe3c6b3;border-bottom-color:#f4664980;border-radius:11px;box-shadow:inset 1px 2px 3px #ffffff19,inset -2px -3px 4px #0009,0 1px 0 #0008}
+#global .hub:after{left:9%;right:20%;height:2px;box-shadow:0 0 6px #ffd4a9,0 0 14px #ff7c49b3,0 0 32px #f4664966}
+#global .window-top{background:linear-gradient(110deg,#ffffff28,#ffffff05 30%,#ffffff12 70%,transparent);box-shadow:inset 0 2px 2px #ffffff45,0 2px 3px #0007;border-bottom-color:#f4664960}
+#global .product-image{background:linear-gradient(145deg,#423436,#20191a 30%,#100d0e);box-shadow:inset 1px 2px 2px #ffffff40,inset -1px -1px 2px #f4664940,0 2px 0 #70412d,0 4px 0 #40271d,0 6px 0 #1b110c,2px 10px 7px #000a,0 0 12px #f4664926}
+#global .source-icon{filter:drop-shadow(0 1px 0 #ffc6a475) drop-shadow(1px 3px 2px #000b) drop-shadow(0 0 4px #f4664970)}
+#global .connectors{filter:drop-shadow(0 2px 1px #000b) drop-shadow(0 0 4px #ff774b80)}
+#global .hub-dot{border-color:#ffa87d;box-shadow:0 0 5px #fff0d9,0 0 13px #ff824db3,0 0 25px #f4664966}
+#global .icon-node{stroke:#ffa87d}
+@media(max-width:600px){#global .source{box-shadow:inset 0 1px 2px #fff5,0 2px 0 #513025,0 4px 0 #21140f,0 8px 8px #0008,0 0 6px #f4664950}#global .hub,#global .product-window{box-shadow:inset 0 1px 2px #fff5,0 2px 0 #70412d,0 4px 0 #40271d,0 7px 0 #1b110c,0 12px 12px #0009,0 0 12px #f4664940}}

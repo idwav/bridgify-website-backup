@@ -1,0 +1,2 @@
+html body .top .logo img,html body #top .logo img,html body .site-header .logo img,html body footer img[src*="bridgify-logo"],html body .final-cta img[src*="bridgify-logo"]{filter:none!important;object-fit:contain}
+html body img[src="assets/bridgify-logo-coral.svg"]{filter:none!important;object-fit:contain}

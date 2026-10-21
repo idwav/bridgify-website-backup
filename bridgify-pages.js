@@ -1,0 +1,1 @@
+const f=document.querySelector('#enquiry');if(f)f.addEventListener('submit',ev=>{ev.preventDefault();const d=new FormData(f);location.href='mailto:hello@bridgify.io?subject='+encodeURIComponent('Bridgify enquiry')+'&body='+encodeURIComponent(['Name: '+d.get('name'),'Email: '+d.get('email'),'Company: '+d.get('company'),'',d.get('message')].join('\n'))});

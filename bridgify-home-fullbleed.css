@@ -1,0 +1,5 @@
+/* Home hero shares the full-bleed treatment of Marketplace. */
+#home.hero{margin:0;border:0;width:100%;max-width:none;height:calc(100svh + 72px);min-height:820px;max-height:none;border-radius:0 0 32px 32px;overflow:hidden}
+#home .top{position:absolute;z-index:30;top:24px;left:3.2%;right:3.2%;margin:0;height:86px;padding:0 28px;box-sizing:border-box;display:flex;align-items:center;background:linear-gradient(120deg,#ffffff0c,#180f1026);border:1px solid #fff8f120;border-radius:14px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 #ffffff08}
+#home .content{position:absolute;top:29svh;left:3.2%;margin:0}
+@media(max-width:700px){#home.hero{min-height:calc(100svh + 48px);height:auto;border:0;border-radius:0 0 24px 24px;padding-bottom:100px}#home .top{top:18px;left:14px;right:14px;height:auto;min-height:88px;margin:0;padding:14px 15px}#home .content{position:relative;top:auto;left:auto;margin:205px 24px 330px}#home .top nav{gap:8px}}

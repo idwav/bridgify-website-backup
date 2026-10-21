@@ -1,0 +1,27 @@
+@font-face{font-family:EnterpriseChillax;src:url('Chillax_Complete/Fonts/OTF/Chillax-Regular.otf');font-weight:400}
+.section.enterprise-light{background:#eee9de;color:#211815;padding:90px 6% 100px;min-height:0;border:0;box-shadow:none}
+.enterprise-light .enterprise-panel{display:block;max-width:none;margin:0;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none}
+.enterprise-light .enterprise-panel>div:first-child{display:grid;grid-template-columns:1.6fr 1fr;column-gap:10%;align-items:end;margin-bottom:70px}
+.enterprise-light .label{grid-column:1/-1;color:#bd6046;letter-spacing:2.5px;font-size:11px;margin-bottom:28px}
+.enterprise-light h2{font-family:EnterpriseChillax,Chillax,sans-serif;font-weight:400;font-size:clamp(40px,4.2vw,66px);line-height:1.12;letter-spacing:-.045em;max-width:850px;margin:0}
+.enterprise-light .section-intro{font-size:18px;line-height:1.6;color:#7a685d;max-width:510px;margin:0 0 5px}
+.enterprise-light .capabilities{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:0;background:transparent;border:0;border-top:1px solid #74655444;border-bottom:1px solid #74655444;border-radius:0;box-shadow:none}
+.enterprise-light .capability{display:flex;flex-direction:column;align-items:flex-start;min-width:0;min-height:265px;padding:37px 28px 35px;background:transparent;border:0;border-right:1px solid #74655433;border-radius:0;box-shadow:none;color:#78675d;font-size:16px;line-height:1.5;transition:background .25s}
+.enterprise-light .capability:last-child{border-right:0}
+.enterprise-light .capability:hover{background:#f9f5ec66;transform:none;box-shadow:none}
+.enterprise-light .enterprise-icon{display:block;width:46px;height:46px;fill:none;stroke:#f46649;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:42px}
+.enterprise-light .enterprise-node{fill:#eee9de;stroke:#f46649;stroke-width:1.6}
+.enterprise-light .capability strong{font:400 clamp(20px,1.65vw,27px)/1.2 EnterpriseChillax,Chillax,sans-serif;letter-spacing:-.025em;color:#211815;display:block;margin:0 0 14px;max-width:290px}
+.enterprise-light .capability span{display:block;max-width:270px}
+@media(max-width:1000px){.enterprise-light .enterprise-panel>div:first-child{grid-template-columns:1.3fr 1fr;gap:25px 6%}.enterprise-light .capability{padding:30px 18px;min-height:250px}.enterprise-light .section-intro{font-size:16px}}
+@media(max-width:700px){.section.enterprise-light{padding:65px 24px}.enterprise-light .enterprise-panel>div:first-child{display:block;margin-bottom:38px}.enterprise-light h2{font-size:39px;margin-bottom:24px}.enterprise-light .section-intro{font-size:17px}.enterprise-light .label{margin-bottom:22px}.enterprise-light .capabilities{grid-template-columns:1fr 1fr}.enterprise-light .capability{min-height:235px;padding:25px 14px}.enterprise-light .capability:nth-child(2){border-right:0}.enterprise-light .capability:nth-child(-n+2){border-bottom:1px solid #74655433}.enterprise-light .enterprise-icon{width:39px;height:39px;margin-bottom:28px}.enterprise-light .capability strong{font-size:21px}.enterprise-light .capability span{font-size:15px}}
+.enterprise-light .capability{position:relative;isolation:isolate;overflow:hidden;transition:background .35s,color .35s}
+.enterprise-light .enterprise-hover-photo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.055);filter:saturate(.8);transition:opacity .42s ease,transform .85s cubic-bezier(.22,1,.36,1)}
+.enterprise-light .capability:before{content:'';position:absolute;inset:0;z-index:-1;opacity:0;background:linear-gradient(180deg,#180f1033 0%,#180f1080 40%,#180f10ed 100%);transition:opacity .42s ease}
+.enterprise-light .capability:hover,.enterprise-light .capability:focus-visible{background:#180f10;color:#eee9de;transform:none;outline:none}
+.enterprise-light .capability:hover .enterprise-hover-photo,.enterprise-light .capability:focus-visible .enterprise-hover-photo{opacity:1;transform:scale(1)}
+.enterprise-light .capability:hover:before,.enterprise-light .capability:focus-visible:before{opacity:1}
+.enterprise-light .capability:hover strong,.enterprise-light .capability:focus-visible strong{color:#fff3e6}
+.enterprise-light .capability:hover .enterprise-icon,.enterprise-light .capability:focus-visible .enterprise-icon{stroke:#ffc19c}
+.enterprise-light .capability:focus-visible{outline:2px solid #f46649;outline-offset:-2px}
+@media(prefers-reduced-motion:reduce){.enterprise-light .enterprise-hover-photo,.enterprise-light .capability:before{transition:none;transform:none}}

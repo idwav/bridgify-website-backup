@@ -1,0 +1,54 @@
+@font-face{font-family:Chillax;src:url('Chillax_Complete/Fonts/WEB/fonts/Chillax-Regular.woff2');font-weight:400;font-style:normal;font-display:swap}
+#top.hero{position:relative;isolation:isolate;margin:0;border:0;border-radius:0 0 32px 32px;width:100%;height:calc(100svh + 64px);min-height:850px;max-height:none;overflow:hidden;background:radial-gradient(ellipse at 79% 65%,#f4664914,transparent 60%),#100e0e;color:#fff8f1}
+#top:before{content:'';position:absolute;inset:0;z-index:-1;background-image:radial-gradient(#f466492e .7px,transparent 1px);background-size:20px 20px;mask-image:radial-gradient(ellipse at 80% 60%,#000,transparent 72%);pointer-events:none}
+#top .top{position:absolute;top:24px;left:3.2%;right:3.2%;margin:0;height:86px;padding:0 28px;background:linear-gradient(120deg,#ffffff0c,#180f1026);border:1px solid #fff2;border-radius:14px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:#eee9de;z-index:30}
+#top .logo img{filter:none}#top nav>a,#top .site-nav-group summary{color:#eee9de}#top .connect{background:#eee9de;color:#180f10}
+#top .site-nav-menu{background:#21191a;border-color:#fff2}#top .site-nav-menu a{color:#eee9de}
+#top .hero-copy{position:absolute;left:3.2%;top:28svh;width:43%;max-width:none;margin:0}
+#top .hero-copy .eyebrow{font-size:11px;color:#d49379;letter-spacing:2px}
+#top .hero-copy h1{font-family:Chillax,sans-serif;font-weight:400;font-size:clamp(44px,4.3vw,76px);line-height:1.13;letter-spacing:-.045em;color:#fff5e9;margin:27px 0}
+#top .hero-copy h1 span{display:block;color:#ed9677;font-weight:300}
+#top .hero-copy p{font-size:18px;line-height:1.6;color:#beaaa0;max-width:520px}
+#top .hero-actions{margin-top:30px}#top .hero-actions .button{background:#eee9de;color:#180f10}#top .hero-actions .button.alt{background:transparent;color:#eee9de;border-color:#eee9de40}
+#top .integration-visual{position:absolute;top:27svh;left:47%;width:51%;height:auto;max-width:none;margin:0;padding:0;border:0;background:none}
+.integration-visual svg{width:100%;height:auto;overflow:visible;display:block}
+.integration-visual #api-route-0,.integration-visual #api-route-1,.integration-visual #api-route-2,.integration-visual #api-route-3{stroke:#f68d62;stroke-width:1.2;opacity:1;filter:drop-shadow(0 0 3px #f4664970)}
+.integration-visual #api-hub-face{filter:url(#api-material-depth)}
+.integration-visual #api-product-face{filter:url(#api-material-depth)}
+@media(prefers-reduced-motion:no-preference){.integration-visual svg{animation:api-material-drift 12s ease-in-out infinite;transform-origin:center}@keyframes api-material-drift{0%,100%{transform:perspective(1700px) rotateY(-2deg) translateY(2px)}50%{transform:perspective(1700px) rotateY(-1.4deg) translateY(-3px)}}}
+@media(min-width:901px) and (max-height:820px){#top.hero{min-height:calc(100svh + 64px)}#top .hero-copy{top:25svh}#top .hero-copy h1{font-size:clamp(40px,3.7vw,58px)}#top .hero-copy p{font-size:16px}#top .integration-visual{top:25svh}}
+@media(max-width:900px){#top.hero{height:auto;min-height:100svh;padding:185px 24px 90px;display:flex;flex-direction:column;gap:35px;border-radius:0 0 24px 24px}#top .hero-copy{position:relative;left:auto;top:auto;width:100%}#top .hero-copy h1{font-size:clamp(38px,6vw,58px)}#top .integration-visual{position:relative;left:auto;top:auto;width:100%}#top .top{top:18px;left:14px;right:14px;height:auto;min-height:88px;padding:14px 15px}#top .top nav{gap:8px}#top .hero-copy p{font-size:17px}}
+/* Reference layout: heading and introduction above a panoramic diagram. */
+@media(min-width:901px){
+ #top.hero{height:calc(100svh + 64px);min-height:890px;padding:0}
+ #top .hero-copy{top:170px;left:3.2%;width:93.6%;display:grid;grid-template-columns:1.45fr 1fr;gap:0 7%;align-items:end}
+ #top .hero-copy .eyebrow{grid-column:1/-1;margin-bottom:18px}
+ #top .hero-copy h1{grid-column:1;grid-row:2/4;font-size:clamp(38px,3.8vw,66px);line-height:1.1;margin:0}
+ #top .hero-copy h1 span{font-weight:400;color:#fff3e7}
+ #top .hero-copy p{grid-column:2;margin:0;max-width:540px;font-size:clamp(15px,1.2vw,20px);line-height:1.6}
+ #top .hero-actions{grid-column:2;margin-top:20px;gap:12px}
+ #top .integration-visual{left:3.2%;top:47%;width:93.6%;height:45%;padding:24px 24px 18px;border:1px solid #bb81644d;border-radius:20px;background:radial-gradient(ellipse at 50% 50%,#f466490c,transparent 65%),radial-gradient(#f466492b .7px,transparent 1px),#100e0f;background-size:auto,20px 20px,auto;box-shadow:inset 0 1px #fff2,0 3px 0 #362219,0 7px 0 #140e0b,0 17px 18px #0007}
+ #top .integration-visual svg{width:100%;height:100%;animation:none}
+}
+@media(min-width:901px) and (max-height:820px){#top.hero{min-height:850px}#top .hero-copy{top:155px}#top .hero-copy h1{font-size:clamp(36px,3.6vw,52px)}#top .integration-visual{top:46%;height:44%}}
+@media(max-width:900px){#top .integration-visual svg{min-height:260px}}
+/* Give the panorama breathing room and keep the browser convincingly wide. */
+@media(min-width:901px){
+ #top .hero-copy{left:6%;width:88%}
+ #top .integration-visual{left:6%;width:88%;padding:30px 36px 24px}
+}
+@media(min-width:901px){
+ #top .integration-visual{height:37%;padding:8px 10px;top:47%}
+ #top .integration-visual svg{overflow:visible}
+}
+@media(min-width:901px) and (max-height:820px){
+ #top .integration-visual{top:46%;height:37%}
+}
+/* Shared warm environmental light around the API panorama. */
+#top.hero{isolation:isolate;background-color:#100e0e}
+#top.hero::after{content:'';position:absolute;pointer-events:none;z-index:-1;inset:22% -9% -15% 12%;background:radial-gradient(ellipse at 64% 56%,#ef814538 0%,#d9633222 32%,#a4402110 52%,transparent 72%);filter:blur(30px);animation:api-ambient-breathe 10s ease-in-out infinite}
+#top .integration-visual{isolation:isolate;overflow:visible}
+#top .integration-visual::before{content:'';position:absolute;pointer-events:none;z-index:-1;inset:-70px -55px -65px;background:radial-gradient(ellipse at 60% 55%,#f18a4935, #d8613018 42%,transparent 73%);filter:blur(28px)}
+#top .integration-visual::after{content:'';position:absolute;pointer-events:none;z-index:-1;left:8%;right:3%;bottom:-62px;height:110px;border-radius:50%;background:radial-gradient(ellipse,#ed824b4d 0%,#c85b3029 38%,transparent 73%);filter:blur(20px)}
+@keyframes api-ambient-breathe{0%,100%{opacity:.75}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){#top.hero::after{animation:none}}
