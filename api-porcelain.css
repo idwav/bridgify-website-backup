@@ -1,0 +1,49 @@
+/* Experiences API row: Blender-rendered gold ring with floating glass experience cards. */
+.solution-row-stage.api-porcelain{background:none;border:0;border-radius:0;box-shadow:none;overflow:visible;perspective:1500px;perspective-origin:50% 40%;cursor:default}
+.solution-row:nth-child(2) .solution-row-stage.api-porcelain{height:500px}
+.ap-world{position:absolute;left:50%;top:50%;width:1344px;height:752px;transform-style:preserve-3d;transform:translate(-50%,-50%) scale(var(--s,1)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));will-change:transform}
+.ap-world{pointer-events:none}.ap-world .ap-go{pointer-events:auto}
+/* Blender-rendered gold ring loop (800px, transparent); ring centre sits at world 672,376. */
+.ap-ring-video{position:absolute;left:295px;top:-1px;width:754px;height:754px;display:block;object-fit:contain}
+.ap-core-glow{position:absolute;left:592px;top:296px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,#ff7a4d99 0%,#ff6a3d44 30%,transparent 68%);mix-blend-mode:screen;opacity:calc(.55 + var(--pulse,0) * .45);transform:translateZ(1px) scale(calc(1 + var(--pulse,0) * .3));pointer-events:none}
+.ap-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transform:translateZ(18px)}
+.ap-wire{fill:none;stroke:#f07a52;stroke-width:1.3;stroke-linecap:round;opacity:.75}
+.ap-wire-glow{fill:none;stroke:#ff6a3d;stroke-width:5;opacity:.12;filter:blur(3px)}
+.ap-streak{fill:none;stroke:#ffb48f;stroke-width:2.4;stroke-linecap:round;opacity:0;filter:drop-shadow(0 0 4px #ff7a4d) drop-shadow(0 0 10px #f4664988)}
+.ap-head{fill:#fff7ef;stroke:#f46649;stroke-width:1;opacity:0;filter:drop-shadow(0 0 6px #ff7a4d)}
+.ap-port{fill:#ffd9c6;stroke:#f46649;stroke-width:1;filter:drop-shadow(0 0 4px #ff8a5c)}
+.ap-ring{fill:none;stroke:#ff8a5c;stroke-width:1.2;opacity:0}
+
+/* Cards are thick glass slabs: a face, stacked copper-lit edge layers behind it, and a floor shadow. */
+.ap-node{position:absolute;left:var(--x);top:var(--y);width:var(--w);transform-style:preserve-3d;opacity:0;transform:translate3d(0,26px,0);transition:opacity .9s ease var(--d,0s),transform 1.2s cubic-bezier(.2,.85,.25,1) var(--d,0s)}
+.api-porcelain.is-in .ap-node{opacity:1;transform:translate3d(0,0,var(--z,40px)) rotateX(var(--tx,0deg)) rotateY(var(--ty,0deg)) rotate(var(--tz,0deg))}
+.ap-shadow{position:absolute;left:8%;right:8%;top:38%;height:72%;border-radius:40%;background:radial-gradient(ellipse at 50% 50%,#6b321650,#6b321622 45%,transparent 72%);filter:blur(16px);transform:translateZ(calc(var(--z,40px) * -1)) translate(18px,46px);pointer-events:none}
+.ap-slab{position:relative;transform-style:preserve-3d;animation:ap-float 7.5s ease-in-out infinite;animation-delay:var(--f,0s)}
+@keyframes ap-float{0%,100%{translate:0 0}50%{translate:0 -7px}}
+.ap-edge{position:absolute;inset:0;border-radius:17px;background:linear-gradient(160deg,#ffd9c2 0%,#f29a6f 45%,#c8653c 100%);transform:translateZ(calc(var(--i) * -1.4px));opacity:.96}
+.ap-edge:last-of-type{background:linear-gradient(160deg,#e48a62,#9c4a2a);box-shadow:0 0 22px #f466494d}
+.ap-card{position:relative;border-radius:17px;background:linear-gradient(165deg,#fffdfa 0%,#fbf4ec 55%,#f4e7da 100%);padding:6px 6px 0;box-sizing:border-box;border:1px solid #f3c7ad;box-shadow:inset 0 1.5px 0 #fff,inset 1px 0 0 #ffffffb3,inset 0 -1.5px 0 #f0a985,inset 0 -14px 22px -14px #ff8a5c55,0 0 0 1px #f2b393}
+.ap-card:before{content:'';position:absolute;inset:-1px;border-radius:inherit;box-shadow:0 0 0 1px #f46649a6,0 0 14px 1px #f466497a,0 0 34px 6px #f4664933;animation:ap-neon 3.6s ease-in-out infinite;animation-delay:var(--f,0s);pointer-events:none}
+.ap-card:after{content:'';position:absolute;inset:-2px;border-radius:inherit;box-shadow:0 0 0 1.5px #ff7a4d,0 0 18px 3px #ff6a3dcc,0 0 46px 10px #f4664980,0 0 90px 20px #f4664933;opacity:0;transition:opacity .45s;pointer-events:none}
+@keyframes ap-neon{0%,100%{opacity:.55}50%{opacity:1}}
+.ap-node.is-lit .ap-card:after{opacity:1}
+.ap-sheen{position:absolute;inset:0;border-radius:inherit;background:linear-gradient(118deg,#ffffff70 0%,#ffffff1a 26%,transparent 42%,transparent 70%,#ffffff26 100%);pointer-events:none;z-index:3;mix-blend-mode:soft-light}
+.ap-shot{position:relative;height:var(--ph,118px);border-radius:12px;overflow:hidden;background:#d9c5b4;box-shadow:inset 0 0 0 1px #0000001a,0 1px 0 #ffffffcc}
+.ap-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform 5s ease-out}
+.ap-node.is-lit .ap-shot img{transform:scale(1.12)}
+.ap-shot:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#00000014 0%,#0000 30%,#0000 60%,#2a160a40)}
+.ap-pill{position:absolute;left:10px;top:10px;z-index:2;display:flex;align-items:center;gap:8px;padding:7px 13px 7px 9px;border-radius:999px;background:#3a2a24a8;backdrop-filter:blur(8px) saturate(1.2);-webkit-backdrop-filter:blur(8px) saturate(1.2);border:1px solid #ffffff2e;box-shadow:inset 0 1px #ffffff26;color:#fbf1e8;font:600 9.5px/1 Sofia,"Sofia Sans",sans-serif;letter-spacing:.22em}
+.ap-pill span{display:grid;place-items:center}
+.ap-pill svg{width:15px;height:15px;fill:none;stroke:#fbf1e8;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ap-meta{display:flex;align-items:center;justify-content:space-between;padding:12px 9px 13px 10px;gap:10px}
+.ap-meta b{display:block;font:600 15px/1.15 Sofia,"Sofia Sans",sans-serif;color:#1f1512;letter-spacing:-.01em}
+.ap-meta small{display:block;margin-top:4px;font:500 11.5px/1 Sofia,"Sofia Sans",sans-serif;color:#7f6a5e}
+.ap-go{flex:none;width:34px;height:34px;border-radius:50%;border:1.3px solid #3a2a2266;display:grid;place-items:center;background:linear-gradient(180deg,#fff,#f6eee6);box-shadow:inset 0 1px #fff,0 2px 4px #6b32161f;transition:background .4s,border-color .4s}
+.ap-go svg{width:14px;height:14px;fill:none;stroke:#1f1512;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
+.ap-node.is-lit .ap-go{background:#f46649;border-color:#f46649}.ap-node.is-lit .ap-go svg{stroke:#fff}
+
+@media(min-width:761px){.solution-row.solution-row--api{grid-template-columns:1.55fr 1fr;gap:6%}}
+@media(min-width:1800px){.solution-row:nth-child(2) .solution-row-stage.api-porcelain{height:580px}}
+@media(max-width:1050px){.solution-row:nth-child(2) .solution-row-stage.api-porcelain{height:400px}}
+@media(max-width:760px){.solution-row:nth-child(2) .solution-row-stage.api-porcelain{height:auto;aspect-ratio:1344/752}}
+@media(prefers-reduced-motion:reduce){.ap-slab,.ap-card:before{animation:none}.ap-node{transition:none}}
