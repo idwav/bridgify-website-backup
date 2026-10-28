@@ -44,3 +44,24 @@
 #team .copy-founders blockquote{margin:0;font-size:clamp(20px,2vw,28px)}
 #team .copy-founders cite{color:#c4b6ac;font-style:normal}
 @media(max-width:600px){#team .tickets.founder-tickets{grid-template-columns:minmax(0,320px)}}
+
+/* Align the team with the Story & Mission rails and place the quote beside it. */
+.about-journey.is-motion .motion-stage #team,#team{padding-left:7%;padding-right:7%}
+.about-journey.is-motion .motion-stage #team .team-head{max-width:none;margin-left:0;margin-right:0}
+#team .founders-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:center;gap:clamp(48px,6vw,120px);width:100%}
+.about-journey.is-motion .motion-stage #team .founder-tickets,#team .founder-tickets{max-width:none;margin:0;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.about-journey.is-motion .motion-stage #team .copy-founders.team-demo-note,#team .copy-founders.team-demo-note{max-width:none;width:auto;margin:0;text-align:left}
+#team .copy-founders blockquote{font:300 clamp(24px,2.5vw,40px)/1.4 Chillax,sans-serif;letter-spacing:-.025em}
+#team .copy-founders cite{font:400 15px/1.6 Sofia,sans-serif;margin-top:24px;letter-spacing:0}
+#team .founder-tickets .ticket{border:0;background:transparent;border-radius:0;box-shadow:none}
+#team .founder-tickets .ticket-photo{background:transparent;border-radius:0;overflow:visible}
+#team .founder-tickets .ticket-head{background:none;padding:0 0 14px;position:relative}
+#team .founder-placeholder{aspect-ratio:1.7;background:none;gap:10px}
+#team .founder-placeholder>span{font-size:64px;color:#c4b6ac}
+#team .founder-tickets .photo-caption{display:none}
+#team .founder-tickets .ticket-info{background:#eee9de;border-radius:0 0 18px 18px;padding:22px}
+#team .founder-tickets .ticket-tear:before,#team .founder-tickets .ticket-tear:after{box-shadow:none}
+@media(max-width:850px){#team .founders-layout{grid-template-columns:1fr;gap:36px}.about-journey.is-motion .motion-stage #team .copy-founders.team-demo-note{max-width:620px}#team .copy-founders blockquote{font-size:26px}}
+@media(max-width:500px){#team .founder-tickets{gap:14px!important}#team .founder-tickets .ticket-info{padding:16px 12px!important}#team .name{font-size:20px}#team .ticket-head span:not(.founder-brand){display:none}#team .pass-mark{display:none}#team .founder-placeholder>span{font-size:48px}}
+.about-streamline .about-journey.is-motion .motion-stage #team{padding-left:7%;padding-right:7%}
+.about-streamline .about-journey.is-motion .motion-stage #team .team-head{max-width:none;margin-left:0;margin-right:0}
