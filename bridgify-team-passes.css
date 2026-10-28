@@ -33,3 +33,14 @@
 #team .ticket-tear:before,#team .ticket-tear:after{background:var(--ink)}
 #team .team-demo-note{color:#b7a59c}
 @media(max-width:850px){#team{margin:18px 6px;border-radius:22px}}
+
+/* Confirmed founders; retain ticket treatment without assigning sample portraits. */
+#team .tickets.founder-tickets{grid-template-columns:repeat(2,minmax(0,320px));justify-content:center;gap:28px}
+#team .founder-placeholder{aspect-ratio:1.22;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:radial-gradient(ellipse at 50% 100%,#f466492b,transparent 72%),#241718}
+#team .founder-placeholder>span{font:300 72px/1 Chillax,sans-serif;letter-spacing:-.05em;color:#eee9de}
+#team .founder-placeholder small{font:500 9px Sofia,sans-serif;letter-spacing:.16em;color:#c4b6ac}
+#team .ticket-head .founder-brand{font:400 21px Chillax,sans-serif;letter-spacing:-.04em;color:#f46649}
+#team .copy-founders.team-demo-note{margin:36px auto 0;max-width:850px;text-align:center;color:#eee9de}
+#team .copy-founders blockquote{margin:0;font-size:clamp(20px,2vw,28px)}
+#team .copy-founders cite{color:#c4b6ac;font-style:normal}
+@media(max-width:600px){#team .tickets.founder-tickets{grid-template-columns:minmax(0,320px)}}
