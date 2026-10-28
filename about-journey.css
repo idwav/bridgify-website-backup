@@ -1,0 +1,30 @@
+.frame{overflow:clip}
+.about-journey{position:relative;margin:0 12px 24px}
+.about-journey.is-motion{height:340svh}
+.about-journey.is-motion .motion-stage{border-radius:32px}
+.about-journey.is-motion .motion-stage{height:100svh;position:sticky;top:0;overflow:hidden;background:var(--ink)}
+.about-journey.is-motion .motion-stage .hbx.hbx-centered{position:absolute;inset:0;min-height:0;height:100%;margin:0;border-radius:0;padding:70px 5%;background:transparent}
+.about-journey.is-motion .motion-stage .hbx-content{will-change:transform,opacity}
+.about-journey.is-motion .motion-stage .hbx-atmosphere{will-change:transform,opacity}
+.about-journey.is-motion .motion-stage #team{position:absolute;top:0;left:0;right:0;margin:0;padding:120px 6%;border-radius:0;background:transparent;opacity:0;visibility:hidden;pointer-events:none;will-change:transform}
+.about-journey.is-motion .motion-stage #team .ticket{will-change:transform,opacity;transition:box-shadow .6s}
+/* Keep the site's split header and ticket layout, with room around the composition. */
+.about-journey.is-motion .motion-stage #team{padding:75px 6% 65px;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+.about-journey.is-motion .motion-stage #team .team-head,.about-journey.is-motion .motion-stage #team .tickets,.about-journey.is-motion .motion-stage #team .team-demo-note{width:100%;max-width:1140px;margin-left:auto;margin-right:auto}
+.about-journey.is-motion .motion-stage #team .team-head{margin-bottom:38px;gap:65px}
+.about-journey.is-motion .motion-stage #team .team-head>div{flex:1.2;will-change:transform,opacity}
+.about-journey.is-motion .motion-stage #team .team-head>p{flex:1;max-width:460px;font-size:18px;will-change:transform,opacity}
+.about-journey.is-motion .motion-stage #team .team-head h2{font-size:clamp(38px,3.7vw,58px);line-height:1.08}
+.about-journey.is-motion .motion-stage #team .section-label{margin-bottom:18px}
+.about-journey.is-motion .motion-stage #team .tickets{gap:22px}
+.about-journey.is-motion .motion-stage #team .team-demo-note{margin-top:20px}
+@media(min-width:1101px) and (max-height:850px){.about-journey.is-motion .motion-stage #team{padding-top:60px;padding-bottom:55px}.about-journey.is-motion .motion-stage #team .team-head,.about-journey.is-motion .motion-stage #team .tickets,.about-journey.is-motion .motion-stage #team .team-demo-note{max-width:980px}.about-journey.is-motion .motion-stage #team .team-head{margin-bottom:25px}.about-journey.is-motion .motion-stage #team .team-head h2{font-size:44px}.about-journey.is-motion .motion-stage #team .team-head>p{font-size:17px}.about-journey.is-motion .motion-stage #team .ticket-info{padding:16px}.about-journey.is-motion .motion-stage #team .ticket-bottom{margin-top:16px;padding-top:12px}}
+@media(max-width:850px){.about-journey.is-motion .motion-stage #team{display:block;padding-top:80px}.about-journey.is-motion .motion-stage #team .team-head{margin-bottom:30px}.about-journey.is-motion .motion-stage #team .team-head>p{max-width:560px}}
+
+@media(max-width:850px){.about-journey{margin:0 6px 18px}.about-journey.is-motion .motion-stage{border-radius:22px}}
+/* One uninterrupted dark surface from HBX through the team to the footer. */
+.about-journey{margin:0;background:var(--ink)}
+.about-journey.is-motion .motion-stage{border-radius:0}
+.about-journey #hbx,.about-journey #team{margin:0;border-radius:0}
+.about-journey + .final-cta{padding-top:0;background:var(--ink)}
+.about-journey + .final-cta .final-cta-panel{border-radius:0;background:var(--ink);box-shadow:none}

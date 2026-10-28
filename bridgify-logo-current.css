@@ -1,2 +1,22 @@
 html body .top .logo img,html body #top .logo img,html body .site-header .logo img,html body footer img[src*="bridgify-logo"],html body .final-cta img[src*="bridgify-logo"]{filter:none!important;object-fit:contain}
 html body img[src="assets/bridgify-logo-coral.svg"]{filter:none!important;object-fit:contain}
+
+html body .top img.brand-hbx-logo,html body #top img.brand-hbx-logo,html body .site-header img.brand-hbx-logo{width:220px;height:68px;object-fit:contain;filter:none!important;mix-blend-mode:multiply;mask-image:none}
+html body #home .top img.brand-hbx-logo{width:240px;height:75px;filter:grayscale(1) invert(1) brightness(1.6)!important;mix-blend-mode:screen;mask-image:none}
+@media(max-width:850px){html body .top img.brand-hbx-logo,html body #top img.brand-hbx-logo,html body #home .top img.brand-hbx-logo{width:165px;height:52px}}
+
+html body .top img.brand-hbx-logo,html body #top img.brand-hbx-logo,html body #home .top img.brand-hbx-logo,html body .site-header img.brand-hbx-logo{filter:url(#brand-knockout)!important;mix-blend-mode:normal}
+
+/* Compact brand lockup using the supplied flat vector and site typography. */
+html body .brand-lockup{display:inline-flex;align-items:center;gap:10px;color:#ff6b35;text-align:left;letter-spacing:normal;flex-shrink:0}
+html body .brand-flat-symbol{display:block;width:38px;height:36px;flex:0 0 38px;background:currentColor;mask:url("assets/bridgify-flat-symbol.svg") center/contain no-repeat;-webkit-mask:url("assets/bridgify-flat-symbol.svg") center/contain no-repeat}
+html body .brand-type{display:flex;flex-direction:column;gap:3px}
+html body .brand-name{font-family:"Chillax",sans-serif;font-size:32px;font-weight:500;line-height:1.05;letter-spacing:-1.5px}
+html body .brand-group{font-family:"Sofia Sans",sans-serif;font-size:11px;font-weight:500;line-height:1.1;letter-spacing:.05px}
+html body #home .brand-lockup{color:#f6eee9}
+@media(max-width:850px){html body .brand-name{font-size:27px}html body .brand-group{font-size:10px}html body .brand-flat-symbol{width:32px;height:30px;flex-basis:32px}html body .brand-lockup{gap:8px}}
+
+/* Hero lockup: symbol and wordmark on a single centered line. */
+html body #home .brand-group{display:none}
+html body #home .brand-lockup{align-items:center}
+html body #home .brand-name{line-height:1}

@@ -1,0 +1,29 @@
+/* HBX membership: shared brand typography, a quiet field of coral points. */
+.hbx.hbx-centered{background:var(--ink);color:var(--cream);min-height:740px;min-height:clamp(680px,85svh,940px);padding:110px 5% 92px;display:grid;place-items:center;isolation:isolate}
+.hbx-centered:before{display:none}
+.hbx-atmosphere{position:absolute;inset:0;z-index:-1;pointer-events:none;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 66%,#f4664908,transparent 64%)}
+.hbx-atmosphere img{width:min(1120px,100%);height:100%;object-fit:contain;opacity:.8;animation:hbx-breathe 10s ease-in-out infinite alternate}
+.hbx-content{width:100%;text-align:center;max-width:1240px}
+.hbx-centered .section-label{justify-content:center;color:var(--coral);margin:0 0 66px}
+.hbx-centered h2{font-family:Chillax,sans-serif;font-weight:300;font-size:clamp(38px,4.6vw,72px);line-height:1.15;letter-spacing:-.045em;margin:0 auto;color:var(--cream)}
+.hbx-centered .hbx-description{max-width:650px;margin:28px auto 0;font-size:19px;line-height:1.6;color:#c4b6ac;text-wrap:pretty}
+.hbx-membership{display:flex;align-items:center;justify-content:center;gap:28px;margin:54px auto 0;font:300 clamp(26px,2.6vw,39px)/1.2 Chillax,sans-serif}
+.hbx-connection{width:160px;height:30px;position:relative;display:grid;place-items:center}
+.hbx-connection:before{content:"";position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,#f4664940,var(--coral),#f4664940)}
+.hbx-connection small{position:absolute;bottom:30px;white-space:nowrap;font:650 10px Sofia,sans-serif;letter-spacing:2.5px;color:var(--coral)}
+.hbx-connection i{position:relative;width:11px;height:11px;border-radius:50%;background:var(--coral);box-shadow:0 0 18px #f4664930;outline:8px solid var(--ink)}
+.hbx-signoff{margin-top:70px;font:500 15px Chillax,sans-serif;color:var(--coral);letter-spacing:.03em}
+@keyframes hbx-breathe{from{opacity:.58}to{opacity:.85}}
+@media(max-width:700px){.hbx.hbx-centered{min-height:650px;padding:76px 24px 65px}.hbx-centered .section-label{margin-bottom:46px;font-size:10px}.hbx-break{display:none}.hbx-centered h2{font-size:clamp(32px,7.5vw,48px);line-height:1.17}.hbx-centered .hbx-description{font-size:17px;max-width:440px}.hbx-membership{gap:15px;font-size:25px;margin-top:48px}.hbx-connection{width:65px;flex-shrink:0}.hbx-atmosphere img{width:900px;max-width:none;opacity:.55}.hbx-signoff{margin-top:55px}}
+@media(prefers-reduced-motion:reduce){.hbx-atmosphere img{animation:none}}
+/* Full-screen section, retaining the site's outer cream gutter. */
+.hbx.hbx-centered{min-height:100svh;padding:clamp(80px,10vh,140px) 5%;}
+.hbx-content{max-width:1440px}
+.hbx-centered h2{font-size:clamp(42px,5.25vw,84px)}
+.hbx-atmosphere img{width:min(1380px,112%);height:100%;max-width:none}
+.hbx-centered .hbx-description{max-width:720px;font-size:21px}
+.hbx-membership{font-size:clamp(28px,3vw,44px);margin-top:64px}
+@media(max-width:700px){.hbx.hbx-centered{min-height:100svh;padding:76px 24px}.hbx-centered h2{font-size:clamp(34px,8vw,48px)}.hbx-centered .hbx-description{font-size:18px}.hbx-membership{font-size:25px;gap:15px;margin-top:48px}.hbx-atmosphere img{width:900px}}
+.hbx-atmosphere canvas{position:absolute;inset:0;width:100%;height:100%;display:none}
+.hbx-atmosphere.is-animated canvas{display:block}
+.hbx-atmosphere.is-animated img{visibility:hidden;animation:none}

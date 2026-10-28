@@ -2,6 +2,10 @@
 
 Static HTML, CSS and JavaScript website.
 
+## Design guidance
+
+Read [DESIGN.md](DESIGN.md) before designing or changing sections. It defines the Bridgify brand, the Stōkt and EnduroSat reference standard, layout, materials, motion, and visual verification. [AGENTS.md](AGENTS.md) directs coding agents to this guidance.
+
 ## Preview locally
 
 Run `python3 -m http.server 8080` from this directory and open `http://localhost:8080`.

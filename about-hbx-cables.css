@@ -1,0 +1,9 @@
+/* About-only continuation of the Story coral cables; existing journey animation retained. */
+#hbx .hbx-cable-continuation{display:block;background:radial-gradient(ellipse at 100% 50%,#f4664912,transparent 45%)}
+.hbx-cable-continuation svg{display:block;width:100%;height:100%;overflow:hidden}
+.hbx-cable-glow{fill:none;stroke:#f46649;stroke-width:9;opacity:.3;filter:url(#hbx-cable-glow)}
+.hbx-cable-lines{fill:none;stroke:#f46649;stroke-width:1.5;opacity:.65}
+.hbx-cable-data{fill:#eee9de;filter:drop-shadow(0 0 5px #f46649)}
+#hbx .hbx-content{position:relative;z-index:1}
+@media(max-width:700px){#hbx .hbx-cable-continuation{opacity:.35}.hbx-cable-lines{opacity:.35}.hbx-cable-glow{opacity:.12}}
+@media(prefers-reduced-motion:reduce){.hbx-cable-data{display:none}}
