@@ -1,0 +1,31 @@
+#audiences{background:#eee9de;color:#180f10;padding:80px var(--home-gutter,4%)}
+#audiences .audiences-head{display:grid;grid-template-columns:1.55fr 1fr;gap:7%;align-items:end;margin-bottom:54px}
+#audiences h2{font-family:Chillax,sans-serif;font-size:clamp(36px,4vw,64px);line-height:1.12;font-weight:300;max-width:850px}
+#audiences .audiences-intro{font-size:18px;line-height:1.55;color:#544440;max-width:none}
+#audiences .audience-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:0}
+#audiences .audience-card{min-height:300px;padding:30px 32px;justify-content:flex-start;border:0;border-bottom:1px solid #180f1026;border-radius:0;background:transparent;transform:none}
+#audiences .audience-card:not(:nth-child(3n+1)){border-left:1px solid #180f1026}
+#audiences .audience-card:nth-child(-n+3){border-top:1px solid #180f1026}
+#audiences .audience-icon{position:static;width:56px;height:56px;margin:0 0 22px}
+#audiences .audience-photo,#audiences .audience-card::before,#audiences .audience-card::after{display:none}
+#audiences .audience-card h3{font-family:Chillax,sans-serif;font-size:28px;font-weight:400;line-height:1.18;letter-spacing:-.025em;margin:0 0 14px;color:#180f10}
+#audiences .audience-card p{font-family:Sofia,sans-serif;font-size:17px;line-height:1.45;max-width:none;color:#544440;margin-bottom:18px}
+#audiences .audience-card a{font-family:Sofia,sans-serif;font-size:16px;line-height:1.4;color:#a63c28!important;margin-top:auto;text-decoration:underline;text-underline-offset:4px;max-width:100%}
+#audiences .audience-card:hover,#audiences .audience-card:has(a:focus-visible){background:#f4664908;transform:none}
+@media(max-width:900px){#audiences .audiences-head{grid-template-columns:1fr;gap:24px}#audiences .audience-card{padding:25px 20px}#audiences .audience-card h3{font-size:24px}}
+@media(max-width:650px){#audiences .audience-grid{grid-template-columns:1fr}#audiences .audience-card{min-height:0;padding:28px 0}#audiences .audience-card:not(:nth-child(3n+1)){border-left:0}#audiences .audience-card:nth-child(-n+3){border-top:0}#audiences .audience-grid{border-top:1px solid #180f1026}}
+/* Photo reveal and branded bottom-right CTAs, preserving full link labels. */
+#audiences .audience-card{min-height:350px}
+#audiences .audience-photo{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:0;transform:scale(1.035);transition:opacity .35s ease,transform .6s ease}
+#audiences .audience-card::before{display:block;content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#180f103d,#180f10c9 48%,#180f10ed);opacity:0;transition:opacity .35s ease}
+#audiences .audience-card:is(:hover,:has(a:focus-visible)) .audience-photo{opacity:1;transform:scale(1)}
+#audiences .audience-card:is(:hover,:has(a:focus-visible))::before{opacity:1}
+#audiences .audience-card:is(:hover,:has(a:focus-visible)) h3,#audiences .audience-card:is(:hover,:has(a:focus-visible)) p{color:#fff8f1}
+#audiences .audience-card a{align-self:flex-end;display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#f46649!important;border:0;border-radius:0;padding:0;font-size:14px;line-height:1.4;text-decoration:none;text-align:left;margin-top:auto;max-width:100%;box-sizing:border-box;transition:background .25s,color .25s}
+#audiences .audience-card:is(:hover,:has(a:focus-visible)) a{background:transparent;color:#f46649!important}
+#audiences .audience-card a:focus-visible{outline:2px solid #f46649;outline-offset:4px}
+@media(prefers-reduced-motion:reduce){#audiences .audience-photo,#audiences .audience-card::before{transition:none}}
+
+/* Expand the native link hit area; keyboard focus stays visibly accessible. */
+#audiences .audience-card a{position:static!important}
+#audiences .audience-card a::after{content:"";position:absolute;inset:0;z-index:6;cursor:pointer}

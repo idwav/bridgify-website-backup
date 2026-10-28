@@ -24,7 +24,6 @@
 .press-library-top{padding-bottom:24px}
 .press-filters button{border-radius:6px;background:#f8f5ef;color:#79665d}
 .press-filters button.active{background:#f46649;color:#180f10}
-@media(min-width:1800px){.press-editorial .press-feature{min-height:530px}.press-feature-image{min-height:478px}}
 @media(max-width:800px){
  .press-editorial .press-intro{grid-template-columns:1fr;gap:24px;padding-bottom:34px}
  .press-intro>.eyebrow{margin-bottom:0}.press-intro :is(h1,[data-copy-display]){font-size:46px}.press-intro :is(h1,[data-copy-display]) br{display:none}
@@ -34,7 +33,6 @@
  .press-feature-copy{grid-column:1;grid-row:2;padding:0 5px 10px}
  .press-feature-copy h2{font-size:35px}.press-feature-copy p{font-size:16px}
 }
-@media(min-width:801px){.press-editorial .press-feature{height:clamp(460px,32vw,570px)}.press-feature-image{min-height:0;height:100%;min-width:0}.press-feature-copy{min-width:0}}
 /* Brand brown for the featured editorial panel. */
 .press-editorial .press-feature{background:#180f10;color:#eee9de}
 .press-feature-copy h2{color:#eee9de}
@@ -43,7 +41,20 @@
 .press-highlight{background:#302021;color:#f3b296}
 .press-feature-copy .press-text-link{background:#eee9de;color:#180f10}
 .press-feature-copy .press-text-link:hover{background:#f3a080;color:#180f10}
-/* Keep the next section out of the opening viewport. */
-.press-opening{min-height:calc(100svh + 32px);padding-bottom:64px}
+/* Size the opening around the viewport, allowing short screens to scroll naturally. */
+.press-opening{padding-bottom:48px}
 .press-editorial .press-opening .press-feature{margin-bottom:0}
-@media(max-width:800px){.press-opening{min-height:0;padding-bottom:48px}}
+@media(min-width:801px){
+ .press-opening{min-height:100svh;display:flex;flex-direction:column;padding-top:clamp(158px,18svh,200px);padding-bottom:clamp(24px,3.5svh,40px)}
+ .press-editorial .press-opening .press-intro{flex:none;padding-top:0;padding-bottom:clamp(28px,4svh,48px)}
+ .press-intro>.eyebrow{margin-bottom:20px}
+ .press-editorial .press-opening .press-feature{flex:1;height:auto;min-height:clamp(360px,46svh,560px);gap:clamp(24px,2.4vw,40px);padding:clamp(20px,2vw,30px)}
+ .press-feature-image{min-width:0;min-height:0;height:auto}
+ .press-feature-image img{position:absolute;inset:0}
+ .press-feature-copy{min-width:0;justify-content:center;padding-top:64px}
+ .press-highlight{top:clamp(22px,2vw,30px);left:clamp(24px,2.2vw,34px)}
+}
+@media(max-width:800px){
+ .press-feature-image{height:auto;aspect-ratio:4/3}
+ .press-intro :is(h1,[data-copy-display]){font-size:clamp(34px,7vw,46px)}
+}

@@ -1,0 +1,56 @@
+/* Alternating product stories, using the approved product copy and existing visuals. */
+#products.solutions{background:#100d0e;color:#eee9de;padding:90px var(--home-gutter,4%);max-width:none}
+#products .solutions-heading{max-width:none;display:grid;grid-template-columns:1.2fr .8fr;gap:6%;align-items:end}
+#products .solutions-heading .solutions-kicker{grid-column:1/-1;color:#f46649}
+#products .solutions-heading h2{color:#eee9de;margin:0;font-weight:300;font-size:clamp(36px,4vw,64px)}
+#products .solutions-heading>p{color:#eee9de;font-size:18px;line-height:1.6;max-width:480px;margin:0}
+#products .solution-zigzag{margin-top:86px;gap:110px}
+#products .solution-row{grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);gap:6%;align-items:center}
+#products .solution-row-stage{grid-column:1;grid-row:1;height:clamp(390px,40vw,630px);border:1px solid #eee9de25;border-radius:14px;box-shadow:none;background:#180f10}
+#products .solution-row-copy{grid-column:2;grid-row:1;padding:0}
+#products .solution-row:nth-child(even){grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr)}
+#products .solution-row:nth-child(even) .solution-row-copy{grid-column:1;padding:0}
+#products .solution-row:nth-child(even) .solution-row-stage{grid-column:2;height:clamp(390px,40vw,630px)}
+#products .solution-row-index{color:#f46649;margin-bottom:23px}
+#products .solution-row h3{color:#eee9de;font-size:clamp(32px,3.3vw,52px);font-weight:300;margin-bottom:28px}
+#products .solution-row p{color:#eee9de;font-size:18px;line-height:1.6;max-width:none;border-top:1px solid #eee9de25;padding-top:25px}
+#products .solution-link{background:#eee9de;color:#180f10;border:0;border-radius:7px;font-size:14px;padding:14px 19px}
+#products .product-details{margin:32px 0 0;font:14px Sofia,sans-serif}
+#products .product-details>div{display:flex;justify-content:space-between;gap:24px;border-top:1px solid #eee9de25;padding:15px 0}
+#products .product-details dt{color:#f46649;font-size:10px;letter-spacing:1.3px;text-transform:uppercase}
+#products .product-details dd{margin:0;text-align:right;color:#eee9de}
+#products .v4-chooser{border-color:#eee9de25;margin-top:90px;padding-top:35px}
+#products .v4-chooser p,#products .v4-chooser h3{color:#eee9de}#products .v4-chooser a{color:#f46649}
+@media(max-width:760px){#products.solutions{padding-top:64px;padding-bottom:64px}#products .solutions-heading{display:block}#products .solutions-heading>p{margin-top:24px}#products .solution-zigzag{gap:64px;margin-top:48px}#products .solution-row,#products .solution-row:nth-child(even){grid-template-columns:1fr;gap:28px}#products .solution-row .solution-row-copy,#products .solution-row:nth-child(even) .solution-row-copy{grid-column:1;grid-row:1}#products .solution-row .solution-row-stage,#products .solution-row:nth-child(even) .solution-row-stage{grid-column:1;grid-row:2;height:330px}#products .solution-row h3{font-size:34px}}
+/* Give each product its own viewport-sized chapter. */
+@media(min-width:761px){
+ #products .solution-zigzag{gap:0;margin-top:48px}
+ #products .solution-row,#products .solution-row:nth-child(even){min-height:100svh;box-sizing:border-box;padding-block:clamp(72px,12svh,150px)}
+ #products .solution-row .solution-row-stage,#products .solution-row:nth-child(even) .solution-row-stage{height:clamp(360px,68svh,660px)}
+ #products .v4-chooser{margin-top:30px}
+}
+@media(min-width:761px) and (max-height:760px){
+ #products .solution-row h3{font-size:36px;margin-bottom:20px}
+ #products .solution-row-index{margin-bottom:18px}
+ #products .solution-row p{font-size:16px;padding-top:18px}
+ #products .product-details{margin-top:24px}
+ #products .product-details>div{padding:12px 0}
+}
+@media(max-width:760px){#products .solution-zigzag{gap:0}#products .solution-row{padding-block:48px}#products .solution-row+.solution-row{border-top:1px solid #eee9de20}}
+
+/* Spacious image placeholders; previous motion scenes remain saved in templates. */
+#products .product-image-placeholder{display:flex;align-items:center;justify-content:center;background:#1b1414;border:1px solid #eee9de26;border-radius:16px}
+#products .product-image-placeholder span{font-size:11px;letter-spacing:2px;color:#eee9de65}
+@media(min-width:761px){
+ #products .solution-row,#products .solution-row:nth-child(even){padding-block:clamp(52px,8svh,100px)}
+ #products .solution-row .solution-row-stage,#products .solution-row:nth-child(even) .solution-row-stage{height:clamp(440px,80svh,860px)}
+}
+@media(max-width:760px){#products .solution-row .solution-row-stage,#products .solution-row:nth-child(even) .solution-row-stage{height:430px}}
+
+#products .solution-row-copy{align-self:center}
+/* Warm coral ambient light follows the alternating image panels. */
+#products .solution-row{position:relative;isolation:isolate}
+#products .solution-row::before{content:"";position:absolute;z-index:-1;pointer-events:none;inset:-3% -3%;background:radial-gradient(ellipse 44% 43% at 25% 52%,rgba(244,102,73,.19) 0%,rgba(211,70,39,.09) 45%,transparent 76%)}
+#products .solution-row:nth-child(even)::before{background:radial-gradient(ellipse 44% 43% at 75% 52%,rgba(244,102,73,.19) 0%,rgba(211,70,39,.09) 45%,transparent 76%)}
+#products .product-image-placeholder{background:radial-gradient(ellipse at 45% 65%,rgba(244,102,73,.13),transparent 75%),rgba(27,20,20,.64);border-color:rgba(244,143,108,.22);box-shadow:0 0 65px -24px rgba(244,102,73,.2),inset 0 1px 0 rgba(255,248,241,.035)}
+@media(max-width:760px){#products .solution-row::before,#products .solution-row:nth-child(even)::before{background:radial-gradient(ellipse 75% 44% at 50% 70%,rgba(244,102,73,.17),transparent 78%)}}

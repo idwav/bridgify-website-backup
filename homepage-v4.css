@@ -14,13 +14,17 @@
 /* Retain every v4 proof point within the original trust-strip component. */
 #sources{grid-template-columns:1.5fr repeat(5,minmax(0,1fr))}
 #sources .trust-stat{padding-left:20px;padding-right:12px}
-#sources .trust-footnote{grid-column:1/-1;border-top:1px solid #180f1026;padding-top:22px;margin-top:28px;display:flex;align-items:center;flex-wrap:wrap;gap:16px 28px}
-#sources .trust-footnote p{font-size:16px;color:#786b64}
-#sources .trust-footnote a{color:#a84d3b;font-size:15px}
-#sources .trust-footnote small{font-size:12px;color:#786b64}
+#sources .trust-footnote{grid-column:1/-1;border-top:1px solid #180f1026;padding-top:28px;margin-top:32px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:18px 40px}
+#sources .trust-footnote p{max-width:560px;margin:0;font:400 18px/1.55 "Sofia Sans",Sofia,Arial,sans-serif;color:#180f10}
+#sources .trust-footnote a{justify-self:end;display:inline-flex;align-items:center;justify-content:space-between;gap:24px;max-width:100%;padding:12px 14px 12px 20px;border:1px solid #180f10;border-radius:8px;background:#180f10;color:#eee9de;font:600 15px/1.4 "Sofia Sans",Sofia,Arial,sans-serif;text-decoration:none;transition:background .2s,border-color .2s}
+#sources .trust-footnote .trust-link-arrow{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:5px;background:#f46649;color:#180f10;font-size:20px;line-height:1}
+#sources .trust-footnote a:hover{background:#302021;border-color:#302021}
+#sources .trust-footnote a:focus-visible{outline:2px solid #a64734;outline-offset:5px}
+#sources .trust-footnote small{grid-column:1/-1;display:block;margin:0;font:400 13px/1.5 "Sofia Sans",Sofia,Arial,sans-serif;color:#75625c}
+@media(prefers-reduced-motion:reduce){#sources .trust-footnote a{transition:none}}
 #home .content .v4-hero-trust{font-size:12px;margin-top:18px;line-height:1.5}
 @media(max-width:1100px){#sources{grid-template-columns:repeat(5,minmax(0,1fr))}#sources .trust-copy{grid-column:1/-1;padding:0 0 28px;display:block}#sources .trust-stat strong{font-size:32px}}
-@media(max-width:600px){#sources{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 0}#sources .trust-stat{grid-column:auto;border:0;padding:0;min-height:75px}#sources .trust-copy{padding-bottom:0}#sources .trust-footnote{margin-top:0}}
+@media(max-width:600px){#sources{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 0}#sources .trust-stat{grid-column:auto;border:0;padding:0;min-height:75px}#sources .trust-copy{padding-bottom:0}#sources .trust-footnote{margin-top:0;grid-template-columns:1fr;gap:20px}#sources .trust-footnote p{font-size:17px}#sources .trust-footnote a{justify-self:start;gap:16px;font-size:14px}}
 
 /* One footer: the original halo CTA and required navigation share a surface. */
 .home-footer .final-cta-panel{padding-bottom:42px}
