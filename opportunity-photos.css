@@ -1,18 +1,18 @@
 /* Homepage opportunity comparison: shared brand rails and unabridged v4 copy. */
-#problem.opportunity-photos{padding-top:clamp(40px,5vw,72px);padding-bottom:72px;background:#080706;color:#eee9de}
-#problem .opportunity-heading{margin-bottom:40px}
+#problem.opportunity-photos{padding-top:clamp(72px,7vw,120px);padding-bottom:100px;background:#080706;color:#eee9de}
+#problem .opportunity-heading{margin-bottom:64px}
 #problem .v4-kicker{margin-bottom:18px}
 #problem.opportunity-photos h2{font-size:clamp(32px,3.3vw,52px);max-width:1000px;margin-bottom:0}
-.opportunity-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;position:relative}
-.opportunity-label{padding-top:18px;border-top:1px solid #eee9de25;margin-bottom:20px}
+.opportunity-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(64px,6vw,112px);position:relative}
+.opportunity-label{padding-top:18px;border-top:1px solid #eee9de25;margin-bottom:36px}
 .opportunity-side--with .opportunity-label{border-color:#f46649}
 .opportunity-label>span{display:block;font:650 10px/1.4 Sofia,sans-serif;letter-spacing:.16em;color:#fff8f1;margin-bottom:8px}
 .opportunity-side--with .opportunity-label>span{color:#f46649}
 #problem .opportunity-label h3{font-size:26px;margin:0}
 .opportunity-side figure{margin:0 0 24px;aspect-ratio:16/9;overflow:hidden;border-radius:0;background:#080706}
 .opportunity-side figure img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-#problem .opportunity-copy p{font-size:15px;line-height:1.65;margin:0 0 16px;max-width:none;width:100%}
-.opportunity-summary{border-top:1px solid #eee9de20;padding-top:20px;margin-top:auto}
+#problem .opportunity-copy p{font-size:15px;line-height:1.8;margin:0 0 16px;max-width:none;width:100%}
+.opportunity-summary{border-top:1px solid #eee9de20;padding-top:28px;margin-top:auto}
 #problem .opportunity-summary p{font-size:14px;color:#fff8f1}
 @media(max-width:700px){.opportunity-grid{grid-template-columns:1fr;gap:36px}#problem .opportunity-heading{margin-bottom:28px}#problem.opportunity-photos h2{font-size:34px}.opportunity-side figure{border-radius:0}}
 
@@ -24,7 +24,7 @@
 @media(max-width:700px){.opportunity-grid:before{display:none}.opportunity-side--with{border-top:1px solid #f4664960;padding-top:30px}}
 
 .opportunity-side{display:flex;flex-direction:column;min-width:0}
-.opportunity-side figure{flex:none;margin-bottom:32px}
+.opportunity-side figure{flex:none;margin-bottom:48px}
 .opportunity-copy{display:flex;flex-direction:column;flex:1}
 #problem .opportunity-copy>p:last-of-type{margin-bottom:28px}
 #problem .opportunity-label h3{font-size:24px}
