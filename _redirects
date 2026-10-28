@@ -1,0 +1,15 @@
+# v4 page routes. Keep old physical HTML URLs working.
+/attractions-api /experiences-api 301
+/products /#products 301
+/about /about-us.html 200
+/experiences-api /api.html 200
+/white-label-marketplace /marketplace.html 200
+/aiyelet /personalization.html 200
+/solutions/otas /otas.html 200
+/solutions/airlines /airlines.html 200
+/solutions/loyalty-programs /loyalty-finance.html 200
+/solutions/travel-technology /travel-technology.html 200
+/solutions/hotels /hotels.html 200
+/solutions/super-apps /super-apps.html 200
+/blog /insights.html 200
+/newsroom /press.html 200

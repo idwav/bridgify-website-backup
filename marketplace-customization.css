@@ -1,4 +1,4 @@
-#section-1.page-hero{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:4%;padding-left:3.8%;padding-right:3.8%;align-items:center}#section-1 h1{font-size:clamp(44px,4.5vw,78px);line-height:1.14;letter-spacing:-.045em}#section-1 .lead{font-size:18px;line-height:1.6}
+#section-1.page-hero{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:4%;padding-left:3.8%;padding-right:3.8%;align-items:center}#section-1 :is(h1,[data-copy-display]){font-size:clamp(44px,4.5vw,78px);line-height:1.14;letter-spacing:-.045em}#section-1 .lead{font-size:18px;line-height:1.6}
 .market-demo{--accent:#f46649;--surface:#180f10;--text:#fff8f1;--muted:#bcaaa3;position:relative;min-width:0;align-self:center}.market-window{position:relative;background:var(--surface);color:var(--text);border:1px solid var(--accent);border-radius:17px;transition:background 1.2s,color 1.2s,border-color 1.2s}.market-chrome{padding:12px 18px;border-bottom:1px solid #a58b742d;display:flex;align-items:center;gap:18px}.market-chrome>span{font-size:10px;letter-spacing:3px;color:var(--accent)}.market-chrome small{font-size:8px;letter-spacing:1.3px;color:var(--muted)}.market-nav{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;gap:16px}.demo-brand{font-size:13px;letter-spacing:2px;white-space:nowrap;font-weight:500}.demo-symbol{color:var(--accent);font-size:22px;vertical-align:middle}.market-nav>span{font-size:9px}.market-cover{position:relative;height:clamp(210px,22vw,340px);overflow:hidden}.market-main-photo{width:100%;height:100%;object-fit:cover;transition:opacity .6s;filter:brightness(.8) saturate(.8)}.market-cover:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#180f1066,transparent)}.market-cover-copy{position:absolute;inset:30px 7% 24px;z-index:1;display:flex;flex-direction:column;justify-content:center}.market-cover h2{font:300 clamp(27px,3vw,48px)/1.1 Chillax,sans-serif;color:#fff8f1;margin:0 0 22px;letter-spacing:-1.5px}.market-search{display:flex;justify-content:space-between;align-items:center;background:#eee9de;color:#8b7d70;border-radius:9px;padding:7px 8px 7px 15px;font-size:10px;gap:8px}.market-search b{padding:9px 13px;border-radius:6px;background:var(--accent);color:white;font-size:18px;transition:background 1s}.market-featured{padding:20px 22px 22px}.market-featured-head{display:flex;justify-content:space-between;margin-bottom:12px;font-size:14px}.market-featured-head small{color:var(--accent);font-size:10px}.market-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.market-cards article{min-width:0}.market-cards img{width:100%;aspect-ratio:1.5;object-fit:cover;border-radius:8px;transition:opacity .6s;filter:saturate(.8)}.market-cards small{display:block;font-size:8px;letter-spacing:1.2px;color:var(--accent);margin:10px 0 4px}.market-cards article>span{display:flex;justify-content:space-between;gap:4px;font-size:11px}.market-cards b{font-weight:400;color:var(--muted)}.market-light{position:absolute;right:0;top:0;width:8px;height:8px;border-radius:50%;background:#fff8f1;transform:translate(50%,-50%);box-shadow:0 0 6px #fff8f1,0 0 17px var(--accent)}.customize-bar{display:flex;align-items:center;gap:16px;padding:17px 2px;color:#75625c}.customize-caption{font-size:13px}.theme-options{display:flex;gap:9px}.theme-swatch{width:20px;height:20px;border-radius:50%;border:3px solid #eee9de;background:var(--swatch);cursor:pointer;padding:0;outline:1px solid transparent;outline-offset:2px}.theme-swatch[aria-pressed=true]{outline-color:#75625c}.theme-swatch:focus-visible,.demo-motion:focus-visible{outline:2px solid #f46649;outline-offset:4px}.customize-status{font-size:11px;flex:1}.demo-motion{border:0;background:transparent;color:#75625c;cursor:pointer;font-size:17px;padding:5px}.market-concept{font-size:10px;color:#9d9086}.demo-cursor{position:absolute;z-index:3;font-size:26px;color:#180f10;text-shadow:0 1px #fff8f1;opacity:0;pointer-events:none;transition:left .8s ease,top .8s ease,opacity .3s}.market-demo[data-theme=peach]{--accent:#b85e39;--surface:#f7f2e8;--text:#180f10;--muted:#75625c}.market-demo[data-theme=clay]{--accent:#c57961;--surface:#261719;--text:#fff1e8;--muted:#bba49a}
 @media(max-width:900px){#section-1.page-hero{grid-template-columns:1fr;padding-left:24px;padding-right:24px}.market-cover{height:300px}.market-cover h2{font-size:42px}}
 @media(max-width:520px){.market-nav{padding:12px}.market-nav>span{font-size:7px;letter-spacing:0}.demo-brand{font-size:10px;letter-spacing:1px}.market-chrome small{font-size:6px}.market-featured{padding:14px 12px}.market-cards{gap:8px}.market-cover{height:240px}.market-cover h2{font-size:32px}.market-cards article>span{font-size:9px}.customize-bar{gap:10px}.customize-status{font-size:9px}.customize-caption{font-size:11px}}
@@ -14,7 +14,7 @@
 /* Keep the desktop composition within the first viewport. */
 @media(min-width:901px){
  #section-1.page-hero{margin-top:148px;min-height:0;height:calc(100svh - 172px);padding:clamp(24px,4vh,48px) max(24px,3.2vw);grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
- #section-1 h1{font-size:clamp(36px,min(4.1vw,6.4vh),68px);line-height:1.12;margin-top:20px;margin-bottom:24px}
+ #section-1 :is(h1,[data-copy-display]){font-size:clamp(36px,min(4.1vw,6.4vh),68px);line-height:1.12;margin-top:20px;margin-bottom:24px}
  #section-1 .lead{font-size:clamp(14px,1.15vw,17px);line-height:1.55}
  #section-1 .actions{margin-top:24px}
  .market-cover{height:clamp(140px,27vh,290px)}
@@ -29,7 +29,7 @@
 }
 @media(min-width:901px) and (max-height:700px){
  #section-1.page-hero{height:auto;min-height:480px;padding-top:24px;padding-bottom:24px}
- #section-1 h1{font-size:38px}.market-cover{height:150px}
+ #section-1 :is(h1,[data-copy-display]){font-size:38px}.market-cover{height:150px}
 }
 /* Layered illuminated edges, matching the homepage infrastructure artwork. */
 .market-window{
@@ -48,7 +48,7 @@
  #section-1.page-hero{display:flex;flex-direction:column;height:auto;min-height:0;gap:clamp(44px,5vw,80px);padding:clamp(36px,4vw,64px) max(24px,3.2vw)}
  #section-1 .block-copy{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);column-gap:clamp(40px,5vw,80px);width:100%;align-items:start}
  #section-1 .eyebrow{grid-column:1/-1;margin-bottom:24px}
- #section-1 h1{grid-column:1;grid-row:2/4;font-size:clamp(48px,4.9vw,88px);line-height:1.12;margin:0;max-width:none}
+ #section-1 :is(h1,[data-copy-display]){grid-column:1;grid-row:2/4;font-size:clamp(48px,4.9vw,88px);line-height:1.12;margin:0;max-width:none}
  #section-1 .lead{grid-column:2;font-size:clamp(16px,1.25vw,21px);line-height:1.6;margin:0;padding-top:clamp(20px,5vw,80px)}
  #section-1 .actions{grid-column:2;margin-top:24px}
  #section-1 .market-demo{width:100%;align-self:center}
@@ -61,7 +61,7 @@
 }
 @media(max-width:900px){
  #section-1.page-hero{display:flex;flex-direction:column;align-items:stretch;gap:36px}
- #section-1 h1{font-size:clamp(36px,6vw,54px)}
+ #section-1 :is(h1,[data-copy-display]){font-size:clamp(36px,6vw,54px)}
  #section-1 .market-demo{width:100%}
 }
 /* Open cream canvas; the marketplace itself carries the depth and color. */
@@ -75,7 +75,7 @@
  #section-1.page-hero{height:calc(100svh - 154px);min-height:0;margin-top:142px;margin-bottom:12px;padding:18px max(24px,3.2vw) 12px;display:grid;grid-template-rows:auto minmax(0,1fr);grid-template-columns:1fr;gap:clamp(18px,3vh,32px)}
  #section-1 .block-copy{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);column-gap:5vw}
  #section-1 .eyebrow{margin-bottom:12px;font-size:10px}
- #section-1 h1{font-size:clamp(34px,min(4.3vw,5.7vh),68px);line-height:1.08}
+ #section-1 :is(h1,[data-copy-display]){font-size:clamp(34px,min(4.3vw,5.7vh),68px);line-height:1.08}
  #section-1 .lead{font-size:clamp(14px,1.1vw,18px);padding-top:0;line-height:1.45}
  #section-1 .actions{margin-top:14px}.actions .btn{padding:12px 18px}
  #section-1 .market-demo{height:100%;min-height:0;width:100%}
@@ -97,7 +97,7 @@
  #section-1.page-hero{gap:clamp(22px,3vh,34px);padding-top:22px;padding-bottom:18px}
  #section-1 .block-copy{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);column-gap:7vw}
  #section-1 .eyebrow{letter-spacing:2.2px;margin-bottom:16px}
- #section-1 h1{font-size:clamp(36px,min(4.25vw,5.8vh),68px);letter-spacing:-.045em;line-height:1.12}
+ #section-1 :is(h1,[data-copy-display]){font-size:clamp(36px,min(4.25vw,5.8vh),68px);letter-spacing:-.045em;line-height:1.12}
  #section-1 .lead{max-width:540px;font-size:clamp(15px,1.15vw,18px);line-height:1.55}
  #section-1 .actions{margin-top:18px}
  .market-chrome{padding:7px 20px}.market-nav{padding:10px 22px}
@@ -117,7 +117,7 @@
 .market-window:before{border-bottom-color:color-mix(in srgb,var(--accent) 32%,transparent)}
 .market-window{box-shadow:inset 0 1px 1px #fff8f166,inset 0 -2px 3px #0003,0 3px 0 #100d0e,0 4px 0 color-mix(in srgb,var(--accent) 35%,transparent),0 6px 16px #180f100b}
 /* Match the stronger weight of Bridgify's headline typography. */
-#section-1 h1{font-weight:500}
+#section-1 :is(h1,[data-copy-display]){font-weight:500}
 /* Marketplace first, supporting copy below. */
 @media(min-width:901px){
  #section-1.page-hero{grid-template-rows:minmax(0,1fr) auto}
@@ -129,7 +129,7 @@
  #section-1 .block-copy{order:1}
 }
 @font-face{font-family:Chillax;src:url('Chillax_Complete/Fonts/WEB/fonts/Chillax-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-#section-1 h1{font-weight:400}
+#section-1 :is(h1,[data-copy-display]){font-weight:400}
 /* Copy above a centered, proportionate marketplace preview. */
 @media(min-width:901px){
  #section-1.page-hero{grid-template-rows:auto minmax(0,1fr)}
@@ -160,7 +160,7 @@
 @media(min-width:901px){
 
 #section-1.page-hero{height:calc(100svh - 164px);margin:148px 12px 16px;padding:40px 3.5%;display:grid;grid-template-columns:.9fr 1.1fr;grid-template-rows:1fr;gap:5%;align-items:center}
-#section-1 .block-copy{display:block;grid-column:1;grid-row:1}.eyebrow{margin-bottom:28px!important}#section-1 h1{font-size:55px;line-height:1.13;font-weight:300;margin:0 0 26px}#section-1 .lead{font-size:17px;line-height:1.6}#section-1 .actions{margin-top:26px}
+#section-1 .block-copy{display:block;grid-column:1;grid-row:1}.eyebrow{margin-bottom:28px!important}#section-1 :is(h1,[data-copy-display]){font-size:55px;line-height:1.13;font-weight:300;margin:0 0 26px}#section-1 .lead{font-size:17px;line-height:1.6}#section-1 .actions{margin-top:26px}
 #section-1 .market-demo{display:block;grid-column:2;grid-row:1;width:100%;height:auto;position:relative}.market-window{display:block;height:auto;width:100%;transform:none}
 .market-chrome{padding:10px 18px}.market-nav{padding:16px 20px}.market-cover{height:270px;min-height:0}.market-cover-copy{inset:25px 6%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:20px;padding:0}.market-cover h2{font-size:36px}.market-search{width:100%}.market-featured{padding:16px 18px 20px}.market-cards img{height:110px;max-height:none}.market-featured-head{font-size:14px}.market-cards article>span{font-size:11px}.market-nav>span{font-size:9px}
 .brand-settings{position:absolute;grid-column:auto;left:-28px;right:auto;top:auto;bottom:-22px;width:210px;height:auto;z-index:4;opacity:1;visibility:visible;background:#f7f3eb;padding:16px;box-shadow:0 3px 0 #c9beae,0 10px 20px #180f101c;transform:none}.settings-heading{margin-bottom:12px}.brand-settings>small{margin:10px 0 7px}.settings-mode{margin:12px 0}.settings-colors{gap:12px}.settings-colors i{width:23px;height:23px}.settings-apply{padding:10px}.settings-name{padding:8px}
@@ -171,7 +171,7 @@
 @media(max-width:900px){#section-1.page-hero{background:#100d0e;color:#fff8f1;border-radius:24px}#section-1 .lead{color:#bba9a2}#section-1 .actions .btn{background:#eee9de;color:#180f10}#section-1 .actions .btn.alt{background:transparent;color:#eee9de;border-color:#eee9de40}}
 @media(min-width:901px) and (max-height:820px){
  #section-1.page-hero{padding-top:25px;padding-bottom:40px}
- #section-1 h1{font-size:46px}
+ #section-1 :is(h1,[data-copy-display]){font-size:46px}
  .market-cover{height:205px}.market-cards img{height:85px}
  .market-nav{padding:12px 18px}.market-featured{padding:12px 18px 16px}
 }
@@ -249,7 +249,7 @@
 /* Optical finishing on the cream canvas. */
 #section-1.page-hero{overflow:visible}
 @media(min-width:901px){
- #section-1 h1{font-size:clamp(42px,3.55vw,62px);font-weight:400;line-height:1.13;letter-spacing:-.045em}
+ #section-1 :is(h1,[data-copy-display]){font-size:clamp(42px,3.55vw,62px);font-weight:400;line-height:1.13;letter-spacing:-.045em}
  #section-1 .lead{max-width:510px;line-height:1.65}
  #section-1 .market-demo{padding-right:30px}
  .brand-settings{right:26px;bottom:18px}
@@ -262,16 +262,16 @@
 @media(min-width:901px){
  #section-1.page-hero{padding-left:calc(3vw - 2px);padding-right:calc(3vw - 2px)}
  #section-1 .block-copy{align-self:start;margin-top:max(12px,calc(11svh - 40px))}
- #section-1 h1{font-size:clamp(48px,4.3vw,82px);font-weight:400;line-height:1.12;letter-spacing:-.045em;margin:0 0 28px}
+ #section-1 :is(h1,[data-copy-display]){font-size:clamp(48px,4.3vw,82px);font-weight:400;line-height:1.12;letter-spacing:-.045em;margin:0 0 28px}
  #section-1 .eyebrow{font-size:11px;font-weight:400;letter-spacing:2px;margin-bottom:30px!important}
  #section-1 .lead{font-size:18px;font-weight:400;line-height:1.55;max-width:540px;letter-spacing:-.3px}
  #section-1 .actions{margin-top:34px}
 }
-@media(min-width:901px) and (max-height:820px){#section-1 h1{font-size:clamp(42px,4.3vw,60px)}#section-1 .block-copy{margin-top:12px}#section-1 .lead{font-size:17px}}
+@media(min-width:901px) and (max-height:820px){#section-1 :is(h1,[data-copy-display]){font-size:clamp(42px,4.3vw,60px)}#section-1 .block-copy{margin-top:12px}#section-1 .lead{font-size:17px}}
 /* Give the headline room at the homepage type scale. */
 @media(min-width:901px){
  #section-1.page-hero{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:3.5%}
- #section-1 h1{font-size:clamp(44px,4vw,76px);line-height:1.2;letter-spacing:-.025em;max-width:100%;text-wrap:balance}
+ #section-1 :is(h1,[data-copy-display]){font-size:clamp(44px,4vw,76px);line-height:1.2;letter-spacing:-.025em;max-width:100%;text-wrap:balance}
 }
 /* Flat marketplace presentation; retain the automatic branding sequence. */
 #section-1 .market-demo{perspective:none;isolation:auto}

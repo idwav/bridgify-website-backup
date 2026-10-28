@@ -1,0 +1,27 @@
+/* v4 copy additions: reuse page rails, colors and typography. No existing scene is replaced. */
+.copy-seo{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
+.copy-addition{padding:80px 6%;background:#eee9de;color:#180f10;box-sizing:border-box;scroll-margin-top:28px}
+.copy-inner{max-width:1400px;margin:0 auto}
+.copy-addition h2{font:300 clamp(32px,3.5vw,54px)/1.13 Chillax,Arial,sans-serif;letter-spacing:-.04em;margin:0 0 28px;max-width:1060px}
+.copy-addition p,.copy-addition li{font:400 20px/1.65 Sofia,Arial,sans-serif;color:#75625c;max-width:1100px}
+.copy-list{padding-left:24px}.copy-list li+li{margin-top:14px}
+.copy-links{display:flex;flex-wrap:wrap;gap:16px 28px;margin-top:24px;font:600 16px/1.5 Sofia,sans-serif}
+.copy-links a{color:inherit;text-underline-offset:4px}
+.copy-addition .copy-links a{color:#a64734}
+.copy-responsibilities,.copy-moments,.copy-statline{margin-top:28px;font:400 19px/1.6 Sofia,sans-serif;max-width:1200px}
+.copy-responsibilities{padding-top:24px;border-top:1px solid #f4664940}.copy-responsibilities p{font:400 19px/1.6 Sofia,sans-serif;color:inherit;margin:14px 0;max-width:1100px}
+.copy-responsibilities h3{font:300 28px/1.2 Chillax,sans-serif}
+.copy-timeline{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.copy-timeline li{border-top:1px solid #f46649;padding-top:24px}.copy-timeline strong{display:block;color:#180f10;font:300 32px Chillax;margin-bottom:16px}
+.copy-founders{margin:24px 0 40px;color:inherit}.copy-founders p{font:400 18px/1.6 Sofia,sans-serif}.copy-founders blockquote{font:300 28px/1.4 Chillax,sans-serif;margin:24px 0;max-width:850px}.copy-founders cite{display:block;font:400 14px/1.5 Sofia,sans-serif;margin-top:15px}
+.copy-faq details{border-top:1px solid #180f1026;padding:22px 0}.copy-faq summary{font:500 22px/1.4 Sofia,sans-serif;cursor:pointer}.copy-faq details p{margin:20px 0 0;max-width:1000px}
+.copy-faq details:target{outline:2px solid #f46649;outline-offset:8px}
+.copy-itinerary{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:30px 0}.copy-itinerary span{padding:28px;border:1px solid #f4664950;border-radius:12px;font:500 20px Sofia}
+.form select{width:100%;font:inherit;padding:14px;border:1px solid #180f1030;border-radius:8px;background:#f7f3eb;color:#180f10}
+body[data-copy-page="index"] .copy-addition{padding-left:var(--home-gutter);padding-right:var(--home-gutter)}
+body[data-copy-page="api"] .copy-addition{padding-left:4.5%;padding-right:4.5%}
+body[data-copy-page="about-us"] .copy-addition{background:#eee9de}
+@media(max-width:700px){.copy-addition{padding:58px 24px}.copy-addition h2{font-size:36px}.copy-addition p,.copy-addition li{font-size:18px}.copy-timeline,.copy-itinerary{grid-template-columns:1fr}.copy-links{font-size:15px}.copy-faq summary{font-size:20px}}
+
+.copy-footer-navigation{position:relative;z-index:1;width:100%;max-width:1280px;margin:64px auto 44px;padding-top:32px;border-top:1px solid #eee9de26;text-align:left;color:#eee9de}.copy-footer-navigation .home-footer-tagline{font-size:18px;line-height:1.5;margin:0 0 28px}.copy-footer-navigation .v4-footer-links{display:grid;grid-template-columns:1fr 1.6fr 1fr 1fr 1fr;gap:24px}.copy-footer-navigation h4{font:600 13px Sofia,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#f46649;margin:0 0 14px}.copy-footer-navigation a{display:block;color:#eee9de;text-decoration:none;font:400 16px/1.45 Sofia,sans-serif;margin:0 0 9px}.copy-footer-navigation a:hover{text-decoration:underline}.copy-footer-navigation .home-footer-note{font:400 15px/1.5 Sofia,sans-serif;color:#c6b7ad;max-width:760px;margin:32px 0 0}@media(max-width:700px){.copy-footer-navigation .v4-footer-links{grid-template-columns:1fr 1fr}.copy-footer-navigation{margin-top:44px}}
+/* Keep the existing halo behind the CTA when footer links make the panel taller. */
+.final-cta-panel:has(.copy-footer-navigation)::after{top:clamp(260px,30vw,420px);bottom:auto}
