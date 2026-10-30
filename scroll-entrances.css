@@ -1,0 +1,18 @@
+/* The unenhanced page stays visible; JavaScript owns only the entrance effects. */
+[data-scroll-enter].scroll-enter-active {
+  will-change: opacity, translate;
+}
+
+/* Anchor navigation leaves room above each chapter. */
+section[id]:not(#home), #contact {
+  scroll-margin-top: 36px;
+}
+
+@media (prefers-reduced-motion: reduce), print {
+  [data-scroll-enter] {
+    opacity: 1 !important;
+    translate: none !important;
+    clip-path: none !important;
+    will-change: auto !important;
+  }
+}

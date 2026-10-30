@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script src="/homepage-version.js?v=2"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bridgify | The Infrastructure Behind Travel Experiences</title>
 <style>
@@ -136,9 +137,6 @@ body{background:#eee9de}
 @media(max-width:1100px){.trust-stat strong,.trust-stat:first-child strong,.trust-brands h2{font-size:30px}}
 @media(max-width:700px){.trust-stat strong,.trust-stat:first-child strong,.trust-brands h2{font-size:28px}.trust-stat{min-height:75px}.trust-brands h2{margin-bottom:12px}}
 
-.trust-strip.glide-ready>.trust-stat,.trust-strip.glide-ready>.trust-brands{opacity:0;transform:translate3d(0,32px,0);transition:transform 1600ms cubic-bezier(.16,1,.3,1),opacity 1250ms ease;transition-delay:var(--glide-delay,0ms)}
-.trust-strip.glide-visible>.trust-stat,.trust-strip.glide-visible>.trust-brands{opacity:1;transform:translate3d(0,0,0)}
-@media(prefers-reduced-motion:reduce){.trust-strip.glide-ready>.trust-stat,.trust-strip.glide-ready>.trust-brands{opacity:1;transform:none;transition:none}}
 
 html.wheel-smoothing{scroll-behavior:auto}
 @font-face{font-family:"Chillax";src:url("Chillax_Complete/Fonts/OTF/Chillax-Extralight.otf") format("opentype");font-weight:200;font-style:normal;font-display:swap;}
@@ -542,30 +540,6 @@ body,.aggregation,p,button,input,textarea,select,.top nav a,.nav-contact,.eyebro
 .audience-card:hover h3,.audience-card:focus-visible h3{color:#fff}
 .audience-card:hover p,.audience-card:focus-visible p{color:#eee9de}
 .audience-card:hover .audience-icon,.audience-card:focus-visible .audience-icon{color:#fff;text-shadow:0 1px 18px #170f11}
-.audiences.audience-reveal-ready .audiences-kicker,
-.audiences.audience-reveal-ready h2,
-.audiences.audience-reveal-ready .audiences-intro{
-  opacity:0;
-  translate:0 34px;
-  transition:opacity 900ms ease,translate 1100ms cubic-bezier(.16,1,.3,1);
-}
-.audiences.audience-reveal-ready .audiences-intro{transition-delay:140ms}
-.audiences.audience-reveal-ready .audience-card{
-  opacity:0;
-  translate:0 48px;
-  transition:opacity 850ms ease,translate 1100ms cubic-bezier(.16,1,.3,1),background 350ms ease,transform 450ms cubic-bezier(.16,1,.3,1);
-}
-.audiences.audience-reveal-ready .audience-card:nth-child(1){transition-delay:220ms,220ms,0ms,0ms}
-.audiences.audience-reveal-ready .audience-card:nth-child(2){transition-delay:330ms,330ms,0ms,0ms}
-.audiences.audience-reveal-ready .audience-card:nth-child(3){transition-delay:440ms,440ms,0ms,0ms}
-.audiences.audience-reveal-ready .audience-card:nth-child(4){transition-delay:550ms,550ms,0ms,0ms}
-.audiences.audience-reveal-ready.audience-reveal-visible .audiences-kicker,
-.audiences.audience-reveal-ready.audience-reveal-visible h2,
-.audiences.audience-reveal-ready.audience-reveal-visible .audiences-intro,
-.audiences.audience-reveal-ready.audience-reveal-visible .audience-card{
-  opacity:1;
-  translate:0 0;
-}
 @media(max-width:900px){
   .audiences-head{display:block}
   .audiences-intro{margin-top:26px}
@@ -605,9 +579,6 @@ body,.aggregation,p,button,input,textarea,select,.top nav a,.nav-contact,.eyebro
 .final-cta-button span{display:grid;place-items:center;width:36px;height:36px;border-radius:8px;background:#f46649;color:#fff;font-size:18px}
 .final-cta-button:hover{transform:translateY(-4px);background:#fff}
 .final-cta-meta{position:absolute;left:6vw;right:6vw;bottom:30px;display:flex;justify-content:space-between;color:#777176;font:600 10px/1 "Sofia Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase}
-.final-cta.cta-reveal-ready .final-cta-kicker,.final-cta.cta-reveal-ready h2,.final-cta.cta-reveal-ready .final-cta-copy,.final-cta.cta-reveal-ready .final-cta-button{opacity:0;translate:0 38px;transition:opacity 900ms ease,translate 1100ms cubic-bezier(.16,1,.3,1)}
-.final-cta.cta-reveal-ready h2{transition-delay:100ms}.final-cta.cta-reveal-ready .final-cta-copy{transition-delay:220ms}.final-cta.cta-reveal-ready .final-cta-button{transition-delay:320ms}
-.final-cta.cta-reveal-ready.cta-reveal-visible .final-cta-kicker,.final-cta.cta-reveal-ready.cta-reveal-visible h2,.final-cta.cta-reveal-ready.cta-reveal-visible .final-cta-copy,.final-cta.cta-reveal-ready.cta-reveal-visible .final-cta-button{opacity:1;translate:0 0}
 @media(max-width:600px){.final-cta-panel{min-height:650px;padding-left:22px;padding-right:22px}.final-cta h2{font-size:clamp(50px,15vw,76px)}.final-cta-copy{margin-top:26px}.final-cta-meta{display:block;line-height:1.7}.final-cta-meta span:last-child{display:none}}
 @media(prefers-reduced-motion:reduce){.final-cta-panel::after{animation:none}}
 
@@ -628,9 +599,6 @@ body,.aggregation,p,button,input,textarea,select,.top nav a,.nav-contact,.eyebro
 .solution-art text{font-family:"Sofia Sans",sans-serif}
 .solution-ai{margin-top:18px;display:flex;justify-content:center;align-items:center;gap:14px;padding:22px;border:1px solid #f4664938;border-radius:12px;background:#f4664910;font-size:17px;font-weight:600}
 .solution-ai svg{width:24px;height:24px;color:#f46649}
-.solutions.reveal-ready .solution-grid,.solutions.reveal-ready .solutions-heading,.solutions.reveal-ready .solution-ai{opacity:0;transform:translateY(38px);transition:opacity 1.2s ease,transform 1.4s cubic-bezier(.22,1,.36,1)}
-.solutions.reveal-ready .solution-grid{transition-delay:.14s}.solutions.reveal-ready .solution-ai{transition-delay:.28s}
-.solutions.reveal-visible .solution-grid,.solutions.reveal-visible .solutions-heading,.solutions.reveal-visible .solution-ai{opacity:1;transform:none}
 @media(max-width:760px){.solutions{padding:64px 20px}.solution-grid{grid-template-columns:1fr}.solution-card{padding:28px 22px 18px}.solutions-intro{font-size:18px}.solution-ai{font-size:15px}}
 
 
@@ -651,7 +619,6 @@ body,.aggregation,p,button,input,textarea,select,.top nav a,.nav-contact,.eyebro
 .story-metric{padding-left:13px;border-left:2px solid #f46649}.story-metric strong{display:block;font:500 32px "Chillax",sans-serif;letter-spacing:-1px}.story-metric span{font-size:12px;color:#78665c}
 .story-bottom .solution-link{margin:0;font-size:13px;gap:15px}
 .story-details{grid-column:1/-1;border-top:1px solid #180f101b;padding-top:22px}.story-details[hidden]{display:none}.story-details h3{font-size:20px;margin:0 0 10px}.story-details p{font-size:16px;color:#78665c;max-width:900px}
-.customer-story.story-ready .story-shell{opacity:0;transform:translateY(40px);transition:opacity 1.2s ease,transform 1.4s cubic-bezier(.22,1,.36,1)}.customer-story.story-visible .story-shell{opacity:1;transform:none}
 @media(max-width:900px){.story-shell{grid-template-columns:1fr}.story-preview{min-height:230px}.story-content{padding:25px}}
 @media(max-width:600px){.customer-story{padding:0 20px 60px}.story-shell{padding:18px;gap:22px}.story-bottom{align-items:flex-start;flex-direction:column}.story-preview{min-height:190px}.story-brand{align-items:flex-start;flex-direction:column}}
 
@@ -692,6 +659,11 @@ body,.aggregation,p,button,input,textarea,select,.top nav a,.nav-contact,.eyebro
 @media(max-width:850px){#home .top .hero-exact-brand{width:165px;height:52px}#home .top .hero-exact-brand img.brand-hbx-logo{width:165px;height:52px}#home .top .hero-exact-brand img.hero-exact-octopus{left:11px;top:5px;width:41px;height:41px}}
 </style><link rel="stylesheet" href="homepage-v4.css?v=opportunity-photos-1"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Bridgify", "description": "Bridgify is the world's leading B2B travel experiences infrastructure, part of HBX Group. One integration connects brands to 1M+ tours, attractions, activities and events in 180+ countries, through the Experiences API, White-Label Marketplace and AIyelet."}</script><meta name="description" content="Bridgify, part of HBX Group, is the world&#x27;s leading B2B travel experiences infrastructure: 1M+ tours, attractions and activities, matched to every customer."><link rel="stylesheet" href="copy-v4.css?v=copy-v4-final"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Bridgify?", "acceptedAnswer": {"@type": "Answer", "text": "Bridgify, part of HBX Group, is the infrastructure behind travel experiences. OTAs, airlines, hotels, banks, loyalty programs and super apps use it to offer 1M+ tours, attractions, activities and events in 180+ countries under their own brand, through one integration."}}, {"@type": "Question", "name": "How do travel brands launch experiences without building infrastructure?", "acceptedAnswer": {"@type": "Answer", "text": "They connect to an experiences infrastructure provider instead of each supplier. Bridgify aggregates and normalizes global supply and handles booking and payments. The brand either builds its own front end on the Experiences API or launches the White-Label Marketplace, which is ready-made."}}, {"@type": "Question", "name": "What's the fastest way to launch travel experiences?", "acceptedAnswer": {"@type": "Answer", "text": "The White-Label Marketplace. It comes with search, experience pages, checkout, payments and 1M+ experiences already in place, needs no developers, and goes live in 3 days. You add your branding, domain and payment details."}}, {"@type": "Question", "name": "Should I use the API or the White-Label Marketplace?", "acceptedAnswer": {"@type": "Answer", "text": "Use the Experiences API if your team wants to build the experience inside your own product. Use the White-Label Marketplace if you want a branded store without the build. Both run on the same supply, and many partners start with one and add the other."}}, {"@type": "Question", "name": "Can travelers book directly on bridgify.io?", "acceptedAnswer": {"@type": "Answer", "text": "No. Bridgify works with businesses. Travelers book our partners' experiences inside the partners' own apps, sites and rewards programs."}}]}</script><link rel="canonical" href="https://www.bridgify.io/"><link rel="stylesheet" href="opportunity-photos.css?v=flows-5"><link rel="stylesheet" href="aggregation-journey.css?v=1"><link rel="stylesheet" href="products-editorial.css?v=1"><link rel="stylesheet" href="partner-results.css?v=1">
 <link rel="stylesheet" href="audiences-editorial.css?v=1">
+<link rel="stylesheet" href="scroll-entrances.css?v=1">
+<script src="scroll-entrances.js?v=2" defer></script>
+<link rel="stylesheet" href="opportunity-study.css?v=4">
+<script src="opportunity-study.js?v=3" defer></script>
+<noscript><style>.page-wipe{display:none}</style></noscript>
 </head>
 <body data-copy-page="index"><svg width="0" height="0" aria-hidden="true" style="position:absolute;pointer-events:none"><defs><filter id="brand-knockout" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 -1 0 1"/><feComponentTransfer><feFuncA type="linear" slope="2" intercept="-0.12"/></feComponentTransfer><feComposite in2="SourceAlpha" operator="in"/></filter></defs></svg>
 <div class="page-wipe" aria-hidden="true"></div>
@@ -705,6 +677,56 @@ body,.aggregation,p,button,input,textarea,select,.top nav a,.nav-contact,.eyebro
 
 <section class="trust-strip" id="sources" aria-label="Network at a glance"><div class="trust-copy"><h2>Global supply through one integration.</h2><p>Part of HBX Group.</p></div><div class="trust-stat"><strong>1M+</strong><span>Travel Experiences</span></div><div class="trust-stat"><strong>180+</strong><span>Countries</span></div><div class="trust-stat"><strong>1</strong><span>Integration</span></div><div class="trust-stat"><strong>3%</strong><span>Average conversion*</span></div><div class="trust-stat"><strong>$280</strong><span>Average order value*</span></div><div class="trust-footnote"><p>The largest experiences catalog available through a single integration.</p><a href="api.html">How the Experiences API works <span class="trust-link-arrow" aria-hidden="true">↗</span></a><small>* White-Label Marketplace partner metrics.</small></div></section>
 <section class="v4-section v4-problem opportunity-photos" id="problem"><header class="opportunity-heading"><span class="v4-kicker">THE OPPORTUNITY</span><h2>Your customers already book experiences.<br>Just not with you.</h2></header><div class="opportunity-grid"><article class="opportunity-side"><div class="opportunity-label"><span>01 / WITHOUT BRIDGIFY</span><h3>Building it yourself</h3></div><figure><iframe src="opportunity-flow.html?mode=fragmented" title="Building it yourself: fragmented connections" loading="lazy"></iframe></figure><div class="opportunity-copy"><p>Tours, tickets and events are spread across thousands of suppliers, each with its own booking system, prices, cancellation rules and ticket formats. Connecting them one by one is so much work that most brands never do it, and their customers book somewhere else.</p><div class="opportunity-summary"><p>A contract and an API per supplier · The same museum ticket listed five times · Your engineers maintaining connections instead of your product</p></div></div></article><article class="opportunity-side opportunity-side--with"><div class="opportunity-label"><span>02 / CONNECTED</span><h3>With Bridgify</h3></div><figure><iframe src="opportunity-flow.html?mode=connected" title="With Bridgify: one connected supply layer" loading="lazy"></iframe></figure><div class="opportunity-copy"><p>When experiences sit inside your channel, you keep the customer from booking to destination. Every experience they book with you builds loyalty, and gives you what you need to sell them the next one.</p><p>Bridgify does the connecting once, for every partner. We aggregate, normalize and distribute global supply through one connected layer. You decide how it looks and who sees it.</p><div class="opportunity-summary"><p>One contract, one integration, one schema · De-duplicated content · We maintain the connections</p></div></div></article></div></section>
+<!-- Isolated comparison experiment. Original Opportunity and Aggregation sections are preserved. -->
+<div class="opx-scope" dir="ltr">
+<svg class="opx-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="opx-icon-arrow" viewBox="0 0 32 32"><path d="M5 16h21m-8-8 8 8-8 8"/></symbol>
+<symbol id="opx-icon-aggregate" viewBox="0 0 32 32"><circle cx="7" cy="16" r="4"/><circle cx="24" cy="6" r="4"/><circle cx="24" cy="26" r="4"/><path d="m11 14 9-6m-9 10 9 6"/></symbol>
+<symbol id="opx-icon-normalize" viewBox="0 0 32 32"><ellipse cx="16" cy="7" rx="10" ry="4"/><path d="M6 7v18c0 5 20 5 20 0V7M6 16c0 5 20 5 20 0"/></symbol>
+<symbol id="opx-icon-distribute" viewBox="0 0 32 32"><path d="M16 20V3m-6 6 6-6 6 6M9 14H5v14h22V14h-4"/></symbol>
+<symbol id="opx-icon-personalize" viewBox="0 0 32 32"><circle cx="16" cy="9" r="6"/><path d="M4 29c0-16 24-16 24 0Z"/></symbol>
+<symbol id="opx-icon-app" viewBox="0 0 32 32"><rect x="8" y="2" width="16" height="28" rx="3"/><path d="M14 6h4m-3 20h2"/></symbol>
+<symbol id="opx-icon-site" viewBox="0 0 32 32"><rect x="2" y="5" width="28" height="23" rx="2"/><path d="M2 12h28M7 8h.1M11 8h.1M15 8h.1"/></symbol>
+<symbol id="opx-icon-cart" viewBox="0 0 32 32"><path d="M2 4h4l4 17h16l4-12H8"/><circle cx="12" cy="27" r="2"/><circle cx="25" cy="27" r="2"/></symbol>
+<symbol id="opx-icon-rewards" viewBox="0 0 32 32"><path d="M3 13h26v7H3zM6 20v10h20V20M16 13v17"/><path d="M16 13C-2 12 10-4 16 13c6-17 18-1 0 0Z"/></symbol>
+<symbol id="opx-icon-market" viewBox="0 0 32 32"><path d="m4 12 3-8h18l3 8M4 12c0 6 8 6 8 0 0 6 8 6 8 0 0 6 8 6 8 0M6 17v12h20V17M13 29v-9h7v9"/></symbol>
+<symbol id="opx-icon-suppliers" viewBox="0 0 32 32"><circle cx="16" cy="7" r="4"/><circle cx="5" cy="15" r="3"/><circle cx="27" cy="15" r="3"/><path d="M9 28v-6c0-9 14-9 14 0v6M1 28v-5c0-5 5-6 8-3m22 8v-5c0-5-5-6-8-3"/></symbol>
+<symbol id="opx-icon-ticket" viewBox="0 0 32 32"><path d="M3 6h26v7c-5 0-5 6 0 6v7H3v-7c5 0 5-6 0-6Z"/><path d="M21 7v3m0 4v3m0 4v3"/></symbol>
+<symbol id="opx-icon-global" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13"/><ellipse cx="16" cy="16" rx="6" ry="13"/><path d="M3 16h26M6 8h20M6 24h20"/></symbol>
+</defs></svg>
+<section class="opx-section opx-opportunity" id="opportunity-study" aria-labelledby="opx-opportunity-title">
+ <div class="opx-inner">
+  <header class="opx-heading"><span class="opx-eyebrow">THE OPPORTUNITY</span><h2 id="opx-opportunity-title">Your customers already book experiences. Just not with you.</h2></header>
+  <div class="opx-outcomes">
+   <figure class="opx-outcome"><figcaption><h3>Building it yourself</h3></figcaption><div class="opx-scene opx-scene-without" role="img" aria-label="Tours, tickets and events lead to another booking site outside your channel."><div class="opx-tickets"><div class="opx-ticket"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-ticket"></use></svg><span>Tours<i></i><i></i></span></div><div class="opx-ticket"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-ticket"></use></svg><span>Tickets<i></i><i></i></span></div><div class="opx-ticket"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-ticket"></use></svg><span>Events<i></i><i></i></span></div></div><span class="opx-scene-connector" aria-hidden="true"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-arrow"></use></svg></span><div class="opx-window"><div class="opx-chrome"><i></i><i></i><i></i></div><span class="opx-window-title">Another booking site</span><div class="opx-mini-results"><span><i></i><b></b><b></b></span><span><i></i><b></b><b></b></span><span><i></i><b></b><b></b></span></div></div></div></figure>
+   <figure class="opx-outcome"><figcaption><h3>With Bridgify</h3></figcaption><div class="opx-scene opx-scene-with" role="img" aria-label="Global supply connects through Bridgify to a booking experience in your channel."><div class="opx-supply"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-global"></use></svg><span>Global supply</span></div><span class="opx-scene-wire" aria-hidden="true"></span><span class="opx-bridge">Bridgify</span><span class="opx-scene-wire" aria-hidden="true"></span><div class="opx-window"><div class="opx-chrome"><i></i><i></i><i></i></div><span class="opx-window-title">Your channel</span><svg class="opx-landscape" viewBox="0 0 180 94" aria-hidden="true"><rect width="180" height="94" rx="8" fill="#d6cfc2"/><circle cx="139" cy="25" r="12" fill="#d2a37b"/><path d="m8 87 46-59 49 59Zm60 0 40-43 46 43Z" fill="#857f72"/></svg><span class="opx-book">Book <svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-arrow"></use></svg></span></div></div></figure>
+  </div>
+  <p class="opx-customer-outcome">When experiences sit inside your channel, you keep the customer from booking to destination. Every experience they book with you builds loyalty, and gives you what you need to sell them the next one.</p>
+  <table class="opx-comparison"><caption class="opx-sr-only">Building it yourself compared with using Bridgify</caption><thead><tr><th scope="col">Building it yourself</th><th scope="col">With Bridgify</th></tr></thead><tbody><tr><td><span class="opx-mobile-label">Building it yourself</span>a contract and an API per supplier</td><td><span class="opx-mobile-label">With Bridgify</span>one contract, one integration, one schema</td></tr><tr><td><span class="opx-mobile-label">Building it yourself</span>the same museum ticket listed five times</td><td><span class="opx-mobile-label">With Bridgify</span>de-duplicated content</td></tr><tr><td><span class="opx-mobile-label">Building it yourself</span>your engineers maintaining connections instead of your product</td><td><span class="opx-mobile-label">With Bridgify</span>we maintain the connections</td></tr></tbody></table>
+  <details class="opx-explanation" open><summary>Why the difference?<span class="opx-disclosure-icon" aria-hidden="true"></span></summary><div class="opx-explanation-grid"><div><h3>Building it yourself</h3><p>Tours, tickets and events are spread across thousands of suppliers, each with its own booking system, prices, cancellation rules and ticket formats. Connecting them one by one is so much work that most brands never do it, and their customers book somewhere else.</p></div><div><h3>With Bridgify</h3><p>Bridgify does the connecting once, for every partner. We aggregate, normalize and distribute global supply through one connected layer. You decide how it looks and who sees it.</p></div></div></details>
+  <a class="opx-link opx-article-link" href="/articles/infrastructure">Read: what is experiences infrastructure?<svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-arrow"></use></svg></a>
+ </div>
+</section>
+<section class="opx-section opx-why" id="why-bridgify-study" aria-labelledby="opx-why-title">
+ <div class="opx-inner">
+  <header class="opx-heading"><span class="opx-eyebrow">WHY BRIDGIFY</span><h2 id="opx-why-title">Everything between global supply and your customer</h2></header>
+  <div class="opx-scroll-story">
+  <div class="opx-capabilities" data-active="aggregate">
+   <div class="opx-capability-copy"><div class="opx-panels"><div class="opx-panel" id="opx-panel-aggregate" data-panel="aggregate"><h3>Aggregate</h3><p>Keep the suppliers you know. Add the rest. The largest experiences catalog available through a single integration: the major marketplaces, aggregators and direct suppliers, so you&#x27;re never tied to one source.</p><a class="opx-link" href="api.html#whats-inside">See the 1M+ experiences behind the API<svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-arrow"></use></svg></a></div><div class="opx-panel" id="opx-panel-normalize" data-panel="normalize"><h3>Normalize</h3><p>Every source mapped and de-duplicated into one schema. The same museum ticket shows up once, with the best content.</p></div><div class="opx-panel" id="opx-panel-distribute" data-panel="distribute"><h3>Distribute</h3><p>Your channels, your brand, your customer. Sell experiences in your app, site, booking flow or rewards program, with bookings, payments, currencies and fulfillment handled for you.</p></div><div class="opx-panel" id="opx-panel-personalize" data-panel="personalize"><h3>Personalize</h3><p>The right experience for the right traveler. AIyelet reads intent and context and puts the experiences that fit in front of each customer.</p></div></div><div class="opx-tabs" role="tablist" aria-orientation="vertical" aria-label="Bridgify capabilities" hidden><button type="button" id="opx-tab-aggregate" role="tab" aria-controls="opx-panel-aggregate" aria-selected="true" tabindex="0" data-capability="aggregate"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-aggregate"></use></svg><span>Aggregate</span></button><button type="button" id="opx-tab-normalize" role="tab" aria-controls="opx-panel-normalize" aria-selected="false" tabindex="-1" data-capability="normalize"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-normalize"></use></svg><span>Normalize</span></button><button type="button" id="opx-tab-distribute" role="tab" aria-controls="opx-panel-distribute" aria-selected="false" tabindex="-1" data-capability="distribute"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-distribute"></use></svg><span>Distribute</span></button><button type="button" id="opx-tab-personalize" role="tab" aria-controls="opx-panel-personalize" aria-selected="false" tabindex="-1" data-capability="personalize"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-personalize"></use></svg><span>Personalize</span></button></div></div>
+   <figure class="opx-architecture" role="img" aria-label="Global supply from marketplaces, aggregators and direct suppliers flows upward through Bridgify: Aggregate, Normalize and Distribute connect to App, Site, Booking flow and Rewards. Personalize with AIyelet supports relevant selection across the platform.">
+    <div class="opx-diagram" aria-hidden="true">
+     <span class="opx-diagram-label">YOUR CHANNELS</span><div class="opx-channels"><div class="opx-channel"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-app"></use></svg><span>App</span></div><div class="opx-channel"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-site"></use></svg><span>Site</span></div><div class="opx-channel"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-cart"></use></svg><span>Booking flow</span></div><div class="opx-channel"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-rewards"></use></svg><span>Rewards</span></div></div>
+     <svg class="opx-output-wires" viewBox="0 0 560 56" preserveAspectRatio="none"><path d="M140 0v10q0 18 25 18h90q25 0 25 20v8M420 0v10q0 18-25 18h-90q-25 0-25 20"/><path class="opx-flow-arrow" d="m274 10 6-7 6 7M280 3v50"/></svg>
+     <div class="opx-platform"><span class="opx-platform-name">Bridgify</span><div class="opx-platform-grid"><div class="opx-core-path"><div class="opx-core-node opx-node-distribute"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-distribute"></use></svg><span>Distribute</span><i class="opx-selected-marker"></i></div><div class="opx-core-node opx-node-normalize"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-normalize"></use></svg><span>Normalize</span><i class="opx-selected-marker"></i><span class="opx-deduplicate"><i></i><i></i><i></i><b></b></span></div><div class="opx-core-node opx-node-aggregate"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-aggregate"></use></svg><span>Aggregate</span><i class="opx-selected-marker"></i></div></div><div class="opx-aiyelet"><span class="opx-aiyelet-connection"></span><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-personalize"></use></svg><span>Personalize<span class="opx-aiyelet-name">AIyelet</span></span><i class="opx-selected-marker"></i><div class="opx-matching"><i></i><i></i><i></i></div></div></div></div>
+     <svg class="opx-input-wires" viewBox="0 0 560 48" preserveAspectRatio="none"><path d="M90 48V30Q90 15 120 15h40q25 0 25-15M280 48V0M470 48V30q0-15-30-15h-40q-25 0-25-15"/><path class="opx-flow-arrow" d="m179 8 6-7 6 7m83 0 6-7 6 7m83 0 6-7 6 7"/></svg>
+     <div class="opx-sources"><div class="opx-source"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-market"></use></svg><span>Marketplaces</span></div><div class="opx-source"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-normalize"></use></svg><span>Aggregators</span></div><div class="opx-source"><svg class="opx-icon " aria-hidden="true" viewBox="0 0 32 32"><use href="#opx-icon-suppliers"></use></svg><span>Direct suppliers</span></div></div><span class="opx-diagram-label opx-supply-label">GLOBAL SUPPLY</span>
+    </div>
+   </figure>
+  </div>
+  </div>
+ </div>
+</section>
+</div>
 <section class="aggregation" id="global" style="min-height:auto" aria-labelledby="aggregation-title">
  <div class="aggregation-layout">
   <div><div class="eyebrow">AGGREGATION</div><h2 id="aggregation-title">Everything between global supply and your customer.</h2><p>Aggregate. Normalize. Distribute. Personalize. One connected layer between global supply and your customer.</p></div>
@@ -811,38 +833,6 @@ const dialog=document.getElementById('connect');document.getElementById('start')
 
 
 
-const trustStrip=document.querySelector('.trust-strip');
-if(solutionsSection&&'IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
- Array.from(trustStrip.children).forEach((item,index)=>item.style.setProperty('--glide-delay',`${index*190}ms`));
- trustStrip.classList.add('glide-ready');
- const glideObserver=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){trustStrip.classList.add('glide-visible');glideObserver.disconnect();}},{threshold:.12});
- glideObserver.observe(trustStrip);
-}
-
-const audiencesSection=document.querySelector('.audiences');
-if(audiencesSection&&'IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
- audiencesSection.classList.add('audience-reveal-ready');
- const audienceObserver=new IntersectionObserver(entries=>{
-  if(entries.some(entry=>entry.isIntersecting)){
-   audiencesSection.classList.add('audience-reveal-visible');
-   audienceObserver.disconnect();
-  }
- },{threshold:.16});
- audienceObserver.observe(audiencesSection);
-}
-
-const finalCta=document.querySelector('.final-cta');
-if(finalCta&&'IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
- finalCta.classList.add('cta-reveal-ready');
- const finalCtaObserver=new IntersectionObserver(entries=>{
-  if(entries.some(entry=>entry.isIntersecting)){
-   finalCta.classList.add('cta-reveal-visible');
-   finalCtaObserver.disconnect();
-  }
- },{threshold:.18});
- finalCtaObserver.observe(finalCta);
-}
-
 // Ease wheel input without interfering with touch, keyboard, zoom, or nested scrollers.
 const scrollMotionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 let scrollTarget=window.scrollY,scrollFrame=0,scrollTime=0,scrollVelocity=0,scrollPosition=window.scrollY;
@@ -864,6 +854,7 @@ function animateSmoothWheel(time){
  scrollFrame=requestAnimationFrame(animateSmoothWheel);
 }
 window.addEventListener('wheel',event=>{
+ if(event.target instanceof Element&&event.target.closest('.opx-scope'))return;
  if(scrollMotionPreference.matches||event.ctrlKey||event.metaKey||event.shiftKey||Math.abs(event.deltaX)>Math.abs(event.deltaY)||!event.deltaY)return;
  for(let element=event.target instanceof Element?event.target:null;element&&element!==document.body;element=element.parentElement){
   if(element.tagName==='DIALOG'||element.matches('input,textarea,select,[contenteditable="true"]'))return;
@@ -887,18 +878,10 @@ scrollMotionPreference.addEventListener('change',stopSmoothWheel);
 
 <script>
 document.querySelectorAll('[data-solution]').forEach(button=>button.addEventListener('click',()=>document.getElementById('connect').showModal()));
-const solutionsSection=document.getElementById('products');
-if(solutionsSection&&'IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
- solutionsSection.classList.add('reveal-ready');
- const solutionsObserver=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){solutionsSection.classList.add('reveal-visible');solutionsObserver.disconnect();}},{threshold:.12});
- solutionsObserver.observe(solutionsSection);
-}
 </script>
 <script>
 const storyToggle=document.getElementById('story-toggle');
 storyToggle?.addEventListener('click',()=>{const expanded=storyToggle.getAttribute('aria-expanded')==='true';storyToggle.setAttribute('aria-expanded',String(!expanded));document.getElementById('story-details').hidden=expanded;storyToggle.innerHTML=expanded?'Explore the example <span aria-hidden="true">↗</span>':'Close the example <span aria-hidden="true">−</span>';});
-const storySection=document.getElementById('customer-story');
-if(storySection&&'IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){storySection.classList.add('story-ready');const storyObserver=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){storySection.classList.add('story-visible');storyObserver.disconnect();}},{threshold:.12});storyObserver.observe(storySection);}
 </script>
 <script>
 const pageTransitionReduced=matchMedia('(prefers-reduced-motion: reduce)').matches;requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('page-ready')));document.addEventListener('click',event=>{const link=event.target.closest('a');if(!link||event.defaultPrevented||link.target||link.hasAttribute('download')||link.protocol==='mailto:'||link.protocol==='tel:')return;const next=new URL(link.href,location.href);if(next.origin!==location.origin||next.pathname===location.pathname)return;event.preventDefault();document.body.classList.remove('page-ready');document.body.classList.add('page-reset');document.querySelector('.page-wipe').offsetHeight;document.body.classList.remove('page-reset');document.body.classList.add('page-leaving');setTimeout(()=>location.href=next.href,pageTransitionReduced?0:720)});addEventListener('pageshow',()=>{document.body.classList.remove('page-leaving','page-reset');requestAnimationFrame(()=>document.body.classList.add('page-ready'))});
