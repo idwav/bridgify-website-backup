@@ -225,3 +225,26 @@
 .search-complete .journey-discover-list{max-height:320px;opacity:1;visibility:visible;transform:none}
 .journey-demo:not(.search-complete) .journey-categories{opacity:.4}
 @media(prefers-reduced-motion:reduce){.journey-discover-list{max-height:320px;opacity:1;visibility:visible;transform:none}}
+
+/* Smoked glass: keep the journey layout, soften only its material treatment. */
+#section-2 .journey-card{
+ background:linear-gradient(135deg,rgba(66,43,39,.42),rgba(24,15,16,.64) 35%,rgba(30,19,20,.52) 76%,rgba(80,45,37,.28));
+ border:1px solid rgba(244,102,73,.42);
+ box-shadow:inset 0 1px 0 rgba(255,248,241,.12),0 12px 28px rgba(0,0,0,.20),0 0 14px rgba(244,102,73,.045);
+ -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);
+}
+#section-2 .journey-card:before{display:none}
+#section-2 .journey-card:after{left:12%;right:35%;background:linear-gradient(90deg,transparent,rgba(255,248,241,.35),transparent);box-shadow:none}
+#section-2 .journey-demo[data-step] .journey-step .journey-card{
+ border-color:rgba(244,102,73,.42);
+ box-shadow:inset 0 1px 0 rgba(255,248,241,.12),0 12px 28px rgba(0,0,0,.20),0 0 14px rgba(244,102,73,.045);
+}
+#section-2 .journey-demo[data-step="0"] .journey-step:nth-child(1) .journey-card,
+#section-2 .journey-demo[data-step="1"] .journey-step:nth-child(2) .journey-card,
+#section-2 .journey-demo[data-step="2"] .journey-step:nth-child(3) .journey-card{
+ border-color:rgba(244,102,73,.62);box-shadow:inset 0 1px 0 rgba(255,248,241,.16),0 12px 28px rgba(0,0,0,.20),0 0 20px rgba(244,102,73,.10);
+}
+#section-2 .journey-chrome{background:linear-gradient(115deg,rgba(255,248,241,.055),rgba(255,248,241,.005));border-bottom-color:rgba(244,102,73,.16)}
+#section-2 .journey-search{background:rgba(238,233,222,.055);border-color:rgba(238,233,222,.20);box-shadow:inset 0 1px 0 rgba(255,248,241,.06)}
+#section-2 .journey-search-button{border-color:rgba(255,248,241,.28);box-shadow:none;background:#f46649}
+#section-2 .journey-check{background:radial-gradient(circle,rgba(244,102,73,.055),transparent 70%);box-shadow:0 0 20px rgba(244,102,73,.06);border-color:rgba(244,102,73,.65)}

@@ -25,3 +25,12 @@ body[data-copy-page="about-us"] .copy-addition{background:#eee9de}
 .copy-footer-navigation{position:relative;z-index:1;width:100%;max-width:1280px;margin:64px auto 44px;padding-top:32px;border-top:1px solid #eee9de26;text-align:left;color:#eee9de}.copy-footer-navigation .home-footer-tagline{font-size:18px;line-height:1.5;margin:0 0 28px}.copy-footer-navigation .v4-footer-links{display:grid;grid-template-columns:1fr 1.6fr 1fr 1fr 1fr;gap:24px}.copy-footer-navigation h4{font:600 13px Sofia,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#f46649;margin:0 0 14px}.copy-footer-navigation a{display:block;color:#eee9de;text-decoration:none;font:400 16px/1.45 Sofia,sans-serif;margin:0 0 9px}.copy-footer-navigation a:hover{text-decoration:underline}.copy-footer-navigation .home-footer-note{font:400 15px/1.5 Sofia,sans-serif;color:#c6b7ad;max-width:760px;margin:32px 0 0}@media(max-width:700px){.copy-footer-navigation .v4-footer-links{grid-template-columns:1fr 1fr}.copy-footer-navigation{margin-top:44px}}
 /* Keep the existing halo behind the CTA when footer links make the panel taller. */
 .final-cta-panel:has(.copy-footer-navigation)::after{top:clamp(260px,30vw,420px);bottom:auto}
+
+/* Marketplace FAQ continues the warm dark product page. */
+body[data-copy-page="marketplace"] .copy-faq{background:#180f10;color:#eee9de}
+body[data-copy-page="marketplace"] .copy-faq p{color:#eee9de}
+body[data-copy-page="marketplace"] .copy-faq details{border-color:#eee9de26}
+body[data-copy-page="marketplace"] .copy-faq summary{color:#eee9de}
+body[data-copy-page="marketplace"] .copy-faq summary::marker{color:#f46649}
+body[data-copy-page="marketplace"] .copy-faq details[open] summary,body[data-copy-page="marketplace"] .copy-faq summary:hover{color:#f46649}
+body[data-copy-page="marketplace"] .copy-faq summary:focus-visible{outline:2px solid #f46649;outline-offset:6px;border-radius:3px}
