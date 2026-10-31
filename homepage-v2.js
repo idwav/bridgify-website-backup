@@ -7,22 +7,30 @@
   const list = stage.querySelector('.opx-tabs');
   const tabs = [...list.querySelectorAll('button')];
   const panels = [...stage.querySelectorAll('.opx-panel')];
+  const gallery = stage.querySelector('.v2-capability-gallery');
+  const copy = stage.querySelector('.opx-capability-copy');
+  const stickyFrame = story.querySelector('.v2-story-frame');
+  const visuals = panels.map(panel => panel.querySelector('.v2-capability-visual'));
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let active = -1, pinned = false, step = 1, stickyTop = 32, frame = 0, resizeFrame = 0, visible = false;
   const paused = () => document.querySelector('.hero')?.classList.contains('paused');
   const clamp = value => Math.max(0, Math.min(1, value));
 
-  stage.querySelectorAll('.opx-input-wires path:not(.opx-flow-arrow), .opx-output-wires path:not(.opx-flow-arrow)').forEach(path => {
-    const trace = path.cloneNode(true);
-    trace.classList.add('opx-wire-trace');
-    trace.setAttribute('pathLength', '1');
-    path.parentNode.append(trace);
-  });
+  function syncMotion() {
+    const running = visible && !document.hidden && !reduced.matches && !paused();
+    section.dataset.motion = reduced.matches || paused() ? 'paused' : 'active';
+    visuals.forEach((visual, index) => {
+      const rect = visual.getBoundingClientRect();
+      visual.dataset.running = String(running && (pinned ? index === active : rect.bottom > 0 && rect.top < innerHeight));
+    });
+  }
 
   function activate(index) {
     if (index === active) return;
     active = index;
     stage.dataset.active = tabs[index].dataset.capability;
+    visuals.forEach((visual, i) => { visual.hidden = pinned && i !== index; });
+    syncMotion();
     tabs.forEach((tab, i) => {
       tab.dataset.passed = String(i < index);
       if (pinned) tab.setAttribute('aria-selected', String(i === index));
@@ -36,12 +44,35 @@
     });
   }
 
+  // Align the category baseline with the visible diagram, not the viewport floor.
+  // Layout offsets exclude the temporary entrance transforms on cards and tags.
+  function alignCategories() {
+    const scene = visuals[active].querySelector('.cv-scene');
+    const sceneBox = scene.getBoundingClientRect();
+    const stageBox = stage.getBoundingClientRect();
+    const bottom = Math.max(...[...scene.querySelectorAll('.cv-node')].map(node => {
+      const tags = [...node.querySelectorAll('.cv-tag')];
+      return node.offsetTop + Math.max(node.offsetHeight,
+        ...tags.map(tag => tag.offsetTop + tag.offsetHeight));
+    }));
+    const target = sceneBox.top + bottom * sceneBox.height / scene.offsetHeight - stageBox.top;
+    const minimum = panels[active].offsetHeight + list.offsetHeight + 12;
+    copy.style.setProperty('--copy-height', `${Math.max(minimum, Math.min(stageBox.height, target))}px`);
+  }
+
   function update() {
     frame = 0;
+    syncMotion();
     if (!pinned) return;
-    const progress = Math.max(0, Math.min(3.999, (stickyTop - story.getBoundingClientRect().top) / step));
+    const distance = stickyTop - story.getBoundingClientRect().top;
+    const intro = clamp(distance / 300);
+    stickyFrame.style.setProperty('--intro', String(intro));
+    const height = stage.getBoundingClientRect().height;
+    stickyFrame.style.setProperty('--scene-height', `${height}px`);
+    const progress = Math.max(0, Math.min(3.999, (distance - 300) / step));
     const index = Math.floor(progress);
     activate(index);
+    alignCategories();
     stage.style.setProperty('--opx-phase', String(clamp((progress - index) / .8)));
     story.dataset.progress = (progress / 4).toFixed(3);
   }
@@ -53,20 +84,21 @@
     active = -1;
     story.style.height = '';
     story.dataset.mode = 'reading';
+    copy.style.removeProperty('--copy-height');
     panels.forEach(panel => { panel.inert = false; panel.removeAttribute('aria-hidden'); });
-    pinned = innerWidth > 900 && innerHeight >= 640 && !reduced.matches && !paused();
+    pinned = innerWidth > 900 && innerHeight >= 700 && !reduced.matches && !paused();
+    stickyFrame.style.setProperty('--intro', '0');
+    visuals.forEach((visual, index) => { visual.hidden = false; (pinned ? gallery : panels[index]).append(visual); });
+    gallery.hidden = !pinned;
     if (pinned) {
       story.dataset.mode = 'scroll';
-      stickyTop = Math.max(24, Math.min(44, innerHeight * .045));
-      stage.style.setProperty('--opx-sticky-top', `${stickyTop}px`);
-      const height = Math.ceil(stage.getBoundingClientRect().height);
-      if (height + stickyTop + 24 <= innerHeight) {
-        step = Math.max(420, innerHeight * .72);
-        story.style.height = `${height + step * 4}px`;
-      } else {
-        pinned = false;
-        story.dataset.mode = 'reading';
-      }
+      stickyTop = 24;
+      const heading = story.querySelector('.opx-heading');
+      const titleHeight = heading.querySelector('h2').getBoundingClientRect().height;
+      stickyFrame.style.setProperty('--heading-height', `${Math.ceil(titleHeight + 48)}px`);
+      stickyFrame.style.setProperty('--heading-drop', `${titleHeight * .2}px`);
+      step = Math.max(440, innerHeight * .72);
+      story.style.height = `${innerHeight - 48 + 300 + step * 4}px`;
     }
     list.hidden = !pinned;
     list.setAttribute('role', pinned ? 'tablist' : 'navigation');
@@ -84,7 +116,7 @@
 
   function goTo(index) {
     if (pinned) {
-      const top = story.getBoundingClientRect().top + scrollY - stickyTop + step * (index + .15);
+      const top = story.getBoundingClientRect().top + scrollY - stickyTop + 300 + step * (index + .15);
       window.scrollTo({ top, behavior: 'smooth' });
     } else {
       panels[index].scrollIntoView({ block: 'center', behavior: reduced.matches ? 'instant' : 'smooth' });
@@ -105,8 +137,15 @@
       goTo(next);
     });
   });
+  const preload = new IntersectionObserver(entries => {
+    if (!entries.some(entry => entry.isIntersecting)) return;
+    visuals.forEach(visual => { visual.querySelectorAll('img').forEach(img => { img.loading = 'eager'; }); });
+    preload.disconnect();
+  }, { rootMargin: '800px' });
+  preload.observe(story);
   new IntersectionObserver(entries => {
     visible = entries[0].isIntersecting;
+    syncMotion();
     if (visible) schedule();
   }, { rootMargin: '120px' }).observe(story);
   window.addEventListener('scroll', schedule, { passive: true });
@@ -115,7 +154,7 @@
     resizeFrame = requestAnimationFrame(configure);
   }, { passive: true });
   window.addEventListener('pageshow', schedule);
-  document.addEventListener('visibilitychange', schedule);
+  document.addEventListener('visibilitychange', () => { syncMotion(); schedule(); });
   reduced.addEventListener('change', configure);
   document.getElementById('motion')?.addEventListener('click', configure);
   document.fonts?.ready.then(configure);
