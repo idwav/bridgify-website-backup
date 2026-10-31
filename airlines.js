@@ -3,6 +3,7 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const compact = matchMedia('(max-width: 900px)');
   const hero = document.querySelector('.al-hero');
+  const earn = document.querySelector('.al-earn');
   const nav = document.querySelector('#airline-site-nav');
   const header = document.querySelector('.top');
   const menu = document.querySelector('.al-mobile-toggle');
@@ -38,6 +39,14 @@
   const visibility = new IntersectionObserver(entries => {
     for (const entry of entries) {
       const element = entry.target;
+      if (element === earn) {
+        earn.classList.toggle('is-visible', entry.isIntersecting);
+        if (entry.isIntersecting && !entered.has(earn)) {
+          entered.add(earn);
+          earn.classList.add('has-connected');
+        }
+        continue;
+      }
       if (element === hero) hero.classList.toggle('is-visible', entry.isIntersecting);
       if (!entry.isIntersecting || entered.has(element)) continue;
       entered.add(element);
@@ -55,6 +64,7 @@
     }
   }, { threshold: .08 });
   visibility.observe(hero);
+  if (earn) visibility.observe(earn);
   document.querySelectorAll('.al-enter').forEach(element => visibility.observe(element));
   document.addEventListener('visibilitychange', () => {
     document.body.classList.toggle('al-motion-paused', document.hidden);
