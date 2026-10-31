@@ -1,91 +1,123 @@
-// The V2 copy is independent of V1; disclosures retain their native keyboard behavior.
+// V2 capability chapters: native scroll and keyboard selection share one state.
 (() => {
   const section = document.querySelector('.bv2-why');
-  if (!section) return;
+  const story = section?.querySelector('.opx-scroll-story');
+  const stage = story?.querySelector('.opx-capabilities');
+  if (!stage) return;
+  const list = stage.querySelector('.opx-tabs');
+  const tabs = [...list.querySelectorAll('button')];
+  const panels = [...stage.querySelectorAll('.opx-panel')];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const animations = new WeakMap();
+  let active = -1, pinned = false, step = 1, stickyTop = 32, frame = 0, resizeFrame = 0, visible = false;
   const paused = () => document.querySelector('.hero')?.classList.contains('paused');
+  const clamp = value => Math.max(0, Math.min(1, value));
 
-  document.querySelector('.opx-explanation')?.removeAttribute('open');
-  section.querySelectorAll('.bv2-tile').forEach(tile => {
-    const summary = tile.querySelector('summary');
-    const reveal = tile.querySelector('.bv2-reveal');
-    const inner = tile.querySelector('.bv2-reveal-inner');
-    tile.dataset.open = String(tile.open);
-    summary.addEventListener('click', event => {
-      event.preventDefault();
-      const open = tile.dataset.open !== 'true';
-      const fromHeight = tile.open ? reveal.getBoundingClientRect().height : 0;
-      const fromOpacity = tile.open ? getComputedStyle(reveal).opacity : 0;
-      animations.get(tile)?.cancel();
-      animations.delete(tile);
-      tile.dataset.open = String(open);
-      if (reduced.matches || paused() || !reveal.animate) {
-        tile.open = open;
-        return;
-      }
-      tile.open = true;
-      const toHeight = open ? inner.getBoundingClientRect().height : 0;
-      const animation = reveal.animate([
-        { height: `${fromHeight}px`, opacity: fromOpacity },
-        { height: `${toHeight}px`, opacity: open ? 1 : 0 }
-      ], { duration: open ? 460 : 300, easing: 'cubic-bezier(.16,1,.3,1)' });
-      animations.set(tile, animation);
-      animation.onfinish = () => {
-        if (animations.get(tile) !== animation) return;
-        tile.open = open;
-        animations.delete(tile);
-      };
-    });
-    tile.addEventListener('toggle', () => {
-      if (!animations.has(tile)) tile.dataset.open = String(tile.open);
-    });
-    // A link in a disclosure must be visible before keyboard focus reaches it.
-    tile.addEventListener('focusin', () => tile.closest('.bv2-row').classList.add('is-visible'));
+  stage.querySelectorAll('.opx-input-wires path:not(.opx-flow-arrow), .opx-output-wires path:not(.opx-flow-arrow)').forEach(path => {
+    const trace = path.cloneNode(true);
+    trace.classList.add('opx-wire-trace');
+    trace.setAttribute('pathLength', '1');
+    path.parentNode.append(trace);
   });
 
-  const rows = [...section.querySelectorAll('.bv2-row')];
-  const ready = new Set();
-  let pairEntering = false;
-  let pairTimer = 0;
-  function revealNextPair() {
-    if (pairEntering || reduced.matches || paused()) return;
-    const row = rows.find(item => ready.has(item) && !item.classList.contains('is-visible'));
-    if (!row) return;
-    ready.delete(row);
-    pairEntering = true;
-    row.classList.add('is-visible');
-    // Finish one pair's entrance before beginning another, even after a fast scroll.
-    pairTimer = setTimeout(() => {
-      pairEntering = false;
-      revealNextPair();
-    }, 1000);
+  function activate(index) {
+    if (index === active) return;
+    active = index;
+    stage.dataset.active = tabs[index].dataset.capability;
+    tabs.forEach((tab, i) => {
+      tab.dataset.passed = String(i < index);
+      if (pinned) tab.setAttribute('aria-selected', String(i === index));
+      else tab.removeAttribute('aria-selected');
+      tab.tabIndex = pinned && i !== index ? -1 : 0;
+    });
+    panels.forEach((panel, i) => {
+      panel.inert = pinned && i !== index;
+      if (pinned) panel.setAttribute('aria-hidden', String(i !== index));
+      else panel.removeAttribute('aria-hidden');
+    });
   }
-  if ('IntersectionObserver' in window && !reduced.matches) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.classList.contains('is-visible')) ready.add(entry.target);
-        else ready.delete(entry.target);
-      });
-      revealNextPair();
-    }, { threshold: 0.05, rootMargin: '0px 0px -25% 0px' });
-    rows.forEach(row => { row.classList.add('is-pending'); observer.observe(row); });
+
+  function update() {
+    frame = 0;
+    if (!pinned) return;
+    const progress = Math.max(0, Math.min(3.999, (stickyTop - story.getBoundingClientRect().top) / step));
+    const index = Math.floor(progress);
+    activate(index);
+    stage.style.setProperty('--opx-phase', String(clamp((progress - index) / .8)));
+    story.dataset.progress = (progress / 4).toFixed(3);
   }
-  function syncMotion() {
-    section.classList.toggle('bv2-motion-paused', Boolean(paused()));
-    if (reduced.matches || paused()) {
-      clearTimeout(pairTimer);
-      pairEntering = false;
-      ready.clear();
-      rows.forEach(row => row.classList.add('is-visible'));
-      section.querySelectorAll('.bv2-tile').forEach(tile => {
-        animations.get(tile)?.cancel();
-        animations.delete(tile);
-        tile.open = tile.dataset.open === 'true';
-      });
+  function schedule() { if (visible && !frame && !document.hidden) frame = requestAnimationFrame(update); }
+
+  function configure() {
+    cancelAnimationFrame(frame);
+    frame = 0;
+    active = -1;
+    story.style.height = '';
+    story.dataset.mode = 'reading';
+    panels.forEach(panel => { panel.inert = false; panel.removeAttribute('aria-hidden'); });
+    pinned = innerWidth > 900 && innerHeight >= 640 && !reduced.matches && !paused();
+    if (pinned) {
+      story.dataset.mode = 'scroll';
+      stickyTop = Math.max(24, Math.min(44, innerHeight * .045));
+      stage.style.setProperty('--opx-sticky-top', `${stickyTop}px`);
+      const height = Math.ceil(stage.getBoundingClientRect().height);
+      if (height + stickyTop + 24 <= innerHeight) {
+        step = Math.max(420, innerHeight * .72);
+        story.style.height = `${height + step * 4}px`;
+      } else {
+        pinned = false;
+        story.dataset.mode = 'reading';
+      }
+    }
+    list.hidden = !pinned;
+    list.setAttribute('role', pinned ? 'tablist' : 'navigation');
+    if (pinned) list.setAttribute('aria-orientation', 'vertical');
+    else list.removeAttribute('aria-orientation');
+    tabs.forEach(tab => { if (pinned) tab.setAttribute('role', 'tab'); else tab.removeAttribute('role'); });
+    panels.forEach((panel, index) => {
+      panel.setAttribute('role', pinned ? 'tabpanel' : 'region');
+      panel.setAttribute('aria-labelledby', tabs[index].id);
+    });
+    activate(0);
+    stage.style.setProperty('--opx-phase', '1');
+    update();
+  }
+
+  function goTo(index) {
+    if (pinned) {
+      const top = story.getBoundingClientRect().top + scrollY - stickyTop + step * (index + .15);
+      window.scrollTo({ top, behavior: 'smooth' });
+    } else {
+      panels[index].scrollIntoView({ block: 'center', behavior: reduced.matches ? 'instant' : 'smooth' });
     }
   }
-  reduced.addEventListener('change', syncMotion);
-  document.getElementById('motion')?.addEventListener('click', syncMotion);
-  syncMotion();
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => goTo(index));
+    tab.addEventListener('keydown', event => {
+      let next;
+      if (event.key === 'ArrowDown' || event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      event.stopPropagation();
+      tabs[next].focus({ preventScroll: true });
+      goTo(next);
+    });
+  });
+  new IntersectionObserver(entries => {
+    visible = entries[0].isIntersecting;
+    if (visible) schedule();
+  }, { rootMargin: '120px' }).observe(story);
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', () => {
+    cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(configure);
+  }, { passive: true });
+  window.addEventListener('pageshow', schedule);
+  document.addEventListener('visibilitychange', schedule);
+  reduced.addEventListener('change', configure);
+  document.getElementById('motion')?.addEventListener('click', configure);
+  document.fonts?.ready.then(configure);
+  configure();
 })();
