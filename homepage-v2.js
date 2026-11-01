@@ -13,6 +13,30 @@
   const visuals = panels.map(panel => panel.querySelector('.v2-capability-visual'));
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let active = -1, pinned = false, step = 1, stickyTop = 32, frame = 0, resizeFrame = 0, visible = false;
+  let selectionTarget = null;
+  // The perimeter is a scroll meter: one complete outline equals one chapter.
+  const rings = tabs.map(tab => {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.classList.add('opx-progress-ring');
+    svg.setAttribute('aria-hidden', 'true');
+    const rect = document.createElementNS(svg.namespaceURI, 'rect');
+    rect.setAttribute('x', '1.5');
+    rect.setAttribute('y', '1.5');
+    rect.setAttribute('rx', '10');
+    rect.setAttribute('pathLength', '100');
+    svg.append(rect);
+    tab.append(svg);
+    return { tab, svg, rect };
+  });
+  const sizeRings = () => rings.forEach(({ tab, svg, rect }) => {
+    const { width, height } = tab.getBoundingClientRect();
+    if (!width || !height) return;
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    rect.setAttribute('width', String(width - 3));
+    rect.setAttribute('height', String(height - 3));
+  });
+  const ringObserver = new ResizeObserver(sizeRings);
+  tabs.forEach(tab => ringObserver.observe(tab));
   const paused = () => document.querySelector('.hero')?.classList.contains('paused');
   const clamp = value => Math.max(0, Math.min(1, value));
 
@@ -29,7 +53,11 @@
     if (index === active) return;
     active = index;
     stage.dataset.active = tabs[index].dataset.capability;
-    visuals.forEach((visual, i) => { visual.hidden = pinned && i !== index; });
+    visuals.forEach((visual, i) => {
+      visual.dataset.current = String(i === index);
+      if (pinned) visual.setAttribute('aria-hidden', String(i !== index));
+      else visual.removeAttribute('aria-hidden');
+    });
     syncMotion();
     tabs.forEach((tab, i) => {
       tab.dataset.passed = String(i < index);
@@ -44,36 +72,17 @@
     });
   }
 
-  // Align the category baseline with the visible diagram, not the viewport floor.
-  // Layout offsets exclude the temporary entrance transforms on cards and tags.
-  function alignCategories() {
-    const scene = visuals[active].querySelector('.cv-scene');
-    const sceneBox = scene.getBoundingClientRect();
-    const stageBox = stage.getBoundingClientRect();
-    const bottom = Math.max(...[...scene.querySelectorAll('.cv-node')].map(node => {
-      const tags = [...node.querySelectorAll('.cv-tag')];
-      return node.offsetTop + Math.max(node.offsetHeight,
-        ...tags.map(tag => tag.offsetTop + tag.offsetHeight));
-    }));
-    const target = sceneBox.top + bottom * sceneBox.height / scene.offsetHeight - stageBox.top;
-    const minimum = panels[active].offsetHeight + list.offsetHeight + 12;
-    copy.style.setProperty('--copy-height', `${Math.max(minimum, Math.min(stageBox.height, target))}px`);
-  }
-
   function update() {
     frame = 0;
     syncMotion();
     if (!pinned) return;
     const distance = stickyTop - story.getBoundingClientRect().top;
-    const intro = clamp(distance / 300);
-    stickyFrame.style.setProperty('--intro', String(intro));
-    const height = stage.getBoundingClientRect().height;
-    stickyFrame.style.setProperty('--scene-height', `${height}px`);
-    const progress = Math.max(0, Math.min(3.999, (distance - 300) / step));
-    const index = Math.floor(progress);
-    activate(index);
-    alignCategories();
-    stage.style.setProperty('--opx-phase', String(clamp((progress - index) / .8)));
+    const progress = Math.max(0, Math.min(3.999, distance / step));
+    if (selectionTarget !== null && Math.abs(scrollY - selectionTarget) < 5) selectionTarget = null;
+    if (selectionTarget === null) activate(Math.floor(progress));
+    const chapterProgress = selectionTarget === null ? progress - Math.floor(progress) : .18;
+    stage.style.setProperty('--opx-phase', String(clamp(chapterProgress / .8)));
+    stage.style.setProperty('--opx-slide-progress', String(clamp(chapterProgress)));
     story.dataset.progress = (progress / 4).toFixed(3);
   }
   function schedule() { if (visible && !frame && !document.hidden) frame = requestAnimationFrame(update); }
@@ -82,25 +91,25 @@
     cancelAnimationFrame(frame);
     frame = 0;
     active = -1;
+    selectionTarget = null;
     story.style.height = '';
     story.dataset.mode = 'reading';
     copy.style.removeProperty('--copy-height');
     panels.forEach(panel => { panel.inert = false; panel.removeAttribute('aria-hidden'); });
-    pinned = innerWidth > 900 && innerHeight >= 700 && !reduced.matches && !paused();
-    stickyFrame.style.setProperty('--intro', '0');
+    pinned = innerWidth > 900 && innerHeight >= 650 && !reduced.matches && !paused();
+
     visuals.forEach((visual, index) => { visual.hidden = false; (pinned ? gallery : panels[index]).append(visual); });
     gallery.hidden = !pinned;
     if (pinned) {
       story.dataset.mode = 'scroll';
-      stickyTop = 24;
-      const heading = story.querySelector('.opx-heading');
-      const titleHeight = heading.querySelector('h2').getBoundingClientRect().height;
-      stickyFrame.style.setProperty('--heading-height', `${Math.ceil(titleHeight + 48)}px`);
-      stickyFrame.style.setProperty('--heading-drop', `${titleHeight * .2}px`);
-      step = Math.max(440, innerHeight * .72);
-      story.style.height = `${innerHeight - 48 + 300 + step * 4}px`;
+      stickyTop = 32;
+      stickyFrame.style.setProperty('--scene-height', `${gallery.clientWidth * 780 / 1100}px`);
+      stickyFrame.style.setProperty('--nav-height', `${list.offsetHeight || 208}px`);
+      step = Math.max(540, innerHeight * .86);
+      story.style.height = `${stickyFrame.offsetHeight + step * 4}px`;
     }
     list.hidden = !pinned;
+    if (pinned) stickyFrame.style.setProperty('--nav-height', `${list.offsetHeight}px`);
     list.setAttribute('role', pinned ? 'tablist' : 'navigation');
     if (pinned) list.setAttribute('aria-orientation', 'vertical');
     else list.removeAttribute('aria-orientation');
@@ -109,6 +118,7 @@
       panel.setAttribute('role', pinned ? 'tabpanel' : 'region');
       panel.setAttribute('aria-labelledby', tabs[index].id);
     });
+    sizeRings();
     activate(0);
     stage.style.setProperty('--opx-phase', '1');
     update();
@@ -116,7 +126,10 @@
 
   function goTo(index) {
     if (pinned) {
-      const top = story.getBoundingClientRect().top + scrollY - stickyTop + 300 + step * (index + .15);
+      const top = story.getBoundingClientRect().top + scrollY - stickyTop + step * (index + .18);
+      activate(index);
+      stage.style.setProperty('--opx-slide-progress', '.18');
+      selectionTarget = top;
       window.scrollTo({ top, behavior: 'smooth' });
     } else {
       panels[index].scrollIntoView({ block: 'center', behavior: reduced.matches ? 'instant' : 'smooth' });
@@ -136,6 +149,10 @@
       tabs[next].focus({ preventScroll: true });
       goTo(next);
     });
+  });
+  ['wheel', 'touchstart', 'pointerdown'].forEach(type => window.addEventListener(type, () => { selectionTarget = null; }, { passive: true }));
+  window.addEventListener('keydown', event => {
+    if (['PageDown', 'PageUp', ' '].includes(event.key)) selectionTarget = null;
   });
   const preload = new IntersectionObserver(entries => {
     if (!entries.some(entry => entry.isIntersecting)) return;
@@ -159,4 +176,50 @@
   document.getElementById('motion')?.addEventListener('click', configure);
   document.fonts?.ready.then(configure);
   configure();
+})();
+
+
+// Reveal each homepage section on entry, without hiding content or wrapping sticky stories.
+(() => {
+  const sections = [...document.querySelectorAll('section:not(.hero), footer')]
+    .filter(section => !section.parentElement.closest('section, footer'));
+  if (!sections.length || !('IntersectionObserver' in window)) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const animations = new Map();
+  const seen = new WeakSet();
+  let firstDelivery = true;
+  const paused = () => document.querySelector('.hero')?.classList.contains('paused');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || entry.intersectionRatio === 0 || seen.has(entry.target)) return;
+      const section = entry.target;
+      seen.add(section);
+      observer.unobserve(section);
+      if (firstDelivery || reduced.matches || paused()) {
+        section.dataset.entrance = 'visible';
+        return;
+      }
+      section.dataset.entrance = 'entering';
+      // Animate the sticky element itself, never a new containing wrapper.
+      const target = section.querySelector('.v2-story-frame, .v2p-shell') || section;
+      const animation = target.animate([
+        { opacity: .15, translate: '0 38px' },
+        { opacity: 1, translate: '0 0' }
+      ], { duration: 900, easing: 'cubic-bezier(.22,1,.36,1)' });
+      animations.set(section, animation);
+      animation.finished.catch(() => {}).finally(() => {
+        animations.delete(section);
+        section.dataset.entrance = 'complete';
+      });
+    });
+    firstDelivery = false;
+  }, { threshold: .001 });
+  sections.forEach(section => observer.observe(section));
+  const finish = () => animations.forEach(animation => animation.finish());
+  reduced.addEventListener('change', () => { if (reduced.matches) finish(); });
+  document.getElementById('motion')?.addEventListener('click', () => { if (paused()) finish(); });
+  document.addEventListener('focusin', event => {
+    const section = sections.find(candidate => candidate.contains(event.target));
+    animations.get(section)?.finish();
+  });
 })();
