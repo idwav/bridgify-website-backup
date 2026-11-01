@@ -1,0 +1,164 @@
+/* Shared warm glass and coral ink for these three pages only. */
+body:is([data-copy-page="hotels"],[data-copy-page="personalization"],[data-copy-page="marketplace"]),body[data-brand-material="ai-hero"]{
+ --brand-glass:radial-gradient(ellipse at 100% 0,#ff89623d,transparent 19%),radial-gradient(ellipse at 0 100%,#ff785334,transparent 18%),linear-gradient(115deg,#fff8f10c,transparent 36%,#fff8f106 74%,#fff8f110);
+ --brand-inner:radial-gradient(ellipse at 0 0,#ffac8b20,transparent 50%),linear-gradient(135deg,#fff8f10b,transparent 55%,#fff8f10a);
+ --brand-floor:#211719;
+ --brand-edge:#f6c8b594;
+ --brand-bevel:inset 0 1px 1px #fff1da94,inset 1px 0 1px #ffb6a32d,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b33,0 15px 36px #0002;
+ --brand-inner-bevel:inset 0 1px 1px #ffe4ce4d,inset 0 -1px 1px #f466492c,0 5px 18px #0002;
+}
+/* Ink belongs to the text, never the entire control or a container with icons. */
+body:is([data-copy-page="hotels"],[data-copy-page="personalization"],[data-copy-page="marketplace"]) :is(
+ .brand-coral-ink,.eyebrow,.product-gradient-ink,.copy-footer-navigation h4,
+ .hi-managed h3>span,.hi-connection>span,.hi-hotel header>span,.hj-step header>span,.hj-tabs .selected,
+ .hgi-kicker,.hgi-mini-heading,.hgi-text-action,.hgi-footer a,
+ .intent-field:not([data-field="context"]) strong,.intent-ink,.match-control.resolved label,
+ .embed-plan>span,.embed-rec-label,.day-period>span,.day-progress,
+ .journey-step-label,.journey-rating,.journey-result small,.journey-discover-list small,
+ .mr-number,.commerce-margin dd,.launch-brand,.bb-task small,.ma-number,.ma-arrow,
+ .hc-tab.is-active>.brand-control-label,.hi-tabs button[aria-pressed="true"]>.brand-control-label,
+ .hj-tabs button[aria-selected="true"]>.brand-control-label,
+ .embed-switch button[aria-pressed="true"]>.brand-control-label
+),body[data-brand-material="ai-hero"] :is(.eyebrow,.prompt em,.detected span,.result-grid article>small,.frame-chrome b){
+ color:#f48b73;background-image:linear-gradient(110deg,#f46649 0%,#ff967b 23%,#ffe2c6 43%,#f88b72 60%,#f46649 78%,#ffb49a 100%);
+ background-size:240% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+ animation:brand-coral-flow 5s ease-in-out infinite alternate;
+}
+@keyframes brand-coral-flow{from{background-position:0% 50%}to{background-position:100% 50%}}
+/* Hotel connector: an opaque smoked-glass body masks the cable underneath. */
+body[data-copy-page="hotels"] .hotel-infrastructure .hi-connection{
+ z-index:3;background:var(--brand-inner),#2b1c1b;border-color:#f6b49a;
+ box-shadow:var(--brand-inner-bevel),0 3px 12px #100d0e66;backdrop-filter:none;color:#ffad94!important;
+}
+body[data-copy-page="hotels"] .hi-connection svg{flex-shrink:0}
+body[data-copy-page="hotels"] .hi-bridge>svg{z-index:0;filter:drop-shadow(0 0 2px #f4664933)}
+/* AIyelet: solid brown under each pane, so moving and overlapping cards occlude correctly. */
+body[data-copy-page="personalization"] :is(.match-controls,.embed-shell,.day-start,.day-plan){
+ background:var(--brand-glass),var(--brand-floor);border-color:var(--brand-edge);box-shadow:var(--brand-bevel);backdrop-filter:blur(14px);
+}
+body[data-copy-page="personalization"] :is(.match-card,.embed-browser,.embed-recommendation,.day-stop){
+ background:var(--brand-glass),var(--brand-floor);border-color:var(--brand-edge);box-shadow:var(--brand-bevel);backdrop-filter:none;
+}
+body[data-copy-page="personalization"] :is(.match-control strong,.match-icon,.match-heart,.match-card-arrow,.embed-trip aside,.embed-switch,.embed-tags>span,.day-museum){
+ background:var(--brand-inner),#291d1d;border-color:#e8ac9673;box-shadow:var(--brand-inner-bevel);
+}
+body[data-copy-page="personalization"] .embed-plan{background:var(--brand-inner),#261a1b;border-color:#e8ac9655;box-shadow:inset 0 1px 0 #ffe4ce22}
+body[data-copy-page="personalization"] .embed-nav{background:var(--brand-inner),#24191a}
+body[data-copy-page="personalization"] .intent-field:not([data-field="context"]){background:var(--brand-inner),#2a1c1c;backdrop-filter:none}
+body[data-copy-page="personalization"] .intent-typed mark.lit{background-color:#271a1b}
+body[data-copy-page="personalization"] .embed-recommendation{isolation:isolate}
+body[data-copy-page="personalization"] .match-card[data-position="0"],body[data-copy-page="personalization"] .day-stop.is-active{
+ border-color:#ff9b77;box-shadow:var(--brand-bevel),0 0 18px #f4664920;
+}
+body[data-copy-page="personalization"] :is(.embed-view,.embed-pause,.day-select,.day-reset,.day-pause,.match-nav button,.intent-pause){
+ background:var(--brand-inner),#2b1c1b;border-color:#f69f82a6;box-shadow:var(--brand-inner-bevel);color:#eee9de;
+}
+body[data-copy-page="personalization"] .embed-switch button[aria-pressed="true"]{
+ background:var(--brand-inner),#4a2b25;box-shadow:inset 0 1px 1px #ffd1ae88,inset 0 -1px 4px #f4664940;
+}
+/* Marketplace: retain all layouts, image treatments, flags and preview behavior. */
+body[data-copy-page="marketplace"] :is(#section-2 .journey-card,.mr-frame,#section-4 .commerce-order,#section-5 .launch-store,#section-5 .launch-setup,.bb-panel,.results-panel,.results-partners){
+ background:var(--brand-glass),var(--brand-floor);border-color:var(--brand-edge);box-shadow:var(--brand-bevel);backdrop-filter:blur(14px);
+}
+body[data-copy-page="marketplace"] :is(#section-1 .market-window,#section-1 .brand-settings,#section-1 .market-demo.settings-open .brand-settings){
+ background:radial-gradient(ellipse at 100% 0,color-mix(in srgb,var(--accent,#f46649) 24%,transparent),transparent 25%),var(--brand-inner),var(--brand-floor);
+ border-color:var(--rim,#f6c8b594);box-shadow:var(--brand-bevel);backdrop-filter:none;
+}
+body[data-copy-page="marketplace"] :is(.journey-confirm-card,.journey-ticket,.journey-result,.mr-brand-layout aside,#section-4 .commerce-module,#section-5 .launch-products article,#section-5 .launch-setup button[data-launch],.bb-task,.bb-system,.bb-note,.results-payment){
+ background:var(--brand-inner),#291c1d;border-color:#e8ac9673;box-shadow:var(--brand-inner-bevel);
+}
+body[data-copy-page="marketplace"] :is(.ma-object,.mr-language,.launch-domain,#section-5 .launch-address,.launch-search,#section-1 .market-search,#section-2 .journey-search,.mr-search){
+ background:var(--brand-inner),#281b1d;border-color:#e8ac9673;box-shadow:var(--brand-inner-bevel);backdrop-filter:none;
+}
+body[data-copy-page="marketplace"] .market-audience{background:var(--brand-inner),#211719;border-color:#e8ac9655;box-shadow:var(--brand-inner-bevel)}
+body[data-copy-page="marketplace"] :is(.commerce-paid,.bb-note a){
+ background:var(--brand-inner),#2d1d1d;border-color:#f69f82a6;color:#ffad94;box-shadow:var(--brand-inner-bevel);
+}
+/* Label-only accents inside control surfaces: leave their glass and SVG icons intact. */
+body:is([data-copy-page="hotels"],[data-copy-page="personalization"],[data-copy-page="marketplace"]) :is(
+ .commerce-paid,.commerce-module summary,.hgi-search-action,.hgi-app-nav>span:nth-child(2),.hgi-cta>span,.hgi-ready>span
+)>.brand-coral-ink{display:inline;background-clip:text;-webkit-background-clip:text}
+/* Matching footers keep the established ring and composition. */
+body:is([data-copy-page="personalization"],[data-copy-page="marketplace"]) .final-cta{background:#180f10}
+body:is([data-copy-page="personalization"],[data-copy-page="marketplace"]) .final-cta-panel{background:var(--brand-glass),#180f10;box-shadow:var(--brand-bevel)}
+/* The hero lives in its own document. Give it the same sealed glass layers. */
+body[data-brand-material="ai-hero"] .ai-frame{background:var(--brand-glass),#24191a;border-color:var(--brand-edge);box-shadow:var(--brand-bevel),inset 0 0 0 5px #211719,inset 0 0 0 6px #e8ac9655}
+body[data-brand-material="ai-hero"] :is(.prompt,.detected>div,.result-grid article){background:var(--brand-inner),#281b1d;border-color:#e8ac9673;box-shadow:var(--brand-inner-bevel)}
+@media(prefers-reduced-motion:reduce){
+ body:is([data-copy-page="hotels"],[data-copy-page="personalization"],[data-copy-page="marketplace"]) :is(.brand-coral-ink,.eyebrow,.product-gradient-ink,.copy-footer-navigation h4,.hi-managed h3>span,.hi-connection>span,.hi-hotel header>span,.hj-step header>span,.hj-tabs .selected,.hgi-kicker,.hgi-mini-heading,.hgi-text-action,.hgi-footer a,.intent-field strong,.intent-ink,.match-control.resolved label,.embed-plan>span,.embed-rec-label,.day-period>span,.day-progress,.journey-step-label,.journey-rating,.journey-result small,.journey-discover-list small,.mr-number,.commerce-margin dd,.launch-brand,.bb-task small,.ma-number,.ma-arrow,.brand-control-label),
+ body[data-brand-material="ai-hero"] :is(.eyebrow,.prompt em,.detected span,.result-grid article>small,.frame-chrome b){animation:none}
+}
+
+/* Marketplace light: warm coral illumination instead of neutral gray reflections. */
+body[data-copy-page="marketplace"]{
+ --brand-glass:radial-gradient(ellipse at 100% 0,#ff89624a,transparent 23%),radial-gradient(ellipse at 0 100%,#ff785340,transparent 22%),linear-gradient(115deg,#ffd4bb16,transparent 36%,#ffbd9d09 74%,#ffe1c71a);
+ --brand-inner:radial-gradient(ellipse at 0 0,#ffac8b32,transparent 55%),linear-gradient(135deg,#ffd8bf19,transparent 55%,#ffbd9d13);
+ --brand-floor:#241615;
+ --brand-edge:#ffc9aeaf;
+ --brand-bevel:inset 0 1px 2px #fff1dad4,inset 1px 0 1px #ffc1a957,inset 0 -1px 2px #ff997b99,0 0 20px #f466491c,0 15px 36px #0002;
+ --brand-inner-bevel:inset 0 1px 1px #ffe4ce88,inset 0 -1px 2px #f4664955,0 0 12px #f4664912,0 5px 18px #0002;
+}
+body[data-copy-page="marketplace"] #build-or-buy.bb-section .bb-panel:not(.bb-connected){
+ background:linear-gradient(135deg,#ffd4bb0b,transparent 55%),#211615;
+ border-color:#d0a28b77;box-shadow:inset 0 1px 1px #ffe4ce55,0 10px 24px #0002;
+}
+body[data-copy-page="marketplace"] #build-or-buy.bb-section .bb-connected{
+ background:radial-gradient(ellipse at 100% 0,#ff89625c,transparent 32%),radial-gradient(ellipse at 0 100%,#ff785345,transparent 32%),linear-gradient(130deg,#ffd4bb17,transparent 55%,#ffbd9d12),#291815;
+ border-color:#ffb392d9;box-shadow:inset 0 1px 2px #fff1daee,inset 0 -1px 2px #ff997baa,0 0 26px #f4664933,0 15px 36px #0003;
+}
+body[data-copy-page="marketplace"] #build-or-buy.bb-section .bb-connected .bb-system{
+ background:radial-gradient(ellipse at 50% 0,#ffad7945,transparent 66%),linear-gradient(135deg,#ffd4bb13,transparent 55%),#321d18;
+ border-color:#ffa482e6;box-shadow:inset 0 1px 2px #fff1dacc,inset 0 -1px 3px #f4664977,0 0 22px #f4664933;
+}
+body[data-copy-page="marketplace"] #build-or-buy.bb-section .bb-connected .bb-store{border-color:#ffbb96a6;box-shadow:inset 0 1px 1px #fff1dab3,0 0 16px #f4664929,0 8px 18px #0004}
+body[data-copy-page="marketplace"] #build-or-buy.bb-section .bb-connected .bb-service svg{
+ background:radial-gradient(ellipse at 50% 0,#ffac8b26,transparent 80%),#2c1a16;
+ border-color:#ffb18ca6;color:#fff1da;box-shadow:inset 0 1px 1px #ffe4ce88,inset 0 -1px 2px #f4664955,0 0 12px #f4664938;
+}
+body[data-copy-page="marketplace"] #build-or-buy.bb-section .bb-connected .bb-services:before{background:#ffb996;box-shadow:0 0 5px #ffb99699,0 0 12px #f4664966}
+body[data-copy-page="marketplace"] #build-or-buy.bb-section .bb-connected .bb-foot{color:#fff1e0;border-color:#ffb18c55}
+body[data-copy-page="marketplace"] #marketplace-results.market-results .results-visual .results-payment{
+ background:radial-gradient(ellipse at 100% 0,#ff9a6d4d,transparent 60%),linear-gradient(135deg,#ffe3ca24,transparent 55%,#ffae8824),#2d1b17;
+ border-color:#ffc9aee0;box-shadow:inset 0 1px 2px #fff1dad4,inset 0 -1px 2px #ff997b99,3px 5px 0 #321b16,0 0 20px #f4664933,0 24px 19px -15px #0009;
+}
+body[data-copy-page="marketplace"] #marketplace-results.market-results .results-chip{border-color:#ffd2b299;background:repeating-linear-gradient(0deg,transparent 0 10px,#3f211a 10px 11px),repeating-linear-gradient(90deg,#d4a17e88 0 13px,#3f211a 13px 14px);box-shadow:inset 0 1px 1px #ffe4ce88}
+body[data-copy-page="marketplace"] #marketplace-results.market-results .results-tickets path{stroke:#ffc4a5d9}
+body[data-copy-page="marketplace"] #marketplace-results.market-results .results-tickets svg{filter:drop-shadow(0 0 6px #f4664944) drop-shadow(2px 4px 0 #351e17)}
+body[data-copy-page="marketplace"] #marketplace-results.market-results .results-dots i.lit{background:linear-gradient(140deg,#ffd4ab,#f46649);box-shadow:inset 0 1px 1px #fff1da99,0 0 7px #ffb18c66,0 0 14px #f4664944}
+
+/* Live is a complete green lighting state, not a green rim on coral glass. */
+body[data-copy-page="marketplace"] #section-5{position:relative;isolation:isolate;overflow:hidden}
+body[data-copy-page="marketplace"] #section-5> :is(.launch-heading,.launch-workspace,.launch-caption){position:relative;z-index:1}
+body[data-copy-page="marketplace"] #section-5:has(.launch-workspace[data-launch-step="4"]){
+ --brand-glass:radial-gradient(ellipse at 100% 0,#78e7ad45,transparent 27%),radial-gradient(ellipse at 0 100%,#56d99738,transparent 25%),linear-gradient(115deg,#e5fff012,transparent 36%,#a3efbd0a 74%,#d9ffe91a);
+ --brand-inner:radial-gradient(ellipse at 0 0,#8cf0b42e,transparent 55%),linear-gradient(135deg,#d9ffe91a,transparent 55%,#8cf0b413);
+ --brand-floor:#18231d;
+ --brand-edge:#9beabbad;
+ --brand-bevel:inset 0 1px 2px #e5fff0cf,inset 1px 0 1px #aaf2c657,inset 0 -1px 2px #76d9a499,0 0 30px #63d99a38,0 15px 36px #0002;
+ --brand-inner-bevel:inset 0 1px 1px #d9ffe98c,inset 0 -1px 2px #63d99a55,0 0 15px #63d99a20,0 5px 18px #0002;
+ background:radial-gradient(ellipse at 75% 60%,#63d99a1a,transparent 68%),#180f10;
+}
+body[data-copy-page="marketplace"] #section-5:before{
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;
+ background:linear-gradient(105deg,transparent 25%,#76d9a412 38%,#b5ffce30 49%,#76d9a41c 58%,transparent 74%);
+ transform:translateX(-100%);
+}
+body[data-copy-page="marketplace"] #section-5:has(.launch-workspace[data-launch-step="4"]):before{animation:marketplace-live-wave 2.8s cubic-bezier(.2,.65,.3,1) both}
+@keyframes marketplace-live-wave{0%{transform:translateX(-100%);opacity:0}20%{opacity:1}75%{opacity:.8}100%{transform:translateX(100%);opacity:0}}
+body[data-copy-page="marketplace"] #section-5 .launch-workspace[data-launch-step="4"] :is(.launch-store,.launch-setup){background:var(--brand-glass),var(--brand-floor);border-color:var(--brand-edge);box-shadow:var(--brand-bevel)}
+body[data-copy-page="marketplace"] #section-5 .launch-workspace[data-launch-step="4"] :is(.launch-domain,.launch-address,.launch-search,.launch-products article,.launch-setup button[data-launch]){
+ background:var(--brand-inner),#1b2a21;border-color:#8ce6b38c;box-shadow:var(--brand-inner-bevel);
+}
+body[data-copy-page="marketplace"] #section-5 .launch-workspace[data-launch-step="4"] .launch-brand{
+ background-image:linear-gradient(110deg,#76d9a4,#b6f4ce 23%,#f0fff5 43%,#8be3b0 60%,#63d99a 78%,#c5ffdd);color:#a0edc2;
+}
+body[data-copy-page="marketplace"] #section-5 .launch-workspace[data-launch-step="4"] .launch-brand span{color:#b6f4ce}
+body[data-copy-page="marketplace"] #section-5 .launch-workspace[data-launch-step="4"] .launch-setup button.complete b{background:#a0edc2;color:#10251a;box-shadow:0 0 20px #63d99a77}
+body[data-copy-page="marketplace"] #section-5 .launch-workspace[data-launch-step="4"] .launch-swatch{background:#76d9a4;box-shadow:0 0 12px #63d99a55}
+body[data-copy-page="marketplace"] #section-5 .launch-workspace[data-launch-step="4"] .launch-catalog{box-shadow:inset 0 0 26px #63d99a12}
+body[data-copy-page="marketplace"] #section-5 .launch-workspace[data-launch-step="4"] .launch-live{background:#1d3426;border-color:#a0edc2;color:#c5ffdd;box-shadow:inset 0 1px 1px #e5fff099,inset 0 0 20px #63d99a22,0 0 32px #63d99a55}
+/* These secondary text controls do not need a material panel behind them. */
+body[data-copy-page="marketplace"] #section-5 .launch-setup .launch-replay{background:none;box-shadow:none;border:0}
+body[data-copy-page="marketplace"] .mr-pause{background:transparent;box-shadow:none}
+body[data-copy-page="marketplace"] .commerce-module details:not(.commerce-cancel) summary{background:none;box-shadow:none}
+@media(prefers-reduced-motion:reduce){body[data-copy-page="marketplace"] #section-5:before{animation:none!important;transform:none;opacity:0}}

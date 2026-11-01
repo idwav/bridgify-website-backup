@@ -7,7 +7,7 @@
  let index=0,elapsed=0,last=0,paused=false,visible=false,phase=-1;
  const ease=t=>1-Math.pow(1-Math.max(0,Math.min(1,t)),3);
  function pose(slot,w){return {x:w*(w<500?.9:1)*[0,.54,.63,.69,.74,.78][slot],y:slot*9,scale:[1,.8,.68,.57,.48,.4][slot]};}
- function draw(card,p,opacity,z){card.style.transform=`translate3d(${p.x}px,${p.y}px,0) scale(${p.scale})`;card.style.opacity=opacity;card.style.zIndex=z;card.style.filter=`brightness(${.42+p.scale*.58})`;}
+ function draw(card,p,opacity,z){card.style.transform=`translate3d(${p.x}px,${p.y}px,0) scale(${p.scale})`;card.style.opacity=1;card.style.zIndex=z;card.style.filter=`brightness(${.42+p.scale*.58})`;}
  function orbit(now){const w=root.querySelector('.match-deck').clientWidth;let t=reduced.matches?1:Math.min(1,(now-motionStart)/1550);
  if(moving&&t>=1){recycled=currentLead;recycleStart=now;currentLead=nextLead;moving=false;}
  cards.forEach((card,i)=>{const slot=(i-currentLead+cards.length)%cards.length;const p=pose(slot,w);

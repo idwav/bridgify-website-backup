@@ -1,0 +1,76 @@
+/* Hotels material palette. Geometry and interactions remain in each section's CSS. */
+body[data-copy-page="hotels"]{
+ --hotel-glass:radial-gradient(ellipse at 100% 0%,#ff89623d,transparent 19%),radial-gradient(ellipse at 0% 100%,#ff785334,transparent 18%),radial-gradient(ellipse at 0 0,#ffd4bb12,transparent 26%),linear-gradient(115deg,#fff8f10c,transparent 36%,#fff8f106 74%,#fff8f110);
+ --hotel-glass-inner:radial-gradient(ellipse at 0 0,#ffac8b20,transparent 50%),linear-gradient(135deg,#fff8f10b,#180f1026 55%,#fff8f10a);
+ --hotel-glass-edge:#f6c8b594;
+ --hotel-glass-shadow:inset 0 1px 1px #fff1da94,inset 1px 0 1px #ffb6a32d,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b33,0 15px 36px #0002;
+ --hotel-inner-shadow:inset 0 1px 1px #ffe4ce4d,inset 0 -1px 1px #f466492c,0 5px 18px #0002;
+ background:#180f10;color:#eee9de;
+}
+/* Main panels: clear brown centers, polished warm edges and local coral corners. */
+body[data-copy-page="hotels"] :is(.hc-panel,.hi-glass,.hj-device,.hgi-panel){
+ background:var(--hotel-glass);border-color:var(--hotel-glass-edge);
+ box-shadow:var(--hotel-glass-shadow);backdrop-filter:blur(18px);
+}
+body[data-copy-page="hotels"] .hj-step.is-active .hj-device{
+ border-color:#ffb59b;box-shadow:var(--hotel-glass-shadow),0 0 20px #f4664924;
+}
+/* Nested surfaces retain their own shapes, spacing and hierarchy. */
+body[data-copy-page="hotels"] :is(.hc-hotel,.hi-row,.hi-more,.hi-content,.hi-payment,.hi-icon,.hi-tabs,.hi-brand-tag,.hj-paper,.hj-mail-title,.hj-tabs,.hj-phone-photo>span,.hj-pause,.hgi-phone,.hgi-browser,.hgi-services>span,.hgi-embedded,.hgi-address,.hgi-store-cards>div){
+ background:var(--hotel-glass-inner);border-color:#e8ac9673;box-shadow:var(--hotel-inner-shadow);
+}
+body[data-copy-page="hotels"] .hi-row.is-active{
+ border-color:#f99b82b3;background:radial-gradient(ellipse at 0 0,#f4664926,transparent 65%),var(--hotel-glass-inner);
+}
+body[data-copy-page="hotels"] .hgi-phone{
+ background:radial-gradient(ellipse at 100% 0,#f466491c,transparent 38%),linear-gradient(135deg,#332626,#211719 55%,#30201f);
+ box-shadow:inset 0 1px 2px #fff1da88,inset 0 -1px 1px #f4664966,0 .6em 0 #100d0e,0 1.6em 2.8em #0005;
+}
+body[data-copy-page="hotels"] .hgi-browser{
+ background:radial-gradient(ellipse at 100% 0,#f4664920,transparent 28%),linear-gradient(130deg,#312323,#211719 55%,#30201f);
+ box-shadow:var(--hotel-glass-shadow);
+}
+body[data-copy-page="hotels"] .hgi-embedded{border-color:#ff9879;box-shadow:inset 0 1px 1px #ffd1ae88,inset 0 -1px 4px #f4664940,0 0 12px #f4664917}
+body[data-copy-page="hotels"] .hj-paper{color:#eee9de;background-color:#24191a}
+body[data-copy-page="hotels"] .hj-sender small{color:#c8bcb6}
+body[data-copy-page="hotels"] :is(.hc-experience,.hi-supply figure){border-color:#e8ac9673;box-shadow:var(--hotel-inner-shadow)}
+body[data-copy-page="hotels"] :is(.hi-hotel-photo,.hj-device img){box-shadow:0 0 0 1px #f6c8b533}
+/* Controls use the same glass; the selected state remains distinctly coral. */
+body[data-copy-page="hotels"] :is(.hc-footer .btn,.hc-next,.hi-cta,.hi-connection,.hj-action,.hgi-cta,.hgi-search,.final-cta-button){
+ background:radial-gradient(ellipse at 100% 0,#ff896238,transparent 55%),linear-gradient(135deg,#fff8f10d,#f4664915);
+ border-color:#f69f82a6;box-shadow:inset 0 1px 1px #ffd1ae88,inset 0 -1px 3px #f466493d,0 5px 18px #0002;color:#eee9de!important;
+}
+body[data-copy-page="hotels"] .hgi-search{background-color:#211719e0;backdrop-filter:blur(10px)}
+body[data-copy-page="hotels"] :is(.hc-tab,.hj-tabs>button){border-color:transparent}
+body[data-copy-page="hotels"] :is(.hc-tab.is-active,.hi-tabs button[aria-pressed="true"],.hj-tabs .selected,.hj-tabs button[aria-selected="true"],.hgi-search .hgi-search-action){
+ background:radial-gradient(ellipse at 50% 100%,#f4664938,transparent 75%),linear-gradient(135deg,#fff8f112,#f466491c);
+ color:#ffad94;border-color:#ff8868;box-shadow:inset 0 1px 1px #ffd1ae88,inset 0 -1px 4px #f4664940,0 0 12px #f4664917;
+}
+body[data-copy-page="hotels"] :is(.hc-footer .btn,.hi-cta,.hj-action,.hgi-cta,.final-cta-button):hover{background-color:#f4664926}
+body[data-copy-page="hotels"] .eyebrow{color:#f58d73}
+/* Remove the empty feedback slot, keeping feedback visible when an action populates it. */
+body[data-copy-page="hotels"] .hotel-journey{padding-bottom:26px}
+body[data-copy-page="hotels"] .hj-feedback:empty{min-height:0;margin:0}
+/* FAQ continues the same warm dark page and existing accordion layout. */
+body[data-copy-page="hotels"] .copy-faq{background:#180f10;color:#eee9de}
+body[data-copy-page="hotels"] .copy-faq :is(h2,summary){color:#eee9de}
+body[data-copy-page="hotels"] .copy-faq p{color:#d3c7bf}
+body[data-copy-page="hotels"] .copy-faq details{
+ border-color:#e8ac9666;background:linear-gradient(110deg,#fff8f105,transparent 55%,#f4664906);box-shadow:inset 0 1px 0 #fff1da0a;
+}
+body[data-copy-page="hotels"] .copy-faq summary::marker{color:#f58d73}
+body[data-copy-page="hotels"] .copy-faq details[open]{background:radial-gradient(ellipse at 100% 0,#f4664919,transparent 32%),linear-gradient(115deg,#fff8f107,transparent 65%)}
+body[data-copy-page="hotels"] .copy-faq details[open] summary,body[data-copy-page="hotels"] .copy-faq summary:hover{color:#ffad94}
+body[data-copy-page="hotels"] .copy-faq summary:focus-visible{outline:2px solid #f46649;outline-offset:6px;border-radius:3px}
+/* Preserve the footer's ring, layout and typography; continue the brown material. */
+body[data-copy-page="hotels"] .final-cta{background:#180f10}
+body[data-copy-page="hotels"] .final-cta-panel{background:var(--hotel-glass),#180f10;box-shadow:var(--hotel-glass-shadow)}
+body[data-copy-page="hotels"] .final-cta-copy{color:#c8bcb6}
+body[data-copy-page="hotels"] .final-cta-meta{color:#b5a7a0}
+@media(max-width:760px){body[data-copy-page="hotels"] .hotel-journey{padding-bottom:24px}}
+
+body[data-copy-page="hotels"] :is(.hi-app-stay,.hi-app-experiences){background:var(--brand-inner),#281b1d;border-color:#e8ac9673;box-shadow:var(--brand-inner-bevel)}
+body[data-copy-page="hotels"] .hi-app-experiences{border-color:#f69f8299}
+
+body[data-copy-page="hotels"] :is(.hj-app-stay,.hj-app-experience){background:var(--brand-inner),#281b1d;border-color:#e8ac9673;box-shadow:var(--brand-inner-bevel)}
+body[data-copy-page="hotels"] .hj-app-experience{border-color:#ff9879aa}

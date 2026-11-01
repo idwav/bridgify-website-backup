@@ -7,3 +7,20 @@
 @media(max-width:1000px){.mr-columns{gap:16px}.mr-columns .mr-frame{padding:12px}.mr-columns .mr-copy{min-height:150px}.mr-columns .mr-copy h3{font-size:23px}.mr-columns .mr-copy p{font-size:16px}.mr-columns .mr-copy{gap:10px}.mr-columns .mr-cover>div{left:12px;right:12px}.mr-columns .mr-cover h4{font-size:22px}}
 @media(max-width:760px){.mr-columns{grid-template-columns:1fr;gap:30px}.mr-columns .mr-copy{min-height:0}.mr-columns .mr-frame{min-height:390px}.mr-columns .mr-copy h3{font-size:28px}.mr-columns .mr-copy p{font-size:18px}.mr-columns .mr-cover{height:255px}.mr-columns .mr-destination{min-height:320px}}
 .mr-columns .mr-frame{height:430px;min-height:430px;flex:none}.mr-columns .mr-brand-layout{height:auto;flex:1;min-height:0}.mr-columns .mr-store{flex:1;min-height:0}.mr-columns .mr-destination{min-height:0}.mr-columns .mr-copy{min-height:110px}
+
+/* Make the selected identity visible across the storefront header. */
+.market-rows .mr-brand-name{background-color:var(--brand);background-image:linear-gradient(120deg,#ffffff20,transparent 65%);color:#180f10;box-shadow:inset 0 1px 0 #ffffff40;transition:background-color .8s ease,color .8s ease}
+.market-rows .mr-brand-name span{color:inherit}
+.market-rows .mr-flag{position:relative;display:inline-block;width:22px;height:14px;flex:0 0 22px;border-radius:1px;overflow:hidden;vertical-align:-2px;box-shadow:0 0 0 1px #fff6,inset 0 0 0 1px #0002}
+.market-rows .mr-flag--fr{background:linear-gradient(90deg,#0055a4 0 33.333%,#fff 33.333% 66.666%,#ef4135 66.666%)}
+.market-rows .mr-flag--it{background:linear-gradient(90deg,#009246 0 33.333%,#fff 33.333% 66.666%,#ce2b37 66.666%)}
+.market-rows .mr-flag--gr{background:repeating-linear-gradient(180deg,#0d5eaf 0 1.56px,#fff 1.56px 3.12px)}
+.market-rows .mr-flag--gr:before{content:"";position:absolute;left:0;top:0;width:8px;height:8px;background:#0d5eaf}
+.market-rows .mr-flag--gr:after{content:"";position:absolute;left:0;top:0;width:8px;height:8px;background:linear-gradient(90deg,transparent 3px,#fff 3px 5px,transparent 5px),linear-gradient(0deg,transparent 3px,#fff 3px 5px,transparent 5px)}
+.market-rows .mr-flag--us,.market-rows .mr-flag--eu,.market-rows .mr-flag--gb{background-color:transparent;background-position:center;background-repeat:no-repeat;background-size:cover}
+.market-rows .mr-flag--us{background-image:url("assets/flag-us.svg")}
+.market-rows .mr-flag--eu{background-image:url("assets/flag-eu.svg")}
+.market-rows .mr-flag--gb{background-image:url("assets/flag-gb.svg")}
+.market-rows [data-market]{display:inline-flex;align-items:center;gap:8px}
+.market-rows .mr-pills button{white-space:nowrap}
+@media(prefers-reduced-motion:reduce){.market-rows .mr-brand-name{transition:none}}

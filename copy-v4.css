@@ -26,11 +26,15 @@ body[data-copy-page="about-us"] .copy-addition{background:#eee9de}
 /* Keep the existing halo behind the CTA when footer links make the panel taller. */
 .final-cta-panel:has(.copy-footer-navigation)::after{top:clamp(260px,30vw,420px);bottom:auto}
 
-/* Marketplace FAQ continues the warm dark product page. */
-body[data-copy-page="marketplace"] .copy-faq{background:#180f10;color:#eee9de}
-body[data-copy-page="marketplace"] .copy-faq p{color:#eee9de}
-body[data-copy-page="marketplace"] .copy-faq details{border-color:#eee9de26}
-body[data-copy-page="marketplace"] .copy-faq summary{color:#eee9de}
-body[data-copy-page="marketplace"] .copy-faq summary::marker{color:#f46649}
-body[data-copy-page="marketplace"] .copy-faq details[open] summary,body[data-copy-page="marketplace"] .copy-faq summary:hover{color:#f46649}
-body[data-copy-page="marketplace"] .copy-faq summary:focus-visible{outline:2px solid #f46649;outline-offset:6px;border-radius:3px}
+/* Product FAQs continue the warm dark page. */
+body:is([data-copy-page="marketplace"],[data-copy-page="personalization"]) .copy-faq{background:#180f10;color:#eee9de}
+body:is([data-copy-page="marketplace"],[data-copy-page="personalization"]) .copy-faq p{color:#eee9de}
+body:is([data-copy-page="marketplace"],[data-copy-page="personalization"]) .copy-faq details{border-color:#eee9de26}
+body:is([data-copy-page="marketplace"],[data-copy-page="personalization"]) .copy-faq summary{color:#eee9de}
+body:is([data-copy-page="marketplace"],[data-copy-page="personalization"]) .copy-faq summary::marker{color:#f46649}
+body:is([data-copy-page="marketplace"],[data-copy-page="personalization"]) .copy-faq details[open] summary,body:is([data-copy-page="marketplace"],[data-copy-page="personalization"]) .copy-faq summary:hover{color:#f46649}
+body:is([data-copy-page="marketplace"],[data-copy-page="personalization"]) .copy-faq summary:focus-visible{outline:2px solid #f46649;outline-offset:6px;border-radius:3px}
+
+body[data-copy-page="personalization"] #faq{width:100%;max-width:none;margin:0;padding:clamp(48px,5vw,80px) clamp(24px,4vw,96px);border-radius:0}
+body[data-copy-page="personalization"] #faq :is(.copy-inner,h2,details,p){max-width:none}
+body[data-copy-page="personalization"] #faq summary{overflow-wrap:anywhere}

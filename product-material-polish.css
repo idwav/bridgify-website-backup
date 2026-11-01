@@ -1,0 +1,56 @@
+/* Shared product-page material: warm glass with localized edge lighting. */
+.market-results .results-inner,.market-audiences .ma-inner{max-width:none;width:100%}
+.market-audiences h2{max-width:none}
+.product-gradient-ink,.match-head h2 em,.eyebrow,.journey-step-label,.mr-number,.ma-number{
+ background-image:linear-gradient(110deg,#f46649 0%,#ff967b 23%,#ffe2c6 43%,#f88b72 60%,#f46649 78%,#ffb49a 100%);
+ background-size:240% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+ animation:product-ink-flow 5s ease-in-out infinite alternate;
+}
+@keyframes product-ink-flow{from{background-position:0% 50%}to{background-position:100% 50%}}
+.market-results .results-panel,.market-results .results-partners{
+ background:radial-gradient(ellipse at 100% 0%,#ff896234,transparent 22%),radial-gradient(ellipse at 0% 100%,#ff78532b,transparent 20%),linear-gradient(115deg,#fff8f10c,transparent 36%,#fff8f106 74%,#fff8f110);
+ border:1px solid #f4b6a380;backdrop-filter:blur(18px);
+ box-shadow:inset 0 1px 1px #fff8f16b,inset 1px 0 1px #ffb6a33d,inset 0 -1px 1px #fff8f14d,0 0 28px #f4664912,0 12px 24px #0002;
+}
+.market-results .results-panel article{background:radial-gradient(ellipse at 85% 0%,#f4664910,transparent 55%)}
+.market-results .results-payment{
+ background:radial-gradient(ellipse at 100% 0%,#ff967b38,transparent 45%),radial-gradient(ellipse at 0% 100%,#f466491c,transparent 45%),linear-gradient(125deg,#fff8f118,#21151788 48%,#fff8f10a);
+ border-color:#e8ac9699;
+ box-shadow:inset 0 1px 1px #ffe4ce88,inset 0 -1px 4px #f4664940,3px 5px 0 #291a18,0 0 22px #f466491c,0 24px 19px -15px #0009;
+}
+.market-results .results-tickets path{stroke:#e8ac9699}
+.market-results .results-tickets svg{filter:drop-shadow(0 0 5px #f4664920) drop-shadow(2px 4px 0 #2a1c19)}
+@media(prefers-reduced-motion:reduce){.product-gradient-ink,.match-head h2 em,.eyebrow,.journey-step-label,.mr-number,.ma-number{animation:none}}
+
+/* Continuous dark personalization sections, with an unrestricted matching layout. */
+body[data-copy-page="personalization"]{background:#180f10}
+body[data-copy-page="personalization"] #section-2.intent-section{width:100%;max-width:none;margin:0!important;border-radius:0;box-sizing:border-box}
+body[data-copy-page="personalization"] #section-3.match-section{width:100%;max-width:none;margin:0;box-sizing:border-box}
+body[data-copy-page="personalization"] #section-3 .match-head,
+body[data-copy-page="personalization"] #section-3 .match-workspace,
+body[data-copy-page="personalization"] #section-3 .match-footer,
+body[data-copy-page="personalization"] #section-3 .match-head h2,
+body[data-copy-page="personalization"] #section-3 .match-head p{max-width:none}
+
+body[data-copy-page="personalization"] #section-2 .intent-heading,
+body[data-copy-page="personalization"] #section-2 .intent-stage,
+body[data-copy-page="personalization"] #section-2 .intent-heading p{max-width:none}
+body[data-copy-page="personalization"] #section-2 .intent-heading,
+body[data-copy-page="personalization"] #section-2 .intent-stage{width:100%;box-sizing:border-box}
+
+/* Size semantic cards against the sentence, not an ever-widening canvas. */
+body[data-copy-page="personalization"] #section-2 .intent-stage{container-type:inline-size}
+body[data-copy-page="personalization"] #section-2 .intent-sentence{font-size:clamp(20px,3.7cqw,64px)}
+body[data-copy-page="personalization"] #section-2 .intent-field:not([data-field=context]){width:min(260px,18%);min-width:0;padding:17px 8px}
+@media(max-width:850px){
+ body[data-copy-page="personalization"] #section-2 .intent-heading{grid-template-columns:1fr;gap:20px;padding:0}
+ body[data-copy-page="personalization"] #section-2 .intent-heading p{margin:0}
+}
+@media(max-width:650px){
+ body[data-copy-page="personalization"] #section-2 .intent-stage{padding:24px 16px}
+ body[data-copy-page="personalization"] #section-2 .intent-sentence{white-space:normal;font-size:clamp(22px,5.7cqw,32px);min-height:150px}
+ body[data-copy-page="personalization"] #section-2 .intent-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:24px;min-height:0}
+ body[data-copy-page="personalization"] #section-2 .intent-field:not([data-field=context]){position:relative;width:auto;top:0;left:auto!important;min-height:100px}
+ body[data-copy-page="personalization"] #section-2 .intent-field[data-field=context]{grid-column:1/-1;grid-row:2}
+ body[data-copy-page="personalization"] #section-2 .intent-field strong{font-size:21px}
+}

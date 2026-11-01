@@ -1,12 +1,12 @@
 (()=>{
 const root=document.querySelector('.market-rows');if(!root)return;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');let paused=reduced.matches;
-const locales=[['France · Français','Paris','Français','DÉCOUVRIR','Des expériences à partager.','assets/paris-romantic-experience.png'],['Italia · Italiano','Roma','Italiano','ESPLORA','Esperienze da condividere.','assets/api-card-colosseum.jpg'],['Ελλάδα · Ελληνικά','Σαντορίνη','Ελληνικά','ΑΝΑΚΑΛΥΨΤΕ','Εμπειρίες για να μοιραστείτε.','assets/hero-santorini.jpg']];
+const locales=[['France · Français','Paris','Français','DÉCOUVRIR','Des expériences à partager.','assets/paris-romantic-experience.png','fr'],['Italia · Italiano','Roma','Italiano','ESPLORA','Esperienze da condividere.','assets/api-card-colosseum.jpg','it'],['Ελλάδα · Ελληνικά','Σαντορίνη','Ελληνικά','ΑΝΑΚΑΛΥΨΤΕ','Εμπειρίες για να μοιραστείτε.','assets/hero-santorini.jpg','gr']];
 const amounts=['$100.00','€90.00','£80.00'];
 function reveal(el){el.classList.remove('mr-changing');void el.offsetWidth;el.classList.add('mr-changing')}
 function update(row,i){const kind=row.dataset.demo;row.dataset.index=i;row.querySelectorAll('button').forEach((b,n)=>b.setAttribute('aria-pressed',String(n===i)));
 if(kind==='brand'){row.querySelector('.mr-frame').style.setProperty('--brand',['#f46649','#65b6a6','#b193d8'][i]);}
-if(kind==='locale'){const v=locales[i];['market','place','language','place-label','place-copy'].forEach((key,n)=>row.querySelector(`[data-${key}]`).textContent=v[n]);const img=row.querySelector('[data-place-image]');img.src=v[5];img.alt=v[1];reveal(row.querySelector('.mr-destination'));}
+if(kind==='locale'){const v=locales[i];row.querySelector('[data-market]').innerHTML=`<span class="mr-flag mr-flag--${v[6]}" aria-hidden="true"></span><span>${v[0]}</span>`;['place','language','place-label','place-copy'].forEach((key,n)=>row.querySelector(`[data-${key}]`).textContent=v[n+1]);const img=row.querySelector('[data-place-image]');img.src=v[5];img.alt=v[1];reveal(row.querySelector('.mr-destination'));}
 if(kind==='currency'){row.querySelectorAll('[data-amount]').forEach(el=>{el.textContent=amounts[i];reveal(el)});}
 }
 const rows=[...root.querySelectorAll('.mr-row')];rows.forEach(row=>{update(row,0);row.querySelectorAll('button').forEach((b,i)=>b.addEventListener('click',()=>{update(row,i);row.dataset.last=Date.now()}));});
