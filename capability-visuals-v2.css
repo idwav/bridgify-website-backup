@@ -1,5 +1,5 @@
 /* Reference-led capability chapters: stable editorial copy and a live connected scene. */
-#why-bridgify.bv2-why{padding:0 var(--home-gutter,4%) 32px;background:radial-gradient(ellipse at 72% 55%,#58250f36,transparent 65%),#100c08;border:0;color:#eee9de;isolation:isolate}
+#why-bridgify.bv2-why{padding:clamp(96px,15vh,168px) var(--home-gutter,4%) 32px;background:radial-gradient(ellipse at 72% 55%,#58250f36,transparent 65%),#100c08;border:0;color:#eee9de;isolation:isolate}
 .bv2-why .opx-scroll-story{position:relative}
 .bv2-why .v2-story-frame{position:relative}
 .bv2-why .v2-story-frame:before{content:'';position:absolute;inset:0;pointer-events:none;z-index:-1;background-image:radial-gradient(#c98a4c3b .7px,transparent .8px);background-size:24px 24px;mask-image:linear-gradient(90deg,transparent 25%,#0008 62%,#000);opacity:.55}
@@ -11,7 +11,7 @@
 .bv2-why .opx-tabs{width:100%;max-width:320px;margin:0}
 .bv2-why .opx-tabs button{position:relative;display:flex;align-items:center;gap:22px;width:100%;min-height:52px;padding:12px 14px;border:1px solid transparent;border-bottom-color:#c3a98a3b;border-radius:0;color:#ded2c1;background:transparent;font:400 17px/1.3 Sofia,sans-serif;transition:background .35s,border-color .35s,box-shadow .35s;color-scheme:dark}
 .bv2-why .opx-tabs button::after{display:none}
-.bv2-why .opx-tabs button[aria-selected=true]{color:#fff8f1;background:linear-gradient(125deg,#a75e3726,#20140d66);border-color:#ef995a99;border-radius:11px;box-shadow:inset 1px 1px 0 #ffb77c99,-3px 0 14px #f47b3522}
+.bv2-why .opx-tabs button[aria-selected=true]{color:#fff8f1;background:linear-gradient(125deg,#a75e3726,#20140d66);border-color:#ef995a66;border-radius:11px;box-shadow:-3px 0 14px #f47b3522}
 .bv2-why .opx-tabs button .opx-icon{width:26px;height:26px;color:inherit}
 .bv2-why .opx-tabs button[aria-selected=true] .opx-icon{color:#ff925a}
 .bv2-why .opx-tabs button:hover{color:#ffb485;background-color:#ffad7010}
@@ -108,7 +108,7 @@
 @media(max-width:1100px) and (min-width:901px){.bv2-why [data-mode=scroll] .opx-panels{width:36%}.bv2-why .opx-panel p{font-size:16px}.bv2-why .opx-tabs button{font-size:16px;min-height:46px}.bv2-why .opx-tabs button .opx-icon{width:23px;height:23px}.bv2-why [data-mode=scroll] .opx-tabs{width:25%}}
 @media(max-height:760px) and (min-width:901px){.bv2-why [data-mode=scroll] .opx-heading{top:2%}.bv2-why [data-mode=scroll] .opx-panels{top:27%}.bv2-why .opx-panel h3{font-size:28px;margin-bottom:14px}.bv2-why .opx-panel p{font-size:17px;line-height:1.5}.bv2-why .opx-panel .opx-link{margin-top:18px;font-size:15px}.bv2-why .opx-tabs button{min-height:43px;padding:8px 12px;font-size:16px}.bv2-why [data-mode=scroll] .opx-tabs{bottom:auto}}
 @media(max-width:600px){
- #why-bridgify.bv2-why{padding-block:32px 48px}
+ #why-bridgify.bv2-why{padding-block:72px 48px}
  .bv2-why .opx-heading h2{font-size:32px}
  .bv2-why .opx-panel h3{font-size:28px}
  .bv2-why .opx-panel p{font-size:18px}
@@ -155,7 +155,92 @@
 .bv2-why[data-motion=paused] .cv-scene *{animation-play-state:paused!important}
 
 /* A luminous perimeter fills with the active chapter's scroll distance. */
-.bv2-why .opx-tabs .opx-progress-ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;opacity:0;transition:opacity .25s}
-.bv2-why .opx-progress-ring rect{fill:none;stroke:#ff9565;stroke-width:2;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:calc(100 * (1 - var(--opx-slide-progress,0)));filter:drop-shadow(0 0 3px #ff693f) drop-shadow(0 0 7px #f4664970)}
+.bv2-why .opx-tabs .opx-progress-ring{position:absolute;inset:-1px;width:calc(100% + 2px);height:calc(100% + 2px);overflow:visible;pointer-events:none;opacity:0;transition:opacity .25s}
+.bv2-why .opx-progress-ring rect{fill:none;stroke:#ff9565;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:calc(100 * (1 - var(--opx-slide-progress,0)));filter:drop-shadow(0 0 2px #ff693f99)}
 .bv2-why .opx-tabs button[aria-selected=true] .opx-progress-ring{opacity:1}
 @media(prefers-reduced-motion:reduce){.bv2-why .opx-tabs .opx-progress-ring{display:none}}
+
+/* Aggregate: existing and added sources → one Bridgify layer → one catalog, as three floating layers. */
+.bv2-why .cv-aggregate .cv-plates{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.bv2-why .cv-plate-top{stroke:#d9774a;stroke-opacity:.5;stroke-width:1.2;stroke-linejoin:round}
+.bv2-why .cv-plate-band{stroke:#e4703f;stroke-opacity:.65;stroke-width:1.2}
+.bv2-why .cv-plate-hot{stroke:#ff8a5c;stroke-opacity:.95;stroke-width:1.5;filter:drop-shadow(0 0 6px #f4664966)}
+.bv2-why .cv-plate-dots{fill:#f46649;opacity:.55}
+.bv2-why .cv-port{fill:#fff8f1;stroke:#f46649;stroke-width:1.2;filter:drop-shadow(0 0 3px #ff684a)}
+.bv2-why .cv-agg-catalog{position:absolute;left:15%;top:1.03%;width:70%;height:29.2%;box-sizing:border-box;display:flex;flex-direction:column;padding:2.1cqw 2.8cqw;border:1px solid #f0905f;border-radius:2cqw;background:linear-gradient(160deg,#3b2418,#1a110d 70%);box-shadow:inset 0 1px 0 #ffd8b030,0 .5cqw 0 #55301e,0 1.1cqw 0 #25150e,0 2.4cqw 3cqw #0008;transform:perspective(1400px) rotateX(4deg);transform-origin:50% 100%}
+.bv2-why .cv-agg-catalog>strong{display:block;font:500 2.25cqw/1.3 Sofia,sans-serif;margin-bottom:1.2cqw}
+.bv2-why .cv-agg-catalog .cv-catalog-grid{flex:1;min-height:0;height:auto}
+.bv2-why .cv-agg-catalog img,.bv2-why .cv-hub-tile img,.bv2-why .cv-card img{display:block;width:100%;height:100%;object-fit:cover}
+.bv2-why .cv-agg-callout{position:absolute;left:52.9%;top:35.5%;transform:translateY(-50%);font-size:1.75cqw;line-height:1.2;color:#e3cfb8;white-space:nowrap}
+.bv2-why .cv-agg-hub{position:absolute;left:9.09%;top:58.97%;width:81.82%;height:8.2%;display:flex;align-items:center;justify-content:center;font:400 2.6cqw/1 Sofia,sans-serif;letter-spacing:.01em;color:#fff3e6}
+.bv2-why .cv-agg-hubtiles,.bv2-why .cv-agg-sources{position:absolute;inset:0;pointer-events:none}
+.bv2-why .cv-hub-tile{position:absolute;width:14.55%;aspect-ratio:160/110;box-sizing:border-box;border:1px solid #ffa371aa;border-radius:.7cqw;overflow:hidden;transform:perspective(700px) rotateX(56deg);box-shadow:0 1.2cqw 2cqw #000a,0 0 1.6cqw #f4664944}
+.bv2-why .cv-cluster{position:absolute;width:19.45%;height:15.9%}
+.bv2-why .cv-card{position:absolute;width:79.4%;height:80.6%;box-sizing:border-box;border:1px solid #f1b88b66;border-radius:.8cqw;overflow:hidden;box-shadow:0 .8cqw 1.6cqw #0008}
+.bv2-why .cv-card-front{left:0;top:19.4%}
+.bv2-why .cv-card-mid{left:10.3%;top:9.7%;filter:brightness(.8)}
+.bv2-why .cv-card-back{left:20.6%;top:0;filter:brightness(.62)}
+.bv2-why .cv-kept .cv-card-front{border:2px solid #f46649;box-shadow:0 0 1.6cqw #f4664988,0 .8cqw 1.6cqw #0008}
+.bv2-why .cv-badge{position:absolute;left:calc(79.4% - 1.9cqw);top:calc(100% - 2.1cqw);width:3cqw;height:3cqw;display:grid;place-items:center;border-radius:50%;background:#f46649;box-shadow:0 0 1.4cqw #f4664999}
+.bv2-why .cv-badge svg{width:62%;height:62%;fill:none;stroke:#fff8f1;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.bv2-why .cv-cluster-label{position:absolute;left:0;top:calc(100% + 1.5cqw);width:100%;text-align:center;font:400 1.95cqw/1.2 Sofia,sans-serif;color:#eee9de;white-space:nowrap}
+/* Slow, layer-by-layer build when the chapter is reached (homepage-v2.js sets data-build):
+   floor → sources → beams → Bridgify layer → integration → catalog. Without the script, or with
+   reduced motion, the finished diagram is simply shown. */
+.bv2-why .cv-build-ready{--cv-ease:cubic-bezier(.22,1,.36,1)}
+.bv2-why .cv-build-ready :is(.cv-plate-top,.cv-plate-band,.cv-card,.cv-hub-tile,.cv-agg-catalog,.cv-catalog-grid>div,.cv-cluster-label){transition:opacity 1s ease var(--d,0s),translate 1.3s var(--cv-ease) var(--d,0s)}
+.bv2-why .cv-build-ready :is(.cv-plate-dots,.cv-agg-hub,.cv-agg-callout,.cv-port,.cv-packet){transition:opacity .9s ease var(--d,0s)}
+.bv2-why .cv-build-ready .cv-badge{transition:opacity .5s ease var(--d,0s),scale .7s var(--cv-ease) var(--d,0s)}
+.bv2-why .cv-build-ready .cv-wire{transition:opacity .4s ease var(--d,0s),stroke-dashoffset 1s ease-in-out var(--d,0s);stroke-dasharray:1}
+.bv2-why .cv-build-ready .cv-agg-catalog{transition-duration:1.2s,1.5s}
+.bv2-why .cv-build-ready .cv-agg-tier-1 .cv-plate-band{--d:.2s}
+.bv2-why .cv-build-ready .cv-agg-tier-2 .cv-plate-top{--d:2.4s}
+.bv2-why .cv-build-ready .cv-agg-tier-2 .cv-plate-band{--d:2.6s}
+.bv2-why .cv-build-ready .cv-plate-dots{--d:3s}
+.bv2-why .cv-build-ready .cv-cluster:nth-child(1){--b:.6s}
+.bv2-why .cv-build-ready .cv-cluster:nth-child(2){--b:.8s}
+.bv2-why .cv-build-ready .cv-cluster:nth-child(3){--b:1s}
+.bv2-why .cv-build-ready .cv-cluster:nth-child(4){--b:1.2s}
+.bv2-why .cv-build-ready .cv-card-back{--d:var(--b)}
+.bv2-why .cv-build-ready .cv-card-mid{--d:calc(var(--b) + .14s)}
+.bv2-why .cv-build-ready .cv-card-front{--d:calc(var(--b) + .28s)}
+.bv2-why .cv-build-ready .cv-cluster-label{--d:calc(var(--b) + .6s)}
+.bv2-why .cv-build-ready .cv-badge{--d:calc(var(--b) + .8s)}
+.bv2-why .cv-build-ready .cv-hub-tile:nth-child(1){--d:3.1s}
+.bv2-why .cv-build-ready .cv-hub-tile:nth-child(2){--d:3.22s}
+.bv2-why .cv-build-ready .cv-hub-tile:nth-child(3){--d:3.34s}
+.bv2-why .cv-build-ready .cv-hub-tile:nth-child(4){--d:3.46s}
+.bv2-why .cv-build-ready .cv-agg-hub{--d:3.5s}
+.bv2-why .cv-build-ready .cv-wire-out{--d:3.7s}
+.bv2-why .cv-build-ready .cv-port{--d:4.2s}
+.bv2-why .cv-build-ready .cv-agg-callout{--d:4.3s}
+.bv2-why .cv-build-ready .cv-agg-catalog{--d:4s}
+.bv2-why .cv-build-ready .cv-catalog-grid>div:nth-child(1){--d:4.5s}
+.bv2-why .cv-build-ready .cv-catalog-grid>div:nth-child(2){--d:4.65s}
+.bv2-why .cv-build-ready .cv-catalog-grid>div:nth-child(3){--d:4.8s}
+.bv2-why .cv-build-ready .cv-packet{--d:5.4s}
+/* Idle: every layer waits off-stage. Resetting is instant because it only happens off-screen. */
+.bv2-why .cv-build-ready[data-build=idle] *{transition:none!important}
+.bv2-why .cv-build-ready[data-build=idle] :is(.cv-plate-top,.cv-plate-band,.cv-plate-dots,.cv-card,.cv-badge,.cv-cluster-label,.cv-hub-tile,.cv-agg-hub,.cv-agg-callout,.cv-agg-catalog,.cv-catalog-grid>div,.cv-port,.cv-packet,.cv-wire){opacity:0}
+.bv2-why .cv-build-ready[data-build=idle] :is(.cv-plate-top,.cv-plate-band){translate:0 30px}
+.bv2-why .cv-build-ready[data-build=idle] .cv-card{translate:0 26px}
+.bv2-why .cv-build-ready[data-build=idle] .cv-cluster-label{translate:0 10px}
+.bv2-why .cv-build-ready[data-build=idle] .cv-badge{scale:.3}
+.bv2-why .cv-build-ready[data-build=idle] .cv-hub-tile{translate:0 -28px}
+.bv2-why .cv-build-ready[data-build=idle] .cv-agg-catalog{translate:0 52px}
+.bv2-why .cv-build-ready[data-build=idle] .cv-catalog-grid>div{translate:0 18px}
+.bv2-why .cv-build-ready[data-build=idle] .cv-wire{stroke-dashoffset:1}
+@media(max-width:600px){
+ .bv2-why .cv-aggregate .cv-plates,.bv2-why .cv-aggregate .cv-agg-hubtiles{display:none}
+ .bv2-why .cv-aggregate .cv-agg-catalog{position:relative;left:auto;top:auto;width:100%;height:auto;padding:20px 16px;border-radius:14px;transform:none}
+ .bv2-why .cv-agg-catalog>strong{font-size:20px;margin-bottom:12px}
+ .bv2-why .cv-agg-catalog .cv-catalog-grid{flex:none;height:130px;gap:7px}
+ .bv2-why .cv-aggregate .cv-agg-callout{position:relative;left:auto;top:auto;transform:none;display:block;text-align:center;font-size:15px}
+ .bv2-why .cv-aggregate .cv-agg-hub{position:relative;left:auto;top:auto;width:100%;height:auto;min-height:56px;font-size:20px;border:1px solid #f99251;border-radius:12px;background:linear-gradient(160deg,#5d342440,#251914 55%,#51302255)}
+ .bv2-why .cv-aggregate .cv-agg-sources{position:static;display:grid;grid-template-columns:1fr 1fr;gap:18px 14px;pointer-events:auto}
+ .bv2-why .cv-aggregate .cv-cluster{position:relative;left:auto!important;top:auto!important;width:auto;height:auto}
+ .bv2-why .cv-aggregate .cv-card-mid,.bv2-why .cv-aggregate .cv-card-back{display:none}
+ .bv2-why .cv-aggregate .cv-card-front{position:relative;left:0;top:0;width:100%;height:96px;border-radius:8px}
+ .bv2-why .cv-aggregate .cv-badge{left:auto;right:8px;top:72px;width:28px;height:28px}
+ .bv2-why .cv-aggregate .cv-cluster-label{position:static;display:block;margin-top:10px;font-size:15px;white-space:normal}
+}

@@ -20,20 +20,21 @@
     svg.classList.add('opx-progress-ring');
     svg.setAttribute('aria-hidden', 'true');
     const rect = document.createElementNS(svg.namespaceURI, 'rect');
-    rect.setAttribute('x', '1.5');
-    rect.setAttribute('y', '1.5');
-    rect.setAttribute('rx', '10');
+    // Stroke centre sits on the 1px border centre line, so the meter rides the outline itself.
+    rect.setAttribute('x', '.5');
+    rect.setAttribute('y', '.5');
+    rect.setAttribute('rx', '10.5');
     rect.setAttribute('pathLength', '100');
     svg.append(rect);
     tab.append(svg);
     return { tab, svg, rect };
   });
   const sizeRings = () => rings.forEach(({ tab, svg, rect }) => {
-    const { width, height } = tab.getBoundingClientRect();
+    const width = tab.offsetWidth, height = tab.offsetHeight;
     if (!width || !height) return;
     svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
-    rect.setAttribute('width', String(width - 3));
-    rect.setAttribute('height', String(height - 3));
+    rect.setAttribute('width', String(width - 1));
+    rect.setAttribute('height', String(height - 1));
   });
   const ringObserver = new ResizeObserver(sizeRings);
   tabs.forEach(tab => ringObserver.observe(tab));
@@ -222,4 +223,34 @@
     const section = sections.find(candidate => candidate.contains(event.target));
     animations.get(section)?.finish();
   });
+})();
+
+// Aggregate scene: build the diagram layer by layer whenever the chapter is reached.
+(() => {
+  const scene = document.querySelector('.cv-aggregate');
+  const visual = scene?.closest('.v2-capability-visual');
+  const section = document.querySelector('.bv2-why');
+  if (!scene || !visual || !section) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let inView = false;
+  function sync() {
+    if (reduced.matches) { scene.classList.remove('cv-build-ready'); delete scene.dataset.build; return; }
+    scene.classList.add('cv-build-ready');
+    const stage = section.querySelector('.opx-scroll-story');
+    const pinned = stage?.dataset.mode === 'scroll';
+    const want = inView && (!pinned || visual.dataset.current === 'true');
+    if (!want) scene.dataset.build = 'idle';
+    else if (scene.dataset.build !== 'play') {
+      // Commit the idle frame first so the transitions have a start state.
+      void scene.offsetWidth;
+      scene.dataset.build = 'play';
+    }
+  }
+  scene.dataset.build = 'idle';
+  new IntersectionObserver(entries => { inView = entries[0].isIntersecting; sync(); }, { threshold: .4 }).observe(scene);
+  new MutationObserver(sync).observe(visual, { attributes: true, attributeFilter: ['data-current'] });
+  const storyEl = section.querySelector('.opx-scroll-story');
+  if (storyEl) new MutationObserver(sync).observe(storyEl, { attributes: true, attributeFilter: ['data-mode'] });
+  reduced.addEventListener('change', sync);
+  sync();
 })();
