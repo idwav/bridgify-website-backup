@@ -183,7 +183,7 @@
 // Reveal each homepage section on entry, without hiding content or wrapping sticky stories.
 (() => {
   const sections = [...document.querySelectorAll('section:not(.hero), footer')]
-    .filter(section => !section.parentElement.closest('section, footer'));
+    .filter(section => !section.parentElement.closest('section, footer') && section.id !== 'why-bridgify');
   if (!sections.length || !('IntersectionObserver' in window)) return;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const animations = new Map();
@@ -253,4 +253,32 @@
   if (storyEl) new MutationObserver(sync).observe(storyEl, { attributes: true, attributeFilter: ['data-mode'] });
   reduced.addEventListener('change', sync);
   sync();
+})();
+
+// Why Bridgify: the heading, chapter list, copy and visual fade in one after another as the section is scrolled into view.
+(() => {
+  const section = document.querySelector('.bv2-why');
+  if (!section) return;
+  const targets = ['.opx-heading', '.opx-tabs', '.opx-capability-copy .opx-panels', '.v2-capability-gallery'].map(selector => section.querySelector(selector)).filter(Boolean);
+  if (!targets.length) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = value => Math.max(0, Math.min(1, value));
+  let frame = 0;
+  function apply() {
+    frame = 0;
+    const s = reduced.matches ? 2 : (innerHeight * .95 - section.getBoundingClientRect().top) / (innerHeight * .75);
+    targets.forEach((element, index) => {
+      const p = 1 - Math.pow(1 - clamp(s * 1.8 - index * .38), 3);
+      if (p >= 1) { element.style.removeProperty('opacity'); element.style.removeProperty('translate'); return; }
+      element.style.opacity = p.toFixed(3);
+      // A translate would turn a static element into the containing block of absolute children, so only positioned parts move.
+      if (getComputedStyle(element).position !== 'static') element.style.translate = `0 ${((1 - p) * 30).toFixed(1)}px`;
+      else element.style.removeProperty('translate');
+    });
+  }
+  const schedule = () => { if (!frame) frame = requestAnimationFrame(apply); };
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule, { passive: true });
+  reduced.addEventListener('change', schedule);
+  apply();
 })();

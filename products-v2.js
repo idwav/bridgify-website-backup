@@ -93,3 +93,25 @@
   configure();
   document.fonts?.ready.then(queue);
 })();
+
+// Experiences API preview: type the one line, then fill the catalog, each time the product comes into focus.
+(() => {
+  const section = document.querySelector('.v2p-products');
+  const api = section?.querySelector('.v2p-api');
+  if (!api) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let seen = false;
+  function sync() {
+    if (reduced.matches) { if (api.classList.contains('v2p-anim')) api.classList.remove('v2p-anim'); delete api.dataset.play; return; }
+    if (!api.classList.contains('v2p-anim')) api.classList.add('v2p-anim');
+    const stacked = section.classList.contains('v2p-ready');
+    const want = stacked ? api.classList.contains('is-current') : seen;
+    if (!want) { delete api.dataset.play; return; }
+    if (api.dataset.play !== 'on') { void api.offsetWidth; api.dataset.play = 'on'; }
+  }
+  new IntersectionObserver(entries => { seen = entries[0].isIntersecting; sync(); }, { threshold: .55 }).observe(api);
+  new MutationObserver(sync).observe(api, { attributes: true, attributeFilter: ['class'] });
+  new MutationObserver(sync).observe(section, { attributes: true, attributeFilter: ['class'] });
+  reduced.addEventListener('change', sync);
+  sync();
+})();

@@ -1,5 +1,5 @@
 /* Reference-led capability chapters: stable editorial copy and a live connected scene. */
-#why-bridgify.bv2-why{padding:clamp(96px,15vh,168px) var(--home-gutter,4%) 32px;background:radial-gradient(ellipse at 72% 55%,#58250f36,transparent 65%),#100c08;border:0;color:#eee9de;isolation:isolate}
+#why-bridgify.bv2-why{padding:clamp(56px,8vh,88px) var(--home-gutter,4%) 32px;background:radial-gradient(ellipse at 72% 55%,#58250f36,transparent 65%),#100c08;border:0;color:#eee9de;isolation:isolate}
 .bv2-why .opx-scroll-story{position:relative}
 .bv2-why .v2-story-frame{position:relative}
 .bv2-why .v2-story-frame:before{content:'';position:absolute;inset:0;pointer-events:none;z-index:-1;background-image:radial-gradient(#c98a4c3b .7px,transparent .8px);background-size:24px 24px;mask-image:linear-gradient(90deg,transparent 25%,#0008 62%,#000);opacity:.55}
@@ -108,7 +108,7 @@
 @media(max-width:1100px) and (min-width:901px){.bv2-why [data-mode=scroll] .opx-panels{width:36%}.bv2-why .opx-panel p{font-size:16px}.bv2-why .opx-tabs button{font-size:16px;min-height:46px}.bv2-why .opx-tabs button .opx-icon{width:23px;height:23px}.bv2-why [data-mode=scroll] .opx-tabs{width:25%}}
 @media(max-height:760px) and (min-width:901px){.bv2-why [data-mode=scroll] .opx-heading{top:2%}.bv2-why [data-mode=scroll] .opx-panels{top:27%}.bv2-why .opx-panel h3{font-size:28px;margin-bottom:14px}.bv2-why .opx-panel p{font-size:17px;line-height:1.5}.bv2-why .opx-panel .opx-link{margin-top:18px;font-size:15px}.bv2-why .opx-tabs button{min-height:43px;padding:8px 12px;font-size:16px}.bv2-why [data-mode=scroll] .opx-tabs{bottom:auto}}
 @media(max-width:600px){
- #why-bridgify.bv2-why{padding-block:72px 48px}
+ #why-bridgify.bv2-why{padding-block:56px 48px}
  .bv2-why .opx-heading h2{font-size:32px}
  .bv2-why .opx-panel h3{font-size:28px}
  .bv2-why .opx-panel p{font-size:18px}
