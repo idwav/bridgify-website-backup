@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="318 168 574 520">
+<g fill="none" stroke="#fff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"><path d="M440 328C455 360 478 380 498 392C512 400 505 424 482 424C450 424 420 414 392 410"/><path d="M402 508C450 492 492 476 515 460C528 450 530 430 530 395"/><path d="M470 584C510 545 560 500 560 455V372"/><path d="M770 328C755 360 732 380 712 392C698 400 705 424 728 424C760 424 790 414 818 410"/><path d="M808 508C760 492 718 476 695 460C682 450 680 430 680 395"/><path d="M740 584C700 545 650 500 650 455V372"/><path d="M605 375V612"/></g>
+<g fill="none" stroke="#fff" stroke-width="22"><circle cx="422" cy="300" r="26"/><circle cx="362" cy="408" r="26"/><circle cx="375" cy="518" r="26"/><circle cx="452" cy="607" r="26"/><circle cx="788" cy="300" r="26"/><circle cx="848" cy="408" r="26"/><circle cx="835" cy="518" r="26"/><circle cx="758" cy="607" r="26"/><circle cx="605" cy="642" r="28"/></g>
+<g fill="#fff"><circle cx="605" cy="282" r="110"/><path d="M528 335C533 360 540 372 545 380H665C670 372 677 360 682 335Z"/></g>
+</svg>

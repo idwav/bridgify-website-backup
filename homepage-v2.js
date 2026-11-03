@@ -183,7 +183,7 @@
 // Reveal each homepage section on entry, without hiding content or wrapping sticky stories.
 (() => {
   const sections = [...document.querySelectorAll('section:not(.hero), footer')]
-    .filter(section => !section.parentElement.closest('section, footer') && section.id !== 'why-bridgify');
+    .filter(section => !section.parentElement.closest('section, footer') && !['sources', 'why-bridgify', 'personalization', 'products', 'audiences', 'partners', 'faq'].includes(section.id));
   if (!sections.length || !('IntersectionObserver' in window)) return;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const animations = new Map();
@@ -255,30 +255,37 @@
   sync();
 })();
 
-// Why Bridgify: the heading, chapter list, copy and visual fade in one after another as the section is scrolled into view.
+// Each section stays hidden until it is scrolled to, then its heading, copy and main elements rise in one after another.
 (() => {
-  const section = document.querySelector('.bv2-why');
-  if (!section) return;
-  const targets = ['.opx-heading', '.opx-tabs', '.opx-capability-copy .opx-panels', '.v2-capability-gallery'].map(selector => section.querySelector(selector)).filter(Boolean);
-  if (!targets.length) return;
+  const plan = {
+    sources: ['.trust-copy > *', '.trust-stat', '.trust-footnote'],
+    'why-bridgify': ['.opx-heading > *', '.opx-capability-copy .opx-panels', '.opx-tabs', '.v2-capability-gallery'],
+    personalization: ['.home-intent-heading > div:first-child > *', '.home-intent-copy > *', '.intent-stage'],
+    products: ['.v2p-heading > *', '.v2p-list', '.v2p-previews', '.v2p-scroll-cue'],
+    audiences: ['.audiences-head > div > *', '.audiences-intro', '.audience-grid'],
+    partners: ['.bv2-partners-heading > *', '.bv2-partner-list'],
+    faq: ['.copy-inner > *']
+  };
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const clamp = value => Math.max(0, Math.min(1, value));
-  let frame = 0;
-  function apply() {
-    frame = 0;
-    const s = reduced.matches ? 2 : (innerHeight * .95 - section.getBoundingClientRect().top) / (innerHeight * .75);
-    targets.forEach((element, index) => {
-      const p = 1 - Math.pow(1 - clamp(s * 1.8 - index * .38), 3);
-      if (p >= 1) { element.style.removeProperty('opacity'); element.style.removeProperty('translate'); return; }
-      element.style.opacity = p.toFixed(3);
-      // A translate would turn a static element into the containing block of absolute children, so only positioned parts move.
-      if (getComputedStyle(element).position !== 'static') element.style.translate = `0 ${((1 - p) * 30).toFixed(1)}px`;
-      else element.style.removeProperty('translate');
-    });
-  }
-  const schedule = () => { if (!frame) frame = requestAnimationFrame(apply); };
-  window.addEventListener('scroll', schedule, { passive: true });
-  window.addEventListener('resize', schedule, { passive: true });
-  reduced.addEventListener('change', schedule);
-  apply();
+  if (reduced.matches || !('IntersectionObserver' in window)) return;
+  // Moving a static element would make it the containing block of its absolute children, so those only fade.
+  const fadeOnly = element => getComputedStyle(element).position === 'static' &&
+    [...element.querySelectorAll('*')].slice(0, 400).some(child => getComputedStyle(child).position === 'absolute');
+  const sections = Object.keys(plan).map(id => document.getElementById(id)).filter(Boolean);
+  sections.forEach(section => {
+    let index = 0;
+    plan[section.id].forEach(selector => section.querySelectorAll(selector).forEach(element => {
+      if (element.dataset.rv) return;
+      element.dataset.rv = fadeOnly(element) ? 'fade' : 'rise';
+      element.style.setProperty('--rv-d', `${Math.min(index++, 9) * 120}ms`);
+    }));
+  });
+  document.documentElement.classList.add('rv-ready');
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('rv-on');
+    observer.unobserve(entry.target);
+  }), { rootMargin: '0px 0px -28% 0px' });
+  sections.forEach(section => observer.observe(section));
+  reduced.addEventListener('change', () => { if (reduced.matches) sections.forEach(section => section.classList.add('rv-on')); });
 })();
