@@ -1,0 +1,15 @@
+/* Cream editorial sections; product demonstrations retain smoked brown glass. */
+body[data-copy-page] section.brand-light-section{background:#eee9de!important;color:#180f10;border-radius:0}
+body[data-copy-page] .brand-light-section :is(.mr-heading,.mr-copy,.intent-heading,.embed-heading){color:#180f10}
+body[data-copy-page] .brand-light-section :is(.mr-heading,.mr-copy,.intent-heading,.embed-heading) :is(h2,h3,p){color:#180f10!important}
+body[data-copy-page] .brand-light-section :is(.mr-footer,.embed-links){color:#65504a;border-color:#180f1029}
+body[data-copy-page] .brand-light-section .embed-links a{color:#a33f2d}
+body[data-copy-page] .brand-light-section .mr-pause{color:#653b30;border-color:#9e756450}
+body[data-copy-page] .brand-light-section :is(.mr-frame,.intent-stage,.embed-shell){color:#eee9de;background:var(--brand-glass),#211719!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 16px 32px #37201820}
+body[data-copy-page] .brand-light-section :is(.mr-heading,.mr-copy,.intent-heading,.embed-heading) :is(.brand-coral-ink,.product-gradient-ink,.mr-number,.eyebrow),body[data-copy-page] .brand-light-section>.eyebrow,body[data-copy-page] .brand-light-section .results-inner>h2 .brand-coral-ink{background-image:linear-gradient(110deg,#a63d29 0%,#d65b3c 25%,#b64a32 48%,#e97753 70%,#a63d29 100%)!important;color:#b54b34}
+body[data-copy-page] #marketplace-results.brand-light-section :is(.results-panel,.results-partners){background:radial-gradient(ellipse at 100% 0,#f4664916,transparent 50%),linear-gradient(130deg,#fff8f1b0,#eee9de);border-color:#9a6d534a;box-shadow:inset 0 1px 1px #fff8f1,0 12px 28px #40271c0c;color:#180f10}
+body[data-copy-page] #marketplace-results.brand-light-section :is(.results-panel article+article,.results-partners li+li){border-color:#8b68532e}
+body[data-copy-page] #marketplace-results.brand-light-section .results-value{color:#b34a31!important;background:linear-gradient(110deg,#a63d29,#de7650 40%,#a63d29 80%);background-size:240% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:brand-coral-flow 5s ease-in-out infinite alternate}
+body[data-copy-page] #marketplace-results.brand-light-section .results-dots i:not(.lit){background:#65463824;box-shadow:inset 0 1px #fff8f1}
+body[data-copy-page] #marketplace-results.brand-light-section .results-tickets path{fill:#d6b9a430;stroke:#a44e36}
+@media(prefers-reduced-motion:reduce){body[data-copy-page] #marketplace-results.brand-light-section .results-value{animation:none}}
