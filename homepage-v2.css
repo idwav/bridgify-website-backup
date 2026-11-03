@@ -70,3 +70,17 @@
 }
 @media(prefers-reduced-motion:reduce){.bv2-why *{animation:none!important;transition:none!important}.bv2-why .opx-wire-trace{display:none}}
 @media print{.bv2-why .opx-scroll-story{height:auto!important}.bv2-why .opx-capabilities{position:static!important}.bv2-why .opx-panels{display:block!important}.bv2-why .opx-panel{opacity:1!important;visibility:visible!important;translate:none!important;margin-bottom:24px!important}.bv2-why .opx-tabs{display:none!important}}
+
+/* Closing words of a headline carry the same flowing coral ink as the AIyelet page. */
+.v2-ink{font-style:normal;color:#f48b73;background-image:linear-gradient(110deg,#f46649 0%,#ff967b 23%,#ffe2c6 43%,#f88b72 60%,#f46649 78%,#ffb49a 100%);background-size:240% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:v2-ink-flow 5s ease-in-out infinite alternate}
+/* Cream sections need the deeper coral to stay readable. */
+:is(.trust-strip,.home-intent,.audiences,.v4-partners,.copy-faq) .v2-ink{color:#d9482c;background-image:linear-gradient(110deg,#cf3f25 0%,#e5573a 30%,#e8603f 50%,#d9482c 72%,#cf3f25 100%)}
+@keyframes v2-ink-flow{from{background-position:0% 50%}to{background-position:100% 50%}}
+:root:has(.hero.paused) .v2-ink{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.v2-ink{animation:none}}
+
+/* Section reveal: hidden until the section is reached, then each part rises in turn (see homepage-v2.js). */
+html.rv-ready [data-rv]{opacity:0;transition:opacity .9s cubic-bezier(.22,1,.36,1) var(--rv-d,0ms),translate .9s cubic-bezier(.22,1,.36,1) var(--rv-d,0ms)}
+html.rv-ready [data-rv=rise]{translate:0 40px}
+html.rv-ready .rv-on [data-rv]{opacity:1;translate:none}
+@media(prefers-reduced-motion:reduce){html.rv-ready [data-rv]{opacity:1;translate:none;transition:none}}

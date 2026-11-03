@@ -20,3 +20,6 @@ html body #home .brand-lockup{color:#f6eee9}
 html body #home .brand-group{display:none}
 html body #home .brand-lockup{align-items:center}
 html body #home .brand-name{line-height:1}
+
+/* Top navigation uses the circuit octopus mark in white. The V1 homepage keeps its original mark. */
+html[data-home-version="2"] .top .brand-flat-symbol,body:not([data-copy-page="index"]) .top .brand-flat-symbol{width:40px;flex-basis:40px;background:#fff;mask-image:url("assets/bridgify-nav-mark.svg");-webkit-mask-image:url("assets/bridgify-nav-mark.svg")}

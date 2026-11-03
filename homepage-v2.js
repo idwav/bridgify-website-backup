@@ -20,20 +20,21 @@
     svg.classList.add('opx-progress-ring');
     svg.setAttribute('aria-hidden', 'true');
     const rect = document.createElementNS(svg.namespaceURI, 'rect');
-    rect.setAttribute('x', '1.5');
-    rect.setAttribute('y', '1.5');
-    rect.setAttribute('rx', '10');
+    // Stroke centre sits on the 1px border centre line, so the meter rides the outline itself.
+    rect.setAttribute('x', '.5');
+    rect.setAttribute('y', '.5');
+    rect.setAttribute('rx', '10.5');
     rect.setAttribute('pathLength', '100');
     svg.append(rect);
     tab.append(svg);
     return { tab, svg, rect };
   });
   const sizeRings = () => rings.forEach(({ tab, svg, rect }) => {
-    const { width, height } = tab.getBoundingClientRect();
+    const width = tab.offsetWidth, height = tab.offsetHeight;
     if (!width || !height) return;
     svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
-    rect.setAttribute('width', String(width - 3));
-    rect.setAttribute('height', String(height - 3));
+    rect.setAttribute('width', String(width - 1));
+    rect.setAttribute('height', String(height - 1));
   });
   const ringObserver = new ResizeObserver(sizeRings);
   tabs.forEach(tab => ringObserver.observe(tab));
@@ -182,7 +183,7 @@
 // Reveal each homepage section on entry, without hiding content or wrapping sticky stories.
 (() => {
   const sections = [...document.querySelectorAll('section:not(.hero), footer')]
-    .filter(section => !section.parentElement.closest('section, footer'));
+    .filter(section => !section.parentElement.closest('section, footer') && !['sources', 'why-bridgify', 'personalization', 'products', 'audiences', 'partners', 'faq'].includes(section.id));
   if (!sections.length || !('IntersectionObserver' in window)) return;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const animations = new Map();
@@ -222,4 +223,69 @@
     const section = sections.find(candidate => candidate.contains(event.target));
     animations.get(section)?.finish();
   });
+})();
+
+// Aggregate scene: build the diagram layer by layer whenever the chapter is reached.
+(() => {
+  const scene = document.querySelector('.cv-aggregate');
+  const visual = scene?.closest('.v2-capability-visual');
+  const section = document.querySelector('.bv2-why');
+  if (!scene || !visual || !section) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let inView = false;
+  function sync() {
+    if (reduced.matches) { scene.classList.remove('cv-build-ready'); delete scene.dataset.build; return; }
+    scene.classList.add('cv-build-ready');
+    const stage = section.querySelector('.opx-scroll-story');
+    const pinned = stage?.dataset.mode === 'scroll';
+    const want = inView && (!pinned || visual.dataset.current === 'true');
+    if (!want) scene.dataset.build = 'idle';
+    else if (scene.dataset.build !== 'play') {
+      // Commit the idle frame first so the transitions have a start state.
+      void scene.offsetWidth;
+      scene.dataset.build = 'play';
+    }
+  }
+  scene.dataset.build = 'idle';
+  new IntersectionObserver(entries => { inView = entries[0].isIntersecting; sync(); }, { threshold: .4 }).observe(scene);
+  new MutationObserver(sync).observe(visual, { attributes: true, attributeFilter: ['data-current'] });
+  const storyEl = section.querySelector('.opx-scroll-story');
+  if (storyEl) new MutationObserver(sync).observe(storyEl, { attributes: true, attributeFilter: ['data-mode'] });
+  reduced.addEventListener('change', sync);
+  sync();
+})();
+
+// Each section stays hidden until it is scrolled to, then its heading, copy and main elements rise in one after another.
+(() => {
+  const plan = {
+    sources: ['.trust-copy > *', '.trust-stat', '.trust-footnote'],
+    'why-bridgify': ['.opx-heading > *', '.opx-capability-copy .opx-panels', '.opx-tabs', '.v2-capability-gallery'],
+    personalization: ['.home-intent-heading > div:first-child > *', '.home-intent-copy > *', '.intent-stage'],
+    products: ['.v2p-heading > *', '.v2p-list', '.v2p-previews', '.v2p-scroll-cue'],
+    audiences: ['.audiences-head > div > *', '.audiences-intro', '.audience-grid'],
+    partners: ['.bv2-partners-heading > *', '.bv2-partner-list'],
+    faq: ['.copy-inner > *']
+  };
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  if (reduced.matches || !('IntersectionObserver' in window)) return;
+  // Moving a static element would make it the containing block of its absolute children, so those only fade.
+  const fadeOnly = element => getComputedStyle(element).position === 'static' &&
+    [...element.querySelectorAll('*')].slice(0, 400).some(child => getComputedStyle(child).position === 'absolute');
+  const sections = Object.keys(plan).map(id => document.getElementById(id)).filter(Boolean);
+  sections.forEach(section => {
+    let index = 0;
+    plan[section.id].forEach(selector => section.querySelectorAll(selector).forEach(element => {
+      if (element.dataset.rv) return;
+      element.dataset.rv = fadeOnly(element) ? 'fade' : 'rise';
+      element.style.setProperty('--rv-d', `${Math.min(index++, 9) * 120}ms`);
+    }));
+  });
+  document.documentElement.classList.add('rv-ready');
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('rv-on');
+    observer.unobserve(entry.target);
+  }), { rootMargin: '0px 0px -28% 0px' });
+  sections.forEach(section => observer.observe(section));
+  reduced.addEventListener('change', () => { if (reduced.matches) sections.forEach(section => section.classList.add('rv-on')); });
 })();

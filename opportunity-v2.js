@@ -53,7 +53,7 @@
   });
   function pump() {
     if (current || reduced.matches || paused()) return;
-    const next = blocks.find(block => visible.has(block) && !completed.has(block));
+    const next = blocks.find(block => visible.has(block) && !completed.has(block) && block.dataset.v2cReveal !== 'waiting');
     if (!next) return;
     current = next;
     next.dataset.lightState = 'lighting';
@@ -107,8 +107,84 @@
   new IntersectionObserver(entries => {
     if (!entries[0].isIntersecting) { visible.clear(); reset(); sync(); }
   }, { threshold: 0 }).observe(section);
+  section.addEventListener('v2c-revealed', sync);
   document.addEventListener('visibilitychange', sync);
   reduced.addEventListener('change', () => { reset(); sync(); });
   if (hero) new MutationObserver(sync).observe(hero, { attributes: true, attributeFilter: ['class'] });
   sync();
+})();
+
+// Scroll entrance: each block of the comparison rises in after the previous one.
+(() => {
+  const section = document.querySelector('.v2o-comparison');
+  if (!section) return;
+  const blocks = [
+    section.querySelector('.v2c-heading h2'),
+    ...section.querySelectorAll('.v2c-intro-column'),
+    section.querySelector('.v2c-bottom'),
+    ...section.querySelectorAll('.v2c-panel')
+  ].filter(Boolean);
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const STEP = 240;
+  const intersecting = new Set(), timers = new Set();
+  let revealed = 0, last = 0, started = false;
+  blocks.forEach(block => { block.dataset.v2cReveal = 'waiting'; });
+
+  function show(block) {
+    block.dataset.v2cReveal = 'shown';
+    block.classList.add('is-revealed');
+    block.addEventListener('transitionend', event => {
+      if (event.target === block && event.propertyName === 'transform') block.classList.add('v2c-settled');
+    }, { once: true });
+    section.dispatchEvent(new CustomEvent('v2c-revealed'));
+  }
+  function advance() {
+    while (revealed < blocks.length) {
+      const block = blocks[revealed];
+      const rect = block.getBoundingClientRect();
+      // Blocks already scrolled past appear at once; blocks below the fold wait their turn.
+      if (!intersecting.has(block) && rect.top > 0) return;
+      const wait = rect.bottom < 0 ? 0 : Math.max(0, last + STEP - performance.now());
+      revealed++;
+      if (wait === 0) { last = performance.now(); show(block); continue; }
+      last = performance.now() + wait;
+      const timer = setTimeout(() => { timers.delete(timer); show(block); }, wait);
+      timers.add(timer);
+    }
+  }
+  function reset() {
+    timers.forEach(clearTimeout); timers.clear();
+    revealed = 0; last = 0;
+    blocks.forEach(block => {
+      block.dataset.v2cReveal = 'waiting';
+      block.classList.remove('is-revealed', 'v2c-settled');
+    });
+  }
+  function enable() {
+    if (started) return;
+    started = true;
+    section.classList.add('v2c-reveal-ready');
+    // Settle the hidden state before the first block can transition in.
+    void section.offsetWidth;
+    advance();
+  }
+  function disable() {
+    started = false;
+    timers.forEach(clearTimeout); timers.clear();
+    section.classList.remove('v2c-reveal-ready');
+    blocks.forEach(block => { block.dataset.v2cReveal = 'shown'; block.classList.add('is-revealed'); });
+    section.dispatchEvent(new CustomEvent('v2c-revealed'));
+  }
+  const blockObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.isIntersecting ? intersecting.add(entry.target) : intersecting.delete(entry.target));
+    if (started) advance();
+  }, { threshold: .08, rootMargin: '0px 0px -10% 0px' });
+  new IntersectionObserver(entries => {
+    // Leaving the section re-arms the entrance for the next visit.
+    if (!entries[0].isIntersecting && started) { reset(); void section.offsetWidth; }
+  }, { threshold: 0 }).observe(section);
+  const apply = () => { reduced.matches ? disable() : (reset(), enable()); };
+  blocks.forEach(block => blockObserver.observe(block));
+  reduced.addEventListener('change', apply);
+  apply();
 })();
