@@ -52,3 +52,21 @@
 #top .integration-visual::after{content:'';position:absolute;pointer-events:none;z-index:-1;left:8%;right:3%;bottom:-62px;height:110px;border-radius:50%;background:radial-gradient(ellipse,#ed824b4d 0%,#c85b3029 38%,transparent 73%);filter:blur(20px)}
 @keyframes api-ambient-breathe{0%,100%{opacity:.75}50%{opacity:1}}
 @media(prefers-reduced-motion:reduce){#top.hero::after{animation:none}}
+
+/* API hero aligned with the warm glass product language. */
+@font-face{font-family:Chillax;src:url('Chillax_Complete/Fonts/WEB/fonts/Chillax-Light.woff2');font-weight:300;font-display:swap}
+#top.hero{background:#180f10;border-radius:0}
+#top.hero:before{display:none}
+#top.hero:after{background:radial-gradient(ellipse at 70% 60%,#f4664914,transparent 65%);filter:none;animation:none}
+#top .hero-copy :is(h1,[data-copy-display]){font-weight:300;letter-spacing:-.035em;line-height:1.18;color:#eee9de}
+#top .hero-copy p{color:#eee9de;font-weight:400}
+#top .hero-copy .api-coral-ink,#top .hero-copy .eyebrow{font-style:normal;background:linear-gradient(110deg,#f46649,#ff967b 23%,#ffe2c6 43%,#f88b72 60%,#f46649 78%,#ffb49a);background-size:240% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:api-coral-ink 5s ease-in-out infinite alternate}
+#top .integration-visual{background:radial-gradient(ellipse at 100% 0,#ff89623d,transparent 24%),radial-gradient(ellipse at 0 100%,#ff785334,transparent 22%),linear-gradient(115deg,#fff8f10c,transparent 36%,#fff8f106 74%,#fff8f110),#211719;border:1px solid #f6c8b594;border-radius:22px;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 15px 36px #0002}
+#top .integration-visual:before,#top .integration-visual:after{display:none}
+#top .integration-visual :is(#api-hub-face,#api-product-face){filter:none;stroke:#f48e71;stroke-width:1.2}
+#top .integration-visual [id^="api-route-"]{stroke:#f46649;filter:drop-shadow(0 0 3px #f4664940)}
+#top .integration-visual circle[r="3"],#top .integration-visual circle[r="4"]{fill:#eee9de;stroke:#f46649;stroke-width:1.5;filter:none}
+#top .hero-actions .button{background:linear-gradient(135deg,#513029,#2a1b19);color:#eee9de;border:1px solid #f4a084;box-shadow:inset 0 1px 1px #ffe2c66b,0 0 18px #f4664914;border-radius:12px}
+#top .hero-actions .button.alt{background:#211719;border-color:#f6c8b550}
+@keyframes api-coral-ink{from{background-position:0% 50%}to{background-position:100% 50%}}
+@media(prefers-reduced-motion:reduce){#top .hero-copy .api-coral-ink,#top .hero-copy .eyebrow{animation:none}}
