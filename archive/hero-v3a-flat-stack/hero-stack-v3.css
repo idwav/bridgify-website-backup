@@ -1,0 +1,85 @@
+/* Hero version 3: your brand plugs into the Bridgify strip, the infrastructure layers lock in, your app sits on top.
+   Shown only on /?version=3. Geometry is authored on the hero's 800 x 760 grid; --u is one grid unit. */
+html:not([data-hero="3"]) .bv2-stack{display:none}
+html[data-hero="3"] .bv2-funnel{display:none}
+.bv2-stack::after{content:none}
+.st-stage{position:absolute;inset:0;--u:.125cqw;font-family:Sofia,sans-serif;color:#eee9de}
+.st-stage>*{position:absolute}
+.st-svg{inset:0;width:100%;height:100%;overflow:visible;z-index:1}
+
+/* Strip */
+.st-floorglow{fill:#f46649;opacity:.16;filter:blur(18px)}
+.st-top{fill:url(#st-top);stroke:#4b3730;stroke-width:1}
+.st-body{fill:url(#st-body);stroke:#3e2c26;stroke-width:1}
+.st-edge{stroke:#f46649;stroke-width:2.4;filter:drop-shadow(0 0 5px #f46649)}
+.st-sock{fill:#0c0807;stroke:#4c3a33;stroke-width:1.2}
+.st-sock-in{fill:#1b1210}
+.st-sock-main{stroke:#f46649;stroke-width:2;filter:drop-shadow(0 0 6px #f4664999)}
+.st-pcable{fill:none;stroke:#f46649;stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 3px #f46649b3)}
+.st-pdots circle{fill:#fff8f1;filter:drop-shadow(0 0 3px #f46649)}
+.st-floor{left:calc(var(--u)*40);right:calc(var(--u)*120);top:calc(var(--u)*722);height:calc(var(--u)*38);z-index:0;background:radial-gradient(circle,#f46649 0 1px,transparent 1.6px) 0 0/calc(var(--u)*16) calc(var(--u)*12);-webkit-mask-image:radial-gradient(ellipse 60% 100% at 50% 0,#000,transparent);mask-image:radial-gradient(ellipse 60% 100% at 50% 0,#000,transparent);opacity:.75}
+.st-brand{left:calc(var(--u)*30);width:calc(var(--u)*660);top:calc(var(--u)*652);z-index:2;display:flex;align-items:center;justify-content:center;gap:calc(var(--u)*10);font:600 calc(var(--u)*28)/1 Sofia,sans-serif;letter-spacing:-.01em;color:#f3ece2}
+.st-brand img{width:calc(var(--u)*34);height:auto}
+
+/* Partner tiles already connected */
+.st-tile{left:calc(var(--u)*(var(--x) - 30));top:calc(var(--u)*470);width:calc(var(--u)*60);height:calc(var(--u)*60);box-sizing:border-box;z-index:2;display:grid;place-items:center;border:1px solid #6a5047;border-radius:calc(var(--u)*11);background:linear-gradient(150deg,#3a2b27,#1d1513);box-shadow:inset 0 1px #fff8f11c,0 calc(var(--u)*8) calc(var(--u)*16) #0007}
+.st-tile svg{width:calc(var(--u)*28);height:calc(var(--u)*28);fill:none;stroke:#f3ece2;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* Your brand plug and its label */
+.st-plug{transition:transform .5s cubic-bezier(.5,0,.75,0)}
+.st-pcord{fill:none;stroke:#f46649;stroke-width:4;stroke-linecap:round;filter:drop-shadow(0 0 4px #f46649b3)}
+.st-plug-body{fill:#211715;stroke:#5a4038}
+.st-plug-ring{fill:#f46649}
+.st-plug-tip{fill:#ffb08f;filter:drop-shadow(0 0 5px #f46649)}
+.st-pill{left:calc(var(--u)*706);top:calc(var(--u)*550);height:calc(var(--u)*24);box-sizing:border-box;z-index:2;display:flex;align-items:center;padding:0 calc(var(--u)*10);border:1px solid #f46649;border-radius:calc(var(--u)*12);background:#1d0f0c;font:500 calc(var(--u)*12)/1 Sofia,sans-serif;white-space:nowrap;color:#fff2ea;box-shadow:0 0 calc(var(--u)*12) #f4664955}
+.st-pill-lead{left:calc(var(--u)*748);top:calc(var(--u)*522);width:1px;height:calc(var(--u)*28);background:#f46649;z-index:2}
+
+/* Beam and flash */
+.st-beam{fill:url(#st-beam);transform-box:fill-box;transform-origin:50% 100%;filter:drop-shadow(0 0 6px #f46649)}
+.st-flash{fill:url(#st-flash);opacity:0;transform-box:fill-box;transform-origin:center}
+
+/* Infrastructure layers */
+.st-layer{left:calc(var(--u)*485);top:calc(var(--u)*var(--y));width:calc(var(--u)*230);height:calc(var(--u)*40);box-sizing:border-box;z-index:3;display:flex;align-items:center;gap:calc(var(--u)*9);padding:0 calc(var(--u)*12);border:1px solid #f4664999;border-radius:calc(var(--u)*9);background:linear-gradient(120deg,#3a1d16e6,#1c0f0ce6);box-shadow:0 0 calc(var(--u)*16) #f4664933,inset 0 1px #fff8f115;backdrop-filter:blur(3px);white-space:nowrap}
+.st-layer svg{flex:none;width:calc(var(--u)*17);height:calc(var(--u)*17);fill:none;stroke:#ffd9c8;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.st-layer span{font:400 calc(var(--u)*12)/1 Sofia,sans-serif;color:#f6ddd1;overflow:hidden;text-overflow:ellipsis}
+.st-layer b{font-weight:600;color:#fff2ea}
+.st-layer i{font-style:normal}
+.st-bracket{fill:none;stroke:#f46649;stroke-width:1.6}
+.st-infra{left:calc(var(--u)*300);width:calc(var(--u)*170);top:calc(var(--u)*386);z-index:2;text-align:right;font:600 calc(var(--u)*12)/1.25 Sofia,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#ff9a7c}
+
+/* Your branded app on top */
+.st-phone{left:calc(var(--u)*495);top:calc(var(--u)*28);width:calc(var(--u)*210);height:calc(var(--u)*292);box-sizing:border-box;z-index:3;padding:calc(var(--u)*6);border:1px solid #f46649;border-radius:calc(var(--u)*26);background:#1a100e;box-shadow:0 0 calc(var(--u)*26) #f4664955,0 calc(var(--u)*12) calc(var(--u)*30) #0008}
+.st-screen{height:100%;box-sizing:border-box;padding:calc(var(--u)*12) calc(var(--u)*10);border-radius:calc(var(--u)*20);background:#130c0b;display:flex;flex-direction:column;gap:calc(var(--u)*8);overflow:hidden}
+.st-app{display:flex;align-items:center;gap:calc(var(--u)*8);margin-bottom:calc(var(--u)*2)}
+.st-app-mark{flex:none;width:calc(var(--u)*24);height:calc(var(--u)*24);border-radius:calc(var(--u)*7);background:linear-gradient(140deg,#ff9a6e,#f46649)}
+.st-app b{display:block;font:600 calc(var(--u)*14)/1.1 Sofia,sans-serif;color:#fff8f1}
+.st-app small{display:block;margin-top:calc(var(--u)*3);font:500 calc(var(--u)*10.5)/1.1 Sofia,sans-serif;color:#ff9a7c}
+.st-card{position:relative;flex:1;min-height:0;border-radius:calc(var(--u)*10);overflow:hidden;border:1px solid #f4664955}
+.st-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.st-card::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0d0807e6 15%,#0d080700 75%)}
+.st-card div{position:absolute;z-index:1;left:calc(var(--u)*9);bottom:calc(var(--u)*8);max-width:62%}
+.st-card strong{display:block;font:600 calc(var(--u)*10.5)/1.15 Sofia,sans-serif;color:#fff8f1}
+.st-card small{display:block;margin-top:calc(var(--u)*2);font:400 calc(var(--u)*9)/1.1 Sofia,sans-serif;color:#e6d6cc}
+.st-card i{position:absolute;z-index:1;right:calc(var(--u)*8);bottom:calc(var(--u)*8);padding:calc(var(--u)*4) calc(var(--u)*10);border-radius:calc(var(--u)*9);background:#f46649;color:#180f10;font:600 calc(var(--u)*9.5)/1 Sofia,sans-serif;font-style:normal}
+.st-ontop{left:calc(var(--u)*330);width:calc(var(--u)*150);top:calc(var(--u)*62);z-index:2;text-align:right;font:500 calc(var(--u)*13)/1.25 Sofia,sans-serif;color:#f3ece2}
+.st-ontop::after{content:'';position:absolute;left:calc(100% + var(--u)*6);top:50%;width:calc(var(--u)*14);height:1px;background:#f46649}
+
+/* Timeline states: only when motion is allowed and the script is driving the scene. */
+.st-live .st-part{opacity:0;transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+.st-live .st-part.is-on{opacity:1;transform:none}
+.st-live .st-layer{transform:translateX(calc(var(--u)*60*var(--from)))}
+.st-live .st-phone,.st-live .st-card,.st-live .st-app,.st-live .st-infra,.st-live .st-ontop{transform:translateY(calc(var(--u)*10))}
+.st-live:not(.st-plugged) .st-plug{transform:translateY(calc(var(--u)*-44))}
+.st-live:not(.st-landed) .st-sock-main{stroke:#6a4a3f;filter:none}
+.st-live .st-beam{transform:scaleY(0);transition:transform .7s cubic-bezier(.3,.7,.2,1)}
+.st-live.st-beaming .st-beam{transform:none}
+.st-live.st-landed .st-flash{animation:st-flash .7s ease-out 1}
+.st-live.st-locked .st-layer{box-shadow:0 0 calc(var(--u)*20) #f4664955,inset 0 1px #fff8f115;transition:box-shadow .5s}
+.st-live:not(.st-flowing) .st-pdots{opacity:0}
+@keyframes st-flash{0%{opacity:0;transform:scale(.3)}30%{opacity:1}100%{opacity:0;transform:scale(1.6)}}
+
+@container (max-width:520px){
+  .st-layer i{display:none}
+  .st-infra{font-size:calc(var(--u)*14)}
+}
+@media(prefers-reduced-motion:reduce){.bv2-stack .st-part{opacity:1!important;transform:none!important}.st-pdots{display:none}}
