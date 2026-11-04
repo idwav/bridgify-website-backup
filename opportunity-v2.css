@@ -1,10 +1,11 @@
 /* V2 Opportunity: one shared infrastructure layer versus fragmented connections. */
-#opportunity-study.v2o-comparison{padding:56px var(--home-gutter,4%) 56px;margin:0;max-width:none;background:radial-gradient(ellipse at 78% 55%,#3c0d0540,transparent 62%),#100a08;color:#eee9de;overflow:hidden;font-family:Sofia,sans-serif;font-synthesis:none}
+#opportunity-study.v2o-comparison{padding:56px var(--home-gutter,4%) clamp(56px,8vh,88px);margin:0;max-width:none;background:radial-gradient(ellipse at 78% 55%,#3c0d0540,transparent 62%),#100a08;color:#eee9de;overflow:hidden;font-family:Sofia,sans-serif;font-synthesis:none}
 .v2c-inner{width:100%;margin:0 auto}
 .v2c-symbols{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
-.v2c-heading{margin-bottom:32px}
-#opportunity-study .v2c-heading h2{font:300 clamp(30px,2.8vw,52px)/1.22 Chillax,sans-serif;letter-spacing:-.04em;text-wrap:balance;max-width:none;margin:0 0 34px;text-align:center;color:#eee9de}
-.v2c-introduction{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,100px);position:relative;padding:0 5px}
+.v2c-heading{margin-bottom:28px}
+#opportunity-study .v2c-heading h2{font:300 clamp(30px,2.8vw,52px)/1.22 Chillax,sans-serif;letter-spacing:-.04em;text-wrap:balance;max-width:none;margin:0 0 56px;text-align:center;color:#eee9de}
+.v2c-introduction{display:grid;grid-template-columns:1fr 1fr;gap:32px;position:relative;padding:0}
+.v2c-intro-column{padding:0 26px}
 .v2c-introduction::after{content:'';position:absolute;left:50%;top:2px;bottom:2px;width:1px;background:#f4664966}
 #opportunity-study .v2c-introduction p{font:400 clamp(17px,1.15vw,21px)/1.55 Sofia,sans-serif;letter-spacing:0;color:#eee9de;margin:0;max-width:none}
 .v2c-introduction strong{font-weight:600}
@@ -39,7 +40,7 @@
 .v2c-disc-top{fill:url(#v2c-disc-top);stroke:#ff9b72;stroke-width:1.2}
 .v2c-disc-grid{fill:none;stroke:#f46649;stroke-width:.45;opacity:.3}
 .v2c-disc-highlight{stroke:#ffad83;filter:drop-shadow(0 0 3px #f46649aa)}
-.v2c-platform-label{fill:#f46649;font:300 24px Chillax,sans-serif}
+.v2c-platform-label{fill:#f46649;font:300 20px Chillax,sans-serif}
 .v2c-platform-icon{color:#f46649;stroke-width:1.4}
 .v2c-brand-result>rect:first-child{fill:#24100999;stroke:#f69b71;stroke-width:.9}
 .v2c-brand-result text{fill:#eee9de;font:400 9px Sofia,sans-serif;text-anchor:end}
@@ -53,7 +54,7 @@
 .v2c-facts .v2c-icon{display:block;width:26px;height:29px}
 .v2c-with .v2c-facts li{border-color:#f4664938}
 .v2c-with .v2c-facts .v2c-icon{color:#f46649}
-.v2c-bottom{position:relative;isolation:isolate;margin-top:28px;border:1px solid #f4664955;border-radius:14px;background:linear-gradient(105deg,#6b1d0d25,#2b0e0620)}
+.v2c-bottom{position:relative;isolation:isolate;margin:0 0 28px;border:1px solid #f4664955;border-radius:14px;background:linear-gradient(105deg,#6b1d0d25,#2b0e0620)}
 .v2c-bottom summary{display:grid;grid-template-columns:1fr 56px;align-items:center;gap:24px;padding:18px 26px;list-style:none;cursor:pointer;font:400 clamp(18px,1.3vw,23px)/1.4 Sofia,sans-serif}
 .v2c-bottom summary .v2c-toggle{text-align:center;color:#f46649;font-size:23px;border-left:1px solid #f4664955}
 .v2c-bottom[open]>summary .v2c-toggle{transform:none}
@@ -78,24 +79,32 @@
 @keyframes v2c-neon-edge{0%{opacity:0}32%{opacity:1}67%{opacity:.6}100%{opacity:.18}}
 
 @media(min-width:1101px){.v2c-facts li{height:64px}}
-@media(max-width:1100px){.v2c-panels{gap:24px}.v2c-panel{padding:20px 20px 10px}.v2c-facts li{gap:12px;min-height:70px}.v2c-bottom-content{grid-template-columns:1fr}}
+@media(max-width:1100px){.v2c-introduction{gap:24px}.v2c-intro-column{padding:0 20px}.v2c-panels{gap:24px}.v2c-panel{padding:20px 20px 10px}.v2c-facts li{gap:12px;min-height:70px}.v2c-bottom-content{grid-template-columns:1fr}}
 @media(max-height:760px) and (min-width:1101px){
- #opportunity-study.v2o-comparison{padding-top:32px;padding-bottom:32px}
- #opportunity-study .v2c-heading h2{margin-bottom:24px}
- .v2c-heading{margin-bottom:24px}
+ #opportunity-study.v2o-comparison{padding-top:32px;padding-bottom:64px}
+ #opportunity-study .v2c-heading h2{margin-bottom:40px}
+ .v2c-heading{margin-bottom:20px}
  .v2c-visual{max-width:420px;margin-bottom:10px}
  .v2c-facts li{height:52px;min-height:52px;padding-top:10px;padding-bottom:10px}
- .v2c-bottom{margin-top:20px}
+ .v2c-bottom{margin-bottom:20px}
  .v2c-bottom summary{padding-top:14px;padding-bottom:14px}
 }
 @media(max-width:760px){
- #opportunity-study.v2o-comparison{padding:48px var(--home-gutter,24px)}
- #opportunity-study .v2c-heading h2{text-align:left;font-size:30px;margin-bottom:24px}
- .v2c-introduction{grid-template-columns:1fr;gap:24px;padding:0}.v2c-introduction::after{display:none}
+ #opportunity-study.v2o-comparison{padding:48px var(--home-gutter,24px) 56px}
+ #opportunity-study .v2c-heading h2{text-align:left;font-size:30px;margin-bottom:36px}
+ .v2c-introduction{grid-template-columns:1fr;gap:24px;padding:0}.v2c-intro-column{padding:0}.v2c-introduction::after{display:none}
  .v2c-panels{grid-template-columns:1fr;gap:24px}.v2c-panel{padding:22px 16px 8px}
  #opportunity-study .v2c-panel h3{font-size:24px;margin-bottom:18px}
  .v2c-visual{margin-bottom:18px}.v2c-facts li{height:auto;min-height:64px;font-size:16px;gap:12px}
- .v2c-bottom{margin-top:24px}.v2c-bottom summary{grid-template-columns:1fr 28px;padding:18px;gap:12px}
+ .v2c-bottom{margin-bottom:24px}.v2c-bottom summary{grid-template-columns:1fr 28px;padding:18px;gap:12px}
  .v2c-bottom summary .v2c-toggle{border-left:0}.v2c-bottom-content{padding:0 18px 20px;gap:16px}
 }
-@media(prefers-reduced-motion:reduce){.v2c-flow-dots{display:none}.v2c-toggle{transition:none}.v2c-panel::before,.v2c-panel::after,.v2c-bottom::before,.v2c-bottom::after{animation:none!important;box-shadow:none}}
+/* Blocks rise in one after another as the section scrolls into view (opportunity-v2.js).
+   The hidden state only exists once the script has started, so content never depends on it. */
+.v2c-reveal-ready [data-v2c-reveal]{opacity:0;transform:translate3d(var(--v2c-reveal-x,0),30px,0);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .95s cubic-bezier(.16,1,.3,1);will-change:opacity,transform}
+.v2c-reveal-ready [data-v2c-reveal].is-revealed{opacity:1;transform:none}
+.v2c-reveal-ready [data-v2c-reveal].is-revealed.v2c-settled{will-change:auto}
+.v2c-reveal-ready .v2c-without[data-v2c-reveal]{--v2c-reveal-x:-22px}
+.v2c-reveal-ready .v2c-with[data-v2c-reveal]{--v2c-reveal-x:22px}
+@media(max-width:760px){.v2c-reveal-ready .v2c-without[data-v2c-reveal],.v2c-reveal-ready .v2c-with[data-v2c-reveal]{--v2c-reveal-x:0px}}
+@media(prefers-reduced-motion:reduce){.v2c-flow-dots{display:none}.v2c-toggle{transition:none}[data-v2c-reveal]{opacity:1!important;transform:none!important;transition:none!important}.v2c-panel::before,.v2c-panel::after,.v2c-bottom::before,.v2c-bottom::after{animation:none!important;box-shadow:none}}

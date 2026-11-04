@@ -3,10 +3,13 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const compact = matchMedia('(max-width: 760px)');
   const items = [];
+  const v2Revealed = document.documentElement.dataset.homeVersion === '2' && '#sources, #personalization, #products, #audiences, #partners, #faq';
   let frame = 0;
 
   function add(selector, { x = 0, y = 48, mask = false, stagger = 0 } = {}) {
     document.querySelectorAll(selector).forEach((element, index) => {
+      // The V2 homepage reveals these sections part by part in homepage-v2.js.
+      if (v2Revealed && element.closest(v2Revealed)) return;
       element.dataset.scrollEnter = mask ? 'unfold' : 'arrive';
       items.push({ element, x, y, mask, delay: Math.min(index, 2) * stagger, animation: null, shift: 0, progress: -1 });
     });

@@ -1,0 +1,6 @@
+/* Eased wheel scrolling hands control back to the browser while it runs. */
+html.wheel-smoothing{scroll-behavior:auto}
+[data-scroll-enter].scroll-enter-active{will-change:opacity,translate}
+@media (prefers-reduced-motion:reduce),print{
+  [data-scroll-enter]{opacity:1!important;translate:none!important;will-change:auto!important}
+}

@@ -93,3 +93,89 @@
   configure();
   document.fonts?.ready.then(queue);
 })();
+
+// Experiences API preview: type the one line, then fill the catalog, each time the product comes into focus.
+(() => {
+  const section = document.querySelector('.v2p-products');
+  const api = section?.querySelector('.v2p-api');
+  if (!api) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let seen = false;
+  function sync() {
+    if (reduced.matches) { if (api.classList.contains('v2p-anim')) api.classList.remove('v2p-anim'); delete api.dataset.play; return; }
+    if (!api.classList.contains('v2p-anim')) api.classList.add('v2p-anim');
+    const stacked = section.classList.contains('v2p-ready');
+    const want = stacked ? api.classList.contains('is-current') : seen;
+    if (!want) { delete api.dataset.play; return; }
+    if (api.dataset.play !== 'on') { void api.offsetWidth; api.dataset.play = 'on'; }
+  }
+  new IntersectionObserver(entries => { seen = entries[0].isIntersecting; sync(); }, { threshold: .55 }).observe(api);
+  new MutationObserver(sync).observe(api, { attributes: true, attributeFilter: ['class'] });
+  new MutationObserver(sync).observe(section, { attributes: true, attributeFilter: ['class'] });
+  reduced.addEventListener('change', sync);
+  sync();
+})();
+
+// White-Label preview: the marketplace launch setup, scaled into the panel and replayed whenever the product is in focus.
+(() => {
+  const section = document.querySelector('.v2p-products');
+  const preview = section?.querySelector('.v2p-launch');
+  const stage = preview?.querySelector('.v2p-launch-stage');
+  const work = stage?.querySelector('.launch-workspace');
+  if (!work) return;
+  const buttons = [...work.querySelectorAll('[data-launch]')];
+  const label = work.querySelector('[data-live-label]');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let timers = [], seen = false, playing = false;
+  const clear = () => { timers.forEach(clearTimeout); timers = []; };
+  const later = (fn, ms) => timers.push(setTimeout(fn, ms));
+  const show = n => {
+    work.dataset.launchStep = n;
+    buttons.forEach(button => {
+      const k = Number(button.dataset.launch);
+      button.classList.toggle('pending', k > n);
+      button.classList.toggle('complete', k <= n);
+      button.classList.toggle('active', k === n);
+      button.setAttribute('aria-pressed', String(k === n));
+    });
+    label.textContent = n === 4 ? 'Live' : 'Setting up';
+  };
+  const active = () => !document.hidden && (section.classList.contains('v2p-ready') ? preview.classList.contains('is-current') : seen);
+  const play = () => {
+    clear();
+    if (reduced.matches) { show(4); return; }
+    show(0);
+    later(() => show(1), 400);
+    later(() => show(2), 1400);
+    later(() => show(3), 2500);
+    later(() => show(4), 3700);
+    later(() => { if (active()) play(); }, 7800);
+  };
+  function sync() {
+    const want = active();
+    if (want && !playing) { playing = true; play(); }
+    else if (!want && playing) { playing = false; clear(); show(4); }
+  }
+  function fit() {
+    if (!section.classList.contains('v2p-ready')) { ['--k', '--lx', '--ly'].forEach(p => stage.style.removeProperty(p)); return; }
+    const k = Math.min(preview.clientWidth / stage.offsetWidth, preview.clientHeight / stage.offsetHeight);
+    stage.style.setProperty('--k', k.toFixed(4));
+    stage.style.setProperty('--lx', `${((preview.clientWidth - stage.offsetWidth * k) / 2).toFixed(1)}px`);
+    stage.style.setProperty('--ly', `${((preview.clientHeight - stage.offsetHeight * k) / 2).toFixed(1)}px`);
+  }
+  buttons.forEach(button => button.addEventListener('click', () => {
+    clear();
+    show(Number(button.dataset.launch));
+    if (!reduced.matches) later(() => { if (active()) play(); }, 4500);
+  }));
+  work.querySelector('.launch-replay')?.addEventListener('click', play);
+  show(4);
+  new IntersectionObserver(entries => { seen = entries[0].isIntersecting; sync(); }, { threshold: .3 }).observe(preview);
+  new MutationObserver(sync).observe(preview, { attributes: true, attributeFilter: ['class'] });
+  new MutationObserver(() => { fit(); sync(); }).observe(section, { attributes: true, attributeFilter: ['class'] });
+  new ResizeObserver(fit).observe(preview);
+  document.addEventListener('visibilitychange', sync);
+  reduced.addEventListener('change', () => { clear(); playing = false; if (reduced.matches) show(4); sync(); });
+  document.fonts?.ready.then(fit);
+  fit();
+})();

@@ -70,3 +70,5 @@ html[data-home-version="2"] #sources .trust-stat strong{font-variant-numeric:tab
 .bv2-counter-accessible{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 html[data-home-version="2"] #sources .trust-stat strong span{font-family:inherit;font-size:inherit;font-weight:inherit;letter-spacing:inherit;line-height:1.12;color:inherit}
 @container (max-width:650px){.bv2-phone-chips>span{padding:4px 5px}.bv2-phone-photo{margin-bottom:5px}.bv2-phone-photo>span{width:20px;height:20px;font-size:18px}.bv2-phone-brand svg{height:16px}.bv2-phone-meta{margin-top:3px}}
+#home .bv2-hero-copy h1 .v2-hero-br{display:none}
+@media(min-width:901px){#home .bv2-hero-copy h1 .v2-hero-br{display:inline}}
