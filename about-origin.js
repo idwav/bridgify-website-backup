@@ -1,0 +1,1 @@
+(()=>{const s=document.querySelector('.origin-section');if(!s)return;if(!('IntersectionObserver'in window)){s.classList.add('is-visible');return}const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){s.classList.add('is-visible');o.disconnect()}},{threshold:.15});o.observe(s)})();

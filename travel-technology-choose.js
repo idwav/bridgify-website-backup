@@ -1,0 +1,1 @@
+(()=>{const s=document.querySelector('.ch-section');if(!s)return;if(!('IntersectionObserver'in window)){s.classList.add('ch-visible');return}new IntersectionObserver(es=>es.forEach(e=>s.classList.toggle('ch-visible',e.isIntersecting)),{threshold:.1}).observe(s)})();

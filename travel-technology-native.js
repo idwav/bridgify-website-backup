@@ -1,0 +1,1 @@
+(()=>{const stages=document.querySelectorAll('.nt-stage');if(!('IntersectionObserver'in window)){stages.forEach(e=>e.classList.add('nt-visible'));return}const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.target.classList.toggle('nt-visible',e.isIntersecting)),{threshold:.1});stages.forEach(e=>observer.observe(e))})();

@@ -1,0 +1,1 @@
+(()=>{const elements=document.querySelectorAll('.sc-demo');if(!('IntersectionObserver'in window)){elements.forEach(e=>e.classList.add('sc-visible'));return}const o=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('sc-visible',e.isIntersecting)),{threshold:.15});elements.forEach(e=>o.observe(e))})();

@@ -1,0 +1,1 @@
+(()=>{const section=document.querySelector('.reads-section');if(!section)return;if(!('IntersectionObserver' in window)){section.classList.add('is-visible');return;}const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){section.classList.add('is-visible');observer.disconnect();}})},{threshold:.15});observer.observe(section);})();

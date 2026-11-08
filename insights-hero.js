@@ -1,0 +1,1 @@
+(()=>{const s=document.querySelector('.ih-hero');if(s)new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('ih-visible',e.isIntersecting)),{threshold:.08}).observe(s)})();

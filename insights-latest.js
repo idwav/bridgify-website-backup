@@ -1,0 +1,1 @@
+(()=>{const s=document.querySelector('.lt-composition');if(s)new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('lt-visible',e.isIntersecting)),{threshold:.08}).observe(s)})();
