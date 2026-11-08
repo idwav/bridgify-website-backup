@@ -28,11 +28,13 @@ class PreviewHandler(SimpleHTTPRequestHandler):
         query = parse_qs(request.query, keep_blank_values=True)
         version = query.get("version", query.get("v"))
         home = request.path in {"/", "/index.html", "/index-v2.html"}
-        v2 = version == ["2"] or (request.path == "/index-v2.html" and version != ["1"])
+        # Version 3 is the V2 homepage with the alternative hero; it keeps its own query value.
+        family = version[0] if version in (["2"], ["3"]) else "2"
+        v2 = version in (["2"], ["3"]) or (request.path == "/index-v2.html" and version != ["1"])
         if home and v2:
-            if request.path != "/" or "v" in query or query.get("version") != ["2"]:
+            if request.path != "/" or "v" in query or query.get("version") != [family]:
                 query.pop("v", None)
-                query["version"] = ["2"]
+                query["version"] = [family]
                 self.send_response(302)
                 self.send_header("Location", "/?" + urlencode(query, doseq=True))
                 self.send_header("Content-Length", "0")
