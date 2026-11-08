@@ -135,3 +135,19 @@
   .fn-ready .fn-part{opacity:1!important;transform:none!important}
   .fn-dots{display:none}
 }
+
+/* Shared Bridgify smoked glass, coral ink and cream-centered signal nodes. */
+#home.bv2-hero{background:radial-gradient(ellipse at 80% 65%,#f4664912,transparent 55%),#180f10;--fn-glass:radial-gradient(ellipse at 100% 0,#ff896230,transparent 32%),linear-gradient(115deg,#fff8f10e,transparent 42%,#fff8f109);--fn-edge:#f6c8b594;--fn-bevel:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 9px 22px #0002}
+#home .fn-tile,#home .fn-hub,#home .fn-stat,#home .fn-dev{background:var(--fn-glass),#211719;border-color:var(--fn-edge);box-shadow:var(--fn-bevel);color:#eee9de}
+#home .fn-hub{border-color:#f48e71;box-shadow:var(--fn-bevel),0 0 24px #f4664930}
+#home .fn-hub span{font-family:Chillax,sans-serif;font-weight:500;letter-spacing:-.03em}
+#home .fn-dev .fn-scr,#home .fn-dev.is-on .fn-scr{background:linear-gradient(130deg,#ffffff06,transparent 55%),#211719}
+#home .fn-dev :is(.p-card,.l-card){background:linear-gradient(130deg,#fff8f10b,transparent),#2b1d1b;border:1px solid #e8ac9633}
+#home .fn-dots circle{fill:#eee9de;stroke:#f46649;stroke-width:1.5;filter:none}
+#home .fn-lit{stroke-width:1.6;filter:drop-shadow(0 0 3px #f4664955)}
+#home .fn-feeds{stroke-width:1.4}
+#home .fn-pill,#home .fn-cap{background:var(--fn-glass),#2b1c1b;border:1px solid #f48e7180;box-shadow:var(--fn-bevel);color:#eee9de}
+#home .fn-feat,#home .fn-feat b,#home .fn-hub span{background-image:linear-gradient(110deg,#f46649,#ff967b 23%,#ffe2c6 43%,#f88b72 60%,#f46649 78%,#ffb49a);background-size:240% 100%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:v2-ink-flow 5s ease-in-out infinite alternate}
+#home .bv2-demo{background:radial-gradient(ellipse at 100% 0,#f4664930,transparent 65%),linear-gradient(135deg,#513029,#2a1b19);color:#eee9de;border-color:#f4a084;border-radius:12px;box-shadow:var(--fn-bevel),0 0 18px #f4664918}
+#home .bv2-demo:hover{background:linear-gradient(135deg,#654035,#35221d)}
+@media(prefers-reduced-motion:reduce){#home .fn-feat,#home .fn-feat b,#home .fn-hub span{animation:none}}
