@@ -13,7 +13,7 @@ PAGES = ('index.html', 'index-v2.html', 'api.html', 'marketplace.html',
          'personalization.html', 'otas.html', 'airlines.html', 'hotels.html',
          'loyalty-finance.html', 'travel-technology.html', 'super-apps.html',
          'developers.html', 'insights.html', 'press.html', 'about-us.html',
-         'careers.html', 'contact.html')
+         'careers.html', 'contact.html', 'login.html')
 START, END = '<!-- SHARED FOOTER START -->', '<!-- SHARED FOOTER END -->'
 CSS = '<link rel="stylesheet" href="shared-footer.css?v=1">'
 JS = '<script src="shared-footer.js?v=1" defer></script>'
