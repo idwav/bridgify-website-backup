@@ -4,20 +4,23 @@
   const version = current.searchParams.get('version') ?? current.searchParams.get('v');
   const v2Document = document.documentElement.dataset.homeVersion === '2';
   const homePaths = new Set(['/', '/index.html', '/index-v2.html']);
-  const v2 = version === '2' || (version !== '1' && v2Document);
+  // Version 3 is the V2 homepage with the alternative hero.
+  const family = version === '3' ? '3' : '2';
+  const v2 = version === '2' || version === '3' || (version !== '1' && v2Document);
+  if (family === '3') document.documentElement.dataset.hero = '3';
 
   if (v2 && homePaths.has(current.pathname) && !v2Document) {
     // Static hosts fall back to the V2 document; dev.py serves it at /?version=2.
     current.pathname = '/index-v2.html';
     current.searchParams.delete('v');
-    current.searchParams.set('version', '2');
+    current.searchParams.set('version', family);
     location.replace(current.href);
     return;
   }
   if (!v2) return;
-  if (current.searchParams.has('v') || current.searchParams.get('version') !== '2') {
+  if (current.searchParams.has('v') || current.searchParams.get('version') !== family) {
     current.searchParams.delete('v');
-    current.searchParams.set('version', '2');
+    current.searchParams.set('version', family);
     history.replaceState(history.state, '', current.pathname + current.search + current.hash);
   }
 
@@ -31,7 +34,7 @@
     if (/\.[a-z0-9]+$/i.test(target.pathname) && !target.pathname.endsWith('.html')) return;
     if (homePaths.has(target.pathname)) target.pathname = '/';
     target.searchParams.delete('v');
-    target.searchParams.set('version', '2');
+    target.searchParams.set('version', family);
     link.setAttribute('href', target.pathname + target.search + target.hash);
   }
   function connectNavigation() {

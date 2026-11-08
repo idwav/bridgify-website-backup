@@ -3,7 +3,7 @@
 (() => {
   const hero = document.querySelector('.bv2-hero');
   const scene = hero?.querySelector('.bv2-funnel');
-  if (!scene) return;
+  if (!scene || document.documentElement.dataset.hero === '3') return;
   const NS = 'http://www.w3.org/2000/svg';
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));

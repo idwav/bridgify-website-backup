@@ -23,3 +23,12 @@ html body #home .brand-name{line-height:1}
 
 /* Top navigation uses the circuit octopus mark in white. The V1 homepage keeps its original mark. */
 html[data-home-version="2"] .top .brand-flat-symbol,body:not([data-copy-page="index"]) .top .brand-flat-symbol{width:40px;flex-basis:40px;background:#fff;mask-image:url("assets/bridgify-nav-mark.svg");-webkit-mask-image:url("assets/bridgify-nav-mark.svg")}
+
+/* Log in sits beside the Book a demo button as a quieter outlined action. */
+.top .nav-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.top .nav-login{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;padding:0 18px;border:1px solid currentColor;border-radius:8px;color:inherit;font:650 12px/1 Sofia,Arial,sans-serif;letter-spacing:1.1px;white-space:nowrap;text-decoration:none;opacity:.92;transition:background .2s,opacity .2s}
+.top .nav-login:hover{opacity:1;background:#f4664914}
+.top .nav-login:focus-visible{outline:2px solid #f46649;outline-offset:4px}
+body[data-copy-page="login"] .top .nav-login{border-color:#f46649;color:#ff9a7c}
+@media(max-width:850px){.top .nav-actions{margin-left:auto;gap:8px}.top .nav-login{min-height:38px;padding:0 12px;font-size:10px;letter-spacing:.5px}}
+@media(max-width:380px){.top .nav-login{padding:0 9px}}
