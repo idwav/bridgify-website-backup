@@ -85,3 +85,26 @@
 - כיצד נבדקה התוצאה בפועל:
 
 התבנית מיועדת לעבודה פנימית; אין צורך לבקש מהמשתמש למלא אותה בכל משימה.
+
+## פעולות בסקשנים — 9 בנובמבר 2026
+פעולות כגון Meet AIyelet מוצגות ככפתור מלא בשפת המותג, ולא כקישור טקסט קצר או קישור עם קו תחתון.
+
+## תנועה מאושרת — Experiences API, 9 בנובמבר 2026
+מקור האמת הוא אנימציית ההירו ב-api.html; ערכים משותפים ב-brand-flow-motion.js. תשע נקודות עגולות, רדיוס 2.8 פחות 0.13 לכל נקודה, הפרש 90ms, קורל stroke 0.7. כניסה 1600ms עם smoothstep x*x*(3-2*x), מחזור 5300ms; יציאה 900ms. פעימת הגעה: sin(pi*clamp(t/850)), הילה קורל עד 16px, opacity עד .95 וקצה אפרסק #ffd3b0. האור מופיע בעקבות הגעת המידע ונעלם; אין נשימה אקראית. Mission, Our Story ו-HBX משתמשים בערכים אלה; ציר הסיפור מתקדם פעם אחת עד הסוף. שומרים על ליאוטים מאושרים, עוצרים מחוץ למסך ובטאב מוסתר ומכבדים reduced motion.
+
+### Frame and connector contacts
+Use brand coral #f46649 for diagram/card outer frames, never neutral gray. Connectors terminate on outer frame boundaries, with fixed cream/coral contact dots at both ends. Arrival glow targets the outer frame, not inset faces. Preserve the approved API motion easing and particle rhythm.
+
+## Shared controls — 9 November 2026
+All CTAs: dark warm glass, white text and coral border at rest. On hover and keyboard focus, use the coral gradient with espresso text for contrast. Primary and secondary actions share this treatment; retain their existing destinations. Section tags: small coral dot, Sofia uppercase gradient text, no numeric suffix or slash. Keep diagram step numbers. All framed UI borders remain coral #f46649 throughout motion; glow changes intensity only. Connector contacts at both ends. Implemented in brand-consistency.css/js on active V2/public pages; preserve V1.
+
+Outer containers and navbar: coral at 32% opacity, so internal cards/actions/contact points remain the focus. Do not apply faint borders to inner cards or buttons.
+
+### Separators
+Use separators only to clarify adjacent groups; omit them where spacing or cards already establish hierarchy. Use 1px brand coral (#f46649) at 20–25% opacity on dark surfaces. Never yellow/gold separators. Do not add a vertical divider between a heading and its supporting paragraph by default.
+
+### Button motion — approved 9 November 2026
+All shared site buttons rest in dark glass with light text. Hover and keyboard focus blend the entire surface into the coral gradient, not an instant background swap. Animate registered gradient colors and angle, text color and glow over 480ms using ease-out cubic-bezier(.16,1,.3,1), in both directions. Preserve button dimensions and layout; no jump or scale. Use currentColor for text and icons so they fade together. Respect prefers-reduced-motion. Keep this treatment identical for primary and secondary actions on light and dark sections.
+
+### FAQ motion — 9 November 2026
+All FAQ disclosures expand and collapse smoothly over 420ms with cubic-bezier(.16,1,.3,1). Fade answer content in/out; preserve native summary keyboard operation, light/dark colors and existing layout. Repeated clicks reverse from the current height. Reduced motion uses immediate native state changes. Shared implementation: brand-faq-motion.js.

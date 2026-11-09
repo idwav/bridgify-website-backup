@@ -678,7 +678,7 @@ body,.aggregation,p,button,input,textarea,select,.top nav a,.nav-contact,.eyebro
 <link rel="stylesheet" href="shared-footer.css?v=1"><script src="shared-footer.js?v=1" defer></script><link rel="stylesheet" href="capability-visuals-v2.css?v=8"><link rel="stylesheet" href="personalization-intent.css?v=5">
 <link rel="stylesheet" href="home-intent-v2.css?v=2">
 <script src="personalization-intent.js?v=5" defer></script>
-<link rel="stylesheet" href="brand-typography.css?v=2"></head>
+<link rel="stylesheet" href="brand-typography.css?v=2"><link rel="stylesheet" href="brand-section-labels.css?v=1"><link rel="stylesheet" href="brand-consistency.css?v=ease-buttons3"></head>
 <body data-copy-page="index"><svg width="0" height="0" aria-hidden="true" style="position:absolute;pointer-events:none"><defs><filter id="brand-knockout" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 -1 0 1"/><feComponentTransfer><feFuncA type="linear" slope="2" intercept="-0.12"/></feComponentTransfer><feComposite in2="SourceAlpha" operator="in"/></filter></defs></svg>
 <div class="page-wipe" aria-hidden="true"></div>
 <section class="hero bv2-hero" id="home" aria-labelledby="hero-title">
@@ -1002,5 +1002,5 @@ storyToggle?.addEventListener('click',()=>{const expanded=storyToggle.getAttribu
 const pageTransitionReduced=matchMedia('(prefers-reduced-motion: reduce)').matches;requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('page-ready')));document.addEventListener('click',event=>{const link=event.target.closest('a');if(!link||event.defaultPrevented||link.target||link.hasAttribute('download')||link.protocol==='mailto:'||link.protocol==='tel:')return;const next=new URL(link.href,location.href);if(next.origin!==location.origin||next.pathname===location.pathname)return;event.preventDefault();document.body.classList.remove('page-ready');document.body.classList.add('page-reset');document.querySelector('.page-wipe').offsetHeight;document.body.classList.remove('page-reset');document.body.classList.add('page-leaving');setTimeout(()=>location.href=next.href,pageTransitionReduced?0:720)});addEventListener('pageshow',()=>{document.body.classList.remove('page-leaving','page-reset');requestAnimationFrame(()=>document.body.classList.add('page-ready'))});
 </script>
 <script src="bridgify-nav-motion.js"></script><script src="assets/vendor/three-0.160.1.min.js"></script><script src="api-porcelain.js" defer></script><script src="api-cubes.js" defer></script>
-</body>
+<script src="brand-section-labels.js?v=1"></script><script src="brand-consistency.js?v=1"></script><script src="brand-faq-motion.js?v=1" defer></script></body>
 </html>

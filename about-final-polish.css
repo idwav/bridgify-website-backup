@@ -1,0 +1,33 @@
+/* Scoped final treatment: HBX panorama and the light people section. */
+.about-streamline #hbx,.about-streamline #hbx .hbx-content{width:100%;max-width:none}
+.about-streamline #hbx .hbx-object{width:100%;max-width:none;margin:0}
+.about-streamline #hbx .hbx-description{max-width:none}
+#hbx .hbx-object svg{width:100%;max-width:none}
+html body #team,html body .founder-testimonial{background:#eee9de;color:#180f10}
+#team .team-head h2,#team .team-head p{color:#180f10}
+#team .ticket{background:#f8f4ec;border-color:#180f102b}
+#team .ticket-tear:before,#team .ticket-tear:after{background:#eee9de}
+#team .team-roster .info-top{font:550 12px/1.45 Sofia,sans-serif;letter-spacing:.04em;flex-wrap:wrap;gap:5px 12px}
+#team .team-roster .ticket-head{font-size:12px;letter-spacing:.06em}
+#team .team-roster .founder-brand{font-size:19px}
+#team .team-roster .pass-mark{font:550 14px/1.4 Sofia,sans-serif;letter-spacing:.06em}
+#team .team-roster .photo-caption{font-size:11px}
+.founder-quote-ticket{background:#f8f4ec;border:1px solid #180f1020}
+.founder-quote-ticket:before,.founder-quote-ticket:after,.founder-quote-ticket .founder-credit:before,.founder-quote-ticket .founder-credit:after{background:#eee9de}
+html body .founder-quote-copy .brand-section-label.brand-label-light{background:none!important;color:#180f10!important;-webkit-text-fill-color:#180f10!important}
+#team>.brand-section-fade,.founder-testimonial>.brand-section-fade{display:none}
+@media(max-width:700px){.about-streamline #hbx .hbx-object{width:100%;margin:24px 0}#team .team-roster .info-top{font-size:12px}}
+
+#team .team-roster .ticket-head span:not(.founder-brand){font-size:11px;letter-spacing:.05em;display:block}
+html body #team .brand-section-label{background:linear-gradient(105deg,#9e3928,#c74d34 45%,#d45338)!important;background-clip:text!important;-webkit-background-clip:text!important}
+@media(max-width:500px){#team .team-roster .pass-mark{display:block}}
+
+/* The diagram shell is quiet; only connection frames retain coral emphasis. */
+html body #hbx .hbx-object rect[fill="url(#hbx-face)"]{stroke:rgba(244,102,73,.32)!important;stroke-width:1;vector-effect:non-scaling-stroke}
+html body #hbx .hbx-object rect[fill="url(#hbx-node)"],
+html body #hbx .hbx-object rect[fill="url(#hbx-coral)"]{stroke:none!important}
+html body #hbx #hbx-group-frame,html body #hbx #hbx-brand-frame{stroke:#f46649!important;stroke-width:1.2;vector-effect:non-scaling-stroke}
+#hbx .hbx-object path[d="M103 303V105Q103 82 127 82"]{opacity:0}
+#hbx .hbx-object path[d="M126 81H974Q997 81 997 104"]{stroke:#f46649;stroke-opacity:.15;stroke-width:.7}
+#hbx .hbx-object path[d="M204 127H466Q481 127 481 144"],
+#hbx .hbx-object path[d="M768 159H909Q923 159 923 172"]{stroke-width:.7;opacity:.25}

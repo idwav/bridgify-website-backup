@@ -1,0 +1,79 @@
+/* Developers: approved brand roles, preserving section composition. */
+body[data-copy-page="developers"]{--type-hero:clamp(48px,4vw,60px);--type-section:clamp(36px,3vw,44px);background:#180f10}
+body[data-copy-page="developers"] main h1{font:300 var(--type-hero)/1.16 Chillax!important}
+body[data-copy-page="developers"] main h2{font:300 var(--type-section)/1.2 Chillax!important}
+body[data-copy-page="developers"] main h3{font-family:Chillax!important;font-weight:300!important;font-size:clamp(24px,1.8vw,28px)!important}
+body[data-copy-page="developers"] main p{font:400 18px/1.55 Sofia,sans-serif!important}
+body[data-copy-page="developers"] main .btn{font:550 16px/1.25 Sofia!important;min-height:48px;display:inline-flex;align-items:center;gap:18px}
+body[data-copy-page="developers"] .eyebrow{font:550 12px/1.4 Sofia!important;letter-spacing:.15em}
+.dev-hero,.dev-section,.copy-inner{max-width:none!important}
+.dev-hero{background:radial-gradient(ellipse at 80% 45%,#703b2720,transparent 68%)}
+.dev-section{border-color:#f4664938;background:none}
+.dev-heading>div{border:0!important}
+.dev-accent{background:linear-gradient(110deg,#ffd3b0,#f46649);background-clip:text;-webkit-background-clip:text;color:transparent}
+.dev-system.glass,.dev-performance-panel.glass{border:1px solid #f4664952!important;background:linear-gradient(130deg,#68423550,#24191bba 55%,#50312645);box-shadow:inset 0 1px 0 #ffd3b025,0 12px 26px #100d0e30}
+.dev-slab,.dev-hub.glass,.dev-product.glass,.dev-chip,.dev-thumbnail{border:1px solid #f46649!important;background:linear-gradient(135deg,#69423566,#281b1cda 65%,#51302766);box-shadow:inset 0 1px 0 #ffd3b030,0 5px 12px #100d0e33}
+.dev-docs article:before{border-color:#f4664980!important;background:linear-gradient(130deg,#68423540,#24191b99)}
+.dev-docs article:after{display:none}
+.dev-slab,.dev-hub,.dev-product{position:relative;z-index:2}
+.dev-system{position:relative;isolation:isolate}
+.dev-cables,.dev-output,.dev-hub:before,.dev-hub:after,.dev-hub-wrap:before{display:none!important}
+.dev-flow-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3;overflow:visible}
+.dev-flow-svg path{stroke:#f46649;stroke-width:1.5;fill:none;vector-effect:non-scaling-stroke}
+.dev-icon{stroke:#f46649;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;overflow:visible}
+.dev-icon .dev-icon-light{fill:#fff8f1;stroke:#f46649;stroke-width:.6;filter:drop-shadow(0 0 2px #f46649)}
+.dev-slab span,.dev-hub>span,.dev-chip{font:400 18px/1.3 Sofia!important}
+.dev-experience strong{font:500 16px/1.3 Sofia!important}.dev-experience small,.dev-caption{font:400 14px/1.4 Sofia!important}
+.dev-experience{opacity:1!important;animation:none!important}.dev-experience img{filter:none!important;object-fit:cover}
+.dev-product h3{border-color:#f4664938}.dev-browser-bar,.dev-experience,.dev-reliability,.dev-moments article{border-color:#f4664938!important}
+.dev-chip.live:before{content:none}.dev-chip.live{display:inline-flex;align-items:center;gap:8px;color:#fff8f1!important}
+.dev-mini-icon{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.dev-reliability>div{font:400 18px/1.4 Sofia}.dev-doc-icon>span{font:500 14px Sofia;color:#f46649}
+.dev-hub,.dev-chip,.dev-time-dot{animation:none!important}.dev-time-dot{display:none}
+.dev-time-node{width:10px;height:10px;border:1px solid #f46649;background:#fff8f1;top:-4px}.dev-time-node:before{display:none}
+.dev-timeline:before{height:1.5px}.dev-timeline>span{display:none}
+.dev-motion-controls button{min-height:40px;padding:8px 14px;border:1px solid #f4664970;border-radius:10px;background:#35201e80;color:#eee9de;display:flex;align-items:center;gap:8px;font:500 14px Sofia}
+.dev-motion-controls button:focus-visible,main a:focus-visible{outline:2px solid #f46649;outline-offset:4px}
+.copy-faq{background:#eee9de!important;color:#180f10}.copy-faq summary{font:400 24px/1.35 Chillax!important}.copy-faq details{border-color:#f4664940!important}
+.dev-booking-flow{min-width:0;gap:8px}.dev-booking-flow .dev-chip{font-size:16px!important;padding:10px}.dev-checkout-demo{gap:14px}.dev-content-lines{min-width:0}
+@media(max-width:1000px){.dev-moments{grid-template-columns:1fr}.dev-moments article{border-right:0}.dev-docs{gap:16px}.dev-docs article{padding:20px}.dev-system{gap:20px}.dev-slab{padding:12px}.dev-slab span{font-size:16px!important}}
+@media(max-width:760px){body[data-copy-page="developers"]{--type-hero:40px;--type-section:32px}.dev-hero{padding-top:220px}.dev-system{gap:42px;max-height:none}.dev-stack{gap:12px}.dev-hub-wrap{padding:0}.dev-hub{width:100%}.dev-docs{grid-template-columns:1fr}.dev-performance-panel{padding:24px 18px}.dev-search-demo{gap:14px}.dev-search-demo img{width:33%;height:125px}.dev-search-demo .dev-chip{font-size:16px!important;padding:9px}.dev-booking-flow{flex-wrap:wrap}.dev-moments article{padding:0 0 24px}.dev-heading>div{padding-left:0!important}.dev-performance .dev-heading p{margin-top:0}.copy-faq summary{font-size:22px!important}.dev-reliability>div{font-size:16px}.dev-product{min-width:0}.dev-experience{gap:10px}.dev-experience img{width:30%}.dev-motion-controls{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){.dev-flow-particle{display:none!important} .dev-system *,.dev-performance-panel *{animation:none!important;transition:none!important}}
+body[data-copy-page="developers"] .dev-slab,body[data-copy-page="developers"] .dev-hub.glass,body[data-copy-page="developers"] .dev-product.glass{box-shadow:inset 0 1px 0 #ffd3b025,0 5px 12px #100d0e33!important}
+body[data-copy-page="developers"] .dev-docs,body[data-copy-page="developers"] .dev-docs article{border:0!important}
+body[data-copy-page="developers"] .dev-docs article:before{inset:0;border-color:#f4664980!important}
+body[data-copy-page="developers"] .copy-faq summary{font-weight:300!important;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.copy-faq summary::-webkit-details-marker{display:none}.copy-faq summary:after{content:'';width:9px;height:9px;border-right:1.5px solid #f46649;border-bottom:1.5px solid #f46649;transform:rotate(45deg);flex-shrink:0}.copy-faq details[open] summary:after{transform:rotate(225deg)}
+.dev-hero .dev-motion-controls{position:static;margin:14px 0 0;order:1}
+@media(max-width:760px){body[data-copy-page="developers"] .dev-docs article,body[data-copy-page="developers"] .dev-docs article:first-child{padding:24px}.dev-hero .dev-motion-controls{justify-content:flex-start}}
+.dev-performance-panel{position:relative;isolation:isolate}.dev-timeline:before,.dev-time-node{display:none!important}.dev-timeline{border-color:#f4664938}.dev-performance-wires{z-index:1}.dev-performance-panel .dev-chip{position:relative;z-index:2}
+@media(max-width:760px){.dev-booking-flow{flex-direction:column;align-items:flex-start;width:100%}.dev-booking-flow>b{display:flex;margin-left:40px;transform:rotate(90deg)}.dev-booking-flow .dev-chip{min-width:125px;text-align:center;justify-content:center}}
+.dev-performance-wires{z-index:3}
+body[data-copy-page="developers"] main .dev-intro{font:400 18px/1.55 Sofia,sans-serif!important}
+
+/* Performance fills a desktop section, with actual border-to-border wiring. */
+.dev-performance{box-sizing:border-box;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(36px,5vh,64px)}
+.dev-performance .dev-heading{margin:20px 0 32px}
+.dev-performance-panel{min-height:clamp(340px,44vh,520px);display:flex;flex-direction:column;justify-content:space-between}
+.dev-booking-flow>b{display:none!important}
+.dev-booking-flow{gap:28px;flex-wrap:nowrap}
+.dev-performance .dev-checkout-demo{gap:20px}.dev-performance .dev-checkout-demo>img{width:24%;flex-shrink:0}
+.dev-performance .dev-moments{align-items:center;flex:1}
+@media(max-width:1200px){.dev-performance .dev-checkout-demo{flex-direction:column;align-items:flex-start}.dev-performance .dev-checkout-demo>img{height:100px;width:150px}}
+@media(max-width:1000px){.dev-performance .dev-moments{gap:28px}.dev-performance .dev-moments article{padding:0;border:0}.dev-performance-panel{min-height:0}.dev-performance .dev-booking-flow{gap:28px}.dev-performance{min-height:auto}}
+@media(max-width:760px){.dev-performance .dev-booking-flow{align-items:flex-start}.dev-performance .dev-checkout-demo>img{width:100%;height:140px}.dev-performance .dev-reliability{margin-top:28px}.dev-performance .dev-heading{margin-bottom:28px}}
+
+.dev-performance-panel{box-sizing:border-box}
+@media(min-width:1001px) and (max-height:800px){.dev-performance{padding-block:28px}.dev-performance .dev-heading{margin:12px 0 22px}.dev-performance-panel{padding:22px 28px}.dev-performance .dev-moments{min-height:210px}.dev-performance .dev-moments h3{margin-bottom:16px}.dev-performance .dev-moments h3 .dev-icon{padding:8px}.dev-performance .dev-search-demo img{height:130px}.dev-performance .dev-content-lines{margin:12px 0}.dev-performance .dev-heading>div{padding-left:0}.dev-performance .dev-heading .btn{margin-top:14px}.dev-performance .dev-reliability{padding-top:18px}}
+
+/* Requested section themes: documentation light, FAQ and footer dark. */
+body[data-copy-page="developers"] #section-2.dev-section{margin-inline:0;padding-inline:4.5%;background:#eee9de;color:#180f10;border:0}
+body[data-copy-page="developers"] #section-2 p{color:#60483f}
+body[data-copy-page="developers"] #section-2 .dev-accent{background-image:linear-gradient(105deg,#a63d29,#d35136);color:transparent}
+body[data-copy-page="developers"] #section-2 .brand-section-label{background-image:linear-gradient(105deg,#a63d29,#cf5035)!important}
+body[data-copy-page="developers"] #section-2 .dev-docs article:before{background:linear-gradient(130deg,#fffaf3c0,#f4dfd345);border-color:#f4664952!important;box-shadow:inset 0 1px 0 #fff9,0 6px 20px #53332909}
+body[data-copy-page="developers"] .copy-faq{background:#180f10!important;color:#eee9de!important}
+body[data-copy-page="developers"] .copy-faq :is(h2,summary,p){color:#eee9de!important}
+body[data-copy-page="developers"] .copy-faq details{background:transparent!important;border-color:#f4664938!important}
+body[data-copy-page="developers"] .bf-footer-shell{background:#180f10}
+@media(max-width:760px){body[data-copy-page="developers"] #section-2.dev-section{padding-inline:6%}}

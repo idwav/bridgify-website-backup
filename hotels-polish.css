@@ -1,0 +1,36 @@
+/* Hotels: approved material hierarchy, scoped to preserve other pages. */
+html body[data-copy-page="hotels"] {--hotel-edge:#f486659e;--hotel-quiet:#f4664947}
+body[data-copy-page="hotels"] main :is(h2,h3,h4){font-family:Chillax,sans-serif;font-weight:300}
+body[data-copy-page="hotels"] main h2{font-size:clamp(32px,3vw,44px);line-height:1.22}
+body[data-copy-page="hotels"] .hc-heading h2{font-size:clamp(38px,4vw,60px)}
+body[data-copy-page="hotels"] main :is(p,button,a,li,small,figcaption){font-family:Sofia, sans-serif}
+body[data-copy-page="hotels"] :is(.hc-heading>p,.hi-heading>p,.hj-intro,.hgi-heading>p,.copy-faq p){font-size:18px;font-weight:400;line-height:1.6}
+body[data-copy-page="hotels"] main h3{font-size:clamp(22px,2vw,28px)}
+body[data-copy-page="hotels"] main :is(.eyebrow,.hgi-kicker){font:500 12px Sofia,sans-serif;letter-spacing:.18em}
+body[data-copy-page="hotels"] :is(.hgi-heading,.hgi-options,.hgi-footer,.copy-inner){max-width:none;width:100%}
+html body[data-copy-page="hotels"] :is(.hc-panel,.hi-managed,.hgi-panel){border:1px solid var(--hotel-quiet)!important;background:radial-gradient(ellipse at 0 0,#ba795525,transparent 48%),radial-gradient(ellipse at 100% 100%,#99563f18,transparent 50%),linear-gradient(125deg,#2d2021e8,#191214f5 56%,#271b1de8);box-shadow:inset 0 1px 0 #ffdfca26,inset 0 -1px 0 #f4664910,0 20px 38px #10070926}
+html body[data-copy-page="hotels"] :is(.hc-hotel,.hi-hotel,.hj-device,.hgi-phone,.hgi-browser){border:1px solid var(--hotel-edge)!important;background:radial-gradient(ellipse at 0 0,#b8846633,transparent 54%),linear-gradient(135deg,#39292be8,#21191cf5 48%,#2b1c1df2);box-shadow:inset 0 1px 0 #ffe1ca60,inset 1px 0 0 #ffbe9626,inset 0 -1px 0 #f4664926,0 12px 24px #08040570,0 3px 5px #08040540;backdrop-filter:blur(14px)}
+html body[data-copy-page="hotels"] :is(.hi-row,.hi-content,.hi-payment,.hi-app-stay,.hi-app-experiences,.hj-paper,.hj-app-stay,.hj-app-experience,.hgi-embedded,.hgi-store-cards>div){border-color:#f466493d!important;background:linear-gradient(115deg,#ffe2cb08,#120d101f);box-shadow:inset 0 1px 0 #ffe1ca0d;color:#eee9de}
+body[data-copy-page="hotels"] :is(.hj-phone,.hgi-phone)::after{display:none}
+body[data-copy-page="hotels"] :is(.hi-icon,.hi-brand-tag,.hj-tabs,.hgi-services>span){background:linear-gradient(125deg,#b38a7020,#23191cc9);border-color:#f4866566!important}
+body[data-copy-page="hotels"] :is(.hc-tab,.hc-hotel li,.hc-experience figcaption,.hi-note,.hj-step header p,.hj-mail-body p,.hj-mail-bottom,.hj-app-stay,.hj-app-context,.hj-app-experience-copy p,.hj-channel button,.hj-app-nav,.hi-row p,.hi-content p,.hi-payment p){font-size:14px;font-weight:400;line-height:1.35}
+body[data-copy-page="hotels"] :is(.hc-hotel-copy>p,.hc-panel-footer,.hj-sender small,.hj-phone-brand span,.hj-status,.hj-phone-photo>span){font-size:12px}
+body[data-copy-page="hotels"] :is(.hi-content h5,.hi-payment h5,.hj-mail-body h4,.hj-app-title){font-size:18px}
+body[data-copy-page="hotels"] :is(.hi-cta,.hj-action,.hj-pause,.hgi-cta,.hc-cta){font-size:16px;font-weight:500}
+body[data-copy-page="hotels"] .hj-channel button{padding:8px 5px;min-width:0;flex:1}
+html body[data-copy-page="hotels"] :is(.hc-tab.is-active,.hj-channel button[aria-selected="true"],.hi-tabs button[aria-pressed="true"]){background:linear-gradient(110deg,#ff9863,#f46649)!important;color:#211312!important;border-color:#f48665!important}
+body[data-copy-page="hotels"] .hc-tab{cursor:pointer;transition:background .48s cubic-bezier(.16,1,.3,1)}
+body[data-copy-page="hotels"] .hgi-footer a{display:inline-flex;padding:12px 20px;border:1px solid #f486659e;border-radius:10px;text-decoration:none;font-size:16px;background:linear-gradient(135deg,#39292be8,#21191cf5);color:#eee9de}
+body[data-copy-page="hotels"] :is(.hj-link,.hi-bridge>svg){visibility:hidden}
+body[data-copy-page="hotels"] .hi-connection{z-index:2}
+body[data-copy-page="hotels"] :is(.hi-layout,.hj-grid){position:relative}
+.hotel-flow-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:1}
+.hotel-polish-icon{width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;color:#f48665}
+body[data-copy-page="hotels"] .copy-faq summary{font-family:Chillax,sans-serif;font-size:clamp(20px,2vw,28px);font-weight:300}
+body[data-copy-page="hotels"] .copy-faq details{border-color:#f4664933}
+body[data-copy-page="hotels"] .hgi-options{min-width:0}
+body[data-copy-page="hotels"] .hgi-phone{font-size:min(11px,1.65cqh)}
+body[data-copy-page="hotels"] .hgi-browser{font-size:min(11px,1.85cqh)}
+body[data-copy-page="hotels"] :is(.hgi-experience-copy,.hgi-featured,.hgi-services,.hgi-store-cards,.hgi-app-nav){font-size:14px}
+@media(max-width:760px){body[data-copy-page="hotels"] .hj-step header{min-height:0}body[data-copy-page="hotels"] .hc-tabs{overflow-x:auto;flex-wrap:nowrap}body[data-copy-page="hotels"] .hc-tab{flex-shrink:0}body[data-copy-page="hotels"] .hgi-footer{gap:20px}body[data-copy-page="hotels"] .hi-layout{gap:24px}}
+@media(prefers-reduced-motion:reduce){.hotel-flow-svg .moving{display:none}body[data-copy-page="hotels"] *{scroll-behavior:auto!important}}

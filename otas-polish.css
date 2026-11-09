@@ -1,0 +1,126 @@
+/* OTA editorial roles and materials; section geometry remains owned by the existing layouts. */
+body[data-copy-page="otas"]{--type-hero:clamp(48px,3.6vw,60px);--type-section:clamp(36px,2.9vw,44px);--type-body:18px;--type-lead:18px;--ota-edge:#f46649;--ota-glass:linear-gradient(135deg,rgba(100,57,45,.42),rgba(35,23,24,.92));--ota-depth:inset 0 1px 0 #ffd3b026,0 12px 30px #100d0e33}
+body[data-copy-page="otas"] :is(.ys-hero,.ms-section,.rc-section,.eo-section){background:radial-gradient(ellipse at 78% 50%,#703b301c,transparent 68%),#180f10;color:#eee9de}
+body[data-copy-page="otas"] :is(.ys-copy,.ys-ticket,.ms-layout,.rc-panel,.eo-options,.copy-inner){max-width:none}
+body[data-copy-page="otas"] :is(.ys-hero,.ms-section,.rc-section,.eo-section) :is(p,span,small,strong,b,a,button,div){font-family:Sofia,sans-serif}
+body[data-copy-page="otas"] :is(.ys-ticket h2,.eo-option h3,.rc-captions h3){font-family:Chillax,sans-serif;font-size:clamp(24px,1.9vw,28px);font-weight:300;line-height:1.25}
+body[data-copy-page="otas"] :is(.ys-copy>p,.ms-head>p,.rc-head p,.eo-head p,.rc-captions p){font-size:18px;font-weight:400;line-height:1.5;letter-spacing:normal}
+body[data-copy-page="otas"] :is(.ys-eyebrow,.ms-eyebrow,.rc-eyebrow,.eo-eyebrow){font-size:12px!important}
+body[data-copy-page="otas"] :is(.ys-actions a,.ms-actions a,.eo-cta,.rc-head a){font-size:16px;line-height:1.25}
+body[data-copy-page="otas"] .rc-head a{border:1px solid #f46649;border-radius:11px;padding:13px 20px;max-width:100%;width:fit-content;text-decoration:none}
+body[data-copy-page="otas"] :is(.ys-ticket,.rc-panel){border-color:#f4664952!important;box-shadow:var(--ota-depth)}
+body[data-copy-page="otas"] :is(.ms-source,.ms-hub,.ms-product,.ms-direct,.rc-window,.rc-phone,.eo-site,.eo-hub){background:var(--ota-glass);border-color:#f46649!important;box-shadow:var(--ota-depth)}
+body[data-copy-page="otas"] :is(.ys-bridge,.ys-day,.ys-retain,.ys-ticket-bottom,.ys-booked>div,.ys-retain p,.ms-id,.ms-price,.ms-source small,.ms-location>span,.ms-availability,.ms-availability>span,.ms-result,.rc-head,.rc-captions>div,.eo-option+.eo-option){border-color:#f466493b}
+body[data-copy-page="otas"] :is(.rc-head>div,.eo-head p){border-left-color:transparent}
+body[data-copy-page="otas"] :is(.ms-bottom>span,.eo-divider>span){background:#f466493b}
+body[data-copy-page="otas"] .eo-layer:before{border-color:#f46649;background:var(--ota-glass);box-shadow:var(--ota-depth);animation:none}
+body[data-copy-page="otas"] .eo-layer:hover{transform:none}
+body[data-copy-page="otas"] .ms-source h3{font:400 14px/1.2 Sofia,sans-serif}
+body[data-copy-page="otas"] :is(.ms-id,.ms-source small){font-size:12px;line-height:1.25}
+body[data-copy-page="otas"] :is(.ms-name,.ms-price){font-size:14px}
+body[data-copy-page="otas"] :is(.ms-direct,.ms-location,.ms-dedup,.ms-availability,.ms-result){font-size:14px;line-height:1.3}
+body[data-copy-page="otas"] .ms-direct strong{font-size:16px}
+body[data-copy-page="otas"] .ms-direct{flex-wrap:wrap}
+body[data-copy-page="otas"] .ms-offer{font-size:12px;gap:5px;line-height:1.25;min-height:34px;font-weight:400}
+body[data-copy-page="otas"] .ms-offer strong{font-size:16px}
+body[data-copy-page="otas"] .ms-hub small{font-size:12px;white-space:normal;text-align:center}
+body[data-copy-page="otas"] .ms-hub>span{font-size:12px}
+body[data-copy-page="otas"] .ms-product h3{font:300 26px/1.2 Chillax,sans-serif}
+body[data-copy-page="otas"] .ms-product h4{font-size:18px;font-weight:400}
+body[data-copy-page="otas"] :is(.rc-booking-row,.rc-itinerary,.rc-message,.rc-suggestion>div,.rc-nearby){font-size:13px;line-height:1.3}
+body[data-copy-page="otas"] :is(.rc-window h3,.rc-suggestion h4,.rc-phone h4,.rc-trip small){font-size:14px;font-weight:400}
+body[data-copy-page="otas"] :is(.rc-booking-row span,.rc-booking-row small,.rc-itinerary>div>span:first-child,.rc-suggestion small,.rc-nearby small){font-size:12px}
+body[data-copy-page="otas"] .rc-phone{border:1px solid #f46649;box-shadow:var(--ota-depth)}
+body[data-copy-page="otas"] .rc-context{flex-wrap:wrap;gap:12px}
+body[data-copy-page="otas"] .rc-context>span{font-size:14px}
+body[data-copy-page="otas"] .rc-add{font-size:13px;padding:8px}
+body[data-copy-page="otas"] .rc-suggestion>div{flex-wrap:wrap}
+body[data-copy-page="otas"] .rc-add{margin-left:auto}
+body[data-copy-page="otas"] :is(.ys-photo svg,.ys-experience,.ys-photo>span,.ys-caption:before,.ys-bridge .brand-flat-symbol,.ys-integration,.ys-booked>div .ys-icon,.rc-stages i,.rc-highlight){animation:none;transform:none}
+body[data-copy-page="otas"] :is(.ys-experiences,.rc-stages):before,body[data-copy-page="otas"] :is(.ys-experiences,.rc-stages):after,body[data-copy-page="otas"] .ys-caption:before{display:none}
+.ota-motion-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;fill:none;stroke:#f46649;stroke-width:1.5;pointer-events:none;z-index:2}
+.ota-motion-svg path{vector-effect:non-scaling-stroke}
+.ota-motion-svg circle{vector-effect:non-scaling-stroke}
+.ms-layout{position:relative}.ms-source,.ms-direct,.ms-hub,.ms-product{z-index:3}
+.ota-icon{display:inline-block;vertical-align:middle;width:18px;height:18px;flex-shrink:0;fill:none;stroke:#f46649;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ota-icon-light{fill:#fff8f1;stroke:#f46649;stroke-width:.5;filter:drop-shadow(0 0 2px #f46649)}
+.ys-icon,.ms-icon,.eo-icon{stroke:#f46649;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+.ys-globe>.ota-icon{width:32px;height:32px}.ys-photo>span>.ota-icon{width:12px;height:12px}.rc-booking-row>.ota-icon{margin-right:6px}
+@media(max-width:760px){body[data-copy-page="otas"]{--type-hero:clamp(34px,8.8vw,42px);--type-section:clamp(28px,7.2vw,34px)}body[data-copy-page="otas"] :is(.ys-ticket h2,.rc-captions h3){font-size:22px}body[data-copy-page="otas"] .ys-retain>div{white-space:normal}body[data-copy-page="otas"] .ms-product{max-width:none}body[data-copy-page="otas"] .ms-source{width:145px}body[data-copy-page="otas"] .ms-direct{gap:10px}body[data-copy-page="otas"] .ms-offer{flex-wrap:wrap;justify-content:flex-start;gap:7px}body[data-copy-page="otas"] .ms-offer-name{min-width:42%}body[data-copy-page="otas"] .ms-availability{flex-wrap:wrap;gap:10px}body[data-copy-page="otas"] .eo-layer>span{white-space:normal;font-size:12px;gap:5px;text-align:center}body[data-copy-page="otas"] .eo-market .eo-layer>span{font-size:13px}body[data-copy-page="otas"] .eo-hub small{font-size:8px}body[data-copy-page="otas"] .eo-site>a{white-space:normal}body[data-copy-page="otas"] .rc-stages>div{font-size:11px}body[data-copy-page="otas"] .rc-context>span{padding:10px;gap:6px;flex-wrap:wrap}body[data-copy-page="otas"] .ys-caption{flex-direction:column;align-items:center;text-align:center;font-size:12px}.ms-layout>.ota-motion-svg{display:block}}
+@media(prefers-reduced-motion:reduce){.ota-motion-particle{display:none}}
+body[data-copy-page="otas"] :is(h1,h2,h3)>span{font-family:inherit}
+body[data-copy-page="otas"] .ms-sources{gap:4px;padding-right:0;align-items:stretch}
+body[data-copy-page="otas"] .ms-source{width:calc(20% - 3.2px);margin-right:0;padding:8px 6px}
+body[data-copy-page="otas"] .ms-name{font-size:12px;gap:3px}
+body[data-copy-page="otas"] .ms-name .ota-icon{width:14px;height:14px}
+body[data-copy-page="otas"] .ms-source small{overflow-wrap:anywhere}
+body[data-copy-page="otas"] :is(.ys-actions,.ms-actions,.eo-option,.rc-head) a .ota-icon{stroke:currentColor}
+@media(max-width:760px){body[data-copy-page="otas"] .ms-source{width:145px;padding:10px}body[data-copy-page="otas"] .ms-sources{gap:10px}}
+body[data-copy-page="otas"] :is(h1,h2,h3)>span{font-family:inherit!important}
+body[data-copy-page="otas"] :is(.rc-window h3,.rc-window h4,.rc-phone h3,.rc-phone h4){font-family:Sofia,sans-serif}
+body[data-copy-page="otas"] .ms-offer.brand-action{font-weight:400!important}
+body[data-copy-page="otas"] .eo-layer>span{font-weight:400}
+
+body[data-copy-page="otas"] :is(a,button) .ota-icon{stroke:currentColor}
+
+body[data-copy-page="otas"] .copy-faq summary{list-style:none;font-family:Sofia,sans-serif;font-size:18px;font-weight:400;position:relative;padding-right:36px;cursor:pointer}
+body[data-copy-page="otas"] .copy-faq summary::-webkit-details-marker{display:none}
+body[data-copy-page="otas"] .copy-faq summary:after{content:"";position:absolute;right:6px;top:8px;width:8px;height:8px;border-right:1.5px solid #f46649;border-bottom:1.5px solid #f46649;transform:rotate(45deg);transition:transform .4s ease-out}
+body[data-copy-page="otas"] .copy-faq details[open] summary:after{transform:rotate(225deg)}
+body[data-copy-page="otas"] .copy-faq details{border-color:rgba(244,102,73,.23)}
+body[data-copy-page="otas"] .copy-faq p{font:400 18px/1.6 Sofia,sans-serif}
+
+body[data-copy-page="otas"] .eo-divider{font-family:Chillax,sans-serif!important;font-weight:300!important;font-size:24px}
+
+/* Aligned supplier row and rectangular ownership cards. */
+body[data-copy-page="otas"] .ms-bottom{display:none}
+body[data-copy-page="otas"] .ms-sources{align-items:stretch;padding-top:12px}
+body[data-copy-page="otas"] .ms-source,body[data-copy-page="otas"] .ms-source:hover{transform:none!important}
+body[data-copy-page="otas"] .ms-direct{width:100%;min-width:0}
+body[data-copy-page="otas"] .eo-layer:before{transform:none!important;border-radius:12px}
+body[data-copy-page="otas"] .eo-layer{filter:none}
+
+@media(min-width:761px){body[data-copy-page="otas"] .eo-api-diagram{grid-template-columns:36% 16% 34%;gap:7%}}
+body[data-copy-page="otas"] .eo-stack .eo-layer:last-child{margin-bottom:0}
+
+/* Journey material hierarchy: quiet outer glass, lifted screens, recessed rows. */
+html body[data-copy-page="otas"] .rc-panel{
+ background:radial-gradient(ellipse at 0 0,#ba795525,transparent 48%),radial-gradient(ellipse at 100% 100%,#99563f18,transparent 50%),linear-gradient(125deg,#2d2021e8,#191214f5 56%,#271b1de8)!important;
+ border-color:#f4664947!important;
+ box-shadow:inset 0 1px 0 #ffdfca26,inset 0 -1px 0 #f4664910,0 20px 38px #10070926!important;
+}
+html body[data-copy-page="otas"] .rc-panel :is(.rc-window,.rc-phone){
+ background:radial-gradient(ellipse at 0 0,#b8846633,transparent 54%),linear-gradient(135deg,#39292be8,#21191cf5 48%,#2b1c1df2)!important;
+ border-color:#f486659e!important;
+ box-shadow:inset 0 1px 0 #ffe1ca60,inset 1px 0 0 #ffbe9626,inset 0 -1px 0 #f4664926,0 12px 24px #08040570,0 3px 5px #08040540!important;
+ backdrop-filter:blur(14px);
+}
+html body[data-copy-page="otas"] .rc-panel :is(.rc-context>span,.rc-suggestion,.rc-trip,.rc-message,.rc-nearby){
+ background:linear-gradient(125deg,#b38a7020,#23191cc9)!important;
+ border-color:#f4866566!important;
+ box-shadow:inset 0 1px 0 #ffe1ca26,0 4px 10px #08040524!important;
+}
+html body[data-copy-page="otas"] .rc-panel :is(.rc-booking-row,.rc-itinerary>div){
+ background:linear-gradient(115deg,#ffe2cb08,#120d101f)!important;
+ border-color:#f466493d!important;
+ box-shadow:inset 0 1px 0 #ffe1ca0d!important;
+}
+html body[data-copy-page="otas"] .rc-panel :is(.rc-dashed,.rc-gap,.rc-highlight){border-color:#f486659e!important;}
+html body[data-copy-page="otas"] .rc-phone-brand{color:#eee9de;}
+html body[data-copy-page="otas"] .rc-captions p{color:#d0c2b9;}
+
+/* Multi-source uses the same layered espresso glass as the journey. */
+html body[data-copy-page="otas"] :is(.ms-source,.ms-hub,.ms-direct,.ms-product){
+ background:radial-gradient(ellipse at 0 0,#b8846633,transparent 54%),linear-gradient(135deg,#39292be8,#21191cf5 48%,#2b1c1df2)!important;
+ border-color:#f486659e!important;
+ box-shadow:inset 0 1px 0 #ffe1ca60,inset 1px 0 0 #ffbe9626,inset 0 -1px 0 #f4664926,0 12px 24px #08040570,0 3px 5px #08040540!important;
+ backdrop-filter:blur(14px);
+}
+html body[data-copy-page="otas"] .ms-product{border-color:#f4664966!important;}
+html body[data-copy-page="otas"] .ms-offer{
+ background:linear-gradient(115deg,#ffe2cb0b,#120d1038)!important;
+ border-color:#f4664957!important;
+ box-shadow:inset 0 1px 0 #ffe1ca14!important;
+}
+html body[data-copy-page="otas"] :is(.ms-api-num,.ms-dedup){background:#21171a80!important;border-color:#f4866580!important;}
+html body[data-copy-page="otas"] :is(.ms-id,.ms-price,.ms-source small,.ms-result,.ms-availability,.ms-hub>span){border-color:#f466493d!important;}

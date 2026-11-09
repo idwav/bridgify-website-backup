@@ -117,28 +117,36 @@
       selectTouchpoint(tabs[next].dataset.touchpoint);
     });
   });
+  const phonePanels = document.querySelector('.al-phone-panels');
+  function sizePhone() {
+    let height = 0;
+    panels.forEach(panel => {
+      const clone = panel.cloneNode(true);
+      clone.removeAttribute('id'); clone.removeAttribute('hidden');
+      clone.style.cssText = 'position:absolute;visibility:hidden;display:block;width:100%;pointer-events:none';
+      phonePanels.append(clone); height = Math.max(height, clone.scrollHeight); clone.remove();
+    });
+    phonePanels.style.height = Math.ceil(height + 18) + 'px';
+  }
+  document.fonts.ready.then(sizePhone);
+  new ResizeObserver(sizePhone).observe(document.querySelector('.al-phone'));
+  document.querySelectorAll('.al-phone img').forEach(image => image.addEventListener('load',sizePhone));
+  let journeyVisible = false;
+  const journey = document.querySelector('.al-journey-panel');
+  new IntersectionObserver(entries => {journeyVisible = entries[0].isIntersecting}, {threshold:.25}).observe(journey);
+  let lastChange = Date.now();
+  tabs.forEach(tab => tab.addEventListener('click', () => {lastChange = Date.now()}));
+  setInterval(() => {
+    if(reduced.matches || document.hidden || !journeyVisible || Date.now()-lastChange<5500)return;
+    const index=tabs.findIndex(tab=>tab.dataset.touchpoint===active);
+    selectTouchpoint(tabs[(index+1)%tabs.length].dataset.touchpoint); lastChange=Date.now();
+  },500);
   function orientTabs() { document.querySelector('.al-touchpoints').setAttribute('aria-orientation', compact.matches ? 'horizontal' : 'vertical'); }
   compact.addEventListener('change', orientTabs);
   orientTabs();
 
   const disclosures = new WeakMap();
-  document.querySelectorAll('.al-faq details').forEach(detail => {
-    const content = detail.querySelector('.al-faq-answer');
-    detail.querySelector('summary').addEventListener('click', event => {
-      if (reduced.matches || !content.animate) return;
-      event.preventDefault();
-      const open = detail.dataset.targetOpen ? detail.dataset.targetOpen === 'false' : !detail.open;
-      const from = detail.open ? content.getBoundingClientRect().height : 0;
-      disclosures.get(detail)?.cancel();
-      detail.dataset.targetOpen = String(open);
-      detail.open = true;
-      const height = content.querySelector('p').getBoundingClientRect().height;
-      const animation = content.animate([{ height: `${from}px`, opacity: from ? 1 : 0 }, { height: `${open ? height : 0}px`, opacity: open ? 1 : 0 }], { duration: open ? 350 : 220, easing: 'cubic-bezier(.16,1,.3,1)' });
-      disclosures.set(detail, animation);
-      animation.onfinish = () => { if (!open) detail.open = false; delete detail.dataset.targetOpen; disclosures.delete(detail); };
-    });
-  });
-
+  // FAQ motion is owned by brand-faq-motion.js.
   const dialog = document.querySelector('.al-preview-dialog');
   const title = document.querySelector('#al-preview-title');
   const image = dialog.querySelector('[data-dialog-image]');

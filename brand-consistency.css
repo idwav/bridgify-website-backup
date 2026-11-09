@@ -1,0 +1,22 @@
+/* Registered colors allow a real gradient crossfade, including pointer exit. */
+@property --brand-button-start{syntax:'<color>';inherits:false;initial-value:#513029}
+@property --brand-button-end{syntax:'<color>';inherits:false;initial-value:#241718}
+@property --brand-button-angle{syntax:'<angle>';inherits:false;initial-value:135deg}
+/* Color-only frame normalization preserves existing section geometry. */
+html body .brand-coral-frame{border-color:#f46649!important}
+html body .brand-action,html body .brand-action-primary{--brand-button-start:#513029;--brand-button-end:#241718;--brand-button-angle:135deg;background:linear-gradient(var(--brand-button-angle),var(--brand-button-start),var(--brand-button-end))!important;color:#fff8f1!important;-webkit-text-fill-color:currentColor!important;border:1px solid #f46649!important;border-radius:11px!important;box-shadow:inset 0 1px 1px #ffb19455,0 5px 18px #180f1020!important;text-decoration:none!important;font-family:Sofia,sans-serif!important;font-weight:550!important;transition:--brand-button-start .48s cubic-bezier(.16,1,.3,1),--brand-button-end .48s cubic-bezier(.16,1,.3,1),--brand-button-angle .48s cubic-bezier(.16,1,.3,1),box-shadow .48s cubic-bezier(.16,1,.3,1),color .48s cubic-bezier(.16,1,.3,1)!important}
+html body .brand-action:hover,html body .brand-action:focus-visible{--brand-button-start:#ff9862;--brand-button-end:#f46649;--brand-button-angle:105deg;color:#180f10!important;-webkit-text-fill-color:currentColor!important;box-shadow:inset 0 1px 1px #ffd8bd66,0 0 18px #f4664930!important}
+html body .brand-action:focus-visible{outline:2px solid #f46649;outline-offset:4px}
+html body .brand-action *{color:inherit;-webkit-text-fill-color:inherit}
+.brand-wire-contacts{pointer-events:none;fill:#fff8f1!important;stroke:#f46649!important;stroke-width:1.2!important;filter:drop-shadow(0 0 2px #f4664940)}
+html body #hbx-brand-frame,html body #hbx-group-frame{stroke:#f46649!important}
+
+html body svg .brand-svg-frame{stroke:#f46649!important}
+
+html body .brand-section-label.brand-label-light{background-image:linear-gradient(105deg,#a63d29,#cf5035 45%,#b7412d)!important}
+
+/* Outer shells recede; nested frames and actions remain vivid. */
+html body .brand-coral-frame.brand-outer-frame{border-color:rgba(244,102,73,.32)!important}
+html body .ih-topic>.brand-section-label{justify-content:center}
+
+@media(prefers-reduced-motion:reduce){html body .brand-action{transition:none!important}}

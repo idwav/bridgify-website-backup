@@ -1,0 +1,162 @@
+/* Airlines: role-based polish; preserve the established section composition. */
+body[data-copy-page=airlines]{--al-dark:#180f10;--al-coral:#f46649}
+.al-hero h1{font:300 clamp(48px,3.5vw,60px)/1.18 Chillax,sans-serif;max-width:none}
+.al-section h2{font:300 clamp(36px,3vw,44px)/1.2 Chillax,sans-serif}
+.al-hero-copy>p:not(.al-kicker),.al-section p:not(.al-kicker),.al-earn .al-revenue-note p{font:400 18px/1.55 Sofia,sans-serif}
+.al-product-option h3{font:300 26px/1.25 Chillax,sans-serif}
+.al-gradient{background:linear-gradient(105deg,#ffd3b0,#f46649);background-clip:text;-webkit-background-clip:text;color:transparent}
+.al-earn .al-gradient,.al-journey-heading .al-gradient{background-image:linear-gradient(105deg,#a3422d,#b84228)}
+.al-kicker.brand-section-label{font-size:12px!important;letter-spacing:.16em;gap:10px}
+.al-visual,.al-hero-figure,.al-hero-copy,.al-section,.al-section-title,.al-earn-diagram{max-width:none!important}
+.al-hero{background:radial-gradient(ellipse at 78% 52%,#713b2c40,transparent 65%),#180f10}
+.al-products{border-radius:0;background:radial-gradient(ellipse at 20% 45%,#713b2c25,transparent 65%),#180f10}
+.al-journey-panel,.al-browser,.al-infrastructure,.al-shared-layer{background:linear-gradient(125deg,#68403350,#291a18b8 48%,#45271f60);box-shadow:inset 0 1px 0 #ffe2be20,0 16px 36px #10080725}
+.al-journey-panel,.al-browser,.al-suppliers,.al-shared-layer,.top{border-color:#f4664952!important}
+.al-browser-frame,.al-booking,.al-experience,.al-phone,.al-phone-experience,.al-infrastructure{border-color:#f46649!important}
+.al-loyalty,.al-product-option+.al-product-option,.al-phone-top,.al-phone-bottom,.al-suppliers>span+span,.al-infrastructure>span:last-child,.al-faq details{border-color:#f4664938}
+.al-miles>div+div::before{background:#f4664938}
+.al-shared-layer li::before{background:#f46649!important}
+.al-icon{stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.al-suppliers .al-icon{stroke-width:1.5;color:#f46649}
+.al-icon-light{fill:#fff8f1;stroke:#f46649;stroke-width:.7;filter:drop-shadow(0 0 1.5px #f4664980)}
+.al-earn-channel-icon i{display:none}
+.al-earn-ground,.al-earn-object,.al-earn-gate{stroke:#bd5138}
+.al-earn-route{stroke:#f46649;stroke-dasharray:none}
+.al-button,.al-text-link,.connect{font-size:16px!important;font-weight:500;min-height:48px;translate:none!important}
+.al-text-link{padding:13px 18px;border:1px solid #f46649;border-radius:10px;text-decoration:none;justify-content:center;line-height:1.3;max-width:100%}
+.al-text-link .al-icon,.al-button .al-icon{color:currentColor}
+.al-button:hover .al-icon,.al-text-link:hover .al-icon{translate:none}
+.al-touchpoints button{border-radius:12px;font-size:16px}
+.al-touchpoints button[aria-selected=true]{border-color:#f46649;background:linear-gradient(120deg,#f4664928,#f4664906)}
+.al-touchpoints button::before{display:none}
+.al-phone-context,.al-phone-section-label,.al-phone-bottom>span,.al-phone-experience>span,.al-phone-top .al-airline-brand{font-size:12px}
+.al-phone .al-phone-panel>p{font:400 14px/1.4 Sofia,sans-serif}
+.al-phone h3{font:300 24px/1.25 Chillax,sans-serif}
+.al-phone-panels{min-height:350px}
+.al-shared-layer>p{font-size:16px!important}.al-shared-layer ul{font-size:16px}
+.al-visual{position:relative}.al-motion-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}.al-motion-svg path{fill:none;stroke:#f46649;stroke-width:1.2}
+.al-stack-output svg,.al-stack-input svg{visibility:hidden}
+.al-faq summary{font-weight:400}.al-faq .al-faq-answer p{font-size:18px}
+@media(max-width:900px){.al-hero h1{font-size:clamp(36px,5.8vw,48px)}.al-section h2{font-size:34px}.al-product-option h3{font-size:24px}}
+@media(max-width:600px){.al-section h2{font-size:32px}.al-hero h1{font-size:38px}.al-product-option{gap:14px}.al-text-link{font-size:16px}.al-loyalty .al-text-link{width:100%}.al-product-option>div{min-width:0}.al-phone{max-width:290px}.al-phone-panels{min-height:350px}}
+
+/* Opaque espresso foundation keeps glass consistent over light sections. */
+.al-journey-panel,.al-browser,.al-infrastructure,.al-shared-layer{background-color:#180f10;}
+.al-product-option>div{display:flex;flex-direction:column;align-items:flex-start;height:100%;}
+.al-product-option .al-text-link{margin-top:auto;}
+.al-product-option p{margin-bottom:18px;}
+#section-5 h3>span[aria-hidden=true]{font-size:0;display:inline-block;width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#ffd3b0,#f46649);}
+@media(max-width:600px){.al-faq h2 br{display:initial;}}
+/* Internal sections — approved cream, stable journey, shared product choices. */
+.al-earn,.al-journey{background:#eee9df;}
+.al-earn-illustration{overflow:visible;}
+.al-earn-trace,.al-earn-ticket-halo,.al-earn-ticket-wash{display:none;}
+.al-earn-ticket{transform:none;}
+.al-earn-diagram{padding:24px 12px 14px;border:1px solid #f466492e;border-radius:20px;background:linear-gradient(130deg,#fffaf266,#f4664907);}
+.al-earn-illustration path,.al-earn-illustration rect,.al-earn-illustration circle{stroke-linecap:round;stroke-linejoin:round;}
+.al-earn-route-muted{stroke:#f46649;}
+.al-earn-ticket-node{display:none;}
+.al-earn-diagram figcaption{font-size:16px;}
+.al-revenue-note{background:#f4664909;border-color:#f4664955;}
+.al-phone{width:300px;max-width:100%;flex-shrink:0;}
+.al-phone-panels{min-height:350px;transition:none;}
+.al-phone-panel{align-self:start;}
+.al-touchpoints button[aria-selected=true]{background:linear-gradient(110deg,#f466493d,#f4664912)!important;border-color:#f46649!important;box-shadow:inset 3px 0 #f46649,0 0 18px #f4664912;color:#fff8f1!important;}
+.al-miles>div>span{border:0!important;box-shadow:none!important;background:none!important;border-radius:0;width:48px;height:48px;}
+.al-miles .al-icon{width:32px;height:32px;}
+.al-product-options{border:1px solid #f4664940;border-radius:24px;padding:30px;background:linear-gradient(125deg,#68403345,#291a1870 48%,#45271f40);}
+.al-product-icon{border:0!important;background:none!important;box-shadow:none!important;}
+.al-product-option>div{width:100%;}
+.al-choice-visual{display:flex;align-items:center;width:100%;min-height:220px;margin:20px 0 28px;}
+.al-mini-window{border:1px solid #f46649;border-radius:15px;background:linear-gradient(130deg,#63403555,#211615);box-shadow:inset 0 1px #ffe3cc20,0 10px 20px #0003;overflow:hidden;min-width:0;}
+.al-choice-source{width:36%;}.al-choice-target{width:56%;}
+.al-mini-chrome{display:flex;gap:5px;padding:9px 12px;border-bottom:1px solid #f4664933;}.al-mini-chrome i{width:5px;height:5px;border-radius:50%;background:#f7d1b7;}
+.al-mini-code{padding:20px 12px;display:grid;gap:9px;}.al-mini-code i{height:3px;background:linear-gradient(90deg,#f46649 20%,transparent 20% 27%,#d3b5a0 27%);border-radius:3px;}.al-mini-code i:nth-child(2n){width:70%;margin-left:14%;}
+.al-mini-label,.al-mini-caption,.al-mini-brand{display:block;padding:12px;font:400 14px/1.3 Sofia,sans-serif;color:#eee9df;}
+.al-choice-target img{width:calc(100% - 24px);margin:0 12px;aspect-ratio:1.8;object-fit:cover;border-radius:8px;display:block;}
+.al-choice-wire{width:8%;height:1px;background:#f46649;position:relative;}.al-choice-wire i{position:absolute;width:5px;height:5px;top:-2px;border-radius:50%;background:#fff3e6;border:1px solid #f46649;}.al-choice-wire i:last-child{right:0;}
+.al-mini-placeholders{display:grid;gap:8px;margin-top:20px;}.al-mini-placeholders i{height:25px;border-radius:5px;background:#a77b6330;}
+.al-product-option .al-text-link{width:100%;}
+.al-shared-layer{grid-template-columns:1.5fr 1fr;gap:24px;}.al-shared-layer ul{flex:1;}.al-shared-layer>p{margin-left:auto;}
+.al-faq{background:#180f10;color:#eee9df;}.al-faq h2,.al-faq summary{color:#eee9df;}.al-faq .al-faq-answer p{color:#cec3b9;}.al-faq details{border-color:#f4664933;}.al-faq summary:hover,.al-faq details[open] summary{color:#ffb18e;}
+@media(max-width:700px){.al-product-options{padding:22px 18px;}.al-product-option{display:block;}.al-product-icon{margin-bottom:16px;}.al-choice-visual{min-height:190px;}.al-shared-layer{display:flex;flex-direction:column;align-items:stretch;}.al-shared-layer>p{margin-left:0;}.al-phone{width:290px;}}
+.al-touchpoints button[aria-selected=true] span,.al-touchpoints button[aria-selected=true] svg{color:#fff8f1!important;-webkit-text-fill-color:#fff8f1!important;}
+/* Hero glass: quiet outer shell, layered espresso surfaces, coral accents. */
+.al-hero .al-browser{background:linear-gradient(125deg,#65504a66 0%,#241b1bd9 35%,#171112f5 72%,#49302870);border-color:#f4664947!important;box-shadow:inset 0 1px 0 #ffe6d62b,inset 0 -1px 0 #f466491c,0 22px 48px #08040566;}
+.al-hero .al-browser-frame{border-color:#f466493b!important;background:#171213;box-shadow:0 8px 24px #08040555;}
+.al-hero .al-airline-nav{background:linear-gradient(110deg,#fff3e809,#ffffff00 65%);border-bottom:1px solid #f4664924;}
+.al-hero .al-browser-content{background:radial-gradient(ellipse at 2% 0%,#78554b22,transparent 65%),linear-gradient(140deg,#231b1c,#171213 70%);}
+.al-hero .al-booking{background:linear-gradient(120deg,#5d484251,#30252680 45%,#231a1ca6);border-color:#f4664966!important;box-shadow:inset 0 1px 0 #ffe7d823,0 8px 18px #09050730;}
+.al-hero .al-booking-check{background:#f4664910;border-color:#f4664980;}
+.al-hero .al-experience{background:linear-gradient(120deg,#42322d80,#21191bf2);border-color:#f4664973!important;box-shadow:inset 0 1px 0 #ffdfcc20,0 9px 18px #09050755;}
+.al-hero .al-experience>span{background:linear-gradient(125deg,#ffe5d509,#ffffff00);}
+.al-hero .al-infrastructure{background:linear-gradient(115deg,#56403966,#241b1cee 50%,#38262688);border-color:#f4664980!important;box-shadow:inset 0 1px 0 #ffe6d62b,0 10px 24px #09050755;}
+.al-hero .al-suppliers{background:linear-gradient(120deg,#35292b99,#1b1516e6 65%);border-color:#f4664940!important;box-shadow:inset 0 1px 0 #ffe6d618,0 8px 18px #09050730;}
+.al-hero .al-browser-chrome i{background:#f4c3aa;opacity:.8;}
+.al-hero .al-browser-chrome i:first-child{background:#f46649;opacity:1;}
+
+/* Keep the currently displayed journey selected, independently of hover. */
+.al-journey .al-touchpoints button[aria-selected="true"]{background:linear-gradient(110deg,#ff9560,#f46649)!important;color:#211310!important;box-shadow:inset 0 1px 0 #ffe6d64d,0 5px 18px #f466491c!important;}
+.al-journey .al-touchpoints button[aria-selected="true"] span,.al-journey .al-touchpoints button[aria-selected="true"] svg{color:#211310!important;-webkit-text-fill-color:#211310!important;}
+
+.al-journey .al-touchpoints button[aria-selected="false"]{background:linear-gradient(135deg,#513029,#241718)!important;color:#fff8f1!important;}
+.al-journey .al-touchpoints button[aria-selected="false"] span,.al-journey .al-touchpoints button[aria-selected="false"] svg{color:#fff8f1!important;-webkit-text-fill-color:#fff8f1!important;}
+
+/* Airy shared services and full-width editorial FAQ. */
+.al-shared-layer{margin-top:32px;padding:28px 30px;gap:32px;}
+.al-shared-layer ul{gap:18px 28px;}
+.al-shared-layer li{gap:28px;}
+.al-faq{display:block;padding-block:80px;}
+.al-faq header{margin-bottom:36px;}
+.al-faq header .al-kicker{display:none!important;}
+.al-faq h2{font:300 clamp(32px,3vw,44px)/1.25 Chillax,sans-serif!important;}
+.al-faq h2 br{display:none;}
+.al-faq summary{font:300 24px/1.4 Chillax,sans-serif!important;padding:24px 36px 24px 0;min-height:78px;}
+.al-faq summary::before{display:none;}
+.al-faq summary::after{width:9px;height:9px;top:calc(50% - 6px);right:4px;background:none;border-right:1.5px solid #f46649;border-bottom:1.5px solid #f46649;rotate:45deg;transition:rotate .4s cubic-bezier(.16,1,.3,1);}
+.al-faq details[open] summary::after{rotate:225deg;}
+.al-faq details:last-child{border-bottom:0;}
+@media(max-width:700px){.al-faq{padding-block:56px;}.al-faq summary{font-size:20px!important;}.al-shared-layer{padding:24px 20px;}}
+
+/* Layered espresso glass: restrained outer shells, luminous inner surfaces. */
+.al-journey-panel,.al-product-options,.al-shared-layer{
+ background:radial-gradient(ellipse at 0 0,#ba79552b,transparent 48%),radial-gradient(ellipse at 100% 100%,#99563f1c,transparent 50%),linear-gradient(125deg,#2d2021e8,#191214f5 56%,#271b1de8)!important;
+ border-color:#f4664947!important;
+ box-shadow:inset 0 1px 0 #ffdfca26,inset 0 -1px 0 #f4664910,0 20px 38px #10070926!important;
+}
+.al-phone,.al-mini-window{
+ background:radial-gradient(ellipse at 0 0,#b8846640,transparent 54%),linear-gradient(135deg,#39292be8,#21191cf5 48%,#2b1c1df2)!important;
+ border-color:#f486659e!important;
+ box-shadow:inset 0 1px 0 #ffe1ca70,inset 1px 0 0 #ffbe9630,inset 0 -1px 0 #f4664933,0 12px 24px #08040570,0 3px 5px #08040540!important;
+ backdrop-filter:blur(14px);
+}
+.al-phone-top,.al-mini-chrome{
+ background:linear-gradient(110deg,#ffe2cb0d,transparent 75%);
+ border-bottom-color:#f4664933!important;
+}
+.al-phone-experience{
+ background:linear-gradient(125deg,#594039a8,#2a1c20ed)!important;
+ border-color:#f4866599!important;
+ box-shadow:inset 0 1px 0 #ffe1ca38,0 7px 16px #08040555!important;
+}
+.al-phone-experience>span{background:linear-gradient(115deg,#ffe2cb0c,transparent)!important;}
+.al-phone-bottom{border-top-color:#f4664933!important;background:linear-gradient(110deg,#ffe2cb06,transparent);}
+.al-mini-placeholders i{background:linear-gradient(130deg,#a7857133,#7753431c);box-shadow:inset 0 1px 0 #ffe1ca15;}
+.al-choice-wire{background:linear-gradient(90deg,#f46649b3,#ffb28b,#f46649b3);}
+
+/* Balanced choice columns: shared heading, illustration and action baselines. */
+.al-product-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:0;padding:30px 0;}
+.al-product-option,.al-product-option+.al-product-option{position:relative;display:block;padding:0 40px;}
+.al-product-icon{position:absolute;top:0;left:36px;width:36px;height:36px;}
+.al-product-option>div{display:grid;grid-template-rows:auto 84px 1fr auto;align-items:start;height:100%;}
+.al-product-option h3{padding-left:52px;min-height:36px;margin-bottom:12px;}
+.al-product-option p{padding-left:52px;margin:0;max-width:none;}
+.al-choice-visual{min-height:260px;margin:24px 0 28px;align-self:center;}
+.al-product-option .al-text-link{margin-top:0;}
+@media(min-width:701px) and (max-width:1100px){.al-product-option,.al-product-option+.al-product-option{padding-inline:24px;}.al-product-icon{left:22px;}.al-product-option>div{grid-template-rows:auto 140px 1fr auto;}.al-product-option h3,.al-product-option p{padding-left:40px;}}
+@media(max-width:700px){.al-product-options{grid-template-columns:1fr;padding:24px 20px;gap:28px;}.al-product-option,.al-product-option+.al-product-option{padding:0;}.al-product-option+.al-product-option{padding-top:28px;}.al-product-icon{left:0;top:0;}.al-product-option+.al-product-option .al-product-icon{top:28px;}.al-product-option>div{grid-template-rows:auto auto 1fr auto;}.al-product-option h3{padding-left:44px;}.al-product-option p{padding-left:0;}.al-choice-visual{min-height:190px;}}
+
+/* Live choice connections retain their layout space; shared SVG owns the light. */
+.al-choice-visual{position:relative;isolation:isolate;}
+.al-choice-wire{visibility:hidden;}
+.al-choice-visual>.al-motion-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;}
