@@ -1,0 +1,5 @@
+/* API page: fluid sections and copy containers at every viewport width. */
+body main.shell,body main.shell>section{max-width:none!important;width:100%;box-sizing:border-box;margin-inline:0}
+body main.shell :is(.hero-copy,.copy-inner,.cx-copy,.section-inner,.section-heading,.section-intro){max-width:none!important}
+body main.shell :is(h1,h2,h3,h4,p){max-width:none!important}
+body main.shell #faq .copy-inner{width:100%}

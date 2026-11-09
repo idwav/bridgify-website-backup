@@ -1,0 +1,44 @@
+/* OTA materials only: preserve all layout and typography geometry. */
+body[data-copy-page="otas"]{--ota-edge:#c994746b;--ota-glass:linear-gradient(135deg,#80554555 0%,#342220b3 35%,#24191bd9 72%,#67433455);--ota-depth:inset 0 1px 1px #ffe3c755,inset 0 -1px 1px #bc765333,0 12px 28px #09050633;background:#180f10;color:#eee9de}
+body[data-copy-page="otas"] .top{background:linear-gradient(120deg,#382725b8,#201719e8);border-color:var(--ota-edge);box-shadow:inset 0 1px 0 #fff2df12;backdrop-filter:blur(16px)}
+.ys-hero,.ms-section,.rc-section,.eo-section{color:#eee9de;background:radial-gradient(ellipse at 85% 85%,#703b3026,transparent 65%),#180f10}
+.ys-ticket,.rc-panel{background:var(--ota-glass);border-color:#d5a185a6;box-shadow:var(--ota-depth);backdrop-filter:blur(14px)}
+.ms-source,.ms-hub,.ms-product,.ms-direct,.rc-window,.rc-phone,.eo-site,.eo-hub{background:var(--ota-glass);border-color:var(--ota-edge);box-shadow:var(--ota-depth);backdrop-filter:blur(12px)}
+.eo-layer:before{background:var(--ota-glass);border-color:#c9947499;box-shadow:var(--ota-depth)}
+.eo-accent:before{background:linear-gradient(135deg,#b55e434d,#3e2421e6 60%,#8b46354d);border-color:#f46649;animation:none;box-shadow:inset 0 1px 2px #ffe0bf66,inset 0 -1px 6px #f4664933,0 5px 16px #10090944}
+.ms-offer,.rc-context>span,.rc-suggestion,.rc-trip,.rc-itinerary>div,.rc-message,.rc-nearby,.ys-integration,.ys-retain>div{background:linear-gradient(125deg,#a26e5540,#38262680);border-color:#c994745c;box-shadow:inset 0 1px 0 #ffe7ce19}
+.ms-offer[aria-pressed=true]{background:linear-gradient(120deg,#9b503955,#54302799);border-color:#f46649}
+.ys-photo{border-color:#c9947499;box-shadow:inset 0 1px 0 #ffe9d033,0 6px 16px #09060744}
+.ys-photo>span{background:#241719cc;backdrop-filter:blur(8px)}
+.ys-actions a,.ms-actions a,.eo-cta{border-color:#c99474a6;background:linear-gradient(125deg,#84513b33,#24181b88);color:#eee9de;box-shadow:inset 0 1px 0 #ffe4cb22}
+.ys-actions a:first-child,.ms-actions a:first-child,.rc-add,.eo-site>a{background:linear-gradient(120deg,#fa805b,#f46649);border-color:#ffb095;color:#180f10;box-shadow:inset 0 1px 0 #ffe3cf66}
+.ys-eyebrow,.ms-eyebrow,.rc-eyebrow,.eo-eyebrow,.eo-label,.ms-icon,.eo-accent .eo-icon,.ms-name>span,.ms-source b,.ms-direct>b,.ms-offer b{color:#f46649}
+.ms-icon{stroke:#f46649}
+.ms-wires,.eo-wires{stroke:#f46649;stroke-width:1.5;stroke-linecap:round}
+/* One round data point per connection, with a restrained warm reflection. */
+.ms-wires .ms-pulse,.eo-wires .eo-pulse{stroke:#fff8f1;stroke-width:4;stroke-dasharray:.01 160;stroke-linecap:round;animation:ota-wire-flow 6s linear infinite;filter:drop-shadow(0 0 3px #f46649a0)}
+@keyframes ota-wire-flow{to{stroke-dashoffset:-160.01}}
+.rc-stages:after,.ys-experiences:after{background:#f46649}
+.rc-stages:before{width:6px;height:6px;border-radius:50%;background:#fff8f1;box-shadow:0 0 7px #f4664980}
+.ys-experiences:before{width:6px;height:6px;border-radius:50%;background:#fff8f1;box-shadow:0 0 7px #f4664980}
+.rc-stages i{border-color:#f46649;background:#342220}
+.ms-dedup{color:#ff9a7e;border-color:#f4664980}
+body[data-copy-page="otas"] .copy-faq{background:#180f10;color:#eee9de}
+body[data-copy-page="otas"] .copy-faq details{background:transparent;border-color:#c994744d;color:#eee9de}
+body[data-copy-page="otas"] .copy-faq :is(h2,summary,p){color:#eee9de}
+@media(prefers-reduced-motion:reduce){.ms-wires .ms-pulse,.eo-wires .eo-pulse{animation:none;display:none}}
+
+/* Accent copy shares the warm cream-to-coral finish of the AIyelet page. */
+body[data-copy-page="otas"] :is(.ota-text-accent,.ys-copy h1>span){background:linear-gradient(105deg,#ffd8bd 0%,#ffb194 42%,#f46649 100%);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.ms-source,.ms-source:hover{transform:translateY(calc(var(--i)*4px));transition:none;z-index:auto}
+.ms-section :is(.ms-id,.ms-source small,.ms-price,.ms-direct,.ms-offer,.ms-api-num){font-family:Sofia,sans-serif;line-height:1.35}
+.ms-id,.ms-source small{font-size:11px}
+.ms-price{font-size:14px}
+.ms-api-num{font-size:11px}
+.ms-direct{font-size:13px;flex-wrap:wrap}
+.ms-direct strong{font:500 15px/1.35 Sofia,sans-serif}
+.ms-offer{font-size:12px}
+.ms-offer strong{font-size:14px}
+body[data-copy-page="otas"] .copy-faq .copy-inner{max-width:none;width:100%;background:transparent;border:0;box-shadow:none;border-radius:0}
+body[data-copy-page="otas"] .copy-faq details{background:transparent;box-shadow:none;border-radius:0;border-right:0;border-left:0}
+@media(max-width:760px){.ms-source,.ms-source:hover{transform:none}.ms-offer{flex-wrap:wrap}.ms-direct>span{padding-left:6px}}
