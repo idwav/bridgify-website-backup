@@ -124,3 +124,21 @@ html body[data-copy-page="otas"] .ms-offer{
 }
 html body[data-copy-page="otas"] :is(.ms-api-num,.ms-dedup){background:#21171a80!important;border-color:#f4866580!important;}
 html body[data-copy-page="otas"] :is(.ms-id,.ms-price,.ms-source small,.ms-result,.ms-availability,.ms-hub>span){border-color:#f466493d!important;}
+
+/* Ownership diagrams: quiet glass with arrival light confined to each frame. */
+html body[data-copy-page="otas"] .eo-section :is(.eo-layer:before,.eo-hub,.eo-site){background:radial-gradient(ellipse at 15% 0,#ffbf9820,transparent 62%),linear-gradient(135deg,#332323e8,#1e1518f5)!important;border-color:#f4866570!important;box-shadow:inset 0 1px #ffe1ca45,inset 0 0 calc(var(--arrival,0)*16px) rgb(255 172 129 / calc(var(--arrival,0)*.16)),0 8px 18px #0003,0 0 calc(var(--arrival,0)*22px) rgb(244 102 73 / calc(var(--arrival,0)*.42))!important}
+html body[data-copy-page="otas"] .eo-site{border-color:#f4866540!important}
+html body[data-copy-page="otas"] .eo-label{display:flex;align-items:center;gap:9px;font:400 13px/1.4 Sofia,sans-serif;letter-spacing:.16em;background:linear-gradient(105deg,#ffd8bd,#f48665);background-clip:text;-webkit-background-clip:text;color:transparent}
+.eo-label:before{content:"";width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#ffd8bd,#f46649);flex-shrink:0}
+html body[data-copy-page="otas"] .eo-hub small{font-size:12px;letter-spacing:.07em;white-space:normal;text-align:center;width:130%;line-height:1.3}
+html body[data-copy-page="otas"] .eo-layer>span{font-size:16px}
+html body[data-copy-page="otas"] .eo-diagram>.ota-motion-svg{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;transform:none!important;max-height:none!important;aspect-ratio:auto!important}
+@media(max-width:760px){html body[data-copy-page="otas"] .eo-layer>span{font-size:14px;gap:4px;line-height:1.2}.eo-layer>span{flex-direction:column}.eo-market .eo-layer>span{flex-direction:row}.eo-stack{padding:0}.eo-section .eo-icon{width:18px;height:18px}html body[data-copy-page="otas"] .eo-hub small{font-size:12px;width:160%;letter-spacing:0}.eo-section .eo-site>div{flex-direction:column;font-size:14px}.eo-section .eo-site>a{font-size:14px}.eo-section .eo-note{font-size:16px}}
+
+/* Ownership typography and button states share the approved scale. */
+html body[data-copy-page="otas"] .eo-option h3{font-family:Chillax,sans-serif;font-weight:300;font-size:clamp(24px,2.2vw,28px)}
+html body[data-copy-page="otas"] .eo-head p{font:400 18px/1.55 Sofia,sans-serif}
+html body[data-copy-page="otas"] .eo-section :is(.eo-cta,.eo-site>a){font:400 16px/1.3 Sofia,sans-serif;color:#fff3e7;border:1px solid #f4664975;background:linear-gradient(125deg,#ffc3a014,transparent),#25191b;border-radius:12px;transition:background-color .3s ease-out,box-shadow .3s ease-out;min-height:46px}
+html body[data-copy-page="otas"] .eo-section :is(.eo-cta,.eo-site>a):is(:hover,:focus-visible){background-color:#ef704c;box-shadow:inset 0 0 26px #ffb07877;color:#fff3e7}
+html body[data-copy-page="otas"] .eo-section .eo-icon{stroke-width:1.5}
+html body[data-copy-page="otas"] .eo-diagram .ota-motion-svg path{stroke-width:1.3}

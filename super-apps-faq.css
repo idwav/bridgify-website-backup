@@ -1,0 +1,17 @@
+/* Dark FAQ, using the shared disclosure motion and approved typography. */
+body[data-copy-page="super-apps"] #faq{background:#180f10;color:#eee9de}
+body[data-copy-page="super-apps"] #faq h2{font:300 44px/1.13 Chillax,sans-serif;letter-spacing:-.025em;min-height:60.6px}
+body[data-copy-page="super-apps"] #faq h2 span{background:linear-gradient(110deg,#ffe2c6,#ff967b 52%,#f46649);background-clip:text;-webkit-background-clip:text;color:transparent}
+body[data-copy-page="super-apps"] #faq details{border-color:#f466493b;position:relative}
+body[data-copy-page="super-apps"] #faq summary{list-style:none;position:relative;padding-right:38px;min-height:30.8px;font:400 18px/1.7 Sofia,sans-serif;font-size:18px!important;cursor:pointer;color:#eee9de;transition:color .35s ease-out}
+body[data-copy-page="super-apps"] #faq summary::-webkit-details-marker{display:none}
+body[data-copy-page="super-apps"] #faq summary:after{content:'';position:absolute;right:8px;top:9px;width:8px;height:8px;border-right:1.5px solid #d3654c;border-bottom:1.5px solid #d3654c;transform:rotate(45deg);transition:transform .42s cubic-bezier(.16,1,.3,1)}
+body[data-copy-page="super-apps"] #faq details[open] summary:after{transform:rotate(225deg)}
+body[data-copy-page="super-apps"] #faq summary:hover,body[data-copy-page="super-apps"] #faq details[open] summary{color:#ffb49a}
+body[data-copy-page="super-apps"] #faq summary:focus-visible{outline:2px solid #d3654c;outline-offset:6px;border-radius:3px}
+body[data-copy-page="super-apps"] #faq p{font:400 18px/1.6 Sofia,sans-serif;font-size:18px!important;color:#d9c6bb}
+body[data-copy-page="super-apps"] #faq summary:before{content:'';position:absolute;inset:-12px -8px;border-radius:8px;background:radial-gradient(ellipse at 15% 50%,#f486652b,transparent 70%);box-shadow:0 0 16px #f4664910;opacity:0;pointer-events:none}
+body[data-copy-page="super-apps"] #faq details[open] summary:before{animation:super-faq-arrival 1s ease-out both}
+@keyframes super-faq-arrival{0%{opacity:0}35%{opacity:1}100%{opacity:0}}
+@media(max-width:700px){body[data-copy-page="super-apps"] #faq h2{font-size:36px;min-height:0}body[data-copy-page="super-apps"] #faq summary{line-height:1.45}body[data-copy-page="super-apps"] #faq summary:after{top:7px}}
+@media(prefers-reduced-motion:reduce){body[data-copy-page="super-apps"] #faq summary,body[data-copy-page="super-apps"] #faq summary:after{transition:none}body[data-copy-page="super-apps"] #faq summary:before{animation:none!important}}

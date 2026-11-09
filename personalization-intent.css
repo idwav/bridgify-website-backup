@@ -45,3 +45,7 @@
 #section-2 .intent-typed mark.lit{background:radial-gradient(ellipse at 50% 100%,#f466491c,transparent 70%),linear-gradient(135deg,#fff8f109,#180f1030);border-color:#ff8868;box-shadow:inset 0 1px 1px #ffd1ae88,inset 0 -1px 4px #f4664940,0 0 17px #f4664928}
 @keyframes intent-ink-flow{from{background-position:0% 50%}to{background-position:100% 50%}}
 @media(prefers-reduced-motion:reduce){#section-2 .intent-heading h2 em,.intent-typed mark.lit .intent-ink{animation:none}}
+
+/* Intent section: viewport composition and readable body copy. */
+html body #section-2.intent-section .intent-heading p{font-family:Sofia,"Sofia Sans",sans-serif;font-size:18px;font-weight:400!important;line-height:1.55}
+@media(min-width:901px){html body #section-2.intent-section{min-height:100svh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center}.intent-heading,.intent-stage{width:100%;box-sizing:border-box}.intent-stage{margin-top:0;margin-bottom:0}}

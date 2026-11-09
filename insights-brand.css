@@ -85,3 +85,9 @@ html body[data-copy-page="insights"] .lt-card h3{font-size:var(--type-card)!impo
 
 /* Editorial cards are outer containers; keep action borders stronger. */
 html body[data-copy-page="insights"] .editorial-read.brand-coral-frame{border-color:rgba(244,102,73,.32)!important}
+
+/* Card hover retains editorial contrast; only its action receives the fill. */
+html body[data-copy-page="insights"] .editorial-read.brand-action{background:linear-gradient(135deg,#51302970,#241718b0)!important;color:#eee9de!important;-webkit-text-fill-color:#eee9de!important;transition:box-shadow .3s ease-out,border-color .3s ease-out!important}
+html body[data-copy-page="insights"] .editorial-read.brand-action:is(:hover,:focus-visible){background:linear-gradient(135deg,#51302990,#241718b0)!important;color:#eee9de!important;-webkit-text-fill-color:#eee9de!important;box-shadow:inset 0 1px #ffb19430,0 0 20px #f4664918!important}
+html body[data-copy-page="insights"] .editorial-read .er-link{color:#fff8f1!important;-webkit-text-fill-color:#fff8f1!important}
+html body[data-copy-page="insights"] .lt-topic-grid a:is(:hover,:focus-visible) .insight-icon{stroke:#180f10!important}

@@ -3,16 +3,16 @@
 #network.an-section{width:100%;max-width:none;box-sizing:border-box;margin-inline:0;padding:56px 4% 52px;background:#180f10;color:#eee9de;scroll-margin-top:85px}
 #network .an-eyebrow{font:300 clamp(12px,1vw,15px)/1.3 Chillax,sans-serif;letter-spacing:.12em;margin-bottom:22px}
 #network .an-heading{display:grid;grid-template-columns:1.1fr 1fr;gap:7%;align-items:start;margin-bottom:84px}
-#network h2{font-size:clamp(32px,3.1vw,48px);line-height:1.02;letter-spacing:-.035em;font-weight:300}
+#network h2{font-size:clamp(36px,3.1vw,44px);line-height:1.02;letter-spacing:-.035em;font-weight:300}
 #network em{font-style:normal;color:#f46649}
-#network .an-heading p{font-family:Chillax,sans-serif;font-weight:400;font-size:clamp(16px,1.2vw,19px);line-height:1.38;color:#eee9de;padding:0;margin:0}
+#network .an-heading p{font-family:"Sofia Sans",sans-serif;font-weight:400;font-size:18px;line-height:1.55;color:#eee9de;padding:0;margin:0}
 #network .an-flow{display:grid;grid-template-columns:28.5% 43.5% 28%;margin:0 -1% 54px}
 #network .an-flow article{position:relative;min-width:0;padding:0 5.5%}
 #network .an-flow article:first-child{padding-left:0}
 #network .an-flow article:last-child{padding-right:0}
-#network .an-flow article+article{border-left:1px solid #81504a}
-#network h3{font:300 clamp(22px,1.85vw,29px)/1.2 Chillax,sans-serif;letter-spacing:-.035em;margin:0 0 5px;white-space:nowrap}
-#network .an-flow article>p{font-family:Chillax,sans-serif;font-weight:400;font-size:clamp(14px,1.1vw,17px);line-height:1.3;color:#eee9de;white-space:nowrap}
+#network .an-flow article+article{border-left:1px solid #f466492e}
+#network h3{font:300 clamp(24px,1.85vw,28px)/1.2 Chillax,sans-serif;letter-spacing:-.035em;margin:0 0 5px;white-space:nowrap}
+#network .an-flow article>p{font-family:"Sofia Sans",sans-serif;font-weight:400;font-size:16px;line-height:1.3;color:#eee9de;white-space:nowrap}
 #network .an-map-wrap{position:relative;width:100%;aspect-ratio:420/340;margin-top:44px}
 #network .an-map{position:absolute;width:100%;height:100%;inset:0}
 #network .an-supplier{position:absolute;z-index:2;border:1.5px solid #f46649;border-radius:99px;padding:5px 17px;background:#241719e8;color:#fff8f1;white-space:nowrap;font-family:Chillax,sans-serif;font-size:clamp(13px,1.2vw,19px);line-height:1.25;box-shadow:inset 0 0 8px #f4664915}
@@ -24,7 +24,7 @@
 #network .an-card img{width:34%;aspect-ratio:1.04;object-fit:cover;border-radius:5px}
 #network .an-fields{flex:1;display:grid;gap:9px;min-width:0}
 #network .an-fields>div{display:flex;align-items:center;gap:12%;height:auto}
-#network .an-fields svg{width:20%;height:auto;max-height:24px;aspect-ratio:1;display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#network .an-fields svg{width:20%;height:auto;max-height:24px;aspect-ratio:1;display:block;fill:none;stroke:currentColor;stroke-width:1.5;color:#f58d69;stroke-linecap:round;stroke-linejoin:round}
 #network .an-fields i{display:block;height:6px;width:74%;border-radius:5px;background:#b4a59c}
 #network .an-fields>div:nth-child(2) i{width:53%}#network .an-fields>div:nth-child(3) i{width:68%}
 #network .an-merge{width:100%;height:100%;fill:none;stroke:#f46649;stroke-width:1.8;overflow:visible}
@@ -39,5 +39,19 @@
 #network .an-read{display:inline-block;color:#eee9de;font:400 clamp(17px,1.3vw,20px)/1.4 Chillax,sans-serif;text-decoration:none;border-bottom:2px solid #f46649;padding-bottom:6px}
 #network .an-read:hover{color:#f46649}#network .an-read:focus-visible{outline:2px solid #f46649;outline-offset:6px}
 
-@media(max-width:1000px) and (min-width:761px){#network .an-flow article{padding:0 4%}#network .an-flow article>p{font-family:Chillax,sans-serif;font-weight:400;font-size:13px;white-space:normal}#network .an-supplier{padding:4px 9px}#network .an-fields{gap:5px}#network .an-fields i{height:4px}#network .an-next{font-size:25px;right:-17px}#network .an-heading{margin-bottom:50px}#network .an-card{border-radius:9px}}
-@media(max-width:760px){#network.an-section{padding:48px 6%}#network .an-eyebrow{font-size:12px}#network .an-heading{grid-template-columns:1fr;gap:25px;margin-bottom:42px}#network h2{font-size:clamp(28px,6.8vw,34px);line-height:1.12}#network .an-heading p{font-family:Chillax,sans-serif;font-weight:400;font-size:18px}#network .an-flow{display:flex;flex-direction:column;gap:38px;margin:0 0 34px}#network .an-flow article,#network .an-flow article:first-child,#network .an-flow article:last-child{padding:0 0 28px;border-left:0}#network .an-flow article+article{border-left:0;border-top:1px solid #81504a;padding-top:30px}#network h3{font-size:25px}#network .an-flow article>p{font-family:Chillax,sans-serif;font-weight:400;font-size:17px;white-space:normal}#network .an-map-wrap{max-width:420px;margin:24px auto 0}#network .an-supplier{font-size:16px}#network .an-next{display:none}#network .an-mapping{margin-top:25px}#network .an-card{border-radius:10px}#network .an-fields{gap:6px}#network .an-fields i{height:4px}#network .an-product-stage{aspect-ratio:auto;margin-top:30px;max-width:420px}#network .an-window .an-card{padding:7%}}
+@media(max-width:1000px) and (min-width:761px){#network .an-flow article{padding:0 4%}#network .an-flow article>p{font-family:"Sofia Sans",sans-serif;font-weight:400;font-size:14px;white-space:normal}#network .an-supplier{padding:4px 9px}#network .an-fields{gap:5px}#network .an-fields i{height:4px}#network .an-next{font-size:25px;right:-17px}#network .an-heading{margin-bottom:50px}#network .an-card{border-radius:9px}}
+@media(max-width:760px){#network.an-section{padding:48px 6%}#network .an-eyebrow{font-size:12px}#network .an-heading{grid-template-columns:1fr;gap:25px;margin-bottom:42px}#network h2{font-size:clamp(28px,6.8vw,34px);line-height:1.12}#network .an-heading p{font-family:"Sofia Sans",sans-serif;font-weight:400;font-size:18px}#network .an-flow{display:flex;flex-direction:column;gap:38px;margin:0 0 34px}#network .an-flow article,#network .an-flow article:first-child,#network .an-flow article:last-child{padding:0 0 28px;border-left:0}#network .an-flow article+article{border-left:0;border-top:1px solid #f466492e;padding-top:30px}#network h3{font-size:25px}#network .an-flow article>p{font-family:"Sofia Sans",sans-serif;font-weight:400;font-size:17px;white-space:normal}#network .an-map-wrap{max-width:420px;margin:24px auto 0}#network .an-supplier{font-size:16px}#network .an-next{display:none}#network .an-mapping{margin-top:25px}#network .an-card{border-radius:10px}#network .an-fields{gap:6px}#network .an-fields i{height:4px}#network .an-product-stage{aspect-ratio:auto;margin-top:30px;max-width:420px}#network .an-window .an-card{padding:7%}}
+
+#network .an-flow{position:relative}
+#network .an-flow article>p{white-space:normal}
+#network .an-card,#network .an-window{border-color:rgba(244,102,73,.45)!important;background:linear-gradient(150deg,rgba(255,192,160,.11),transparent 48%),rgba(39,25,25,.72)!important;box-shadow:inset 0 1px 0 #ffd4b51c,0 9px 22px #0002,0 0 18px rgba(244,102,73,var(--arrival,0))!important}
+#network .an-window .an-card{border:0!important;background:none!important;box-shadow:none!important}
+#network .an-window-bar{border-color:#f466492e}
+#network .an-fields i{background:#c6aca08c}
+#network .an-supplier{font-family:"Sofia Sans",sans-serif;border-width:1px;border-color:#f4664970;background:linear-gradient(150deg,#ffbd9814,transparent),#241719e8}
+#network em{background:linear-gradient(110deg,#f6c7a6,#f46649);background-clip:text;-webkit-text-fill-color:transparent}
+#network .an-merge{visibility:hidden}
+#network .an-next{display:none}
+#network .an-wires{position:absolute!important;inset:0;width:100%!important;height:100%!important;overflow:visible;pointer-events:none;fill:none;z-index:4}
+#network .an-read{font:400 16px/1.3 "Sofia Sans",sans-serif;padding:13px 22px;border:1px solid #f4664980;border-radius:12px;background:linear-gradient(120deg,#ffbe9814,transparent),#241719;color:#fff3e7;transition:background-color .3s ease-out,box-shadow .3s ease-out}
+#network .an-read:hover,#network .an-read:focus-visible{background-color:#eb6647;color:#fff3e7;box-shadow:inset 0 0 30px #ffb27d80}

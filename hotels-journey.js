@@ -2,21 +2,13 @@
  const root = document.querySelector('.hotel-journey');
  if (!root) return;
  const cards = [...root.querySelectorAll('.hj-step')];
- const pause = root.querySelector('.hj-pause');
+
  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
  let index = 0, stopped = reduce.matches, visible = false, timers = [];
  const clear = () => { timers.forEach(clearTimeout); timers = []; cards.forEach(c => c.classList.remove('is-sending')); };
  const later = (fn, ms) => timers.push(setTimeout(fn, ms));
  const paint = () => cards.forEach((card, i) => card.classList.toggle('is-active', i === index));
- const label = () => { pause.textContent = stopped ? 'Play preview ▷' : 'Pause preview Ⅱ'; pause.setAttribute('aria-pressed', String(stopped)); };
- function schedule() {
-  clear();
-  if (stopped || reduce.matches || !visible || document.hidden) return;
-  if (index < cards.length - 1) {
-   later(() => cards[index].classList.add('is-sending'), 1600);
-   later(() => { index++; paint(); schedule(); }, 2600);
-  } else later(() => { index = 0; paint(); schedule(); }, 2600);
- }
+ function schedule() { clear(); }
  function alignLinks() {
   cards.slice(0, -1).forEach((card, i) => {
    const link = card.querySelector('.hj-link');
@@ -30,14 +22,13 @@
    link.style.width = `${Math.max(0, to.left - from.right)}px`;
   });
  }
- paint(); label();
+ paint();
  new ResizeObserver(alignLinks).observe(root.querySelector('.hj-grid'));
  document.fonts.ready.then(alignLinks);
  window.addEventListener('resize', alignLinks, {passive:true});
  new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; schedule(); }, {threshold:.15}).observe(root);
  document.addEventListener('visibilitychange', schedule);
- pause.onclick = () => { stopped = !stopped; label(); schedule(); };
- reduce.addEventListener('change', () => { stopped = reduce.matches; label(); schedule(); });
+ reduce.addEventListener('change', () => { stopped = reduce.matches; schedule(); });
  root.querySelectorAll('.hj-channel button').forEach(button => button.onclick = () => {
   root.querySelectorAll('.hj-channel button').forEach(b => b.setAttribute('aria-selected', String(b === button)));
   root.querySelector('.hj-phone').dataset.channel = button.dataset.channel;

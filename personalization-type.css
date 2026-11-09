@@ -1,0 +1,30 @@
+/* Page typography and requested preview controls. */
+body[data-page=personalization] section h2{font-family:Chillax,sans-serif!important;font-weight:300!important;font-size:clamp(36px,3vw,44px)!important;line-height:1.2!important}
+body[data-page=personalization] section h3{font-family:Chillax,sans-serif!important;font-weight:300!important;font-size:clamp(24px,2vw,28px);line-height:1.25}
+body[data-page=personalization] section p{font-family:Sofia,"Sofia Sans",sans-serif!important;font-weight:400!important;font-size:18px;line-height:1.55}
+body[data-page=personalization] section button,body[data-page=personalization] section .btn{font-family:Sofia,sans-serif;font-weight:400;font-size:16px}
+body[data-page=personalization] .match-card p{font-size:14px;line-height:1.3}
+body[data-page=personalization] .match-card h3{font-size:24px}
+body[data-page=personalization] .intent-pause,body[data-page=personalization] .match-nav{display:none!important}
+body[data-page=personalization] .intent-bottom{font:400 14px/1.4 Sofia,sans-serif;letter-spacing:.04em}
+@media(min-width:901px){body[data-page=personalization] #section-3{min-height:100svh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;align-items:stretch;padding-top:28px;padding-bottom:28px}}
+@media(max-width:700px){body[data-page=personalization] section h2{font-size:32px!important}body[data-page=personalization] .match-card h3{font-size:20px}}
+
+body[data-page=personalization] .match-workspace{width:100%;box-sizing:border-box}
+
+/* Embedded product: compact desktop composition, full action buttons. */
+body[data-page=personalization] .embed-links a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 22px;box-sizing:border-box;border:1px solid #f4664980!important;border-radius:11px;background:linear-gradient(130deg,#3a2522,#211718);color:#fff3e6!important;text-decoration:none!important;font:400 16px/1.3 Sofia,sans-serif;transition:background .3s ease-out,box-shadow .3s ease-out}
+body[data-page=personalization] .embed-links a:hover,body[data-page=personalization] .embed-links a:focus-visible{background:linear-gradient(110deg,#ff9e72,#f46649);color:#241412!important;box-shadow:0 4px 18px #f4664925}
+body[data-page=personalization] .embed-links{align-items:center}
+body[data-page=personalization] section h4{font:300 24px/1.25 Chillax,sans-serif}
+body[data-page=personalization] .embed-plan h4{font:400 18px/1.3 Sofia,sans-serif}
+body[data-page=personalization] .embed-plan p,body[data-page=personalization] .embed-rec-content p{font-size:16px;line-height:1.4}
+body[data-page=personalization] section small{font-family:Sofia,sans-serif;font-weight:400;font-size:14px}
+body[data-page=personalization] .eyebrow{font:400 13px/1.4 Sofia,sans-serif}
+body[data-page=personalization] .embed-nav,body[data-page=personalization] .embed-toolbar,body[data-page=personalization] .embed-links,body[data-page=personalization] .embed-destination span{font:400 16px/1.4 Sofia,sans-serif}
+body[data-page=personalization] .copy-faq summary{font:300 24px/1.4 Chillax,sans-serif}
+@media(min-width:901px){body[data-page=personalization] #section-4{min-height:100svh;padding-top:16px;padding-bottom:16px;display:flex;flex-direction:column;justify-content:center;gap:18px}body[data-page=personalization] .embed-heading{margin-bottom:0}body[data-page=personalization] .embed-heading h2{margin:12px 0}body[data-page=personalization] .embed-destination{min-height:230px}body[data-page=personalization] .embed-trip aside{padding:16px 24px}body[data-page=personalization] .embed-trip h3{margin-bottom:12px}body[data-page=personalization] .embed-plan{padding:10px 0}body[data-page=personalization] .embed-plan h4{margin:7px 0 4px}body[data-page=personalization] .embed-nav{padding-top:12px;padding-bottom:12px}body[data-page=personalization] .embed-rec-content>img{height:100px}body[data-page=personalization] .embed-recommendation{padding:12px 20px}body[data-page=personalization] .embed-links{padding-top:0}}
+
+body[data-page=personalization] .embed-pause{display:none!important}
+
+html body[data-page=personalization] #section-2.intent-section{background:#180f10!important;color:#eee9de!important}html body[data-page=personalization] #section-2 .intent-heading h2{color:#eee9de!important}html body[data-page=personalization] #section-2 .intent-heading p{color:#d8cbc2!important}html body[data-page=personalization] #section-2 .eyebrow{color:#efb59a!important}

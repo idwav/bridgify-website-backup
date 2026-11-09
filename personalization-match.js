@@ -7,8 +7,8 @@
  let index=0,elapsed=0,last=0,paused=false,visible=false,phase=-1;
  const ease=t=>1-Math.pow(1-Math.max(0,Math.min(1,t)),3);
  function pose(slot,w){return {x:w*(w<500?.9:1)*[0,.54,.63,.69,.74,.78][slot],y:slot*9,scale:[1,.8,.68,.57,.48,.4][slot]};}
- function draw(card,p,opacity,z){card.style.transform=`translate3d(${p.x}px,${p.y}px,0) scale(${p.scale})`;card.style.opacity=1;card.style.zIndex=z;card.style.filter=`brightness(${.42+p.scale*.58})`;}
- function orbit(now){const w=root.querySelector('.match-deck').clientWidth;let t=reduced.matches?1:Math.min(1,(now-motionStart)/1550);
+ function draw(card,p,opacity,z){card.style.transform=`translate3d(${p.x}px,${p.y}px,0) scale(${p.scale})`;card.style.opacity=opacity;card.style.zIndex=z;card.style.filter=`brightness(${.42+p.scale*.58})`;}
+ function orbit(now){cards.forEach((c,i)=>c.style.setProperty('--arrival',i===currentLead&&!moving?window.BridgifyFlow.arrival(now-recycleStart):0));const w=root.querySelector('.match-deck').clientWidth;let t=reduced.matches?1:Math.min(1,(now-motionStart)/1550);
  if(moving&&t>=1){recycled=currentLead;recycleStart=now;currentLead=nextLead;moving=false;}
  cards.forEach((card,i)=>{const slot=(i-currentLead+cards.length)%cards.length;const p=pose(slot,w);
  if(!moving){draw(card,p,i===recycled?.35+.65*ease((now-recycleStart)/500):1,20-slot);return;}
@@ -19,7 +19,7 @@
  }
  function arrange(lead){if(lead===currentLead&&!moving){cards.forEach((card,i)=>card.setAttribute('aria-hidden',i!==lead));return;}
  // Only adjacent cards advance through the visible queue. Other selections reset off-stage.
- if(reduced.matches||lead!==(currentLead+1)%cards.length){currentLead=lead;moving=false;}else{nextLead=lead;motionStart=motionClock;moving=true;}
+ if(reduced.matches||paused||lead!==(currentLead+1)%cards.length){currentLead=lead;moving=false;}else{nextLead=lead;motionStart=motionClock;moving=true;}
  cards.forEach((card,i)=>{card.dataset.position=i===lead?0:1;card.setAttribute('aria-hidden',i!==lead)});orbit(motionClock);
  }
 
@@ -32,9 +32,9 @@
  root.classList.toggle('matching-signal',phase===3);root.classList.toggle('matching-result',phase===4);
  if(phase===4)arrange(scene.lead)
  }
- function start(n){index=(n+scenes.length)%scenes.length;elapsed=0;phase=-1;fields.forEach(f=>f.classList.remove('resolved'));root.classList.remove('matching-signal','matching-result');if(reduced.matches)elapsed=1600;render()}
+ function start(n){index=(n+scenes.length)%scenes.length;elapsed=0;phase=-1;fields.forEach(f=>f.classList.remove('resolved'));root.classList.remove('matching-signal','matching-result');if(reduced.matches||paused)elapsed=1600;render()}
  function frame(now){const delta=last?Math.min(now-last,80):0;last=now;if(visible&&!paused&&!document.hidden&&!reduced.matches){elapsed+=delta;if(elapsed>=5200)start(index+1);else render()}if(visible&&!paused&&!document.hidden){motionClock+=delta;orbit(motionClock);}requestAnimationFrame(frame)}
- root.querySelectorAll('[data-match]').forEach(button=>button.onclick=()=>{if(button.dataset.match==='pause'){paused=!paused;root.classList.toggle('match-paused',paused);pause.textContent=paused?'Play ▷':'Pause Ⅱ';pause.setAttribute('aria-label',paused?'Play carousel':'Pause carousel')}else start(index+(button.dataset.match==='next'?1:-1))});
+ root.querySelectorAll('[data-match]').forEach(button=>button.onclick=()=>{if(button.dataset.match==='pause'){paused=!paused;root.classList.toggle('match-paused',paused);pause.textContent=paused?'Play':'Pause';pause.setAttribute('aria-label',paused?'Play carousel':'Pause carousel')}else start(index+(button.dataset.match==='next'?1:-1))});
  new IntersectionObserver(([entry])=>{visible=entry.isIntersecting},{threshold:.15}).observe(root);
  reduced.addEventListener('change',()=>{start(index)});arrange(0);start(0);requestAnimationFrame(frame);
 })();
