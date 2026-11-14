@@ -101,7 +101,7 @@
    The code window and the normalization slider keep their own quiet chrome, so undo that inside them. */
 (() => {
   const CLS = ['brand-coral-frame', 'brand-action', 'brand-action-primary', 'brand-outer-frame'];
-  const clean = () => document.querySelectorAll('.ahc-visual, #network .nz-wrap, #customer-experience, #whats-inside').forEach(root =>
+  const clean = () => document.querySelectorAll('.ahc-visual, #network .nz-wrap, #customer-experience, #whats-inside, #api-features, #enterprise').forEach(root =>
     [root, ...root.querySelectorAll('*')].forEach(el => el.classList && el.classList.remove(...CLS)));
   const later = () => setTimeout(clean, 0);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', later); else later();

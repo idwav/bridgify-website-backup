@@ -46,15 +46,6 @@
     if (live() && !raf) { last = performance.now(); raf = requestAnimationFrame(frame); }
   };
 
-  const ctl = root.querySelector('.cj-controls');
-  ctl.querySelector('[data-replay]').addEventListener('click', () => { t = reduce ? DUR : 0; setBrand(brand + 1); snap(); sync(); });
-  const pauseBtn = ctl.querySelector('[data-pause]');
-  if (reduce) pauseBtn.hidden = true;
-  pauseBtn.addEventListener('click', () => {
-    playing = !playing;
-    pauseBtn.textContent = playing ? 'Pause Ⅱ' : 'Play ▶'; pauseBtn.setAttribute('aria-pressed', String(!playing));
-    sync();
-  });
 
   new IntersectionObserver(es => { visible = es[0].isIntersecting; sync(); }, {threshold: .2}).observe(root);
   document.addEventListener('visibilitychange', sync);
