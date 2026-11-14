@@ -51,3 +51,29 @@ body[data-copy-page="marketplace"] #section-5{display:block;height:auto;min-heig
 #section-5 .launch-workspace[data-launch-step="4"] .launch-setup button.complete,#section-5 .launch-workspace[data-launch-step="4"] .launch-products article{border-color:#76d9a466;box-shadow:inset 0 1px 0 #e5fff044,0 3px 0 #1a2921,0 4px 0 #76d9a430,0 8px 12px #0004,0 0 12px #63d99a15}
 #section-5 .launch-workspace[data-launch-step="2"] .launch-address,#section-5 .launch-workspace[data-launch-step="3"] .launch-address{box-shadow:inset 0 2px 5px #0005,0 0 12px #f4664920}
 #section-5 .launch-workspace[data-launch-step="4"] .launch-address{box-shadow:inset 0 2px 5px #0005,0 0 12px #63d99a25}
+
+/* The three-day story drives the existing live storefront demonstration. */
+#section-5 .launch-timeline{padding:24px;gap:18px}
+#section-5 .launch-days{position:relative;display:grid;gap:18px;padding-left:18px}
+#section-5 .launch-days button{position:relative;padding:16px;min-height:120px}
+#section-5 .launch-day-label{display:block;font:400 12px/1.4 Sofia,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ffb69a;margin-bottom:8px}
+#section-5 .launch-days button:not(.complete) b{opacity:0}
+#section-5 .launch-days button small{margin-top:8px}
+#section-5 .launch-days button b{flex:none;font-size:14px;padding:4px 7px}
+#section-5 .launch-timeline .launch-live{margin-top:auto}
+@media(max-width:900px) and (min-width:681px){#section-5 .launch-workspace{grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr)}}
+@media(max-width:680px){#section-5 .launch-timeline{grid-row:1}#section-5 .launch-days button{min-height:0}}
+@media(prefers-reduced-motion:reduce){#section-5 .launch-days button:before{transition:none}}
+
+#section-5 .launch-heading{padding-top:0}
+#section-5 .launch-day-label{color:inherit;opacity:.85}
+
+
+#section-5 .launch-timeline .launch-live{margin-top:auto}
+#section-5 .launch-timeline{gap:18px}
+#section-5 .launch-timeline-motion{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:3}
+#section-5 .launch-timeline-motion path{fill:none;stroke:#f46649;stroke-width:1;opacity:.65}
+#section-5 .launch-timeline-motion circle{fill:#fff8f1;stroke:#f46649;stroke-width:1.5}
+#section-5 .launch-timeline-motion .launch-wire-pulse{fill:#fff8f1;stroke:#f46649;stroke-width:1.2;filter:drop-shadow(0 0 5px #f46649)}
+#section-5 .launch-days button{box-shadow:inset 0 1px #fff8f122,0 0 calc(var(--launch-arrival,0)*16px) rgb(244 102 73 / var(--launch-arrival,0))!important;border-color:#f4664980!important}
+@media(prefers-reduced-motion:reduce){#section-5 .launch-wire-pulse{display:none}}

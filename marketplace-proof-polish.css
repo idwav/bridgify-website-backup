@@ -1,0 +1,35 @@
+/* Give the proof section a calm, centered stage while retaining its light palette. */
+#marketplace-results{min-height:75svh;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(56px,7vh,88px);scroll-margin-top:0}
+#marketplace-results .results-inner{margin:0}
+#marketplace-results h2{margin-bottom:clamp(44px,5vh,64px)}
+#marketplace-results .results-partners{margin-top:32px}
+@media(max-width:900px){#marketplace-results{min-height:0}}
+@media(max-width:560px){#marketplace-results h2{margin-bottom:32px}#marketplace-results .results-partners{margin-top:24px}}
+
+#marketplace-results .results-inner{width:100%;max-width:none}
+#marketplace-results .results-panel article{display:flex;flex-direction:column;position:relative}
+#marketplace-results .results-panel h3{order:0;font:400 13px/1.4 Sofia,sans-serif!important;letter-spacing:.12em;text-transform:uppercase;margin:0 0 18px;padding-left:17px;position:relative}
+#marketplace-results .results-panel h3:before{content:"";position:absolute;width:6px;height:6px;border-radius:50%;left:0;top:6px;background:#f46649;box-shadow:0 0 9px #f4664940}
+#marketplace-results .results-value{order:1;font:300 clamp(60px,5.5vw,88px)/1.1 Chillax,sans-serif!important;margin:0 0 24px!important}
+#marketplace-results .results-visual{order:2;height:150px;justify-content:flex-start;align-items:center}
+#marketplace-results .results-dots{width:190px;grid-template-columns:repeat(10,7px);gap:8px 12px;max-width:100%}
+#marketplace-results .results-dots i{width:7px;height:7px;aspect-ratio:1;transition:background .8s ease-out,box-shadow 1.2s ease-out}
+#marketplace-results .results-tickets{gap:14px}
+#marketplace-results .results-tickets svg{width:52px;height:86px;filter:none}
+#marketplace-results .proof-ruler{position:relative;width:100%;height:82px;color:#a64b35;border-bottom:0}
+.proof-ticks{display:flex;justify-content:space-between;height:40px;align-items:flex-end;border-bottom:1px solid #ba68463d}
+.proof-ticks i{width:1px;height:10px;background:#ba68466b}.proof-ticks i:nth-child(4n+1){height:20px}
+.proof-scale{display:flex;justify-content:space-between;margin-top:12px;font:400 14px Sofia,sans-serif}
+.proof-marker{position:absolute;left:93.33%;top:5px;height:36px;border-left:2px solid #f46649;transform-origin:bottom;animation:proof-marker-in 1.4s cubic-bezier(.2,.7,.2,1) both}
+.proof-marker b{position:absolute;bottom:100%;transform:translateX(-50%);font:400 13px Sofia,sans-serif;color:#ad4830}
+@keyframes proof-marker-in{from{left:0;opacity:0}to{left:93.33%;opacity:1}}
+@media(max-width:560px){#marketplace-results .results-panel article{display:grid;grid-template-columns:1fr 1fr;gap:18px}#marketplace-results .results-panel h3{grid-column:1/-1;margin:0}#marketplace-results .results-value{grid-column:1;grid-row:2;font-size:56px!important;margin:0!important}#marketplace-results .results-visual{grid-column:2;grid-row:2;height:145px}#marketplace-results .results-dots{grid-template-columns:repeat(10,4px);gap:7px}#marketplace-results .results-dots i{width:4px;height:4px}#marketplace-results .results-tickets{gap:7px}#marketplace-results .results-tickets svg{width:27%;height:70px}}
+@media(prefers-reduced-motion:reduce){.proof-marker{animation:none}}
+
+/* Compact, full-width conversion field and landscape tickets. */
+#marketplace-results .results-dots{width:100%;max-width:none;grid-template-columns:repeat(10,1fr);gap:14px 0;justify-items:center}
+#marketplace-results .results-dots i{width:11px;height:11px}
+#marketplace-results .results-dots .half-lit{background:linear-gradient(90deg,#f46649 50%,rgba(180,136,108,.18) 50%)}
+#marketplace-results .results-tickets{display:flex;flex-direction:row;gap:16px;width:100%}
+#marketplace-results .results-tickets svg{width:calc((100% - 32px)/3);height:auto;aspect-ratio:1.6;transform:none;flex:none}
+@media(max-width:560px){#marketplace-results .results-dots{gap:10px 0}#marketplace-results .results-dots i{width:7px;height:7px}#marketplace-results .results-tickets{gap:7px}#marketplace-results .results-tickets svg{width:calc((100% - 14px)/3);height:auto}}

@@ -1,0 +1,1 @@
+(()=>{const s=document.querySelector('.bc-section');if(!s)return;const play=()=>{s.classList.remove('bc-running');requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add('bc-running')))};const o=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){play();o.disconnect()}},{threshold:.2});o.observe(s)})();
