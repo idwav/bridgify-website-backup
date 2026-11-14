@@ -97,3 +97,14 @@
 #network .nz-wrap{max-width:980px;margin:0 auto clamp(36px,4vw,56px)}
 #network .nz-controls{color:#C7B5A5}
 #network .nz-controls button{min-width:0;width:auto;height:auto;min-height:44px;margin:0;padding:0 4px;border:0;border-radius:0;box-shadow:none;background:none;color:#EEE9DE;font:500 12px/1 "Sofia Sans",Sofia,sans-serif;text-transform:none;letter-spacing:normal}
+
+/* Composition: copy on the left, the slider on the right; the section fits one screen */
+#network.an-section{padding:clamp(56px,6vw,88px) 3.3%}
+#network .an-split{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,4.4vw,80px);align-items:center}
+#network .an-left .an-heading{display:block;margin:0}
+#network .an-left .an-heading p{margin-top:24px;max-width:46ch}
+#network .an-left .an-read{margin-top:34px}
+#network .an-split .nz-wrap{max-width:none;margin:0}
+@media (max-width:900px){
+  #network .an-split{grid-template-columns:minmax(0,1fr);gap:36px}
+}
