@@ -28,3 +28,8 @@ html body:is([data-copy-page="press"],[data-copy-page="contact"]) header.site-he
 html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common nav>a,
 html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common summary{color:#180f10!important}
 html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common img.brand-logo-full{filter:brightness(0) saturate(100%)!important}
+/* Light editorial pages use matching light dropdown surfaces. */
+html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common .site-nav-menu{background:#eee9de!important;color:#180f10!important;border-color:rgba(24,15,16,.18)!important;box-shadow:0 18px 40px #180f1026!important}
+html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common .site-nav-menu a{color:#180f10!important}
+html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common .site-nav-menu a:hover,
+html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common .site-nav-menu a:focus-visible{background:#f466491c!important;color:#a63d29!important}
