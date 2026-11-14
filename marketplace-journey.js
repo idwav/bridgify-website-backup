@@ -1,35 +1,43 @@
 (()=>{
- const root=document.querySelector('.journey-demo');if(!root)return;
- const query=root.querySelector('.journey-query'),dot=root.querySelector('.journey-traveller'),steps=[...root.querySelectorAll('.journey-step')],cards=steps.map(s=>s.querySelector('.journey-card')),motion=matchMedia('(prefers-reduced-motion:reduce)');
- const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.classList.add('journey-connections');svg.setAttribute('aria-hidden','true');const paths=[];
- for(let i=0;i<2;i++){let pair=[];for(const cls of ['journey-wire-base','journey-wire-glow']){const p=document.createElementNS(ns,'path');p.setAttribute('class',cls);p.setAttribute('pathLength','1');svg.append(p);pair.push(p)}paths.push(pair)}const beads=Array.from({length:12},(_,i)=>{const c=document.createElementNS(ns,'circle');c.setAttribute('r','1.2');c.setAttribute('fill','#fff3df');c.setAttribute('stroke','#f2a27d');c.setAttribute('stroke-width','.7');c.style.filter='drop-shadow(0 0 2px #f46649)';c.style.opacity=0;svg.append(c);return c});const terminals=Array.from({length:4},()=>{const c=document.createElementNS(ns,'circle');c.style.opacity=0;c.setAttribute('r','2.5');c.setAttribute('fill','#fff4e5');c.setAttribute('stroke','#f3a17c');c.setAttribute('stroke-width','1');c.style.filter='drop-shadow(0 0 5px #f46649)';svg.append(c);return c});root.append(svg);
- let visible=false,raf=0,start=0,lastLayout=-1;const mobile=matchMedia('(max-width:700px)');
- function layout(){const r=root.getBoundingClientRect();svg.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);for(let i=0;i<2;i++){const a=cards[i].getBoundingClientRect(),b=cards[i+1].getBoundingClientRect();let d;if(mobile.matches){const x=a.left-r.left+a.width/2,y=a.bottom-r.top,dy=b.top-r.top;d=`M${x},${y} C${x},${y+20} ${x},${dy-20} ${x},${dy}`}else{const x=a.right-r.left,dx=b.left-r.left,y=cards[0].getBoundingClientRect().top-r.top+cards[0].getBoundingClientRect().height*.48;d=`M${x},${y} L${dx},${y}`}paths[i].forEach(p=>p.setAttribute('d',d));for(let j=0;j<2;j++){const path=paths[i][0],point=path.getPointAtLength(j?path.getTotalLength():0);terminals[i*2+j].setAttribute('cx',point.x);terminals[i*2+j].setAttribute('cy',point.y)}}}
- function packet(i,t){const path=paths[i][1];path.style.strokeDashoffset=1-t;const p=path.getPointAtLength(path.getTotalLength()*t);dot.style.left=(p.x-4)+'px';dot.style.top=(p.y-4)+'px';dot.style.opacity=1}
- function staticView(){steps.forEach(s=>s.classList.add('step-open'));root.dataset.step='2';root.dataset.layout='2';root.classList.add('results-visible','search-complete','confirmed');query.textContent='London';root.querySelectorAll('[data-category]').forEach(el=>el.classList.add('picked'));root.querySelectorAll('[data-experience]').forEach(el=>{el.classList.add('experience-added');el.querySelector('b').textContent='Added ✓'});root.querySelectorAll('[data-plan]').forEach(el=>el.classList.add('time-picked'));dot.style.opacity=0;layout();paths.forEach(p=>p[1].style.strokeDashoffset=0)}
- const categories=[...root.querySelectorAll('[data-category]')],plans=[...root.querySelectorAll('[data-plan]')],discoverPhoto=cards[0].querySelector('img'),experienceRows=[...root.querySelectorAll('[data-experience]')];let activePhoto=-1;
- function pointAt(el){const r=root.getBoundingClientRect(),b=el.getBoundingClientRect();dot.style.left=(b.left-r.left+b.width*.65-4)+'px';dot.style.top=(b.top-r.top+b.height*.6-4)+'px';dot.style.opacity=1}
- function tick(now){raf=0;if(!visible||document.hidden)return;if(motion.matches){staticView();return}if(!start)start=now;const elapsed=(now-start)%12100,t=elapsed-1300;
- root.classList.toggle("search-pressed",elapsed>=1800&&elapsed<2100);
- root.classList.toggle("search-complete",elapsed>=2300);
- if(elapsed>=1500&&elapsed<2150)pointAt(root.querySelector(".journey-search-button"));
- const composition=t<2500?0:t<6400?1:2;
- if(composition!==lastLayout){const old=steps.map(s=>s.getBoundingClientRect()),forward=composition>lastLayout;root.dataset.layout=composition;lastLayout=composition;if(!mobile.matches&&forward){steps.forEach((s,i)=>{if(!s.classList.contains('step-open'))return;const next=s.getBoundingClientRect();s.getAnimations().forEach(a=>a.cancel());s.animate([{transform:`translateX(${old[i].left-next.left}px)`},{transform:'translateX(0)'}],{duration:850,easing:'cubic-bezier(.22,1,.36,1)'});})}}
- root.classList.toggle('cycle-reset',t>10350);const phase=t<3400?0:t<7300?1:2;root.dataset.step=phase;steps.forEach((s,i)=>s.classList.toggle('step-open',i<=phase));root.classList.toggle('results-visible',t>1000);root.classList.toggle('confirmed',t>7650);root.classList.toggle('booking-pressed',t>=6350&&t<7300);
- query.textContent='London'.slice(0,Math.max(0,Math.min(6,Math.floor((elapsed-100)/100))));dot.style.opacity=0;if(elapsed>=1500&&elapsed<2150)pointAt(root.querySelector('.journey-search-button'));
- const browseIndex=t<1450?0:t<2100?1:2;
- categories.forEach((el,i)=>{el.classList.add('picked');el.classList.toggle('category-active',i===browseIndex);el.classList.remove('choosing')});
- experienceRows.forEach((row,i)=>{const at=1550+i*550,added=t>=at;row.classList.toggle('experience-added',added);row.querySelector('b').textContent=added?'Added ✓':'Add +';if(t>=at-180&&t<at+180)pointAt(row.querySelector('b'))});
- const photoIndex=browseIndex;if(photoIndex!==activePhoto){activePhoto=photoIndex;discoverPhoto.src=photoIndex===2?'assets/api-concert.png':'assets/api-attraction.png';discoverPhoto.alt=photoIndex===2?'Live music in London':'Discover London'}
- plans.forEach((el,i)=>{const pick=4200+i*650;el.classList.toggle('time-picked',t>=pick);el.classList.toggle('choosing',t>=pick-200&&t<pick+180);if(t>=pick-220&&t<pick+220)pointAt(el.querySelector('b'))});
- if(t>=6100&&t<6700)pointAt(root.querySelector('.journey-book-button'));
- layout();terminals.forEach((c,i)=>c.style.opacity=t>=(i<2?3400:7300)?1:0);paths[0].forEach(p=>p.style.visibility=t>=3400?'visible':'hidden');paths[1].forEach(p=>p.style.visibility=t>=7300?'visible':'hidden');paths[0][1].style.strokeDashoffset=t>=3400?0:1;paths[1][1].style.strokeDashoffset=t>=7300?0:1;
- beads.forEach((c,i)=>{const wire=i<6?0:1,begin=wire===0?3400:7300,end=wire===0?10200:10400;if(t>=begin&&t<end){const path=paths[wire][1],u=((t-begin)/1200+(i%6)/6)%1,p=path.getPointAtLength(path.getTotalLength()*u);c.setAttribute('cx',p.x);c.setAttribute('cy',p.y);c.style.opacity=.3+.7*Math.sin(Math.PI*u)}else c.style.opacity=0});
- // A completed connection and its receiving card appear on the same frame.
-
- raf=requestAnimationFrame(tick)
- }
- function resume(){if(visible&&!document.hidden&&!raf){start=0;raf=requestAnimationFrame(tick)}}
- new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible)resume();else{cancelAnimationFrame(raf);raf=0;dot.style.opacity=0}},{threshold:.12}).observe(root);
- document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);raf=0}else resume()});motion.addEventListener('change',()=>{cancelAnimationFrame(raf);raf=0;if(motion.matches)staticView();else resume()});new ResizeObserver(layout).observe(root);document.fonts.ready.then(layout);if(motion.matches)staticView();
+const root=document.querySelector('.market-product-tour');if(!root)return;
+const names=['Search','Experience','Reviews','Checkout'],descriptions=['Find the right experience.','See what makes it special.','Book with confidence.','Make it yours.'];
+const photo='<img src="assets/api-attraction.png" alt="London Eye at sunset">';
+const content=[`<div class="search-scene">${photo}<div class="search-copy"><small>LONDON, YOUR WAY</small><h2>What will you discover?</h2><div class="search-box"><span class="typed">London Eye at sunset</span><span>⌕</span></div></div></div><div class="result"><div><small>RECOMMENDED FOR YOU</small><h3>London Eye</h3><p>Sunset views over the city</p></div><button data-forward>View experience ↗</button></div>`,
+`<div class="experience-photo">${photo}<span class="photo-tag">LONDON · ATTRACTION</span></div><div class="detail"><div><small>★★★★★ · 4.9</small><h2>London from above.</h2><p>See the city unfold on the London Eye.</p><div class="pills"><span>30 minutes</span><span>Mobile ticket</span></div></div><button data-forward>Read reviews →</button></div>`,
+`<div class="review-layout"><div class="review-summary"><small>LONDON EYE</small><h2>Worth the view.</h2><strong>4.9</strong><div class="stars">★★★★★</div><p>Traveler rating</p></div><div class="review-list"><small>ILLUSTRATIVE REVIEW PREVIEW</small><article><span>★★★★★</span><p>“A beautiful way to see London at sunset.”</p><small>Example traveler review</small></article><article><span>★★★★★</span><p>“Easy to book. An unforgettable view.”</p><small>Example traveler review</small></article><button data-forward>Choose your tickets →</button></div></div>`,
+`<div class="checkout-layout"><div class="order">${photo}<small>YOUR EXPERIENCE</small><h2>London Eye</h2><p>2 guests · Sunset admission</p><div class="order-line"><span>Tickets</span><span>Mobile delivery</span></div><div class="order-line"><span>Booking</span><span>Under your brand</span></div></div><div class="payment"><small>SECURE CHECKOUT</small><h2>One last step.</h2><label>Email address<span>traveler@example.com</span></label><label>Payment details<span>••••  ••••  ••••  4242</span></label><button class="confirm">Confirm booking →</button><div class="success" hidden><b>✓</b><h3>You’re going to London.</h3><p>Your tickets are ready.</p></div></div></div>`];
+let current=0;const nav=root.querySelector('.stages'),screens=root.querySelector('.screens');
+nav.innerHTML=names.map((s,i)=>`<button data-stage="${i}" aria-pressed="${i===0}"><span class="contact"></span><span>${s}</span></button>`).join('');
+screens.innerHTML=content.map((html,i)=>`<article class="screen" aria-label="${names[i]}"><div class="chrome"><span>● ● ●</span><small>experiences.yourbrand.com</small><b>YOUR BRAND</b></div>${html}</article>`).join('');
+const panels=[...screens.children],motion=matchMedia('(prefers-reduced-motion:reduce)'),buttons=[...nav.querySelectorAll('button')];
+const ns='http://www.w3.org/2000/svg',wire=document.createElementNS(ns,'svg');wire.classList.add('tour-flow');wire.setAttribute('aria-hidden','true');
+wire.innerHTML='<path class="tour-flow-base"/><path class="tour-flow-fill"/><circle r="4" fill="#fff8f1" stroke="#f46649"/>';nav.append(wire);
+const base=wire.children[0],fill=wire.children[1],bead=wire.children[2],cursor=document.createElement('i');cursor.className='tour-action-dot';cursor.setAttribute('aria-hidden','true');screens.append(cursor);
+let points=[],visible=false,raf=0,last=0,elapsed=0,lastStage=-1;
+const starts=[0,5200,10000,15400],cycle=22000;
+const smooth=x=>{x=Math.max(0,Math.min(1,x));return x*x*(3-2*x)};
+function layout(){const r=nav.getBoundingClientRect();wire.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);points=buttons.map(b=>{const q=b.querySelector('.contact').getBoundingClientRect();return {x:q.left-r.left+q.width/2,y:q.top-r.top+q.height/2}});base.setAttribute('d',points.map((p,i)=>`${i?'L':'M'}${p.x} ${p.y}`).join(' '));}
+function progress(value){if(!points.length)return;const i=Math.min(2,Math.floor(value)),u=value-i,p={x:points[i].x+(points[i+1].x-points[i].x)*u,y:points[i].y+(points[i+1].y-points[i].y)*u};fill.setAttribute('d',points.slice(0,i+1).map((q,n)=>`${n?'L':'M'}${q.x} ${q.y}`).join(' ')+` L${p.x} ${p.y}`);bead.setAttribute('cx',p.x);bead.setAttribute('cy',p.y);}
+function show(i){current=i;buttons.forEach((b,n)=>b.setAttribute('aria-pressed',n===i));panels.forEach((p,n)=>{p.classList.toggle('active',n===i);p.inert=n!==i;p.setAttribute('aria-hidden',n!==i)});layout();}
+function confirm(done){root.querySelector('.payment').classList.toggle('complete',done);root.querySelector('.success').hidden=!done;}
+function draw(){const t=elapsed%cycle,stage=t<5200?0:t<10000?1:t<15400?2:3,local=t-starts[stage];if(stage!==lastStage){show(stage);lastStage=stage;confirm(false)}
+const end=stage<3?starts[stage+1]:cycle,moveStart=end-1100;
+progress(stage<3?stage+smooth((t-moveStart)/1100):3);
+const target=panels[stage].querySelector(stage===3?'.confirm':'[data-forward]');
+const pressAt=stage===3?3000:end-starts[stage]-1500;
+root.querySelectorAll('.auto-press').forEach(b=>b.classList.remove('auto-press'));
+if(local>=pressAt&&local<pressAt+350)target.classList.add('auto-press');
+cursor.style.opacity=local>pressAt-1100&&local<pressAt+450?1:0;
+if(local>pressAt-1100&&local<pressAt+450){const r=screens.getBoundingClientRect(),b=target.getBoundingClientRect(),u=smooth((local-pressAt+1100)/900);cursor.style.transform=`translate(${b.left-r.left+b.width*.72-4-48*(1-u)}px,${b.top-r.top+b.height*.5-4-35*(1-u)}px)`;cursor.classList.toggle('clicking',local>=pressAt)}
+root.classList.toggle('tour-results-ready',stage!==0||local>2100);
+const query=root.querySelector('.typed');query.textContent=stage===0?'London Eye at sunset'.slice(0,Math.max(0,Math.min(20,Math.floor((local-350)/70)))):'London Eye at sunset';
+confirm(stage===3&&local>3450);
+const arrival=window.BridgifyFlow?.arrival(local)??0;bead.style.filter=`drop-shadow(0 0 ${arrival*16}px #f46649)`;
+}
+function tick(now){raf=0;if(!visible||document.hidden||motion.matches){last=0;return}if(last)elapsed+=Math.min(64,now-last);last=now;draw();raf=requestAnimationFrame(tick)}
+function resume(){cancelAnimationFrame(raf);raf=0;last=0;if(visible&&!document.hidden&&!motion.matches)raf=requestAnimationFrame(tick)}
+function select(i){elapsed=starts[Math.max(0,Math.min(3,i))];lastStage=-1;draw();if(motion.matches){root.classList.add('tour-results-ready');root.querySelector('.typed').textContent='London Eye at sunset';cursor.style.opacity=0}resume();}
+buttons.forEach((b,i)=>{b.onclick=()=>select(i);b.onkeydown=e=>{let n;if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(current+1)%4;else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(current+3)%4;else return;e.preventDefault();select(n);buttons[n].focus()}});
+root.querySelectorAll('[data-forward]').forEach(b=>b.onclick=()=>select(current+1));root.querySelector('.confirm').onclick=()=>{elapsed=starts[3]+3500;draw()};
+new IntersectionObserver(es=>{visible=es[0].isIntersecting;resume()},{threshold:.35}).observe(root);document.addEventListener('visibilitychange',resume);motion.addEventListener('change',()=>{if(motion.matches){cursor.style.opacity=0;root.classList.add('tour-results-ready');root.querySelector('.typed').textContent='London Eye at sunset'}resume()});new ResizeObserver(()=>{layout();progress(current)}).observe(nav);document.fonts.ready.then(layout);show(0);lastStage=0;root.classList.toggle('tour-results-ready',motion.matches);progress(0);
 })();

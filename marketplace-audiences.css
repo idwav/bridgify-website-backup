@@ -9,3 +9,15 @@
 @media(max-width:900px){.market-audiences{min-height:0}.ma-industry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ma-industry-card:nth-child(3){border-left:0}.ma-industry-card:nth-child(n+3){border-top:1px solid #b95d3833}}
 @media(max-width:520px){.market-audiences{padding:44px 6vw}.ma-intro{margin-bottom:28px}.ma-industry-grid{grid-template-columns:1fr}.ma-industry-card{min-height:220px;padding:24px;border-left:0}.ma-industry-card+ .ma-industry-card{border-top:1px solid #b95d3833}.ma-industry-number{top:26px;right:24px}}
 @media(prefers-reduced-motion:reduce){.market-audiences *,.market-audiences *:before{transition:none!important}}
+
+/* Reveal the existing industry photography without changing card geometry. */
+.ma-industry-card{overflow:hidden;isolation:isolate}
+.ma-industry-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;z-index:-2;transform:scale(1.035);transition:opacity .48s ease-out,transform .7s ease-out;pointer-events:none}
+.ma-industry-card:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#180f1070,#180f10c7);opacity:0;transition:opacity .48s ease-out;pointer-events:none}
+.ma-industry-card:is(:hover,:focus-visible) .ma-industry-photo{opacity:1;transform:scale(1)}
+.ma-industry-card:is(:hover,:focus-visible):after{opacity:1}
+.ma-industry-card:is(:hover,:focus-visible){color:#eee9de}
+.ma-industry-card:is(:hover,:focus-visible) .ma-industry-more,.ma-industry-card:is(:hover,:focus-visible) .ma-industry-number{color:#fff8f1}
+.ma-industry-card:is(:hover,:focus-visible) .ma-industry-icon{background:#180f1070;color:#ffb594;border-color:#f46649}
+.ma-industry-card,.ma-industry-more,.ma-industry-number{transition:color .48s ease-out,background .48s ease-out}
+@media(prefers-reduced-motion:reduce){.ma-industry-photo{transform:none;transition:none}}
