@@ -1,0 +1,36 @@
+/* Each touchpoint has recognizable product chrome, inside the approved journey layout. */
+#section-3 .al-phone{transition:width .55s,border-radius .55s;max-width:none;width:340px;box-sizing:border-box}
+#section-3 .al-phone[data-touchpoint="booking"],#section-3 .al-phone[data-touchpoint="manage"]{width:390px;border-radius:16px}
+#section-3 .al-phone[data-touchpoint="email"]{width:390px;border-radius:12px;background:#21191c;color:#eee9de}
+#section-3 .al-phone:not([data-touchpoint="arrival"]) .al-phone-bottom,#section-3 .al-phone:not([data-touchpoint="arrival"])>.al-phone-top{display:none}
+#section-3 .al-phone:not([data-touchpoint="arrival"]) .al-phone-experience{margin-top:14px}
+#section-3 .al-phone-panel>.touch-browser{font:400 9px Arial,sans-serif;color:#ffb594;display:flex;gap:14px;padding:0 0 14px;margin:0 0 18px;border-bottom:1px solid #f4664940}
+.touch-browser span{color:#bda99c}.touch-confirm{display:flex;gap:12px;align-items:center;margin-bottom:16px}.touch-confirm>b{display:grid;place-items:center;width:36px;height:36px;border:1px solid #f46649;border-radius:50%;color:#ffb594;font-size:20px}.touch-confirm>span{font:400 11px Arial,sans-serif;letter-spacing:.06em}.touch-confirm small{display:block;color:#bda99c;font-size:10px;letter-spacing:0;margin-top:6px}.touch-flight{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 12px;border:1px solid #f4664944;border-radius:8px;margin-bottom:18px}.touch-flight strong{font:300 23px Chillax,sans-serif;white-space:nowrap}.touch-flight i{color:#f46649;font-style:normal}.touch-flight>span{font:400 10px/1.6 Arial,sans-serif;color:#cbbfb6;text-align:right}.touch-account{display:flex;justify-content:space-between;font:400 11px Arial,sans-serif;margin-bottom:15px}.touch-account small{color:#bda99c;font-size:10px}.touch-tools{display:flex;gap:8px;margin:0 0 20px}.touch-tools span{padding:8px 12px;border:1px solid #f4664933;border-radius:6px;font:400 11px Arial,sans-serif;color:#bda99c}.touch-tools .chosen{color:#ffb594;border-color:#f46649;background:#f4664914}
+#section-3 .al-phone[data-touchpoint="booking"] h3,#section-3 .al-phone[data-touchpoint="manage"] h3{font-size:23px!important}
+#section-3 .al-phone:not([data-touchpoint="arrival"]) .al-phone-context{display:none}
+#section-3 .al-phone .al-phone-experience img{max-height:170px;object-fit:cover}
+.touch-mailbar{display:flex;justify-content:space-between;border-bottom:1px solid #180f1022;padding-bottom:14px;margin-bottom:16px;font:400 12px Arial,sans-serif;color:#8e4b37}.touch-sender{display:flex;gap:10px;align-items:center}.touch-sender>b{display:grid;place-items:center;background:#f4664922;color:#a9432d;width:34px;height:34px;border-radius:50%;font:500 11px Arial,sans-serif}.touch-sender strong{font:500 12px Arial,sans-serif}.touch-sender small{display:block;font:400 9px Arial,sans-serif;color:#806e64;margin-top:5px}.touch-sender time{margin-left:auto;font:400 10px Arial,sans-serif;color:#806e64}.touch-subject{font:500 17px/1.4 Arial,sans-serif;padding:18px 0 12px}.touch-email-note{font:400 12px/1.7 Arial,sans-serif;color:#6c584d;margin-bottom:18px}#section-3 .al-phone[data-touchpoint="email"] h3{font-size:23px!important;color:#180f10}#section-3 .al-phone[data-touchpoint="email"] .al-phone-panel>p{color:#756156}#section-3 .al-phone[data-touchpoint="email"] .al-phone-section-label{color:#180f10}.touch-status{display:flex;justify-content:space-between;font:500 11px Arial,sans-serif;margin:0 0 20px}.touch-arrival{display:flex;justify-content:space-between;font:400 10px Arial,sans-serif;color:#ffb594;margin-bottom:15px}.touch-arrival small{color:#aebcaa}
+@media(max-width:1100px) and (min-width:701px){#section-3 .al-phone,#section-3 .al-phone[data-touchpoint]{width:320px}.touch-flight strong{font-size:20px}}
+@media(max-width:700px){#section-3 .al-phone,#section-3 .al-phone[data-touchpoint]{width:100%;max-width:360px;margin:auto}#section-3 .al-phone[data-touchpoint="arrival"]{max-width:300px}}
+@media(prefers-reduced-motion:reduce){#section-3 .al-phone{transition:none}}
+
+/* Keep the same canvas through every touchpoint, including app navigation. */
+#section-3 .al-phone,#section-3 .al-phone[data-touchpoint]{width:390px;display:flex;flex-direction:column;transition:border-radius .55s}
+#section-3 .al-phone-panels{flex:1;min-height:0;height:auto;}
+#section-3 .al-phone-top,#section-3 .al-phone-bottom{flex-shrink:0}
+@media(max-width:1100px) and (min-width:701px){#section-3 .al-phone,#section-3 .al-phone[data-touchpoint]{width:320px}}
+@media(max-width:700px){#section-3 .al-phone,#section-3 .al-phone[data-touchpoint]{width:100%;max-width:360px}}
+
+/* Email uses the site's dark surface, with readable cream copy. */
+#section-3 .al-phone[data-touchpoint="email"],
+#section-3 .al-phone[data-touchpoint="email"] h3,
+#section-3 .al-phone[data-touchpoint="email"] .touch-subject,
+#section-3 .al-phone[data-touchpoint="email"] .touch-sender strong,
+#section-3 .al-phone[data-touchpoint="email"] .al-phone-section-label{color:#eee9de}
+#section-3 .al-phone[data-touchpoint="email"] .touch-email-note,
+#section-3 .al-phone[data-touchpoint="email"] .touch-sender small,
+#section-3 .al-phone[data-touchpoint="email"] .touch-sender time,
+#section-3 .al-phone[data-touchpoint="email"] .al-phone-panel>p{color:#d8ccc3}
+#section-3 .al-phone[data-touchpoint="email"] .touch-mailbar,
+#section-3 .al-phone[data-touchpoint="email"] .touch-sender>b{color:#ffb594}
+#section-3 .al-phone[data-touchpoint="email"] .touch-mailbar{border-bottom-color:#f4664940}

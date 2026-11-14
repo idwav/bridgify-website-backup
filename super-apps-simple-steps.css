@@ -1,0 +1,6 @@
+/* Reuse the approved White-Label audience component; only three-column content differs. */
+.sc-how{font-family:ConsumerSofia,Sofia,sans-serif}
+.sc-how .ma-industry-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sc-how-intro{font:400 18px/1.55 ConsumerSofia,Sofia,sans-serif;margin:24px 0 0;color:#58433b}
+.sc-step-description{font:400 18px/1.55 ConsumerSofia,Sofia,sans-serif;margin:auto 0 0;color:inherit}
+@media(max-width:900px){.sc-how .ma-industry-grid{grid-template-columns:1fr}.sc-how .ma-industry-card{border-left:0}.sc-how .ma-industry-card+.ma-industry-card{border-top:1px solid #b95d3833}}

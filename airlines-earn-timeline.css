@@ -1,0 +1,32 @@
+#section-2.al-earn-timeline{display:block;width:100%;max-width:none;margin:0;padding:70px 4vw;background:#eee9de;color:#180f10;min-height:85svh;border-radius:0}
+.earn-heading{display:grid;grid-template-columns:1fr 1fr;gap:8%;align-items:center;margin-bottom:48px}.earn-heading h2{margin:18px 0!important}.earn-heading>p{margin:0}.earn-stage{position:relative}.earn-stops{list-style:none;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));padding:0;margin:0 0 28px;position:relative}.earn-stops li{position:relative;min-width:0}.earn-icon{width:58px;height:58px;display:grid;place-items:center;margin:0 0 20px;border:1px solid #f4664950;border-radius:13px;background:linear-gradient(135deg,#fff8f177,#f4664908);transition:box-shadow .4s,background .4s}.earn-icon svg{width:32px;height:32px;fill:none;stroke:#b94e35;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}.earn-contact{display:block;width:8px;height:8px;background:#eee9de;border:1px solid #f46649;border-radius:50%;margin:0 0 16px 25px;position:relative;z-index:2}.earn-stops strong{display:block;font:400 17px Sofia,Arial,sans-serif}.earn-stops small{display:block;margin-top:8px;font:400 13px Sofia,Arial,sans-serif;color:#816d61}.earn-wire{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}.earn-wire path{fill:none;stroke:#f4664940;stroke-width:1.2}.earn-wire .fill{stroke:#f46649;stroke-width:1.7}.earn-stops li.reached .earn-contact{background:#f46649}.earn-stops li.active .earn-icon{background:linear-gradient(135deg,#fff8f1,#f4664922);box-shadow:0 0 20px #f4664920}.earn-stops li.active svg{transform:translateY(-3px);transition:transform .6s}.earn-rails{display:grid;gap:12px}.earn-seats,.earn-experiences{display:flex;gap:16px;padding:18px 20px;align-items:center;border-radius:10px;font:400 15px Sofia,Arial,sans-serif}.earn-seats{width:calc(28.5714% + 29px);background:#180f100c}.earn-seats strong{font-weight:500}.earn-seats span{color:#766359}.earn-experiences{position:relative;border:1px solid #f4664980;overflow:hidden;background:#f4664908}.earn-experiences i{position:absolute;inset:0;background:linear-gradient(90deg,#f4664910,#f4664940);transform:scaleX(var(--progress,0));transform-origin:left}.earn-experiences strong,.earn-experiences span{position:relative;z-index:1}.earn-experiences strong{color:#a9432d;font-weight:500}.earn-bottom{display:flex;justify-content:space-between;align-items:center;gap:6%;margin-top:28px}.earn-bottom p{max-width:850px;margin:0}.earn-channels{display:flex;gap:10px;padding:0;list-style:none}.earn-channels li{font:400 13px Sofia,Arial,sans-serif;border:1px solid #f4664944;border-radius:6px;padding:10px 15px}
+@media(max-width:800px){#section-2.al-earn-timeline{padding:48px 5vw;min-height:0}.earn-heading{grid-template-columns:1fr;gap:18px;margin-bottom:30px}.earn-stage{overflow-x:auto;padding-bottom:10px}.earn-stops,.earn-rails{min-width:740px}.earn-bottom{display:block}.earn-channels{margin-top:20px}.earn-heading h2{font-size:36px!important}}
+@media(prefers-reduced-motion:reduce){.earn-icon,.earn-icon svg{transition:none!important}}
+
+/* Make the post-flight revenue tangible with a booking at each destination day. */
+.earn-stops{gap:16px}.earn-stops li:nth-child(n+5){background:#f4664908;border-radius:12px;padding:12px;margin-top:-12px}
+.earn-stops li:nth-child(n+5)>strong{font-size:14px}.earn-booking{margin-top:18px;padding:14px 10px;border:1px solid #f4664940;border-radius:9px;background:#fff8f155;min-height:132px;transition:background .5s,box-shadow .5s}
+.earn-booking>span,.earn-booking em{display:block;font:400 11px/1.5 Sofia,Arial,sans-serif;color:#766359}.earn-booking>b{display:block;font:500 16px/1.4 Sofia,Arial,sans-serif;margin:6px 0 10px}.earn-booking em{font-style:normal;color:#63594d;opacity:.45}.earn-booking>strong{font:500 12px/1.5 Sofia,Arial,sans-serif;margin-top:12px;padding-top:10px;border-top:1px solid #f4664933;color:#a9432d;opacity:.45;transition:opacity .4s}
+.reached .earn-booking{background:#fff8f1;box-shadow:0 5px 20px #f4664915}.reached .earn-booking em,.reached .earn-booking>strong{opacity:1}.active .earn-booking{border-color:#f46649}
+.earn-experiences{background:#f4664914;flex-wrap:wrap}.earn-count{margin-left:auto;font:500 14px Sofia,Arial,sans-serif;color:#a9432d}.earn-heading{margin-bottom:36px}.earn-seats{width:calc(28.5714% + 20px)}
+@media(max-width:800px){.earn-stops,.earn-rails{min-width:1000px}.earn-count{margin-left:0}}
+
+/* Espresso theme for the ancillary revenue story. */
+#section-2.al-earn-timeline{background:#180f10;color:#eee9de}
+#section-2.al-earn-timeline .al-kicker{color:#ffb594}
+#section-2.al-earn-timeline .earn-heading>p,#section-2.al-earn-timeline .earn-bottom p{color:#d8ccc3}
+#section-2.al-earn-timeline .al-gradient{background:linear-gradient(100deg,#ffbd98,#f46649);background-clip:text;-webkit-background-clip:text;color:transparent}
+.earn-icon{background:linear-gradient(135deg,#39292b,#21191c);border-color:#f4664966}
+.earn-icon svg{stroke:#ff997b}
+.earn-contact{background:#180f10}
+.earn-stops small,.earn-seats span{color:#bfa99c}
+.earn-stops li:nth-child(n+5){background:#f4664909}
+.earn-stops li.active .earn-icon{background:linear-gradient(135deg,#573329,#302022);box-shadow:0 0 24px #f4664924}
+.earn-booking{background:#21191c;border-color:#f4664955;color:#eee9de}
+.earn-booking>span,.earn-booking em{color:#cbb8ac}
+.earn-booking>strong{color:#ffb594}
+.reached .earn-booking{background:linear-gradient(135deg,#39292b,#25191a);box-shadow:0 5px 24px #0003}
+.earn-seats{background:#eee9de09;border:1px solid #eee9de14}
+.earn-experiences{background:linear-gradient(100deg,#f466491c,#f4664908);border-color:#f4664980}
+.earn-experiences strong,.earn-count{color:#ffb594}
+.earn-channels li{color:#eee9de;background:#f4664908}

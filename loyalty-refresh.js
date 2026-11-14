@@ -1,2 +1,2 @@
 document.querySelectorAll('.lf-motion').forEach(function(el){new IntersectionObserver(function(entries){el.classList.toggle('is-paused',!entries[0].isIntersecting)},{threshold:.1}).observe(el)});
-document.querySelectorAll('.lf-main button').forEach(function(button){button.addEventListener('click',function(){var original=button.textContent;button.textContent='Illustrative product preview';setTimeout(function(){button.textContent=original},1800)})});
+document.querySelectorAll('.lf-main button:not([data-cap]):not(#lp-redeem):not(#lr-redeem):not([role="tab"])').forEach(function(button){button.addEventListener('click',function(){var original=button.textContent;button.textContent='Illustrative product preview';setTimeout(function(){button.textContent=original},1800)})});

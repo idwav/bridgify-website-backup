@@ -72,7 +72,7 @@
   });
   reduced.addEventListener('change', () => { if (reduced.matches) for (const animation of [...running]) animation.finish(); });
 
-  const tabs = [...document.querySelectorAll('[data-touchpoint]')];
+  const tabs = [...document.querySelectorAll('.al-touchpoints [data-touchpoint]')];
   const panels = [...document.querySelectorAll('[data-phone-panel]')];
   const phoneAnimations = new Set();
   let active = 'arrival';
@@ -118,18 +118,33 @@
     });
   });
   const phonePanels = document.querySelector('.al-phone-panels');
+  const phone = document.querySelector('.al-phone');
   function sizePhone() {
     let height = 0;
     panels.forEach(panel => {
-      const clone = panel.cloneNode(true);
-      clone.removeAttribute('id'); clone.removeAttribute('hidden');
-      clone.style.cssText = 'position:absolute;visibility:hidden;display:block;width:100%;pointer-events:none';
-      phonePanels.append(clone); height = Math.max(height, clone.scrollHeight); clone.remove();
+      const clone = phone.cloneNode(true);
+      clone.dataset.touchpoint = panel.dataset.phonePanel;
+      clone.removeAttribute('id');
+      clone.querySelectorAll('[id]').forEach(node => node.removeAttribute('id'));
+      clone.style.cssText = `position:absolute;visibility:hidden;pointer-events:none;width:${phone.getBoundingClientRect().width}px;height:auto;transition:none`;
+      const content = clone.querySelector('.al-phone-panels');
+      content.style.cssText = 'height:auto;min-height:0;display:block';
+      clone.querySelectorAll('[data-phone-panel]').forEach(item => {
+        item.hidden = item.dataset.phonePanel !== panel.dataset.phonePanel;
+        item.style.cssText = 'position:relative;animation:none;transform:none';
+      });
+      phone.parentNode.append(clone);
+      height = Math.max(height, clone.getBoundingClientRect().height);
+      clone.remove();
     });
-    phonePanels.style.height = Math.ceil(height + 18) + 'px';
+    phone.style.height = Math.ceil(height) + 'px';
   }
   document.fonts.ready.then(sizePhone);
-  new ResizeObserver(sizePhone).observe(document.querySelector('.al-phone'));
+  let measuredWidth = 0;
+  new ResizeObserver(() => {
+    const width = phone.getBoundingClientRect().width;
+    if (width !== measuredWidth) { measuredWidth = width; sizePhone(); }
+  }).observe(phone);
   document.querySelectorAll('.al-phone img').forEach(image => image.addEventListener('load',sizePhone));
   let journeyVisible = false;
   const journey = document.querySelector('.al-journey-panel');
