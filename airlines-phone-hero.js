@@ -1,0 +1,1 @@
+(()=>{const root=document.querySelector('.ap-preview'),F=window.BridgifyFlow;if(!root||!F)return;const cards=[...root.querySelectorAll('.ap-experience')];F.run(root,t=>{const cycle=t%9000;cards.forEach((card,i)=>card.style.setProperty('--reveal',F.smooth((cycle-1000-i*300)/700)))},()=>cards.forEach(card=>card.style.setProperty('--reveal',1)))})();

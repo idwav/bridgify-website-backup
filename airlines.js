@@ -30,7 +30,7 @@
   setMenu(false);
 
   function animate(element, keyframes, options) {
-    if (reduced.matches || !element.animate) return null;
+    if (!element || reduced.matches || !element.animate) return null;
     const animation = element.animate(keyframes, options);
     running.add(animation);
     animation.onfinish = animation.oncancel = () => running.delete(animation);
