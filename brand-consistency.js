@@ -3,7 +3,7 @@
 const ns='http://www.w3.org/2000/svg';
 function apply(){
  document.querySelectorAll('[class],.ih-topic>span').forEach(el=>{
-  if(el instanceof SVGElement)return;
+  if(el instanceof SVGElement||el.closest('.xc'))return;
   const tokens=[...el.classList],text=el.textContent.trim();
   if((el.matches('.ih-topic>span')||tokens.some(t=>/^(?:.*-)?(?:eyebrow|kicker)$/.test(t)||['section-label','mission-label','cx-label'].includes(t)))&&!el.closest('nav,footer')&&text.length<120){
    const clean=text.replace(/^[●•]\s*/,'').replace(/^\d{1,2}\s*[—–\-/]\s*/,'').replace(/\s*[/—–]\s*\d{1,2}\s*$/,'').replace(/\s*\/\s*$/,'').replace(/\s*\/\s*/g,' · ').trim();
@@ -13,11 +13,11 @@ function apply(){
   }
  });
  document.querySelectorAll('body *:not(svg):not(svg *)').forEach(el=>{
-  const c=getComputedStyle(el);
+  if(el.closest('.xc'))return;const c=getComputedStyle(el);
   if(['Top','Right','Bottom','Left'].every(s=>parseFloat(c['border'+s+'Width'])>0&&c['border'+s+'Style']!=='none')&&el.getBoundingClientRect().width>28)el.classList.add('brand-coral-frame');
  });
  document.querySelectorAll('a[href],button').forEach(el=>{
-  if(el.closest('.site-nav-menu,svg')||el.matches('.logo,[aria-label*="home"]'))return;
+  if(el.closest('.site-nav-menu,svg,.xc')||el.matches('.logo,[aria-label*="home"]'))return;
   const c=getComputedStyle(el),t=el.textContent.trim();
   const isControl=(el.tagName==='BUTTON'&&parseFloat(c.paddingTop)>6&&!el.matches('[aria-expanded],[aria-selected],[aria-pressed]'))||el.classList.contains('brand-coral-frame')||(/btn|button|action|cta|connect|docs/.test(el.className)&&parseFloat(c.paddingTop)>6);
   if(!isControl||!t||t.length>110)return;
