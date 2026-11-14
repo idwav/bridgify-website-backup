@@ -4,11 +4,10 @@
 .hc2{--ease:cubic-bezier(.16,1,.3,1);box-sizing:border-box;padding:clamp(40px,4vw,64px) 3.7%;background:#100c0b;color:#EEE9DE;font-family:Sofia,sans-serif}
 .hc2-box{display:grid;grid-template-columns:fit-content(45.5vw) minmax(0,1fr);gap:clamp(28px,2.6vw,56px);align-items:center;padding:clamp(28px,3vw,64px);border:1px solid #AA604647;border-radius:30px;background:radial-gradient(70% 80% at 50% 120%,#F4664929,transparent 70%),#160F0D}
 .hc2 h2{margin:0;font:300 var(--type-section,clamp(34px,2.9vw,48px))/1.2 Chillax,sans-serif;letter-spacing:-.025em;color:#EEE9DE}
-.hc2-copy p{margin:18px 0 0;font:400 var(--type-lead,clamp(18px,1.35vw,22px))/1.5 Sofia,sans-serif;color:#D7C9BD;max-width:48ch}
+.hc2-copy p{margin:18px 0 0;font:400 18px/1.55 Sofia,sans-serif;color:#D7C9BD;max-width:48ch}
 .hc2-actions{display:flex;flex-wrap:wrap;gap:14px 28px;margin-top:32px}
 .hc2-btn{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 22px;border:1px solid #F46649;border-radius:11px;background:linear-gradient(135deg,#513029,#241718);color:#FFF8F1;font:550 16px/1.25 Sofia,sans-serif;text-decoration:none;transition:background .4s}
-.hc2-btn:hover{background:linear-gradient(135deg,#673a30,#2c1b1b)}
-.hc2-btn:focus-visible{outline:2px solid #F46649;outline-offset:4px}
+.hc2-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .hc2-ico{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .hc2-demo{padding:clamp(16px,1.4vw,24px);border:1px solid #F4664960;border-radius:22px;background:linear-gradient(125deg,#3C0C052B,#21080555),#120c0a}
 .hc2-pick{display:flex;flex-wrap:wrap;align-items:center;gap:6px}

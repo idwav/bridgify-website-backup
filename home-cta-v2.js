@@ -30,9 +30,9 @@
   btns.forEach((b, j) => b.addEventListener('click', () => { picked = true; clearInterval(loop); set(j); }));
   new IntersectionObserver(([e]) => { seen = e.isIntersecting; seen ? run() : clearInterval(loop); }, {threshold: .35}).observe(box);
   /* brand-consistency.js frames bordered elements; the CTA and the security card keep their own chrome */
-  const scopes = ['home-cta', 'security'].map(id => document.getElementById(id)).filter(Boolean);
+  const scopes = ['home-cta', 'security', 'marketplace-results'].map(id => document.getElementById(id)).filter(Boolean);
   const CLS = ['brand-coral-frame', 'brand-action', 'brand-action-primary', 'brand-outer-frame'];
-  const clean = () => scopes.forEach(scope => [scope, ...scope.querySelectorAll('*')].forEach(el => el.classList && el.classList.remove(...CLS)));
+  const clean = () => scopes.forEach(scope => [scope, ...scope.querySelectorAll('*')].forEach(el => el.classList && !el.matches('.hc2-btn') && el.classList.remove(...CLS)));
   const later = () => setTimeout(clean, 0);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', later); else later();
   addEventListener('load', later);

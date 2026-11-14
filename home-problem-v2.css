@@ -136,9 +136,9 @@
 /* Pass 2: one screen at 1440x900 */
 #opportunity-study.pb2{padding-top:clamp(44px,4.4vw,64px);padding-bottom:clamp(36px,3.4vw,52px)}
 #opportunity-study .pb-head h2{margin:0;font:300 var(--type-section)/1.2 Chillax,sans-serif;letter-spacing:-.025em;color:#EEE9DE;text-wrap:balance}
-#opportunity-study .pb-intro p{font-size:clamp(16px,1.1vw,18px)}
+#opportunity-study .pb-intro p{font-size:18px}
 #opportunity-study .pb-toggle{min-height:36px}
-#opportunity-study .pb-bar{padding:12px 56px 12px 20px;font-size:15.5px}
+#opportunity-study .pb-bar{padding:12px 56px 12px 20px;font-size:16px}
 #opportunity-study .pb-bar b{font-size:clamp(19px,1.45vw,22px)}
 #opportunity-study .pb-stage{height:56cqw}
 #opportunity-study .pb-app-chaos{top:23cqw}
@@ -173,3 +173,4 @@
 #opportunity-study .pb-err{top:12.6cqw}
 @container (max-width:460px){#opportunity-study .pb-app-chaos{top:40cqw;bottom:1cqw}#opportunity-study .pb-err{top:20cqw}}
 @container (max-width:460px){#opportunity-study .pb-stage{height:98cqw}}
+@media (max-width:900px){#opportunity-study.pb2{padding-left:24px;padding-right:24px}}

@@ -77,10 +77,11 @@
 @media (max-width:900px){.pr-head{grid-template-columns:minmax(0,1fr)}}
 @media (prefers-reduced-motion:reduce){#products .hm-ink,.pr-ai-icon:after{animation:none}}
 /* Layout: eyebrow and headline on the left, the guide on the right; cards fit one screen */
+@media (min-width:901px){.pr-head{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);column-gap:56px}}
 .pr-head{grid-template-areas:"eye guide" "title guide";align-items:end;margin-bottom:clamp(24px,2.8vw,40px)}
 .pr-head .hm-eyebrow{grid-area:eye}
 .pr-head h2{grid-area:title;margin:0}
-.pr-head p{grid-area:guide;align-self:end;max-width:56ch;font-size:clamp(16px,1.1vw,18px)}
+.pr-head p{grid-area:guide;align-self:end;max-width:none;font-size:18px}
 #products .pr-vis{aspect-ratio:16/10.5}
 #products .pr-body{padding:clamp(18px,1.6vw,24px)}
 #products .pr-body h4{margin:0 0 4px}
@@ -88,3 +89,4 @@
 #products .pr-code{inset:5cqw 6cqw}
 #products .pr-store{inset:6cqw 7cqw 0}
 @media (max-width:900px){.pr-head{grid-template-areas:"eye" "title" "guide"}.pr-head p{margin-top:6px}}
+@media (max-width:900px){#products.pr2{padding-left:24px;padding-right:24px}}

@@ -2,11 +2,14 @@
    Keeps the layered planes of enterprise-v2; the copy and the proof card follow Copy v4 "The numbers". */
 /* Headline and body as one block, centred on the proof card (card spans 7.93cqw to 32.83cqw of the stage) */
 @media (min-width:721px){
-  #marketplace-results .v2e-copy{display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;inset:7.93cqw auto auto 0;width:100%;height:24.9cqw;padding-left:5.62%}
+  #marketplace-results .v2e-copy{display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;inset:7.93cqw auto auto 0;width:100%;height:24.9cqw;padding-left:3.72%}
+  #marketplace-results .v2e-proof{left:56.81%}
   #marketplace-results .v2e-copy::after{top:0;height:100%}
   #marketplace-results .v2e-copy h2{position:static;width:47%;white-space:normal}
-  #marketplace-results .v2e-copy p{position:static;width:40%;margin-top:clamp(20px,1.9cqw,30px)!important;font-size:var(--type-body);line-height:1.55;font-weight:400}
+  #marketplace-results .v2e-copy p{position:static;width:40%;margin-top:clamp(20px,1.9cqw,30px)!important;font-size:18px;line-height:1.55;font-weight:400}
 }
+/* Proof card: no border, only the surface (brand-consistency.js frames are stripped in home-cta-v2.js) */
+#marketplace-results .v2e-proof{border-color:transparent}
 /* Proof card: 3% leads where the old 3x sat; AOV and tickets share the bottom row; the dot grid stays as the 3-in-100 visual */
 .nb2-stats{position:absolute;inset:0;margin:0}
 .nb2-stats>div{position:absolute;display:flex;flex-direction:column-reverse;gap:.6cqw}
@@ -20,7 +23,7 @@
 .nb2-stats>div:nth-child(3){left:53.7%}
 /* Security: a cream card inset on the dark page, as in the lab (10 · Security & compliance) */
 .sec2{box-sizing:border-box;padding:clamp(32px,3.4vw,56px) 3.7%;background:#100c0b}
-.sec2-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:32px 56px;align-items:center;padding:clamp(28px,4.2vw,72px);border-radius:22px;background:#EEE9DE;color:#180F10}
+.sec2-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:32px 56px;align-items:center;padding:clamp(28px,3vw,64px);border-radius:22px;background:#EEE9DE;color:#180F10}
 .sec2-eyebrow{display:inline-flex;align-items:center;gap:10px;font:550 12px/1.4 Sofia,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#B83A23}
 .sec2-eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:linear-gradient(#FFB194,#F46649);box-shadow:0 0 10px #F46649}
 .sec2 h2{margin:14px 0 0;font:300 var(--type-section,clamp(34px,2.9vw,48px))/1.2 Chillax,sans-serif;letter-spacing:-.025em;color:#180F10}
@@ -35,14 +38,14 @@
 .sec2-seal b{position:relative;font:500 clamp(18px,1.7vw,25px)/1.05 Chillax,sans-serif;letter-spacing:-.02em;color:#180F10}
 .sec2-badges li:hover .sec2-seal svg{transform:rotate(120deg)}
 
-/* Audiences (V2 only): a touch narrower, shorter cells, intro centred on the headline line */
+/* Audiences (V2 only): full section width, shorter cells, intro centred on the headline line */
 @media (min-width:901px){
-  #audiences .audiences-head,#audiences .audience-grid{max-width:1180px;margin-left:auto;margin-right:auto}
-  #audiences .audiences-head{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);grid-template-areas:"kick ." "title intro";align-items:center;row-gap:14px;margin-bottom:44px}
+  #audiences .audiences-head{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);column-gap:56px;grid-template-areas:"kick ." "title intro";align-items:center;row-gap:14px;margin-bottom:44px}
   #audiences .audiences-head>div{display:contents}
   #audiences .audiences-kicker{grid-area:kick}
   #audiences .audiences-head h2{grid-area:title;margin:0}
-  #audiences .audiences-intro{grid-area:intro;margin:0;font-size:var(--type-body)}
+  #audiences .audiences-intro{grid-area:intro;margin:0;font-size:18px}
+  #audiences .audience-card p{font-size:16px}
   #audiences .audience-card{min-height:250px;padding:28px 30px}
   #audiences .audience-icon{width:44px;height:44px;margin-bottom:18px}
   #audiences .audience-card h3{font-size:var(--type-card)}
@@ -62,3 +65,8 @@
   .sec2-seal{width:min(100%,118px)}
 }
 @media (prefers-reduced-motion:reduce){.sec2-seal svg{transition:none}}
+
+/* FAQ on the same gutter as every section (the shared .copy-inner caps at 1400px and centres) */
+#faq.copy-faq{padding-left:3.7%;padding-right:3.7%}
+#faq.copy-faq .copy-inner{max-width:none;margin-left:0;margin-right:0}
+@media (max-width:900px){#faq.copy-faq{padding-left:24px;padding-right:24px}}

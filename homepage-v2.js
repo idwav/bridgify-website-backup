@@ -183,7 +183,7 @@
 // Reveal each homepage section on entry, without hiding content or wrapping sticky stories.
 (() => {
   const sections = [...document.querySelectorAll('section:not(.hero), footer')]
-    .filter(section => !section.parentElement.closest('section, footer') && !['sources', 'why-bridgify', 'personalization', 'products', 'audiences', 'partners', 'faq'].includes(section.id));
+    .filter(section => !section.parentElement.closest('section, footer') && !['sources', 'opportunity-study', 'why-bridgify', 'personalization', 'products', 'audiences', 'security', 'partners', 'faq', 'home-cta'].includes(section.id));
   if (!sections.length || !('IntersectionObserver' in window)) return;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const animations = new Map();
@@ -259,12 +259,14 @@
 (() => {
   const plan = {
     sources: ['.trust-copy > *', '.trust-stat', '.trust-footnote'],
-    'why-bridgify': ['.opx-heading > *', '.opx-capability-copy .opx-panels', '.opx-tabs', '.v2-capability-gallery'],
+    'opportunity-study': ['.pb-head > *', '.pb-bar', '.pb-panels > *'],
     personalization: ['.home-intent-heading > div:first-child > *', '.home-intent-copy > *', '.intent-stage'],
-    products: ['.v2p-heading > *', '.v2p-list', '.v2p-previews', '.v2p-scroll-cue'],
+    products: ['.pr-head > *', '.pr-card'],
     audiences: ['.audiences-head > div > *', '.audiences-intro', '.audience-grid'],
     partners: ['.bv2-partners-heading > *', '.bv2-partner-list'],
-    faq: ['.copy-inner > *']
+    security: ['.sec2-copy > *', '.sec2-badges > li'],
+    faq: ['.copy-inner > *'],
+    'home-cta': ['.hc2-copy > *', '.hc2-demo']
   };
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   if (reduced.matches || !('IntersectionObserver' in window)) return;

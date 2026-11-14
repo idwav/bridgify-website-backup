@@ -1,7 +1,7 @@
 /* Homepage supply summary: balanced columns and brand typography. */
 #sources{box-sizing:border-box;width:100%;max-width:none;margin:0;padding:64px 3%;display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:0;align-items:center;color:#180f10;background:#eee9de}
 #sources .trust-copy{min-width:0;padding:0 48px 0 0}
-#sources .trust-copy h2{margin:0 0 16px;font-family:Chillax,sans-serif;font-size:clamp(25px,2vw,34px);font-weight:500;line-height:1.25;letter-spacing:-1px}
+#sources .trust-copy h2{margin:0 0 16px;font-family:Chillax,sans-serif;font-size:clamp(25px,2vw,34px);font-weight:300;line-height:1.25;letter-spacing:-.025em}
 #sources .trust-copy p{margin:0;max-width:340px;font-size:16px;line-height:1.6;color:#786b64}
 #sources .trust-stat{grid-column:auto;box-sizing:border-box;min-width:0;min-height:112px;padding:8px 28px;border:0;border-left:1px solid #180f1026;display:flex;justify-content:center;gap:14px}
 #sources .trust-stat strong{font-family:Chillax,sans-serif;font-size:clamp(32px,3vw,48px);font-weight:500;line-height:1.1;letter-spacing:-1.8px;white-space:normal}
