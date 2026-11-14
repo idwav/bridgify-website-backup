@@ -1,5 +1,5 @@
 /* OTA editorial roles and materials; section geometry remains owned by the existing layouts. */
-body[data-copy-page="otas"]{--type-hero:clamp(48px,3.6vw,60px);--type-section:clamp(36px,2.9vw,44px);--type-body:18px;--type-lead:18px;--ota-edge:#f46649;--ota-glass:linear-gradient(135deg,rgba(100,57,45,.42),rgba(35,23,24,.92));--ota-depth:inset 0 1px 0 #ffd3b026,0 12px 30px #100d0e33}
+body[data-copy-page="otas"]{--type-hero:clamp(48px,3.6vw,60px);--type-section:clamp(36px,2.9vw,44px);--type-body:16px;--type-lead:16px;--ota-edge:#f46649;--ota-glass:linear-gradient(135deg,rgba(100,57,45,.42),rgba(35,23,24,.92));--ota-depth:inset 0 1px 0 #ffd3b026,0 12px 30px #100d0e33}
 body[data-copy-page="otas"] :is(.ys-hero,.ms-section,.rc-section,.eo-section){background:radial-gradient(ellipse at 78% 50%,#703b301c,transparent 68%),#180f10;color:#eee9de}
 body[data-copy-page="otas"] :is(.ys-copy,.ys-ticket,.ms-layout,.rc-panel,.eo-options,.copy-inner){max-width:none}
 body[data-copy-page="otas"] :is(.ys-hero,.ms-section,.rc-section,.eo-section) :is(p,span,small,strong,b,a,button,div){font-family:Sofia,sans-serif}

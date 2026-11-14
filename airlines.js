@@ -59,13 +59,13 @@
           ], { duration: 760, delay, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
         }
       } else {
-        animate(element, [{ opacity: .45, translate: '0 22px' }, { opacity: 1, translate: '0 0' }], { duration: 700, easing: 'cubic-bezier(.16,1,.3,1)' });
+        animate(element, [{ opacity: .45, translate: '0 22px' }, { opacity: 1, translate: '0 0' }], { duration: 700, delay: element.matches('.aj-journey > li, .ar-row') ? [...element.parentElement.children].indexOf(element) * 90 : 0, easing: 'cubic-bezier(.16,1,.3,1)' });
       }
     }
   }, { threshold: .08 });
   visibility.observe(hero);
   if (earn) visibility.observe(earn);
-  document.querySelectorAll('.al-enter').forEach(element => visibility.observe(element));
+  document.querySelectorAll('.al-enter, .aj-heading, .aj-journey > li, .ar-heading, .ar-trip, .ar-row, .ar-summary, .ar-footer, .xc-head, .xc-card').forEach(element => visibility.observe(element));
   document.addEventListener('visibilitychange', () => {
     document.body.classList.toggle('al-motion-paused', document.hidden);
     for (const animation of running) document.hidden ? animation.pause() : animation.play();
@@ -148,7 +148,7 @@
   document.querySelectorAll('.al-phone img').forEach(image => image.addEventListener('load',sizePhone));
   let journeyVisible = false;
   const journey = document.querySelector('.al-journey-panel');
-  new IntersectionObserver(entries => {journeyVisible = entries[0].isIntersecting}, {threshold:.25}).observe(journey);
+  if (journey) new IntersectionObserver(entries => {journeyVisible = entries[0].isIntersecting}, {threshold:.25}).observe(journey);
   let lastChange = Date.now();
   tabs.forEach(tab => tab.addEventListener('click', () => {lastChange = Date.now()}));
   setInterval(() => {

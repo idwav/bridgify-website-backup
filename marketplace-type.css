@@ -1,5 +1,5 @@
 /* Marketplace typography: scoped to this page. */
-html body[data-copy-page=marketplace]{--type-hero:clamp(40px,3.6vw,60px);--type-section:clamp(36px,2.9vw,44px);--type-body:18px;--type-lead:18px;--type-card:clamp(24px,1.7vw,28px)}
+html body[data-copy-page=marketplace]{--type-hero:clamp(40px,3.6vw,60px);--type-section:clamp(36px,2.9vw,44px);--type-body:16px;--type-lead:16px;--type-card:clamp(24px,1.7vw,28px)}
 html body[data-copy-page=marketplace] section h2{font-family:Chillax,sans-serif!important;font-weight:300!important;font-size:var(--type-section)!important;line-height:1.2!important}
 html body[data-copy-page=marketplace] .page-hero .block-copy h2{font-size:var(--type-hero)!important}
 html body[data-copy-page=marketplace] section h3{font-family:Chillax,sans-serif!important;font-weight:300!important;font-size:var(--type-card);line-height:1.25}

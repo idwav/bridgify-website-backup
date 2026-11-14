@@ -478,3 +478,9 @@ V2 בנוי מסקשנים כהים וקרם לסירוגין. כל סקשן כ�
 - איך נבדקה התוצאה בפועל:
 
 התבנית מיועדת לעבודה פנימית. אין צורך לבקש מהמשתמש למלא אותה בכל משימה.
+
+## Shared navigation — latest user direction, 14 November 2026
+
+V2 and all 16 public inner pages use `shared-navigation.css` and `site-header-common`. The header background is transparent on every page; dropdown menus retain the brand dark theme. The header is 78px tall on desktop and 123px in the compact layout; both actions use dark glass. This supersedes the earlier page-specific header and cream demo-button exceptions. V1 and tutorial previews are excluded. Dropdown motion and keyboard handling remain in `bridgify-nav-motion.js`.
+
+Latest body-copy direction: all public V2 and inner-page editorial body/lead text is 16px on desktop and mobile.

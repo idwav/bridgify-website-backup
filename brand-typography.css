@@ -1,7 +1,7 @@
 /* Editorial typography only. Geometry and illustrative UI remain page-owned. */
 @font-face{font-family:Chillax;src:url('Chillax_Complete/Fonts/OTF/Chillax-Light.otf');font-weight:300;font-display:swap}
 @font-face{font-family:Sofia;src:url('Sofia_Sans/SofiaSans-VariableFont_wght.ttf');font-weight:100 900;font-display:swap}
-:root{--type-hero:clamp(40px,3.6vw,60px);--type-section:clamp(36px,3vw,44px);--type-card:clamp(24px,1.9vw,28px);--type-lead:18px;--type-body:18px;--type-small:15px;--type-cta:16px;--type-eyebrow:12px}
+:root{--type-hero:clamp(40px,3.6vw,60px);--type-section:clamp(36px,3vw,44px);--type-card:clamp(24px,1.9vw,28px);--type-lead:16px;--type-body:16px;--type-small:15px;--type-cta:16px;--type-eyebrow:12px}
 html body :is(h1:not(.copy-seo), .hero-copy>h2, .page-hero .block-copy>h2, .hc-heading h2){font-family:Chillax,sans-serif!important;font-size:var(--type-hero)!important;font-weight:300!important;line-height:1.16!important;letter-spacing:-.025em!important;}
 html body :is(.an-heading h2,.ak-heading h2,.am-heading h2,.ae-heading h2,.af-heading h2,.cx-copy h2,.copy-inner>h2,.journey-heading h2,.mr-heading h2,.commerce-heading h2,.launch-heading h2,.bb-section>header h2,.ma-inner>h2,.results-inner>h2,.intent-heading h2,.match-head h2,.embed-heading h2,.day-demo>header h2,.hi-heading h2,.hotel-journey>h2,.hgi-heading h2,.ms-head h2,.rc-head h2,.eo-head h2,.ha-head h2,.sc-heading h2,.ch-section>h2,.th-section>h2,.ad-head h2,.lf-heading h2,.lf-give>div>h2,.lf-origin>div>h2,.origin-section>h2,.mission-head h2,.hbx-content h2,.team-head h2,.lt-head h2,.lt-topics h2,.al-section>h2,.al-section header h2,.al-section-title h2,.al-journey-heading h2,.al-faq>div>h2,.bv2-hero-copy h1,.v2c-heading h2,.opx-heading h2,.home-intent-heading h2,.v2p-heading h2,.audiences-head h2,.v2e-copy h2,.bv2-partners-heading h2,.bf-recurring-cta h2,.bf-footer-top h2){font-family:Chillax,sans-serif!important;font-size:var(--type-section)!important;font-weight:300!important;line-height:1.2!important;letter-spacing:-.025em!important;}
 html body :is(.lt-card>h3,.editorial-read>h3,.ch-path>h3,.ad-column>h3,.team .name){font-family:Chillax,sans-serif!important;font-size:var(--type-card)!important;font-weight:300!important;line-height:1.25!important;letter-spacing:-.02em!important;}
@@ -9,7 +9,7 @@ html body :is(.hero-copy>p:not([class*=eyebrow]):not([class*=kicker]),.block-cop
 html body :is(.lt-head>p,.lt-topics p,.cx-copy>p,.an-heading p,.ak-heading p,.am-heading p,.ae-heading p,.af-heading p,.rc-head p,.eo-head p,.ha-head p,.sc-heading p,.ad-head p,.mission-head p,.origin-section>p,.copy-addition p,.copy-addition li,.ch-intro,.al-section>p,.al-journey-heading>p){font-family:Sofia,sans-serif!important;font-size:var(--type-body)!important;font-weight:400!important;line-height:1.55!important;letter-spacing:normal!important;}
 html body :is(.ih-eyebrow,.lt-eyebrow,.ch-eyebrow,.al-kicker,.dev-eyebrow,.te-eyebrow,.ys-eyebrow,.bh-eyebrow,.sc-eyebrow,.cx-copy .cx-eyebrow,.er-number){font-family:Sofia,sans-serif!important;font-size:var(--type-eyebrow)!important;font-weight:550!important;line-height:1.4!important;letter-spacing:.15em!important}
 html body :is(.al-actions .al-button,.hero-copy .btn,.dev-hero .btn,.ih-explore,.lt-card>a,.ch-path>a,.er-link,.copy-links a){font-family:Sofia,sans-serif!important;font-size:var(--type-cta)!important;font-weight:550!important;line-height:1.25!important;letter-spacing:normal!important}
-@media(max-width:760px){:root{--type-hero:clamp(34px,8.8vw,42px);--type-section:clamp(30px,7.6vw,34px);--type-card:clamp(22px,5.8vw,24px);--type-lead:18px;--type-body:18px;--type-eyebrow:12px}}
+@media(max-width:760px){:root{--type-hero:clamp(34px,8.8vw,42px);--type-section:clamp(30px,7.6vw,34px);--type-card:clamp(22px,5.8vw,24px);--type-lead:16px;--type-body:16px;--type-eyebrow:12px}}
 
 /* Visible marketplace SEO title is the primary heading; its short promise is secondary. */
 html body #section-1.page-hero .block-copy>h1{font-family:Chillax,sans-serif!important;font-size:var(--type-hero)!important;font-weight:300!important;line-height:1.16!important;letter-spacing:-.025em!important}
@@ -21,7 +21,7 @@ html body .origin-section :is(.origin-copy p,.origin-timeline p){font-family:Sof
 html body .origin-timeline h3{font-family:Chillax,sans-serif!important;font-size:var(--type-section)!important;font-weight:300!important;line-height:1.2!important}
 html body .origin-timeline h4{font-size:var(--type-card)!important;line-height:1.25!important}
 
-/* Scale approved 14 Nov 2026: section 36-44px, inner headings 24-28px, body 18px, secondary 14-16px, buttons 16px, labels 12-14px.
+/* Scale approved 14 Nov 2026: section 36-44px, inner headings 24-28px, body 16px, secondary 14-16px, buttons 16px, labels 12-14px.
    Headings Chillax 300, running text Sofia 400. Mock UI inside visuals keeps its own scale. */
 html body :is(.career-section>.section-heading h2,.career-scale>header>h2,.career-roles>h2,.block:not(.page-hero) .block-copy>h2){font-family:Chillax,sans-serif!important;font-size:var(--type-section)!important;font-weight:300!important;line-height:1.2!important;letter-spacing:-.025em!important}
 html body :is(.audience-card>h3,.roles-invite>h3,.trust-copy>h2){font-family:Chillax,sans-serif!important;font-size:var(--type-card)!important;font-weight:300!important;line-height:1.25!important;letter-spacing:-.02em!important}
@@ -31,3 +31,14 @@ html body :is(.bf-cta-actions a,.bv2-hero-actions>a,.bv2-hero-actions>button,.tr
 html body .audience-card>p{font-size:16px!important;line-height:1.5!important}
 @media(max-width:760px){html body main :is(.ch-section>h2,.copy-inner>h2,.ms-head h2,.ck-head h2){font-size:var(--type-section)!important;line-height:1.2!important}}
 html body :is(.ex-head h2,.ck-head h2,.en-l>h2){font-family:Chillax,sans-serif!important;font-size:var(--type-section)!important;font-weight:300!important;line-height:1.2!important;letter-spacing:-.025em!important}
+
+/* Inner-page prose keeps its reading size on wide monitors.
+   Statistics, headings and illustrative product UI retain their own scales. */
+html body.brand-inner-page[data-copy-page]{--type-body:16px;--type-lead:16px;--inner-prose-size:16px}
+html body.brand-inner-page :is(.ms-head>.sp-sub,.ex-head>p,.cj-copy>p,.ck-head>p,.en-l>p,.ys-retain>p,.ih-head p,.hbx-description,.career-hero-copy>p,.careers-page .section-heading>p,.career-scale>header>p,.roles-intro,.login-intro>p,.al-dialog-copy>p){font-family:Sofia,sans-serif!important;font-size:var(--inner-prose-size)!important;font-weight:400!important;line-height:1.55!important;letter-spacing:normal!important}
+@media(max-width:760px){html body.brand-inner-page[data-copy-page]{--type-body:16px;--type-lead:16px;--inner-prose-size:16px}}
+
+/* Site-wide editorial prose: explicit roles exclude diagrams, metrics and mock UI. */
+html body[data-copy-page] :is(.trust-footnote>p,.pb-intro>p,.wy-copy>p,.home-intent-copy>p,.pr-guide,.audiences-intro,.v2e-copy>p,.hc2-copy>p,.market-product-tour>header>p,.wl-heading>p,.wo-heading>p,.launch-heading>p,.bc-heading>p,.bc-card>p,.intent-heading>p,.match-head>p,.embed-heading>p,.day-demo>header>p,.ms-head>p,.rc-head p,.rc-step p,.xc-head>p,.xc-desc,.earn-heading>p,.earn-bottom>p,.al-loyalty>p,.al-faq-answer>p,.hi-heading>p,.hj-intro,.lf-heading p,.lf-hero p,.lu-explanation-inner>p,.lp-origin>header>p,.lm-need>p,.lm-body,.te-intro>p,.th-intro>p,.th-comparison>p,.ad-copy,.ad-foot>p,.sc-hero-copy>p,.sc-how-intro,.sc-step-description,.up-story-copy>p,.copy-faq p,.dev-intro,.dev-docs p,.lt-head>p,.lt-topics p,.press-intro>p,.press-feature-copy>p,.press-grid p,.team-head>p){font-family:Sofia,sans-serif!important;font-size:16px!important;font-weight:400!important;line-height:1.55!important}
+html body[data-copy-page] :is(.pb-bar,.pr-body>p,.rc-captions p,.press-topic p){font-size:16px!important;line-height:1.55!important}
+html body[data-copy-page] :is(#faq,.copy-faq) details>p,html body[data-copy-page] #section-6 .launch-heading>p,html body[data-copy-page] .launch-heading>p.lead{font-size:16px!important;line-height:1.55!important}

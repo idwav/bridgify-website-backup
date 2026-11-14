@@ -17,7 +17,7 @@
     });
   }
 
-  if (scope) add(".sc-section > .sc-eyebrow, .sc-section > .sc-heading, .sc-section > .up-layout, .ys-hero > .ys-copy, .ys-hero > .ys-ticket, .lu-section > .eyebrow, .lu-section > h2, .lu-section > .lu-layout, .loyalty-choice > .ch-eyebrow, .loyalty-choice > h2, .loyalty-choice > .ch-panel, .lm-signal > header, .lm-signal > .lm-flow, .lm-signal > .lm-body, .wl-localization > .wl-heading, .wl-localization > .wl-layout, .market-product-tour > header, .market-product-tour > .tour, .wo-section > .wo-heading, .wo-section > .wo-stack, .bc-section > .bc-heading, .bc-section > .bc-comparison, #section-5 > .launch-heading, #section-5 > .launch-workspace", { y: 16, stagger: 0.02 });
+  if (scope) add(".sc-how .sc-info-heading, .sc-how .sc-info-grid, .sc-section > .sc-eyebrow, .sc-section > .sc-heading, .sc-section > .up-layout, .ys-hero > .ys-copy, .ys-hero > .ys-ticket, .lu-section > .eyebrow, .lu-section > h2, .lu-section > .lu-layout, .loyalty-choice > .ch-eyebrow, .loyalty-choice > h2, .loyalty-choice > .ch-panel, .lm-signal > header, .lm-signal > .lm-flow, .lm-signal > .lm-body, .wl-localization > .wl-heading, .wl-localization > .wl-layout, .market-product-tour > header, .market-product-tour > .tour, .wo-section > .wo-heading, .wo-section > .wo-stack, .bc-section > .bc-heading, .bc-section > .bc-comparison, #section-5 > .launch-heading, #section-5 > .launch-workspace", { y: 16, stagger: 0.02 });
   add('#sources > *', { y: 30, stagger: 0.025 });
   add('.opportunity-heading > *, #global .aggregation-layout > div:first-child > *', { stagger: 0.035 });
   document.querySelectorAll('.opportunity-side').forEach((side, index) => {

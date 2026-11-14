@@ -1,5 +1,5 @@
 /* Super apps hero. Geometry retained; material follows Multi-source / Recommend. */
-.bh-hero{--bh-card-height:125px;--type-lead:18px;--bh-raised:radial-gradient(ellipse at 0 0,#b8846633,transparent 54%),linear-gradient(135deg,#39292be8,#21191cf5 48%,#2b1c1df2);--bh-depth:inset 0 1px 0 #ffe1ca60,inset 1px 0 0 #ffbe9626,inset 0 -1px 0 #f4664926,0 12px 24px #08040570,0 3px 5px #08040540;padding:165px 3% 50px;background:radial-gradient(ellipse at 55% 50%,#64231520,transparent 68%),#180f10;color:#eee9de;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-start}
+.bh-hero{--bh-card-height:125px;--type-lead:16px;--bh-raised:radial-gradient(ellipse at 0 0,#b8846633,transparent 54%),linear-gradient(135deg,#39292be8,#21191cf5 48%,#2b1c1df2);--bh-depth:inset 0 1px 0 #ffe1ca60,inset 1px 0 0 #ffbe9626,inset 0 -1px 0 #f4664926,0 12px 24px #08040570,0 3px 5px #08040540;padding:165px 3% 50px;background:radial-gradient(ellipse at 55% 50%,#64231520,transparent 68%),#180f10;color:#eee9de;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-start}
 .bh-hero *{box-sizing:border-box}
 .bh-eyebrow{font:500 12px/1.4 Sofia,sans-serif;letter-spacing:.15em;margin:0 1.5% 20px}
 .bh-head{display:grid;grid-template-columns:1.12fr 1fr;gap:4%;align-items:center;padding:0 1.5%;margin-bottom:45px}
