@@ -14,7 +14,7 @@ html body[data-copy-page=marketplace] .copy-faq summary{font:300 24px/1.4 Chilla
 @media(max-width:700px){html body[data-copy-page=marketplace]{--type-section:32px;--type-card:24px}html body[data-copy-page=marketplace] .copy-faq summary{font-size:22px}}
 
 /* Launch demo: compact type hierarchy; preserve approved surfaces and layout. */
-html body[data-copy-page=marketplace] #section-5 h2{font-size:clamp(32px,2.5vw,40px)!important}
+html body[data-copy-page=marketplace] #section-5 h2{font-size:clamp(36px,2.5vw,44px)!important}
 html body[data-copy-page=marketplace] #section-5 .lead{font-size:18px!important;font-weight:400!important;line-height:1.55}
 html body[data-copy-page=marketplace] #section-5 .launch-cover h3{font-size:clamp(24px,1.8vw,28px)!important;font-weight:300!important;line-height:1.2}
 html body[data-copy-page=marketplace] #section-5 .launch-setup h3{font-size:24px!important;font-weight:300!important}
