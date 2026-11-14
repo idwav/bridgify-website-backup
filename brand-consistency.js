@@ -51,7 +51,7 @@ function refresh(){apply();
  document.querySelectorAll('.brand-coral-frame').forEach(el=>{
   const rect=el.getBoundingClientRect();
   const nav=el.matches('nav,.top,.site-header,header.header')||!!el.querySelector('nav[aria-label="Main navigation"]');
-  const outer=!el.matches('a,button,input,select')&&rect.width>innerWidth*.65&&rect.height>70;
+  const outer=el.hasAttribute('data-brand-outer-frame')||(!el.matches('a,button,input,select')&&rect.width>innerWidth*.65&&rect.height>70);
   el.classList.toggle('brand-outer-frame',nav||outer);
  });document.querySelectorAll('svg rect[stroke]').forEach(el=>{if(el.closest('defs,clipPath,mask')||el.getAttribute('stroke')==='none')return;if(+el.getAttribute('width')>60&&+el.getAttribute('height')>30)el.classList.add('brand-svg-frame')});contacts()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',refresh);else refresh();

@@ -4,8 +4,8 @@
 #build-or-buy h2{font:300 clamp(36px,2.7vw,44px)/1.22 Chillax,sans-serif;max-width:none;margin:18px 0 0}
 #build-or-buy .bc-heading>p{font:400 18px/1.65 Sofia,"Sofia Sans",sans-serif;margin:20px 0 0;color:#eee9de}
 #build-or-buy .bc-comparison{display:grid;grid-template-columns:1fr 1fr;gap:26px;width:100%}
-#build-or-buy .bc-card{min-width:0;display:grid;grid-template-rows:auto 1fr auto;padding:30px 34px;border:1px solid #f4664959;border-radius:22px;background:radial-gradient(ellipse at 0 0,#ffe2c614,transparent 52%),radial-gradient(ellipse at 100% 0,#f4664914,transparent 36%),linear-gradient(130deg,#2b2021b0,#180f10e8 55%,#271c1dba);box-shadow:inset 0 1px 0 #ffe2c633,inset 0 -1px 0 #f4664914,0 12px 30px #00000024}
-#build-or-buy .bc-buy{border-color:rgba(244,102,73,.48);background:radial-gradient(ellipse at 10% 0,#ffe2c61c,transparent 62%),linear-gradient(145deg,#352628c0,#180f10e0)}
+#build-or-buy .bc-card{min-width:0;display:grid;grid-template-rows:auto 1fr auto;padding:30px 34px;border:1px solid rgba(244,102,73,.32);border-radius:22px;background:radial-gradient(ellipse at 0 0,#ffe2c614,transparent 52%),radial-gradient(ellipse at 100% 0,#f4664914,transparent 36%),linear-gradient(130deg,#2b2021b0,#180f10e8 55%,#271c1dba);box-shadow:inset 0 1px 0 #ffe2c633,inset 0 -1px 0 #f4664914,0 12px 30px #00000024}
+#build-or-buy .bc-buy{background:radial-gradient(ellipse at 10% 0,#ffe2c61c,transparent 62%),linear-gradient(145deg,#352628c0,#180f10e0)}
 #build-or-buy .bc-card-heading{display:flex;align-items:center;gap:16px}
 #build-or-buy h3{font:300 28px/1.2 Chillax,sans-serif;margin:0}
 #build-or-buy .bc-card>p{font:400 18px/1.55 Sofia,"Sofia Sans",sans-serif;color:#eee9de;margin:19px 0 24px;min-height:84px}
