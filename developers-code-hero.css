@@ -1,0 +1,13 @@
+/* Developers hero: request/response console from the approved element lab. */
+body[data-copy-page="developers"] #section-1.dev-code-hero{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:center;gap:5vw;min-height:100svh;padding:150px 4vw 70px;margin:0;background:#180f10;max-width:none;border-radius:0}
+#section-1.dev-code-hero .dev-code-copy{min-width:0;text-align:left}
+#section-1.dev-code-hero h1{margin:22px 0}
+#section-1.dev-code-hero .dev-intro{max-width:44ch;margin:0;line-height:1.6}
+#section-1.dev-code-hero .actions{margin-top:30px;justify-content:flex-start;flex-wrap:wrap}
+#section-1.dev-code-hero .ahc-visual{width:100%;min-width:0;margin:0}
+#section-1.dev-code-hero .ahc-code{border-color:#f4664952;background:#100b0c;box-shadow:0 25px 60px #0004}
+#section-1.dev-code-hero .ahc-pane-res{padding-bottom:18px}
+#section-1.dev-code-hero .ahc-tabs button[aria-selected="true"]{border-color:#f4664966;background:#f4664914}
+@media(max-width:950px){body[data-copy-page="developers"] #section-1.dev-code-hero{grid-template-columns:1fr;padding:150px 5vw 60px;gap:35px}#section-1.dev-code-hero .dev-intro{max-width:65ch}}
+@media(max-width:600px){body[data-copy-page="developers"] #section-1.dev-code-hero{padding-top:170px}#section-1.dev-code-hero .ahc-req,#section-1.dev-code-hero .ahc-res{font-size:11px}#section-1.dev-code-hero .ahc-tabs button{padding:0 9px}}
+body[data-copy-page="developers"] #section-1.dev-code-hero .eyebrow,body[data-copy-page="developers"] #section-1.dev-code-hero .btn{font-family:Sofia,Arial,sans-serif!important}

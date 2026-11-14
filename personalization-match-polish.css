@@ -9,3 +9,28 @@ html body .match-card{background:radial-gradient(ellipse at 0 0,#ffbf9820,transp
 @media(max-width:700px){.match-control label{font-size:14px}.match-control strong{font-size:16px}.match-card h3{font-size:20px}.match-card p{font-size:14px}.match-photo{height:68%}.match-caption{height:32%}.match-head p{font-size:18px}}
 
 html body #section-3 .match-footer{color:#d3c1b8;opacity:1}html body #section-3 .match-nav button{opacity:1;color:#fff4e7}html body #section-3 .match-card-arrow{box-shadow:none!important;border:0!important}
+
+/* Traveler context and AIyelet, paired with the existing rotating experience deck. */
+#section-3.match-section .match-workspace{grid-template-columns:28% 16% minmax(0,1fr);gap:3%;align-items:center}
+#section-3.match-section .match-head,#section-3.match-section .match-workspace,#section-3.match-section .match-footer{max-width:none}
+#section-3.match-section .match-controls{padding:22px}
+#section-3.match-section .match-control{margin-top:17px}
+#section-3.match-section .match-control strong{font-size:16px;white-space:nowrap}
+#section-3.match-section .match-engine{position:relative;text-align:center;padding:28px 8px;border:1px solid #f46649;border-radius:18px;background:linear-gradient(130deg,#49302a99,#201516);box-shadow:inset 0 1px #ffd8bd33;transition:box-shadow .6s}
+#section-3.match-section .match-engine strong{display:block;font:300 29px Chillax,sans-serif;color:#eee9de}
+#section-3.match-section .match-engine small{display:block;font:400 13px/1.5 Sofia,Arial,sans-serif;color:#cbbfb6;margin-top:12px}
+#section-3.match-section .match-engine-status{display:block;font:400 11px Sofia,Arial,sans-serif;color:#ffb594;margin-top:20px}
+#section-3.match-section .match-engine:before,#section-3.match-section .match-engine:after{content:'';position:absolute;top:50%;width:19%;height:1px;background:#f46649;opacity:.6}
+#section-3.match-section .match-engine:before{right:100%}#section-3.match-section .match-engine:after{left:100%}
+#section-3.match-section .match-engine-contact{position:absolute;width:6px;height:6px;border:1px solid #f46649;border-radius:50%;background:#fff8f1;left:-3px;top:calc(50% - 3px)}
+#section-3.match-section.matching-signal .match-engine{box-shadow:inset 0 1px #ffd8bd55,0 0 20px #f4664933}
+#section-3.match-section .match-engine-contact{box-shadow:none}#section-3.match-section.matching-result .match-engine-contact{box-shadow:0 0 12px #f46649}
+#section-3.match-section .match-deck{height:370px}
+#section-3.match-section .match-card{width:62%}
+#section-3.match-section .match-card h3{font-size:21px}
+#section-3.match-section .match-photo{height:73%}#section-3.match-section .match-caption{height:27%}
+@media(max-width:1000px) and (min-width:701px){#section-3.match-section .match-workspace{grid-template-columns:34% 17% minmax(0,1fr);gap:2%}#section-3.match-section .match-controls{padding:15px}#section-3.match-section .match-control strong{font-size:14px}#section-3.match-section .match-card{width:78%}#section-3.match-section .match-engine strong{font-size:23px}}
+@media(max-width:700px){#section-3.match-section .match-workspace{grid-template-columns:1fr;gap:26px}#section-3.match-section .match-engine{padding:18px;display:grid;grid-template-columns:1fr 1fr;align-items:center;text-align:left}#section-3.match-section .match-engine small{margin:0}#section-3.match-section .match-engine-status{margin-top:8px}#section-3.match-section .match-engine:before,#section-3.match-section .match-engine:after{width:1px;height:27px;left:50%;top:auto;right:auto}#section-3.match-section .match-engine:before{bottom:100%}#section-3.match-section .match-engine:after{top:100%}#section-3.match-section .match-engine-contact{display:none}#section-3.match-section .match-card{width:72%}#section-3.match-section .match-deck{height:330px}}
+@media(prefers-reduced-motion:reduce){#section-3.match-section .match-engine,#section-3.match-section .match-engine-contact{transition:none}}
+
+html body #section-3.match-section .match-footer{border-top:0;padding-top:0;justify-content:flex-end}
