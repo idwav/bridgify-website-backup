@@ -68,3 +68,6 @@ body[data-copy-page="marketplace"] #section-5{display:block;height:auto;min-heig
 @media(prefers-reduced-motion:reduce){#section-5 .launch-wire-pulse{display:none}}
 
 #section-5 .launch-workspace.launch-paused *{animation-play-state:paused!important}
+
+/* The active day remains identifiable after its arrival glow fades. */
+#section-5 .launch-days button.active{background:radial-gradient(ellipse at 0 0,#ffe2c624,transparent 70%),linear-gradient(135deg,#f4664929,#180f10c9);border-color:#f46649!important}

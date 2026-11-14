@@ -7,36 +7,80 @@
  for(let i=0;i<3;i++)contacts.push(make('circle',{r:2.2}));
  for(let i=0;i<2;i++)paths.push(make('path',{}));
  const pulses=Array.from({length:9},(_,i)=>make('circle',{r:F.radius(i),class:'launch-wire-pulse',opacity:0}));
- let timers=[],frames=new Set(),visible=false,traveling=false;
- const frame=fn=>{const id=requestAnimationFrame(t=>{frames.delete(id);fn(t)});frames.add(id)};
- const later=(fn,ms)=>timers.push(setTimeout(fn,ms));
- const clear=()=>{work.classList.add('launch-paused');timers.forEach(clearTimeout);timers=[];frames.forEach(cancelAnimationFrame);frames.clear();traveling=false;pulses.forEach(p=>p.setAttribute('opacity',0));targets.forEach(e=>e.style.removeProperty('--launch-arrival'));contacts.flat().forEach(c=>c.style.removeProperty('filter'))};
  const layout=()=>{
-  const r=panel.getBoundingClientRect();svg.setAttribute('viewBox',`0 0 ${panel.clientWidth} ${panel.clientHeight}`);
-  paths.forEach((p,i)=>{const a=buttons[i].getBoundingClientRect(),b=buttons[i+1].getBoundingClientRect(),d=work.querySelector('.launch-days').getBoundingClientRect(),x=d.left-r.left-panel.clientLeft+.5,y=a.top-r.top-panel.clientTop+27,Y=b.top-r.top-panel.clientTop+27;
-   p.setAttribute('d',`M ${x} ${y} L ${x} ${Y}`);
-   [[x,y],[x,Y]].forEach(([cx,cy],j)=>{contacts[i+j].setAttribute('cx',cx);contacts[i+j].setAttribute('cy',cy)})
+  // Measure in the SVG's own viewport, including fractional borders and zoom.
+  const viewport=svg.getBoundingClientRect();
+  if(!viewport.width||!viewport.height)return;
+  svg.setAttribute('viewBox',`0 0 ${viewport.width} ${viewport.height}`);
+  const days=work.querySelector('.launch-days').getBoundingClientRect();
+  const cards=buttons.map(button=>button.getBoundingClientRect());
+  const x=(days.left+cards[0].left)/2-viewport.left;
+  const anchors=cards.map(card=>({x,y:card.top+card.height/2-viewport.top}));
+  anchors.forEach((point,i)=>{
+   contacts[i].setAttribute('cx',point.x);
+   contacts[i].setAttribute('cy',point.y);
+  });
+  paths.forEach((path,i)=>path.setAttribute('d',`M ${anchors[i].x} ${anchors[i].y} L ${anchors[i+1].x} ${anchors[i+1].y}`));
+ };
+ // One animation clock controls particles, completion marks and storefront states.
+ const travelDuration=1550,tailDuration=8*F.delay;
+ const firstDeparture=1200,configurationArrival=firstDeparture+travelDuration;
+ const secondDeparture=6500,launchArrival=secondDeparture+travelDuration;
+ const liveAt=launchArrival+tailDuration+850,cycle=liveAt+4200;
+ let elapsed=0,last=0,raf=0,visible=false;
+ const hideMotion=()=>{
+  pulses.forEach(pulse=>pulse.setAttribute('opacity',0));
+  targets.forEach(target=>target.style.setProperty('--launch-arrival',0));
+  contacts.forEach(contact=>contact.style.removeProperty('filter'));
+ };
+ const render=()=>{
+  const t=elapsed%cycle,day=t<configurationArrival?0:t<launchArrival?1:2;
+  const step=t>=liveAt?4:t>=configurationArrival+2400?3:t>=configurationArrival+1200?2:t>=configurationArrival?1:0;
+  if(work.dataset.launchStep!==String(step))work.dataset.launchStep=step;
+  buttons.forEach((button,i)=>{
+   const complete=i===0?t>=firstDeparture:i===1?t>=secondDeparture:t>=liveAt;
+   button.classList.toggle('pending',i>day);
+   button.classList.toggle('complete',complete);
+   button.classList.toggle('active',i===day&&!complete);
+   button.setAttribute('aria-pressed',String(i===day));
+   const arrivalAt=[0,configurationArrival,launchArrival][i];
+   const glow=reduced.matches?0:F.arrival(t-arrivalAt);
+   button.style.setProperty('--launch-arrival',glow);
+   contacts[i].style.filter=glow?`drop-shadow(0 0 ${glow*12}px #ffd3b0)`:'';
+  });
+  const text=t>=liveAt?'Live':t>=configurationArrival?'Setting up':'Ready to begin';
+  if(label.textContent!==text)label.textContent=text;
+  const index=t>=secondDeparture?1:0,age=t-(index?secondDeparture:firstDeparture),path=paths[index];
+  pulses.forEach((pulse,i)=>{
+   const q=(age-i*F.delay)/travelDuration;
+   if(reduced.matches||q<=0||q>=1){pulse.setAttribute('opacity',0);return}
+   const point=path.getPointAtLength(path.getTotalLength()*F.smooth(q));
+   pulse.setAttribute('cx',point.x);pulse.setAttribute('cy',point.y);
+   pulse.setAttribute('r',F.radius(i)*(.8+.3*Math.sin(Math.PI*q)));
+   pulse.setAttribute('opacity',Math.min(1,q*8,(1-q)*10));
   });
  };
- const show=n=>{work.dataset.launchStep=n;const day=n===0?0:n>=4?4:2;
-  buttons.forEach(b=>{const k=Number(b.dataset.launch);b.classList.toggle('pending',k>day);b.classList.toggle('complete',k<day||n>=4);b.classList.toggle('active',k===day);b.setAttribute('aria-pressed',String(k===day))});
-  label.textContent=n===4?'Live':n===0?'Ready to begin':'Setting up';
+ const tick=now=>{
+  raf=0;if(!visible||document.hidden||reduced.matches){last=0;return}
+  if(last)elapsed+=Math.min(now-last,64);
+  last=now;render();raf=requestAnimationFrame(tick);
  };
- const glow=target=>{if(reduced.matches)return;let start;const tick=t=>{start??=t;const age=t-start;target.style.setProperty('--launch-arrival',F.arrival(age));const index=targets.indexOf(target);if(contacts[index])contacts[index].style.filter=`drop-shadow(0 0 ${F.arrival(age)*12}px #ffd3b0)`;if(age<850)frame(tick);else target.style.removeProperty('--launch-arrival')};frame(tick)};
- const travel=(index,arrive)=>{
-  if(reduced.matches){arrive();return}work.classList.remove('launch-paused');layout();traveling=true;const path=paths[index];let start;
-  const tick=t=>{start??=t;const age=t-start;
-   pulses.forEach((pulse,i)=>{const q=(age-i*F.delay)/1550,progress=F.clamp(q),pos=path.getPointAtLength(path.getTotalLength()*F.smooth(progress));
-    pulse.setAttribute('cx',pos.x);pulse.setAttribute('cy',pos.y);pulse.setAttribute('r',F.radius(i)*(.8+.3*Math.sin(Math.PI*progress)));pulse.setAttribute('opacity',q>0&&q<1?Math.min(1,q*8,(1-q)*10):0);
-   });
-   if(age<1550+8*F.delay)frame(tick);else{traveling=false;pulses.forEach(p=>p.setAttribute('opacity',0));glow(targets[index+1]);arrive()}
-  };frame(tick);
+ const resume=()=>{
+  cancelAnimationFrame(raf);raf=0;last=0;
+  const paused=!visible||document.hidden||reduced.matches;
+  work.classList.toggle('launch-paused',paused);
+  if(paused)hideMotion();else raf=requestAnimationFrame(tick);
  };
- const configure=()=>{show(1);later(()=>show(2),1200);later(()=>show(3),2400)};
- const launch=()=>travel(1,()=>{buttons.forEach((b,i)=>{b.classList.toggle('active',i===2);b.classList.toggle('complete',i<2);b.classList.remove('pending');b.setAttribute('aria-pressed',String(i===2))});later(()=>show(4),260)});
- const play=()=>{clear();if(reduced.matches){show(4);return}work.classList.remove('launch-paused');show(0);later(()=>travel(0,configure),1200);later(launch,6500);later(()=>{if(visible&&!document.hidden)play()},14500)};
- buttons.forEach((b,i)=>b.addEventListener('click',()=>{clear();if(i===0){show(0);glow(buttons[0])}else if(i===1){show(0);travel(0,()=>reduced.matches?show(3):configure())}else{show(3);launch()}if(!reduced.matches)later(()=>{if(visible&&!document.hidden)play()},9500)}));
- new ResizeObserver(layout).observe(panel);show(4);layout();
- new IntersectionObserver(es=>{visible=es.some(e=>e.isIntersecting);if(visible&&!document.hidden)play();else{clear();show(4)}},{threshold:.2}).observe(work);
- document.addEventListener('visibilitychange',()=>{if(document.hidden){clear();show(4)}else if(visible)play()});reduced.addEventListener('change',()=>{clear();if(reduced.matches)show(4);else if(visible)play()});
+ buttons.forEach((button,i)=>button.addEventListener('click',()=>{
+  elapsed=reduced.matches?(i===2?liveAt:[0,configurationArrival][i]):[0,configurationArrival,launchArrival][i];
+  last=0;layout();render();resume();
+ }));
+ const geometryObserver=new ResizeObserver(layout);
+ [panel,work.querySelector('.launch-days'),...buttons].forEach(element=>geometryObserver.observe(element));
+ document.fonts.ready.then(layout);layout();
+ if(reduced.matches)elapsed=liveAt;
+ render();
+ new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;resume()},{threshold:.2}).observe(work);
+ document.addEventListener('visibilitychange',resume);
+ reduced.addEventListener('change',()=>{if(reduced.matches)elapsed=liveAt;render();resume()});
 })();
