@@ -1,0 +1,148 @@
+/* API · Keep the customer experience in your product (#customer-experience).
+   One booking plays out on its own inside the partner's app; the phone is docked into the Bridgify base,
+   where supply arrives and every API call is logged. Ported from output/element-lab/cj.css (approved 14 Nov 2026). */
+#customer-experience.cj-section{--ease:cubic-bezier(.16,1,.3,1);box-sizing:border-box;width:100%;max-width:none;margin:0;padding:clamp(56px,6vw,88px) 3.3%;background:#EEE9DE;color:#180F10;scroll-margin-top:85px}
+.cj-label{display:inline-flex;align-items:center;gap:10px;font:550 12px/1.4 "Sofia Sans",Sofia,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#B7412D}
+.cj-label:before{content:"";width:7px;height:7px;border-radius:50%;background:linear-gradient(#CF5035,#A63D29)}
+.cj-copy h2{margin:14px 0 0;font:300 var(--type-section)/1.2 Chillax,sans-serif;letter-spacing:-.025em;color:#180F10}
+.cj-ink{font-style:normal;color:#D9482C;background:linear-gradient(110deg,#CF3F25 0%,#E5573A 30%,#E8603F 50%,#D9482C 72%,#CF3F25 100%);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:cj-ink 5s ease-in-out infinite alternate}
+@keyframes cj-ink{to{background-position:100% 0}}
+.cj-mark{display:block;background:currentColor;-webkit-mask:url(assets/bridgify-nav-mark.svg) center/contain no-repeat;mask:url(assets/bridgify-nav-mark.svg) center/contain no-repeat}
+.cj-ico{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.cj-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:12px;font:400 12px/1.4 "Sofia Sans",Sofia,sans-serif}
+.cj-controls span{margin-inline-end:auto}
+#customer-experience .cj-controls button{min-width:0;width:auto;height:auto;min-height:44px;margin:0;padding:0 4px;border:0;border-radius:0;box-shadow:none;background:none;color:#180F10;font:500 12px/1 "Sofia Sans",Sofia,sans-serif;text-transform:none;letter-spacing:normal;cursor:pointer}
+#customer-experience .cj-controls button:focus-visible{outline:2px solid #F46649;outline-offset:3px;border-radius:6px}
+.cj-snap,.cj-snap *{transition:none!important}
+.cj{--b:#F46649;--b2:#FFE4DA;--stage:clamp(520px,calc(100svh - 250px),620px);display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);grid-template-rows:auto 1fr auto;grid-template-areas:"copy stage" "side stage" ". ctl";column-gap:clamp(28px,4.4vw,72px);color:#180F10}
+.cj[data-brand="1"]{--b:#2F6B4F;--b2:#DCEDE3}
+.cj[data-brand="2"]{--b:#7A3E62;--b2:#F1DEE9}
+.cj-copy{grid-area:copy}
+.cj-copy h3{margin:14px 0 0;font:300 var(--type-section)/1.2 Chillax,sans-serif;letter-spacing:-.025em}
+.cj-copy p{margin:16px 0 0;max-width:46ch;font:400 var(--type-body)/1.55 "Sofia Sans",Sofia,sans-serif;color:#544440}
+.cj-side{grid-area:side;align-self:end;padding-top:24px}
+.cj>.cj-controls{grid-area:ctl;color:#786B64}
+.cj>.cj-controls button{color:#180F10}
+
+/* Steps: the same booking, step by step, never leaving the brand */
+.cj-steps{display:grid;margin:0;padding:0;list-style:none;border-top:1px solid rgba(24,15,16,.12)}
+.cj-steps li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(24,15,16,.12);color:#9b8b80;transition:color .4s}
+.cj-steps li>i{display:grid;place-items:center;width:28px;height:28px;border:1px solid rgba(24,15,16,.18);border-radius:50%;font:600 12px/1 "Sofia Sans",Sofia,sans-serif;font-style:normal;transition:background .4s,border-color .4s,color .4s,box-shadow .4s}
+.cj-steps b{display:block;font:500 16px/1.3 "Sofia Sans",Sofia,sans-serif}
+.cj-steps em{font-style:normal;font:600 11px/1 "Sofia Sans",Sofia,sans-serif;letter-spacing:.06em;color:var(--b);opacity:0;transition:opacity .4s,color .6s}
+.cj-steps li.is-done,.cj-steps li.is-now{color:#180F10}
+.cj-steps li.is-done>i{background:#180F10;border-color:#180F10;color:#FFF8F1}
+.cj-steps li.is-now>i{border-color:var(--b);background:var(--b);color:#FFF8F1;box-shadow:0 0 0 5px color-mix(in srgb,var(--b) 18%,transparent)}
+.cj-steps li.is-done em,.cj-steps li.is-now em{opacity:1}
+.cj-proof{display:flex;gap:28px;margin-top:18px}
+.cj-proof div{display:flex;align-items:baseline;gap:10px}
+.cj-proof strong{font:500 30px/1 Chillax,sans-serif;letter-spacing:-.03em}
+.cj-proof span{font:500 13px/1.35 "Sofia Sans",Sofia,sans-serif;color:#695951}
+
+/* ---------- Stage ---------- */
+.cj-stage{grid-area:stage;position:relative;height:var(--stage);border:1px solid rgba(244,102,73,.32);border-radius:22px;background:radial-gradient(55% 60% at 50% 40%,#FFFFFFb3,transparent 70%),linear-gradient(160deg,#FFF8F1,#F7DFD2);box-shadow:0 30px 70px #6b3b2a1f;overflow:hidden}
+
+/* Phone: real proportions (about 9:19.5), zoomed in; its lower part sits inside the base */
+.cj-phone{position:absolute;left:50%;top:30px;z-index:1;width:300px;padding:11px;border-radius:48px;background:#0b0706;box-shadow:0 40px 80px #3a1d1259,inset 0 0 0 2px #2a1b16;transform:translateX(-50%)}
+.cj-phone:before{content:"";position:absolute;top:22px;left:50%;z-index:3;width:86px;height:24px;margin-left:-43px;border-radius:14px;background:#0b0706}
+.cj-screen{position:relative;height:628px;border-radius:38px;background:#FFF8F1;overflow:hidden}
+.cj-app{display:flex;align-items:center;gap:8px;padding:56px 18px 10px;font:650 15px/1 "Sofia Sans",Sofia,sans-serif}
+.cj-app i{width:24px;height:24px;border-radius:7px;background:var(--b);transition:background .6s}
+.cj-app em{margin-left:auto;font-style:normal;font:500 11px/1 "Sofia Sans",Sofia,sans-serif;color:#786B64}
+.cj-view{position:absolute;inset:94px 0 0;padding:6px 16px 16px;opacity:0;transform:translateX(24px);transition:opacity .45s,transform .7s var(--ease);pointer-events:none}
+.cj[data-step="1"] .cj-v1,.cj[data-step="2"] .cj-v2,.cj[data-step="3"] .cj-v3,.cj[data-step="4"] .cj-v4{opacity:1;transform:none}
+.cj-trip{display:inline-flex;padding:6px 10px;border-radius:8px;background:var(--b2);color:var(--b);font:600 11px/1 "Sofia Sans",Sofia,sans-serif;transition:background .6s,color .6s}
+.cj-h{margin:12px 0 8px;font:300 20px/1.2 Chillax,sans-serif;letter-spacing:-.01em}
+.cj-row,.cj-slots span,.cj-btn{position:relative}
+.cj-row{display:grid;grid-template-columns:54px minmax(0,1fr) auto;gap:10px;align-items:center;margin-bottom:8px;padding:7px;border:1px solid rgba(24,15,16,.08);border-radius:12px;background:#fff;opacity:0;transform:translateY(10px);transition:opacity .45s,transform .7s var(--ease),box-shadow .4s,border-color .4s}
+.cj-row.is-on{opacity:1;transform:none}
+.cj-row img{width:54px;height:46px;border-radius:8px;object-fit:cover}
+.cj-row b{display:block;font:600 12.5px/1.25 "Sofia Sans",Sofia,sans-serif}
+.cj-row small{font:500 11px/1.2 "Sofia Sans",Sofia,sans-serif;color:#786B64}
+.cj-row em{font-style:normal;font:650 12px/1 "Sofia Sans",Sofia,sans-serif;color:var(--b)}
+.cj-row.is-pick{border-color:var(--b);box-shadow:0 0 0 3px color-mix(in srgb,var(--b) 18%,transparent)}
+.cj-hero-img{display:block;width:100%;height:112px;border-radius:14px;object-fit:cover}
+.cj-v2 h5,.cj-v3 h5{margin:10px 0 4px;font:300 19px/1.2 Chillax,sans-serif}
+.cj-meta{font:500 11.5px/1.3 "Sofia Sans",Sofia,sans-serif;color:#786B64}
+.cj-k{display:block;margin:12px 0 8px;font:600 10.5px/1 "Sofia Sans",Sofia,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#786B64}
+.cj-slots{display:flex;gap:6px}
+.cj-slots span{flex:1;padding:9px 0;border:1px solid rgba(24,15,16,.12);border-radius:9px;text-align:center;font:600 12px/1 "Sofia Sans",Sofia,sans-serif;color:#544440;transition:background .35s,color .35s,border-color .35s}
+.cj-slots span.is-on{background:var(--b);border-color:var(--b);color:#FFF8F1}
+.cj-btn{display:block;margin-top:12px;padding:13px;border-radius:12px;background:var(--b);color:#FFF8F1;text-align:center;font:650 13px/1 "Sofia Sans",Sofia,sans-serif;transition:background .6s,transform .2s}
+.cj-btn.is-on{transform:scale(.96)}
+.cj-line{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(24,15,16,.08);font:500 12.5px/1.3 "Sofia Sans",Sofia,sans-serif;color:#544440}
+.cj-line b{color:#180F10}
+.cj-pay{display:flex;align-items:center;gap:10px;margin-top:12px;padding:11px;border:1px solid var(--b);border-radius:12px;background:var(--b2);font:600 12px/1.25 "Sofia Sans",Sofia,sans-serif;transition:background .6s,border-color .6s}
+.cj-pay i{width:30px;height:20px;border-radius:5px;background:var(--b);transition:background .6s}
+.cj-pay small{display:block;font-weight:500;color:#786B64}
+.cj-ok{display:grid;place-items:center;width:56px;height:56px;margin:8px auto 10px;border-radius:50%;background:var(--b);color:#FFF8F1;transform:scale(.6);opacity:0;transition:transform .7s var(--ease),opacity .4s,background .6s}
+.cj[data-step="4"] .cj-ok{transform:none;opacity:1;transition-delay:.15s}
+.cj-ok svg{width:28px;height:28px}
+.cj-v4 h5{margin:0;text-align:center;font:300 20px/1.2 Chillax,sans-serif}
+.cj-v4>p{margin:4px 0 12px;text-align:center;font:500 11.5px/1.3 "Sofia Sans",Sofia,sans-serif;color:#786B64}
+.cj-plan{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.cj-plan li{display:flex;align-items:center;gap:10px;padding:9px 10px;border:1px solid rgba(24,15,16,.08);border-radius:10px;background:#fff;font:500 12px/1.25 "Sofia Sans",Sofia,sans-serif;color:#544440}
+.cj-plan svg{width:18px;height:18px;color:#786B64;flex:none}
+.cj-plan li.is-new{border-color:var(--b);color:#180F10;font-weight:600;transform:translateX(-6px);opacity:0;transition:opacity .5s .5s,transform .8s var(--ease) .5s}
+.cj[data-step="4"] .cj-plan li.is-new{opacity:1;transform:none}
+.cj-plan li.is-new svg{color:var(--b)}
+.cj-tap{position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:color-mix(in srgb,var(--b) 30%,transparent);box-shadow:0 0 0 2px var(--b);opacity:0;transform:scale(.4);pointer-events:none}
+.cj-tap.is-on{animation:cj-tap .6s var(--ease)}
+@keyframes cj-tap{0%{opacity:0;transform:scale(.4)}30%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.5)}}
+
+/* ---------- The Bridgify base: supply arrives from the sides, every call is logged, the result rises into the app ---------- */
+.cj-base{position:absolute;left:0;right:0;bottom:0;z-index:2;height:150px;padding:30px clamp(18px,2.4vw,30px) 18px;background:linear-gradient(180deg,#2b1712,#160d0b);border-top:1px solid #F4664999;box-shadow:0 -18px 40px #3a1d1240;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 22px;align-items:start;color:#EEE9DE}
+.cj-base:before{content:"";position:absolute;inset:0;background:radial-gradient(circle,#F4664926 1px,transparent 1.5px) 0 0/16px 16px;pointer-events:none}
+.cj-brand{position:relative;display:grid;gap:5px}
+.cj-brand b{display:flex;align-items:center;gap:9px;font:550 12px/1 "Sofia Sans",Sofia,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#FFD8BD}
+.cj-brand .cj-mark{width:22px;height:21px;color:#F46649}
+.cj-brand small{font:500 12px/1.35 "Sofia Sans",Sofia,sans-serif;color:#C7B5A5}
+.cj-brand small+small{color:#8d7f76}
+.cj-log{position:relative;display:grid;gap:6px;margin:0;padding:0;list-style:none;font:500 12px/1.25 ui-monospace,Menlo,monospace}
+.cj-log li{display:grid;grid-template-columns:10px 92px minmax(0,1fr) auto;gap:8px;align-items:center;color:#6f6058;transition:color .4s}
+.cj-log li:before{content:"";width:7px;height:7px;border-radius:50%;background:#4a3a33;transition:background .4s,box-shadow .4s}
+.cj-log li b{font-weight:600}
+.cj-log li span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cj-log li em{font-style:normal;color:inherit}
+.cj-log li.is-done{color:#C7B5A5}
+.cj-log li.is-done:before{background:#C7B5A5}
+.cj-log li.is-now{color:#FFF8F1}
+.cj-log li.is-now:before{background:#F46649;box-shadow:0 0 10px #F46649}
+.cj-log li.is-now b,.cj-log li.is-done b{color:#FFB194}
+
+/* Supply cables along the top edge of the base, converging under the phone */
+.cj-rail{position:absolute;left:0;right:0;top:-1px;height:2px;z-index:3;pointer-events:none}
+.cj-rail i{position:absolute;top:-3px;width:8px;height:8px;border-radius:50%;background:#FFF8F1;box-shadow:0 0 0 2px #F46649,0 0 10px #F46649;opacity:0}
+.cj-rail i:nth-child(-n+3){animation:cj-in-l 3.2s linear infinite}
+.cj-rail i:nth-child(n+4){animation:cj-in-r 3.2s linear infinite}
+.cj-rail i:nth-child(2),.cj-rail i:nth-child(5){animation-delay:-1.07s}
+.cj-rail i:nth-child(3),.cj-rail i:nth-child(6){animation-delay:-2.13s}
+@keyframes cj-in-l{0%{left:0;opacity:0}10%{opacity:1}85%{opacity:1}100%{left:calc(50% - 4px);opacity:0}}
+@keyframes cj-in-r{0%{left:calc(100% - 8px);opacity:0}10%{opacity:1}85%{opacity:1}100%{left:calc(50% - 4px);opacity:0}}
+.cj-port{position:absolute;left:50%;top:-6px;z-index:3;width:240px;height:12px;margin-left:-120px;border-radius:50%;background:radial-gradient(closest-side,#F46649aa,transparent);opacity:.35;transition:opacity .35s}
+.cj-port.is-up{opacity:1;animation:cj-port .9s ease-out infinite}
+@keyframes cj-port{50%{transform:scaleX(1.12);opacity:.7}}
+.cj-call{position:absolute;right:16px;top:-15px;z-index:4;padding:6px 10px;border:1px solid #F46649;border-radius:8px;background:#180F10;color:#FFD8BD;font:500 11.5px/1 ui-monospace,Menlo,monospace;white-space:nowrap;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .6s var(--ease)}
+.cj-port.is-up~.cj-call{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .cj{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-template-areas:"copy" "stage" "ctl" "side";--stage:560px}
+  .cj-copy{margin-bottom:24px}
+  .cj-side{padding-top:8px}
+}
+@media (max-width:480px){
+  .cj{--stage:540px}
+  .cj-phone{width:270px;padding:10px;border-radius:44px}
+  .cj-screen{height:566px;border-radius:35px}
+  .cj-base{height:132px;padding:24px 14px 14px;grid-template-columns:minmax(0,1fr)}
+  .cj-brand small{display:none}
+  .cj-log li{grid-template-columns:10px 84px minmax(0,1fr)}
+  .cj-log li em{display:none}
+  .cj-log li:nth-child(3){display:none}
+  .cj-proof{flex-direction:column;gap:8px}
+}
+@media (prefers-reduced-motion:reduce){.cj-rail i,.cj-port{animation:none!important}}
+
+@media (prefers-reduced-motion:reduce){.cj-ink{animation:none}}
+.cj.is-paused :is(.cj-rail i,.cj-port,.cj-ink),.cj.is-paused~* .cj-ink{animation-play-state:paused}
+@media (max-width:480px){.cj-controls span{flex-basis:100%}}
