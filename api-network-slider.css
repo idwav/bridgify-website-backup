@@ -1,0 +1,99 @@
+/* API · #network: before/after slider that ends on one bookable experience.
+   Ported from output/element-lab/normalize.css (variant A, approved 14 Nov 2026). Illustrative data, no supplier names. */
+.nz-wrap{container-type:inline-size;min-width:0}
+.nz-stage{position:relative;container-type:inline-size;width:100%;border:1px solid #F4664960;border-radius:14px;background:linear-gradient(125deg,#3C0C052B,#21080555),#120c0a;overflow:hidden;color:#EEE9DE}
+.nz-mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.nz-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:12px;font:400 12px/1.4 "Sofia Sans",Sofia,sans-serif;color:#C7B5A5}
+.nz-controls span{margin-inline-end:auto}
+.nz-controls button{min-height:44px;padding:0 4px;border:0;background:none;color:#EEE9DE;font:500 12px/1 "Sofia Sans",Sofia,sans-serif;cursor:pointer}
+.nz-controls button:focus-visible{outline:2px solid #F46649;outline-offset:4px;border-radius:4px}
+
+/* Shared: a raw supplier payload card */
+.nz-raw{position:absolute;left:var(--x);top:var(--y);width:max-content;padding:1.5cqw 1.7cqw 1.7cqw;border:1px solid #EEE9DE2E;border-radius:1.1cqw;background:linear-gradient(160deg,#211815,#171110);box-shadow:0 1.4cqw 3cqw #0000006b;transform:rotate(var(--r));transition:transform .9s cubic-bezier(.16,1,.3,1),opacity .6s}
+.nz-raw-label{display:block;margin-bottom:.8cqw;font:550 1.15cqw/1.3 "Sofia Sans",Sofia,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8d7f76}
+.nz-raw pre{margin:0;font:1.3cqw/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:#8f847c;white-space:pre}
+.nz-raw .k{color:#C7B5A5}
+.nz-raw .odd{color:#d9a08d;text-decoration:underline wavy #f4664973;text-decoration-thickness:.09cqw;text-underline-offset:.35cqw}
+
+/* Shared: the clean Bridgify object */
+.nz-clean{position:absolute;width:54cqw;padding:2cqw 2.3cqw 2.2cqw;border:1px solid #F46649;border-radius:1.4cqw;background:linear-gradient(150deg,#2a1611,#170f0d 60%,#1d100c);box-shadow:0 0 0 .5cqw #f466490f,0 2cqw 5cqw #000a,0 0 6cqw #f4664926}
+.nz-clean-head{display:flex;align-items:center;gap:1cqw;padding-bottom:1.3cqw;margin-bottom:1.3cqw;border-bottom:1px solid #f4664933;font:550 1.25cqw/1.2 "Sofia Sans",Sofia,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#FFB194}
+.nz-clean-head img{width:2.2cqw;height:auto;filter:brightness(0) invert(1)}
+.nz-clean-head em{margin-inline-start:auto;font-style:normal;letter-spacing:.04em;text-transform:none;font-weight:500;color:#EEE9DE;padding:.45cqw .9cqw;border:1px solid #f4664966;border-radius:.7cqw}
+.nz-clean pre{margin:0;font:1.55cqw/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;color:#EEE9DE;white-space:pre}
+.nz-clean .k{color:#F7A58E}
+.nz-clean .p{color:#8f847c}
+.nz-clean-foot{display:flex;gap:1cqw;margin-top:1.5cqw}
+.nz-chip{display:inline-flex;align-items:center;gap:.7cqw;padding:.55cqw 1cqw;border-radius:.8cqw;border:1px solid #f4664966;font:500 1.25cqw/1 "Sofia Sans",Sofia,sans-serif;color:#FFF8F1;background:#f466491a}
+.nz-chip:before{content:"";width:.7cqw;height:.7cqw;border-radius:50%;background:#F46649;box-shadow:0 0 .8cqw #F46649}
+
+/* ---------- Variant A: before / after slider ---------- */
+.nz-ba{aspect-ratio:16/10.6;--pos:50%;touch-action:pan-y}
+.nz-ba-layer{position:absolute;inset:0}
+.nz-before{background:radial-gradient(#eee9de10 1px,transparent 1.2px) 0 0/2.4cqw 2.4cqw,#120c0a}
+.nz-after{clip-path:inset(0 0 0 var(--pos));background:radial-gradient(60% 70% at 55% 50%,#f466492b,transparent 70%),#160d0b}
+.nz-ba-tag{position:absolute;top:2.6cqw;font:550 1.25cqw/1 "Sofia Sans",Sofia,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.nz-before .nz-ba-tag{left:2.8cqw;color:#A99D94}
+.nz-after .nz-ba-tag{right:2.8cqw;color:#FFB194}
+.nz-ba .nz-clean{left:23cqw;top:50%;transform:translateY(-46%)}
+.nz-ba-handle{position:absolute;top:0;bottom:0;left:var(--pos);width:0;pointer-events:none}
+.nz-ba-handle:before{content:"";position:absolute;top:0;bottom:0;left:-1px;width:2px;background:linear-gradient(#f4664900,#F46649 18%,#FFB194 50%,#F46649 82%,#f4664900);box-shadow:0 0 1.4cqw #f46649}
+.nz-ba-knob{position:absolute;top:50%;left:0;display:grid;place-items:center;width:max(44px,5cqw);height:max(44px,5cqw);border-radius:50%;transform:translate(-50%,-50%);background:#180F10;border:1px solid #F46649;box-shadow:0 0 0 .6cqw #f466491f,0 0 2cqw #f4664966;color:#FFF8F1;font:500 15px/1 "Sofia Sans",Sofia,sans-serif}
+.nz-ba-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.nz-ba:has(.nz-ba-range:focus-visible) .nz-ba-knob{outline:2px solid #F46649;outline-offset:5px}
+.nz-ba.is-hinting{transition:--pos 0s}
+@container (max-width:620px){
+  .nz-ba{aspect-ratio:3/4.3}
+  .nz-raw{left:var(--mx);top:var(--my);width:max-content;padding:2.6cqw 3cqw 3cqw;border-radius:2cqw}
+  .nz-raw-label{font-size:2.3cqw;margin-bottom:1.4cqw}
+  .nz-raw pre{font-size:2.65cqw}
+  .nz-clean{width:88cqw;padding:3.4cqw 3.6cqw;border-radius:2.6cqw}
+  .nz-clean-head{font-size:2.3cqw;gap:1.6cqw}
+  .nz-clean-head img{width:3.8cqw}
+  .nz-clean-head em{padding:.9cqw 1.6cqw}
+  .nz-clean pre{font-size:2.62cqw}
+  .nz-chip{font-size:2.4cqw;padding:1cqw 1.8cqw;gap:1.2cqw}
+  .nz-chip:before{width:1.3cqw;height:1.3cqw}
+  .nz-ba .nz-clean{left:6cqw}
+  .nz-ba-tag{font-size:2.4cqw;top:4.4cqw}
+}
+.nz-book{position:absolute;left:50%;top:57%;width:30cqw;transform:translate(-50%,-46%) scale(.94);opacity:0;border:1px solid #F46649;border-radius:1.6cqw;overflow:hidden;background:#FFF8F1;color:#180F10;box-shadow:0 2cqw 5cqw #000a,0 0 6cqw #f4664933;transition:opacity .6s,transform .9s cubic-bezier(.16,1,.3,1)}
+.nz-book-bar{display:flex;align-items:center;justify-content:space-between;padding:1.1cqw 1.5cqw;font:600 1.3cqw/1 "Sofia Sans",Sofia,sans-serif;background:#180F10;color:#EEE9DE}
+.nz-book-bar span{font-weight:400;color:#C7B5A5}
+.nz-book img{display:block;width:100%;aspect-ratio:16/8.4;object-fit:cover}
+.nz-book-body{padding:1.5cqw 1.7cqw 1.7cqw}
+.nz-book-body small{font:600 1.1cqw/1 "Sofia Sans",Sofia,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#CF3F25}
+.nz-book-body h5{margin:.7cqw 0 .9cqw;font:300 2.3cqw/1.15 Chillax,sans-serif;letter-spacing:-.02em}
+.nz-book-body p{margin:0 0 1.3cqw;font:400 1.25cqw/1.45 "Sofia Sans",Sofia,sans-serif;color:#695951}
+.nz-book-buy{display:flex;align-items:center;justify-content:space-between}
+.nz-book-buy strong{font:500 2.2cqw/1 Chillax,sans-serif}
+.nz-book-buy strong small{font:400 1.1cqw "Sofia Sans",Sofia,sans-serif;letter-spacing:0;text-transform:none;color:#695951}
+.nz-book-buy span{padding:1cqw 1.8cqw;border-radius:.9cqw;background:#F46649;color:#FFF8F1;font:600 1.3cqw/1 "Sofia Sans",Sofia,sans-serif}
+@container (max-width:620px){
+  .nz-book{width:74cqw;border-radius:3cqw}
+  .nz-book-bar{font-size:3cqw;padding:2.4cqw 3cqw}
+  .nz-book-body{padding:3cqw 3.4cqw 3.4cqw}
+  .nz-book-body small{font-size:2.4cqw}
+  .nz-book-body h5{font-size:5.4cqw;margin:1.4cqw 0 1.8cqw}
+  .nz-book-body p{font-size:3cqw;margin-bottom:2.6cqw}
+  .nz-book-buy strong{font-size:5cqw}
+  .nz-book-buy strong small{font-size:2.6cqw}
+  .nz-book-buy span{font-size:3.2cqw;padding:2.2cqw 3.6cqw;border-radius:2cqw}
+}
+/* A: after the slider, the one object becomes one bookable experience (sits over the code card) */
+.nz-ba .nz-clean{left:15cqw}
+.nz-ba .nz-ba-book{left:auto;right:6cqw;top:56%;width:27cqw;transform:translate(3cqw,-46%) scale(.94);opacity:0;transition:opacity .6s,transform 1s cubic-bezier(.16,1,.3,1)}
+.nz-ba.is-ready .nz-ba-book{opacity:1;transform:translate(0,-50%);transition-delay:.15s}
+.nz-ba .nz-ba-book:before{content:"";position:absolute;left:-1px;top:20%;bottom:20%;width:2px;background:#F46649;box-shadow:0 0 1.4cqw #F46649}
+@container (max-width:620px){
+  .nz-ba .nz-clean{left:6cqw;top:40%}
+  .nz-ba .nz-ba-book{right:6cqw;top:auto;bottom:5cqw;width:54cqw;transform:translateY(4cqw) scale(.94)}
+  .nz-ba.is-ready .nz-ba-book{transform:none}
+}
+@media (prefers-reduced-motion:reduce){.nz-ba .nz-ba-book{transition:none}}
+
+
+/* Placement inside the live #network section */
+#network .nz-wrap{max-width:980px;margin:0 auto clamp(36px,4vw,56px)}
+#network .nz-controls{color:#C7B5A5}
+#network .nz-controls button{min-width:0;width:auto;height:auto;min-height:44px;margin:0;padding:0 4px;border:0;border-radius:0;box-shadow:none;background:none;color:#EEE9DE;font:500 12px/1 "Sofia Sans",Sofia,sans-serif;text-transform:none;letter-spacing:normal}

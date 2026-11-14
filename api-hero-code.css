@@ -1,0 +1,90 @@
+/* Experiences API hero: copy on the left, a live request/response on the right.
+   Ported from output/element-lab (approved 14 Nov 2026). Scoped to #top.api-hero-code; loaded after the other API styles. */
+#top.api-hero-code{--ease:cubic-bezier(.16,1,.3,1);display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(28px,4vw,64px);align-items:center;height:auto;min-height:max(100svh,860px);padding:172px 3.2% 120px;box-sizing:border-box;overflow:hidden}
+#top.api-hero-code .hero-copy{position:relative;left:auto;top:auto;width:auto;max-width:none;margin:0;display:block}
+#top.api-hero-code .hero-copy .eyebrow{display:inline-flex;align-items:center;gap:10px;margin:0}
+#top.api-hero-code .hero-copy [data-copy-display]{margin:22px 0;font-weight:300;line-height:1.14}
+#top.api-hero-code .hero-copy [data-copy-display] em{display:inline}
+#top.api-hero-code .hero-copy p{max-width:40ch;margin:0}
+#top.api-hero-code .hero-actions{margin-top:32px}
+.ahc-specs{display:flex;flex-wrap:wrap;gap:14px 0;margin:40px 0 0;padding-top:18px;border-top:1px solid rgba(178,138,104,.18)}
+.ahc-specs div{padding:0 22px;border-left:1px solid rgba(178,138,104,.18)}
+.ahc-specs div:first-child{padding-left:0;border-left:0}
+.ahc-specs dt{font:550 11px/1.4 "Sofia Sans",Sofia,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#C7B5A5}
+.ahc-specs dd{margin:4px 0 0;font:500 26px/1.1 Chillax,sans-serif;letter-spacing:-.02em;color:#FFF8F1}
+
+/* Code window */
+.ahc-visual{position:relative;min-width:0;align-self:center}
+.ahc-code{position:relative;border:1px solid #EEE9DE24;border-radius:14px;background:#0b0706;box-shadow:0 30px 80px #000a,inset 0 1px 0 #ffffff0d;text-align:left}
+.ahc-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px 8px 12px;border-bottom:1px solid #EEE9DE14}
+.ahc-tabs{display:flex;gap:4px}
+.ahc-tabs button,.ahc-copybtn{min-height:36px;padding:0 12px;border:1px solid transparent;border-radius:8px;background:none;color:#a89a90;font:500 13px/1 "Sofia Sans",Sofia,sans-serif;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+.ahc-tabs button:hover{color:#FFF8F1}
+.ahc-tabs button[aria-selected="true"]{background:#1c1210;border-color:#EEE9DE24;color:#FFF8F1}
+.ahc-copybtn{border-color:#EEE9DE24;color:#D7C9BD;font-size:12px}
+.ahc-copybtn.is-done{color:#FFD8BD;border-color:#F4664999}
+:is(.ahc-tabs button,.ahc-copybtn,.ahc-controls button):focus-visible{outline:2px solid #F46649;outline-offset:2px}
+.ahc-pane{padding:14px 18px 16px}
+.ahc-label{display:block;margin-bottom:8px;font:550 10.5px/1 "Sofia Sans",Sofia,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#8d7f76}
+.ahc-pane pre{margin:0;font:400 13px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;color:#EEE9DE;white-space:pre;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#3a2a24 transparent}
+.ahc-pane pre:focus-visible{outline:2px solid #F46649;outline-offset:4px;border-radius:4px}
+.ahc-req{min-height:calc(6 * 1.7em)}
+.ahc-pane pre>span{display:block;margin:0 -6px;padding:0 6px;border-radius:4px;opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .5s var(--ease),background .3s,box-shadow .3s}
+.ahc-pane pre>span.is-on{opacity:1;transform:none}
+.ahc-pane b,.ahc-pane i{font-weight:400;font-style:normal}
+.ahc-pane .k{color:#FFB194}.ahc-pane .m{font-weight:600;color:#FFF8F1}.ahc-pane .s{color:#E9D9C9}.ahc-pane .n{color:#F46649}
+.ahc-res>span.is-hl{background:#F466491f;box-shadow:inset 2px 0 0 #F46649}
+.ahc-status{display:flex;align-items:center;gap:14px;padding:10px 18px;border-block:1px solid #EEE9DE14;font:500 12px/1 ui-monospace,Menlo,monospace;color:#8d7f76;opacity:.25;transition:opacity .5s}
+.ahc-status.is-on{opacity:1}
+.ahc-ok{display:inline-flex;align-items:center;gap:7px;color:#FFD8BD}
+.ahc-ok i{width:7px;height:7px;border-radius:50%;background:#F46649;box-shadow:0 0 8px #F46649}
+.ahc-ms{margin-left:auto}
+.ahc-pane-res{padding-bottom:64px}
+
+/* The response rendered as a card in the partner's app */
+.ahc-card{position:absolute;right:16px;bottom:-78px;z-index:3;display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;width:min(380px,66%);padding:12px;border:1px solid #F4664999;border-radius:14px;background:linear-gradient(160deg,#2a1b16,#160e0b);box-shadow:0 24px 60px #000c;opacity:0;transform:translateY(14px);transition:opacity .6s,transform .9s var(--ease)}
+.ahc-card.is-on{opacity:1;transform:none}
+.ahc-card-tag{position:absolute;top:-11px;left:14px;padding:4px 8px;border-radius:6px;background:#F46649;color:#FFF8F1;font:600 10px/1 "Sofia Sans",Sofia,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.ahc-card img{width:96px;height:100%;min-height:112px;border-radius:9px;object-fit:cover}
+.ahc-card-body{min-width:0;font:500 12px/1.3 "Sofia Sans",Sofia,sans-serif;color:#C7B5A5}
+.ahc-card-body small{font:550 10px/1.2 "Sofia Sans",Sofia,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#FFB194}
+.ahc-dot{margin:0 4px;color:#8d7f76}
+.ahc-card-body b{display:block;margin:5px 0 6px;font:550 14px/1.25 "Sofia Sans",Sofia,sans-serif;color:#FFF8F1}
+.ahc-card-meta{display:flex;flex-wrap:wrap;gap:2px 10px;margin-top:3px}
+.ahc-card-buy{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.ahc-card-buy em{font:600 14px/1 "Sofia Sans",Sofia,sans-serif;font-style:normal;color:#F46649}
+.ahc-card-buy i{padding:6px 12px;border-radius:7px;background:#F46649;color:#FFF8F1;font:600 12px/1 "Sofia Sans",Sofia,sans-serif;font-style:normal}
+.ahc-card [data-k]{border-radius:4px;transition:background .3s,box-shadow .3s,color .3s}
+.ahc-card [data-k].is-hl{background:#F4664938;box-shadow:0 0 0 3px #F4664938;color:#FFF8F1}
+
+/* Demo controls (V2: label · Replay · Pause) */
+.ahc-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:92px;font:400 12px/1.4 "Sofia Sans",Sofia,sans-serif;color:#C7B5A5}
+.ahc-controls span{margin-inline-end:auto}
+.ahc-controls button{min-height:44px;padding:0 4px;border:0;background:none;color:#EEE9DE;font:500 12px/1 "Sofia Sans",Sofia,sans-serif;cursor:pointer}
+.ahc-snap,.ahc-snap *{transition:none!important}
+
+@media (min-width:901px) and (max-height:820px){#top.api-hero-code{padding-top:140px;padding-bottom:110px}}
+@media (max-width:900px){
+  #top.api-hero-code{display:flex;flex-direction:column;align-items:stretch;gap:40px;min-height:0;padding:185px 24px 80px}
+  #top.api-hero-code .ahc-visual{align-self:stretch;width:100%}
+  #top.api-hero-code .ahc-code{overflow:hidden}
+}
+@media (max-width:850px){#top.api-hero-code{padding-top:236px}}
+@media (max-width:600px){
+  .ahc-specs div{padding:0 14px}.ahc-specs dd{font-size:22px}
+  .ahc-pane{padding:12px 14px 14px}.ahc-pane pre{font-size:12px}
+  .ahc-pane-res{padding-bottom:14px}
+  .ahc-card{position:relative;right:auto;bottom:auto;width:auto;margin:6px 12px 14px;grid-template-columns:84px minmax(0,1fr)}
+  .ahc-card img{width:84px}
+  .ahc-controls{margin-top:12px}
+}
+@media (prefers-reduced-motion:reduce){.ahc-pane pre>span,.ahc-card,.ahc-status{transition:none}}
+
+/* The page styles every button as a brand button; the code window keeps its own quiet controls */
+#top.api-hero-code :is(.ahc-tabs button,.ahc-copybtn,.ahc-controls button){min-width:0;width:auto;height:auto;margin:0;box-shadow:none;background-image:none;text-transform:none;letter-spacing:normal;transform:none}
+#top.api-hero-code .ahc-tabs button,#top.api-hero-code .ahc-copybtn{min-height:36px;padding:0 12px;border:1px solid transparent;border-radius:8px;background:none;color:#a89a90;font:500 13px/1 "Sofia Sans",Sofia,sans-serif}
+#top.api-hero-code .ahc-tabs button:hover{color:#FFF8F1;background:none}
+#top.api-hero-code .ahc-tabs button[aria-selected="true"]{background:#1c1210;border-color:#EEE9DE24;color:#FFF8F1}
+#top.api-hero-code .ahc-copybtn{border-color:#EEE9DE24;color:#D7C9BD;font-size:12px}
+#top.api-hero-code .ahc-copybtn.is-done{color:#FFD8BD;border-color:#F4664999}
+#top.api-hero-code .ahc-controls button{min-height:44px;padding:0 4px;border:0;border-radius:0;background:none;color:#EEE9DE;font:500 12px/1 "Sofia Sans",Sofia,sans-serif}
