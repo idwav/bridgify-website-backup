@@ -1,0 +1,13 @@
+/* OTAs hero (#section-1): centred composition (user reference, 14 Nov 2026).
+   Headline, buttons, then the lead; the ticket sits inset below, shorter and wider; the whole block sits slightly low in the viewport. */
+@media (min-width:901px){
+  html body .ys-hero.ys-hero{min-height:100svh;padding-top:158px;padding-bottom:0;justify-content:center}
+  html body .ys-hero .ys-copy{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:none}
+  html body .ys-hero .ys-copy>h1{order:1;margin:0 0 clamp(22px,1.8vw,28px)}
+  html body .ys-hero .ys-actions{order:2;justify-content:center;margin:0 0 clamp(18px,1.5vw,22px)}
+  html body .ys-hero .ys-copy>p{order:3;max-width:880px;margin:0;text-wrap:balance}
+  html body .ys-hero .ys-copy>p br{display:none}
+  html body .ys-hero .ys-ticket{width:92%;max-width:1360px;margin:clamp(36px,3.4vw,52px) auto 0;grid-template-rows:auto;grid-template-columns:19% 10% 48% 23%;flex:none;min-height:0;padding-top:22px;padding-bottom:22px}
+  /* The bottom 1M+ strip repeats the lead; hidden to keep the ticket short */
+  html body .ys-hero .ys-ticket-bottom{display:none}
+}

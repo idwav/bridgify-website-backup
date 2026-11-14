@@ -1,0 +1,61 @@
+/* OTAs · Supply (#section-2): sources → Bridgify → experiences lit across a dotted world map. Copy per Copy v4, OTAs 2. Supply.
+   Frameless stage; the section fits one viewport with text and stage on one band. */
+.ms-section .ms-layout{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:32px 56px;align-items:center}
+.ms-section .ms-head{grid-column:1;grid-row:1}
+.ms-head .sp-sub{margin:-2px 0 14px!important;font:400 20px/1.4 Sofia,sans-serif!important;color:#FFB194!important}
+.sc{--ease:cubic-bezier(.16,1,.3,1);grid-column:2;grid-row:1;position:relative;display:flex;flex-direction:column;align-items:center;min-width:0}
+.sc-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
+.sc-wires path{fill:none;stroke:#F4664959;stroke-width:1.2}
+.sc-wires circle.end{fill:#FFF8F1;stroke:#F46649;stroke-width:1}
+.sc-wires circle.flow{fill:#FFB194;filter:drop-shadow(0 0 4px #F46649)}
+.sc-sources{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:100%}
+.sc-node{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 14px;border:1px solid #EEE9DE2e;border-radius:14px;background:linear-gradient(135deg,#2a1b17cc,#160e0ccc);font:500 15px/1.25 Sofia,sans-serif;color:#EEE9DE}
+.sc-node svg{flex:none;width:24px;height:24px;fill:none;stroke:#F46649;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.sc-hub{position:relative;z-index:1;display:flex;align-items:center;gap:12px;margin-top:58px;padding:14px 26px;border:1px solid #F46649a6;border-radius:16px;background:linear-gradient(135deg,#3a1f17,#1a100d);box-shadow:0 0 0 1px #F4664922,0 12px 34px #F4664926;font:300 26px/1 Chillax,sans-serif;letter-spacing:-.01em;color:#FFF8F1}
+.sc-hub .brand-flat-symbol{width:30px!important;height:28px!important;flex:0 0 30px!important;background:#F46649!important}
+.sc-hub small{margin-left:4px;padding:5px 10px;border:1px solid #EF995A66;border-radius:999px;font:500 12px/1 Sofia,sans-serif;letter-spacing:.02em;color:#FFD8BD}
+.sc-exps{position:relative;z-index:1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;width:100%;margin-top:40px}
+.sc-exp{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;background:#1b120f;border:1px solid #EEE9DE1a;transition:border-color .6s,box-shadow .6s,transform .7s var(--ease)}
+.sc-exp img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.35);transition:filter .8s var(--ease)}
+.sc-exp.is-on{border-color:#F46649b3;box-shadow:0 8px 22px #F4664933;transform:translateY(-3px)}
+.sc-exp.is-on img{filter:none}
+.sc-count{position:relative;z-index:1;margin:16px 0 0;font:400 15px/1.4 Sofia,sans-serif!important;color:#a89a90!important;opacity:.35;transition:opacity .8s,color .8s}
+.sc-count b{font:300 22px/1 Chillax,sans-serif;color:#F46649;margin-right:6px}
+.sc.is-done .sc-count{opacity:1;color:#D7C9BD!important}
+.sc-map{position:relative;z-index:1;width:100%;margin-top:14px}
+.sc-map svg{display:block;width:100%;height:auto;overflow:visible}
+.sc-land circle{fill:#EEE9DE66}
+.sc-map{-webkit-mask:radial-gradient(75% 90% at 50% 45%,#000 55%,transparent 100%);mask:radial-gradient(75% 90% at 50% 45%,#000 55%,transparent 100%)}
+.sc-pin{opacity:0;transform-box:fill-box;transform-origin:50% 100%;transform:translateY(-10px) scale(.6);transition:opacity .35s,transform .6s cubic-bezier(.34,1.56,.64,1)}
+.sc-pin path{fill:#F46649;stroke:#FFF8F1;stroke-width:1}
+.sc-pin circle{fill:#FFF8F1}
+.sc-pin.is-on{opacity:1;transform:none}
+.sc-ring{fill:none;stroke:#F46649;stroke-width:1.2;opacity:0}
+.sc-ring.is-on{animation:sc-ring 1.2s var(--ease) forwards}
+@keyframes sc-ring{0%{opacity:.9;r:2}100%{opacity:0;r:22}}
+@media (max-width:900px){
+  .ms-section .ms-layout{grid-template-columns:minmax(0,1fr)}
+  .sc{grid-column:1;grid-row:2}
+}
+@media (max-width:520px){
+  .sc-sources{gap:8px}.sc-node{flex-direction:column;gap:6px;min-height:76px;padding:10px 6px;font-size:13px;text-align:center}
+  .sc-hub{margin-top:44px;font-size:22px;padding:12px 18px}
+  .sc-exps{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:32px}
+}
+@media (prefers-reduced-motion:reduce){.sc *{transition:none!important;animation:none!important}}
+/* ---- Composition: one viewport, text and stage share the same vertical band and the site gutters ---- */
+@media (min-width:901px){
+  html body .ms-section{box-sizing:border-box;min-height:100svh;display:flex;align-items:center;padding:clamp(40px,5svh,64px) 3.7%}
+  html body .ms-section .ms-layout{width:100%;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);column-gap:56px;align-items:center}
+  html body .ms-section .ms-eyebrow{margin-bottom:clamp(22px,3.4svh,32px)}
+  html body .ms-section .ms-head h2{margin-bottom:clamp(22px,3.4svh,32px)}
+  html body .ms-section .ms-head .sp-sub{margin:0 0 clamp(16px,2.6svh,24px)!important}
+  html body .ms-section .ms-head .ms-actions{margin-top:clamp(32px,5svh,48px)}
+  .sc-node{min-height:clamp(56px,7svh,66px);font-size:16px;border-radius:16px}
+  .sc-node svg{width:26px;height:26px}
+  .sc-hub{margin-top:clamp(44px,7.4svh,72px);padding:16px 30px;font-size:30px}
+  .sc-hub .brand-flat-symbol{width:34px!important;height:32px!important;flex-basis:34px!important}
+  .sc-exps{gap:12px;margin-top:clamp(36px,5.8svh,56px)}
+  .sc-count{margin-top:18px}
+  .sc-map{width:100%;margin-top:4px}
+}
