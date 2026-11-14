@@ -8,7 +8,15 @@ body[data-copy-page="otas"] :is(.ys-copy>p,.ms-head>p,.rc-head p,.eo-head p,.rc-
 body[data-copy-page="otas"] :is(.ys-eyebrow,.ms-eyebrow,.rc-eyebrow,.eo-eyebrow){font-size:12px!important}
 body[data-copy-page="otas"] :is(.ys-actions a,.ms-actions a,.eo-cta,.rc-head a){font-size:16px;line-height:1.25}
 body[data-copy-page="otas"] .rc-head a{border:1px solid #f46649;border-radius:11px;padding:13px 20px;max-width:100%;width:fit-content;text-decoration:none}
-body[data-copy-page="otas"] :is(.ys-ticket,.rc-panel){border-color:#f4664952!important;box-shadow:var(--ota-depth)}
+body[data-copy-page="otas"] .rc-panel{border-color:#f4664952!important;box-shadow:var(--ota-depth)}
+html body[data-copy-page="otas"] .ys-ticket{border-color:#f4664952!important;background:radial-gradient(ellipse at 0 0,#ffe2c614,transparent 52%),radial-gradient(ellipse at 100% 0,#f4664914,transparent 36%),linear-gradient(130deg,#2b2021b0,#180f10e8 55%,#271c1dba);box-shadow:inset 0 1px #ffe2c633,inset 0 -1px #f4664914,0 12px 30px #00000024}
+html body[data-copy-page="otas"] .ys-hero :is(.ys-integration,.ys-retain>div){background:linear-gradient(115deg,#ffe2cb0b,#120d1038);border-color:#f4664957!important;color:#eee9de;box-shadow:inset 0 1px #ffe1ca21}
+html body[data-copy-page="otas"] .ys-photo{border-color:#f4664999!important;box-shadow:inset 0 1px #ffe2c638,0 8px 18px #00000030}
+html body[data-copy-page="otas"] .ys-photo>span{color:#eee9de;border-color:#f4664980!important;background:#180f10e8}
+.ys-copy h1{text-wrap:balance}.ys-caption span{text-wrap:pretty}.ys-hero .ys-copy>p{color:#eee9de}
+.ys-experiences .ota-motion-svg{stroke-width:1.5;stroke-linecap:round}
+.ys-experiences .ota-motion-svg circle{stroke-width:.7}
+@media(max-width:760px){html body[data-copy-page="otas"] .ys-photo>span{font-size:12px;padding:4px}.ys-photo>span>.ota-icon{width:10px;height:10px}html body[data-copy-page="otas"] .ys-caption{font-size:14px}.ys-experiences{grid-template-columns:repeat(3,minmax(0,1fr))}}
 body[data-copy-page="otas"] :is(.ms-source,.ms-hub,.ms-product,.ms-direct,.rc-window,.rc-phone,.eo-site,.eo-hub){background:var(--ota-glass);border-color:#f46649!important;box-shadow:var(--ota-depth)}
 body[data-copy-page="otas"] :is(.ys-bridge,.ys-day,.ys-retain,.ys-ticket-bottom,.ys-booked>div,.ys-retain p,.ms-id,.ms-price,.ms-source small,.ms-location>span,.ms-availability,.ms-availability>span,.ms-result,.rc-head,.rc-captions>div,.eo-option+.eo-option){border-color:#f466493b}
 body[data-copy-page="otas"] :is(.rc-head>div,.eo-head p){border-left-color:transparent}
