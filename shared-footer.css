@@ -15,6 +15,7 @@
 .bf-recurring-cta{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(270px,1fr);align-items:center;gap:48px;padding:0 0 48px;margin:0 0 48px;border-bottom:1px solid #aa604647}
 .bf-footer #bf-cta-title{font:300 clamp(32px,3.2vw,52px)/1.18 Chillax,sans-serif;letter-spacing:-.025em;max-width:760px;text-wrap:balance;color:var(--bf-cream)}
 .bf-footer #bf-cta-title span{color:#f88260}
+.bf-footer .bf-cta-body{margin-top:18px;max-width:620px;letter-spacing:0;font:400 clamp(17px,1.2vw,20px)/1.55 Sofia,sans-serif;color:#d0c4ba}
 .bf-cta-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:16px}
 .bf-footer .bf-cta-actions a{display:inline-flex;align-items:center;justify-content:space-between;gap:22px;min-height:54px;padding:14px 20px;border-radius:9px;font:600 17px/1.3 Sofia,sans-serif;transition:transform 220ms ease,background-color 220ms ease}
 .bf-footer .bf-cta-primary{background:linear-gradient(110deg,#ff965c,#f55b38);color:#24110d;border:1px solid #ffab7d55}
@@ -53,3 +54,5 @@
 html body .bf-footer #bf-footer-title{font-size:clamp(24px,2vw,34px)!important}
 @media(max-width:760px){html body .bf-footer #bf-footer-title{font-size:24px!important}}
 @media print{.bf-footer{break-inside:avoid;background:#fff;color:#180f10;border-color:#aaa}.bf-recurring-cta,.bf-footer-brand,.bf-footer-top-link{display:none}.bf-footer-nav{margin-top:24px}.bf-footer #bf-footer-title,.bf-footer #bf-footer-title span,.bf-footer .bf-footer-group h3,.bf-footer .bf-footer-bottom p{color:#180f10}}
+.bf-footer .bf-footer-small-print{margin-top:56px}
+@media(max-width:760px){.bf-footer .bf-footer-small-print{margin-top:36px}}

@@ -7,7 +7,7 @@
 .cj-copy h2{margin:14px 0 0;font:300 var(--type-section)/1.2 Chillax,sans-serif;letter-spacing:-.025em;color:#180F10}
 .cj-ink{font-style:normal;color:#D9482C;background:linear-gradient(110deg,#CF3F25 0%,#E5573A 30%,#E8603F 50%,#D9482C 72%,#CF3F25 100%);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:cj-ink 5s ease-in-out infinite alternate}
 @keyframes cj-ink{to{background-position:100% 0}}
-.cj-mark{display:block;background:currentColor;-webkit-mask:url(assets/bridgify-nav-mark.svg) center/contain no-repeat;mask:url(assets/bridgify-nav-mark.svg) center/contain no-repeat}
+.cj-mark{display:block;background:currentColor;-webkit-mask:url(assets/bridgify-icon.svg) center/contain no-repeat;mask:url(assets/bridgify-icon.svg) center/contain no-repeat}
 .cj-ico{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .cj-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:12px;font:400 12px/1.4 "Sofia Sans",Sofia,sans-serif}
 .cj-controls span{margin-inline-end:auto}

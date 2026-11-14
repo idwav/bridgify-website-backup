@@ -31,3 +31,9 @@ html body #hbx #hbx-group-frame,html body #hbx #hbx-brand-frame{stroke:#f46649!i
 #hbx .hbx-object path[d="M126 81H974Q997 81 997 104"]{stroke:#f46649;stroke-opacity:.15;stroke-width:.7}
 #hbx .hbx-object path[d="M204 127H466Q481 127 481 144"],
 #hbx .hbx-object path[d="M768 159H909Q923 159 923 172"]{stroke-width:.7;opacity:.25}
+/* Copy v4 mission text and the supplied logo on the boarding passes. */
+#story .mission-copy{max-width:960px}
+#story .mission-copy p+p{margin-top:12px}
+#story .mission-read{display:inline-block;margin-top:16px;color:#f46649;font:600 16px/1.4 Sofia,sans-serif;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+#story .mission-read:hover{color:#ff967b}
+#team .ticket-head .founder-brand{display:block;width:104px;height:21px;font-size:0!important;color:transparent;background:#f46649;-webkit-mask:url("assets/bridgify-logo-wordmark.svg") left center/contain no-repeat;mask:url("assets/bridgify-logo-wordmark.svg") left center/contain no-repeat}

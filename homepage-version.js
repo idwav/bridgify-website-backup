@@ -1,23 +1,22 @@
-// One V2 entry point, including navigation through the shared product pages.
+// Version 2 is the default site. Every internal link keeps the visitor's version:
+// 2 (default), 3 (V2 with the tower hero) or 1 (the original reference, only on request).
 (() => {
   const current = new URL(location.href);
-  const version = current.searchParams.get('version') ?? current.searchParams.get('v');
+  const requested = current.searchParams.get('version') ?? current.searchParams.get('v');
   const v2Document = document.documentElement.dataset.homeVersion === '2';
   const homePaths = new Set(['/', '/index.html', '/index-v2.html']);
-  // Version 3 is the V2 homepage with the alternative hero.
-  const family = version === '3' ? '3' : '2';
-  const v2 = version === '2' || version === '3' || (version !== '1' && v2Document);
+  const family = ['1', '2', '3'].includes(requested) ? requested : '2';
+  const v2 = family !== '1';
   if (family === '3') document.documentElement.dataset.hero = '3';
 
-  if (v2 && homePaths.has(current.pathname) && !v2Document) {
-    // Static hosts fall back to the V2 document; dev.py serves it at /?version=2.
-    current.pathname = '/index-v2.html';
+  if (homePaths.has(current.pathname) && v2 !== v2Document) {
+    // Serve the matching homepage document; dev.py and vercel.json normally do this on the server.
+    current.pathname = v2 ? '/index-v2.html' : '/';
     current.searchParams.delete('v');
     current.searchParams.set('version', family);
     location.replace(current.href);
     return;
   }
-  if (!v2) return;
   if (current.searchParams.has('v') || current.searchParams.get('version') !== family) {
     current.searchParams.delete('v');
     current.searchParams.set('version', family);
@@ -29,7 +28,8 @@
     if (!raw || raw.startsWith('#') || link.hasAttribute('download')) return;
     const target = new URL(raw, location.href);
     if (target.origin !== location.origin || !/^https?:$/.test(target.protocol)) return;
-    if (target.searchParams.get('version') === '1') return;
+    // An explicit link to the original homepage stays as written.
+    if (target.searchParams.get('version') === '1' && family !== '1') return;
     // Keep media, downloads and embedded previews out of page version routing.
     if (/\.[a-z0-9]+$/i.test(target.pathname) && !target.pathname.endsWith('.html')) return;
     if (homePaths.has(target.pathname)) target.pathname = '/';

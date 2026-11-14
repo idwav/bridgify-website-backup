@@ -1,17 +1,19 @@
 # Bridgify typography hierarchy
 
+Scale approved by the user on 14 November 2026: headings in Chillax at the approved light weight (300), running text in Sofia Sans regular; section 36–44px, inner headings 24–28px, body 18px, secondary 14–16px, buttons 16px, labels 12–14px.
+
 Single source: `brand-typography.css`. Applies to V2 and public inner pages; V1 remains unchanged.
 
 ## Scale and roles
 | Role | Desktop | Mobile | Family / weight | Line height |
 |---|---|---|---|---|
 | Page hero | fluid 40–60px | 34–42px | Chillax 300 | 1.16 |
-| Section heading | fluid 34–48px | 28–34px | Chillax 300 | 1.20 |
-| Editorial / product card title | fluid 22–28px | 22–26px | Chillax 400* | 1.25 |
-| Lead paragraph | fluid 18–22px | 18px | Sofia 400 | 1.50 |
-| Body | fluid 17–20px | 17px | Sofia 400 | 1.55 |
-| CTA | 16px | 16px | Sofia 550 | 1.25 |
-| Eyebrow | 12px | 11px | Sofia 550 | 1.40 |
+| Section heading | fluid 36–44px | 30–34px | Chillax 300 | 1.20 |
+| Inner heading (cards, FAQ questions, timeline) | fluid 24–28px | 22–24px | Chillax 300 | 1.25 |
+| Body and lead paragraphs | 18px | 18px | Sofia 400 | 1.55 |
+| Secondary text (card descriptions, notes, captions) | 14–16px | 14–16px | Sofia 400 | 1.5 |
+| Buttons / CTA | 16px | 16px | Sofia 550 | 1.25 |
+| Eyebrow / label | 12px (max 14px) | 12px | Sofia 550 | 1.40 |
 | Navigation | 12px | existing mobile menu scale | Sofia 550 | 1.30 |
 | Diagram / mock UI | existing container-relative scale | existing responsive scale | existing | existing |
 
