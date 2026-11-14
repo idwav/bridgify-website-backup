@@ -1,0 +1,9 @@
+# Working files that the published site does not load.
+.claude
+.impeccable
+output
+scripts
+dev.py
+*.md
+*.zip
+__pycache__

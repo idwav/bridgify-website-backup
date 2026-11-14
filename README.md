@@ -34,7 +34,10 @@ pages, demo links, and links back home. Other query parameters and section ancho
 are preserved. Version selection uses `version`; asset parameters such as
 `hero-v2.css?v=2` only control caching. Local preview disables browser caching.
 
-`index.html` remains the V1 reference at `/` or `/?version=1`. On a plain static
+V2 is the default: `/` and any page without a `version` parameter open in V2,
+and every internal link keeps the visitor's version (2, 3 or 1). `index.html`
+remains the V1 reference, opened only at `/?version=1`. `dev.py` and the Vercel
+redirects in `vercel.json` serve the right homepage on the server; on a plain static
 host the shared routing script resolves V2 to `index-v2.html?version=2`.
 
 ## Netlify

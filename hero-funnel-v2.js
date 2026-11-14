@@ -12,6 +12,9 @@
   const easeOut = p => 1 - Math.pow(1 - p, 3);
 
   const T = { converge: 1100, spread: 55, tile: 2000, cable: 4300, cableDur: 500, branch: 5000, branchDur: 500, lit: [5500, 6400, 7300], litDur: 450, end: 9300 };
+  // The page opens mid-drift: the scattered cards are already moving on the first frame and
+  // start falling into line about half a second after load.
+  const START = 600;
   const COLS = [154, 318, 482, 646];
   const ROWS = [52, 100, 148];
   const HUB = { y: 249 };
@@ -54,19 +57,31 @@
     return { a: items[a], b: items[b], path, c1x: (rnd() - .5) * 220, c1y: (rnd() - .5) * 160, c2x: (rnd() - .5) * 220, c2y: (rnd() - .5) * 160 };
   });
 
+  // Ports where each feed plugs into Bridgify. They appear with the hub, so no node sits on its own.
+  const portsG = scene.querySelector('.fn-ports');
+  items.forEach(it => {
+    const port = document.createElementNS(NS, 'circle');
+    port.setAttribute('cx', (400 + (it.slot - 5.5) * 6.4).toFixed(1));
+    port.setAttribute('cy', String(HUB.y));
+    port.setAttribute('r', '2.2');
+    portsG?.append(port);
+  });
+
   const flow = [
     ...items.map(it => ({ path: it.feed, dur: 4200, off: it.slot / 12 })),
     { path: cable, dur: 1500, off: 0 },
     ...branches.map((path, i) => ({ path, dur: 2100, off: i * .31 }))
-  ].map(f => {
+  ].map((f, i) => {
     const dot = document.createElementNS(NS, 'circle');
     dot.setAttribute('r', '3');
+    // Each traveling signal breathes on its own beat.
+    dot.style.animationDelay = `${-((i * .37) % 1.8).toFixed(2)}s`;
     dotsG.append(dot);
     return { ...f, dot, len: 0 };
   });
 
   const feedD = (it, x, y, c) => {
-    const ax = x, ay = y + 14, ex = 400 + (it.slot - 5.5) * 6.4, ey = HUB.y, dy = ey - ay;
+    const ax = x, ay = y + 18, ex = 400 + (it.slot - 5.5) * 6.4, ey = HUB.y, dy = ey - ay;
     const f = n => n.toFixed(1);
     return `M${f(ax)} ${f(ay)}C${f(ax + c * it.o1x)} ${f(ay + dy * .45 + c * it.o1y)} ${f(ex + c * it.o2x)} ${f(ey - dy * .45 + c * it.o2y)} ${f(ex)} ${ey}`;
   };
@@ -76,7 +91,7 @@
   };
   const draw = (el, p) => { el.style.strokeDashoffset = String(1 - p); el.style.opacity = p > 0 ? '1' : '0'; };
 
-  let t = -600, partIndex = 0, settled = false, flowing = false;
+  let t = START, partIndex = 0, settled = false, flowing = false;
   let visible = false, started = false, frame = 0, previous = 0;
   const paused = () => hero.classList.contains('paused');
   const canRun = () => visible && started && !document.hidden && !reduced.matches && !paused();
@@ -126,7 +141,7 @@
     }
   }
 
-  function reset(from = -600) {
+  function reset(from = START) {
     t = from; partIndex = 0; settled = false;
     setFlowing(false);
     parts.forEach(({ el }) => el.classList.remove('is-on'));
@@ -159,22 +174,23 @@
   scene.classList.add('fn-live');
   if (reduced.matches) showFinal();
 
-  const wipe = document.querySelector('.page-wipe');
-  const lead = wipe && wipe.getBoundingClientRect().top < innerHeight ? 1250 : 600;
+  // Start on load when the hero is on screen, without waiting for the observer's first callback.
+  const box = scene.getBoundingClientRect();
+  if (box.bottom > 0 && box.top < innerHeight) { visible = true; started = true; sync(); }
   new IntersectionObserver(entries => {
     visible = entries[0].isIntersecting;
-    if (visible && !started) { started = true; t = -lead; }
+    if (visible && !started) started = true;
     sync();
   }, { threshold: .15 }).observe(scene);
 
   document.getElementById('fn-replay')?.addEventListener('click', () => {
     if (reduced.matches) return;
-    reset(-200);
+    reset();
     render();
     started = true;
     sync();
   });
   new MutationObserver(sync).observe(hero, { attributes: true, attributeFilter: ['class'] });
   document.addEventListener('visibilitychange', sync);
-  reduced.addEventListener('change', () => { if (reduced.matches) showFinal(); else { reset(-200); render(); } sync(); });
+  reduced.addEventListener('change', () => { if (reduced.matches) showFinal(); else { reset(); render(); } sync(); });
 })();

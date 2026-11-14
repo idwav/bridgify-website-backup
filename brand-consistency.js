@@ -28,7 +28,8 @@ function apply(){
 // Add contacts only to actual connector geometry, never icon paths or moving dots.
 function contacts(){
  document.querySelectorAll('svg').forEach(svg=>{
-  if(svg.hasAttribute('data-managed-contacts')||svg.closest('.ms-board,.hbx-object')||!(svg.matches('[class*="wire"],[class*="cable"],[class*="connection"],[class*="flow"]')||svg.querySelector('path[id*="route"]')))return;
+  // Animated wires whose ends move draw their own nodes; a snapshot would leave stray dots behind.
+  if(svg.hasAttribute('data-managed-contacts')||svg.closest('.ms-board,.hbx-object,[data-wire-contacts="off"]')||!(svg.matches('[class*="wire"],[class*="cable"],[class*="connection"],[class*="flow"]')||svg.querySelector('path[id*="route"]')))return;
   let layer=svg.querySelector(':scope > .brand-wire-contacts');
   if(!layer){layer=document.createElementNS(ns,'g');layer.classList.add('brand-wire-contacts');layer.setAttribute('aria-hidden','true');svg.append(layer)}
   const points=new Map();

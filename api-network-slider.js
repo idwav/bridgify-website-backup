@@ -2,7 +2,7 @@
    Ported from output/element-lab/normalize.js (variant A, approved 14 Nov 2026). Illustrative data only (no real supplier names). */
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const MARK = 'assets/bridgify-flat-symbol.svg';
+  const MARK = 'assets/bridgify-icon.svg';
 
   // Five raw supplier payloads for the same experience. [key, value, inconsistent?]
   const RAW = [

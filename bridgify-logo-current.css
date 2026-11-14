@@ -32,3 +32,11 @@ html[data-home-version="2"] .top .brand-flat-symbol,body:not([data-copy-page="in
 body[data-copy-page="login"] .top .nav-login{border-color:#f46649;color:#ff9a7c}
 @media(max-width:850px){.top .nav-actions{margin-left:auto;gap:8px}.top .nav-login{min-height:38px;padding:0 12px;font-size:10px;letter-spacing:.5px}}
 @media(max-width:380px){.top .nav-login{padding:0 9px}}
+
+/* Supplied logo, Nov 2026: the full lockup in the V2 navigation and footer, its line icon inside visuals. */
+.top img.brand-logo-full{display:block;width:auto;height:46px;max-width:none;flex-shrink:0}
+@media(max-width:850px){.top img.brand-logo-full{height:30px}}
+@media(max-width:380px){.top img.brand-logo-full{height:25px}}
+html[data-home-version="2"] .brand-flat-symbol,body:not([data-copy-page="index"]) .brand-flat-symbol{mask-image:url("assets/bridgify-icon.svg");-webkit-mask-image:url("assets/bridgify-icon.svg")}
+html[data-home-version="2"] .brand-name,body:not([data-copy-page="index"]) .brand-name{font-weight:400;letter-spacing:-.01em}
+body[data-copy-page="otas"] .ys-bridge strong,body[data-copy-page="otas"] .rc-phone-brand{font-family:Chillax,sans-serif;font-weight:400;letter-spacing:-.01em}

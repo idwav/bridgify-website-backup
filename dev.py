@@ -26,12 +26,12 @@ class PreviewHandler(SimpleHTTPRequestHandler):
     def send_head(self):
         request = urlsplit(self.path)
         query = parse_qs(request.query, keep_blank_values=True)
-        version = query.get("version", query.get("v"))
+        requested = (query.get("version") or query.get("v") or [None])[0]
         home = request.path in {"/", "/index.html", "/index-v2.html"}
-        # Version 3 is the V2 homepage with the alternative hero; it keeps its own query value.
-        family = version[0] if version in (["2"], ["3"]) else "2"
-        v2 = version in (["2"], ["3"]) or (request.path == "/index-v2.html" and version != ["1"])
-        if home and v2:
+        # Version 2 is the default homepage. Version 3 is V2 with the alternative hero;
+        # version 1 is the original reference and is served only when requested.
+        family = requested if requested in {"1", "2", "3"} else "2"
+        if home:
             if request.path != "/" or "v" in query or query.get("version") != [family]:
                 query.pop("v", None)
                 query["version"] = [family]
@@ -40,7 +40,7 @@ class PreviewHandler(SimpleHTTPRequestHandler):
                 self.send_header("Content-Length", "0")
                 self.end_headers()
                 return None
-            self.path = "/index-v2.html"
+            self.path = "/index.html" if family == "1" else "/index-v2.html"
         route = ROUTES.get(request.path)
         if route:
             target, status = route

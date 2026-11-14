@@ -1,0 +1,42 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "has": [{ "type": "query", "key": "version", "value": "3" }], "destination": "/index-v2.html?version=3", "permanent": false },
+    { "source": "/", "missing": [{ "type": "query", "key": "version", "value": "1" }], "destination": "/index-v2.html?version=2", "permanent": false },
+    { "source": "/index.html", "has": [{ "type": "query", "key": "version", "value": "3" }], "destination": "/index-v2.html?version=3", "permanent": false },
+    { "source": "/index.html", "missing": [{ "type": "query", "key": "version", "value": "1" }], "destination": "/index-v2.html?version=2", "permanent": false },
+    { "source": "/attractions-api", "destination": "/experiences-api", "permanent": true },
+    { "source": "/products", "destination": "/#products", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/about", "destination": "/about-us.html" },
+    { "source": "/experiences-api", "destination": "/api.html" },
+    { "source": "/white-label-marketplace", "destination": "/marketplace.html" },
+    { "source": "/aiyelet", "destination": "/personalization.html" },
+    { "source": "/solutions/otas", "destination": "/otas.html" },
+    { "source": "/solutions/airlines", "destination": "/airlines.html" },
+    { "source": "/solutions/loyalty-programs", "destination": "/loyalty-finance.html" },
+    { "source": "/solutions/travel-technology", "destination": "/travel-technology.html" },
+    { "source": "/solutions/hotels", "destination": "/hotels.html" },
+    { "source": "/solutions/super-apps", "destination": "/super-apps.html" },
+    { "source": "/blog", "destination": "/insights.html" },
+    { "source": "/newsroom", "destination": "/press.html" },
+    { "source": "/login", "destination": "/login.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/developers", "destination": "/developers.html" },
+    { "source": "/careers", "destination": "/careers.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "X-Robots-Tag", "value": "noindex" }
+      ]
+    }
+  ]
+}
