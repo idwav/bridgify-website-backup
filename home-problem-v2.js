@@ -87,7 +87,7 @@
         const [ax, ay] = NORMAL[p1.side], [bx, by] = NORMAL[p2.side];
         const d = `M${p1.x} ${p1.y}C${p1.x + ax * k} ${p1.y + ay * k} ${p2.x + bx * k} ${p2.y + by * k} ${p2.x} ${p2.y}`;
         const g = svgEl('g', {class: 'hm-wg', 'data-at': s.at ?? 0}, svg);
-        const pid = `hmw${id}-${i}`;
+        const pid = `pbw${id}-${i}`;
         svgEl('path', {d, id: pid, class: 'hm-wire' + (s.main ? ' is-main' : ''), pathLength: 1}, g);
         if (s.from.contact !== false) svgEl('circle', {cx: p1.x, cy: p1.y, r: 3, class: 'hm-contact'}, g);
         if (s.to.contact !== false) svgEl('circle', {cx: p2.x, cy: p2.y, r: 3, class: 'hm-contact'}, g);
