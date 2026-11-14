@@ -18,20 +18,22 @@
 .nb2-stats>div:nth-child(2),.nb2-stats>div:nth-child(3){bottom:6.5%;width:40%;padding-top:1.4cqw;border-top:1px solid #eee9de1f}
 .nb2-stats>div:nth-child(2){left:6.3%}
 .nb2-stats>div:nth-child(3){left:53.7%}
-/* Security band: its own light section, apart from the dark numbers stage above */
-.sec2{box-sizing:border-box;padding:clamp(56px,5.6vw,88px) 3.7% 0;background:#eee9de;color:#180f10}
-.sec2-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 64px;align-items:center;padding-bottom:clamp(56px,5.6vw,88px);border-bottom:1px solid #180f1026}
-.sec2 h2{margin:0;font:300 var(--type-section,clamp(34px,2.9vw,48px))/1.2 Chillax,sans-serif;letter-spacing:-.025em;color:#180f10}
-.sec2 .v2-ink{color:#d9482c;background-image:linear-gradient(110deg,#cf3f25 0%,#e5573a 30%,#e8603f 50%,#d9482c 72%,#cf3f25 100%)}
-.sec2-badges{display:flex;gap:clamp(16px,2vw,32px);margin:0;padding:0;list-style:none}
-.sec2-seal{position:relative;display:grid;place-items:center;width:clamp(116px,10vw,148px);aspect-ratio:1;color:#F46649}
+/* Security: a cream card inset on the dark page, as in the lab (10 · Security & compliance) */
+.sec2{box-sizing:border-box;padding:clamp(32px,3.4vw,56px) 3.7%;background:#100c0b}
+.sec2-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:32px 56px;align-items:center;padding:clamp(28px,4.2vw,72px);border-radius:22px;background:#EEE9DE;color:#180F10}
+.sec2-eyebrow{display:inline-flex;align-items:center;gap:10px;font:550 12px/1.4 Sofia,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#B83A23}
+.sec2-eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:linear-gradient(#FFB194,#F46649);box-shadow:0 0 10px #F46649}
+.sec2 h2{margin:14px 0 0;font:300 var(--type-section,clamp(34px,2.9vw,48px))/1.2 Chillax,sans-serif;letter-spacing:-.025em;color:#180F10}
+.sec2 .v2-ink{color:#D9482C;background-image:linear-gradient(110deg,#CF3F25 0%,#E5573A 30%,#E8603F 50%,#D9482C 72%,#CF3F25 100%)}
+.sec2-badges{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.4vw,22px);margin:0;padding:0;list-style:none}
+.sec2-badges li{display:flex;justify-content:center;padding:clamp(22px,2.2vw,34px) 12px;border:1px solid rgba(24,15,16,.15);border-radius:14px}
+.sec2-seal{position:relative;display:grid;place-items:center;width:min(100%,148px);aspect-ratio:1;color:#E5573A}
 .sec2-seal svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transition:transform 1.8s cubic-bezier(.16,1,.3,1)}
 .sec2-seal circle{fill:none;stroke:currentColor;stroke-width:1.2}
 .sec2-seal circle+circle{stroke-dasharray:1.5 3.5}
-.sec2-seal text{font:600 10.2px Sofia,sans-serif;letter-spacing:.1em;fill:#544440}
-.sec2-seal b{position:relative;font:400 clamp(20px,1.7vw,26px)/1 Chillax,sans-serif;letter-spacing:-.02em;color:#180f10}
+.sec2-seal text{font:600 10.2px Sofia,sans-serif;letter-spacing:.1em;fill:#180F10}
+.sec2-seal b{position:relative;font:500 clamp(18px,1.7vw,25px)/1.05 Chillax,sans-serif;letter-spacing:-.02em;color:#180F10}
 .sec2-badges li:hover .sec2-seal svg{transform:rotate(120deg)}
-.sec2+#partners{padding-top:clamp(56px,5.6vw,88px)}
 
 /* Audiences (V2 only): a touch narrower, shorter cells, intro centred on the headline line */
 @media (min-width:901px){
@@ -55,6 +57,8 @@
   .nb2-stats>div:nth-child(3){left:auto;right:22px;bottom:22px;width:42%}
   .nb2-stats dt{font-size:10px;letter-spacing:.1em}
   .nb2-stats dd{font-size:clamp(32px,9vw,40px)}
-  .sec2-in{grid-template-columns:minmax(0,1fr)}
+  .sec2{padding:24px 16px}
+  .sec2-in{grid-template-columns:minmax(0,1fr);padding:28px 20px}
+  .sec2-seal{width:min(100%,118px)}
 }
 @media (prefers-reduced-motion:reduce){.sec2-seal svg{transition:none}}
