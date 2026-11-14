@@ -3,11 +3,13 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const compact = matchMedia('(max-width: 760px)');
   const items = [];
+  const scope = document.currentScript?.dataset.revealScope;
   const v2Revealed = document.documentElement.dataset.homeVersion === '2' && '#sources, #personalization, #products, #audiences, #partners, #faq';
   let frame = 0;
 
   function add(selector, { x = 0, y = 48, mask = false, stagger = 0 } = {}) {
     document.querySelectorAll(selector).forEach((element, index) => {
+      if (scope && !element.closest(scope)) return;
       // The V2 homepage reveals these sections part by part in homepage-v2.js.
       if (v2Revealed && element.closest(v2Revealed)) return;
       element.dataset.scrollEnter = mask ? 'unfold' : 'arrive';
@@ -15,6 +17,7 @@
     });
   }
 
+  if (scope) add(".lu-section > .eyebrow, .lu-section > h2, .lu-section > .lu-layout, .loyalty-choice > .ch-eyebrow, .loyalty-choice > h2, .loyalty-choice > .ch-panel, .lm-signal > header, .lm-signal > .lm-flow, .lm-signal > .lm-body", { y: 16, stagger: 0.02 });
   add('#sources > *', { y: 30, stagger: 0.025 });
   add('.opportunity-heading > *, #global .aggregation-layout > div:first-child > *', { stagger: 0.035 });
   document.querySelectorAll('.opportunity-side').forEach((side, index) => {
@@ -67,7 +70,8 @@
       const start = height * 0.94 - item.delay * height;
       const distance = Math.min(height * (compact.matches ? 0.32 : 0.42), 360);
       const focused = item.element.contains(document.activeElement);
-      const progress = focused ? 1 : Math.max(0, Math.min(1, (start - positions[index]) / distance));
+      const rawProgress = focused ? 1 : Math.max(0, Math.min(1, (start - positions[index]) / distance));
+      const progress = scope ? Math.max(item.progress, rawProgress) : rawProgress;
       if (Math.abs(progress - item.progress) < 0.0001) return;
       // Smooth deceleration, with no time-based tail after scrolling stops.
       const eased = 1 - Math.pow(1 - progress, 3);
