@@ -23,3 +23,8 @@ html body .site-header-common .nav-actions>a:hover,html body .site-header-common
 @media(max-width:380px){html body .site-header-common img.brand-logo-full{height:25px!important}html body header.top.site-header-common{padding-inline:10px!important}html body .site-header-common .nav-actions>a{padding-inline:8px!important}html body .site-header-common>nav{gap:4px!important}html body .site-header-common nav>a,html body .site-header-common summary{font-size:9px!important}}
 @media(prefers-reduced-motion:reduce){html body .site-header-common *,html body .site-header-common *::before,html body .site-header-common *::after{transition:none!important}}
 @media(max-width:600px){html body header.top.site-header-common>nav{gap:4px!important;min-width:0!important}html body header.top.site-header-common nav>.site-nav-group>summary,html body header.top.site-header-common nav>a{font-size:9px!important;letter-spacing:0!important;gap:3px!important}html body header.top.site-header-common summary::after{font-size:11px!important}html body header.top.site-header-common .site-nav-group{min-width:0!important;flex-shrink:0}}
+/* Transparent navigation over the cream editorial headers. Menus stay dark. */
+html body:is([data-copy-page="press"],[data-copy-page="contact"]) header.site-header-common{color:#180f10!important}
+html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common nav>a,
+html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common summary{color:#180f10!important}
+html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common img.brand-logo-full{filter:brightness(0) saturate(100%)!important}
