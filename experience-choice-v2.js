@@ -22,6 +22,7 @@
   }
   let s = 0;
   const setBrand = (i) => {
+    if (!store || !swatches[i]) return;
     swatches.forEach((w, j) => w.classList.toggle('is-on', j === i));
     store.style.setProperty('--brand', swatches[i].style.background);
   };

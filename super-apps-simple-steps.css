@@ -17,3 +17,6 @@
 .sc-how .sc-step-description{font:400 18px/1.55 InfoSofia,Sofia,sans-serif;margin:0;color:#180f10;text-wrap:pretty}
 @media(max-width:1000px){.sc-info-inner{grid-template-columns:1fr;gap:32px}}
 @media(max-width:600px){.sc-how{padding:48px 4vw}.sc-info-grid{grid-template-columns:1fr;gap:24px}.sc-info-item{grid-row:auto;grid-template-rows:auto;gap:14px;border-left:0;border-top:1px solid #f466493b;padding:24px 0 0}.sc-how .sc-info-heading h2{font-size:30px}.sc-info-icon{margin-bottom:0}.sc-how .sc-info-item h3{font-size:24px}}
+
+/* Copy v4 gives two building blocks here; the third line (your app, your call) lives in the intro. */
+@media(min-width:1001px){.sc-info-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
