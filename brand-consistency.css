@@ -20,3 +20,10 @@ html body .brand-coral-frame.brand-outer-frame{border-color:rgba(244,102,73,.32)
 html body .ih-topic>.brand-section-label{justify-content:center}
 
 @media(prefers-reduced-motion:reduce){html body .brand-action{transition:none!important}}
+
+/* Page buttons (roles set by brand-consistency.js): main action filled, secondary hollow. */
+html body .brand-action.brand-action-primary{--brand-button-start:#ff9862;--brand-button-end:#f46649;--brand-button-angle:105deg;color:#180f10!important;border-color:#f46649!important;box-shadow:inset 0 1px 1px #ffd8bd88,0 8px 22px #f4664922!important}
+html body .brand-action.brand-action-primary:hover,html body .brand-action.brand-action-primary:focus-visible{--brand-button-start:#ffad80;--brand-button-end:#f7704f;color:#180f10!important;box-shadow:inset 0 1px 1px #ffe3cc99,0 12px 28px #f4664940!important}
+html body .brand-action.brand-action-secondary{--brand-button-start:#f4664900;--brand-button-end:#f4664900;color:#fff8f1!important;border-color:#f46649!important;box-shadow:none!important}
+html body .brand-action.brand-action-secondary:hover,html body .brand-action.brand-action-secondary:focus-visible{--brand-button-start:#f466491f;--brand-button-end:#f4664914;color:#fff8f1!important;box-shadow:none!important}
+html body .brand-action.brand-action-secondary.brand-action-on-light,html body .brand-action.brand-action-secondary.brand-action-on-light:hover,html body .brand-action.brand-action-secondary.brand-action-on-light:focus-visible{color:#180f10!important;border-color:#e0573b!important}

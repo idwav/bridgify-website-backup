@@ -54,3 +54,6 @@ html body .hm-hero{max-width:1560px;padding:128px 4% 36px}.hm-heading{margin-bot
  .hm-layout{flex:none;width:100%;height:clamp(360px,42vh,410px)}
 }
 @media(min-width:1000px) and (max-height:800px){html body .hm-hero{padding-top:112px;padding-bottom:28px}.hm-heading{margin-bottom:24px}.hm-layout{height:360px}}
+
+/* Full width with the shared 4% page margin (no centered cap), so the hero lines up with the header and the rest of the page. */
+html body .hm-hero{max-width:none}

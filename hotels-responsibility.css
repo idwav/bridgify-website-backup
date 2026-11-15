@@ -52,3 +52,6 @@ html body .hr-experience button{background:none!important;box-shadow:none!import
 @media(max-width:700px){.hotel-responsibility{padding:48px 24px}.hr-columns{grid-template-columns:1fr;gap:28px}.hr-heading{margin-bottom:28px}.hr-experience{min-height:330px}.hr-experience>div{padding:22px}.hr-managed li{padding:18px 0}.hr-footer{align-items:flex-start}}
 html body .hotel-responsibility .hr-heading h2{font-family:Chillax,sans-serif!important;font-size:var(--type-section,44px)!important;font-weight:300!important;line-height:1.2!important}
 html body .hotel-responsibility .hr-columns :is(h3,h4){font-family:Chillax,sans-serif!important;font-size:var(--type-card,28px)!important;font-weight:300!important;line-height:1.3!important}
+
+/* Shared 4% page margin on every width. */
+.hotel-responsibility{max-width:none}
