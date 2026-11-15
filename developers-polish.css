@@ -77,3 +77,7 @@ body[data-copy-page="developers"] .copy-faq :is(h2,summary,p){color:#eee9de!impo
 body[data-copy-page="developers"] .copy-faq details{background:transparent!important;border-color:#f4664938!important}
 body[data-copy-page="developers"] .bf-footer-shell{background:#180f10}
 @media(max-width:760px){body[data-copy-page="developers"] #section-2.dev-section{padding-inline:6%}}
+
+/* Documentation: the five Copy v4 entry points in one row. */
+@media(min-width:1101px){body[data-copy-page="developers"] #section-2 .dev-docs{grid-template-columns:repeat(5,1fr)}body[data-copy-page="developers"] #section-2 .dev-docs h3{font-size:24px}}
+@media(min-width:761px) and (max-width:1100px){body[data-copy-page="developers"] #section-2 .dev-docs{grid-template-columns:repeat(3,1fr)}}

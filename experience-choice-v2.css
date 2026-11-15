@@ -128,3 +128,6 @@
 #section-4.xc,#section-4.xc *,#section-4.xc *::before,#section-4.xc *::after{box-sizing:border-box}
 #section-4.xc{padding:clamp(36px,3vw,48px) 3.7%}
 #section-4 .xc-store nav u{text-decoration:none}
+
+/* A page whose Copy v4 section names one product shows one card: visual and copy side by side across the row. */
+@media(min-width:901px){#section-4 .xc-grid>.xc-card:only-child{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch}#section-4 .xc-grid>.xc-card:only-child>.xc-vis{border-bottom:0}#section-4 .xc-grid>.xc-card:only-child>.xc-body{justify-content:center;align-items:flex-start;border-left:1px solid #EEE9DE1f;padding:clamp(28px,3vw,48px)}}
