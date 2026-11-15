@@ -10,3 +10,6 @@
 @media(max-width:1100px){.hs-mail-layout{grid-template-columns:86px minmax(0,1fr)}.hs-mail-folders{font-size:11px;padding:10px 4px}.hs-window-dots{width:68px}.hs-message{padding:12px}.hs-email-letter{padding:14px}.hs-email-letter h3 br{display:none}.hs-steps strong{font-size:21px}}
 @media(max-width:900px),(max-height:700px){.hs-sticky{grid-template-columns:1fr;padding:40px 6%;gap:28px}.hs-panel{height:650px;max-height:none}.hs-copy>p{max-width:600px}.hs-steps>button{min-height:95px}.hs-mail-layout{grid-template-columns:86px minmax(0,1fr)}}
 @media(max-width:550px){.hs-mail-layout{grid-template-columns:1fr}.hs-mail-folders{display:none}.hs-window-dots{width:auto}.hs-panel{height:660px}.hs-message{padding:12px}.hs-email-letter{padding:15px}.hs-email-letter h3{font-size:23px!important}.hs-steps strong{font-size:21px}.hs-cta{font-size:14px!important}}
+
+/* Shared 4% page margin on every width. */
+.hs-sticky{max-width:none}

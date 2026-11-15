@@ -15,11 +15,11 @@ PAGES = ('index.html', 'index-v2.html', 'api.html', 'marketplace.html',
          'developers.html', 'insights.html', 'press.html', 'about-us.html',
          'careers.html', 'contact.html', 'login.html')
 START, END = '<!-- SHARED FOOTER START -->', '<!-- SHARED FOOTER END -->'
-CSS = '<link rel="stylesheet" href="shared-footer.css?v=1">'
-JS = '<script src="shared-footer.js?v=1" defer></script>'
+CSS = '<link rel="stylesheet" href="shared-footer.css?v=2">'
+JS = '<script src="shared-footer.js?v=2" defer></script>'
 
 
-ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>'
+ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>'
 DEMO = ('Book a demo', 'contact.html')
 # Copy v4 gives most inner pages their own closing CTA; pages not listed keep the recurring band.
 PAGE_CTAS = {
@@ -52,18 +52,27 @@ PAGE_CTAS = {
 }
 
 
-def page_cta(name):
-    lead, accent, body, buttons = PAGE_CTAS[name]
+def cta_band(lead, accent, body, buttons):
+    """Closing CTA: its own centered card above the footer (not part of the footer)."""
     links = '\n'.join(
         f'        <a class="{"bf-cta-primary" if i == 0 else "bf-cta-secondary"}" href="{href}">{label} {ARROW}</a>'
         for i, (label, href) in enumerate(buttons))
-    return (f'<section class="bf-recurring-cta bf-page-cta" aria-labelledby="bf-cta-title">\n'
-            f'      <div class="bf-cta-copy">\n'
-            f'        <h2 id="bf-cta-title">{lead} <span>{accent}</span></h2>\n'
-            f'        <p class="bf-cta-body">{body}</p>\n'
-            f'      </div>\n'
+    copy = f'\n      <p class="bf-cta-body">{body}</p>' if body else ''
+    return (f'<section class="bf-cta-shell" aria-labelledby="bf-cta-title">\n'
+            f'    <div class="bf-recurring-cta bf-cta-card">\n'
+            f'      <h2 id="bf-cta-title">{lead} <span>{accent}</span></h2>{copy}\n'
             f'      <div class="bf-cta-actions">\n{links}\n      </div>\n'
-            f'    </section>')
+            f'    </div>\n'
+            f'  </section>')
+
+
+def page_cta(name):
+    return cta_band(*PAGE_CTAS[name])
+
+
+# Source for partials/recurring-cta.html (used where Copy v4 gives no page-specific CTA).
+RECURRING = ('Tell us who your customers are.', "We'll show you what they'd book.", '',
+             [DEMO, ('Read the API docs', 'developers.html')])
 
 
 def footer_bounds(source):

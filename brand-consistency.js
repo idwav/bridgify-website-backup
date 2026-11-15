@@ -13,16 +13,35 @@ function apply(){
   }
  });
  document.querySelectorAll('body *:not(svg):not(svg *)').forEach(el=>{
-  if(el.closest('.xc'))return;const c=getComputedStyle(el);
+  if(el.closest('.xc,.bf-cta-shell'))return;const c=getComputedStyle(el);
   if(['Top','Right','Bottom','Left'].every(s=>parseFloat(c['border'+s+'Width'])>0&&c['border'+s+'Style']!=='none')&&el.getBoundingClientRect().width>28)el.classList.add('brand-coral-frame');
  });
  document.querySelectorAll('a[href],button').forEach(el=>{
-  if(el.closest('.site-nav-menu,svg,.xc')||el.matches('.logo,[aria-label*="home"]'))return;
+  if(el.closest('.site-nav-menu,svg,.xc,.bf-cta-shell')||el.matches('.logo,[aria-label*="home"]'))return;
   const c=getComputedStyle(el),t=el.textContent.trim();
   const isControl=(el.tagName==='BUTTON'&&parseFloat(c.paddingTop)>6&&!el.matches('[aria-expanded],[aria-selected],[aria-pressed]'))||el.classList.contains('brand-coral-frame')||(/btn|button|action|cta|connect|docs/.test(el.className)&&parseFloat(c.paddingTop)>6);
   if(!isControl||!t||t.length>110)return;
   el.classList.add('brand-action');
-  el.classList.toggle('brand-action-primary',/book a demo|request api access|discuss your integration|send message/i.test(t));
+ });
+ roles();
+}
+// Page buttons: the main action is filled, the others are hollow. Product-mockup controls keep their own look.
+const MAIN=/book (?:a|my) demo|request api access|discuss|talk to|get in touch|send message|log in|see open roles|introduce yourself/i;
+function lightBehind(el){while(el){const m=getComputedStyle(el).backgroundColor.match(/[\d.]+/g);if(m&&(m.length<4||+m[3]>.8))return (+m[0]+ +m[1]+ +m[2])/3>150;el=el.parentElement}return false}
+function isPageAction(el){
+ if(el.closest('.site-header-common,footer,.xc,.bf-cta-shell'))return false;
+ if(el.tagName==='BUTTON')return el.type==='submit'&&!!el.closest('form')||el.matches('.bv2-demo');
+ return el.getBoundingClientRect().height<=64;
+}
+function roles(){
+ const acts=[...document.querySelectorAll('.brand-action')].filter(isPageAction);
+ const hero=document.querySelector('main > section, main > div, body > section');
+ acts.forEach(el=>{
+  const group=acts.filter(o=>o.parentElement===el.parentElement);
+  const primary=group.length>1?group[0]===el:(MAIN.test(el.textContent)||(!!hero&&hero.contains(el)));
+  el.classList.toggle('brand-action-primary',primary);
+  el.classList.toggle('brand-action-secondary',!primary);
+  el.classList.toggle('brand-action-on-light',!primary&&lightBehind(el.parentElement));
  });
 }
 // Add contacts only to actual connector geometry, never icon paths or moving dots.

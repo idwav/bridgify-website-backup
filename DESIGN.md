@@ -484,3 +484,12 @@ V2 בנוי מסקשנים כהים וקרם לסירוגין. כל סקשן כ�
 V2 and all 16 public inner pages use `shared-navigation.css` and `site-header-common`. The header background is transparent on every page; dropdown menus retain the brand dark theme. The header is 78px tall on desktop and 123px in the compact layout; both actions use dark glass. This supersedes the earlier page-specific header and cream demo-button exceptions. V1 and tutorial previews are excluded. Dropdown motion and keyboard handling remain in `bridgify-nav-motion.js`.
 
 Latest body-copy direction: all public V2 and inner-page editorial body/lead text is 16px on desktop and mobile.
+
+## Site-wide fixes — user direction, 15 November 2026
+
+- **Closing CTA:** its own centered card above the footer (`.bf-cta-shell` › `.bf-cta-card`), never inside the footer. Each page keeps its Copy v4 text; markup comes from `scripts/sync-footer.py` (`PAGE_CTAS`) and `partials/recurring-cta.html`.
+- **No outlines** on the header (`shared-navigation.css`) or the footer (`shared-footer.css`). Footer links: Sofia 400, 16px.
+- **Buttons:** the main action is filled (coral gradient, dark text); secondary actions are hollow (coral border, transparent). Header: LOG IN hollow, BOOK A DEMO filled, both the same size. Roles are set by `brand-consistency.js` (first in a group = main; a lone button is main when it is a conversion action or sits in the hero). Product-mockup controls keep their own look.
+- **FAQ:** every FAQ follows the AIyelet layout from `brand-faq.css`: 4% page margin (homepage: its own gutter), full-width dividers, coral +/−, open/close motion in `brand-faq-motion.js`.
+- **Hotels:** hero, section 2 and section 3 run full width with the 4% margin (no centered 1560px cap).
+- **Sticky header** (`shared-navigation.js`): the header follows the scroll (moved to `<body>`, `position:fixed`). Past 24px it always gets the same dark glass surface (whatever section is underneath) with a fine coral line on its lower edge. Under 950px it tucks away while scrolling down and returns on the way up.

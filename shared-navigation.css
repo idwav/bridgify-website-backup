@@ -1,5 +1,5 @@
 /* One dark navigation surface for V2 and every public inner page. */
-html body header.top.site-header-common{position:absolute!important;inset:16px 3.2% auto!important;width:auto!important;height:78px!important;min-height:78px!important;margin:0!important;padding:0 24px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important;flex-wrap:nowrap!important;border:1px solid #f4664952!important;border-radius:14px!important;background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;color:#eee9de!important;box-shadow:none!important;z-index:1000!important;overflow:visible!important;isolation:isolate}
+html body header.top.site-header-common{position:absolute!important;inset:16px 3.2% auto!important;width:auto!important;height:78px!important;min-height:78px!important;margin:0!important;padding:0 24px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:24px!important;flex-wrap:nowrap!important;border:0!important;border-radius:14px!important;background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;color:#eee9de!important;box-shadow:none!important;z-index:1000!important;overflow:visible!important;isolation:isolate}
 html body .site-header-common>a:first-child{display:flex!important;align-items:center!important;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;flex-shrink:0;text-decoration:none}
 html body .site-header-common img.brand-logo-full{height:40px!important;width:auto!important;max-width:none!important}
 html body .site-header-common>nav{display:flex!important;align-items:center!important;justify-content:center!important;gap:24px!important;margin:0!important;padding:0!important;flex-wrap:nowrap!important;width:auto!important;order:0!important}
@@ -33,3 +33,23 @@ html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-c
 html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common .site-nav-menu a{color:#180f10!important}
 html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common .site-nav-menu a:hover,
 html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common .site-nav-menu a:focus-visible{background:#f466491c!important;color:#a63d29!important}
+
+/* Header actions: same size; BOOK A DEMO is the filled main action, LOG IN is hollow. Header has no outline. */
+html body .site-header-common .nav-actions>a{min-width:148px!important;box-sizing:border-box!important;background:transparent!important;box-shadow:none!important}
+html body .site-header-common .nav-actions>a:hover,html body .site-header-common .nav-actions>a:focus-visible{background:#f466491f!important;color:#fff8f1!important}
+html body .site-header-common .nav-actions>a:last-child{background:linear-gradient(105deg,#ff9862,#f46649)!important;color:#180f10!important;box-shadow:inset 0 1px 1px #ffd8bd88!important}
+html body .site-header-common .nav-actions>a:last-child:hover,html body .site-header-common .nav-actions>a:last-child:focus-visible{background:linear-gradient(105deg,#ffad80,#f7704f)!important;color:#180f10!important}
+@media(max-width:1100px){html body .site-header-common .nav-actions>a{min-width:128px!important}}
+@media(max-width:950px){html body .site-header-common .nav-actions>a{min-width:104px!important}}
+html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common .nav-actions>a:not(:last-child),html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common .nav-actions>a:not(:last-child):hover{color:#180f10!important}
+
+/* Sticky header (shared-navigation.js): follows the scroll; once scrolled it always gets the same dark
+   surface, whatever the section under it, with a fine line along its lower edge instead of a border. */
+html body header.top.site-header-common.is-sticky{position:fixed!important;transition:background-color .4s cubic-bezier(.22,1,.36,1),box-shadow .4s cubic-bezier(.22,1,.36,1),transform .45s cubic-bezier(.22,1,.36,1)!important}
+html body header.top.site-header-common.is-stuck{backdrop-filter:blur(16px) saturate(1.15)!important;-webkit-backdrop-filter:blur(16px) saturate(1.15)!important}
+html body header.top.site-header-common.is-stuck.nav-tone-dark{background:rgba(28,18,17,.9)!important;color:#eee9de!important;box-shadow:inset 0 -1px 0 #f4664947,0 12px 32px #0f0a0933!important}
+html body header.site-header-common.is-stuck.nav-tone-dark :is(nav>a,summary){color:#eee9de!important}
+html body header.site-header-common.is-stuck.nav-tone-dark img.brand-logo-full{filter:none!important}
+html body header.site-header-common.is-stuck.nav-tone-dark .nav-actions>a:not(:last-child){color:#fff8f1!important}
+html body header.top.site-header-common.is-tucked{transform:translateY(calc(-100% - 24px))!important}
+@media(prefers-reduced-motion:reduce){html body header.top.site-header-common.is-sticky{transition:none!important}}

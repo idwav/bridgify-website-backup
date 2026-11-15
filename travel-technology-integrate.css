@@ -1,0 +1,124 @@
+/* Travel tech · "How do I avoid integrating dozens of travel suppliers?"
+   One stage, two states driven by a single value --o (0 = integrating yourself, 1 = with Bridgify).
+   Vocabulary from the V2 hero: grey tangled wires and muted tiles = raw; coral ordered wires = Bridgify. */
+
+#section-2 .ti{--o:0;position:relative;display:grid;grid-template-columns:minmax(300px,29%) 1fr;gap:clamp(28px,4%,64px);align-items:stretch;
+  margin:0;padding:clamp(28px,3vw,48px) clamp(24px,3.2vw,52px);border-radius:28px;overflow:hidden;
+  background:radial-gradient(ellipse at 62% 50%,#f466490f,transparent 62%),#180f10;color:#eee9de;font-family:Sofia,sans-serif}
+#section-2 .ti *,#section-2 .ti *::before,#section-2 .ti *::after{box-sizing:border-box}
+
+/* ---------- Left: the comparison itself, and the switch ---------- */
+#section-2 .ti-copy{display:flex;flex-direction:column;justify-content:center;gap:10px;margin:0}
+#section-2 .ti-opt{all:unset;box-sizing:border-box;position:relative;display:flex;flex-direction:column;justify-content:flex-start;cursor:pointer;padding:18px 20px 18px 24px;border-radius:11px;
+  color:#eee9de;opacity:.5;transition:opacity .48s cubic-bezier(.16,1,.3,1),background-color .48s cubic-bezier(.16,1,.3,1)}
+#section-2 .ti-opt::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:2px;border-radius:2px;background:#f46649;transform:scaleY(0);transform-origin:top;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+#section-2 .ti-opt:hover{opacity:.78}
+#section-2 .ti-opt[aria-pressed="true"]{opacity:1;background:linear-gradient(125deg,#a75e3721,#20140d66)}
+#section-2 .ti-opt[aria-pressed="true"]::before{transform:none}
+#section-2 .ti-opt:focus-visible{outline:2px solid #f46649;outline-offset:4px}
+#section-2 .ti-opt-title{display:block;margin:0 0 10px;font:300 clamp(22px,1.75vw,28px)/1.2 Chillax,sans-serif;letter-spacing:-.025em;color:#eee9de}
+#section-2 .ti-opt ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+#section-2 .ti-opt li{position:relative;padding-left:16px;font:400 16px/1.45 Sofia,sans-serif;color:#d7c9bd}
+#section-2 .ti-opt li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:#8c8178}
+#section-2 .ti-opt[aria-pressed="true"] li::before{background:#f46649;box-shadow:0 0 6px #f4664999}
+/* Hold indicator: fills while the first state is on screen, before the stage resolves on its own. */
+#section-2 .ti-hold{position:absolute;left:24px;right:20px;bottom:9px;height:1px;background:#eee9de1f;overflow:hidden;opacity:0;transition:opacity .3s}
+#section-2 .ti-hold i{position:absolute;inset:0;background:#f46649;transform:scaleX(var(--hold,0));transform-origin:left}
+#section-2 .ti.is-holding .ti-opt[data-to="diy"] .ti-hold{opacity:1}
+
+/* ---------- Right: the map ---------- */
+#section-2 .ti-map{position:relative;min-height:340px;container-type:inline-size}
+#section-2 .ti-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:1;fill:none}
+#section-2 .ti-wires circle.dot{fill:#fff8f1;filter:drop-shadow(0 0 3px #f46649)}
+
+/* Suppliers: one column of twelve sources, scattered while raw, aligned once ordered. */
+#section-2 .ti-sources{position:absolute;left:0;top:0;bottom:0;width:23%;display:grid;grid-template-rows:repeat(12,1fr);gap:clamp(4px,.5vw,7px);z-index:2}
+#section-2 .ti-src{--x:0;--y:0;--r:0;display:flex;align-items:center;gap:8%;min-height:0;padding:0 9% 0 7%;border-radius:8px;
+  background:linear-gradient(145deg,#2a1b18,#130c0b);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,#f46649 calc(var(--o)*60%),#5f524a),inset 0 1px #fff8f114,0 6px 14px #0006,0 0 calc(var(--o)*14px) rgb(244 102 73/calc(var(--o)*.22));
+  transform:translate(calc(var(--x)*1px*(1 - var(--o))),calc(var(--y)*1px*(1 - var(--o)))) rotate(calc(var(--r)*1deg*(1 - var(--o))));
+  opacity:0;transition:opacity .6s cubic-bezier(.16,1,.3,1)}
+#section-2 .ti.is-in .ti-src{opacity:1}
+#section-2 .ti-src svg{flex:none;width:clamp(12px,1.6cqw,17px);height:auto;fill:none;stroke:color-mix(in srgb,#f48665 calc(var(--o)*100%),#a79b91);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+#section-2 .ti-src span{flex:1;display:grid;gap:3px;min-width:0}
+#section-2 .ti-src span i{display:block;height:3px;border-radius:2px;background:color-mix(in srgb,#d7c9bd calc(var(--o)*60%),#5f524a)}
+#section-2 .ti-src span i+i{height:2px;width:62%;opacity:.7}
+#section-2 .ti-src b{flex:none;font:600 clamp(9px,1.05cqw,11px)/1 Sofia,sans-serif;letter-spacing:.08em;color:color-mix(in srgb,#ff967b calc(var(--o)*100%),#a79b91)}
+
+/* Bridgify: where the tangle ends. */
+#section-2 .ti-hub{position:absolute;left:39%;top:50%;width:19%;min-width:150px;display:flex;align-items:center;justify-content:center;gap:10px;padding:18px 14px;border-radius:14px;z-index:3;
+  background:linear-gradient(160deg,#2a1713,#0f0a09);box-shadow:inset 0 0 0 1px #f46649,inset 0 1px #ffd9c02b,0 10px 26px #0008,0 0 26px #f4664955;
+  opacity:var(--o);transform:translate(-50%,-50%) scale(calc(.86 + var(--o)*.14))}
+#section-2 .ti-mark{width:28px;height:28px;flex:none;background:#f46649;-webkit-mask:url("assets/bridgify-icon.svg") center/contain no-repeat;mask:url("assets/bridgify-icon.svg") center/contain no-repeat}
+#section-2 .ti-hub strong{font:300 clamp(18px,2.4cqw,24px)/1 Chillax,sans-serif;letter-spacing:-.01em;color:#f6e9de}
+
+/* Small labels that ride on the wires (positioned by ti.js). */
+#section-2 .ti-pill{position:absolute;left:0;top:0;z-index:3;white-space:nowrap;padding:5px 11px;border-radius:999px;font:500 12px/1.2 Sofia,sans-serif;color:#eee9de;
+  background:#1c1210;box-shadow:inset 0 0 0 1px #f4664999;transform:translate(-50%,-50%)}
+#section-2 .ti-pill-diy{box-shadow:inset 0 0 0 1px #8c8178;color:#c7b5a5;opacity:calc(1 - var(--o))}
+#section-2 .ti-pill-one{opacity:clamp(0,calc(var(--o)*3 - 2),1)}
+
+/* Your product: a raw, duplicated catalog becomes one clean catalog. */
+#section-2 .ti-app{position:absolute;right:0;top:8%;bottom:8%;width:35%;display:flex;flex-direction:column;border-radius:14px;z-index:2;overflow:hidden;
+  background:linear-gradient(150deg,#2b1d1a,#140d0c);box-shadow:inset 0 0 0 1px color-mix(in srgb,#f46649 calc(30% + var(--o)*45%),#5f524a),inset 0 1px #ffd9c024,0 18px 40px #0009}
+#section-2 .ti-app-top{display:flex;align-items:center;gap:6px;padding:12px 14px;border-bottom:1px solid #eee9de14}
+#section-2 .ti-app-top i{width:6px;height:6px;border-radius:50%;background:#f4866599}
+#section-2 .ti-app-top span{margin-left:8px;font:300 clamp(15px,2cqw,19px)/1 Chillax,sans-serif;color:#eee9de}
+#section-2 .ti-app-body{position:relative;flex:1;min-height:0}
+#section-2 .ti-layer{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:clamp(6px,1cqw,10px);padding:clamp(10px,1.6cqw,16px)}
+#section-2 .ti-raw{opacity:calc(1 - var(--o));transform:translateY(calc(var(--o)*-8px))}
+#section-2 .ti-clean{opacity:var(--o);transform:translateY(calc((1 - var(--o))*8px))}
+#section-2 .ti-row{display:flex;align-items:center;gap:10px;min-width:0;padding:7px;border-radius:9px;background:#ffffff06;box-shadow:inset 0 0 0 1px #eee9de14}
+#section-2 .ti-row img{flex:none;width:clamp(28px,4.4cqw,40px);aspect-ratio:1;border-radius:7px;object-fit:cover}
+#section-2 .ti-row div{flex:1;min-width:0;display:grid;gap:3px}
+#section-2 .ti-row strong{font:500 clamp(11px,1.4cqw,13px)/1.15 Sofia,sans-serif;color:#f1e6dc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#section-2 .ti-row small{font:400 clamp(10px,1.2cqw,12px)/1.1 Sofia,sans-serif;color:#a79b91;white-space:nowrap}
+#section-2 .ti-row em{flex:none;font:600 clamp(8px,1cqw,10px)/1 Sofia,sans-serif;font-style:normal;letter-spacing:.08em;color:#a79b91;padding:4px 6px;border-radius:5px;box-shadow:inset 0 0 0 1px #5f524a}
+/* Raw: same museum ticket three times, three formats; duplicates flagged. */
+#section-2 .ti-raw .ti-row{filter:saturate(.55)}
+#section-2 .ti-raw .ti-row:nth-child(2){margin-left:6%}
+#section-2 .ti-raw .ti-row:nth-child(3){margin-right:5%}
+#section-2 .ti-raw .ti-row.is-dup{box-shadow:inset 0 0 0 1px #f4664980;background:#f466490d}
+#section-2 .ti-raw .ti-row.is-dup em{color:#ff967b;box-shadow:inset 0 0 0 1px #f4664980}
+#section-2 .ti-clean .ti-row{box-shadow:inset 0 0 0 1px #f4664947}
+#section-2 .ti-clean .ti-row small{color:#ff967b}
+#section-2 .ti-clean .ti-row u{flex:none;text-decoration:none;font:600 clamp(9px,1.1cqw,11px)/1 Sofia,sans-serif;color:#180f10;background:#f46649;padding:5px 9px;border-radius:6px}
+
+/* ---------- Section fit: the stage fills the screen under the heading, never cuts content ---------- */
+@media(min-width:901px){
+  #section-2.th-section:has(.ti){height:auto;min-height:calc(100svh - 130px)}
+  #section-2 .ti{flex:1;min-height:440px}
+}
+
+/* ---------- Narrow screens: switch on top, map flows downward ---------- */
+@media(max-width:900px){
+  #section-2 .ti{grid-template-columns:1fr;gap:24px;padding:18px 14px 22px;border-radius:23px}
+  #section-2 .ti-copy{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  #section-2 .ti-opt{padding:14px 12px 16px 16px}
+  #section-2 .ti-opt::before{top:14px;bottom:14px}
+  #section-2 .ti-opt-title{font-size:20px;margin-bottom:8px}
+  #section-2 .ti-opt li{font-size:14px;padding-left:12px}
+  #section-2 .ti-opt li::before{width:4px;height:4px}
+  #section-2 .ti-hold{left:16px;right:12px;bottom:7px}
+  #section-2 .ti-map{--ti-vertical:1;min-height:0;display:flex;flex-direction:column;align-items:center;gap:40px;padding-top:4px}
+  #section-2 .ti-sources{position:relative;inset:auto;width:100%;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(2,34px);gap:7px}
+  #section-2 .ti-src{justify-content:center;flex-direction:column;gap:4px;padding:0}
+  #section-2 .ti-src span{display:none}
+  #section-2 .ti-src svg{width:14px}
+  #section-2 .ti-src b{font-size:8px}
+  #section-2 .ti-hub{position:relative;left:auto;top:auto;width:auto;min-width:0;padding:14px 22px;transform:scale(calc(.86 + var(--o)*.14))}
+  #section-2 .ti-app{position:relative;inset:auto;width:100%;height:auto}
+  #section-2 .ti-app-body{height:206px;flex:none}
+  #section-2 .ti-layer .ti-row:nth-child(4){display:none}
+  #section-2 .ti-layer{padding:12px}
+  #section-2 .ti-row img{width:34px}
+  #section-2 .ti-row strong{font-size:13px}
+  #section-2 .ti-row small{font-size:12px}
+  #section-2 .ti-row em{font-size:9px}
+  #section-2 .ti-clean .ti-row u{font-size:11px}
+}
+@media(max-width:420px){
+  #section-2 .ti-opt-title{font-size:18px}
+  #section-2 .ti-opt li{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){#section-2 .ti *{transition:none!important}}
