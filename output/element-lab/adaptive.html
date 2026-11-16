@@ -260,8 +260,8 @@ body{background:var(--bg);color:var(--tx);padding-bottom:96px}
   };
   const inject = (doc, file) => new Promise(res => {
     const base = 'adaptive/';
-    ['layout.css', 'patterns.css', `pages/${pageName(file)}.css`].forEach(f => { const l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = new URL(base + f, location.href).href; doc.head.appendChild(l); });
-    const scripts = ['patterns.js', `pages/${pageName(file)}.js`];
+    ['system/tokens.css', 'layout.css', 'patterns.css', `pages/${pageName(file)}.css`, 'system/actions.css'].forEach(f => { const l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = new URL(base + f, location.href).href; doc.head.appendChild(l); });
+    const scripts = ['patterns.js', `pages/${pageName(file)}.js`, `system/roles/${pageName(file)}.js`, 'system/rhythm.js'];
     const next = i => {
       if (i >= scripts.length) return setTimeout(res, 250);
       const s = doc.createElement('script'); s.src = new URL(base + scripts[i], location.href).href;

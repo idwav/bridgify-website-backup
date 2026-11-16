@@ -72,3 +72,23 @@
     } catch (e) {}
   });
 })();
+
+/* Hero entrance on phones: the copy arrives in sequence, as on desktop (hero-v2.js: rise 20px and fade in, 750ms,
+   100ms apart). The phone preview keeps the page hidden until the layer has run, and the entrance had already played
+   behind it; it now plays when the page is shown (event "bf-shown" from phone.html). On the live site the layer is
+   in the page from the start, so hero-v2.js's own entrance is the one the reader sees. */
+(() => {
+  const A = window.BridgifyAdaptive; if (!A) return;
+  const copy = document.querySelector('#home .bv2-hero-copy');
+  if (!copy || !copy.animate || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let played = false;
+  addEventListener('bf-shown', () => {
+    if (played || !A.MQ.mobile.matches || scrollY > innerHeight / 2) return;
+    played = true;
+    // one entrance only: drop whatever ran (or is still running) behind the curtain
+    [...copy.children].forEach(el => el.getAnimations().forEach(a => a.cancel()));
+    [...copy.children].filter(e => e.offsetHeight).forEach((el, i) => el.animate(
+      [{opacity: 0, transform: 'translateY(20px)'}, {opacity: 1, transform: 'none'}],
+      {duration: 750, delay: 80 + i * 100, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards'}));
+  });
+})();

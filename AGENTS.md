@@ -10,4 +10,6 @@ Before every publish or upload of visual changes, verify brand typography and co
 
 Workflow: follow `WORKFLOW.md` for every visual or responsive task. It records the proven way of working the user asked to keep (16 November 2026): one component per element, the agreed mobile proportions, measuring against the visible phone screen in WebKit and Chromium, and screenshot review before reporting. Add to it only what has been proven.
 
+Mobile rules: `MOBILE-RULES.md` is the developer handoff for phones (rule IDs, spacing table, buttons and links, how to verify). `python3 output/element-lab/adaptive/system/verify.py` checks every rule and writes `compliance.md`; run it before reporting phone work as done.
+
 Typography: read `TYPOGRAPHY.md` before changing text styles. Reuse `brand-typography.css` tokens for editorial roles. Preserve section geometry and diagram-relative typography; do not add arbitrary page-specific font scales.

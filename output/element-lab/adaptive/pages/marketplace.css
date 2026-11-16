@@ -201,7 +201,6 @@
 @media (max-width:599px){
   html body :is(#section-2,#section-3,#section-4,#section-5,#build-or-buy,#marketplace-audiences,#marketplace-results,#faq):not(#ad-x){padding-top:64px!important;padding-bottom:64px!important}
   html body #section-1.page-hero:not(#ad-x){padding-top:calc(var(--ad-header-h) + 8px + 48px)!important;padding-bottom:64px!important}
-  html body #section-1.page-hero .block-copy>[data-copy-display]{font-size:34px!important;line-height:1.12!important}
   html body section#section-5 h2:not(#ad-x){font-size:28px!important;line-height:1.15!important}
   html body #section-5 .launch-heading p{font-size:15px!important;line-height:24px!important}
 

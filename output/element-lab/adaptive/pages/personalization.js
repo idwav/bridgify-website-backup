@@ -9,7 +9,7 @@
   const CSS = `@media(max-width:599px){
     main{padding:88px 24px 28px!important;min-height:0!important}
     html,body{min-height:0!important}
-    h1{font-size:34px!important;line-height:1.12!important;text-wrap:balance}
+    html body .copy h1:not(#ad-x),html body .copy h1:not(#ad-x) em{font-size:28px!important;line-height:1.15!important;font-weight:400!important;letter-spacing:-.7px!important;text-wrap:balance}
     .copy p{margin-top:16px!important;font-size:15px!important;line-height:24px!important;text-wrap:pretty}
     .copy button{min-height:40px!important;height:40px!important;font-size:15px!important;padding:0 16px!important;border-radius:10px!important}
     .scene{margin-top:28px!important}}`;

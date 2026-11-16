@@ -60,7 +60,7 @@ MEASURE = r"""
         const el = n.parentElement; if (!el || !shown(el) || srOnly(el)) continue;
         const rg = document.createRange(); rg.selectNodeContents(n); const lines = [...rg.getClientRects()].filter(x => x.width && x.height); if (!lines.length) continue;
         const eff = parseFloat(getComputedStyle(el).fontSize) * (el.currentCSSZoom || 1);
-        if (eff < 12) tiny += t.length;
+        if (eff < 11) tiny += t.length;  // labels above titles are 11px by agreement (WORKFLOW.md); below that is too small
         if (lines.some(x => x.right > W + 2 || x.left < -2)) wide += t.length;
         for (const o of overlays) {
           if (o.contains(el) || el.contains(o) && o === el) continue;
@@ -136,6 +136,23 @@ MEASURE = r"""
     });
     if (best) { const g = Math.round(ht - best.bt); if (Math.abs(g - 16) > 2) page.labelGaps.push(`${sec.id} "${best.t.slice(0, 24)}" ${g}px`); }
   });
+  // 6 · Title roles: the hero title and every section title use one size and weight (28px, 400 on phones). Found
+  //     on what the reader sees (the largest text in the first section, including a same-origin iframe), not on a
+  //     class or a tag, because pages put their visible hero title in different elements.
+  page.titleRoles = []; page.titles = [];
+  const role = (doc, el, name) => { const c = doc.defaultView.getComputedStyle(el); const v = {name, fs: Math.round(parseFloat(c.fontSize) * 10) / 10, fw: +c.fontWeight}; page.titles.push(v); if (v.fs !== 28 || v.fw !== 400) page.titleRoles.push(`${name} ${v.fs}px/${v.fw} "${el.textContent.trim().slice(0, 30)}"`); };
+  const biggest = doc => { let best = null; doc.querySelectorAll('h1,h2').forEach(e => { if (/^(SCRIPT|STYLE|svg)$/i.test(e.tagName) || e.closest('[aria-hidden=true]')) return; const r = e.getBoundingClientRect(); if (r.width < 4 || r.height < 4) return; const c = doc.defaultView.getComputedStyle(e); if (c.visibility === 'hidden' || /inset\(50%\)/.test(c.clipPath)) return; if (![...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim().length > 2)) return; const fs = parseFloat(c.fontSize); if (!best || fs > best.fs) best = {e, fs}; }); if (!best) return null; let e = best.e; while (e.parentElement && /^(SPAN|EM|STRONG|B|I)$/.test(e.tagName)) e = e.parentElement; return e; };
+  const hero = secs[0];
+  if (hero) {
+    // The hero title may be on the page or inside an embedded frame (AIyelet); other heroes embed a demo frame with
+    // small text. Take the larger of the two candidates.
+    const laid = el => { for (let a = el; a && a !== document.body; a = a.parentElement) { const c = getComputedStyle(a); if (c.display === 'none' || c.visibility === 'hidden') return false; } return true; };
+    let best = null; hero.querySelectorAll('h1,h2,[data-copy-display]').forEach(e => { if (!laid(e) || srOnly(e) || e.closest('[aria-hidden=true],iframe')) return;  /* headings only: demos inside heroes are often zoomed, so their CSS sizes say nothing */ const fs = parseFloat(getComputedStyle(e).fontSize); if (!best || fs > best.fs) best = {e, fs, doc: document}; });
+    if (best) { let e = best.e; while (e.parentElement && /^(SPAN|EM|STRONG|B|I)$/.test(e.tagName)) e = e.parentElement; best.e = e; }
+    hero.querySelectorAll('iframe').forEach(fr => { try { const d = fr.contentDocument; if (!d || !d.body) return; const e = biggest(d); if (!e) return; const scale = fr.getBoundingClientRect().width / d.documentElement.clientWidth; const fs = parseFloat(d.defaultView.getComputedStyle(e).fontSize) * scale;  /* a scaled demo frame shows its text smaller than its CSS size */ if (!best || fs > best.fs) best = {e, fs, doc: d}; } catch (x) {} });
+    if (best) role(best.doc, best.e, 'hero'); else page.titleRoles.push('hero title not found');
+  }
+  document.querySelectorAll('section').forEach(sec => { if (sec === hero || sec.parentElement.closest('section') || !shown(sec)) return; const h = [...sec.querySelectorAll('h2')].find(x => shown(x) && !srOnly(x) && !x.closest('[aria-hidden=true]')); if (h) role(document, h, sec.id || 'section'); });
   return { pinned: Math.round(pinned), vh: VH, blocks: out, page };
 }
 """
@@ -144,10 +161,10 @@ REVEAL = "[data-rv],[data-scroll-enter],.reveal,.rv{opacity:1!important;translat
 
 
 async def inject(pg, name):
-    for f in ['layout.css', 'patterns.css', f'pages/{name}.css']:
+    for f in ['system/tokens.css', 'layout.css', 'patterns.css', f'pages/{name}.css', 'system/actions.css']:
         p = os.path.join(LAYER, f)
         if os.path.exists(p): await pg.add_style_tag(path=p)
-    for f in ['patterns.js', f'pages/{name}.js']:
+    for f in ['patterns.js', f'pages/{name}.js', f'system/roles/{name}.js', 'system/rhythm.js']:
         p = os.path.join(LAYER, f)
         if os.path.exists(p): await pg.add_script_tag(path=p)
     await pg.wait_for_timeout(600)

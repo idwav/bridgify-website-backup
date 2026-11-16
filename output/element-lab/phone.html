@@ -9,6 +9,8 @@
 <style>
 html,body{margin:0;height:100%;background:#100A08;overflow:hidden}
 iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#100A08}
+/* While the proposal layer loads, the page stays hidden: the reader never sees the old layout jump into the new one. */
+iframe.is-loading{visibility:hidden}
 .ph-pill{position:fixed;left:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:10;display:flex;align-items:center;gap:2px;padding:3px;
   border:1px solid #F4664999;border-radius:12px;background:#160F0DE6;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
   font:600 13px/1 -apple-system,system-ui,sans-serif;box-shadow:0 6px 20px #0008}
@@ -35,25 +37,37 @@ iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#100A08
   const start = q.get('page') || 'index-v2.html';
   const url = p => '../../' + (p === 'index-v2.html' ? '' : p) + (p.includes('?') ? '&' : '?') + 'version=2';
   const pageName = doc => { const n = doc.location.pathname.split('/').pop().replace('.html', ''); return n || 'index-v2'; };
+  const V = Date.now();  // one version per visit: fresh after an edit, cached while browsing between pages
+  // lift the curtain and tell the page, so motion that ran while it was hidden (the hero's entrance) can play for real
+  const show = () => { if (!f.classList.contains('is-loading')) return; f.classList.remove('is-loading'); try { f.contentWindow.dispatchEvent(new Event('bf-shown')); } catch (e) {} };
   const inject = doc => {
     if (doc.documentElement.dataset.adLayer) return;
     doc.documentElement.dataset.adLayer = '1';
-    const base = new URL('adaptive/', location.href).href, n = pageName(doc);
-    ['layout.css', 'patterns.css', `pages/${n}.css`].forEach(x => { const l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = base + x + '?t=' + Date.now(); doc.head.appendChild(l); });
-    const s = ['patterns.js', `pages/${n}.js`];
-    const next = i => { if (i >= s.length) return; const e = doc.createElement('script'); e.src = base + s[i] + '?t=' + Date.now(); e.onload = e.onerror = () => next(i + 1); doc.body.appendChild(e); };
-    next(0);
+    const base = new URL('adaptive/', location.href).href, n = pageName(doc), w = doc.defaultView;
+    const css = ['system/tokens.css', 'layout.css', 'patterns.css', `pages/${n}.css`, 'system/actions.css'];
+    let left = css.length; const cssDone = () => { if (--left === 0) next(0); };
+    css.forEach(x => { const l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = base + x + '?v=' + V; l.onload = l.onerror = cssDone; doc.head.appendChild(l); });
+    const s = ['patterns.js', `pages/${n}.js`, `system/roles/${n}.js`, 'system/rhythm.js'];
+    // reveal only after every file has run and the spacing engine has laid the page out (two frames later)
+    const done = () => { if (w.BridgifyRhythm) w.BridgifyRhythm.apply(); w.requestAnimationFrame(() => w.requestAnimationFrame(() => setTimeout(show, 60))); };
+    const next = i => { if (i >= s.length) return done(); const e = doc.createElement('script'); e.src = base + s[i] + '?v=' + V; e.onload = e.onerror = () => next(i + 1); doc.body.appendChild(e); };
   };
-  f.addEventListener('load', () => {
-    let doc; try { doc = f.contentDocument; } catch (e) { return; }
-    if (!doc) return;
-    document.title = doc.title || 'Bridgify';
-    if (mode === 'prop') inject(doc);
-  });
+  // start as soon as the page's HTML is parsed (not after every image has loaded), and hide again when it navigates
+  let seen = null;
+  setInterval(() => {
+    let doc; try { doc = f.contentDocument; } catch (e) { show(); return; }
+    if (!doc || doc === seen || doc.readyState === 'loading' || doc.location.href === 'about:blank') return;
+    seen = doc; document.title = doc.title || 'Bridgify';
+    if (mode !== 'prop') return show();
+    try { doc.defaultView.addEventListener('pagehide', () => { f.classList.add('is-loading'); f.dataset.t = Date.now(); }); } catch (e) {}
+    inject(doc);
+  }, 30);
+  setInterval(() => { if (f.classList.contains('is-loading') && Date.now() - (f.dataset.t || 0) > 6000) show(); }, 500);  // never stay hidden
   const go = () => {
     pill.querySelectorAll('[data-m]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.m === mode)));
     let cur = start;
     try { const l = f.contentWindow.location; if (l.pathname) cur = (l.pathname.split('/').pop() || 'index-v2.html') + l.hash; } catch (e) {}
+    if (mode === 'prop') { f.classList.add('is-loading'); f.dataset.t = Date.now(); }
     f.src = url(cur.split('#')[0]) + (cur.includes('#') ? '#' + cur.split('#')[1] : '');
   };
   pill.addEventListener('click', e => {
@@ -61,6 +75,7 @@ iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#100A08
     if (b && b.dataset.m !== mode) { mode = b.dataset.m; go(); }
   });
   document.getElementById('min').addEventListener('click', e => { const m = pill.classList.toggle('is-min'); e.target.textContent = m ? '⇄' : '–'; });
+  if (mode === 'prop') { f.classList.add('is-loading'); f.dataset.t = Date.now(); }
   f.src = url(start);
 })();
 </script>

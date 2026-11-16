@@ -19,7 +19,7 @@
   html body{--home-gutter:var(--ad-gutter)!important}
 }
 @media (max-width:599px){
-  :root{--ad-gutter:24px;--ad-header-h:52px;--ad-section-y:56px}
+  :root{--ad-gutter:24px;--ad-header-h:52px;--ad-section-y:56px;--ad-title:28px}
 }
 
 /* Mobile and tablet never scroll sideways. Sections that bleed art beyond the edge clip it. */

@@ -238,8 +238,11 @@
     if (!mq.matches) return;
     const box = e.closest('h1,h2,h3'); e.style.whiteSpace = 'nowrap';
     const cs = getComputedStyle(box), inner = box.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
-    const r = e.getBoundingClientRect();
-    if (r.width > inner + 1 || r.right > document.documentElement.clientWidth - 8) e.style.whiteSpace = '';
+    // it must fit inside the title's column and inside the page's side margin (a title box can be wider than the
+    // column it sits in); a phrase 4px past the margin broke the grid
+    const gut = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ad-gutter')) || 24;
+    const r = e.getBoundingClientRect(), right = Math.min(box.getBoundingClientRect().right - parseFloat(cs.paddingRight), document.documentElement.clientWidth - gut);
+    if (r.width > inner + 1 || r.right > right + 0.5) e.style.whiteSpace = '';
   });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', keep); else keep();
   addEventListener('load', keep); addEventListener('resize', keep);
@@ -268,6 +271,8 @@
     return best && best.e;
   };
   const run = () => {
+    // pages with a role map get all their spacing from system/rhythm.js on phones
+    if (window.BridgifyRoles && matchMedia('(max-width:599px)').matches) return;
     document.querySelectorAll('section').forEach(sec => {
       if (sec.parentElement.closest('section')) return;
       const h = sec.querySelector('h2'); if (!h) return;
@@ -287,4 +292,18 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', later); else later();
   addEventListener('load', later); addEventListener('resize', later);
   if (document.fonts) document.fonts.ready.then(later);
+})();
+
+/* Hero title tag: the visible hero title is a different element on each page (h1, or a display h2 when the h1 is
+   visually hidden). Tag the one a reader sees so one shared rule (patterns.css .ad-hero-title) sizes every hero alike. */
+(() => {
+  const seen = el => { const r = el.getBoundingClientRect(); if (r.width < 4 || r.height < 4) return false; for (let a = el; a && a !== document.body; a = a.parentElement) { const c = getComputedStyle(a); if (c.display === 'none' || c.visibility === 'hidden' || /inset\(50%\)/.test(c.clipPath)) return false; } return true; };
+  const tag = () => {
+    const hero = [...document.querySelectorAll('main section, body > section')].find(s => !s.parentElement.closest('section') && s.offsetHeight > 100);
+    if (!hero) return;
+    const t = [...hero.querySelectorAll('h1, [data-copy-display], h2')].find(seen);
+    if (t) t.classList.add('ad-hero-title');
+  };
+  tag();  // at once, before the first paint; again when the document is complete
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', tag);
 })();

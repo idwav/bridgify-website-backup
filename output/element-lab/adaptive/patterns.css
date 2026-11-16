@@ -173,12 +173,19 @@
 }
 
 /* ---------- Mobile rhythm for every page (agreed on the homepage, 16 Nov 2026; see WORKFLOW.md) ----------
-   Titles 34 / 28 (Chillax 400 on phones), body 15/24, labels 11, main buttons 40px, sections 64px apart.
+   Titles 28 for hero and sections (Chillax 400 on phones), body 15/24, labels 11, main buttons 40px, sections 64px apart.
    FAQ questions follow DESIGN.md: Sofia 500, not Chillax Light. */
 @media (max-width:599px){
   html body :is(main>section,body>section):not(:first-of-type):not(.page-hero):not(.brand-cta){padding-top:64px!important;padding-bottom:64px!important}
-  html body :is(main,body)>section:first-of-type h1,html body .page-hero h1{font-size:34px!important;line-height:1.12!important}
-  html body section:not(:first-of-type) h2{font-size:28px!important;line-height:1.15!important;font-weight:400!important}
+  /* Hero title = section title (28px, Chillax 400), agreed 16 Nov 2026 after the API trial. Pages put the visible hero
+     title in different elements (h1, h2[data-copy-display], an iframe) and their own sizes (34, 34.32, 36px) beat a
+     plain h1 rule, so patterns.js tags the visible one as .ad-hero-title and this id-level rule wins on every page. */
+  html body .ad-hero-title:not(#ad-x):not(#ad-y):not(#ad-z){font-size:var(--ad-title)!important;line-height:1.15!important;font-weight:400!important;letter-spacing:-.7px!important}
+  html body .ad-hero-title:not(#ad-x):not(#ad-y):not(#ad-z) :is(span,em,strong,b){font-size:inherit!important}
+  /* The closing call-to-action title is a section title too (it measured 30-33px Light on every page). */
+  html body :is(.brand-cta,.bf-cta,[class*=recurring-cta]) h2:not(#ad-x):not(#ad-y),html body #bf-cta-title:not(#ad-x):not(#ad-y){font-size:var(--ad-title)!important;line-height:1.15!important;font-weight:400!important;letter-spacing:-.7px!important}
+  html body #bf-cta-title:not(#ad-x):not(#ad-y) :is(span,em,strong,b){font-size:inherit!important}
+  html body section:not(:first-of-type) h2{font-size:var(--ad-title)!important;line-height:1.15!important;font-weight:400!important}
   html body section :is(h1,h2)~p:not([class*=eyebrow]):not([class*=kicker]),html body section header p:not([class*=eyebrow]):not([class*=kicker]),html body .block-copy>p{font-size:15px!important;line-height:24px!important}
   html body section :is([class*=eyebrow],[class*=kicker],.brand-section-label){font-size:11px!important}
   html body section :is(.btn,.brand-action):not(.ad-seg *):not([role=tab]){min-height:40px!important;height:auto!important;padding-block:9px!important;padding-inline:16px!important;font-size:15px!important;border-radius:10px!important}
