@@ -16,3 +16,45 @@ html body[data-copy-page="travel-technology"] #faq :is(h2,summary){color:#eee9de
 html body[data-copy-page="travel-technology"] #faq p{color:#d4c4b9!important}
 html body[data-copy-page="travel-technology"] #faq details{border-color:#f4664933!important}
 html body[data-copy-page="travel-technology"] #faq summary::marker{color:#f48665}
+
+/* Category selection and the delivery pulse share one motion timeline. */
+.te-hero .nt-tabs button{flex:1;min-width:0;text-align:center;border:1px solid #f486654a;border-radius:25px;padding:6px 7px;font:400 14px/1.2 Sofia,sans-serif;color:#eee9de;background:transparent;cursor:pointer;transition:background .45s,color .45s,box-shadow .45s}
+.te-hero .nt-tabs button[aria-selected="true"]{background:linear-gradient(110deg,#ff9862,#f46649);color:#180f10;box-shadow:0 2px 12px #f4664926}
+.te-hero .nt-tabs button:focus-visible{outline:2px solid #ffb194;outline-offset:3px}
+.te-hero .nt-caption span{font:400 13px/1.2 Sofia,sans-serif;color:#eee9de}
+.te-hero .nt-caption{min-height:43px;padding:10px}
+.te-hero img.nt-photo{width:100%;height:0;min-height:0;object-fit:cover}
+
+.te-flow-svg path{filter:drop-shadow(0 0 3px #f4664960)}
+@media(prefers-reduced-motion:reduce){.te-hero .nt-tabs button{transition:none}}
+.te-hero .nt-tabs button{background:transparent!important;color:#eee9de!important;box-shadow:none!important;border-radius:25px!important}
+.te-hero .nt-tabs button[aria-selected="true"]{background:linear-gradient(110deg,#ff9862,#f46649)!important;color:#180f10!important;box-shadow:0 2px 12px #f4664926!important}
+/* Route the connection underneath the two surfaces, through the central hub. */
+@media(min-width:761px){
+ html body[data-copy-page="travel-technology"] .te-visual.nt-embed{grid-template-columns:1fr 13% 1.03fr;padding-bottom:130px;padding-top:32px}
+ .te-hero .nt-code{grid-column:1}.te-hero .nt-product{grid-column:3}
+ .te-hero .nt-bridge{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);width:150px;height:62px;z-index:4}
+ .te-hero .te-hub{width:100%;min-height:62px}
+}
+.te-hero .te-hub{border-color:rgb(244 102 73 / calc(.3 + var(--arrival,0)*.7));box-shadow:inset 0 1px #ffd8bd22,0 0 calc(var(--arrival,0)*34px) rgb(244 102 73 / calc(var(--arrival,0)*.55))}
+.te-hero .te-hub strong{color:rgb(238 233 222);text-shadow:0 0 calc(var(--arrival,0)*14px) #ff967b}
+.te-code-content{min-height:210px}.te-code-content code{color:#ffb194}
+.te-caret{opacity:0}.te-typing .te-caret{opacity:1}
+@media(max-width:760px){.te-hero .te-visual.nt-embed{padding-bottom:36px}}
+
+/* Match the supplier-integration stage: espresso surfaces, coral edges, shared hub. */
+html body[data-copy-page="travel-technology"] .te-visual.nt-embed{background:radial-gradient(ellipse at 62% 50%,#f466490f,transparent 62%),#180f10;box-shadow:none;border-color:#f4664926;border-radius:28px}
+html body[data-copy-page="travel-technology"] .te-hero .nt-window{border-radius:14px;border-color:#f4664973!important;background:linear-gradient(150deg,#2b1d1a,#140d0c)!important;box-shadow:inset 0 1px #ffd9c024,0 18px 40px #0009,0 0 calc(var(--arrival,0)*24px) rgb(244 102 73 / calc(var(--arrival,0)*.3))!important}
+.te-hero .nt-windowbar{background:transparent;border-bottom:1px solid #eee9de14;padding-inline:14px;gap:6px}
+.te-hero .nt-windowbar i{width:6px;height:6px;background:#f4866599}
+.te-hero .nt-sidebar{background:transparent;border-color:#eee9de14}
+.te-hero .nt-experience{border-radius:9px;border-color:#f4664947!important;background:#ffffff06}
+.te-hero .nt-search{background:#1c1210;border-color:#f4664947!important}
+.te-hero .nt-tabs button{border-color:#f4664947!important;border-radius:9px!important}
+.te-hero .nt-tabs button[aria-selected="true"]{background:#f46649!important;box-shadow:none!important}
+.te-hero .te-hub{box-sizing:border-box;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:10px;padding:14px;border:0;border-radius:14px;background:linear-gradient(160deg,#2a1713,#0f0a09);box-shadow:inset 0 0 0 1px #f46649,inset 0 1px #ffd9c02b,0 10px 26px #0008,0 0 calc(var(--arrival,0)*26px) rgb(244 102 73 / calc(var(--arrival,0)*.55))}
+.te-hero .te-hub strong{font:300 20px/1 Chillax,sans-serif;letter-spacing:-.01em;margin:0;color:#f6e9de}
+.te-brand-mark{width:28px;height:28px;flex:none;background:#f46649;mask:url('assets/bridgify-icon.svg') center/contain no-repeat;-webkit-mask:url('assets/bridgify-icon.svg') center/contain no-repeat}
+.te-flow-svg path{filter:none}.te-flow-svg circle{filter:drop-shadow(0 0 3px #f46649)}
+@media(min-width:761px){html body[data-copy-page="travel-technology"] .te-visual.nt-embed{grid-template-columns:1fr 13% 1fr}.te-hero .nt-bridge{width:180px}.te-hero .te-hub{width:180px}}
+@media(max-width:760px){.te-hero .te-hub{width:180px}.te-hero .te-visual.nt-embed{padding-bottom:22px}}
