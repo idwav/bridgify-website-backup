@@ -55,7 +55,7 @@ DRAFT = r"""() => {
     return parts.slice(-2).join(' > ');  // keep the parent for context even when the last step alone is unique
   };
   const out = [];
-  const secs = [...document.querySelectorAll('main section, body > section, .bf-cta-shell')].filter(s => !s.parentElement.closest('section') && vis(s) && s.offsetHeight > 120);
+  const secs = [...document.querySelectorAll('section, .bf-cta-shell')].filter(s => !s.closest('header,footer,.ad-menu')).filter(s => !s.parentElement.closest('section') && vis(s) && s.offsetHeight > 120);
   secs.forEach((sec, si) => {
     // a section drawn as one card (CTA, security box): the card is the frame and keeps its own padding
     const only = btns(sec).filter(k => !k.classList.contains('brand-section-fade'));

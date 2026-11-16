@@ -30,10 +30,14 @@ MEASURE = r"""(MAP) => {
     return {t, b, l: r.left, r: r.right}; };
   const px = n => parseFloat(R.tok(n));
   const out = {sections: [], issues: []};
+  // a section that is not in the map is not checked at all: say so
+  const mappedSecs = MAP.sections.map(S => document.querySelector(S.section)).filter(Boolean);
+  [...document.querySelectorAll('section')].filter(s => !s.parentElement.closest('section') && !s.closest('header,footer,.ad-menu') && vis(s) && s.offsetHeight > 120 && !mappedSecs.includes(s))
+    .forEach(s => out.issues.push(`${s.id ? '#' + s.id : '.' + s.classList[0]}: section not in the role map (nothing in it is checked)`));
   MAP.sections.forEach(S => {
     const sec = document.querySelector(S.section); if (!sec) { out.issues.push(`${S.section}: section not found`); return; }
     const frame = S.frame ? sec.querySelector(S.frame) : sec;
-    const items0 = S.items.filter(([role]) => role !== 'more').map(([role, sel, opt]) => ({role, sel, opt, els: [...frame.querySelectorAll(sel)].filter(vis)}));
+    const items0 = S.items.filter(([role, sel]) => !(role === 'more' && /ad-more/.test(sel))).map(([role, sel, opt]) => ({role, sel, opt, els: [...frame.querySelectorAll(sel)].filter(vis)}));
     const items = []; items0.forEach(i => { items.push(i); const el = i.els[i.els.length - 1], m = el && el.nextElementSibling; if (i.role === 'text' && m && m.classList.contains('ad-more') && vis(m)) items.push({role: 'more', sel: '(found)', els: [m]}); });
     items.filter(i => !i.els.length && i.opt !== 'optional').forEach(i => out.issues.push(`${S.section}: ${i.role} "${i.sel}" not found or hidden`));
     const deco = items.filter(i => i.role === 'deco').flatMap(i => i.els);   // art behind content: ends the section, no gaps

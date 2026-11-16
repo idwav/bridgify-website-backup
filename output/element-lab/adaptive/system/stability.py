@@ -54,7 +54,8 @@ async def main():
             await asyncio.sleep(0.2)
         await pg.wait_for_timeout(2000); fin = Image.open(io.BytesIO(await pg.screenshot())).convert('RGB').resize((130, 221))
         await br.close()
-    blank = lambda im: ImageStat.Stat(im.convert('L')).stddev[0] < 6          # an empty or single-colour frame
+    # an empty or single-colour frame; the preview's own switch (bottom-left pill) is not page content
+    blank = lambda im: ImageStat.Stat(im.convert('L').crop((0, 0, 130, 185))).stddev[0] < 6
     seen = [(t, f) for t, f in frames if not blank(f)]
     rows = [(t, round(ImageStat.Stat(ImageChops.difference(f, fin)).mean[0], 1)) for t, f in seen]
     bad = [r for r in rows if r[1] > 3]

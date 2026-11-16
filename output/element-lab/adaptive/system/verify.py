@@ -33,7 +33,7 @@ RULES = [
  ('S9', 'Section top and bottom 64; header bar → hero label 48', 'check.py', r'section top|section end|header → first'),
  ('S10', 'Heading text and buttons stay inside the 24px side margins', 'check.py', r'outside the side margins|not on the'),
  ('S11', 'Tiles of one row start on one line', 'check.py', r'tiles on the first row'),
- ('S12', 'Every visible block has a role (nothing unchecked)', 'check.py', r'no role for|not found or hidden|section not found'),
+ ('S12', 'Every visible block has a role (nothing unchecked)', 'check.py', r'no role for|not found or hidden|section not found|not in the role map'),
  ('B1', 'Button = action, link = go and read; a link is never drawn as a button', 'check.py', r'drawn as a button'),
  ('B2', 'At most one primary button per group; every button has a kind', 'check.py', r'primary button|has no kind'),
  ('B3', 'Buttons 40px tall, full frame', 'check.py', r'tall \(want 40\)|uneven frame'),

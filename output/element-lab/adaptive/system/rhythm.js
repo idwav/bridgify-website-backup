@@ -25,7 +25,7 @@
     if (b === 'link') return /^(text|actions|link)$/.test(a) ? 'gap-to-link' : 'gap-to-content';
     if (b === 'actions') return 'gap-to-actions';
     if (b === 'control') return 'gap-to-control';
-    if (a === 'control' && b === 'content') return 'gap-control-content';
+    if (a === 'control') return 'gap-control-content';   // whatever the tabs show starts 16 under them
     return 'gap-to-content';
   };
 
@@ -67,7 +67,7 @@
       const sec = document.querySelector(S.section); if (!sec) return;
       const frame = S.frame ? sec.querySelector(S.frame) : sec;
       // resolve each item to its visible elements (a group such as FAQ rows counts as one block)
-      const items = withMore(S.items.filter(([role]) => role !== 'deco' && role !== 'more').map(([role, sel]) => ({role, els: [...frame.querySelectorAll(sel)].filter(shown)})).filter(i => i.els.length));
+      const items = withMore(S.items.filter(([role, sel]) => role !== 'deco' && !(role === 'more' && /ad-more/.test(sel))).map(([role, sel]) => ({role, els: [...frame.querySelectorAll(sel)].filter(shown)})).filter(i => i.els.length));
       if (!items.length) return;
       items.forEach(i => i.els.forEach(el => {
         el.dataset.bfRole = i.role; if (i.role === 'link') mark(el, 'bfTone', tone(el));

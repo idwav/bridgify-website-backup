@@ -192,6 +192,64 @@ window.BridgifyRoles = {
     ]
    ],
    "frame": "div.hc2-box"
+  },
+  {
+   "section": "#opportunity-study",
+   "items": [
+    [
+     "title",
+     "#opx-opportunity-title"
+    ],
+    [
+     "text",
+     "div.pb-intro > p:first-child"
+    ],
+    [
+     "more",
+     "div.pb-intro > button.pb-toggle"
+    ],
+    [
+     "text",
+     "p.pb-bar"
+    ],
+    [
+     "control",
+     "div.ad-seg"
+    ],
+    [
+     "content",
+     "div.pb-panels"
+    ]
+   ]
+  },
+  {
+   "section": "#why-bridgify",
+   "items": [
+    [
+     "label",
+     "div > span.hm-eyebrow"
+    ],
+    [
+     "title",
+     "#opx-why-title"
+    ],
+    [
+     "control",
+     "div.wy-body > div.wy-tabs"
+    ],
+    [
+     "text",
+     "div.wy-copy > p"
+    ],
+    [
+     "link",
+     "div.wy-copy > a.wy-more"
+    ],
+    [
+     "content",
+     "div.hm-wrap > div.hm-stage"
+    ]
+   ]
   }
  ]
 };
