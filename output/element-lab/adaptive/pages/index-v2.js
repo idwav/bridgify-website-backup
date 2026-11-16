@@ -92,3 +92,26 @@
       {duration: 750, delay: 80 + i * 100, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards'}));
   });
 })();
+
+/* Products stack (phones): the card being covered by the next one steps back: down to 92% and dimmer, by how much
+   of it is covered. Uses `scale` and `filter`, so the card's own transforms stay as they are. Off with reduced motion. */
+(() => {
+  const A = window.BridgifyAdaptive; if (!A) return;
+  const grid = document.querySelector('#products .pr-grid'); if (!grid) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const cards = [...grid.children];
+  let raf = 0;
+  const paint = () => {
+    raf = 0;
+    cards.forEach((c, i) => {
+      const next = cards[i + 1];
+      if (!A.MQ.mobile.matches || reduced.matches || !next) { c.style.removeProperty('scale'); c.style.removeProperty('filter'); return; }
+      const r = c.getBoundingClientRect(), n = next.getBoundingClientRect();
+      const p = Math.max(0, Math.min(1, (r.bottom - n.top) / r.height));   // share of this card covered by the next
+      c.style.setProperty('scale', String(1 - p * 0.08));
+      c.style.setProperty('filter', `brightness(${1 - p * 0.45})`);
+    });
+  };
+  const ask = () => { if (!raf) raf = requestAnimationFrame(paint); };
+  addEventListener('scroll', ask, {passive: true}); addEventListener('resize', ask); A.MQ.mobile.addEventListener('change', ask); ask();
+})();

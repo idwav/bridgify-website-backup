@@ -98,7 +98,8 @@ window.BridgifyRoles = {
     ],
     [
      "dots",
-     "div.ad-dots"
+     "div.ad-dots",
+     "optional"
     ]
    ]
   },

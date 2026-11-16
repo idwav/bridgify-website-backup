@@ -324,3 +324,224 @@
   html body #products .ad-more[aria-expanded="true"] span{transform:rotate(45deg)}
 }
 @media (min-width:600px){ html body #products .ad-more{display:none} }
+
+/* ---------- Homepage demos at full size (phones, 16 Nov 2026) ----------
+   Plan: output/element-lab/demos.html. Show less, at real size, and make the point of each demo the largest thing in
+   it. Only demo data is trimmed (repeated items, thumbnails, code lines); no copy from Copy v4 is removed. */
+@media (max-width:599px){
+  /* Intent card: the detected values are the point. Labels 11, values 17, the context a quiet line at 13. */
+  html body #personalization .intent-field small{font-size:11px!important;letter-spacing:.1em!important}
+  html body #personalization .intent-field strong{font-size:17px!important;font-weight:500!important}
+  html body #personalization .intent-fields>.intent-field:nth-child(3) small{font-size:11px!important}
+  html body #personalization .intent-fields>.intent-field:nth-child(3) strong{font-size:13px!important}
+
+  /* Products: each card shows its idea at real size. API: four lines of code at 12.5px, the request and the answer.
+     Marketplace: a store with one experience. AIyelet: the request it understands, at 14px. */
+  html body #products .pr-vis{height:208px!important}
+  html body #products .pr-code{inset:14px!important;width:auto!important;height:auto!important}
+  html body #products .pr-code header span{font-size:11px!important;width:auto!important}
+  html body #products .pr-code pre{font-size:12.5px!important;line-height:1.6!important;padding:10px 12px!important;white-space:pre-wrap!important;overflow-wrap:anywhere!important;overflow:visible!important}
+  html body #products .pr-code pre>span{line-height:1.6!important;height:auto!important}
+  html body #products .pr-code pre>span:nth-child(3),html body #products .pr-code pre>span:nth-child(5),
+  html body #products .pr-code pre>span:nth-child(7),html body #products .pr-code pre>span:nth-child(8){display:none!important}
+  html body #products .pr-store{inset:14px 14px auto!important;width:auto!important;height:auto!important}
+  html body #products .pr-store .bar{height:26px!important;font-size:11px!important}
+  html body #products .pr-store .bar span{font-size:11px!important;width:auto!important}
+  html body #products .pr-store nav{font-size:13px!important;height:auto!important;padding:6px 10px!important}
+  html body #products .pr-store nav em{font-size:11px!important;width:auto!important}
+  html body #products .pr-store h5{font-size:17px!important;line-height:1.25!important;margin:6px 10px!important}
+  html body #products .pr-store .search{font-size:12px!important;height:auto!important;padding:7px 10px!important;margin:0 10px!important;width:auto!important}
+  html body #products .pr-store .cards{grid-template-columns:1fr!important;padding:8px 10px!important}
+  html body #products .pr-store .cards>div:nth-child(n+2){display:none!important}
+  html body #products .pr-store .cards img{height:58px!important;width:100%!important;object-fit:cover!important}
+  html body #products .pr-ai-field{width:calc(100% - 32px)!important;left:16px!important;right:16px!important}
+  html body #products .pr-ai-field span{font-size:14px!important;height:42px!important;gap:8px!important}
+  html body #products .pr-ai-field span svg{width:16px!important;height:16px!important}
+  html body #products .pr-ai-field i{width:auto!important;font-size:14px!important;font-style:normal!important}
+  html body #products .pr-ai-field b{font-size:14px!important}
+
+  /* Why · Aggregate: the five sources as readable chips, a short funnel, the engine, then the catalog figure large. */
+  html body #wy-agg .hm-stage.ag{height:auto!important;min-height:0!important;display:grid!important;grid-template-columns:1fr 1fr;gap:8px;padding:14px!important}
+  html body #wy-agg .hm-stage.ag>svg{display:none!important}
+  html body #wy-agg .ag-src{position:static!important;width:auto!important;height:auto!important;transform:none!important}
+  html body #wy-agg .ag-src:nth-of-type(5){grid-column:1/-1;justify-self:center;width:60%!important}
+  html body #wy-agg .ag-src-body{position:static!important;transform:none!important;opacity:1!important;width:100%!important;height:auto!important;padding:10px 12px!important;gap:10px!important}
+  html body #wy-agg .ag-src-body:not(:first-child){display:none!important}
+  html body #wy-agg .ag-src-body svg{width:18px!important;height:18px!important;flex:none}
+  html body #wy-agg .ag-src-body b{font-size:13px!important;font-weight:500!important;line-height:1.25!important;height:auto!important;width:auto!important}
+  html body #wy-agg .ag-src-body small{font-size:11px!important;line-height:1.3!important;height:auto!important;width:auto!important}
+  html body #wy-agg .ag-src-body>div{width:auto!important;height:auto!important}
+  html body #wy-agg .ag-funnel{position:static!important;grid-column:1/-1;height:52px!important;width:70%!important;justify-self:center}
+  html body #wy-agg .ag-funnel svg{width:100%!important;height:100%!important}
+  html body #wy-agg .ag-engine{position:static!important;grid-column:1/-1;justify-self:center;transform:none!important;padding:10px 18px!important;height:auto!important;width:auto!important}
+  html body #wy-agg .ag-engine b{font-size:13px!important;height:auto!important;width:auto!important}
+  html body #wy-agg .ag-engine small{font-size:11px!important;height:auto!important;width:auto!important}
+  html body #wy-agg .ag-out{position:static!important;grid-column:1/-1;width:auto!important;height:auto!important;transform:none!important;padding:16px!important}
+  html body #wy-agg .ag-out small{font-size:11px!important;height:auto!important}
+  html body #wy-agg .ag-out .ag-count{font-size:34px!important;line-height:1.1!important;height:auto!important}
+  html body #wy-agg .ag-out>span{font-size:15px!important;height:auto!important}
+  html body #wy-agg .ag-out li,html body #wy-agg .ag-out li b{font-size:13px!important;height:auto!important;line-height:1.6!important}
+  html body #wy-agg .ag-out img:nth-of-type(n+4),html body #wy-agg .ag-out [class*=thumb]>*:nth-child(n+4){display:none!important}
+
+  /* Why · Normalize: the three duplicates and the merged product, labels at 11 and names at 14. */
+  html body #wy-norm .nm-src,html body #wy-norm .nm-flag{font-size:11px!important}
+  html body #wy-norm .nm-body b{font-size:13px!important;line-height:1.3!important}
+  html body #wy-norm .nm-meta{font-size:12px!important;height:auto!important}
+  html body #wy-norm .nm-noimg{font-size:12px!important}
+  html body #wy-norm .nm-lockbar,html body #wy-norm .nm-lockbar span{font-size:11px!important}
+  html body #wy-norm .nm-fbody small{font-size:11px!important}
+  html body #wy-norm .nm-fbody h5{font-size:19px!important}
+  html body #wy-norm .nm-tags li{font-size:12px!important;height:auto!important;padding:4px 8px!important}
+
+  /* Why · Distribute: one feed to three channels; channel names 11, product names 12, two tiles on the website. */
+  html body #wy-dist .ds-engine b{font-size:12px!important}
+  html body #wy-dist .ds-engine small{font-size:11px!important}
+  html body #wy-dist .ds-label{font-size:11px!important;height:auto!important}
+  html body #wy-dist .ds-bar,html body #wy-dist .ds-chrome span{font-size:10px!important}
+  html body #wy-dist .ds-bar span{font-size:10px!important}
+  html body #wy-dist .ds-tile span{font-size:12px!important;height:auto!important}
+  html body #wy-dist .ds-tile small{font-size:11px!important;height:auto!important}
+  html body #wy-dist .ds-web h5{font-size:15px!important}
+  html body #wy-dist .ds-web .ds-row{grid-template-columns:1fr 1fr!important}
+  html body #wy-dist .ds-web .ds-row>.ds-tile:nth-child(3){display:none!important}
+
+  html body #wy-norm .nm-status span{font-size:12px!important;height:auto!important;padding:5px 12px!important;width:auto!important}
+  /* product names wrap instead of being cut with an ellipsis */
+  html body #wy-dist .ds-tile span,html body #wy-pers .ps-body b{white-space:normal!important;overflow:visible!important;text-overflow:clip!important}
+  html body #wy-dist .ds-kiosk .ds-row{grid-template-columns:1fr!important}
+  html body #wy-dist .ds-kiosk .ds-row>.ds-tile:nth-child(n+2){display:none!important}
+  html body #wy-dist .ds-kiosk h5{font-size:12px!important;height:auto!important}
+  /* Why · Personalize: profiles and ranked picks at reading size. */
+  html body #wy-pers .ps-head>span{font-size:11px!important;height:auto!important}
+  html body #wy-pers .ps-prof{font-size:14px!important}
+  html body #wy-pers .ps-body b{font-size:14px!important;height:auto!important;line-height:1.3!important}
+  html body #wy-pers .ps-body small,html body #wy-pers .ps-match{font-size:12px!important;height:auto!important}
+  html body #wy-pers .ps-rank{font-size:11px!important;height:auto!important;width:auto!important;padding:2px 6px!important}
+
+  /* Closing call-to-action demo: one experience under the audience chips (the chips keep scrolling sideways). */
+  html body #home-cta .hc2-cards>.hc2-card:nth-child(n+2){display:none!important}
+}
+
+/* Why · Aggregate, round 2 (user, 16 Nov 2026): sources as plain text without boxes; the engine as one slim row
+   (logo, Bridgify, Engine); the catalog figure with its thumbnails beside it, so the whole stage is shorter. */
+@media (max-width:599px){
+  html body #wy-agg .hm-stage.ag{row-gap:14px!important;column-gap:12px!important}
+  html body #wy-agg .ag-src-body{border:0!important;background:none!important;box-shadow:none!important;padding:0!important;border-radius:0!important}
+  html body #wy-agg .ag-src-body::before,html body #wy-agg .ag-src-body::after{content:none!important}
+  html body #wy-agg .ag-src:nth-of-type(5){width:auto!important;justify-self:start;grid-column:1/-1}
+  html body #wy-agg .ag-funnel{height:40px!important}
+  html body #wy-agg .ag-engine{display:flex!important;align-items:center;gap:8px;justify-self:stretch;justify-content:center;padding:10px 16px!important;border-radius:10px!important}
+  html body #wy-agg .ag-engine .hm-mark{width:24px!important;height:22px!important;flex:none;margin:0!important}
+  html body #wy-agg .ag-engine b{font-size:15px!important;margin:0!important}
+  html body #wy-agg .ag-engine small{font-size:11px!important;margin:0!important;letter-spacing:.12em}
+  html body #wy-agg .ag-out{display:grid!important;grid-template-columns:1fr auto;column-gap:12px;align-items:end}
+  html body #wy-agg .ag-out>small{grid-column:1/-1}
+  html body #wy-agg .ag-out>.ag-count{grid-column:1;grid-row:2}
+  html body #wy-agg .ag-out>.ag-thumbs{grid-column:2;grid-row:2;display:flex!important;gap:4px;align-self:center;width:auto!important;height:auto!important}
+  html body #wy-agg .ag-out>.ag-thumbs img{width:34px!important;height:34px!important;border-radius:6px;object-fit:cover}
+  html body #wy-agg .ag-out>span,html body #wy-agg .ag-out>ul{grid-column:1/-1}
+  html body #wy-agg .ag-out>ul{margin:8px 0 0!important;padding-bottom:0!important}
+  html body #wy-agg .ag-out{padding-bottom:12px!important;min-height:0!important}
+}
+
+/* Why · Normalize, Distribute, Personalize (user, 16 Nov 2026): text without boxes; a box only where there is an image
+   or a screen to show. */
+@media (max-width:599px){
+  /* Normalize: the three duplicate listings as plain rows, then the one merged product, then the result line. */
+  html body #wy-norm .hm-stage.nm{height:auto!important;min-height:0!important;display:flex!important;flex-direction:column;gap:12px;padding:16px!important}
+  html body #wy-norm .hm-stage.nm>svg{display:none!important}
+  html body #wy-norm .nm-card{position:static!important;width:auto!important;height:auto!important;transform:none!important;opacity:1!important;visibility:visible!important;border:0!important;background:none!important;box-shadow:none!important;border-radius:0!important;padding:0 0 12px!important;border-bottom:1px solid #EEE9DE1F!important;display:grid!important;grid-template-columns:1fr auto;column-gap:10px}
+  html body #wy-norm .nm-card::before,html body #wy-norm .nm-card::after{content:none!important}
+  html body #wy-norm .nm-card>img,html body #wy-norm .nm-card>.nm-noimg{display:none!important}
+  html body #wy-norm .nm-src{grid-column:1/-1;display:flex!important;justify-content:space-between;height:auto!important;padding:0 0 4px!important;background:none!important;border:0!important;width:auto!important}
+  html body #wy-norm .nm-flag{border:0!important;background:none!important;padding:0!important;color:#FFB194!important;height:auto!important;width:auto!important}
+  html body #wy-norm .nm-body{grid-column:1/-1;padding:0!important;height:auto!important;width:auto!important;background:none!important}
+  html body #wy-norm .nm-body b{font-size:14px!important;width:auto!important;height:auto!important}
+  html body #wy-norm .nm-meta{width:auto!important;margin-top:2px}
+  html body #wy-norm .nm-final{position:static!important;width:auto!important;height:auto!important;transform:none!important;opacity:1!important;visibility:visible!important;margin-top:4px}
+  html body #wy-norm .nm-final>img{height:120px!important;width:100%!important;object-fit:cover}
+  html body #wy-norm .nm-fbody{height:auto!important;padding:12px 14px 14px!important}
+  html body #wy-norm .nm-status{position:static!important;display:flex!important;justify-content:center;width:auto!important;height:auto!important;transform:none!important}
+  html body #wy-norm .nm-status .before{display:none!important}
+  html body #wy-norm .nm-status .after{position:static!important;opacity:1!important;transform:none!important}
+
+  /* Distribute: "Bridgify · One feed" as one slim row, logo on the left, like the engine in Aggregate. */
+  html body #wy-dist .ds-engine{display:flex!important;align-items:center;justify-content:center;gap:8px;left:24px!important;right:24px!important;width:auto!important;height:46px!important;padding:0 16px!important;border-radius:10px!important}
+  html body #wy-dist .ds-engine .hm-mark{width:24px!important;height:22px!important;flex:none;margin:0!important}
+  html body #wy-dist .ds-engine b{font-size:15px!important;margin:0!important;width:auto!important}
+  html body #wy-dist .ds-engine small{font-size:11px!important;letter-spacing:.12em;margin:0!important;width:auto!important}
+
+  /* Personalize: a tighter header; the ranked cards keep their images and frames. */
+  html body #wy-pers .ps-head{gap:8px!important;height:auto!important}
+  html body #wy-pers .ps-ai{margin:0!important;height:auto!important}
+  html body #wy-pers .ps-caption{margin:10px 0 12px!important;font-size:17px!important;line-height:1.4!important}
+}
+
+/* Why · Normalize, round 2 (user, 16 Nov 2026): the three source listings stay cards, smaller, side by side, and merge
+   into the one product. A loop of 9s: the three cards (0-35%), they slide into the product below and fade (35-52%),
+   the product lands with the result line (52-92%), then the cards return. `translate`, `scale` and `filter` are used
+   so the page's own script, which sets `transform` and `opacity`, cannot cancel the motion. */
+@media (max-width:599px){
+  html body #wy-norm .hm-stage.nm:not(#ad-z){display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start}
+  html body #wy-norm .nm-card:not(#ad-z){display:flex!important;flex-direction:column;border:1px solid #F4664955!important;background:#1A120F!important;border-radius:10px!important;padding:0!important;overflow:hidden;grid-column:auto}
+  html body #wy-norm .nm-card:not(#ad-z)>img,html body #wy-norm .nm-card:not(#ad-z)>.nm-noimg{display:grid!important;width:100%!important;height:54px!important;object-fit:cover;place-items:center}
+  html body #wy-norm .nm-card:not(#ad-z) .nm-src{flex-direction:column;align-items:flex-start;gap:2px;padding:7px 8px 0!important;font-size:11px!important;line-height:1.25!important}
+  html body #wy-norm .nm-card:not(#ad-z) .nm-flag{font-size:11px!important}
+  html body #wy-norm .nm-card:not(#ad-z) .nm-body{padding:5px 8px 8px!important}
+  html body #wy-norm .nm-card:not(#ad-z) .nm-body b{font-size:12px!important;line-height:1.3!important;display:block}
+  html body #wy-norm .nm-card:not(#ad-z) .nm-meta{font-size:11px!important;margin-top:4px;display:flex!important;justify-content:space-between;gap:4px;flex-wrap:wrap}
+  html body #wy-norm .nm-final:not(#ad-z){grid-column:1/-1;margin-top:6px}
+  html body #wy-norm .nm-status:not(#ad-z){grid-column:1/-1;display:grid!important;justify-items:center}
+  html body #wy-norm .nm-status:not(#ad-z)>span{grid-area:1/1;display:flex!important;position:static!important;opacity:1!important}
+
+  @keyframes bf-nm-a{0%,35%{translate:0 0;scale:1;filter:opacity(1)}52%,92%{translate:105% 120px;scale:.55;filter:opacity(0)}100%{translate:0 0;scale:1;filter:opacity(1)}}
+  @keyframes bf-nm-b{0%,35%{translate:0 0;scale:1;filter:opacity(1)}52%,92%{translate:0 120px;scale:.55;filter:opacity(0)}100%{translate:0 0;scale:1;filter:opacity(1)}}
+  @keyframes bf-nm-c{0%,35%{translate:0 0;scale:1;filter:opacity(1)}52%,92%{translate:-105% 120px;scale:.55;filter:opacity(0)}100%{translate:0 0;scale:1;filter:opacity(1)}}
+  @keyframes bf-nm-final{0%,40%{filter:opacity(.18);scale:.97}52%,92%{filter:opacity(1);scale:1}100%{filter:opacity(.18);scale:.97}}
+  @keyframes bf-nm-before{0%,40%{filter:opacity(1)}48%,94%{filter:opacity(0)}100%{filter:opacity(1)}}
+  @keyframes bf-nm-after{0%,46%{filter:opacity(0)}54%,92%{filter:opacity(1)}100%{filter:opacity(0)}}
+  html body #wy-norm .nm-card:nth-of-type(1){animation:bf-nm-a 9s cubic-bezier(.4,0,.2,1) infinite}
+  html body #wy-norm .nm-card:nth-of-type(2){animation:bf-nm-b 9s cubic-bezier(.4,0,.2,1) infinite}
+  html body #wy-norm .nm-card:nth-of-type(3){animation:bf-nm-c 9s cubic-bezier(.4,0,.2,1) infinite}
+  html body #wy-norm .nm-final{animation:bf-nm-final 9s cubic-bezier(.4,0,.2,1) infinite}
+  html body #wy-norm .nm-status .before:not(#ad-z){display:flex!important;animation:bf-nm-before 9s linear infinite}
+  html body #wy-norm .nm-status .after{animation:bf-nm-after 9s linear infinite}
+  html body #wy-norm .nm-card,html body #wy-norm .nm-final{transform-origin:50% 0}
+}
+@media (max-width:599px) and (prefers-reduced-motion:reduce){
+  html body #wy-norm .nm-card,html body #wy-norm .nm-final,html body #wy-norm .nm-status span{animation:none!important}
+  html body #wy-norm .nm-status .before:not(#ad-z){display:none!important}
+}
+/* ...in one place: the product sits under the three cards (same grid area), so nothing is left empty after the merge */
+@media (max-width:599px){
+  html body #wy-norm .nm-final:not(#ad-z){grid-row:1;grid-column:1/-1;margin-top:0;z-index:0}
+  html body #wy-norm .nm-card:not(#ad-z){grid-row:1;z-index:1;align-self:start;margin-top:18px}
+  html body #wy-norm .nm-status:not(#ad-z){grid-row:2}
+  @keyframes bf-nm-a{0%,35%{translate:0 0;scale:1;filter:opacity(1)}52%,92%{translate:105% 60px;scale:.6;filter:opacity(0)}100%{translate:0 0;scale:1;filter:opacity(1)}}
+  @keyframes bf-nm-b{0%,35%{translate:0 0;scale:1;filter:opacity(1)}52%,92%{translate:0 60px;scale:.6;filter:opacity(0)}100%{translate:0 0;scale:1;filter:opacity(1)}}
+  @keyframes bf-nm-c{0%,35%{translate:0 0;scale:1;filter:opacity(1)}52%,92%{translate:-105% 60px;scale:.6;filter:opacity(0)}100%{translate:0 0;scale:1;filter:opacity(1)}}
+  @keyframes bf-nm-final{0%,40%{filter:opacity(0);scale:.96}54%,92%{filter:opacity(1);scale:1}100%{filter:opacity(0);scale:.96}}
+}
+@media (max-width:599px) and (prefers-reduced-motion:reduce){
+  /* without motion: the merged product only */
+  html body #wy-norm .nm-card:not(#ad-z){display:none!important}
+}
+/* explicit columns: auto-placed cards would otherwise move to new columns beside the product */
+@media (max-width:599px){
+  html body #wy-norm .nm-card:nth-of-type(1):not(#ad-z){grid-column:1}
+  html body #wy-norm .nm-card:nth-of-type(2):not(#ad-z){grid-column:2}
+  html body #wy-norm .nm-card:nth-of-type(3):not(#ad-z){grid-column:3}
+}
+
+/* Products as a stack (phones, 16 Nov 2026): instead of swiping sideways, the three product cards pile up as the
+   reader scrolls. Each card sticks under the header; the next one slides over it, and the covered card steps back
+   (smaller and dimmer, set in pages/index-v2.js). Tablet keeps the sideways scroller. */
+@media (max-width:599px){
+  html body #products .pr-grid.ad-scroller:not(#ad-z){display:block!important;overflow:visible!important;scroll-snap-type:none!important;padding:0!important;margin:0!important;gap:0!important;mask-image:none!important;-webkit-mask-image:none!important}
+  html body #products .pr-grid:not(#ad-z)>.pr-card{position:sticky!important;width:auto!important;max-width:none!important;margin:0 0 16px!important;transform-origin:50% 0;
+    background:#1A120F!important;box-shadow:0 -12px 32px #0009}
+  html body #products .pr-grid:not(#ad-z)>.pr-card:nth-child(1){top:calc(var(--ad-header-h) + 8px + 12px)!important}
+  html body #products .pr-grid:not(#ad-z)>.pr-card:nth-child(2){top:calc(var(--ad-header-h) + 8px + 24px)!important}
+  html body #products .pr-grid:not(#ad-z)>.pr-card:nth-child(3){top:calc(var(--ad-header-h) + 8px + 36px)!important;margin-bottom:0!important}
+  html body #products .pr-grid+.ad-dots{display:none!important}
+}
