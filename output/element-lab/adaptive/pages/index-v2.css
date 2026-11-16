@@ -1,0 +1,326 @@
+/* Homepage V2 · adaptive layer. Desktop (≥1024) is untouched.
+   Each block names the section, what changes and why. */
+
+/* ---------- 1 · Hero ---------- */
+@media (max-width:1023px){
+  /* The compact header is 64px instead of 123px, so the hero starts higher. */
+  html body #home.bv2-hero{padding-top:calc(var(--ad-header-h) + 40px)!important}
+  html body #home .bv2-hero-actions{flex-wrap:wrap;row-gap:8px}
+  html body #home .bv2-hero-actions>a{min-height:var(--ad-touch);display:inline-flex;align-items:center}
+}
+@media (max-width:599px){
+  html body #home.bv2-hero{padding-top:calc(var(--ad-header-h) + 32px)!important;min-height:0!important}
+  html body #home .bv2-hero-layout{gap:28px!important}
+  /* Full-width art: the supply cards read larger once the stage uses the whole screen width. */
+  html body #home .bv2-hero-visual{margin-inline:calc(var(--ad-gutter) * -1 + 6px)!important}
+}
+
+/* ---------- 2 · Proof bar: three global numbers first, then the White-Label pair ---------- */
+@media (max-width:599px){
+  html body #sources.trust-strip{grid-template-columns:repeat(6,minmax(0,1fr))!important;column-gap:0!important;row-gap:22px!important}
+  html body #sources .trust-copy,html body #sources .trust-footnote{grid-column:1/-1!important}
+  html body #sources .trust-stat{grid-column:span 2!important;min-width:0}
+  html body #sources .trust-stat:nth-of-type(n+5){grid-column:span 3!important;padding-top:20px!important;border-top:1px dashed #180f1033!important}
+  html body #sources .trust-stat strong{font-size:30px!important}
+}
+
+/* ---------- 3 · The problem: compare one side at a time on mobile, side by side on tablet ---------- */
+@media (max-width:599px){
+  html body #opportunity-study .ad-seg{margin:28px 0 12px;color:#EEE9DE}
+  html body #opportunity-study .pb-panels{gap:0!important}
+  html body #opportunity-study.ad-tabs-on .pb-panel>h4{display:none!important}
+}
+@media (min-width:600px) and (max-width:1023px){
+  html body #opportunity-study .pb-panels{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important;align-items:stretch}
+  html body #opportunity-study .pb-panel{min-width:0}
+}
+
+/* ---------- 4 · Why Bridgify: one step at a time, the step tabs on top ---------- */
+@media (max-width:900px){
+  html body #why-bridgify.ad-tabs-on .wy-tabs{
+    display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:24px 0 28px!important;padding:4px;
+    border:1px solid #EEE9DE24;border-radius:13px}
+  html body #why-bridgify.ad-tabs-on .wy-tab{
+    display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px!important;padding:6px 2px!important;
+    border-radius:10px!important;font-size:11px!important;letter-spacing:.06em!important;text-align:center;color:#C7B5A5}
+  html body #why-bridgify.ad-tabs-on .wy-tab b{font-size:11px}
+  html body #why-bridgify.ad-tabs-on .wy-tab:before,html body #why-bridgify.ad-tabs-on .wy-tab:after{display:none}
+  html body #why-bridgify.ad-tabs-on .wy-tab[aria-selected=true]{color:#FFF8F1;background:#F466492e!important;box-shadow:inset 0 0 0 1px #F4664999!important}
+  html body #why-bridgify.ad-tabs-on .wy-step.ad-on{display:block!important;animation:ad-fade .45s cubic-bezier(.16,1,.3,1)}
+}
+@media (min-width:600px) and (max-width:900px){
+  html body #why-bridgify.ad-tabs-on .wy-tab{flex-direction:row;font-size:13px!important;gap:8px}
+  html body #why-bridgify.ad-tabs-on .wy-tab b{font-size:13px}
+}
+@keyframes ad-fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){html body #why-bridgify .wy-step.ad-on{animation:none!important}}
+
+/* ---------- 6 · Products: a swipeable row of three cards ---------- */
+@media (max-width:1023px){
+  html body #products .pr-grid.ad-scroller{align-items:stretch}
+  html body #products .ad-dots{color:#EEE9DE}
+}
+
+/* ---------- 7 · Who it's for: compact rows, icon beside the text, the whole row is the link ---------- */
+@media (max-width:599px){
+  html body #audiences .audience-card{
+    display:grid!important;grid-template-columns:44px minmax(0,1fr);column-gap:16px;align-items:start;
+    min-height:0!important;padding:20px 0!important}
+  html body #audiences .audience-icon{grid-row:1/span 3;width:44px!important;height:44px!important;margin:2px 0 0!important}
+  html body #audiences .audience-card h3{font-size:22px!important;margin:0 0 6px!important}
+  html body #audiences .audience-card p{font-size:16px!important;margin:0 0 8px!important}
+  html body #audiences .audience-card a{font-size:15px!important;margin:0!important;align-self:start!important;justify-self:start!important;justify-content:flex-start!important}
+  html body #audiences .audience-photo,html body #audiences .audience-card::before{display:none!important}
+}
+@media (min-width:600px) and (max-width:1023px){
+  html body #audiences .audience-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html body #audiences .audience-card{min-height:0!important;padding:26px 24px 26px 0!important;border-left:0!important}
+  html body #audiences .audience-card:nth-child(even){padding-left:24px!important;border-left:1px solid #180f1026!important}
+  html body #audiences .audience-card:nth-child(-n+3){border-top:0!important}
+  html body #audiences .audience-photo,html body #audiences .audience-card::before{display:none!important}
+}
+
+/* ---------- 8 · The numbers: no scroll story on small screens, the metric card leads ---------- */
+@media (max-width:1023px){
+  html body #marketplace-results.v2e-enterprise{min-height:0!important;height:auto!important}
+  html body #marketplace-results .v2e-stage{position:relative!important;top:auto!important;min-height:0!important;height:auto!important;
+    padding-block:var(--ad-section-y)!important}
+}
+@media (max-width:599px){
+  html body #marketplace-results .v2e-art{height:150px!important;margin-top:-40px;overflow:hidden;opacity:.85}
+}
+
+/* ---------- 9 · Security: both seals whole and side by side ---------- */
+@media (max-width:599px){
+  html body #security .sec2-badges{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  html body #security .sec2-badges li{opacity:1!important;transform:none!important}
+}
+
+/* ---------- One start line: every homepage section begins at the gutter (24 mobile · 40 tablet), like the header logo ---------- */
+@media (max-width:1023px){
+  html body :is(#home,#sources,#opportunity-study,#why-bridgify,#personalization,#products,#audiences,#security,#faq,#home-cta){
+    padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important}
+  html body #marketplace-results .v2e-stage{padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important}
+  html body #marketplace-results .v2e-copy,html body #marketplace-results .v2e-proof{padding-left:0!important;padding-right:0!important;margin-left:0!important}
+}
+
+/* ---------- 8 · The numbers on tablet: copy beside the metric card, readable labels ----------
+   Between 721 and 1023 the desktop scene was scaled with cqw, so card labels fell to ~6px. */
+@media (min-width:721px) and (max-width:1023px){
+  html body #marketplace-results .v2e-stage{display:grid!important;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);column-gap:32px;align-items:center;
+    width:100%!important;aspect-ratio:auto!important;box-sizing:border-box;container-type:normal!important}
+  html body #marketplace-results .v2e-copy{position:relative!important;inset:auto!important;display:block!important;width:auto!important;height:auto!important}
+  html body #marketplace-results .v2e-copy::after{display:none!important}
+  html body #marketplace-results .v2e-copy h2{position:static!important;width:auto!important;margin:0 0 20px!important;font-size:var(--type-section)!important;line-height:1.2!important;white-space:normal!important}
+  html body #marketplace-results .v2e-copy p{position:static!important;width:auto!important;margin:0!important;font-size:16px!important;line-height:1.55!important}
+  html body #marketplace-results .v2e-proof{position:relative!important;inset:auto!important;width:100%!important;height:300px!important;border-radius:16px!important;margin:0!important}
+  html body #marketplace-results .v2e-status{top:22px!important;left:22px!important}
+  html body #marketplace-results .nb2-main{left:22px!important;top:44px!important}
+  html body #marketplace-results .nb2-stats .nb2-main dd{font-size:88px!important}
+  html body #marketplace-results .nb2-stats>div:nth-child(2){left:22px!important;bottom:22px!important;width:42%!important;padding-top:12px!important}
+  html body #marketplace-results .nb2-stats>div:nth-child(3){left:auto!important;right:22px!important;bottom:22px!important;width:42%!important;padding-top:12px!important}
+  html body #marketplace-results .nb2-stats>div{gap:6px!important}
+  html body #marketplace-results .nb2-stats dd{font-size:40px!important}
+  html body #marketplace-results .v2e-proof-dots{top:38px!important;right:22px!important;width:35%!important;gap:12px 11px!important}
+  html body #marketplace-results .v2e-art{grid-column:1/-1;position:relative!important;inset:auto!important;width:130%!important;height:auto!important;aspect-ratio:1672/565;margin:12px 0 0 -15%!important}
+}
+/* Card labels never below the 12px label size. */
+@media (max-width:1023px){
+  html body #marketplace-results .nb2-stats dt{font-size:12px!important;letter-spacing:.1em!important}
+}
+
+/* Text links get a 44px touch height without changing how they look. */
+@media (max-width:1023px){
+  html body #why-bridgify .wy-more{min-height:var(--ad-touch);display:inline-flex!important;align-items:center}
+}
+
+/* ===================== Mobile · one section ≈ one screen ===================== */
+@media (max-width:599px){
+  /* Shorter vertical rhythm on phones: 48px top and bottom instead of 64–96. */
+  html body :is(#sources,#opportunity-study,#why-bridgify,#personalization,#products,#audiences,#faq,#home-cta){padding-top:48px!important;padding-bottom:48px!important}
+
+  /* 1 · Hero fills exactly the first screen. */
+  html body #home.bv2-hero{min-height:100svh!important;padding-top:calc(var(--ad-header-h) + 22px)!important;padding-bottom:20px!important;box-sizing:border-box}
+  html body #home .bv2-hero-layout{gap:18px!important}
+  html body #home .bv2-hero-visual{margin-inline:0!important;overflow:visible}
+  html body #home .bv2-hero-actions{margin-top:20px!important}
+  html body #home .bv2-hero-proof{margin-top:14px!important}
+
+  /* 3 · The problem */
+  html body #opportunity-study .pb-head{gap:14px!important}
+  html body #opportunity-study .pb-intro>p:first-child{margin-bottom:6px!important}
+  html body #opportunity-study .pb-bar{margin-top:18px!important;padding:14px 44px 14px 16px!important}
+  html body #opportunity-study .pb-bar:not(.ad-open) span{display:none!important}
+  html body #opportunity-study .pb-bar.ad-open i{transform:rotate(45deg)}
+  html body #opportunity-study .ad-seg{margin:16px 0 10px!important}
+  html body #opportunity-study .pb-panel{padding-top:14px!important;padding-bottom:14px!important}
+  html body #opportunity-study .pb-facts{margin-top:10px!important;gap:0!important}
+  html body #opportunity-study .pb-facts li{min-height:0!important;padding-block:7px!important}
+
+  /* 4 · Why */
+  html body #why-bridgify .wy-head{margin-bottom:0!important}
+  html body #why-bridgify.ad-tabs-on .wy-tabs{margin:18px 0 18px!important}
+  html body #why-bridgify.ad-tabs-on .wy-step .wy-copy h4{display:none!important}
+  html body #why-bridgify .wy-copy{margin-bottom:14px!important}
+
+  /* 5 · Personalization: the typed prompt needs one line, not a 160px box. */
+  html body #personalization .home-intent-heading{gap:14px!important;margin-bottom:20px!important}
+  html body #personalization .intent-sentence{min-height:0!important;height:auto!important;padding-block:22px 14px!important}
+  html body #personalization .intent-fields{gap:8px!important}
+
+  /* 6 · Products: the guide shows its question; a coral + says there is more. */
+  html body #products .pr-head{gap:12px!important;margin-bottom:20px!important}
+  html body #products .pr-guide.ad-exp:not(.ad-open){padding-right:28px}
+  html body #products .pr-guide.ad-exp:before{content:"+";position:absolute;right:0;top:0;font:300 22px/1 Sofia,sans-serif;color:#F46649}
+  html body #products .pr-guide.ad-exp.ad-open:before{content:"−"}
+
+  /* 7 · Who it's for: two-column tiles. Icon, name and line stay; the link label is kept for screen readers
+     and shown as an arrow, since the whole tile is the link. */
+  html body #audiences .audiences-head{margin-bottom:18px!important}
+  html body #audiences .audience-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;border-top:1px solid #180f1026}
+  html body #audiences .audience-card{display:flex!important;flex-direction:column;align-items:flex-start;min-height:0!important;padding:16px 12px 16px 0!important;border-bottom:1px solid #180f1026!important;border-left:0!important}
+  html body #audiences .audience-card:nth-child(even){padding-left:12px!important;padding-right:0!important;border-left:1px solid #180f1026!important}
+  html body #audiences .audience-icon{width:32px!important;height:32px!important;margin:0 0 10px!important}
+  html body #audiences .audience-card h3{font-size:19px!important;line-height:1.2!important;margin:0 0 6px!important;padding-right:18px}
+  html body #audiences .audience-card p{font-size:14px!important;line-height:1.45!important;margin:0!important}
+  html body #audiences .audience-card a.ad-rowlink-a{position:static!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;margin:0!important;padding:0!important}
+  html body #audiences .audience-card:after{content:"↗";position:absolute;top:16px;right:0;font:400 16px/1 Sofia,sans-serif;color:#F46649}
+}
+
+@media (max-width:599px){
+  /* 11 · CTA: the customer chips sit in one swipeable row; two sample results are enough to show the idea. */
+  html body #home-cta .hc2-pick{display:grid!important;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:max-content;grid-template-rows:auto auto;gap:10px 8px!important;overflow-x:auto;scrollbar-width:none;margin-right:-28px;padding-right:28px}
+  html body #home-cta .hc2-pick::-webkit-scrollbar{display:none}
+  html body #home-cta .hc2-pick>span{grid-row:1;grid-column:1/span 4}
+  html body #home-cta .hc2-pick>button{grid-row:2}
+  html body #home-cta .hc2-card:nth-child(n+3){display:none!important}
+  /* 3 · The problem: a little more room comes from the fact list. */
+  html body #opportunity-study .pb-facts li{font-size:15px!important}
+}
+
+/* ---------- Mobile rhythm after linear.app (measured at 390×664) ----------
+   Linear: title 38px, section titles 24px, body 15/24 in a muted tone, 32–40px actions, ~100px between sections.
+   Ours keeps Chillax Light and Sofia; the light weight reads a step smaller, so titles sit one step up (34 / 28). */
+@media (max-width:599px){
+  /* Hero: copy only. The supply illustration is too small to read at this width and is not shown on phones. */
+  html body #home .bv2-hero-visual{display:none!important}
+  html body #home.bv2-hero{padding-top:calc(var(--ad-header-h) + 8px + 56px)!important;padding-bottom:56px!important}
+  html body #home .v2-hero-br{display:none!important}
+  html body #home .bv2-hero-eyebrow{font-size:11px!important;margin-bottom:20px!important}
+  html body #home h1{font-size:34px!important;line-height:1.12!important;margin:0!important}
+  html body #home .bv2-hero-copy>p{font-size:15px!important;line-height:24px!important;color:#EEE9DEB8!important;margin:20px 0 0!important}
+  html body #home .bv2-hero-actions{margin-top:28px!important;gap:20px!important;align-items:center}
+  html body #home .bv2-hero-actions>*{font-size:15px!important}
+  html body #home .bv2-hero-proof{margin-top:28px!important;padding-top:16px!important;font-size:13px!important}
+
+  html body #home.bv2-hero{height:auto!important;min-height:0!important}
+  /* Sections: one title size, one body size, more air around them. */
+  html body section:is(#opportunity-study,#why-bridgify,#faq,#sources,#security):not(#ad-x){padding-top:64px!important;padding-bottom:64px!important}
+  html body main>section:not(#home),html body>section:not(#home){padding-top:64px!important;padding-bottom:64px!important}
+  html body section:not(#home) h2{font-size:28px!important;line-height:1.15!important}
+  html body section :is(h1,h2)~p,html body section header p{font-size:15px!important;line-height:24px!important}
+  html body section [class*=eyebrow],html body section [class*=kicker],html body section .brand-section-label{font-size:11px!important}
+
+  /* Actions: 40px, 15px text, like Linear's closing buttons. Tabs and switches stay 44px. */
+  html body section :is(.brand-action,.bv2-demo,.hc2-btn){height:40px!important;min-height:40px!important;padding-block:0!important;padding-inline:16px!important;font-size:15px!important;border-radius:10px!important}
+}
+
+/* Small explanatory diagrams whose labels are unreadable at phone size (under 8px once fitted) are not shown on phones.
+   Their text lives in the copy beside them. Tablet and desktop keep them. */
+@media (max-width:599px){
+  html body #opportunity-study .pb-panel .hm-wrap{display:none!important}
+}
+
+/* ---------- Round 2 after review on the phone ---------- */
+@media (max-width:599px){
+  /* Chillax titles one weight up on phones: Light (300) reads too thin at 18–28px. */
+  html body section:not(#home) :is(h2,h3){font-weight:400!important}
+
+  /* 2 · Global supply: a compact number strip, about half the previous height.
+     The five figures sit on one row; labels stay whole. */
+  html body section#sources.trust-strip:not(#ad-x){padding-top:44px!important;padding-bottom:44px!important;row-gap:0!important;
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;column-gap:8px!important}
+  html body #sources .trust-copy,html body #sources .trust-footnote,html body #sources>*:not(.trust-stat){grid-column:1/-1!important}
+  html body #sources .trust-stat,html body #sources .trust-stat:nth-of-type(n+5){grid-column:span 1!important;min-width:0;min-height:0!important;
+    padding:16px 0 0!important;margin:20px 0 0!important;border:0!important;border-top:1px solid #180f1026!important;gap:4px!important;justify-content:flex-start!important}
+  html body #sources .trust-stat strong,html body #sources .trust-stat:first-child strong{font-size:23px!important;letter-spacing:-.03em!important;line-height:1.05!important}
+  html body #sources .trust-stat span{font-size:11px!important;line-height:1.3!important;letter-spacing:0!important}
+  html body #sources .trust-copy p{margin-top:8px!important}
+  html body #sources .trust-footnote{margin-top:12px!important;font-size:12px!important}
+
+  /* 7 · Who it's for: one list. Icon beside the text, equal rows, one divider between them. */
+  html body #audiences .audience-grid{grid-template-columns:1fr!important;border-top:1px solid #180f1026}
+  html body #audiences .audience-card,html body #audiences .audience-card:nth-child(even){display:grid!important;grid-template-columns:36px minmax(0,1fr);column-gap:16px;align-items:start;
+    padding:18px 28px 18px 0!important;border:0!important;border-bottom:1px solid #180f1026!important}
+  html body #audiences .audience-icon{grid-row:1/span 2;width:36px!important;height:36px!important;margin:0!important}
+  html body #audiences .audience-card h3{font-size:19px!important;line-height:1.25!important;margin:0 0 4px!important;padding:0!important}
+  html body #audiences .audience-card p{font-size:15px!important;line-height:22px!important;margin:0!important}
+  html body #audiences .audience-card:after{top:20px!important}
+}
+@media (max-width:599px){
+  /* The counters are rolling reels sized in their own units; they follow the strip's figure size. */
+  html body #sources .trust-stat strong :is(.bv2-counter-visual,.bv2-counter-accessible,.bv2-counter-digit,.bv2-counter-reel,span){font-size:inherit!important}
+  html body #sources .trust-stat{align-self:start}
+  html body #audiences .audience-icon svg{width:100%!important;height:100%!important}
+}
+@media (max-width:599px){
+  /* 5 · AIyelet request: one compact card. The typed line, then Intent and Destination side by side,
+     then the context as a single quiet line. */
+  html body #personalization .intent-stage{padding:16px 16px 14px!important;min-height:0!important;height:auto!important}
+  html body #personalization .intent-sentence{font-size:20px!important;padding:6px 0 10px!important;min-height:0!important}
+  html body #personalization .intent-sentence :is(.intent-typed,mark,span){font-size:inherit!important}
+  html body #personalization .intent-fields{grid-template-columns:1fr 1fr!important;grid-template-rows:auto!important;grid-auto-rows:auto!important;gap:8px!important;padding-top:12px!important;margin:0!important;height:auto!important;min-height:0!important}
+  html body #personalization .intent-fields>.intent-field{position:relative!important;inset:auto!important;grid-row:auto!important}
+  html body #personalization .intent-fields>.intent-field:nth-child(-n+2){grid-column:auto!important}
+  html body #personalization .intent-field{padding:10px 12px!important;min-height:0!important;height:auto!important;border-radius:10px!important}
+  html body #personalization .intent-field small{font-size:10px!important;margin:0 0 4px!important;letter-spacing:.12em!important}
+  html body #personalization .intent-field strong{font-size:16px!important;line-height:1.2!important}
+  html body #personalization .intent-fields>.intent-field:nth-child(3){grid-column:1/-1;display:flex!important;align-items:baseline;gap:10px;padding:6px 2px 0!important;border:0!important;background:none!important;box-shadow:none!important}
+  html body #personalization .intent-field:nth-child(3) small{margin:0!important}
+  html body #personalization .intent-field:nth-child(3) strong{font-size:14px!important}
+}
+
+/* ---------- Round 3 after review on the phone ---------- */
+@media (max-width:599px){
+  /* 1 · Hero fills the tallest phone screen (Safari toolbars collapsed), so the next section never shows under it. */
+  html body #home.bv2-hero{min-height:100svh!important;min-height:100lvh!important;display:flex!important;flex-direction:column}
+  html body #home .bv2-hero-layout{flex:1 0 auto}
+
+  /* 2 · Global supply: the figures are the point of this strip, so they stay large (34px).
+     Three across, then two, with one rule between the rows. Still about half the original height. */
+  html body section#sources.trust-strip:not(#ad-x){grid-template-columns:repeat(6,minmax(0,1fr))!important;column-gap:12px!important}
+  html body #sources .trust-stat,html body #sources .trust-stat:nth-of-type(n+5){grid-column:span 2!important;margin:20px 0 0!important;padding:0!important;border:0!important}
+  html body #sources .trust-stat:nth-of-type(n+5){grid-column:span 3!important;padding-top:20px!important;border-top:1px solid #180f1026!important}
+  html body #sources .trust-stat strong,html body #sources .trust-stat:first-child strong{font-size:34px!important;letter-spacing:-.04em!important;line-height:1!important;font-weight:600!important}
+  html body #sources .trust-stat span{font-size:12px!important}
+  html body #sources .trust-stat strong span{font-size:inherit!important}
+
+  /* 5 · AIyelet: the context line is a quiet caption. */
+  html body #personalization .intent-fields>.intent-field:nth-child(3){padding-top:4px!important;gap:8px!important}
+  html body #personalization .intent-fields>.intent-field:nth-child(3) small{font-size:9px!important;letter-spacing:.12em!important}
+  html body #personalization .intent-fields>.intent-field:nth-child(3) strong{font-size:12px!important;font-weight:500!important;opacity:.75}
+
+  /* 7 · Who it's for: names one weight up again (Medium). Icons are normalised in index-v2.js so every glyph
+     fills the same 36px box; the text column starts at 76px (24 gutter + 36 icon + 16 gap) on every row. */
+  html body #audiences .audience-card h3{font-weight:500!important;font-size:18px!important}
+  html body #audiences .audience-card,html body #audiences .audience-card:nth-child(even){padding:20px 28px 20px 0!important}
+}
+@media (max-width:599px){
+  /* Figures share one box height, so every label in a row starts on the same line; the row rule runs unbroken. */
+  html body #sources .trust-stat strong{display:flex!important;align-items:flex-end;height:34px!important;overflow:hidden}
+  html body section#sources.trust-strip:not(#ad-x){column-gap:0!important}
+  html body #sources .trust-stat{padding-right:12px!important}
+}
+@media (max-width:599px){
+  /* On the 8px scale: 32px icon + 16px gap, so every name and line starts 48px in from the gutter. */
+  html body #audiences .audience-card,html body #audiences .audience-card:nth-child(even){grid-template-columns:32px minmax(0,1fr)!important;column-gap:16px!important}
+  html body #audiences .audience-icon{width:32px!important;height:32px!important}
+}
+@media (max-width:599px){
+  /* Products: no corner +; the Read more link under the text opens it. */
+  html body #products .pr-guide.ad-exp:before{content:none!important}
+  html body #products .pr-guide.ad-exp:not(.ad-open){padding-right:0!important}
+  html body #products .ad-more span{transition:transform .3s}
+  html body #products .ad-more[aria-expanded="true"] span{transform:rotate(45deg)}
+}
+@media (min-width:600px){ html body #products .ad-more{display:none} }

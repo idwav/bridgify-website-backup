@@ -8,4 +8,6 @@ Explicit newer user instructions take precedence. Keep work within the requested
 
 Before every publish or upload of visual changes, verify brand typography and colors, shared grid alignment, spacing, responsive layouts and working links in the browser. The user explicitly requested this as a standing rule on 31 October 2026. The shared footer lives in `partials/site-footer.html`, `partials/recurring-cta.html`, `shared-footer.css` and `shared-footer.js`; run `python3 scripts/sync-footer.py` after markup edits and `python3 scripts/sync-footer.py --check` before publishing. The global footer replacement is explicitly authorized on both homepage versions; preserve all other V1 content.
 
+Workflow: follow `WORKFLOW.md` for every visual or responsive task. It records the proven way of working the user asked to keep (16 November 2026): one component per element, the agreed mobile proportions, measuring against the visible phone screen in WebKit and Chromium, and screenshot review before reporting. Add to it only what has been proven.
+
 Typography: read `TYPOGRAPHY.md` before changing text styles. Reuse `brand-typography.css` tokens for editorial roles. Preserve section geometry and diagram-relative typography; do not add arbitrary page-specific font scales.

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bridgify · מיון מובייל</title>
+<style>
+:root{--bg:#100A08;--card:#1A1210;--ink:#EEE9DE;--mute:#EEE9DEA0;--ln:#EEE9DE22;--coral:#F46649;--gutter:24px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.55 system-ui,-apple-system,sans-serif}
+header.top{padding:28px var(--gutter) 8px;max-width:1500px;margin:0 auto}
+h1{font-weight:500;font-size:28px;margin:0 0 6px}
+.lead{color:var(--mute);max-width:820px;margin:0}
+.lead a{color:var(--coral)}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;max-width:1500px;margin:20px auto 0;padding:0 var(--gutter)}
+.g{border:1px solid var(--ln);border-radius:12px;padding:12px 14px;cursor:pointer;background:none;color:inherit;text-align:right;font:inherit}
+.g[aria-pressed=true]{border-color:var(--coral);background:#F466490F}
+.g b{display:flex;justify-content:space-between;font-weight:500;font-size:16px}
+.g b i{font-style:normal;color:var(--coral)}
+.g small{display:block;color:var(--mute);font-size:13px;margin-top:4px}
+.bar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:8px;max-width:1500px;margin:14px auto 0;padding:12px var(--gutter);background:#100A08F2;backdrop-filter:blur(8px);border-block:1px solid var(--ln)}
+.chip{border:1px solid var(--ln);border-radius:99px;padding:6px 12px;background:none;color:var(--ink);font:inherit;font-size:13px;cursor:pointer;min-height:36px}
+.chip[aria-pressed=true]{border-color:var(--coral);color:var(--coral)}
+main{max-width:1500px;margin:0 auto;padding:16px var(--gutter) 80px}
+h2.page{font-weight:500;font-size:20px;margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--ln)}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.item{background:var(--card);border:1px solid var(--ln);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.shot{height:360px;overflow:auto;background:#0B0706;border-bottom:1px solid var(--ln)}
+.shot img{display:block;width:100%;height:auto}
+.body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.meta{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:var(--mute);direction:ltr}
+.why{margin:0;font-size:14px}
+.nums{display:flex;flex-wrap:wrap;gap:6px;direction:ltr;justify-content:flex-end}
+.nums span{font-size:12px;border:1px solid var(--ln);border-radius:6px;padding:2px 6px;color:var(--mute)}
+.nums span.bad{border-color:#F4664980;color:var(--coral)}
+.badge{align-self:flex-start;font-size:12px;border-radius:99px;padding:3px 10px;border:1px solid}
+.b-keep{color:#9fd3a8;border-color:#9fd3a855}.b-fix{color:#f2c46d;border-color:#f2c46d55}.b-variant{color:var(--coral);border-color:#F4664988}.b-static{color:#9cc3f0;border-color:#9cc3f055}.b-simplify{color:#d9a0f0;border-color:#d9a0f055}
+select{margin-top:auto;background:#0B0706;color:var(--ink);border:1px solid var(--ln);border-radius:8px;padding:8px;font:inherit;font-size:13px;min-height:40px}
+.empty{color:var(--mute)}
+@media(max-width:599px){.shot{height:300px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>מיון אלמנטים למובייל</h1>
+  <p class="lead">כל בלוק ויזואלי ב־9 העמודים, צולם ב־390px עם השכבה המוצעת, ברזולוציה של טלפון. המספרים: כמה האלמנט כווץ, גודל הטקסט שהעין רואה בפועל (גודל × כיווץ), פרטי הגלילה, וכמה מהמסך הגלוי האלמנט תופס (390×664, השטח שספארי משאיר, ו־iPhone SE ‏320×568). ההחלטה שלך נשמרת בדפדפן. <a href="adaptive.html">חזרה למעבדה</a></p>
+</header>
+<div class="groups" id="groups"></div>
+<div class="bar" id="pages"></div>
+<main id="list"></main>
+<script src="adaptive/triage/groups.js"></script>
+<script src="adaptive/triage/fit.js"></script>
+<script>
+(() => {
+  const GROUPS = {
+    keep: ['נשאר', 'רק ריווח ויישור, כמו היום'],
+    fix: ['תיקון סידור', 'בלי גלילה מיותרת ובלי כיווץ: ערימה, טאבים או שבירת שורה'],
+    variant: ['לבנות מחדש כרכיב אחד', 'אותו markup וקופי בכל המכשירים, הפריסה משתנה'],
+    static: ['מצב סופי סטטי', 'התוצאה בגודל מלא, בלי אנימציה'],
+    simplify: ['לפשט גם בדסקטופ', 'החלטה עיצובית שלך']
+  };
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const R = window.TRIAGE || [];
+  const FB = (window.FIT && window.FIT.blocks) || {};
+  const fitNums = shot => { const b = FB[shot]; if (!b) return ''; const pc = v => Math.round(v * 100) + '%'; const out = [];
+    const i13 = b.fit['iPhone 13'], se = b.fit['iPhone SE'];
+    if (i13 != null) out.push(`<span class="${b.demo && i13 > .85 ? 'bad' : ''}" title="block height ÷ visible screen (390×664)">screen ${pc(i13)}</span>`);
+    if (se != null && b.demo && se > 1) out.push(`<span class="bad" title="iPhone SE 320×568">SE ${pc(se)}</span>`);
+    if (b.firstView != null && b.demo) out.push(`<span class="${b.firstView < .5 ? 'bad' : ''}">first view ${pc(b.firstView)}</span>`);
+    if (b.covered.length) out.push(`<span class="bad" title="${esc(b.covered.join(' | '))}">covered text?</span>`);
+    if (b.taps) out.push(`<span class="bad">${b.taps} taps &lt;44</span>`);
+    return out.join(''); };
+
+  let store = {}; try { store = JSON.parse(localStorage.getItem('bridgify-triage') || '{}'); } catch (e) {}
+  const save = () => { try { localStorage.setItem('bridgify-triage', JSON.stringify(store)); } catch (e) {} };
+  const grp = r => store[r.shot] || r.group;
+  let fg = new URLSearchParams(location.search).get('group') || 'all', fp = 'all';
+  const draw = () => {
+    document.getElementById('groups').innerHTML = Object.entries(GROUPS).map(([k, [n, d]]) => `<button class="g" data-g="${k}" aria-pressed="${fg === k}"><b>${n}<i>${R.filter(r => grp(r) === k).length}</i></b><small>${d}</small></button>`).join('');
+    const pages = ['all', ...new Set(R.map(r => r.page))];
+    document.getElementById('pages').innerHTML = pages.map(p => `<button class="chip" data-p="${esc(p)}" aria-pressed="${fp === p}">${p === 'all' ? 'כל העמודים' : esc(p)}</button>`).join('') + (fg !== 'all' ? '<button class="chip" data-g="all">כל הקבוצות ✕</button>' : '');
+    const rows = R.filter(r => (fg === 'all' || grp(r) === fg) && (fp === 'all' || r.page === fp));
+    let html = '', last = null;
+    rows.forEach(r => {
+      if (r.page !== last) { if (last !== null) html += '</div>'; html += `<h2 class="page">${esc(r.page)}</h2><div class="list">`; last = r.page; }
+      const g = grp(r), sc = r.scroller;
+      const nums = [
+        `<span class="${r.scale < .85 ? 'bad' : ''}">scale ${Math.round(r.scale * 100)}%</span>`,
+        r.minEff ? `<span class="${r.minEff < 12 ? 'bad' : ''}">text ${r.minEff}px</span>` : '',
+        r.small12 ? `<span class="${r.small12 > .2 ? 'bad' : ''}">${Math.round(r.small12 * 100)}% text &lt;12px</span>` : '',
+        sc && sc.items ? `<span class="bad">scroller ${sc.items} items${sc.sequential ? ' · sequence' : ''}</span>` : '',
+        `<span>${r.screens} screens</span>`
+      ].join('') + fitNums(r.shot);
+      html += `<article class="item"><div class="shot"><img loading="lazy" src="adaptive/triage/shots/${r.shot}" alt=""></div><div class="body">
+        <div class="meta"><span>#${esc(r.section)}</span><span>${esc(r.label).slice(0, 34)}</span></div>
+        <span class="badge b-${g}">${GROUPS[g][0]}${store[r.shot] && store[r.shot] !== r.group ? ' · שונה' : ''}</span>
+        <p class="why">${esc(r.why)}</p><div class="nums">${nums}</div>
+        <select data-k="${r.shot}" aria-label="החלטה">${Object.entries(GROUPS).map(([k, [n]]) => `<option value="${k}" ${k === g ? 'selected' : ''}>${n}${k === r.group ? ' (המלצה)' : ''}</option>`).join('')}</select>
+      </div></article>`;
+    });
+    document.getElementById('list').innerHTML = rows.length ? html + '</div>' : '<p class="empty">אין פריטים בסינון הזה.</p>';
+  };
+  document.addEventListener('click', e => {
+    const g = e.target.closest('[data-g]'); if (g) { fg = fg === g.dataset.g ? 'all' : g.dataset.g; draw(); return; }
+    const p = e.target.closest('[data-p]'); if (p) { fp = p.dataset.p; draw(); }
+  });
+  document.addEventListener('change', e => { const s = e.target.closest('select[data-k]'); if (!s) return; const r = R.find(x => x.shot === s.dataset.k); if (s.value === r.group) delete store[r.shot]; else store[r.shot] = s.value; save(); draw(); });
+  draw();
+})();
+</script>
+</body>
+</html>
