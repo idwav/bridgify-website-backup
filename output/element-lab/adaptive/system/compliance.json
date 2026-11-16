@@ -1,0 +1,477 @@
+{
+ "S1": {},
+ "S2": {},
+ "S3": {},
+ "S4": {},
+ "S5": {},
+ "S6": {},
+ "S7": {},
+ "S8": {},
+ "S9": {},
+ "S10": {},
+ "S11": {},
+ "S12": {},
+ "B1": {},
+ "B2": {},
+ "B3": {},
+ "B4": {},
+ "T1": {},
+ "T2": {
+  "airlines": [
+   "iPhone 13: section-1 \"AT YOUR DESTINATION\" 11px",
+   "iPhone SE: section-1 \"AT YOUR DESTINATION\" 11px",
+   "iPhone 15 Pro Max: section-1 \"AT YOUR DESTINATION\" 11px"
+  ]
+ },
+ "T3": {
+  "api": [
+   "iPhone 13: 1M+ 13px",
+   "iPhone 13: 180+ 13px",
+   "iPhone 13: 1 13px",
+   "iPhone SE: 1M+ 13px",
+   "iPhone SE: 180+ 13px",
+   "iPhone SE: 1 13px",
+   "iPhone 15 Pro Max: 1M+ 13px",
+   "iPhone 15 Pro Max: 180+ 13px",
+   "iPhone 15 Pro Max: 1 13px"
+  ],
+  "marketplace": [
+   "iPhone 13: €39.00 18px",
+   "iPhone 13: $280 13px",
+   "iPhone SE: €39.00 17px",
+   "iPhone SE: $280 13px",
+   "iPhone 15 Pro Max: €39.00 18px",
+   "iPhone 15 Pro Max: $280 13px"
+  ],
+  "otas": [
+   "iPhone 13: 1M+ 12px",
+   "iPhone 13: 1M+ 16px",
+   "iPhone 13: €36 8px",
+   "iPhone SE: 1M+ 11px",
+   "iPhone SE: 1M+ 18px",
+   "iPhone SE: €36 6px",
+   "iPhone 15 Pro Max: 1M+ 12px",
+   "iPhone 15 Pro Max: 1M+ 15px",
+   "iPhone 15 Pro Max: €36 9px"
+  ],
+  "airlines": [
+   "iPhone 13: €42 8px",
+   "iPhone SE: €42 6px",
+   "iPhone 15 Pro Max: €42 9px"
+  ],
+  "hotels": [
+   "iPhone 13: €95 8px",
+   "iPhone SE: €95 6px",
+   "iPhone 15 Pro Max: €95 9px"
+  ],
+  "travel-technology": [
+   "iPhone 13: €39 8px",
+   "iPhone SE: €39 6px",
+   "iPhone 15 Pro Max: €39 9px"
+  ],
+  "super-apps": [
+   "iPhone 13: €184.20 24px",
+   "iPhone 13: €120 8px",
+   "iPhone SE: €184.20 24px",
+   "iPhone SE: €120 6px",
+   "iPhone 15 Pro Max: €184.20 24px",
+   "iPhone 15 Pro Max: €120 9px"
+  ]
+ },
+ "T4": {
+  "index-v2": [
+   "iPhone 13: personalization h2 uneven lines (130/230/330)",
+   "iPhone SE: products h2 orphan \"layer.\"",
+   "iPhone SE: audiences h3 orphan \"platforms\"",
+   "iPhone SE: security h2 orphan \"security\"",
+   "iPhone SE: faq summary orphan \"infrastructure?\"",
+   "iPhone 15 Pro Max: security h2 orphan \"security\""
+  ],
+  "api": [
+   "iPhone 13: customer-experience li orphan \"checkout\"",
+   "iPhone SE: customer-experience li orphan \"time\"",
+   "iPhone SE: customer-experience li orphan \"checkout\"",
+   "iPhone 15 Pro Max: customer-experience li orphan \"checkout\""
+  ],
+  "marketplace": [
+   "iPhone 13: section-1 h2 orphan \"experience.\"",
+   "iPhone 13: section-5 h3 orphan \"experience.\"",
+   "iPhone 13: build-or-buy h2 orphan \"marketplace?\"",
+   "iPhone SE: section-1 h2 orphan \"needed.\"",
+   "iPhone SE: section-1 h2 orphan \"experience.\"",
+   "iPhone SE: section-5 h3 orphan \"experience.\"",
+   "iPhone SE: build-or-buy h2 orphan \"marketplace?\"",
+   "iPhone SE: faq summary orphan \"marketplace?\"",
+   "iPhone 15 Pro Max: section-1 h2 orphan \"experience.\"",
+   "iPhone 15 Pro Max: section-5 h3 orphan \"experience.\"",
+   "iPhone 15 Pro Max: build-or-buy h2 orphan \"marketplace?\""
+  ],
+  "personalization": [
+   "iPhone 13: section-3 h2 uneven lines (247/103/301)"
+  ],
+  "otas": [
+   "iPhone 13: section-2 h2 uneven lines (302/322/106)",
+   "iPhone SE: faq summary orphan \"aggregation?\"",
+   "iPhone 15 Pro Max: section-2 h2 uneven lines (302/322/106)"
+  ],
+  "airlines": [
+   "iPhone 13: section-2 p orphan \"continues.\"",
+   "iPhone 13: section-2 li orphan \"revenue\"",
+   "iPhone SE: section-2 p orphan \"continues.\"",
+   "iPhone SE: section-2 li orphan \"revenue\"",
+   "iPhone 15 Pro Max: section-2 p orphan \"continues.\"",
+   "iPhone 15 Pro Max: section-2 li orphan \"revenue\""
+  ],
+  "travel-technology": [
+   "iPhone 13: section-3 h3 orphan \"packages\"",
+   "iPhone SE: section-2 h2 orphan \"suppliers?\"",
+   "iPhone SE: section-2 li orphan \"source\"",
+   "iPhone SE: section-3 h3 orphan \"software\"",
+   "iPhone SE: section-3 h3 orphan \"packages\"",
+   "iPhone SE: section-4 h2 orphan \"experiences\""
+  ],
+  "hotels": [
+   "iPhone SE: section-1 li orphan \"confirmed\""
+  ],
+  "loyalty-finance": [
+   "iPhone SE: market-signal h2 orphan \"options.\""
+  ],
+  "super-apps": [
+   "iPhone SE: faq summary orphan \"experiences?\""
+  ]
+ },
+ "T5": {
+  "index-v2": [
+   "iPhone 13: personalization div.intent-stage (7 pieces of text)",
+   "iPhone 13: products div.pr-grid (88 pieces of text)",
+   "iPhone SE: personalization div.intent-stage (7 pieces of text)",
+   "iPhone SE: products div.pr-grid (114 pieces of text)",
+   "iPhone 15 Pro Max: personalization div.intent-stage (7 pieces of text)",
+   "iPhone 15 Pro Max: products div.pr-grid (88 pieces of text)"
+  ],
+  "api": [
+   "iPhone 13: top div.ahc-visual (29 pieces of text)",
+   "iPhone 13: network div.an-split > div.nz-wrap (762 pieces of text)",
+   "iPhone 13: customer-experience div.cj > div.cj-stage (43 pieces of text)",
+   "iPhone SE: top div.ahc-visual (29 pieces of text)",
+   "iPhone SE: network div.an-split > div.nz-wrap (762 pieces of text)",
+   "iPhone SE: customer-experience div.cj > div.cj-stage (43 pieces of text)",
+   "iPhone 15 Pro Max: top div.ahc-visual (29 pieces of text)",
+   "iPhone 15 Pro Max: network div.an-split > div.nz-wrap (762 pieces of text)",
+   "iPhone 15 Pro Max: customer-experience div.cj > div.cj-stage (43 pieces of text)"
+  ],
+  "marketplace": [
+   "iPhone 13: section-1 div.market-demo (55 pieces of text)",
+   "iPhone 13: section-2  (31 pieces of text)",
+   "iPhone 13: section-3 div.wl-layout (60 pieces of text)",
+   "iPhone 13: section-5 div.launch-workspace (165 pieces of text)",
+   "iPhone SE: section-1 div.market-demo (55 pieces of text)",
+   "iPhone SE: section-2  (31 pieces of text)",
+   "iPhone SE: section-3 div.wl-layout (69 pieces of text)",
+   "iPhone SE: section-5 div.launch-workspace (165 pieces of text)",
+   "iPhone 15 Pro Max: section-1 div.market-demo (55 pieces of text)",
+   "iPhone 15 Pro Max: section-2  (31 pieces of text)",
+   "iPhone 15 Pro Max: section-3 div.wl-layout (60 pieces of text)",
+   "iPhone 15 Pro Max: section-5 div.launch-workspace (165 pieces of text)"
+  ],
+  "personalization": [
+   "iPhone 13: section-2 div.intent-stage (7 pieces of text)",
+   "iPhone 13: section-3 div.match-workspace (18 pieces of text)",
+   "iPhone 13: section-4 div.embed-shell (158 pieces of text)",
+   "iPhone SE: section-2 div.intent-stage (7 pieces of text)",
+   "iPhone SE: section-3 div.match-workspace (18 pieces of text)",
+   "iPhone SE: section-4 div.embed-shell (186 pieces of text)",
+   "iPhone 15 Pro Max: section-2 div.intent-stage (7 pieces of text)",
+   "iPhone 15 Pro Max: section-3 div.match-workspace (18 pieces of text)",
+   "iPhone 15 Pro Max: section-4 div.embed-shell (158 pieces of text)"
+  ],
+  "otas": [
+   "iPhone 13: section-1 div.ys-ticket (211 pieces of text)",
+   "iPhone 13: section-2 div.ms-layout (52 pieces of text)",
+   "iPhone 13: section-3 div.rc-panel (33 pieces of text)",
+   "iPhone 13: section-4 div.xc-grid (175 pieces of text)",
+   "iPhone SE: section-1 div.ys-ticket (249 pieces of text)",
+   "iPhone SE: section-2 div.ms-layout (52 pieces of text)",
+   "iPhone SE: section-3 div.rc-panel (33 pieces of text)",
+   "iPhone SE: section-4 div.xc-grid (175 pieces of text)",
+   "iPhone 15 Pro Max: section-1 div.ys-ticket (211 pieces of text)",
+   "iPhone 15 Pro Max: section-2 div.ms-layout (93 pieces of text)",
+   "iPhone 15 Pro Max: section-3 div.rc-panel (33 pieces of text)",
+   "iPhone 15 Pro Max: section-4 div.xc-grid (175 pieces of text)"
+  ],
+  "airlines": [
+   "iPhone 13: section-3 div.jp-sticky > div.jp-preview (195 pieces of text)",
+   "iPhone 13: section-4 div.xc-grid (174 pieces of text)",
+   "iPhone SE: section-3 div.jp-sticky > div.jp-preview (195 pieces of text)",
+   "iPhone SE: section-4 div.xc-grid (174 pieces of text)",
+   "iPhone 15 Pro Max: section-3 div.jp-sticky > div.jp-preview (195 pieces of text)",
+   "iPhone 15 Pro Max: section-4 div.xc-grid (174 pieces of text)"
+  ],
+  "hotels": [
+   "iPhone 13: section-1 div.hm-layout (114 pieces of text)",
+   "iPhone 13: section-3 div.hs-sticky > div.hs-preview (106 pieces of text)",
+   "iPhone 13: section-4 div.xc-grid (172 pieces of text)",
+   "iPhone SE: section-1 div.hm-layout (114 pieces of text)",
+   "iPhone SE: section-3 div.hs-sticky > div.hs-preview (106 pieces of text)",
+   "iPhone SE: section-4 div.xc-grid (172 pieces of text)",
+   "iPhone 15 Pro Max: section-1 div.hm-layout (114 pieces of text)",
+   "iPhone 15 Pro Max: section-3 div.hs-sticky > div.hs-preview (106 pieces of text)",
+   "iPhone 15 Pro Max: section-4 div.xc-grid (172 pieces of text)"
+  ],
+  "loyalty-finance": [
+   "iPhone 13: section-1 div.lr-demo (43 pieces of text)",
+   "iPhone 13: section-3 div.lu-layout (120 pieces of text)",
+   "iPhone 13: section-4 div.xc-grid (210 pieces of text)",
+   "iPhone SE: section-1 div.lr-demo (71 pieces of text)",
+   "iPhone SE: section-3 div.lu-layout (120 pieces of text)",
+   "iPhone SE: section-4 div.xc-grid (210 pieces of text)",
+   "iPhone 15 Pro Max: section-1 div.lr-demo (43 pieces of text)",
+   "iPhone 15 Pro Max: section-3 div.lu-layout (120 pieces of text)",
+   "iPhone 15 Pro Max: section-4 div.xc-grid (210 pieces of text)"
+  ],
+  "travel-technology": [
+   "iPhone 13: section-1 div.te-visual (133 pieces of text)",
+   "iPhone 13: section-2 div.ti (52 pieces of text)",
+   "iPhone 13: section-4 div.xc-grid (166 pieces of text)",
+   "iPhone SE: section-1 div.te-visual (133 pieces of text)",
+   "iPhone SE: section-2 div.ti (52 pieces of text)",
+   "iPhone SE: section-4 div.xc-grid (166 pieces of text)",
+   "iPhone 15 Pro Max: section-1 div.te-visual (133 pieces of text)",
+   "iPhone 15 Pro Max: section-2 div.ti (52 pieces of text)",
+   "iPhone 15 Pro Max: section-4 div.xc-grid (166 pieces of text)"
+  ],
+  "super-apps": [
+   "iPhone 13: section-1 div.sc-preview (72 pieces of text)",
+   "iPhone 13: section-3 div.up-story-track (68 pieces of text)",
+   "iPhone 13: section-4 div.xc-grid (166 pieces of text)",
+   "iPhone SE: section-1 div.sc-preview (72 pieces of text)",
+   "iPhone SE: section-3 div.up-story-track (68 pieces of text)",
+   "iPhone SE: section-4 div.xc-grid (166 pieces of text)",
+   "iPhone 15 Pro Max: section-1 div.sc-preview (72 pieces of text)",
+   "iPhone 15 Pro Max: section-3 div.up-story-track (68 pieces of text)",
+   "iPhone 15 Pro Max: section-4 div.xc-grid (166 pieces of text)"
+  ]
+ },
+ "L1": {
+  "index-v2": [
+   "iPhone 13: home div.bv2-hero-layout (1 small targets)",
+   "iPhone 13: personalization div.home-intent-heading (1 small targets)",
+   "iPhone 13: home-cta div.hc2-box > div.hc2-copy (1 small targets)",
+   "iPhone SE: home div.bv2-hero-layout (1 small targets)",
+   "iPhone SE: personalization div.home-intent-heading (1 small targets)",
+   "iPhone SE: home-cta div.hc2-box > div.hc2-copy (1 small targets)",
+   "iPhone 15 Pro Max: home div.bv2-hero-layout (1 small targets)",
+   "iPhone 15 Pro Max: personalization div.home-intent-heading (1 small targets)",
+   "iPhone 15 Pro Max: home-cta div.hc2-box > div.hc2-copy (1 small targets)"
+  ],
+  "api": [
+   "iPhone 13: top div.hero-copy (2 small targets)",
+   "iPhone 13: top div.ahc-visual (4 small targets)",
+   "iPhone 13: integration div.am-actions (1 small targets)",
+   "iPhone SE: top div.hero-copy (2 small targets)",
+   "iPhone SE: top div.ahc-visual (4 small targets)",
+   "iPhone SE: integration div.am-actions (1 small targets)",
+   "iPhone 15 Pro Max: top div.hero-copy (2 small targets)",
+   "iPhone 15 Pro Max: top div.ahc-visual (4 small targets)",
+   "iPhone 15 Pro Max: integration div.am-actions (1 small targets)"
+  ],
+  "marketplace": [
+   "iPhone 13: section-1 div.block-copy (2 small targets)",
+   "iPhone 13: section-3 div.wl-layout (1 small targets)",
+   "iPhone SE: section-1 div.block-copy (2 small targets)",
+   "iPhone SE: section-3 div.wl-layout (1 small targets)",
+   "iPhone 15 Pro Max: section-1 div.block-copy (2 small targets)",
+   "iPhone 15 Pro Max: section-3 div.wl-layout (1 small targets)"
+  ],
+  "personalization": [
+   "iPhone 13: section-4 div.embed-shell (1 small targets)",
+   "iPhone 13: section-4 div.embed-links (2 small targets)",
+   "iPhone 13: day-itinerary div.day-layout (1 small targets)",
+   "iPhone 13: day-itinerary footer (4 small targets)",
+   "iPhone SE: section-4 div.embed-shell (1 small targets)",
+   "iPhone SE: section-4 div.embed-links (2 small targets)",
+   "iPhone SE: day-itinerary div.day-layout (1 small targets)",
+   "iPhone SE: day-itinerary footer (4 small targets)",
+   "iPhone 15 Pro Max: section-4 div.embed-shell (1 small targets)",
+   "iPhone 15 Pro Max: section-4 div.embed-links (2 small targets)",
+   "iPhone 15 Pro Max: day-itinerary div.day-layout (1 small targets)",
+   "iPhone 15 Pro Max: day-itinerary footer (4 small targets)"
+  ],
+  "otas": [
+   "iPhone 13: section-1 div.ys-copy (2 small targets)",
+   "iPhone 13: section-2 div.ms-layout (2 small targets)",
+   "iPhone 13: section-3 header.rc-head (1 small targets)",
+   "iPhone 13: section-3 div.rc-panel (2 small targets)",
+   "iPhone SE: section-1 div.ys-copy (2 small targets)",
+   "iPhone SE: section-2 div.ms-layout (2 small targets)",
+   "iPhone SE: section-3 header.rc-head (1 small targets)",
+   "iPhone SE: section-3 div.rc-panel (2 small targets)",
+   "iPhone 15 Pro Max: section-1 div.ys-copy (2 small targets)",
+   "iPhone 15 Pro Max: section-2 div.ms-layout (2 small targets)",
+   "iPhone 15 Pro Max: section-3 header.rc-head (1 small targets)",
+   "iPhone 15 Pro Max: section-3 div.rc-panel (2 small targets)"
+  ],
+  "airlines": [
+   "iPhone 13: section-1 div.aj-heading (1 small targets)",
+   "iPhone 13: section-1 ol.aj-journey (2 small targets)",
+   "iPhone 13: section-3 div.jp-sticky > div.jp-copy (1 small targets)",
+   "iPhone SE: section-1 div.aj-heading (1 small targets)",
+   "iPhone SE: section-1 ol.aj-journey (1 small targets)",
+   "iPhone SE: section-3 div.jp-sticky > div.jp-copy (1 small targets)",
+   "iPhone 15 Pro Max: section-1 div.aj-heading (1 small targets)",
+   "iPhone 15 Pro Max: section-1 ol.aj-journey (2 small targets)",
+   "iPhone 15 Pro Max: section-3 div.jp-sticky > div.jp-copy (1 small targets)"
+  ],
+  "hotels": [
+   "iPhone 13: section-1 div.hm-heading (2 small targets)",
+   "iPhone 13: section-1 div.hm-layout (16 small targets)",
+   "iPhone 13: section-2 div.hr-columns (1 small targets)",
+   "iPhone 13: section-3 div.hs-sticky > div.hs-preview (1 small targets)",
+   "iPhone SE: section-1 div.hm-heading (2 small targets)",
+   "iPhone SE: section-1 div.hm-layout (16 small targets)",
+   "iPhone SE: section-2 div.hr-columns (1 small targets)",
+   "iPhone SE: section-3 div.hs-sticky > div.hs-preview (1 small targets)",
+   "iPhone 15 Pro Max: section-1 div.hm-heading (2 small targets)",
+   "iPhone 15 Pro Max: section-1 div.hm-layout (16 small targets)",
+   "iPhone 15 Pro Max: section-2 div.hr-columns (1 small targets)",
+   "iPhone 15 Pro Max: section-3 div.hs-sticky > div.hs-preview (1 small targets)"
+  ],
+  "loyalty-finance": [
+   "iPhone 13: section-1 div.lf-heading (2 small targets)",
+   "iPhone 13: section-1 div.lr-demo (2 small targets)",
+   "iPhone 13: section-2 div.lp-demo (2 small targets)",
+   "iPhone SE: section-1 div.lf-heading (2 small targets)",
+   "iPhone SE: section-1 div.lr-demo (2 small targets)",
+   "iPhone SE: section-2 div.lp-demo (2 small targets)",
+   "iPhone 15 Pro Max: section-1 div.lf-heading (2 small targets)",
+   "iPhone 15 Pro Max: section-1 div.lr-demo (2 small targets)",
+   "iPhone 15 Pro Max: section-2 div.lp-demo (2 small targets)"
+  ],
+  "travel-technology": [
+   "iPhone 13: section-1 div.te-heading (2 small targets)",
+   "iPhone 13: section-2 div.th-intro (2 small targets)",
+   "iPhone 13: section-3 div.ad-columns (4 small targets)",
+   "iPhone 13: section-3 footer.ad-foot (1 small targets)",
+   "iPhone SE: section-1 div.te-heading (2 small targets)",
+   "iPhone SE: section-2 div.th-intro (2 small targets)",
+   "iPhone SE: section-3 div.ad-columns (5 small targets)",
+   "iPhone SE: section-3 footer.ad-foot (1 small targets)",
+   "iPhone 15 Pro Max: section-1 div.te-heading (2 small targets)",
+   "iPhone 15 Pro Max: section-2 div.th-intro (2 small targets)",
+   "iPhone 15 Pro Max: section-3 div.ad-columns (4 small targets)",
+   "iPhone 15 Pro Max: section-3 footer.ad-foot (1 small targets)"
+  ],
+  "super-apps": [
+   "iPhone 13: section-1 div.sc-hero-copy (2 small targets)",
+   "iPhone 13: section-3 div.up-story-track (2 small targets)",
+   "iPhone 13: section-3 div.sc-foot (1 small targets)",
+   "iPhone SE: section-1 div.sc-hero-copy (2 small targets)",
+   "iPhone SE: section-3 div.up-story-track (2 small targets)",
+   "iPhone SE: section-3 div.sc-foot (1 small targets)",
+   "iPhone 15 Pro Max: section-1 div.sc-hero-copy (2 small targets)",
+   "iPhone 15 Pro Max: section-3 div.up-story-track (2 small targets)",
+   "iPhone 15 Pro Max: section-3 div.sc-foot (1 small targets)"
+  ]
+ },
+ "L2": {
+  "index-v2": [
+   "iPhone 13: audiences div.audience-grid 105% of the screen",
+   "iPhone SE: audiences div.audience-grid 139% of the screen",
+   "iPhone 15 Pro Max: audiences div.audience-grid 86% of the screen"
+  ],
+  "api": [
+   "iPhone 13: whats-inside div 112% of the screen",
+   "iPhone SE: whats-inside div 132% of the screen",
+   "iPhone 15 Pro Max: whats-inside div 94% of the screen"
+  ],
+  "marketplace": [
+   "iPhone 13: section-3 div.wl-layout 110% of the screen",
+   "iPhone 13: section-5 div.launch-workspace 131% of the screen",
+   "iPhone SE: section-3 div.wl-layout 143% of the screen",
+   "iPhone SE: section-4 div.wo-stack 106% of the screen",
+   "iPhone SE: section-5 div.launch-workspace 162% of the screen",
+   "iPhone 15 Pro Max: section-5 div.launch-workspace 117% of the screen"
+  ],
+  "personalization": [
+   "iPhone 13: section-3 div.match-workspace 91% of the screen",
+   "iPhone 13: day-itinerary div.day-layout 152% of the screen",
+   "iPhone SE: section-3 div.match-workspace 107% of the screen",
+   "iPhone SE: day-itinerary div.day-layout 219% of the screen",
+   "iPhone 15 Pro Max: day-itinerary div.day-layout 133% of the screen"
+  ],
+  "otas": [
+   "iPhone 13: section-3 div.rc-panel 96% of the screen",
+   "iPhone SE: section-3 div.rc-panel 134% of the screen",
+   "iPhone 15 Pro Max: section-3 div.rc-panel 86% of the screen"
+  ],
+  "airlines": [
+   "iPhone 13: section-2 div.ar-layout 88% of the screen",
+   "iPhone SE: section-2 div.ar-layout 115% of the screen"
+  ],
+  "hotels": [
+   "iPhone 13: section-1 div.hm-layout 105% of the screen",
+   "iPhone SE: section-1 div.hm-layout 120% of the screen",
+   "iPhone 15 Pro Max: section-1 div.hm-layout 95% of the screen"
+  ],
+  "loyalty-finance": [
+   "iPhone 13: section-3 div.lu-layout 123% of the screen",
+   "iPhone SE: section-3 div.lu-layout 157% of the screen",
+   "iPhone 15 Pro Max: section-3 div.lu-layout 114% of the screen"
+  ],
+  "travel-technology": [
+   "iPhone 13: section-2 div.ti 120% of the screen",
+   "iPhone SE: section-2 div.ti 144% of the screen",
+   "iPhone 15 Pro Max: section-2 div.ti 105% of the screen"
+  ]
+ },
+ "L3": {},
+ "L4": {},
+ "C1": {
+  "marketplace": [
+   "added: ◒ HORIZON Light",
+   "removed: YOUR ✧ BRAND Dark"
+  ]
+ },
+ "C2": {
+  "personalization": [
+   "visible control \"Pause animation Ⅱ\"",
+   "visible control \"Start again ↻\""
+  ]
+ },
+ "C3": {},
+ "C4": {},
+ "M1": {},
+ "M2": {
+  "index-v2": [
+   "index-v2 · site: first content 2.8s · changes after first view until 3.6s (max diff 22.7)"
+  ],
+  "api": [
+   "api · site: first content 2.1s · changes after first view until 2.4s (max diff 32.1)"
+  ],
+  "marketplace": [
+   "marketplace · site: first content 1.5s · changes after first view until 9.2s (max diff 160.4)"
+  ],
+  "personalization": [
+   "personalization · site: first content 1.2s · changes after first view until 3.9s (max diff 24.4)"
+  ],
+  "otas": [
+   "otas · site: first content 1.3s · changes after first view until 2.3s (max diff 32.2)"
+  ],
+  "airlines": [
+   "airlines · site: first content 1.1s · changes after first view until 2.2s (max diff 168.9)"
+  ],
+  "hotels": [
+   "hotels · site: first content 1.4s · changes after first view until 3.2s (max diff 36.5)"
+  ],
+  "loyalty-finance": [
+   "loyalty-finance · site: first content 1.2s · changes after first view until 2.7s (max diff 159.8)"
+  ],
+  "travel-technology": [
+   "travel-technology · site: first content 1.3s · changes after first view until 2.1s (max diff 28.1)"
+  ],
+  "super-apps": [
+   "super-apps · site: first content 1.3s · changes after first view until 2.0s (max diff 21.1)"
+  ]
+ },
+ "M3": {}
+}

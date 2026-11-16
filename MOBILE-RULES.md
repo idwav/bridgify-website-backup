@@ -134,3 +134,20 @@ From `output/element-lab/adaptive/system/` with the lab server running (`localho
 What no tool checks, and must be looked at: copy against Copy v4 (C3), frames (C4) and the entrance motion (M3). A passing report is not the
 end: every change is also looked at in screenshots at phone size before it is reported. The checks have passed
 several times while the eye still found a problem; each such case became a new check.
+
+## 9 · Status (16 November 2026, full run on ten pages)
+
+Full report: `output/element-lab/adaptive/system/compliance.md`.
+
+- **Pass (20):** all spacing and role rules (S1–S12), all button rules (B1–B4), titles (T1), hero fills the screen
+  (L3), desktop and tablet unchanged (L4), no jump in the phone preview (M1).
+- **Findings inside the demos:** small figures (T3), text under 11px (T5), small tap targets (L1) and demos taller
+  than the screen (L2) come almost entirely from shrunk demos. The plan per demo is in
+  `output/element-lab/demos.html`.
+- **Line breaks (T4):** 40 places with one word on a last line or uneven title lines.
+- **T2 (airlines):** the "At your destination" label sits 11px above its title.
+- **C1 (marketplace):** the hero store cycles its theme (Light / Dark) while it is measured; not a text change, but
+  the check cannot tell yet.
+- **C2 (AIyelet):** the live page has "Pause animation" and "Start again" controls. They are against G3 and wait for
+  the owner's decision.
+- **M2:** expected until the CSS route in §7 is built: the lab styles with JavaScript after the first paint.
