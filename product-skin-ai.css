@@ -107,7 +107,7 @@
 .search-pointer{right:20px!important;top:calc(50% + 4px)!important;bottom:auto!important;font-size:34px}
 
 /* Tablet and phone: the hero stacks (copy, then the chat) and the chat keeps its real size instead of shrinking. */
-@media(max-width:1000px){
+@media(max-width:1250px){
 .scene{width:100%!important;height:auto!important;transform:none!important}
 .scene:before,.scene:after{display:none}
 .ai-frame{position:relative!important;inset:auto!important;width:100%!important;height:620px!important;scale:1!important;transform:none!important;animation:none!important}
@@ -123,3 +123,4 @@
 .chat-composer .chat-send{width:38px!important;height:38px!important;min-width:38px!important}
 .search-pointer{font-size:28px}
 }
+@media(min-width:761px) and (max-width:1250px){.scene{max-width:840px;margin-left:auto!important;margin-right:auto!important}.copy{max-width:760px}}

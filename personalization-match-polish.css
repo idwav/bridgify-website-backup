@@ -79,3 +79,4 @@ html body #section-3.match-section .match-card.is-leaving{transform:translateX(2
 #section-3.match-section .match-row b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#section-3.match-section .match-row.is-active b:after{white-space:nowrap}
 @media(max-width:1000px){#section-3.match-section .match-panel-head span{display:none}html body #section-3.match-section .match-deck{padding:14px;min-width:0;overflow:hidden}#section-3.match-section .match-row b{font-size:14px}}
 @media(max-width:760px){#section-3.match-section .match-queue{display:none}#section-3.match-section .match-stage{min-height:300px}}
+@media(min-width:761px) and (max-width:1250px){#section-3.match-section .match-row.is-active b:after{content:"Best";margin-left:6px}#section-3.match-section .match-row{grid-template-columns:52px 1fr;gap:10px}#section-3.match-section .match-row img{width:52px;height:40px}}
