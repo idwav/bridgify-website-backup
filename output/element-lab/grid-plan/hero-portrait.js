@@ -1,30 +1,71 @@
-/* Lab only · tablet portrait hero, direction A "vertical story". Companion to hero-portrait.css.
-   When the screen is a tablet held upright, the hero diagram is rebuilt on an 800×920 grid from the page's own markup
-   (fetched fresh, so the original animation keeps nothing of it) and played with the same timeline as
-   hero-funnel-v2.js. Only the geometry differs: 3 × 4 cards across the width, Bridgify and the devices 151 units
-   lower. On the live site this becomes a portrait geometry inside hero-funnel-v2.js, not a second script. */
+/* Lab only · tablet portrait hero. Companion to hero-portrait.css.
+   When a tablet is held upright, the hero diagram is rebuilt from the page's own markup (fetched fresh, so the
+   original animation keeps nothing of it) on a portrait geometry, and played with the timeline of hero-funnel-v2.js.
+   Variations (window.__bfHeroVariant, set by live.html):
+   - "a" vertical story: 800×920 grid, 3×4 cards 1.55× larger, Bridgify and devices below. Too tall for one screen.
+   - "b" wide band (default, 17 Nov 2026): 800×540 grid. The 12 cards sit in one band on top (6×2), the feeds pour down
+     into Bridgify, and the cable spreads out at the bottom to the app, the site and the rewards program (devices at
+     0.75×). The visual is then sized so the whole hero fits one screen: its width is the content width or the
+     height left under the copy × 800/540, whichever is smaller.
+   On the live site this becomes a portrait geometry inside hero-funnel-v2.js, not a second script. */
 (async () => {
   const MQ = '(min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait)';
   if (!matchMedia(MQ).matches || window.__bfPortraitHero) return;
   window.__bfPortraitHero = true;
   const hero = document.querySelector('.bv2-hero'), live = hero && hero.querySelector('.bv2-funnel');
   if (!live) return;
-  const DY = 151, H = 920;
+  const V = (window.__bfHeroVariant || 'b').toLowerCase();
+
+  // ---- geometries (units of the 800-wide grid) ----
+  const GEO = {
+    a: { H: 920, cls: 'fn-portrait', cols: [118, 400, 682], rows: [44, 126, 208, 290], ncol: 3, half: 31, hub: 400,
+         scatter: (k, r) => [400 + ((k % 3) - 1) * 262 + (r() - .5) * 64, 44 + Math.floor(k / 3) * 82 + (r() - .5) * 30],
+         cable: [466, 508], dev: { scale: 1, top: 553, cx: [99, 400, 701] } },
+    b: { H: 540, cls: 'fn-band', cols: [70, 202, 334, 466, 598, 730], rows: [28, 76], ncol: 6, half: 18.5, hub: 158,
+         scatter: (k, r) => [400 + ((k % 6) - 2.5) * 118 + (r() - .5) * 50, 30 + Math.floor(k / 6) * 50 + (r() - .5) * 24],
+         cable: [224, 254], dev: { scale: .75, top: 290, cx: [131, 400, 669] } }
+  };
+  const g = GEO[V] || GEO.b;
 
   // a fresh copy of the scene, straight from the page source
   const src = await fetch(location.pathname, { cache: 'no-store' }).then(r => r.text());
   const doc = new DOMParser().parseFromString(src, 'text/html');
   const scene = doc.querySelector('.bv2-funnel'); if (!scene) return;
-  scene.classList.add('fn-portrait');
-  const svg = scene.querySelector('.fn-wires'); svg.setAttribute('viewBox', `0 0 800 ${H}`);
-  scene.querySelectorAll('.fn-cable-base, .fn-cable').forEach(p => p.setAttribute('d', `M400 ${315 + DY}V${357 + DY}`));
-  const B = [`M400 ${357 + DY}C400 ${382 + DY} 99 ${372 + DY} 99 ${402 + DY}`, `M400 ${357 + DY}V${402 + DY}`, `M400 ${357 + DY}C400 ${382 + DY} 701 ${372 + DY} 701 ${402 + DY}`];
+  scene.classList.add(g.cls);
+  scene.querySelector('.fn-wires').setAttribute('viewBox', `0 0 800 ${g.H}`);
+  const [c0, c1] = g.cable, top = g.dev.top, [xl, xm, xr] = g.dev.cx, mid = (c1 + top) / 2;
+  scene.querySelectorAll('.fn-cable-base, .fn-cable').forEach(p => p.setAttribute('d', `M400 ${c0}V${c1}`));
+  const B = [`M400 ${c1}C400 ${mid + 6} ${xl} ${mid - 4} ${xl} ${top}`, `M400 ${c1}V${top}`, `M400 ${c1}C400 ${mid + 6} ${xr} ${mid - 4} ${xr} ${top}`];
   scene.querySelectorAll('.fn-branch-base').forEach((p, i) => p.setAttribute('d', B[i]));
   scene.querySelectorAll('.fn-branch').forEach((p, i) => p.setAttribute('d', B[i]));
-  scene.querySelectorAll('.fn-nodes > circle').forEach(c => c.setAttribute('cy', String(+c.getAttribute('cy') + DY)));
-  scene.querySelectorAll('.fn-dev').forEach(d => { const y = parseFloat(d.style.getPropertyValue('--dy')); d.style.setProperty('--dy', String(y + DY)); });
+  // nodes: hub bottom, the split, and the three device tops
+  const N = [[400, c0], [400, c1], [xl, top], [xm, top], [xr, top]];
+  scene.querySelectorAll('.fn-nodes > circle').forEach((c, i) => { if (!N[i]) return; c.setAttribute('cx', String(N[i][0])); c.setAttribute('cy', String(N[i][1])); });
+  // devices: centred on their branch, scaled by a local unit (positions are written in that unit)
+  const s = g.dev.scale;
+  scene.querySelectorAll('.fn-dev').forEach((d, i) => {
+    const w = parseFloat(d.style.getPropertyValue('--dw')), cx = g.dev.cx[i];
+    const dy = d.classList.contains('fn-tablet') ? top + 8 * s : top;
+    d.style.setProperty('--u', `calc(.125cqw * ${s})`);
+    d.style.setProperty('--dx', String((cx - w * s / 2) / s)); d.style.setProperty('--dy', String(dy / s));
+  });
+  scene.querySelectorAll('.fn-cap, .fn-feat').forEach((c, i) => c.style.setProperty('--cx', String(g.dev.cx[Math.floor(i / 2)])));
   live.replaceWith(document.importNode(scene, true));
   const el = hero.querySelector('.bv2-funnel');
+
+  // ---- fit: the whole hero on one screen (variation b) ----
+  const vis = el.closest('.bv2-hero-visual');
+  const fit = () => {
+    if (V !== 'b' || !vis) return;
+    vis.style.removeProperty('width');
+    const cw = vis.getBoundingClientRect().width;
+    const free = innerHeight - (vis.getBoundingClientRect().top + scrollY) - 24;   // to the bottom of the first screen
+    // fit when that keeps the diagram readable (≥ 75% of the content width); on a small iPad, where the copy alone
+    // fills half the screen, the diagram keeps the full width and its lower part needs a short scroll
+    let w = Math.min(cw, free * 800 / g.H); if (w < cw * .75) w = cw;
+    vis.style.setProperty('width', w + 'px', 'important'); vis.style.setProperty('margin-inline', 'auto', 'important');
+  };
+  fit(); addEventListener('resize', fit); if (document.fonts) document.fonts.ready.then(fit);
 
   // ---- the hero-funnel-v2.js timeline, on the portrait geometry ----
   const NS = 'http://www.w3.org/2000/svg';
@@ -35,10 +76,7 @@
   const easeOut = p => 1 - Math.pow(1 - p, 3);
   const T = { converge: 1100, spread: 55, tile: 2000, cable: 4300, cableDur: 500, branch: 5000, branchDur: 500, lit: [5500, 6400, 7300], litDur: 450, end: 9300 };
   const START = 600;
-  const COLS = [118, 400, 682];            // 3 columns across the full width
-  const ROWS = [44, 126, 208, 290];        // 4 rows, 82 units apart (cards are 62 tall)
-  const HUB = { y: 249 + DY };
-  const HALF = 31;                         // half a card's height: where its feed leaves
+  const COLS = g.cols, ROWS = g.rows, HUB = { y: g.hub }, HALF = g.half;
 
   const tileEls = [...el.querySelectorAll('.fn-tile')];
   const parts = [...el.querySelectorAll('[data-at]')].map(e => ({ el: e, at: +e.dataset.at })).sort((a, b) => a.at - b.at);
@@ -49,10 +87,10 @@
   const slots = [...Array(12).keys()];
   for (let i = slots.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [slots[i], slots[j]] = [slots[j], slots[i]]; }
   const items = tileEls.map((t, i) => {
-    const col = i % 3, row = Math.floor(i / 3), k = slots[i];
+    const col = i % g.ncol, row = Math.floor(i / g.ncol), k = slots[i];
     const feed = document.createElementNS(NS, 'path'); feedsG.append(feed);
-    return { i, el: t, feed, tx: COLS[col], ty: ROWS[row], slot: col * 4 + row,
-      sx: 400 + ((k % 3) - 1) * 262 + (rnd() - .5) * 64, sy: 44 + Math.floor(k / 3) * 82 + (rnd() - .5) * 30,
+    const [sx, sy] = g.scatter(k, rnd);
+    return { i, el: t, feed, tx: COLS[col], ty: ROWS[row], slot: col * ROWS.length + row, sx, sy,
       sr: (rnd() - .5) * 30, ph: rnd() * 6.28,
       o1x: (rnd() - .5) * 340, o1y: (rnd() - .5) * 220, o2x: (rnd() - .5) * 340, o2y: (rnd() - .5) * 220, x: 0, y: 0, p: 0 };
   });
@@ -101,5 +139,5 @@
   new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible && !started) started = true; sync(); }, { threshold: .15 }).observe(el);
   new MutationObserver(sync).observe(hero, { attributes: true, attributeFilter: ['class'] });
   document.addEventListener('visibilitychange', sync);
-  window.BridgifyPortraitHero = { showFinal };
+  window.BridgifyPortraitHero = { showFinal, fit, variant: V };
 })();

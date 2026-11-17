@@ -1,4 +1,4 @@
-/* Lab only · tablet portrait hero, direction A "vertical story" (approved direction 17 Nov 2026).
+/* Lab only · tablet portrait hero. Variation A "vertical story" (.fn-portrait) and B "wide band" (.fn-band), 17 Nov 2026.
    The hero diagram is authored on an 800×760 grid (hero-funnel-v2.css). Held upright, a tablet gets an 800×920 grid:
    - the 12 experience cards in 3 columns × 4 rows across the full width, 1.55× larger (217×62 units);
    - Bridgify, the "1M+" stat and the "1 integration" pill move down by 151 units, under the cards;
@@ -22,4 +22,25 @@
   html body #home .fn-portrait .fn-pill { top: calc(var(--u) * 476); }
   html body #home .fn-portrait .fn-cap { top: calc(var(--u) * 829); }
   html body #home .fn-portrait .fn-feat { top: calc(var(--u) * 861); }
+
+  /* B · wide band: 800×540; 12 cards in one 6×2 band on top (0.92×), Bridgify under them, devices spread at the bottom */
+  html body #home .bv2-funnel.fn-band { aspect-ratio: 800 / 540 !important; }
+  html body #home .fn-band .fn-tile {
+    --k: .92;
+    width: calc(var(--u) * 140 * var(--k)); height: calc(var(--u) * 40 * var(--k));
+    margin: calc(var(--u) * -20 * var(--k)) 0 0 calc(var(--u) * -70 * var(--k));
+    gap: calc(var(--u) * 7 * var(--k)); padding: 0 calc(var(--u) * 8 * var(--k)) 0 calc(var(--u) * 5 * var(--k));
+    border-radius: calc(var(--u) * 9 * var(--k));
+  }
+  html body #home .fn-band .fn-tile img { width: calc(var(--u) * 30 * var(--k)); height: calc(var(--u) * 30 * var(--k)); border-radius: calc(var(--u) * 6 * var(--k)); }
+  html body #home .fn-band .fn-tile span { gap: calc(var(--u) * 3.5 * var(--k)); }
+  html body #home .fn-band .fn-tile b { font-size: calc(var(--u) * 11 * var(--k)); }
+  html body #home .fn-band .fn-tile small { font-size: calc(var(--u) * 8.5 * var(--k)); }
+  html body #home .fn-band .fn-hub { top: calc(var(--u) * 158); }
+  html body #home .fn-band .fn-stat { top: calc(var(--u) * 175); }
+  html body #home .fn-band .fn-pill { top: calc(var(--u) * 234); }
+  html body #home .fn-band .fn-cap { top: calc(var(--u) * 492); }
+  html body #home .fn-band .fn-feat { top: calc(var(--u) * 518); }
+  /* the visual is narrowed to fit the first screen (hero-portrait.js); its row centres it */
+  html body #home .bv2-hero-layout:has(.fn-band) { justify-items: stretch; }
 }

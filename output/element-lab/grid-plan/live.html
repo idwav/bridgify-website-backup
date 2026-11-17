@@ -43,6 +43,7 @@ body.clean .bar{display:none}
   <div class="grp"><b>גדלי טקסט</b><button data-z="0">היום</button><button data-z="1">מוצע</button></div>
   <div class="grp"><b>מידות</b><button data-m="0">מוסתר</button><button data-m="1">מוצג</button></div>
   <div class="grp"><b>הירו בטאבלט</b><button data-th="0">היום</button><button data-th="1">מוצע</button></div>
+  <div class="grp" id="ghv"><b>ויזואל הירו בטאבלט</b><button data-hv="a">א · אנכי</button><button data-hv="b">ב · רצועה</button></div>
   <div class="grp" id="gth"><b>כותרת הירו בטאבלט</b><button data-tz="40">40</button><button data-tz="48">48</button><button data-tz="56">56</button></div>
   <div class="grp" id="gy"><b>בין סקשנים</b><button data-y="80">80</button><button data-y="96">96</button><button data-y="128">128</button></div>
   <div class="grp"><b>רוחב</b>
@@ -63,7 +64,7 @@ body.clean .bar{display:none}
   /* Lab only. One full screen of the real homepage. Switching A / B / today swaps only the injected CSS
      (try-cap.css), so the page stays where you scrolled. Keys: A, B, T (today), or ← → to flip. */
   const q = new URLSearchParams(location.search);
-  const S = { v: q.get('v') || '1560', w: q.get('w') === 'fit' ? 'fit' : +(q.get('w') || 1920), t: +(q.get('t') || 32), l: q.get('l') !== '0', s: q.get('s') === '1', y: +(q.get('y') || 96), h: q.get('h') !== '0', a: q.get('a') === '1', z: q.get('z') === '1', m: q.get('m') === '1', th: q.get('th') === '1', tz: +(q.get('tz') || 40) };
+  const S = { v: q.get('v') || '1560', w: q.get('w') === 'fit' ? 'fit' : +(q.get('w') || 1920), t: +(q.get('t') || 32), l: q.get('l') !== '0', s: q.get('s') === '1', y: +(q.get('y') || 96), h: q.get('h') !== '0', a: q.get('a') === '1', z: q.get('z') === '1', m: q.get('m') === '1', th: q.get('th') === '1', tz: +(q.get('tz') || 40), hv: q.get('hv') || 'b' };
   // ?bar=0: a clean screen with no toolbar (the page as a visitor sees it); the key H brings the toolbar back
   if (q.get('bar') === '0') document.body.classList.add('clean');
   const NAME = { today: 'היום', 1440: 'A · תוכן עד 1440', 1560: 'B · תוכן עד 1560' };
@@ -82,7 +83,7 @@ body.clean .bar{display:none}
       if (!st) { st = d.createElement('style'); st.id = 'try-tabhero'; d.head.appendChild(st); }
       // direction A: the hero diagram rebuilt on a portrait grid (tablet held upright)
       st.textContent = thCss + '\n' + hpCss + `\nhtml:root{--try-hero-tab:${S.tz}px}`;
-      if (!w.__bfPortraitHero) { const sc = d.createElement('script'); sc.textContent = hpJs; d.body.appendChild(sc); }
+      if (!w.__bfPortraitHero) { w.__bfHeroVariant = S.hv; const sc = d.createElement('script'); sc.textContent = hpJs; d.body.appendChild(sc); }
     }
     requestAnimationFrame(() => { if (S.s && w.BridgifyRhythmWide) w.BridgifyRhythmWide.apply(); });
   }
@@ -179,13 +180,15 @@ body.clean .bar{display:none}
     document.querySelectorAll('[data-th]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.th === '1') === S.th));
     document.querySelectorAll('[data-tz]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.tz === S.tz));
     document.getElementById('gth').hidden = !S.th;
+    document.getElementById('ghv').hidden = !S.th;
+    document.querySelectorAll('[data-hv]').forEach(b => b.setAttribute('aria-pressed', b.dataset.hv === S.hv));
     document.querySelectorAll('[data-y]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.y === S.y));
     document.querySelectorAll('[data-v]').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === S.v));
     document.querySelectorAll('[data-w]').forEach(b => b.setAttribute('aria-pressed', b.dataset.w === String(S.w)));
     document.querySelectorAll('[data-t]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.t === S.t));
     document.querySelectorAll('[data-s]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.s === '1') === S.s));
     document.querySelectorAll('[data-l]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.l === '1') === S.l));
-    history.replaceState(null, '', '?' + new URLSearchParams({ ...(document.body.classList.contains('clean') ? { bar: 0 } : {}), v: S.v, w: S.w, t: S.t, l: S.l ? 1 : 0, s: S.s ? 1 : 0, y: S.y, h: S.h ? 1 : 0, a: S.a ? 1 : 0, z: S.z ? 1 : 0, m: S.m ? 1 : 0, th: S.th ? 1 : 0, tz: S.tz }));
+    history.replaceState(null, '', '?' + new URLSearchParams({ ...(document.body.classList.contains('clean') ? { bar: 0 } : {}), v: S.v, w: S.w, t: S.t, l: S.l ? 1 : 0, s: S.s ? 1 : 0, y: S.y, h: S.h ? 1 : 0, a: S.a ? 1 : 0, z: S.z ? 1 : 0, m: S.m ? 1 : 0, th: S.th ? 1 : 0, tz: S.tz, hv: S.hv }));
   }
   let ft;
   function setVersion(v) {
@@ -197,6 +200,7 @@ body.clean .bar{display:none}
     const b = e.target.closest('button'); if (!b) return;
     if (b.dataset.v) return setVersion(b.dataset.v);
     if (b.dataset.s) { S.s = b.dataset.s === '1'; layout(); spacing(); return; }
+    if (b.dataset.hv) { S.hv = b.dataset.hv; layout(); try { f.contentWindow.location.reload(); } catch (e) {} return; }
     if (b.dataset.th) { S.th = b.dataset.th === '1'; layout(); tabHero(); return; }
     if (b.dataset.tz) { S.tz = +b.dataset.tz; layout(); tabHero(); return; }
     if (b.dataset.m) { S.m = b.dataset.m === '1'; if (S.m && !S.s) { S.s = true; spacing(); } layout(); meas(); return; }
