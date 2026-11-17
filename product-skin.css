@@ -1,0 +1,104 @@
+/* Product skin: the existing animated demos, dressed in the real product UI (see workflow-preview.html).
+   Structure and every animation hook stay; only the look changes. Colours follow each demo's own theme variables. */
+.market-demo{--ink:var(--text,#fff8f1);--line:color-mix(in srgb,var(--text,#fff8f1) 14%,transparent);--fill:color-mix(in srgb,var(--text,#fff8f1) 6%,transparent)}
+
+/* ---- Marketplace hero: a store page ---- */
+#section-1 .market-window{display:flex!important;flex-direction:column;height:600px;overflow:hidden}
+#section-1 .market-chrome{flex:none;justify-content:flex-start;gap:14px;padding:10px 16px!important}
+#section-1 .market-chrome>span{letter-spacing:2px}
+#section-1 .market-chrome small{flex:0 1 55%;margin:0 auto;padding:5px 12px;border-radius:7px;background:var(--fill);font-size:10px;letter-spacing:.02em;text-align:left}
+#section-1 .market-nav{flex:none;padding:11px 20px!important;border-bottom:1px solid var(--line)}
+#section-1 .demo-brand{font-size:11px;letter-spacing:.14em}
+#section-1 .market-nav>span{font-size:10px;color:var(--muted)}
+#section-1 .market-page{flex:1;min-height:0;display:flex;flex-direction:column;gap:7px;padding:14px 20px 18px}
+#section-1 .mp-crumbs{margin:0;font:400 10px Sofia,sans-serif;color:var(--muted)}
+#section-1 .mp-title{margin:0;font:700 19px/1.15 Sofia,sans-serif;letter-spacing:-.01em;color:var(--ink)}
+#section-1 .market-search{margin:2px 0 4px;padding:9px 14px!important;border:1px solid var(--line);border-radius:999px!important;background:var(--fill)!important;color:var(--muted)!important;font-size:11px!important}
+#section-1 .market-search b{display:none}
+#section-1 .mp-sub{margin:4px 0 0;font:700 13px Sofia,sans-serif;color:var(--ink)}
+#section-1 .market-bento{flex:1;min-height:0;display:grid;grid-template-columns:1.7fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:9px}
+#section-1 .market-cover{grid-column:1;grid-row:1/3;position:relative;height:auto!important;min-height:0;border-radius:11px;overflow:hidden}
+#section-1 .market-cover:after{background:linear-gradient(0deg,#0009,transparent 55%)!important}
+#section-1 .market-main-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#section-1 .market-cover-copy{position:absolute!important;inset:auto 14px 12px 14px!important;z-index:2;display:grid!important;gap:2px;justify-content:start!important}
+#section-1 .market-cover-copy strong{font:700 14px Sofia,sans-serif;color:#fff8f1}.market-cover-copy small{font:400 10px Sofia,sans-serif;color:#eee3d8}
+#section-1 .market-cards{display:contents!important}
+#section-1 .market-cards article{position:relative;min-height:0;min-width:0;border-radius:11px;overflow:hidden;padding:0!important;border:0!important;background:none!important}
+#section-1 .market-cards article:nth-child(1){grid-column:2;grid-row:1}
+#section-1 .market-cards article:nth-child(2){grid-column:2;grid-row:2}
+#section-1 .market-cards article:nth-child(3){grid-column:3;grid-row:1}
+#section-1 .market-cards article img{position:absolute;inset:0;width:100%!important;height:100%!important;object-fit:cover;filter:brightness(.82)}
+#section-1 .market-cards article:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#000a,transparent 60%)}
+#section-1 .market-cards article small{position:absolute;z-index:2;left:10px;bottom:25px;font:600 8px Sofia,sans-serif;letter-spacing:.1em;color:#ffd8bd}
+#section-1 .market-cards article span{position:absolute;z-index:2;left:10px;right:10px;bottom:9px;display:flex;justify-content:space-between;font:600 11px Sofia,sans-serif;color:#fff8f1}
+#section-1 .market-cards article span b{display:none}
+#section-1 .mp-weather{grid-column:3;grid-row:2;display:grid;align-content:space-between;padding:12px;border-radius:11px;background:var(--accent);color:#180f10}
+#section-1 .mp-weather small{font:600 9px Sofia,sans-serif}.mp-weather strong{font:600 28px/1 Sofia,sans-serif}.mp-weather em{font:400 8px Sofia,sans-serif;font-style:normal;opacity:.75}
+
+/* ---- From discovery to checkout: the four screens as store pages ---- */
+#section-2.market-product-tour .screens{height:480px}
+#section-2.market-product-tour .screen{background:#211719}
+#section-2.market-product-tour .chrome{height:38px;padding:0 16px;background:#1a1213;justify-content:flex-start;gap:14px}
+#section-2.market-product-tour .chrome small{flex:0 1 44%;margin:0 auto;padding:5px 14px;border-radius:7px;background:#ffffff0f;font-size:10px;letter-spacing:.02em;color:#d8cdc4}
+#section-2.market-product-tour .chrome b{display:none}
+#section-2.market-product-tour .pnav{display:flex;justify-content:space-between;align-items:center;padding:10px 22px;border-bottom:1px solid #f4664933;font:700 10px Sofia,sans-serif;letter-spacing:.14em;color:#eee9de}
+#section-2.market-product-tour .pnav strong{font-weight:700}
+#section-2.market-product-tour .pnav strong:before{content:"";display:inline-block;width:7px;height:7px;margin-right:8px;border-radius:50%;background:#f46649}
+#section-2.market-product-tour .pnav span{font-weight:400;letter-spacing:0;color:#bcaaa3}
+#section-2.market-product-tour .screen h2{font:700 21px/1.2 Sofia,sans-serif;letter-spacing:-.01em;margin:4px 0}
+#section-2.market-product-tour .screen button[data-forward],#section-2.market-product-tour .confirm{border:0;border-radius:8px;background:#e8654a;color:#180f10;font:700 12px Sofia,sans-serif;padding:11px 18px;box-shadow:none}
+#section-2.market-product-tour .screen button[data-forward]:hover,#section-2.market-product-tour .confirm:hover{background:#ff7a5c}
+/* 1 Search */
+#section-2.market-product-tour .search-scene{height:190px}
+#section-2.market-product-tour .search-scene:after{background:linear-gradient(0deg,#180f10cc,#180f1033)}
+#section-2.market-product-tour .search-copy{left:50%;top:30px;width:min(560px,80%);transform:translateX(-50%);text-align:center}
+#section-2.market-product-tour .search-copy h2{font:700 26px/1.15 Sofia,sans-serif;margin:8px 0 0}
+#section-2.market-product-tour .search-box{margin-top:16px;padding:12px 18px;border:1px solid #f4664977;border-radius:999px;background:#180f10d9;color:#eee9de;text-align:left}
+#section-2.market-product-tour .result{margin:12px 22px 0;padding:14px 18px;border:1px solid #f4664947;border-radius:12px;background:#2a1d1f}
+#section-2.market-product-tour .result h3{font:700 16px Sofia,sans-serif;margin:4px 0}
+/* 2 Experience */
+#section-2.market-product-tour .experience-photo{height:160px;margin:12px 22px 0;border-radius:12px;overflow:hidden}
+#section-2.market-product-tour .detail{align-items:flex-end;padding:12px 22px}
+#section-2.market-product-tour .detail .crumbs{margin:0 0 6px;font-size:10px;color:#bcaaa3}
+#section-2.market-product-tour .detail .buy{display:grid;justify-items:end;gap:8px;text-align:right}
+#section-2.market-product-tour .detail .buy small{font-size:11px;letter-spacing:0;color:#eee9de}
+/* 3 Reviews */
+#section-2.market-product-tour .review-layout{grid-template-columns:.7fr 1.3fr;gap:16px;padding:18px 22px}
+#section-2.market-product-tour .review-summary,#section-2.market-product-tour .review-list article{border:1px solid #f4664947;border-radius:12px;background:#2a1d1f}
+#section-2.market-product-tour .review-summary{padding:18px}
+#section-2.market-product-tour .review-summary h2{font-size:19px}
+#section-2.market-product-tour .review-summary strong{font:700 54px/1 Sofia,sans-serif;margin-top:10px}
+#section-2.market-product-tour .review-list article{padding:12px 16px;margin-bottom:9px}
+#section-2.market-product-tour .review-list article p{margin:6px 0 4px;font-size:13px}
+#section-2.market-product-tour .review-list button{margin-top:6px}
+/* 4 Checkout */
+#section-2.market-product-tour .co-steps{display:flex;justify-content:center;gap:26px;padding:12px 0 0;font:500 10px Sofia,sans-serif;color:#bcaaa3}
+#section-2.market-product-tour .co-steps b{color:#ffba9b;font-weight:700}
+#section-2.market-product-tour .checkout-layout{grid-template-columns:1.3fr 1fr;gap:14px;padding:12px 22px}
+#section-2.market-product-tour .payment{order:1;padding:14px 16px;border:1px solid #f4664947;border-radius:12px;background:#2a1d1f}
+#section-2.market-product-tour .order{order:2;padding:14px 16px;border:1px solid #f4664947;border-radius:12px;background:#2a1d1f}
+#section-2.market-product-tour .payment h2{font-size:17px}
+#section-2.market-product-tour .payment label{margin:10px 0}
+#section-2.market-product-tour .payment label span{border:1px solid #f4664933;border-radius:8px;background:#1a1213;padding:10px 12px}
+#section-2.market-product-tour .order img{height:64px}
+#section-2.market-product-tour .order h2{font-size:17px}
+
+/* ---- Live in 3 days: the store under the domain bar ---- */
+#section-5 .launch-brand{padding:12px 22px;display:flex;justify-content:space-between;align-items:center;letter-spacing:0;font-size:11px;border-bottom:1px solid #f4664930}
+#section-5 .launch-brand b{font:700 11px Sofia,sans-serif;letter-spacing:.14em}
+#section-5 .launch-brand b span{color:#f46649}
+#section-5 .launch-brand em{font:400 10px Sofia,sans-serif;font-style:normal;color:#bcaaa3}
+#section-5 .launch-cover{height:150px;margin:14px 22px 0;border-radius:12px}
+#section-5 .launch-cover:after{background:linear-gradient(0deg,#180f10cc,#180f1033)}
+#section-5 .launch-cover>div{inset:auto auto 16px 24px}
+#section-5 .launch-cover h3{font:700 22px/1.15 Sofia,sans-serif!important;letter-spacing:-.01em;margin:0 0 10px!important}
+#section-5 .launch-search{display:inline-block;padding:8px 16px;border:1px solid #f4664977;border-radius:999px;background:#180f10d9;font-size:11px}
+#section-5 .launch-catalog{padding:14px 22px 20px}
+#section-5 .launch-catalog h4{font:700 13px Sofia,sans-serif;margin:0 0 10px}
+#section-5 .launch-products article{border-radius:12px;background:#2a1d1f}
+#section-5 .launch-products img{height:96px}
+#section-5 .launch-products article span{display:grid;gap:2px;padding:10px 12px;font:700 13px Sofia,sans-serif}
+#section-5 .launch-products article span small{font:400 10px Sofia,sans-serif;letter-spacing:0;color:#bcaaa3}
+#section-5 .launch-products article span em{font:600 11px Sofia,sans-serif;font-style:normal;color:#ffba9b}
+/* Journey headings in product type */
+#section-2.market-product-tour .detail h2,#section-2.market-product-tour .review-summary h2,#section-2.market-product-tour .order h2,#section-2.market-product-tour .payment h2{font:700 20px/1.2 Sofia,sans-serif;letter-spacing:-.01em}
