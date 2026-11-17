@@ -86,7 +86,7 @@
         let z = 1; for (let w = b; w && w !== ca; w = w.parentElement) z *= parseFloat(getComputedStyle(w).zoom) || 1;
         const t0 = b.getBoundingClientRect().top, row = B.els.length > 1 ? B.els.filter(e => Math.abs(e.getBoundingClientRect().top - t0) < 4 || e.getBoundingClientRect().top < t0) : [b];
         row.forEach(e => set(e, 'margin-top', ((g - padBot(a) - padTop(e)) / z) + 'px'));
-        last.push({section: S.section, a: A.role, b: B.role, token: name, want: g, aEl: a, bEl: b});
+        last.push({section: S.section, a: A.role, b: B.role, token: name, want: g, aEl: a, bEl: b, above: items.slice(0, k).flatMap(I => I.els)});
       }
     });
   };
@@ -100,7 +100,10 @@
   const applyAll = () => { apply(); if (MQ.matches) mirrorSteps(); };
   // the gaps as they render now, against the token each one should have
   const report = () => last.map(p => ({section: p.section, pair: p.a + '→' + p.b, token: p.token, want: p.want,
-    got: Math.round((p.bEl.getBoundingClientRect().top + padTop(p.bEl)) - (p.aEl.getBoundingClientRect().bottom - padBot(p.aEl)))}));
+    // measured from the lowest thing above it in its column: under a split heading that is the longer column
+    got: Math.round((p.bEl.getBoundingClientRect().top + padTop(p.bEl)) - Math.max(p.aEl.getBoundingClientRect().bottom - padBot(p.aEl), ...p.above.filter(e => { const r = e.getBoundingClientRect(), b = p.bEl.getBoundingClientRect();
+      // only what sits in b's own column (starts within b's horizontal span) and above it
+      return r.height > 1 && r.top < b.top && r.left >= b.left - 2 && r.left < b.right; }).map(e => e.getBoundingClientRect().bottom)))}));
 
   const run = () => requestAnimationFrame(applyAll);
   applyAll();

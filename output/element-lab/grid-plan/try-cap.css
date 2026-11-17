@@ -18,7 +18,9 @@
   /* V2 sections that hard-code padding 3.7% instead of reading --home-gutter (home-products-v2, home-problem-v2,
      home-numbers-v2, home-cta-v2) or pad an inner column (partner-results) */
   html body :is(#products.pr2, #opportunity-study.pb2, .sec2, #faq.copy-faq, .hc2, #why-bridgify) { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
-  html body #marketplace-results .v2e-copy { padding-left: var(--try-margin) !important; }
+  /* partner results: its stage is capped by the screen height (enterprise-v2.css: min(100%, 100svh*1672/941)) and centred,
+     so the copy's padding takes the stage's own offset off the margin */
+  html body #marketplace-results .v2e-copy { padding-left: max(0px, calc(var(--try-margin) - (100vw - min(100vw, 100svh * 1672 / 941)) / 2)) !important; }
   /* header (decided 17 Nov 2026): the floating bar moves so that the logo and the last button sit on the content
      line; the bar's own inner padding stays outside the line, as on Linear */
   html body header.top.site-header-common.site-header-common { left: calc(var(--try-margin) - var(--try-hdr-pad)) !important; right: calc(var(--try-margin) - var(--try-hdr-pad)) !important; }
