@@ -80,20 +80,8 @@ window.BridgifyRoles = {
      "footer.ad-foot > p"
     ],
     [
-     "link",
-     "div > a:nth-child(1)"
-    ],
-    [
      "actions",
-     "div > a:nth-child(2)"
-    ],
-    [
-     "content",
-     "span.ad-feedback"
-    ],
-    [
-     "content",
-     "div.process-preview"
+     "footer.ad-foot > div > a:last-child"
     ]
    ]
   },

@@ -32,6 +32,8 @@ MEASURE = r"""(MAP) => {
       const sr = stg.getBoundingClientRect();
       // the top is where it is (measured with the page at the top, the stage not yet stuck); the bottom is the run's end
       if (kids[kids.length - 1] === el) b = run.bottom - (sr.bottom - r.bottom) + scrollY; }
+    // a stage that holds over a spacer (.ad-hold-space after it) leaves at the spacer's end
+    const sp = el.nextElementSibling; if (sp && sp.classList && sp.classList.contains('ad-hold-space')) b = sp.getBoundingClientRect().bottom + scrollY;
     if (el.classList.contains('ad-more') || (el.dataset && el.dataset.bfRole === 'link')) { const c = getComputedStyle(el); t += parseFloat(c.paddingTop); b -= parseFloat(c.paddingBottom); }
     return {t, b, l: r.left, r: r.right}; };
   const px = n => parseFloat(R.tok(n));
@@ -62,9 +64,10 @@ MEASURE = r"""(MAP) => {
       const topRef = S.hero && hdr ? hdr.getBoundingClientRect().bottom + scrollY : Y(sec).t;
       const endY = Math.max(Y(l).b, ...deco.map(e => Y(e).b)); const wantTop = S.hero ? px('hero-top') : px('section-y'), gotTop = Math.round(Y(f).t - topRef), gotBot = Math.round(Y(sec).b - endY);
       rec.frame.push({edge: S.hero ? 'header → first' : 'section top → first', want: wantTop, got: gotTop, y0: topRef, y1: Y(f).t, ok: Math.abs(gotTop - wantTop) <= 1});
-      // a hero that fills the first screen may have more room below its last item, never less
+      // a hero that fills the first screen may have more room below its last item, never less;
+      // a full-bleed stage (.ad-bleed) that is the section's last item meets the section's edge (0)
       const fills = S.hero && sec.getBoundingClientRect().height >= innerHeight - 1;
-      rec.frame.push({edge: 'last → section end', want: px('section-y'), got: gotBot, y0: endY, y1: Y(sec).b, ok: fills ? gotBot >= px('section-y') - 1 : Math.abs(gotBot - px('section-y')) <= 1});
+      rec.frame.push({edge: 'last → section end', want: px('section-y'), got: gotBot, y0: endY, y1: Y(sec).b, ok: fills ? gotBot >= px('section-y') - 1 : (l.classList.contains('ad-bleed') && Math.abs(gotBot) <= 1) || Math.abs(gotBot - px('section-y')) <= 1});
       rec.frame.filter(x => !x.ok).forEach(x => out.issues.push(`${S.section}: ${x.edge} ${x.got}px (want ${x.want})`));
     }
     // every visible block must be a mapped element or contain one; decoration (positioned, aria-hidden) is skipped

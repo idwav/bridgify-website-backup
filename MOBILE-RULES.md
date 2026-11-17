@@ -91,6 +91,7 @@ keeps its content at the top; the extra height goes below it.
 | M1, M2 | Nothing jumps after the first paint, in the phone preview (M1) and the way the live site loads (M2). |
 | M3 | Entrances as on desktop: the hero copy arrives in sequence (rise 20px and fade, 750ms, 100ms apart); section parts rise 40px as they enter. Off when the visitor asks for reduced motion. |
 | M4 | A sequence of stations (a trip, a passenger journey) is pinned: the stage stays on screen and the page's scroll moves one station at a time; the stop you are on is marked (lit label, filled ringed dot) and the screens move with it. The page grows by half a screen per station, so scrolling past the last one carries on. Off with reduced motion. Shared helper: `pin()` in `output/element-lab/adaptive/patterns.js`. |
+| M5 | A comparison that opens (Travel Technology, "How do I avoid integrating"): the dark stage rises over the copy and grows from the column width to the screen's edges, then holds full-screen while the scroll turns the first state into the second; scrolling back turns it back, and a tap still works. It ends at the section's edge (class `ad-bleed`, 0 below), the hold is a spacer after it (`ad-hold-space`). Off with reduced motion. |
 
 ## 7 · Building it on the live site
 
