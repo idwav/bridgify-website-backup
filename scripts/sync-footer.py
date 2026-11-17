@@ -47,8 +47,8 @@ PAGE_CTAS = {
                         "Tell us about your users, markets and product. We'll work through the integration and personalization with you.", [DEMO]),
     'insights.html': ('Have an experiences', 'project in mind?',
                       "Tell us what you're exploring. We'll answer the questions that matter to your team.", [('Talk to us', 'contact.html')]),
-    'careers.html': ('Found a role', 'that fits?',
-                     "Apply through the listing and tell us what you'd bring.", [('See open roles', 'careers.html#section-4')]),
+    'careers.html': ("Don't see", 'your role?',
+                     "If you'd make this team better, tell us how.", []),
 }
 
 
