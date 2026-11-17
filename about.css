@@ -11,7 +11,7 @@ body[data-page="about"]{background:#180f10;color:#eee9de}
 .ab-label{display:inline-flex;align-items:center;gap:10px;font:550 12px/1.4 Sofia,sans-serif;letter-spacing:.16em;text-transform:uppercase;background:linear-gradient(100deg,#eee9de,#f3b69f 55%,#f46649);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .ab-label:before{content:"";width:6px;height:6px;border-radius:50%;background:#f46649;flex:none}
 .ab-label-l{background:none;-webkit-text-fill-color:#B7412D;color:#B7412D}
-.ab-mark{width:30px;height:28px;flex:none;background:#f46649;-webkit-mask:url(assets/bridgify-nav-mark.svg) center/contain no-repeat;mask:url(assets/bridgify-nav-mark.svg) center/contain no-repeat}
+.ab-mark{width:32px;height:29px;flex:none;background:#eee9de;-webkit-mask:url(assets/bridgify-octopus-line.svg) center/contain no-repeat;mask:url(assets/bridgify-octopus-line.svg) center/contain no-repeat}
 
 /* Actions */
 .ab-actions{display:flex;flex-wrap:wrap;gap:26px;align-items:center}
@@ -73,7 +73,7 @@ body[data-page="about"]{background:#180f10;color:#eee9de}
 .ms-join:before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#f46649aa}
 .ms-join:after{content:"";position:absolute;left:50%;top:50%;width:1px;height:50%;background:#f46649aa}
 .ms-pill{align-self:center;display:inline-flex;align-items:center;gap:12px;padding:12px 22px;border:1px solid #f46649;border-radius:16px;background:linear-gradient(130deg,#49302a,#201516);font:500 16px Sofia,sans-serif;box-shadow:inset 0 1px #ffd8bd33,0 0 24px #f4664926}
-.ms-pill .ab-mark{width:24px;height:22px}
+.ms-pill .ab-mark{width:28px;height:25px}
 .ms-s2 .ms-pill{margin-top:22px}
 .ms-chan{margin-top:20px;border:1px solid #f46649;border-radius:16px;overflow:hidden;background:#FFF8F1;color:#180f10;box-shadow:0 14px 30px #0006}
 .ms-chan-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #18101014;font:650 15px Sofia,sans-serif}.ms-chan-bar em{font:600 11px Sofia,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#F46649}
@@ -202,3 +202,10 @@ body[data-page="about"]{background:#180f10;color:#eee9de}
 .ms-s3 .ms-few figure.on{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.ms-s3 .ms-few figure{transition:none}.ms-caret{animation:none}}
 @media(min-width:1101px){.ms-s1 .ms-pill{margin-top:64px}.ms-s1 .ms-fields{margin-top:40px}.ms-s2 .ms-chans{margin-top:64px}.ms-s2 .ms-note{margin-top:28px}.ms-s3 .ms-search{margin-top:52px}.ms-s3 .ms-few{margin-top:56px}}
+
+/* Phones and tablets: the 1M+ label sits under the map instead of on top of the dots. */
+@media(max-width:1100px){
+.wm-map{margin-bottom:70px}
+.wm-count{top:100%;left:0;margin-top:14px;max-width:none;display:flex;align-items:center;gap:12px}
+.wm-count b{display:inline;font-size:30px}
+}
