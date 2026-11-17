@@ -9,139 +9,112 @@
 :root{--bg:#100A08;--panel:#1A1210;--line:#3a2c27;--ink:#EEE9DE;--muted:#9b8b80;--coral:#F46649}
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:500 14px/1.3 -apple-system,system-ui,sans-serif;overflow:hidden}
-.bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--panel)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding:8px 16px;border-bottom:1px solid var(--line);background:var(--panel)}
 .grp{display:flex;flex-wrap:wrap;align-items:center;gap:4px}
 .grp b{color:var(--muted);font-weight:600;margin-inline-end:4px}
 .grp button{min-height:32px;padding:0 11px;border:1px solid var(--line);border-radius:8px;background:none;color:var(--ink);font:inherit;cursor:pointer}
 .grp button[aria-pressed="true"]{background:var(--coral);border-color:var(--coral);color:#180F10}
+.ver button{min-height:38px;padding:0 16px;font-size:15px;font-weight:700}
 .grp[hidden]{display:none}
-.stage{height:calc(100% - var(--bar-h,54px));display:flex;justify-content:center;align-items:flex-start;gap:16px;padding:8px 12px 0}
-.col{display:flex;flex-direction:column;gap:6px}
-.col[hidden]{display:none}
-.cap{color:var(--muted);font-weight:600;direction:ltr;text-align:left;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cap em{font-style:normal;color:var(--coral)}
-.frame{position:relative;overflow:hidden;background:#000;box-shadow:0 0 0 1px var(--line)}
+.info{margin-inline-start:auto;color:var(--muted);font-variant-numeric:tabular-nums}
+.stage{height:calc(100% - var(--bar-h,54px));display:flex;justify-content:center;align-items:flex-start}
+.frame{position:relative;overflow:hidden;background:#000}
 .frame iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;background:#fff}
 .lines{position:absolute;inset:0;pointer-events:none}
 .lines i{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--coral);opacity:.85}
+.flash{position:fixed;top:calc(var(--bar-h,54px) + 16px);left:50%;transform:translateX(-50%);padding:10px 18px;border-radius:10px;background:var(--coral);color:#180F10;font:700 18px/1 -apple-system,system-ui,sans-serif;opacity:0;transition:opacity .25s;pointer-events:none}
+.flash.on{opacity:1}
 </style>
 </head>
 <body>
 <div class="bar" id="bar">
-  <div class="grp"><b>גרסה</b>
-    <button data-v="today">היום</button>
+  <div class="grp ver"><b>גרסה</b>
     <button data-v="1440">A · עד 1440</button>
     <button data-v="1560">B · עד 1560</button>
-  </div>
-  <div class="grp"><b>השוואה</b>
-    <button data-c="today">מול היום</button>
-    <button data-c="ab">A מול B</button>
-    <button data-c="off">בלי</button>
+    <button data-v="today">היום</button>
   </div>
   <div class="grp"><b>רוחב</b>
-    <button data-w="390">390</button><button data-w="768">768</button><button data-w="1024">1024</button>
-    <button data-w="1440">1440</button><button data-w="1920">1920</button><button data-w="2560">2560</button>
+    <button data-w="fit">המסך שלי</button>
+    <button data-w="768">768</button><button data-w="1024">1024</button><button data-w="1440">1440</button>
+    <button data-w="1920">1920</button><button data-w="2560">2560</button>
   </div>
-  <div class="grp" id="gt"><b>שוליים בטאבלט</b>
-    <button data-t="32">32</button><button data-t="40">40</button>
-  </div>
+  <div class="grp" id="gt"><b>שוליים בטאבלט</b><button data-t="32">32</button><button data-t="40">40</button></div>
   <div class="grp"><b>קו</b><button data-l="1">מוצג</button><button data-l="0">מוסתר</button></div>
+  <div class="info" id="info"></div>
 </div>
-<div class="stage" id="stage"></div>
+<div class="stage" id="stage">
+  <div class="frame" id="frame"><iframe id="f" title="Bridgify homepage"></iframe><div class="lines" id="lines"></div></div>
+</div>
+<div class="flash" id="flash"></div>
 <script>
 (() => {
-  /* Lab only. The real homepage loads at the chosen width; A/B inject try-cap.css (one content line), "היום" shows it as it is.
-     Compare puts two copies side by side at the same width; scrolling one scrolls the other. */
+  /* Lab only. One full screen of the real homepage. Switching A / B / today swaps only the injected CSS
+     (try-cap.css), so the page stays where you scrolled. Keys: A, B, T (today), or ← → to flip. */
   const q = new URLSearchParams(location.search);
-  const S = { v: q.get('v') || '1560', c: q.get('c') || 'today', w: +(q.get('w') || 1920), t: +(q.get('t') || 32), l: q.get('l') !== '0' };
-  const HOME = '../../../index-v2.html?version=2';
-  const NAME = { today: 'היום', 1440: 'A · עד 1440', 1560: 'B · עד 1560' };
-  const stage = document.getElementById('stage');
-  let css = '';
+  const S = { v: q.get('v') || '1560', w: q.get('w') === 'fit' ? 'fit' : +(q.get('w') || 1920), t: +(q.get('t') || 32), l: q.get('l') !== '0' };
+  const NAME = { today: 'היום', 1440: 'A · תוכן עד 1440', 1560: 'B · תוכן עד 1560' };
+  const ORDER = ['1440', '1560', 'today'];
+  const f = document.getElementById('f'), frame = document.getElementById('frame'), lines = document.getElementById('lines'), stage = document.getElementById('stage');
+  let css = '', W = 0;
+  fetch('try-cap.css', { cache: 'no-store' }).then(r => r.text()).then(t => { css = t; inject(); });
 
-  const panes = [0, 1].map(i => {
-    const col = document.createElement('div'); col.className = 'col';
-    col.innerHTML = '<div class="cap"></div><div class="frame"><iframe title="Bridgify homepage"></iframe><div class="lines"></div></div>';
-    stage.appendChild(col);
-    const p = { col, cap: col.querySelector('.cap'), frame: col.querySelector('.frame'), f: col.querySelector('iframe'), lines: col.querySelector('.lines'), v: 'today' };
-    p.f.addEventListener('load', () => { inject(p); layout(); hookScroll(p); });
-    p.f.src = HOME;
-    return p;
-  });
-  fetch('try-cap.css', { cache: 'no-store' }).then(r => r.text()).then(t => { css = t; panes.forEach(inject); });
-
-  // which version each pane shows: pane 0 = the chosen version; pane 1 = what it is compared against
-  function assign() {
-    if (S.c === 'ab') { panes[0].v = '1440'; panes[1].v = '1560'; }
-    else { panes[0].v = S.v; panes[1].v = 'today'; }
-    panes[1].col.hidden = S.c === 'off';
-  }
-  const margin = v => {
-    const w = S.w;
-    if (v === 'today' || w <= 599) return null;
-    if (w <= 1023) return S.t;
-    return Math.max(Math.min(Math.max(40, 0.04 * w), 64), (w - +v) / 2);
+  const margin = () => {
+    if (S.v === 'today' || W <= 599) return null;
+    if (W <= 1023) return S.t;
+    return Math.max(Math.min(Math.max(40, 0.04 * W), 64), (W - +S.v) / 2);
   };
-  function inject(p) {
-    let d; try { d = p.f.contentDocument; } catch (e) { return; }
+  function inject() {
+    let d; try { d = f.contentDocument; } catch (e) { return; }
     if (!d || !d.head) return;
     let st = d.getElementById('try-cap');
-    if (p.v === 'today') { if (st) st.remove(); return; }
+    if (S.v === 'today') { if (st) st.remove(); return; }
     if (!st) { st = d.createElement('style'); st.id = 'try-cap'; d.head.appendChild(st); }
-    st.textContent = css + `\nhtml:root{--try-cap:${p.v}px;--try-tab:${S.t}px}`;
-  }
-  // only the pane under the pointer leads; the other follows at the same point of the page (by ratio: the two pages differ in height)
-  let leader = null;
-  function hookScroll(p) {
-    const win = p.f.contentWindow; if (!win || win.__hooked) return; win.__hooked = true;
-    const lead = () => { leader = p; };
-    ['pointerenter', 'pointerdown', 'wheel', 'touchstart', 'keydown'].forEach(ev => win.document.addEventListener(ev, lead, { passive: true }));
-    p.frame.addEventListener('pointerenter', lead);
-    try { win.document.documentElement.style.scrollBehavior = 'auto'; } catch (e) {}
-    win.addEventListener('scroll', () => {
-      if (S.c === 'off' || (leader && leader !== p)) return;
-      const de = win.document.documentElement, r = win.scrollY / Math.max(1, de.scrollHeight - win.innerHeight);
-      panes.forEach(o => {
-        const w2 = o.f.contentWindow; if (o === p || !w2) return;
-        const d2 = w2.document.documentElement;
-        w2.scrollTo({ top: r * Math.max(0, d2.scrollHeight - w2.innerHeight), behavior: 'instant' });
-      });
-    }, { passive: true });
+    st.textContent = css + `\nhtml:root{--try-cap:${S.v}px;--try-tab:${S.t}px}`;
   }
   function layout() {
-    assign();
     document.documentElement.style.setProperty('--bar-h', document.getElementById('bar').offsetHeight + 'px');
-    const n = S.c === 'off' ? 1 : 2;
-    const availW = (stage.clientWidth - 24 - 16 * (n - 1)) / n, availH = stage.clientHeight - 8 - 26;
+    const availW = stage.clientWidth, availH = stage.clientHeight;
     if (availW < 50 || availH < 50) return;  // hidden tab: wait for the next resize
-    const s = Math.min(1, availW / S.w);
-    panes.forEach(p => {
-      p.frame.style.width = S.w * s + 'px'; p.frame.style.height = availH + 'px'; p.col.style.width = S.w * s + 'px';
-      p.f.style.width = S.w + 'px'; p.f.style.height = availH / s + 'px'; p.f.style.transform = `scale(${s})`;
-      const m = margin(p.v);
-      let sb = 0; try { const d = p.f.contentDocument; sb = d && d.documentElement.clientWidth ? S.w - d.documentElement.clientWidth : 0; } catch (e) {}
-      p.lines.innerHTML = (S.l && m != null) ? `<i style="left:${m * s}px"></i><i style="left:${(S.w - sb - m) * s}px"></i>` : '';
-      p.cap.innerHTML = `<em><bdi dir="rtl">${NAME[p.v]}</bdi></em> · <bdi>${S.w}px</bdi>` + (m != null ? ` · margin ${Math.round(m)}` : '') + (s < 1 ? ` · ${Math.round(s * 100)}%` : '');
-      inject(p);
-    });
-    document.getElementById('gt').hidden = !(S.w >= 600 && S.w <= 1023);
-    document.querySelectorAll('[data-v]').forEach(b => { b.setAttribute('aria-pressed', S.c !== 'ab' && b.dataset.v === S.v); b.disabled = S.c === 'ab'; b.style.opacity = S.c === 'ab' ? .4 : 1; });
-    document.querySelectorAll('[data-c]').forEach(b => b.setAttribute('aria-pressed', b.dataset.c === S.c));
-    document.querySelectorAll('[data-w]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.w === S.w));
+    W = S.w === 'fit' ? availW : +S.w;
+    const s = Math.min(1, availW / W);
+    frame.style.width = W * s + 'px'; frame.style.height = availH + 'px';
+    f.style.width = W + 'px'; f.style.height = availH / s + 'px'; f.style.transform = `scale(${s})`;
+    const m = margin();
+    let sb = 0; try { const d = f.contentDocument; sb = d && d.documentElement.clientWidth ? W - d.documentElement.clientWidth : 0; } catch (e) {}
+    lines.innerHTML = (S.l && m != null) ? `<i style="left:${m * s}px"></i><i style="left:${(W - sb - m) * s}px"></i>` : '';
+    document.getElementById('info').innerHTML = `<bdi>${W}px</bdi>` + (m != null ? ` · שוליים ${Math.round(m)}` : '') + (s < 1 ? ` · מוקטן ל־${Math.round(s * 100)}%` : '');
+    document.getElementById('gt').hidden = !(W >= 600 && W <= 1023);
+    document.querySelectorAll('[data-v]').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === S.v));
+    document.querySelectorAll('[data-w]').forEach(b => b.setAttribute('aria-pressed', b.dataset.w === String(S.w)));
     document.querySelectorAll('[data-t]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.t === S.t));
     document.querySelectorAll('[data-l]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.l === '1') === S.l));
-    history.replaceState(null, '', '?' + new URLSearchParams({ v: S.v, c: S.c, w: S.w, t: S.t, l: S.l ? 1 : 0 }));
+    history.replaceState(null, '', '?' + new URLSearchParams({ v: S.v, w: S.w, t: S.t, l: S.l ? 1 : 0 }));
+  }
+  let ft;
+  function setVersion(v) {
+    if (v === S.v) return; S.v = v; inject(); layout();
+    const el = document.getElementById('flash'); el.textContent = NAME[v]; el.classList.add('on');
+    clearTimeout(ft); ft = setTimeout(() => el.classList.remove('on'), 900);
   }
   document.getElementById('bar').addEventListener('click', e => {
-    const b = e.target.closest('button'); if (!b || b.disabled) return;
-    if (b.dataset.v) S.v = b.dataset.v;
-    if (b.dataset.c) S.c = b.dataset.c;
-    if (b.dataset.w) S.w = +b.dataset.w;
-    if (b.dataset.t) S.t = +b.dataset.t;
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.v) return setVersion(b.dataset.v);
+    if (b.dataset.w) S.w = b.dataset.w === 'fit' ? 'fit' : +b.dataset.w;
+    if (b.dataset.t) { S.t = +b.dataset.t; inject(); }
     if (b.dataset.l) S.l = b.dataset.l === '1';
     layout();
   });
+  function keys(e) {
+    const k = e.key.toLowerCase();
+    if (k === 'a' || k === 'ש') setVersion('1440');
+    else if (k === 'b' || k === 'נ') setVersion('1560');
+    else if (k === 't' || k === 'א') setVersion('today');
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { const i = ORDER.indexOf(S.v); setVersion(ORDER[(i + (e.key === 'ArrowLeft' ? 1 : 2)) % 3]); e.preventDefault(); }
+  }
+  addEventListener('keydown', keys);
+  f.addEventListener('load', () => { inject(); layout(); try { f.contentWindow.addEventListener('keydown', keys); } catch (e) {} });
   addEventListener('resize', layout);
+  f.src = '../../../index-v2.html?version=2';
   layout();
 })();
 </script>
