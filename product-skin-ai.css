@@ -99,3 +99,9 @@
 .m-results>strong{margin-bottom:8px}
 .chat-cards article{grid-template-columns:64px 1fr;padding:7px}.chat-cards img{width:64px;height:52px}
 .chat-composer{margin:0 30px 18px;min-height:58px}.chat-send{width:42px;height:42px}
+
+/* Send button: a true circle, centred inside the bar */
+.chat-composer{align-items:center}
+.chat-composer .chat-send{flex:none;align-self:center;width:44px!important;height:44px!important;min-width:44px!important;min-height:0!important;padding:0!important;margin:0 0 0 auto!important;border:0!important;border-radius:50%!important;background:#e8654a!important;color:#180f10!important;box-shadow:none!important;display:grid;place-items:center;line-height:1;font-size:22px}
+.chat-composer .chat-send.pressed{transform:scale(.88);box-shadow:0 0 18px #f46649!important}
+.search-pointer{right:20px!important;top:calc(50% + 4px)!important;bottom:auto!important;font-size:34px}
