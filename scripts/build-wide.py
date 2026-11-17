@@ -10,7 +10,8 @@ as plain CSS. Re-spacing at run time made the page jump while scrolling (SPACING
   python3 scripts/build-wide.py --check      # fail if wide/ differs from a fresh build (run before publishing)
 
 Output:
-  wide/grid.css · tokens.css · type.css · header.css · split.css     shared, every page
+  wide/grid.css · tokens.css · type.css · header.css · split.css     shared
+  wide/interim.css · buttons.css · shared.css                        shared (step 6.1; interim.css goes after 6.5)
   wide/pages/<page>.css                                              the page's layer + its baked spacing
   wide/pages/<page>.js                                               only where a page needs geometry (hero visuals)
 A page is published only once its HTML links these files with media="(min-width:600px)" (see SPACING-GRID-PLAN.md,
@@ -25,7 +26,8 @@ OUT = os.path.join(ROOT, 'wide')
 BASE = 'http://127.0.0.1:8084/'
 
 SHARED = {'grid.css': 'grid-vars.css', 'tokens.css': 'tokens-wide.css', 'type.css': 'type-wide.css',
-          'header.css': 'header-compact.css', 'split.css': 'split-align.css'}
+          'header.css': 'header-compact.css', 'split.css': 'split-align.css',
+          'interim.css': 'line-interim.css', 'buttons.css': 'buttons-wide.css', 'shared.css': 'shared-wide.css'}
 # page: (url, role map, page layers in order, split pairs, page script)
 PAGES = {
     'index-v2': ('index-v2.html?version=2', 'roles-index-v2.js', ['home-trial.css', 'tablet-hero.css', 'hero-portrait.css'],
@@ -62,7 +64,7 @@ DIFF = r"""(props) => {
 
 def bake(b, page, cfg):
     url, roles, layers, pairs, _ = cfg
-    css = [R('grid-vars.css'), R('header-compact.css'), R('type-wide.css'), R('tokens-wide.css'), R('split-align.css')] + [R(l) for l in layers]
+    css = [R('grid-vars.css'), R('header-compact.css'), R('type-wide.css'), R('tokens-wide.css'), R('buttons-wide.css'), R('shared-wide.css'), R('split-align.css')] + [R(l) for l in layers]
     js = R(roles) + '\n' + R('rhythm-wide.js')
     sj = (f'window.BridgifySplitPairs = {json.dumps(pairs)};\n' if pairs else '') + R('split-align.js')
     blocks = []
