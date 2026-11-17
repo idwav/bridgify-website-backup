@@ -10,7 +10,7 @@
   // elements that exist only from tablet up (the phone map never sees them): the step title in "Why Bridgify" sits
   // between the tabs and the step's paragraph; as a "sub" it gets control→sub 32 and sub→text 16
   // On wide screens all four steps sit in the page at once (the active one shows), so its items are read from the
-  // active step only, and the engine re-runs when the active step changes.
+  // active step, and the same gaps are then given to the other steps (mirrorSteps).
   const ACT = 'article.wy-step.is-active ';
   const WIDE = {'#why-bridgify': {after: 'control', item: ['sub', ACT + 'div.wy-copy > h4'], scope: ['div.wy-copy > p', 'div.wy-copy > a.wy-more']}};
   MAP.sections.forEach(S => { const x = WIDE[S.section]; if (!x || S.items.some(i => i[1] === x.item[1])) return;
@@ -90,17 +90,25 @@
       }
     });
   };
+  // give every "Why Bridgify" step the gaps measured on the active one, so changing step never needs a re-run
+  const mirrorSteps = () => {
+    const steps = [...document.querySelectorAll('#why-bridgify article.wy-step')], act = steps.find(x => x.classList.contains('is-active')); if (!act) return;
+    ['div.wy-copy', 'div.wy-copy > h4', 'div.wy-copy > p', 'div.wy-copy > a.wy-more'].forEach(sel => { const src = act.querySelector(sel); if (!src) return;
+      ['margin-top', 'padding-top', 'border-top-width', 'margin-bottom', 'padding-bottom'].forEach(prop => { const v = src.style.getPropertyValue(prop); if (!v) return;
+        steps.forEach(st => { if (st === act) return; const el = st.querySelector(sel); if (el) set(el, prop, v); }); }); });
+  };
+  const applyAll = () => { apply(); if (MQ.matches) mirrorSteps(); };
   // the gaps as they render now, against the token each one should have
   const report = () => last.map(p => ({section: p.section, pair: p.a + '→' + p.b, token: p.token, want: p.want,
     got: Math.round((p.bEl.getBoundingClientRect().top + padTop(p.bEl)) - (p.aEl.getBoundingClientRect().bottom - padBot(p.aEl)))}));
 
-  const run = () => requestAnimationFrame(apply);
-  apply();
+  const run = () => requestAnimationFrame(applyAll);
+  applyAll();
   if (document.fonts) document.fonts.ready.then(run);
   MQ.addEventListener('change', run);
-  let busy = false;   // the active "Why Bridgify" step changes as the page scrolls
-  new MutationObserver(() => { if (busy) return; busy = true; requestAnimationFrame(() => { apply(); busy = false; }); })
-    .observe(document.querySelector('#why-bridgify') || document.body, {subtree: true, attributes: true, attributeFilter: ['class']});
+  // No re-run while scrolling: re-spacing the page mid-scroll shifted the layout above the reader and made the
+  // scroll jump (up to 774px per wheel step in "Why Bridgify"). The four steps share one structure, so the active
+  // step's gaps are copied to the other three once (see mirrorSteps).
   addEventListener('resize', (() => { let t; return () => { clearTimeout(t); t = setTimeout(run, 150); }; })());
-  window.BridgifyRhythmWide = {apply, clear, report};
+  window.BridgifyRhythmWide = {apply: applyAll, clear, report};
 })();
