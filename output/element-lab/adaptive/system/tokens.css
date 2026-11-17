@@ -1,0 +1,41 @@
+/* Bridgify spacing system · tokens (agreed with the user, 16 Nov 2026).
+   One scale (8pt grid) and one value per pair of roles. Pages never set their own spacing; they only say which
+   element plays which role (system/roles/<page>.js). On the live site this file sits in @layer tokens.
+
+   Roles: label · title · text · more (Read more) · actions (button row) · link (text link, see actions.css) · dots (a scroller's position dots) · deco (art behind content: no gaps, but the section ends 64 below it) · control (tabs/switch) · content (cards,
+   demo, list, table) · visual (the hero's illustration or demo).
+
+   Breakpoints, the only three: mobile ≤599 · tablet 600–1023 · desktop ≥1024. Mobile values below; tablet and desktop
+   are set when those layouts are reviewed. A "Read more" is never mapped: it is found next to its paragraph on
+   the phones where that paragraph folds. A map item marked "optional" is spaced when present, ignored when absent. */
+@layer tokens {
+  :root {
+    --bf-space-4: 4px;  --bf-space-8: 8px;  --bf-space-12: 12px; --bf-space-16: 16px;
+    --bf-space-20: 20px; --bf-space-24: 24px; --bf-space-32: 32px; --bf-space-48: 48px; --bf-space-64: 64px;
+  }
+  @media (max-width: 599px) {
+    :root {
+      /* page frame */
+      --bf-gutter: var(--bf-space-24);
+      --bf-section-y: var(--bf-space-64);       /* section top and bottom */
+      --bf-hero-top: var(--bf-space-48);        /* header bar → hero label */
+      /* heading group: each step away in meaning is one step up the scale */
+      --bf-gap-label-title: var(--bf-space-16);
+      --bf-gap-title-text: var(--bf-space-24);
+      --bf-gap-title-sub: var(--bf-space-8);    /* title → its one-line subtitle ("Part of HBX Group.") */
+      --bf-gap-to-foot: var(--bf-space-24);     /* figures or cards → the closing lines under them */
+      --bf-gap-text-text: var(--bf-space-16);
+      --bf-gap-text-more: var(--bf-space-8);    /* measured to the visible "Read more" text, not its tap area */
+      --bf-gap-to-actions: var(--bf-space-32);  /* text or title → buttons */
+      --bf-gap-to-link: var(--bf-space-16);     /* text or buttons → a text link; measured to the link's text */
+      --bf-gap-actions-inner: var(--bf-space-12); /* button ↔ button */
+      --bf-gap-to-control: var(--bf-space-32);  /* heading → tabs */
+      --bf-gap-control-content: var(--bf-space-16);
+      --bf-gap-to-content: var(--bf-space-32);  /* heading → cards, demo, list; content → content */
+      --bf-gap-to-visual: var(--bf-space-48);   /* hero heading → hero visual */
+      /* inside cards (next step) */
+      --bf-card-gap: var(--bf-space-16);
+      --bf-card-pad: var(--bf-space-20);
+    }
+  }
+}

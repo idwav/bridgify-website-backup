@@ -37,3 +37,15 @@ html body #hbx #hbx-group-frame,html body #hbx #hbx-brand-frame{stroke:#f46649!i
 #story .mission-read{display:inline-block;margin-top:16px;color:#f46649;font:600 16px/1.4 Sofia,sans-serif;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
 #story .mission-read:hover{color:#ff967b}
 #team .ticket-head .founder-brand{display:block;width:104px;height:21px;font-size:0!important;color:transparent;background:#f46649;-webkit-mask:url("assets/bridgify-logo-wordmark.svg") left center/contain no-repeat;mask:url("assets/bridgify-logo-wordmark.svg") left center/contain no-repeat}
+
+/* Compact editorial flow after removing the timeline, diagram and quote. */
+html body .origin-section{min-height:0;height:auto;padding:80px 4%;gap:28px}
+html body .about-streamline .about-journey,
+html body .about-streamline .motion-stage{height:auto;min-height:0;padding:0;margin:0}
+html body .about-streamline #hbx{position:relative;inset:auto;height:auto;min-height:0;padding:32px 4% 64px;margin:0}
+html body .about-streamline #hbx .hbx-content{display:grid;grid-template-columns:1fr 1.15fr;column-gap:7%;row-gap:20px;padding:32px 0;border-bottom:0}
+html body .about-streamline #hbx .section-label{grid-column:1/-1;margin:0}
+html body .about-streamline #hbx h2{margin:0}
+html body .about-streamline #hbx .hbx-bottom{display:block;align-self:start;margin:0}
+html body .about-streamline #hbx .hbx-description{width:100%;max-width:none;margin:0}
+@media(max-width:700px){html body .origin-section{padding:48px 6%;gap:24px}html body .about-streamline #hbx{padding:24px 6% 48px}html body .about-streamline #hbx .hbx-content{grid-template-columns:1fr;gap:24px;padding:28px 0}}

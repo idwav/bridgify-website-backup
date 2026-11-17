@@ -1,0 +1,5684 @@
+{
+ "index-v2.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#home",
+     "height": 1088,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [
+      "See how it works\n↘ 142×22"
+     ],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "#sources",
+     "height": 683,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#opportunity-study",
+     "height": 1733,
+     "screens": 2.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 7.296,
+      "count": 35,
+      "sample": [
+       "REST 9.728px",
+       "XML 9.728px",
+       "SOAP 9.728px",
+       "CSV 9.728px"
+      ]
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#why-bridgify",
+     "height": 3325,
+     "screens": 3.9,
+     "overflow": [],
+     "smallTap": [
+      "See the 1M+ experiences behind 280×20"
+     ],
+     "smallText": {
+      "min": 3.249,
+      "count": 98,
+      "sample": [
+       "Marketplaces 9.576px",
+       "Global travel platforms 7.866px",
+       "Aggregators 9.576px",
+       "Wholesale supply 7.866px"
+      ]
+     },
+     "edges": [
+      24
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "#personalization",
+     "height": 944,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 3,
+      "sample": [
+       "INTENT 11px",
+       "DESTINATION 11px",
+       "CONTEXT 11px"
+      ]
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#products",
+     "height": 1714,
+     "screens": 2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#audiences",
+     "height": 2458,
+     "screens": 2.9,
+     "overflow": [],
+     "smallTap": [
+      "Experiences for OTAs ↗ 142×20",
+      "Destination experiences for ai 228×20",
+      "Experiences for hotels ↗ 149×20",
+      "Travel rewards for loyalty pro 288×20",
+      "Experiences for travel softwar 203×20",
+      "Experiences for super apps ↗ 177×20"
+     ],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ],
+     "smallTapCount": 6
+    },
+    {
+     "sel": "#marketplace-results",
+     "height": 1580,
+     "screens": 1.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 10,
+      "count": 3,
+      "sample": [
+       "Average conversion 10px",
+       "Average order value 10px",
+       "Tickets per order 10px"
+      ]
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#security",
+     "height": 403,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      36
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 852,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#home-cta",
+     "height": 874,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      37
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 0,
+     "screens": 0,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 99,
+      "count": 0,
+      "sample": []
+     },
+     "edges": []
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#home",
+     "height": 1264,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [
+      "See how it works\n↘ 142×22"
+     ],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "#sources",
+     "height": 532,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    },
+    {
+     "sel": "#opportunity-study",
+     "height": 1597,
+     "screens": 1.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 9.889,
+      "count": 8,
+      "sample": [
+       "Duplicate 9.889px",
+       "Duplicate 9.889px",
+       "Duplicate 9.889px",
+       "Duplicate 9.889px"
+      ]
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#why-bridgify",
+     "height": 3012,
+     "screens": 2.9,
+     "overflow": [],
+     "smallTap": [
+      "See the 1M+ experiences behind 280×20"
+     ],
+     "smallText": {
+      "min": 5.4,
+      "count": 103,
+      "sample": [
+       "Marketplaces 9.36px",
+       "Global travel platforms 7.56px",
+       "Aggregators 9.36px",
+       "Wholesale supply 7.56px"
+      ]
+     },
+     "edges": [
+      24
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "#personalization",
+     "height": 811,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    },
+    {
+     "sel": "#products",
+     "height": 2291,
+     "screens": 2.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#audiences",
+     "height": 1047,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [
+      "Experiences for OTAs ↗ 142×20",
+      "Experiences for hotels ↗ 149×20",
+      "Experiences for super apps ↗ 177×20"
+     ],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ],
+     "smallTapCount": 3
+    },
+    {
+     "sel": "#marketplace-results",
+     "height": 1303,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 6.528,
+      "count": 3,
+      "sample": [
+       "Average conversion 6.528px",
+       "Average order value 6.528px",
+       "Tickets per order 6.528px"
+      ]
+     },
+     "edges": [
+      29
+     ]
+    },
+    {
+     "sel": "#security",
+     "height": 299,
+     "screens": 0.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      56
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 728,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#home-cta",
+     "height": 768,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      57
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 0,
+     "screens": 0,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 99,
+      "count": 0,
+      "sample": []
+     },
+     "edges": []
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#home",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#sources",
+     "height": 427,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#opportunity-study",
+     "height": 844,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 8.72039,
+      "count": 22,
+      "sample": [
+       "REST 11.4267px",
+       "XML 11.4267px",
+       "SOAP 11.4267px",
+       "CSV 11.4267px"
+      ]
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#why-bridgify",
+     "height": 4500,
+     "screens": 5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 6.21996,
+      "count": 102,
+      "sample": [
+       "Marketplaces 10.7813px",
+       "Global travel platforms 8.70794px",
+       "Aggregators 10.7813px",
+       "Wholesale supply 8.70794px"
+      ]
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#personalization",
+     "height": 691,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#products",
+     "height": 823,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#audiences",
+     "height": 869,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#marketplace-results",
+     "height": 1575,
+     "screens": 1.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      54
+     ]
+    },
+    {
+     "sel": "#security",
+     "height": 398,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      96
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 731,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#home-cta",
+     "height": 549,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      97
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 0,
+     "screens": 0,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 99,
+      "count": 0,
+      "sample": []
+     },
+     "edges": []
+    }
+   ]
+  }
+ },
+ "api.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#top",
+     "height": 1530,
+     "screens": 1.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 10.5,
+      "count": 2,
+      "sample": [
+       "Request 10.5px",
+       "Response 10.5px"
+      ]
+     },
+     "edges": [
+      23,
+      24
+     ]
+    },
+    {
+     "sel": "#network",
+     "height": 1097,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 8.33247,
+      "count": 59,
+      "sample": [
+       "Before · 5 supplier feeds 8.69475px",
+       "Supplier A 8.33247px",
+       "\"tour_name\" 9.60045px",
+       "\"COLOSSEUM TICKET\" 9.60045px"
+      ]
+     },
+     "edges": [
+      13
+     ]
+    },
+    {
+     "sel": "#whats-inside",
+     "height": 924,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 3,
+      "sample": [
+       "Rome 11px",
+       "Zermatt 11px",
+       "Santorini 11px"
+      ]
+     },
+     "edges": [
+      13
+     ]
+    },
+    {
+     "sel": "#customer-experience",
+     "height": 1109,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 8,
+      "sample": [
+       "In YourAir 11px",
+       "YourAir 11px",
+       "In YourAir 11px",
+       "YourAir 11px"
+      ]
+     },
+     "edges": [
+      13
+     ]
+    },
+    {
+     "sel": "#integration",
+     "height": 1536,
+     "screens": 1.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      20
+     ]
+    },
+    {
+     "sel": "#api-features",
+     "height": 1044,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      13
+     ]
+    },
+    {
+     "sel": "#enterprise",
+     "height": 1073,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      13
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 1611,
+     "screens": 1.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 424,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#top",
+     "height": 1248,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 10.5,
+      "count": 2,
+      "sample": [
+       "Request 10.5px",
+       "Response 10.5px"
+      ]
+     },
+     "edges": [
+      23,
+      24
+     ]
+    },
+    {
+     "sel": "#network",
+     "height": 998,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 8.22609,
+      "count": 59,
+      "sample": [
+       "Before · 5 supplier feeds 8.94141px",
+       "Supplier A 8.22609px",
+       "\"tour_name\" 9.29906px",
+       "\"COLOSSEUM TICKET\" 9.29906px"
+      ]
+     },
+     "edges": [
+      25
+     ]
+    },
+    {
+     "sel": "#whats-inside",
+     "height": 841,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 3,
+      "sample": [
+       "Rome 11px",
+       "Zermatt 11px",
+       "Santorini 11px"
+      ]
+     },
+     "edges": [
+      25
+     ]
+    },
+    {
+     "sel": "#customer-experience",
+     "height": 1094,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 8,
+      "sample": [
+       "In YourAir 11px",
+       "YourAir 11px",
+       "In YourAir 11px",
+       "YourAir 11px"
+      ]
+     },
+     "edges": [
+      25
+     ]
+    },
+    {
+     "sel": "#integration",
+     "height": 1620,
+     "screens": 1.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      36
+     ]
+    },
+    {
+     "sel": "#api-features",
+     "height": 820,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      25
+     ]
+    },
+    {
+     "sel": "#enterprise",
+     "height": 884,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      25
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 1273,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 327,
+     "screens": 0.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      151
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#top",
+     "height": 902,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 10.5,
+      "count": 2,
+      "sample": [
+       "Request 10.5px",
+       "Response 10.5px"
+      ]
+     },
+     "edges": [
+      45,
+      46
+     ]
+    },
+    {
+     "sel": "#network",
+     "height": 682,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 8.82014,
+      "count": 59,
+      "sample": [
+       "Before · 5 supplier feeds 9.58711px",
+       "Supplier A 8.82014px",
+       "\"tour_name\" 9.97059px",
+       "\"COLOSSEUM TICKET\" 9.97059px"
+      ]
+     },
+     "edges": [
+      48
+     ]
+    },
+    {
+     "sel": "#whats-inside",
+     "height": 780,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 3,
+      "sample": [
+       "Rome 11px",
+       "Zermatt 11px",
+       "Santorini 11px"
+      ]
+     },
+     "edges": [
+      48
+     ]
+    },
+    {
+     "sel": "#customer-experience",
+     "height": 793,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 8,
+      "sample": [
+       "In YourAir 11px",
+       "YourAir 11px",
+       "In YourAir 11px",
+       "YourAir 11px"
+      ]
+     },
+     "edges": [
+      48
+     ]
+    },
+    {
+     "sel": "#integration",
+     "height": 1004,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      68
+     ]
+    },
+    {
+     "sel": "#api-features",
+     "height": 696,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      48
+     ]
+    },
+    {
+     "sel": "#enterprise",
+     "height": 599,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      48
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 1207,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 392,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      441
+     ]
+    }
+   ]
+  }
+ },
+ "marketplace.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1224,
+     "screens": 1.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 9,
+      "count": 6,
+      "sample": [
+       "● ● ● 10px",
+       "HORIZON 10px",
+       "⌕　 Destination, experience,  10px",
+       "An evening to remember ↗ 9px"
+      ]
+     },
+     "edges": [
+      23,
+      24
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 1025,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 10,
+      "count": 4,
+      "sample": [
+       "● ● ● 10px",
+       "YOUR BRAND 11px",
+       "LONDON, YOUR WAY 10px",
+       "RECOMMENDED FOR YOU 10px"
+      ]
+     },
+     "edges": [
+      16,
+      39
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 1205,
+     "screens": 1.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 2,
+      "sample": [
+       "● ● ● 11px",
+       "experiences.yourbrand.com 11px"
+      ]
+     },
+     "edges": [
+      16
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 1258,
+     "screens": 1.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      16
+     ]
+    },
+    {
+     "sel": "#section-5",
+     "height": 1686,
+     "screens": 2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      16
+     ]
+    },
+    {
+     "sel": "#build-or-buy",
+     "height": 1117,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      16
+     ]
+    },
+    {
+     "sel": "#marketplace-audiences",
+     "height": 1114,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      23
+     ]
+    },
+    {
+     "sel": "#marketplace-results",
+     "height": 963,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      20
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 1578,
+     "screens": 1.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 338,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1257,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 9,
+      "count": 6,
+      "sample": [
+       "● ● ● 10px",
+       "Tours　 Attractions　 Activiti 9px",
+       "⌕　 Destination, experience,  10px",
+       "Discover London ↗ 11px"
+      ]
+     },
+     "edges": [
+      23,
+      24
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 954,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 10,
+      "count": 4,
+      "sample": [
+       "● ● ● 10px",
+       "YOUR BRAND 11px",
+       "LONDON, YOUR WAY 10px",
+       "RECOMMENDED FOR YOU 10px"
+      ]
+     },
+     "edges": [
+      31,
+      54
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 779,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 2,
+      "sample": [
+       "● ● ● 11px",
+       "experiences.yourbrand.com 11px"
+      ]
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 811,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#section-5",
+     "height": 979,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#build-or-buy",
+     "height": 1024,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#marketplace-audiences",
+     "height": 897,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#marketplace-results",
+     "height": 607,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 1151,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 302,
+     "screens": 0.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      109
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 9,
+      "count": 6,
+      "sample": [
+       "● ● ● 10px",
+       "Tours　 Attractions　 Activiti 9px",
+       "⌕　 Destination, experience,  10px",
+       "An evening to remember ↗ 11px"
+      ]
+     },
+     "edges": [
+      46,
+      46
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 10,
+      "count": 5,
+      "sample": [
+       "● ● ● 10px",
+       "experiences.yourbrand.com 11px",
+       "YOUR BRAND 11px",
+       "LONDON, YOUR WAY 10px"
+      ]
+     },
+     "edges": [
+      58,
+      434
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 2,
+      "sample": [
+       "● ● ● 11px",
+       "experiences.yourbrand.com 11px"
+      ]
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-5",
+     "height": 909,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#build-or-buy",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#marketplace-audiences",
+     "height": 675,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#marketplace-results",
+     "height": 675,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 1003,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 365,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      401
+     ]
+    }
+   ]
+  }
+ },
+ "personalization.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1070,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": []
+    },
+    {
+     "sel": "#section-2",
+     "height": 779,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 1368,
+     "screens": 1.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 1,
+      "sample": [
+       "Matching your trip 11px"
+      ]
+     },
+     "edges": [
+      14
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 1604,
+     "screens": 1.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      20
+     ]
+    },
+    {
+     "sel": "#day-itinerary",
+     "height": 2275,
+     "screens": 2.7,
+     "overflow": [],
+     "smallTap": [
+      "Louvre photo: Aliva Sahoo 154×17",
+      "CC BY-SA 4.0 79×17"
+     ],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      16
+     ],
+     "smallTapCount": 2
+    },
+    {
+     "sel": "#faq",
+     "height": 1142,
+     "screens": 1.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 358,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1088,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": []
+    },
+    {
+     "sel": "#section-2",
+     "height": 723,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 772,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 1,
+      "sample": [
+       "Matching your trip 11px"
+      ]
+     },
+     "edges": [
+      28
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 1346,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#day-itinerary",
+     "height": 1573,
+     "screens": 1.5,
+     "overflow": [],
+     "smallTap": [
+      "Louvre photo: Aliva Sahoo 154×17",
+      "CC BY-SA 4.0 79×17"
+     ],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ],
+     "smallTapCount": 2
+    },
+    {
+     "sel": "#faq",
+     "height": 886,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 370,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      59
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 964,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": []
+    },
+    {
+     "sel": "#section-2",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      80
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 1,
+      "sample": [
+       "Matching your trip 11px"
+      ]
+     },
+     "edges": [
+      52
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#day-itinerary",
+     "height": 1075,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 797,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 392,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      322
+     ]
+    }
+   ]
+  }
+ },
+ "developers.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": [
+     "Cannot read properties of null (reading 'querySelector')"
+    ]
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1139,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 10.5,
+      "count": 42,
+      "sample": [
+       "Request 10.5px",
+       "curl 11px",
+       "\"$BRIDGIFY_API_URL/experienc 11px",
+       "-G -d destination=paris \\ 11px"
+      ]
+     },
+     "edges": [
+      20
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 1039,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      23
+     ]
+    },
+    {
+     "sel": "#performance",
+     "height": 1565,
+     "screens": 1.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      23
+     ]
+    },
+    {
+     "sel": "#access",
+     "height": 444,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      23
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 873,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 414,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": [
+     "Cannot read properties of null (reading 'querySelector')"
+    ]
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1107,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 10.5,
+      "count": 2,
+      "sample": [
+       "Request 10.5px",
+       "Response 10.5px"
+      ]
+     },
+     "edges": [
+      38
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 741,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      35
+     ]
+    },
+    {
+     "sel": "#performance",
+     "height": 1246,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      35
+     ]
+    },
+    {
+     "sel": "#access",
+     "height": 405,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      35
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 699,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 302,
+     "screens": 0.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      59
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": [
+     "Cannot read properties of null (reading 'querySelector')"
+    ]
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 10.5,
+      "count": 2,
+      "sample": [
+       "Request 10.5px",
+       "Response 10.5px"
+      ]
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 514,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      65
+     ]
+    },
+    {
+     "sel": "#performance",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      65
+     ]
+    },
+    {
+     "sel": "#access",
+     "height": 355,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      65
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 633,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 376,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      230
+     ]
+    }
+   ]
+  }
+ },
+ "otas.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1527,
+     "screens": 1.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 8,
+      "count": 1,
+      "sample": [
+       "EXPERIENCES API 8px"
+      ]
+     },
+     "edges": [
+      16,
+      30
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 1206,
+     "screens": 1.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      20
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 2084,
+     "screens": 2.5,
+     "overflow": [],
+     "smallTap": [
+      "Explore personalized recommend 34×36"
+     ],
+     "smallText": {
+      "min": 9,
+      "count": 7,
+      "sample": [
+       "At booking 11px",
+       "In the confirmation email 11px",
+       "In the pre-trip email 11px",
+       "In the app at the destinatio 11px"
+      ]
+     },
+     "edges": [
+      20
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "#section-4",
+     "height": 1085,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      14
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 1036,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 394,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1081,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 8,
+      "count": 1,
+      "sample": [
+       "EXPERIENCES API 8px"
+      ]
+     },
+     "edges": [
+      53,
+      56
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 1134,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      23
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 1007,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [
+      "Explore personalized recommend 34×36"
+     ],
+     "smallText": {
+      "min": 9,
+      "count": 11,
+      "sample": [
+       "Arrive & check in 10px",
+       "London Eye 10px",
+       "Add an activity 10px",
+       "Depart 10px"
+      ]
+     },
+     "edges": [
+      23
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "#section-4",
+     "height": 1318,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      28
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 809,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 370,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      59
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      258,
+      149
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 858,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 9,
+      "count": 3,
+      "sample": [
+       "10:24 10px",
+       "Near Westminster · 10:24  18 9px",
+       "18°C 9px"
+      ]
+     },
+     "edges": [
+      43
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 786,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 714,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 390,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      234
+     ]
+    }
+   ]
+  }
+ },
+ "airlines.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1827,
+     "screens": 2.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 2,
+      "sample": [
+       "AT YOUR DESTINATION 11px",
+       "YOUR PARIS EXPERIENCE 11px"
+      ]
+     },
+     "edges": [
+      24,
+      41
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 1564,
+     "screens": 1.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 5,
+      "sample": [
+       "TEL AVIV 11px",
+       "PARIS 11px",
+       "+ Airline revenue 11px",
+       "+ Airline revenue 11px"
+      ]
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 1508,
+     "screens": 1.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 9,
+      "count": 5,
+      "sample": [
+       "● ● ● yourairline.com/confir 9px",
+       "yourairline.com/confirmation 9px",
+       "BOOKING CONFIRMEDReference:  11px",
+       "Reference: BRG482 10px"
+      ]
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 1105,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      14
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 975,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 358,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 918,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 2,
+      "sample": [
+       "AT YOUR DESTINATION 11px",
+       "YOUR PARIS EXPERIENCE 11px"
+      ]
+     },
+     "edges": [
+      31,
+      262
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 1090,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 2,
+      "sample": [
+       "TEL AVIV 11px",
+       "PARIS 11px"
+      ]
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 824,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 9,
+      "count": 5,
+      "sample": [
+       "● ● ● yourairline.com/confir 9px",
+       "yourairline.com/confirmation 9px",
+       "BOOKING CONFIRMEDReference:  11px",
+       "Reference: BRG482 10px"
+      ]
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 1387,
+     "screens": 1.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      28
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 777,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 327,
+     "screens": 0.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      68
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 837,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 2,
+      "sample": [
+       "AT YOUR DESTINATION 11px",
+       "YOUR PARIS EXPERIENCE 11px"
+      ]
+     },
+     "edges": [
+      58,
+      454
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 856,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 2,
+      "sample": [
+       "TEL AVIV 11px",
+       "PARIS 11px"
+      ]
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 2700,
+     "screens": 3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 9,
+      "count": 5,
+      "sample": [
+       "● ● ● yourairline.com/confir 9px",
+       "yourairline.com/confirmation 9px",
+       "BOOKING CONFIRMEDReference:  11px",
+       "Reference: BRG482 10px"
+      ]
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 811,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 715,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 392,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      341
+     ]
+    }
+   ]
+  }
+ },
+ "loyalty-finance.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1327,
+     "screens": 1.6,
+     "overflow": [],
+     "smallTap": [
+      "Share paid with points 317×20"
+     ],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      16
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "#section-2",
+     "height": 1383,
+     "screens": 1.6,
+     "overflow": [],
+     "smallTap": [
+      "Redemption progress 313×10"
+     ],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      16
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "#section-3",
+     "height": 1594,
+     "screens": 1.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      16
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 1189,
+     "screens": 1.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      14
+     ]
+    },
+    {
+     "sel": "#we-started-here",
+     "height": 929,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      16
+     ]
+    },
+    {
+     "sel": "#market-signal",
+     "height": 1073,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      16
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 1203,
+     "screens": 1.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 394,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1112,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [
+      "Share paid with points 665×20"
+     ],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "#section-2",
+     "height": 1243,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [
+      "Redemption progress 661×10"
+     ],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "#section-3",
+     "height": 1431,
+     "screens": 1.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 1381,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      28
+     ]
+    },
+    {
+     "sel": "#we-started-here",
+     "height": 851,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#market-signal",
+     "height": 738,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 919,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 370,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      59
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 747,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 884,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 849,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#we-started-here",
+     "height": 720,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#market-signal",
+     "height": 695,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 797,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 444,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      230
+     ]
+    }
+   ]
+  }
+ },
+ "travel-technology.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1496,
+     "screens": 1.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      20
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 1295,
+     "screens": 1.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      20
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 2091,
+     "screens": 2.5,
+     "overflow": [],
+     "smallTap": [
+      "Experiences for hotels ↗ 171×19"
+     ],
+     "smallText": {
+      "min": 11,
+      "count": 1,
+      "sample": [
+       "9:41 11px"
+      ]
+     },
+     "edges": [
+      23
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "#section-4",
+     "height": 620,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      14
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 944,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 394,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1024,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      34
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 1017,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      38
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 1203,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [
+      "Experiences for hotels ↗ 171×19",
+      "Experiences for super apps ↗ 202×19"
+     ],
+     "smallText": {
+      "min": 11,
+      "count": 1,
+      "sample": [
+       "9:41 11px"
+      ]
+     },
+     "edges": [
+      27
+     ],
+     "smallTapCount": 2
+    },
+    {
+     "sel": "#section-4",
+     "height": 727,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      28
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 744,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 370,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      59
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      64
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 770,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      61
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 974,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 1,
+      "sample": [
+       "9:41 11px"
+      ]
+     },
+     "edges": [
+      50
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 586,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 715,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 392,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      262
+     ]
+    }
+   ]
+  }
+ },
+ "hotels.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1458,
+     "screens": 1.7,
+     "overflow": [],
+     "smallTap": [
+      "◎\nLondon Eye 28×31",
+      "♫\nWest End shows 28×31",
+      "♧\nFood tours 28×31",
+      "≈\nThames river cruise 28×31",
+      "▥\nMuseum visits 28×31",
+      "♜\nTower of London 28×31"
+     ],
+     "smallText": {
+      "min": 9,
+      "count": 4,
+      "sample": [
+       "YOUR HOTEL · EXPERIENCES 10px",
+       "Your hotel 11px",
+       "ATTRACTIONS 9px",
+       "Under your hotel brand 11px"
+      ]
+     },
+     "edges": [
+      16,
+      159
+     ],
+     "smallTapCount": 10
+    },
+    {
+     "sel": "#section-2",
+     "height": 1172,
+     "screens": 1.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 1320,
+     "screens": 1.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 8,
+      "count": 1,
+      "sample": [
+       "IN PARIS 8px"
+      ]
+     },
+     "edges": [
+      23
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 1046,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      14
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 777,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 358,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 967,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [
+      "◎\nLondon Eye 31×34",
+      "♫\nWest End shows 31×34",
+      "♧\nFood tours 31×34",
+      "≈\nThames river cruise 31×34",
+      "▥\nMuseum visits 31×34",
+      "♜\nTower of London 31×34"
+     ],
+     "smallText": {
+      "min": 9,
+      "count": 3,
+      "sample": [
+       "YOUR HOTEL · EXPERIENCES 10px",
+       "ATTRACTIONS 9px",
+       "Under your hotel brand 11px"
+      ]
+     },
+     "edges": [
+      31,
+      56
+     ],
+     "smallTapCount": 10
+    },
+    {
+     "sel": "#section-2",
+     "height": 1024,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 1300,
+     "screens": 1.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 8,
+      "count": 5,
+      "sample": [
+       "Inbox 11px",
+       "☆   Starred 11px",
+       "Sent 11px",
+       "▤   Drafts 11px"
+      ]
+     },
+     "edges": [
+      46
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 1258,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      28
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 635,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 327,
+     "screens": 0.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      75
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 9,
+      "count": 3,
+      "sample": [
+       "YOUR HOTEL · EXPERIENCES 10px",
+       "ATTRACTIONS 9px",
+       "Under your hotel brand 11px"
+      ]
+     },
+     "edges": [
+      58,
+      81
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 2520,
+     "screens": 2.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 8,
+      "count": 1,
+      "sample": [
+       "IN PARIS 8px"
+      ]
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 751,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 633,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 392,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      349
+     ]
+    }
+   ]
+  }
+ },
+ "super-apps.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1341,
+     "screens": 1.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 4,
+      "sample": [
+       "Pay 11px",
+       "Ride 11px",
+       "Parking 11px",
+       "Experiences 11px"
+      ]
+     },
+     "edges": [
+      20
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 705,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      16
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 1290,
+     "screens": 1.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      16
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 958,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      14
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 777,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 394,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1024,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 4,
+      "sample": [
+       "Pay 11px",
+       "Ride 11px",
+       "Parking 11px",
+       "Experiences 11px"
+      ]
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 526,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 801,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 1197,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      28
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 652,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [
+      "A 274×19"
+     ],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 370,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      59
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 4,
+      "sample": [
+       "Pay 11px",
+       "Ride 11px",
+       "Parking 11px",
+       "Experiences 11px"
+      ]
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 349,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 2443,
+     "screens": 2.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 712,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      53
+     ]
+    },
+    {
+     "sel": "#faq",
+     "height": 642,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 392,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      235
+     ]
+    }
+   ]
+  }
+ },
+ "about-us.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#top",
+     "height": 844,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      23
+     ]
+    },
+    {
+     "sel": "#our-story",
+     "height": 1226,
+     "screens": 1.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      23
+     ]
+    },
+    {
+     "sel": "#story",
+     "height": 1837,
+     "screens": 2.2,
+     "overflow": [],
+     "smallTap": [
+      "Read: why multi-source matters 241×22"
+     ],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      14
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "#hbx",
+     "height": 655,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      23
+     ]
+    },
+    {
+     "sel": "section.founder-testimonial",
+     "height": 457,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": []
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 490,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#top",
+     "height": 1024,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      46
+     ]
+    },
+    {
+     "sel": "#our-story",
+     "height": 1024,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      38
+     ]
+    },
+    {
+     "sel": "#story",
+     "height": 1691,
+     "screens": 1.7,
+     "overflow": [],
+     "smallTap": [
+      "Read: why multi-source matters 241×22"
+     ],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      27
+     ],
+     "smallTapCount": 1
+    },
+    {
+     "sel": "#hbx",
+     "height": 844,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      52
+     ]
+    },
+    {
+     "sel": "section.founder-testimonial",
+     "height": 400,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": []
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 370,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      59
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#top",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#our-story",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      50
+     ]
+    },
+    {
+     "sel": "#story",
+     "height": 933,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      50
+     ]
+    },
+    {
+     "sel": "#hbx",
+     "height": 940,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      97
+     ]
+    },
+    {
+     "sel": "section.founder-testimonial",
+     "height": 400,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": []
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 392,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      268
+     ]
+    }
+   ]
+  }
+ },
+ "contact.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 908,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      27
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 690,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      27
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 1259,
+     "screens": 1.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      27
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 690,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      27
+     ]
+    },
+    {
+     "sel": "section.contact-elsewhere",
+     "height": 389,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      27
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 849,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      54
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 637,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      54
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 1171,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      54
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 637,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      54
+     ]
+    },
+    {
+     "sel": "section.contact-elsewhere",
+     "height": 324,
+     "screens": 0.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      54
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 765,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      86
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 529,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      86
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 1108,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      771
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 529,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      86
+     ]
+    },
+    {
+     "sel": "section.contact-elsewhere",
+     "height": 403,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      86
+     ]
+    }
+   ]
+  }
+ },
+ "careers.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 985,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      27
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 798,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      27
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 434,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      23
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 252,
+     "screens": 0.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      27
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 298,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      42
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1024,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      31
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 643,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      23
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 548,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      38
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 295,
+     "screens": 0.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      23
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 302,
+     "screens": 0.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      201
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      58
+     ]
+    },
+    {
+     "sel": "#section-2",
+     "height": 673,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      43
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 772,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      72
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 279,
+     "screens": 0.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      43
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 367,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      500
+     ]
+    }
+   ]
+  }
+ },
+ "press.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "section.press-intro",
+     "height": 408,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "section.press-feature",
+     "height": 519,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      38
+     ]
+    },
+    {
+     "sel": "#coverage",
+     "height": 953,
+     "screens": 1.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "section.press-intro",
+     "height": 417,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    },
+    {
+     "sel": "section.press-feature",
+     "height": 764,
+     "screens": 0.7,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      38
+     ]
+    },
+    {
+     "sel": "#coverage",
+     "height": 827,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      24
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "section.press-intro",
+     "height": 133,
+     "screens": 0.1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      50
+     ]
+    },
+    {
+     "sel": "section.press-feature",
+     "height": 574,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      84
+     ]
+    },
+    {
+     "sel": "#coverage",
+     "height": 688,
+     "screens": 0.8,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      50
+     ]
+    }
+   ]
+  }
+ },
+ "insights.html": {
+  "390": {
+   "page": {
+    "width": 390,
+    "scrollWidth": 390,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1039,
+     "screens": 1.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      20,
+      41
+     ]
+    },
+    {
+     "sel": "#latest-team",
+     "height": 779,
+     "screens": 0.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      20
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 528,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      20
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 1620,
+     "screens": 1.9,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 11,
+      "count": 6,
+      "sample": [
+       "Tours 11px",
+       "Attractions 11px",
+       "Experiences 11px",
+       "Tailored to your interests 11px"
+      ]
+     },
+     "edges": [
+      20
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 338,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      33
+     ]
+    }
+   ]
+  },
+  "768": {
+   "page": {
+    "width": 768,
+    "scrollWidth": 768,
+    "pageOverflow": false,
+    "gutter": 26,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 1024,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      46,
+      71
+     ]
+    },
+    {
+     "sel": "#latest-team",
+     "height": 542,
+     "screens": 0.5,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      27
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 312,
+     "screens": 0.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      27
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 1024,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 9,
+      "count": 10,
+      "sample": [
+       "Tours 11px",
+       "Attractions 11px",
+       "Experiences 11px",
+       "Paris · Art & culture 10px"
+      ]
+     },
+     "edges": [
+      27
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 302,
+     "screens": 0.3,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      77
+     ]
+    }
+   ]
+  },
+  "1440": {
+   "page": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "pageOverflow": false,
+    "gutter": 70,
+    "errors": []
+   },
+   "sections": [
+    {
+     "sel": "#section-1",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      87,
+      112
+     ]
+    },
+    {
+     "sel": "#latest-team",
+     "height": 502,
+     "screens": 0.6,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      50
+     ]
+    },
+    {
+     "sel": "#section-3",
+     "height": 191,
+     "screens": 0.2,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      50
+     ]
+    },
+    {
+     "sel": "#section-4",
+     "height": 900,
+     "screens": 1,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": 10,
+      "count": 6,
+      "sample": [
+       "Tours 11px",
+       "Attractions 11px",
+       "Experiences 11px",
+       "Tailored to your interests 10px"
+      ]
+     },
+     "edges": [
+      50
+     ]
+    },
+    {
+     "sel": "section.bf-cta-shell",
+     "height": 365,
+     "screens": 0.4,
+     "overflow": [],
+     "smallTap": [],
+     "smallText": {
+      "min": null,
+      "count": 0,
+      "sample": []
+     },
+     "edges": [
+      364
+     ]
+    }
+   ]
+  }
+ }
+}

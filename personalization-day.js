@@ -4,9 +4,8 @@
   const select = root.querySelector('.day-select');
   const stops = [...root.querySelectorAll('.day-stop')];
   const progress = root.querySelector('.day-progress');
-  const pause = root.querySelector('.day-pause');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let timers = [], visible = false, paused = false;
+  let timers = [], visible = false;
   const clear = () => { timers.forEach(clearTimeout); timers = []; };
   const later = (fn, ms) => timers.push(setTimeout(fn, ms));
   function reset() {
@@ -35,23 +34,14 @@
     reset();
     if (reduced.matches) { reveal(); return; }
     later(reveal, 900);
-    if (!paused && visible && !document.hidden) later(cycle, 10000);
+    if (visible && !document.hidden) later(cycle, 10000);
   }
   function sync() {
     clear();
-    if (reduced.matches) { reveal(); pause.hidden = true; return; }
-    pause.hidden = false;
-    if (visible && !paused && !document.hidden) cycle();
+    if (reduced.matches) { reveal(); return; }
+    if (visible && !document.hidden) cycle();
   }
-  select.addEventListener('click', () => { reset(); reveal(); if (!paused && visible && !reduced.matches) later(cycle, 9000); });
-  root.querySelector('.day-reset').addEventListener('click', cycle);
-  pause.addEventListener('click', () => {
-    paused = !paused;
-    pause.setAttribute('aria-pressed', String(paused));
-    pause.textContent = paused ? 'Resume animation ▶' : 'Pause animation Ⅱ';
-    if (paused) { clear(); stops.forEach(s => { s.classList.remove('is-waiting'); s.classList.add('is-active'); }); root.classList.add('is-selected'); select.setAttribute('aria-expanded', 'true'); select.innerHTML = 'Louvre selected <span>✓</span>'; progress.textContent = 'Morning, afternoon and evening — in order.'; }
-    else sync();
-  });
+  select.addEventListener('click', () => { reset(); reveal(); if (visible && !reduced.matches) later(cycle, 9000); });
   new IntersectionObserver(entries => { visible = entries[0].isIntersecting; sync(); }, {threshold: .15}).observe(root);
   document.addEventListener('visibilitychange', sync);
   reduced.addEventListener('change', sync);

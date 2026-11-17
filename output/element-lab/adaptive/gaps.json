@@ -1,0 +1,1611 @@
+{
+ "index-v2.html": {
+  "doc": "Homepage",
+  "rows": [
+   {
+    "sel": "#home",
+    "h": "One connection. A million+ travel experiences, matched to every customer.",
+    "height": 900,
+    "doc": "1. Hero",
+    "docFound": 9,
+    "docTotal": 10,
+    "docMissing": [
+     "Why Bridgify"
+    ],
+    "notInDoc": [
+     "THE INFRASTRUCTURE BEHIND TRAVEL EXPERIENCES One connection.",
+     "Book a demo ↗ See how it works ↘ Part of HBX Group 1M+ experiences 180+ countries Colosseum entry Attraction · €39 Rome food tour Tour · €65 Live concert Event "
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#sources",
+    "h": "Global supply through one integration.",
+    "height": 427,
+    "doc": "2. Proof bar",
+    "docFound": 4,
+    "docTotal": 8,
+    "docMissing": [
+     "1M+ experiences",
+     "180+ countries",
+     "3% average conversion",
+     "$280 average order value"
+    ],
+    "notInDoc": [
+     "1M+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 M+ Travel Experiences 180+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0",
+     "How the Experiences API works ↗ * White-Label Marketplace partner metrics."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#opportunity-study",
+    "h": "Your customers already book experiences. Just not with you.",
+    "height": 844,
+    "doc": "3. The problem and what we do",
+    "docFound": 14,
+    "docTotal": 15,
+    "docMissing": [
+     "oneBuilding it yourself: a contract and an API per supplier"
+    ],
+    "notInDoc": [
+     "Read more + Bridgify does the connecting once, for every partner.",
+     "+ Building it yourself: Supplier A REST Supplier B XML Supplier C SOAP Supplier D CSV Supplier E JSON Supplier C · timeout YourBrand Experiences Louvre Museum t"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#why-bridgify",
+    "h": "Everything between global supply and your customer",
+    "height": 4500,
+    "doc": "4. Why Bridgify",
+    "docFound": 11,
+    "docTotal": 12,
+    "docMissing": [
+     "What's inside"
+    ],
+    "notInDoc": [
+     "WHY BRIDGIFY Everything between global supply and your customer 01 AGGREGATE 02 NORMALIZE 03 DISTRIBUTE 04 PERSONALIZE Aggregate Keep the suppliers you know.",
+     "See the 1M+ experiences behind the API → Marketplaces Global travel platforms Aggregators Wholesale supply Ticketing systems Attractions and venues Direct suppl",
+     "SOURCE A · MARKETPLACE DUPLICATE Colosseum Entry Ticket ★ 4.6 €39.00 SOURCE B · AGGREGATOR DUPLICATE No image COLOSSEUM – SKIP THE LINE ADMISSION No rating €42 ",
+     "Bridgify ONE FEED yourbrand.com/experiences YourBrand Flights · Hotels · Experiences Things to do in Rome Colosseum entry €39 Rome food tour €65 Live concert €7",
+     "TRAVELER PROFILE Family Couple Solo RANKED BY AIYELET Catalog order, before personalization #1 Seine dinner cruise Paris €95 #2 Rome food tour Rome €65 #3 Aqua "
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#personalization",
+    "h": "Don't give travelers a library. Give them the right book.",
+    "height": 691,
+    "doc": "5. Personalization",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "AIYELET · PERSONALIZATION Don't give travelers a library.",
+     "Meet AIyelet INTENT Romantic DESTINATION Paris CONTEXT Traveler request"
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#products",
+    "h": "Three products. One connected layer.",
+    "height": 823,
+    "doc": "6. Products (anchor: #products)",
+    "docFound": 19,
+    "docTotal": 19,
+    "docMissing": [],
+    "notInDoc": [
+     "Experiences API GET /experiences?destination=rome 200 OK · one schema { \"title\": \"Colosseum Entry\", \"category\": \"attraction\", \"price\": { \"amount\": 39 }, \"availa",
+     "Explore the Experiences API → yourbrand.com YourBrand Sign in Find your next experience.",
+     "⌕ Search experiences White-Label Marketplace Your branded experiences store, with search, checkout and payments built in.",
+     "Explore the White-Label Marketplace → romantic evening in Paris family day in Rome foodie weekend in Lisbon AIyelet The right experience for each traveler."
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#audiences",
+    "h": "Built for brands that already have the traveler",
+    "height": 869,
+    "doc": "7. Who it's for",
+    "docFound": 13,
+    "docTotal": 13,
+    "docMissing": [],
+    "notInDoc": [
+     "WHO IT'S FOR Built for brands that already have the traveler OTAs and travel platforms Sell the day, not only the flight and the room.",
+     "Experiences for OTAs ↗ Airlines Go beyond the flight, under your own brand.",
+     "Destination experiences for airlines ↗ Hotels Help guests make the most of the destination.",
+     "Experiences for hotels ↗ Loyalty, rewards and financial services Give your members’ points something worth spending on.",
+     "Travel rewards for loyalty programs and banks ↗ Travel technology companies Add experiences to your product without the supplier work.",
+     "Experiences for travel software ↗ Super apps and consumer platforms One more reason to open your app."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#marketplace-results",
+    "h": "What White-Label Marketplace partners see",
+    "height": 1575,
+    "doc": "8. The numbers",
+    "docFound": 2,
+    "docTotal": 5,
+    "docMissing": [
+     "3% average conversion",
+     "$280 average order value",
+     "3 tickets per order"
+    ],
+    "notInDoc": [
+     "What White-Label Marketplace partners see Most of that comes from putting bookable experiences inside a journey the customer has already started: their booking,",
+     "AVERAGE CONVERSION 3% AVERAGE ORDER VALUE $280 TICKETS PER ORDER 3"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#security",
+    "h": "Built for enterprise security",
+    "height": 398,
+    "doc": "9. Security and compliance",
+    "docFound": 1,
+    "docTotal": 1,
+    "docMissing": [],
+    "notInDoc": [
+     "SECURITY AND COMPLIANCE Built for enterprise security ISO GDPR"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#faq",
+    "h": "Frequently asked questions",
+    "height": 731,
+    "doc": "0. FAQ",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "Frequently asked questions What is Bridgify?"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#home-cta",
+    "h": "Tell us who your customers are. We'll show you what they'd book.",
+    "height": 549,
+    "doc": "11. CTA",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "Book a demo YOUR CUSTOMERS ARE Passengers Hotel guests Cardholders App users Passengers landing in Rome would book Colosseum entry €39 Rome food tour €65 Day tr"
+    ],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": []
+ },
+ "api.html": {
+  "doc": "Experiences API",
+  "rows": [
+   {
+    "sel": "#top",
+    "h": "Experiences API: one travel API for tours, attractions, activities and events",
+    "height": 902,
+    "doc": "1. Hero",
+    "docFound": 9,
+    "docTotal": 9,
+    "docMissing": [],
+    "notInDoc": [
+     "EXPERIENCES API: ONE TRAVEL API FOR TOURS, ATTRACTIONS, ACTIVITIES AND EVENTS Experiences API: one travel API for tours, attractions, activities and events One ",
+     "Discuss your integration ↗ Read the docs ↗ cURL Node.js Python Copy REQUEST curl \"$BRIDGIFY_API_URL/experiences\" \\ -G -d destination=paris \\ -d category=attract"
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#network",
+    "h": "Connect to multiple supplier networks through one API",
+    "height": 682,
+    "doc": "2. Aggregation and normalization",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [
+     "AGGREGATION AND NORMALIZATION Connect to multiple supplier networks through one API One API that brings together the major global experience marketplaces, aggre",
+     "Read: why multi-source matters ↗ BEFORE · 5 SUPPLIER FEEDS SUPPLIER A { \"tour_name\": \"COLOSSEUM TICKET\", \"price\": \"39.00 EUR\", \"city\": \"Roma\", \"dur\": \"1h\" } SUP"
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#whats-inside",
+    "h": "Keep the suppliers you use. Add the rest.",
+    "height": 780,
+    "doc": "3. What's inside (anchor: #whats-inside)",
+    "docFound": 13,
+    "docTotal": 13,
+    "docMissing": [],
+    "notInDoc": [
+     "WHAT'S INSIDE Keep the suppliers you use.",
+     "Search 1M+ experiences in 180+ countries GET /experiences?category=tours_activities Tours and activities Attractions and attraction tickets Museums, landmarks, "
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#customer-experience",
+    "h": "Keep the customer experience in your product",
+    "height": 793,
+    "doc": "4. Your product, your customer",
+    "docFound": 3,
+    "docTotal": 3,
+    "docMissing": [],
+    "notInDoc": [
+     "YOUR PRODUCT, YOUR CUSTOMER Keep the customer experience in your product Embed experiences in your existing app, site or checkout and design discovery around yo",
+     "YourAir My trip Your trip · Paris · Nov 20–24 Things to do in Paris Louvre Museum: timed entry ★ 4.7 · Free cancellation €22 Seine dinner cruise Evening · 2 hou"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#integration",
+    "h": "Your team builds the interface. We manage the supply layer.",
+    "height": 1004,
+    "doc": "5. Who does what",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "WHO DOES WHAT Your team builds the interface.",
+     "You build You: the customer journey, the interface, the checkout, the brand.",
+     "Your product Discover experiences Guided tour River cruise Attractions Checkout Book now → Customer journey · Interface · Checkout · Brand Bridgify manages Brid",
+     "Supplier connections Content mapping Availability and pricing Booking and cancellation Ongoing maintenance Experiences API documentation ↗ Prefer not to build a"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#api-features",
+    "h": "What features should a tours and activities API include?",
+    "height": 696,
+    "doc": "6. What a tours and activities API should include",
+    "docFound": 11,
+    "docTotal": 11,
+    "docMissing": [],
+    "notInDoc": [
+     "WHAT TO CHECK What features should a tours and activities API include?",
+     "Five things to check in any experiences API, ours included: 01 Coverage How many sources, destinations and categories sit behind it.",
+     "Included in the Experiences API 02 Real-time availability and pricing Bookable means bookable at the moment of search.",
+     "Included in the Experiences API 03 Content quality Rich descriptions and media, de-duplicated across suppliers.",
+     "Included in the Experiences API 04 Booking and cancellation handling Confirmation, vouchers and cancellation policies shown before checkout.",
+     "Included in the Experiences API 05 Multi-currency Price and settle in the currencies your customers use.",
+     "Included in the Experiences API"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#enterprise",
+    "h": "Built for the bank and the super app",
+    "height": 599,
+    "doc": "7. Enterprise",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [
+     "ENTERPRISE Built for the bank and the super app SLAs, KYC support, real-time availability and pricing, multi-currency settlement, analytics and a dedicated acco",
+     "SLAs KYC support Real-time availability and pricing Multi-currency settlement Analytics Dedicated account team 3x the conversion of standard travel marketplaces"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#faq",
+    "h": "Frequently asked questions",
+    "height": 1207,
+    "doc": "0. FAQ",
+    "docFound": 12,
+    "docTotal": 12,
+    "docMissing": [],
+    "notInDoc": [
+     "Frequently asked questions How does the Bridgify Experiences API work?"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.bf-cta-shell",
+    "h": "Discuss your API integration.",
+    "height": 392,
+    "doc": "9. CTA",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "Book a demo Read the docs"
+    ],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": []
+ },
+ "marketplace.html": {
+  "doc": "White-Label Marketplace",
+  "rows": [
+   {
+    "sel": "#section-1",
+    "h": "White-label travel marketplace for tours, attractions and experiences",
+    "height": 900,
+    "doc": "1. Hero",
+    "docFound": 7,
+    "docTotal": 7,
+    "docMissing": [],
+    "notInDoc": [
+     "WHITE-LABEL MARKETPLACE White-label travel marketplace for tours, attractions and experiences Your branded experiences store.",
+     "See a demo store ↗ Talk to us ↗ ● ● ● YOUR EXPERIENCES MARKETPLACE ✧ YOUR BRAND Tours Attractions Activities Events Find your next experience.",
+     "⌕ Destination, experience, or keyword → Featured experiences View all ↗ ATTRACTIONS Discover London ↗ ACTIVITIES An evening to remember ↗ EVENTS London live ↗ B"
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#section-2",
+    "h": "From discovery to checkout, under your brand",
+    "height": 900,
+    "doc": "2. Product tour",
+    "docFound": 3,
+    "docTotal": 3,
+    "docMissing": [],
+    "notInDoc": [
+     "WHITE-LABEL MARKETPLACE From discovery to checkout, under your brand AI search, experience details, reviews and checkout in one branded journey, with reporting ",
+     "Search Experience Reviews Checkout ● ● ● experiences.yourbrand.com YOUR BRAND LONDON, YOUR WAY What will you discover?",
+     "Londo ⌕ RECOMMENDED FOR YOU London Eye Sunset views over the city View experience ↗ ● ● ● experiences.yourbrand.com YOUR BRAND LONDON · ATTRACTION ★★★★★ · 4.9 L",
+     "See the city unfold on the London Eye.",
+     "30 minutes Mobile ticket Read reviews → ● ● ● experiences.yourbrand.com YOUR BRAND LONDON EYE Worth the view.",
+     "4.9 ★★★★★ Traveler rating ILLUSTRATIVE REVIEW PREVIEW ★★★★★ “A beautiful way to see London at sunset.” Example traveler review ★★★★★ “Easy to book.",
+     "An unforgettable view.” Example traveler review Choose your tickets → ● ● ● experiences.yourbrand.com YOUR BRAND YOUR EXPERIENCE London Eye 2 guests · Sunset ad",
+     "Email address traveler@example.com Payment details •••• •••• •••• 4242 Confirm booking →"
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#section-3",
+    "h": "Your brand, your markets, your currencies",
+    "height": 900,
+    "doc": "3. Branding and localization",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [
+     "BRANDING AND LOCALIZATION Your brand, your markets, your currencies Use your branding, domain, languages and currencies.",
+     "LANGUAGE English Français Italiano CURRENCY EUR USD GBP RUNS AS Travel website Inside your app Rewards portal ● ● ● experiences.yourbrand.com YOUR BRAND ✦ THING"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-4",
+    "h": "You bring the brand. We run everything behind it.",
+    "height": 900,
+    "doc": "4. What runs underneath",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "WHAT RUNS UNDERNEATH You bring the brand.",
+     "YOU BRING Logo and colors Domain Payment details Your marketplace BRIDGIFY RUNS Supply Running Payments Running Checkout Running Cancellations Running Margin op"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-5",
+    "h": "Live in 3 days",
+    "height": 909,
+    "doc": "5. Launch",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [
+     "WHITE-LABEL MARKETPLACE Live in 3 days Three days from signature to launch.",
+     "Your domain experiences.yourbrand.com ✓ YOUR BRAND ✧ Find your next experience.",
+     "⌕ Search experiences Featured experiences Discover London ↗ An evening to remember ↗ London live ↗ Your launch timeline DAY 1 Signature You send your logo, doma",
+     "✓ DAY 2 Configuration Bridgify configures your brand, domain and catalog.",
+     "✓ DAY 3 Launch Your store goes live, stocked with 1M+ experiences."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#build-or-buy",
+    "h": "Is it better to build or buy a travel experiences marketplace?",
+    "height": 900,
+    "doc": "6. Build or buy",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "BUILD OR BUY Is it better to build or buy a travel experiences marketplace?",
+     "Build Building means signing suppliers, mapping content and building search, checkout and payments before you sell anything.",
+     "Effort Time to first sale Ongoing upkeep Buy Buying means launching on a store where all of that already works.",
+     "Effort Time to first sale 3 days Ongoing upkeep We run it"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#marketplace-audiences",
+    "h": "For brands that want a store, not a project",
+    "height": 675,
+    "doc": "7. Who it's for",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "WHO IT’S FOR For brands that want a store, not a project 01 Loyalty programs and banks Loyalty programs and banks 02 Airlines Airlines 03 Hotels Hotels 04 Super"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#marketplace-results",
+    "h": "What White-Label Marketplace partners see",
+    "height": 675,
+    "doc": null,
+    "docFound": 0,
+    "docTotal": 0,
+    "docMissing": [],
+    "notInDoc": [
+     "What White-Label Marketplace partners see AVERAGE CONVERSION 3% AVERAGE ORDER VALUE $280 $0 $100 $200 $300 $280 TICKETS PER ORDER 3"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#faq",
+    "h": "Frequently asked questions",
+    "height": 1003,
+    "doc": "0. FAQ",
+    "docFound": 10,
+    "docTotal": 10,
+    "docMissing": [],
+    "notInDoc": [
+     "Frequently asked questions What is a white-label marketplace?"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.bf-cta-shell",
+    "h": "Discuss your marketplace launch.",
+    "height": 365,
+    "doc": "10. CTA",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": [
+   "8. Proof"
+  ]
+ },
+ "personalization.html": {
+  "doc": "AIyelet: AI personalization",
+  "rows": [
+   {
+    "sel": "#section-1",
+    "h": "",
+    "height": 964,
+    "doc": null,
+    "docFound": 0,
+    "docTotal": 0,
+    "docMissing": [],
+    "notInDoc": [],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-2",
+    "h": "Start with what the traveler has in mind",
+    "height": 900,
+    "doc": "2. Intent demo",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [
+     "AI PERSONALIZATION Start with what the traveler has in mind No categories, no filters.",
+     "INTENT Romantic DESTINATION Paris CONTEXT Traveler request"
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#section-3",
+    "h": "Match experiences to what travelers are looking for",
+    "height": 900,
+    "doc": "3. How it works",
+    "docFound": 3,
+    "docTotal": 5,
+    "docMissing": [
+     "Travel style, in",
+     "Ranked, bookable experiences, out"
+    ],
+    "notInDoc": [
+     "AI PERSONALIZATION Match experiences to what travelers are looking for AIyelet combines what the traveler asks for with the context you have, such as destinatio",
+     "Traveler context Destination Paris Intent Romantic Travel style Evening Dates Nov 20–22 AIyelet Matching against 1M+ experiences Matching your trip An evening f"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-4",
+    "h": "AI-powered personalization for tours and activities, inside your product",
+    "height": 900,
+    "doc": "5. Where it runs",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "WHERE IT RUNS AI-powered personalization for tours and activities, inside your product The simplest way to offer personalized experiences through an API: AIyele",
+     "Your product Without recommendations With AIyelet YOUR BRAND Trips Explore Support ♙ Your trip to Paris Discover the city, your way.",
+     "Your Paris trip ☀ Morning Louvre Museum Selected to fit this Paris trip.",
+     "☾ Evening Dinner in Le Marais Added around the traveler’s plans.",
+     "AIYELET ADDS A MATCHED EXPERIENCE An evening on the Seine See Paris from the river at sunset.",
+     "Paris Sightseeing Evening View experience → Experiences API ↗ The traveler stays with your brand."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#day-itinerary",
+    "h": "From one good suggestion to a full day",
+    "height": 1075,
+    "doc": "4. Itineraries",
+    "docFound": 3,
+    "docTotal": 3,
+    "docMissing": [],
+    "notInDoc": [
+     "From one good suggestion to a full day AIyelet can also arrange the experiences it picks within a day or a plan: what to do, when and in what order.",
+     "Your starting suggestion Paris · Art & culture Morning · 09:30 Louvre Museum Louvre · Paris · 2 hours Choose Louvre Museum → Your day in Paris Choose your start",
+     "Louvre photo: Aliva Sahoo · CC BY-SA 4.0 · Cropped to fit."
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#faq",
+    "h": "Frequently asked questions",
+    "height": 797,
+    "doc": "0. FAQ",
+    "docFound": 7,
+    "docTotal": 7,
+    "docMissing": [],
+    "notInDoc": [
+     "Frequently asked questions How do AI experience recommendations work?"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.bf-cta-shell",
+    "h": "Discuss personalization for your product.",
+    "height": 392,
+    "doc": "7. CTA",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": [
+   "1. Hero"
+  ]
+ },
+ "developers.html": {
+  "doc": "Developers",
+  "rows": [
+   {
+    "sel": "#section-1",
+    "h": "Build with Bridgify",
+    "height": 900,
+    "doc": "1. Hero",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "TRAVEL API FOR DEVELOPERS Build with Bridgify Everything you need to connect to 1M+ tours, attractions, activities and events through one API.",
+     "Read the docs ↗ Request API access ↗ cURL Node.js Python Copy REQUEST curl \"$BRIDGIFY_API_URL/experiences\" \\ -G -d destination=paris \\ -d category=attraction_ti"
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#section-2",
+    "h": "Find what you need",
+    "height": 514,
+    "doc": "2. Documentation",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "DOCUMENTATION Find what you need 01 Getting started 02 API reference 03 Search and availability 04 Booking and cancellation 05 Authentication"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#performance",
+    "h": "What makes a tours and activities API high performing?",
+    "height": 900,
+    "doc": "3. What good looks like",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "WHAT GOOD LOOKS LIKE What makes a tours and activities API high performing?",
+     "Read the docs ↗ SEARCH Cached content Availability + price CHECKOUT Live price Booking Confirmation Handle timeouts Retry cleanly Monitor booking errors"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#access",
+    "h": "Talk to us about access and implementation",
+    "height": 355,
+    "doc": "4. Access and support",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "ACCESS AND SUPPORT Talk to us about access and implementation Planning an enterprise experiences API integration?"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#faq",
+    "h": "Frequently asked questions",
+    "height": 633,
+    "doc": "0. FAQ",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "Frequently asked questions How do I get access to the Bridgify Experiences API?"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.bf-cta-shell",
+    "h": "Tell us who your customers are. We'll show you what they'd book.",
+    "height": 376,
+    "doc": "-1. Recurring CTA",
+    "docFound": 0,
+    "docTotal": 0,
+    "docMissing": [],
+    "notInDoc": [
+     "Book a demo Read the API docs"
+    ],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": []
+ },
+ "otas.html": {
+  "doc": "OTAs and travel platforms",
+  "rows": [
+   {
+    "sel": "#section-1",
+    "h": "You sold them the flight and the room. Now sell them the days in between.",
+    "height": 900,
+    "doc": "1. Hero",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "TOURS, ATTRACTIONS AND ACTIVITIES FOR OTAS AND TRAVEL PLATFORMS You sold them the flight and the room.",
+     "Book a demo See the Experiences API Already sold Flight · Booked Hotel · Booked Bridgify 1 integration The days in between Morning London landmarks tour Afterno"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-2",
+    "h": "Enterprise multi-source experiences aggregation for OTAs",
+    "height": 900,
+    "doc": "2. Supply",
+    "docFound": 8,
+    "docTotal": 8,
+    "docMissing": [],
+    "notInDoc": [
+     "OTAS AND TRAVEL PLATFORMS Enterprise multi-source experiences aggregation for OTAs Expand your supply through one integration One API that aggregates multiple g",
+     "How the Experiences API works Read: why multi-source matters Global marketplaces Aggregators Suppliers Bridgify 1 integration 1M+tours, attractions, activities "
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-3",
+    "h": "Recommend experiences throughout the trip",
+    "height": 858,
+    "doc": "3. Through the trip",
+    "docFound": 7,
+    "docTotal": 7,
+    "docMissing": [],
+    "notInDoc": [
+     "OTAS AND TRAVEL PLATFORMS Recommend experiences throughout the trip Use what you already know about the trip, such as destination, dates and party size, and let",
+     "How AIyelet picks experiences London · Jun 12–15 · 2 adults + 1 child AIyelet Matching experiences to this trip.",
+     "At booking In the confirmation email In the pre-trip email In the app at the destination Build your trip Flight Confirmed Hotel Confirmed Add an experience Not ",
+     "Your itinerary Jun 12 (Thu) Arrive & check in Jun 13 (Fri) London Eye Jun 14 (Sat) Thames River Cruise Jun 15 (Sun) Depart 10:24 Bridgify Today in London Near W"
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#section-4",
+    "h": "Embed it in your platform or launch a branded store",
+    "height": 786,
+    "doc": "4. Deployment",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "OTAS AND TRAVEL PLATFORMS Embed it in your platform or launch a branded store Experiences API GET /experiences?city=london 200 OK · one schema { \"title\": \"Londo",
+     "See the Experiences API ↗ NO DEVELOPERS · LIVE IN 3 DAYS experiences.yourtravel.com YourTravel Tours Attractions Events Sign in Things to do in London.",
+     "Tours, attractions and events Search London Eye €36 Live concert €79 Borough food tour €65 White-Label Marketplace The White-Label Marketplace gives you a brand"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#faq",
+    "h": "Frequently asked questions",
+    "height": 714,
+    "doc": "0. FAQ",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "Frequently asked questions How do OTAs get one-contract access to experiences?"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.bf-cta-shell",
+    "h": "Discuss adding experiences to your travel platform.",
+    "height": 390,
+    "doc": "6. CTA",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": []
+ },
+ "airlines.html": {
+  "doc": "Airlines",
+  "rows": [
+   {
+    "sel": "#section-1",
+    "h": "Take your customer experience beyond the flight.",
+    "height": 837,
+    "doc": "1. Hero",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "DESTINATION EXPERIENCES FOR AIRLINES Take your customer experience beyond the flight.",
+     "Book a demo ↗ See the Experiences API ↗ 01 Flight confirmed Skyline Air TLV Tel Aviv → CDG Paris SK 215 Nov 18 · 09:40 ✓ Flight confirmed 02 Discover Paris AT Y"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-2",
+    "h": "Earn beyond the flight",
+    "height": 856,
+    "doc": "2. Ancillary revenue",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "ANCILLARY REVENUE Earn beyond the flight Seats and bags end at the gate.",
+     "One trip to Paris Skyline Air TLV ✈ CDG TEL AVIV PARIS The flight ends.",
+     "Site App Email Experiences booked under your brand DAY 1 Louvre Museum Site ✓ Confirmed + Airline revenue DAY 2 Seine River Cruise App ✓ Confirmed + Airline rev"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-3",
+    "h": "Help passengers plan what to do when they land.",
+    "height": 2700,
+    "doc": "3. The passenger journey",
+    "docFound": 8,
+    "docTotal": 8,
+    "docMissing": [],
+    "notInDoc": [
+     "PASSENGER JOURNEY Help passengers plan what to do when they land.",
+     "01 BOOKING CONFIRMATION 02 MANAGE MY BOOKING 03 PRE-DEPARTURE EMAIL 04 APP ON ARRIVAL And because experiences also work as rewards, members can earn and redeem ",
+     "Experiences in loyalty programs Earn miles Redeem miles YOUR AIRLINE 09:41 ▮▮▮ ▰ ⌖ PARIS, FRANCE You’ve arrived 12–16 June · 2 travelers Welcome to Paris Discov",
+     "Paris, France Top experiences Picked for you"
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#section-4",
+    "h": "Offer experiences through your own channels",
+    "height": 811,
+    "doc": "4. Channels",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "CHANNELS Offer experiences through your own channels Either way, no change to your booking engine.",
+     "Experiences API GET /experiences?city=paris 200 OK · one schema { \"title\": \"Eiffel Tower summit\", \"price\": { \"amount\": 42 }, \"availability\": \"live\" } Skyline Ai",
+     "See the Experiences API ↗ NO DEVELOPERS · LIVE IN 3 DAYS experiences.skylineair.com Skyline Air Tours Attractions Events Sign in Things to do when you land.",
+     "Search Eiffel Tower summit €42 Louvre timed entry €22 Seine dinner cruise €95 White-Label Marketplace Or launch a branded store with the White-Label Marketplace"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#faq",
+    "h": "Frequently asked questions",
+    "height": 715,
+    "doc": "0. FAQ",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "Frequently asked questions What is a destination experiences API?"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.bf-cta-shell",
+    "h": "Plan your airline's experiences offering.",
+    "height": 392,
+    "doc": "6. CTA",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": []
+ },
+ "loyalty-finance.html": {
+  "doc": "Loyalty, rewards and financial services",
+  "rows": [
+   {
+    "sel": "#section-1",
+    "h": "Your members are sitting on points. Give them something worth spending them on.",
+    "height": 900,
+    "doc": "1. Hero",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "LOYALTY REWARDS AND FINANCIAL SERVICES Your members are sitting on points.",
+     "Book a demo ↗ See the White-Label Marketplace ↗ rewards.yourbrand.com YOUR POINTS 84,000 pts PARIS · ART Louvre after-hours tour Full price €120 · or 12,000 pts"
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#section-2",
+    "h": "Points aren't a marketing budget. They're a bill.",
+    "height": 747,
+    "doc": "2. The redemption problem",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "THE REDEMPTION PROBLEM Points aren't a marketing budget.",
+     "YOUR PROGRAM · OUTSTANDING POINTS 84,000 pts Waiting to be redeemed 12,000 pts ready to redeem 12,000 pts POINTS BECOME AN EXPERIENCE A day at the Louvre 2 tick",
+     "Points redeemed 0 pts Outstanding points 84,000 pts"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-3",
+    "h": "Experiences for cardholders, wallet users and members",
+    "height": 884,
+    "doc": "4. Use cases",
+    "docFound": 10,
+    "docTotal": 10,
+    "docMissing": [],
+    "notInDoc": [
+     "USE CASES Experiences for cardholders, wallet users and members Card benefits How can banks integrate global experiences into card programs?",
+     "Book a demo Points redemption How can loyalty programs add tours as redemption rewards?",
+     "Book a demo Digital wallet Experiences in digital wallets and payment apps Put bookable experiences where users already pay.",
+     "Experiences for super apps and fintechs Your bank · Card benefits PLATINUM CARD Your bank •••• •••• •••• 4820 Experiences for cardholders Live concert €79 · ear"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-4",
+    "h": "Choose a marketplace or integrate into your product",
+    "height": 849,
+    "doc": "6. Product and operations",
+    "docFound": 8,
+    "docTotal": 8,
+    "docMissing": [],
+    "notInDoc": [
+     "LOYALTY, REWARDS AND FINANCIAL SERVICES Choose a marketplace or integrate into your product Experiences API GET /experiences?city=paris 200 OK · one schema { \"t",
+     "See the Experiences API ↗ NO DEVELOPERS · LIVE IN 3 DAYS rewards.yourbank.com Your Bank Rewards Tours Attractions Events Sign in Spend your points on the world.",
+     "Search 1M+ experiences Search Louvre after-hours 12,000 pts Live concert 7,900 pts Colosseum entry 3,900 pts White-Label Marketplace A branded travel rewards pl",
+     "See the White-Label Marketplace ↗ SLAs, KYC support, multi-currency settlement and real-time availability."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#we-started-here",
+    "h": "We started here",
+    "height": 720,
+    "doc": "3. Where we come from",
+    "docFound": 4,
+    "docTotal": 5,
+    "docMissing": [
+     "We built the operation behind that: the traveler-facing experience, multi-currency handling, points redemption, reporting, and the team to run it end to end"
+    ],
+    "notInDoc": [
+     "WHERE WE COME FROM We started here Bridgify's first partners were card issuers and loyalty programs, not travel companies.",
+     "01 The traveler-facing experience 02 Multi-currency handling 03 Points redemption 04 Reporting 05 The team to run it end to end"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#market-signal",
+    "h": "Banks are building travel brands. Every one of them needs redemption options.",
+    "height": 695,
+    "doc": "5. Market signal",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "MARKET SIGNAL Banks are building travel brands.",
+     "Travel sites Travel apps Travel cards EVERY POINTS PROGRAM NEEDS Rewards worth redeeming Experiences fill that gap."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#faq",
+    "h": "Frequently asked questions",
+    "height": 797,
+    "doc": "0. FAQ",
+    "docFound": 7,
+    "docTotal": 7,
+    "docMissing": [],
+    "notInDoc": [
+     "Frequently asked questions How can a bank or loyalty program embed experiences?"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.bf-cta-shell",
+    "h": "Discuss an experiences offering for your members.",
+    "height": 444,
+    "doc": "8. CTA",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": []
+ },
+ "travel-technology.html": {
+  "doc": "Travel technology companies",
+  "rows": [
+   {
+    "sel": "#section-1",
+    "h": "Embed global experiences in the platform you're building",
+    "height": 900,
+    "doc": "1. Hero",
+    "docFound": 7,
+    "docTotal": 7,
+    "docMissing": [],
+    "notInDoc": [
+     "FOR TRAVEL TECHNOLOGY COMPANIES AND B2B TRAVEL AGENCY SOFTWARE Embed global experiences in the platform you're building Every major experiences network in your ",
+     "Book a demo ↗ Read the docs ↗ // Experiences API { \"destination\": \"Paris\", \"experiences\": [ \"Tours\", \"Activities\" ], \"booking\": true } Bridgify Experiences Tour"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-2",
+    "h": "How do I avoid integrating dozens of travel suppliers?",
+    "height": 770,
+    "doc": "2. Build vs connect",
+    "docFound": 9,
+    "docTotal": 9,
+    "docMissing": [],
+    "notInDoc": [
+     "TRAVEL TECHNOLOGY COMPANIES How do I avoid integrating dozens of travel suppliers?",
+     "Discuss your integration ↗ Read the docs ↗ Integrating suppliers yourself One contract, API and data format per source Mapping and de-duplication on your side M"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-3",
+    "h": "Add experience discovery and booking to your product",
+    "height": 974,
+    "doc": "3. Use cases",
+    "docFound": 8,
+    "docTotal": 10,
+    "docMissing": [
+     "\"Experiences for hotels\" → Hotels page",
+     "\"Experiences for super apps\" → Super apps page"
+    ],
+    "notInDoc": [
+     "TRAVEL TECHNOLOGY COMPANIES Add experience discovery and booking to your product Experiences for B2B travel agency software Give agents tours, attractions and a",
+     "IN YOUR PRODUCT Your brand Flights Hotels Experiences Louvre Museum Experience Paris, France Add to trip Activities for tour operators and packages Add experien",
+     "IN YOUR PRODUCT Build package Add to package Flight SFO → CDG Hotel 4 nights Experience Louvre Museum Experience Hotel tech, PMS and mobility platforms Put expe",
+     "Experiences for hotels ↗ Experiences for super apps ↗ IN YOUR PRODUCT 9:41 Your Hotel Recommended for you Louvre Museum Experience Paris, France Book now Experi",
+     "Explore the Experiences API ↗ Meet AIyelet ↗"
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#section-4",
+    "h": "Choose how to integrate and distribute experiences",
+    "height": 586,
+    "doc": "4. How to integrate",
+    "docFound": 3,
+    "docTotal": 4,
+    "docMissing": [
+     "Implementation steps for developers"
+    ],
+    "notInDoc": [
+     "TRAVEL TECHNOLOGY COMPANIES Choose how to integrate and distribute experiences Use the Experiences API and build the customer journey inside your platform.",
+     "Experiences API GET /experiences?city=rome 200 OK · one schema { \"title\": \"Colosseum entry\", \"price\": { \"amount\": 39 }, \"availability\": \"live\" } Your platform A"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#faq",
+    "h": "Frequently asked questions",
+    "height": 715,
+    "doc": "0. FAQ",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "Frequently asked questions What's the best approach to integrating multiple experience providers into my platform?"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.bf-cta-shell",
+    "h": "Discuss how experiences fit into your platform.",
+    "height": 392,
+    "doc": "6. CTA",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": []
+ },
+ "hotels.html": {
+  "doc": "Hotels",
+  "rows": [
+   {
+    "sel": "#section-1",
+    "h": "Your guests didn’t travel for the room.",
+    "height": 900,
+    "doc": "1. Hero",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "HOTELS Your guests didn’t travel for the room.",
+     "Book a demo See the Experiences API Your hotel London Your stay is confirmed 18–21 November Alex YOUR HOTEL · EXPERIENCES London, beyond your room.",
+     "London, UK All experiences Attractions Tours Food Cruises Shows HYDE PARK SOHO COVENT GARDEN WESTMINSTER SOUTH BANK THE CITY THAMES ◎ London Eye ♫ West End show"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-2",
+    "h": "Offer local experiences without managing each supplier.",
+    "height": 900,
+    "doc": "2. The problem and the fix",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "HOTELS Offer local experiences without managing each supplier.",
+     "BRIDGIFY Supply Content Payments YOUR BRAND Your hotel / Paris Seine River Cruise Explore experience One API that aggregates multiple global marketplaces, aggre"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-3",
+    "h": "Make experiences part of the stay",
+    "height": 2520,
+    "doc": "3. Guest journey",
+    "docFound": 5,
+    "docTotal": 6,
+    "docMissing": [
+     "In-room and lobby screens"
+    ],
+    "notInDoc": [
+     "HOTELS Make experiences part of the stay Help guests plan before they arrive and discover more while they’re there, with suggestions based on the destination an",
+     "01 Pre-arrival email 02 Check-in 03 Guest app and digital concierge 9:41 YOUR HOTEL Paris, France Guest app Concierge Screens Your stay Room 302 · Checked in Ex"
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#section-4",
+    "h": "Fit experiences into your guest journey",
+    "height": 751,
+    "doc": "4. Deployment",
+    "docFound": 5,
+    "docTotal": 6,
+    "docMissing": [
+     "\"For hotel-tech providers\" → Travel technology page"
+    ],
+    "notInDoc": [
+     "HOTELS Fit experiences into your guest journey Integrate the Experiences API into your guest app or digital concierge, or launch a White-Label Marketplace under",
+     "Experiences API GET /experiences?city=paris 200 OK · one schema { \"title\": \"Seine dinner cruise\", \"price\": { \"amount\": 95 }, \"availability\": \"live\" } Your Hotel",
+     "Tours, tickets and shows near you Search Louvre timed entry €22 Seine dinner cruise €95 Eiffel Tower summit €42 White-Label Marketplace See the White-Label Mark"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#faq",
+    "h": "Frequently asked questions",
+    "height": 633,
+    "doc": "0. FAQ",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "Frequently asked questions How can hotels sell tours and activities to guests?"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.bf-cta-shell",
+    "h": "Plan your hotel's experiences offering.",
+    "height": 392,
+    "doc": "6. CTA",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": []
+ },
+ "super-apps.html": {
+  "doc": "Super apps and consumer platforms",
+  "rows": [
+   {
+    "sel": "#section-1",
+    "h": "Bring travel experiences into the app people already use.",
+    "height": 900,
+    "doc": "1. Hero",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "A TRAVEL BOOKING API FOR SUPER APPS AND CONSUMER PLATFORMS Bring travel experiences into the app people already use.",
+     "Book a demo ↗ See the Experiences API ↗ Hi, Dana YourApp YourApp wallet €184.20 Pay Ride Parking Experiences This weekend For you Live concert Sat · 9 PM · €79 "
+    ],
+    "visualRequired": true
+   },
+   {
+    "sel": "#section-2",
+    "h": "How to add tours and activities to a super app",
+    "height": 349,
+    "doc": "2. How to add it",
+    "docFound": 4,
+    "docTotal": 5,
+    "docMissing": [
+     "One API that aggregates multiple global marketplaces, aggregators and suppliers: 1M+ tours, attractions, activities and events through a single integration"
+    ],
+    "notInDoc": [
+     "HOW TO ADD IT How to add tours and activities to a super app A new offering, without the supplier infrastructure.",
+     "One travel booking API One API that aggregates multiple global marketplaces, aggregators and suppliers.",
+     "1M+ experiences Tours, attractions, activities and events through a single integration."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-3",
+    "h": "Connect experiences to what users are planning",
+    "height": 2443,
+    "doc": "3. Use cases",
+    "docFound": 11,
+    "docTotal": 11,
+    "docMissing": [],
+    "notInDoc": [
+     "SUPER APPS AND CONSUMER PLATFORMS Connect experiences to what users are planning TRAVEL JOURNEYS CHECKOUT & PAYMENTS MOBILITY Experiences in mobility apps Sugge",
+     "YourApp On your way Your location Old Town Heading to Old Town 12 min Near your destination Old Town walking tour Starts in 40 min · €25 Book AIyelet uses desti"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-4",
+    "h": "Choose how experiences fit your platform",
+    "height": 712,
+    "doc": "4. Deployment",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [
+     "SUPER APPS AND CONSUMER PLATFORMS Choose how experiences fit your platform Embed through the Experiences API or launch a White-Label Marketplace, and decide whe",
+     "Experiences API GET /experiences?near=old-town 200 OK · one schema { \"title\": \"Catamaran sail\", \"price\": { \"amount\": 120 }, \"availability\": \"live\" } YourApp Wal",
+     "Search experiences near you Search Catamaran sail €120 Beach club day €70 Live concert €79 White-Label Marketplace See the White-Label Marketplace ↗"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#faq",
+    "h": "Frequently asked questions",
+    "height": 642,
+    "doc": "0. FAQ",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "Frequently asked questions How do I add tours and activities to a super app?"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.bf-cta-shell",
+    "h": "Discuss an experiences offering for your platform.",
+    "height": 392,
+    "doc": "6. CTA",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": []
+ },
+ "about-us.html": {
+  "doc": "About Bridgify",
+  "rows": [
+   {
+    "sel": "#top",
+    "h": "Bringing the world’s experiences to the brands people use, and the right ones to every customer.",
+    "height": 900,
+    "doc": "1. Hero",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "A B2B TRAVELTECH COMPANY, PART OF HBX GROUP Bringing the world’s experiences to the brands people use, and the right ones to every customer."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#our-story",
+    "h": "We started because selling experiences was close to impossible.",
+    "height": 900,
+    "doc": "2. How we started",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "HOW WE STARTED We started because selling experiences was close to impossible."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#story",
+    "h": "From fragmented supply to the right experience for every customer.",
+    "height": 933,
+    "doc": "3. Mission",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "OUR MISSION From fragmented supply to the right experience for every customer.",
+     "Read: why multi-source matters ↗ 01 Connect the fragmented world Museums & culture Nature & outdoors Sailing & on the water 02 Make experiences usable In our pa"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#hbx",
+    "h": "Startup speed, HBX Group scale",
+    "height": 940,
+    "doc": "5. HBX Group",
+    "docFound": 3,
+    "docTotal": 3,
+    "docMissing": [],
+    "notInDoc": [
+     "HBX GROUP Startup speed, HBX Group scale HBX Group Bridgify In May 2026 Bridgify became part of HBX Group, one of the world’s largest B2B travel distribution ne"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.founder-testimonial",
+    "h": "",
+    "height": 400,
+    "doc": "6. Team",
+    "docFound": 2,
+    "docTotal": 6,
+    "docMissing": [
+     "The people behind the infrastructure",
+     "Yaniv Green, Co-Founder and CBO",
+     "We want to give them the right book.\" Amit Shamni, Co-Founder and CEO",
+     "A team working across travel supply, technology and enterprise distribution"
+    ],
+    "notInDoc": [
+     "Amit Shamni Co-Founder and CEO “We don’t want to give travelers a library."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.bf-cta-shell",
+    "h": "See how Bridgify could work for your business.",
+    "height": 392,
+    "doc": "8. CTA",
+    "docFound": 6,
+    "docTotal": 6,
+    "docMissing": [],
+    "notInDoc": [
+     "Book a demo Join the team Press"
+    ],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": [
+   "4. Timeline"
+  ]
+ },
+ "contact.html": {
+  "doc": "Contact and book a demo",
+  "rows": [
+   {
+    "sel": "#section-1",
+    "h": "Let's talk about your experiences offering",
+    "height": 765,
+    "doc": "1. Hero",
+    "docFound": 3,
+    "docTotal": 3,
+    "docMissing": [],
+    "notInDoc": [
+     "CONTACT AND BOOK A DEMO Let's talk about your experiences offering Tell us what you want to build and who it's for.",
+     "01 Your customers 02 Your markets 03 Your product"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-2",
+    "h": "A demo about your product, not ours",
+    "height": 529,
+    "doc": "2. What the demo covers",
+    "docFound": 2,
+    "docTotal": 2,
+    "docMissing": [],
+    "notInDoc": [
+     "CONTACT AND BOOK A DEMO A demo about your product, not ours Share your customers, markets and channels, and we'll focus on the supply and the product that matte",
+     "01 Your customers 02 Your markets 03 Your product"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-3",
+    "h": "A few details so the right person replies.",
+    "height": 1108,
+    "doc": "3. Form",
+    "docFound": 7,
+    "docTotal": 7,
+    "docMissing": [],
+    "notInDoc": [
+     "CONTACT AND BOOK A DEMO A few details so the right person replies.",
+     "Name Work email Company Role Industry Choose your industry OTA or travel platform Airline Bank, card issuer or loyalty program Travel technology Hotel or hotel ",
+     "Choose a product Experiences API White-Label Marketplace AIyelet Not sure yet Markets you serve Anything else we should know Book my demo ↗ This prepares an ema",
+     "Send it from your email app to request your demo."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-4",
+    "h": "What happens after you send this",
+    "height": 529,
+    "doc": "4. What happens next",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [
+     "CONTACT AND BOOK A DEMO What happens after you send this We read it and route it to the right person.",
+     "01 Your customers 02 Your markets 03 Your product"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.contact-elsewhere",
+    "h": "Not a partner yet?",
+    "height": 403,
+    "doc": null,
+    "docFound": 0,
+    "docTotal": 0,
+    "docMissing": [],
+    "notInDoc": [
+     "CONTACT AND BOOK A DEMO Not a partner yet?"
+    ],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": [
+   "5. Not a partner yet?"
+  ]
+ },
+ "careers.html": {
+  "doc": "Careers",
+  "rows": [
+   {
+    "sel": "#section-1",
+    "h": "Help build the infrastructure behind travel experiences",
+    "height": 900,
+    "doc": "1. Hero",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "CAREERS Help build the infrastructure behind travel experiences Bridgify, part of HBX Group, connects 1M+ experiences to the apps, sites and rewards programs pe"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-2",
+    "h": "The problems you'd work on",
+    "height": 673,
+    "doc": "2. The work",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "CAREERS The problems you'd work on Connecting dozens of supplier systems into one schema.",
+     "Unify fragmented supply Keep availability live Match with relevance Build trusted commerce"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-3",
+    "h": "Startup speed, HBX Group scale",
+    "height": 772,
+    "doc": "3. Team",
+    "docFound": 2,
+    "docTotal": 2,
+    "docMissing": [],
+    "notInDoc": [
+     "CAREERS Startup speed, HBX Group scale A focused team that ships quickly, now part of one of the world's largest B2B travel distribution networks."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-4",
+    "h": "Open roles",
+    "height": 279,
+    "doc": "4. Open roles",
+    "docFound": 1,
+    "docTotal": 2,
+    "docMissing": [
+     "open roles, to be added by Yaniv / Shany]"
+    ],
+    "notInDoc": [],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.bf-cta-shell",
+    "h": "Found a role that fits?",
+    "height": 367,
+    "doc": "5. CTA",
+    "docFound": 2,
+    "docTotal": 2,
+    "docMissing": [],
+    "notInDoc": [],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": []
+ },
+ "press.html": {
+  "doc": "Press",
+  "rows": [
+   {
+    "sel": "section.press-intro",
+    "h": "Bridgify in the press",
+    "height": 133,
+    "doc": "1. Hero",
+    "docFound": 2,
+    "docTotal": 2,
+    "docMissing": [],
+    "notInDoc": [
+     "PRESS Bridgify in the press Coverage, interviews and announcements about Bridgify and the business of travel experiences."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.press-feature",
+    "h": "Bridgify becomes part of HBX Group",
+    "height": 574,
+    "doc": "2. Featured",
+    "docFound": 2,
+    "docTotal": 3,
+    "docMissing": [
+     "Read the announcement"
+    ],
+    "notInDoc": [
+     "IN FOCUS Bridgify becomes part of HBX Group May 2026."
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#coverage",
+    "h": "Newsroom",
+    "height": 688,
+    "doc": "3. Coverage",
+    "docFound": 2,
+    "docTotal": 2,
+    "docMissing": [],
+    "notInDoc": [
+     "Newsroom All Coverage Interviews and podcasts Announcements COVERAGE What they’re saying Articles and features about Bridgify.",
+     "INTERVIEWS AND PODCASTS Hear from the founders Amit Shamni and Yaniv Green on experience distribution, product and where the market is going.",
+     "ANNOUNCEMENTS Company news Product launches, partnerships and company updates."
+    ],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": [
+   "4. Interviews and podcasts",
+   "5. Announcements",
+   "6. Media contact"
+  ]
+ },
+ "insights.html": {
+  "doc": "Insights",
+  "rows": [
+   {
+    "sel": "#section-1",
+    "h": "Insights on the business of travel experiences.",
+    "height": 900,
+    "doc": "1. Hero",
+    "docFound": 3,
+    "docTotal": 3,
+    "docMissing": [],
+    "notInDoc": [
+     "INSIGHTS AND BLOG Insights on the business of travel experiences.",
+     "SUPPLY Experience supply JOURNEY Customer journeys RELEVANCE Personalization"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#latest-team",
+    "h": "Two reads that explain the category",
+    "height": 502,
+    "doc": "2. Start here",
+    "docFound": 3,
+    "docTotal": 3,
+    "docMissing": [],
+    "notInDoc": [
+     "INSIGHTS AND BLOG Two reads that explain the category THE FOUNDATIONS What is experiences infrastructure?",
+     "Read article ↗ MULTI-SOURCE Travel aggregators: why multi-source wins Read article ↗"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-3",
+    "h": "Find the question you're working on",
+    "height": 191,
+    "doc": "4. Browse by topic",
+    "docFound": 5,
+    "docTotal": 5,
+    "docMissing": [],
+    "notInDoc": [
+     "INSIGHTS AND BLOG Find the question you're working on Experience supply API integration White-label Personalization Loyalty and banking OTAs Airlines Hotels"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "#section-4",
+    "h": "See how these ideas work in practice",
+    "height": 900,
+    "doc": "5. Product bridge",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [
+     "INSIGHTS AND BLOG See how these ideas work in practice Experiences API Explore ↗ White-Label Marketplace YOUR BRAND Tours Attractions Experiences Explore ↗ AIye"
+    ],
+    "visualRequired": false
+   },
+   {
+    "sel": "section.bf-cta-shell",
+    "h": "Have an experiences project in mind?",
+    "height": 365,
+    "doc": "6. CTA",
+    "docFound": 4,
+    "docTotal": 4,
+    "docMissing": [],
+    "notInDoc": [],
+    "visualRequired": false
+   }
+  ],
+  "docSectionsNotOnSite": [
+   "3. Latest"
+  ]
+ }
+}

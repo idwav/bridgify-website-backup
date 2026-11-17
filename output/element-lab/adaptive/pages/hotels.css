@@ -1,0 +1,64 @@
+/* Hotels · adaptive layer. */
+@media (max-width:1023px){ html body :is(#section-1,#section-2,#section-3,#section-4,#we-started-here,#market-signal){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important} }
+@media (max-width:599px){
+  html body :is(#section-2,#section-3,#section-4,#we-started-here,#market-signal){padding-top:48px!important;padding-bottom:48px!important}
+  html body #section-1{padding-top:calc(var(--ad-header-h) + 28px)!important;padding-bottom:28px!important;min-height:0!important}
+  /* 1 · Hero: the stay card leads straight into the map. */
+  html body #section-1 .hm-heading{gap:14px!important;margin-bottom:24px!important}
+  html body #section-1 .hm-layout{gap:10px!important}
+  html body #section-1 .hm-connection{display:none!important}
+  html body #section-1 .hm-map{margin-inline:auto!important}
+  /* 2 · Without managing each supplier */
+  html body #section-2 .hr-heading{gap:12px!important;margin-bottom:18px!important}
+  html body #section-2 .hr-columns{gap:18px!important}
+  html body #section-2 .hr-managed>*{margin-block:0!important}
+  html body #section-2 .hr-managed li{min-height:44px!important;padding-block:8px!important}
+  html body #section-2 .hr-brand img{height:180px!important;object-fit:cover}
+  html body #section-2 .hr-footer{margin-top:18px!important;padding-top:16px!important}
+  /* 3 · Part of the stay: the three moments are compact rows; the preview fits under them. */
+  html body #section-3 .hs-sticky{position:static!important;height:auto!important;min-height:0!important;top:auto!important;padding:0!important}
+  html body #section-3{height:auto!important;min-height:0!important}
+  html body #section-3 .hs-copy{gap:12px!important}
+  html body #section-3 .hs-steps{gap:0!important;margin-top:4px!important}
+  html body #section-3 .hs-steps>button{min-height:52px!important;height:auto!important;padding-block:6px!important}
+  html body #section-3 .hs-steps>button>span:not(.hs-number){font-size:18px!important}
+  html body #section-3 .hs-preview{margin-top:18px!important;height:auto!important}
+  html body #section-3 .hs-panel{margin-inline:auto!important}
+}
+@media (max-width:1023px){ html body #section-3 .hs-sticky{padding-left:0!important;padding-right:0!important} }
+
+/* Solutions demos at real size (phones, 16 Nov 2026; plan in output/element-lab/demos.html): the lab used to shrink
+   these with zoom (57-81%). At real size they reflow to the phone and stay readable; tall ones are trimmed of demo items. */
+@media (max-width:599px){
+  html body #section-1 .hm-map:not(#ad-x),html body #section-3 .hs-preview:not(#ad-x){zoom:1!important}
+  html body #section-3 .hs-message img{height:150px!important;object-fit:cover}
+  html body #section-3 .hs-email-letter>img:not(#ad-x){height:150px!important;max-height:150px!important;object-fit:cover}
+  html body #section-3 .hs-hotel-wordmark small{font-size:11px!important}
+  html body #section-3 :is(.hs-preview,.hs-panel,.hs-mail-window,.hs-mail-layout,.hs-message):not(#ad-x){height:auto!important;min-height:0!important;max-height:none!important}
+  html body #section-1 .hm-layout :is(span,small,em,b,i,p,div,strong,li,label,a,h4,h5,u){font-size:max(11px,1em)!important}
+}
+
+/* Round 11 (17 Nov 2026), phones */
+@media (max-width:599px){
+  /* Round 12: "Your hotel" and the map rise together over the heading. The heading sticks under the header; the
+     two cards are one block on an opaque ground, so the heading is hidden as they pass over it. */
+  html body #section-1.hm-hero:not(#ad-x){overflow:clip!important}
+  html body #section-1 .hm-heading:not(#ad-x){position:sticky!important;top:calc(var(--ad-header-h) + 8px);z-index:0;transform-origin:50% 0;align-self:start}
+  html body #section-1 .hm-layout:not(#ad-x){position:relative;z-index:1;background:#120b0a;box-shadow:0 -24px 48px rgba(0,0,0,.5);border-radius:18px}
+  /* Offer local experiences: Supply · Content · Payments are three short words: one row, not three lines */
+  html body #section-2 .hr-managed ul:not(#ad-x){display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+  html body #section-2 .hr-managed li:not(#ad-x){min-height:0!important;height:auto!important;padding:10px 8px!important;justify-content:center!important;gap:6px!important;border:1px solid rgba(244,102,73,.35)!important;border-radius:10px!important;font-size:14px!important}
+  /* Part of the stay, pinned: the steps as one row above the preview; the preview fills the rest of the screen */
+  html body #section-3 .hs-sticky:not(#ad-x){position:static!important;height:auto!important;min-height:0!important}
+  html body #section-3 .ad-hs-pin .ad-pin-stage{background:#140d0c;padding-block:8px}
+  html body #section-3 .ad-hs-pin .hs-steps:not(#ad-x){display:flex!important;flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none;gap:8px!important;margin-inline:calc(var(--ad-gutter) * -1)!important;padding-inline:var(--ad-gutter)!important;height:auto!important}
+  html body #section-3 .ad-hs-pin .hs-steps::-webkit-scrollbar{display:none}
+  html body #section-3 .ad-hs-pin .hs-steps>button:not(#ad-x){flex:none!important;width:auto!important;min-height:44px!important;height:auto!important;padding:6px 12px 6px 6px!important;border:1px solid #EEE9DE2e!important;border-radius:22px!important;opacity:.55;transition:opacity .3s,border-color .3s;white-space:nowrap;gap:8px!important}
+  html body #section-3 .ad-hs-pin .hs-steps>button[aria-selected="true"]{opacity:1;border-color:#F46649!important}
+  html body #section-3 .ad-hs-pin .hs-steps>button *{font-size:14px!important}
+  html body #section-3 .ad-hs-pin .hs-steps::before,html body #section-3 .ad-hs-pin .hs-steps::after,html body #section-3 .ad-hs-pin .hs-steps>button::after{display:none!important}
+  html body #section-3 .ad-hs-pin .hs-preview:not(#ad-x){height:clamp(380px,calc(100svh - var(--ad-header-h) - 100px),560px)!important;overflow:hidden!important;zoom:1!important}
+  html body #section-3 .ad-hs-pin .hs-panel{height:100%!important}
+  html body #section-3 .ad-hs-pin .hs-panel>*:not(#ad-x){height:100%!important;max-height:100%!important;overflow:hidden!important}
+}
+@media (max-width:599px) and (prefers-reduced-motion:reduce){ html body #section-1 .hm-heading{position:static!important} }

@@ -1,0 +1,142 @@
+/* Travel technology companies · adaptive layer. */
+@media (max-width:1023px){ html body :is(#section-1,#section-2,#section-3,#section-4,#we-started-here,#market-signal){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important} }
+@media (max-width:599px){
+  html body :is(#section-2,#section-3,#section-4,#we-started-here,#market-signal){padding-top:48px!important;padding-bottom:48px!important}
+  html body #section-1{padding-top:calc(var(--ad-header-h) + 28px)!important;padding-bottom:28px!important;min-height:0!important}
+  /* 1 · Hero */
+  html body #section-1 .te-heading{gap:14px!important;margin-bottom:24px!important}
+  html body #section-1 .te-visual{margin-inline:auto!important}
+  /* 2 · Dozens of suppliers: actions share a row; the comparison and the map fit under them. */
+  html body #section-2 .th-intro{gap:14px!important;margin:14px 0 20px!important}
+  html body #section-2 .th-actions{display:flex!important;flex-wrap:wrap;gap:8px!important}
+  html body #section-2 .ti{padding:14px!important;gap:12px!important}
+  html body #section-2 .ti-map{margin-inline:auto!important}
+  /* 3 · Discovery and booking: the three product types scroll sideways. */
+  html body #section-3>svg{display:none!important}
+  html body #section-3 .ad-head{margin-bottom:20px!important}
+  html body #section-3 .ad-columns{align-items:flex-start}
+  html body #section-3 .ad-column{margin:0!important;padding:0!important}
+  html body #section-3 .ad-network{margin-top:16px!important}
+  html body #section-3 .ad-foot{margin-top:16px!important;gap:12px!important}
+  html body #section-3 .ad-foot>div{display:flex!important;flex-wrap:wrap;gap:8px!important}
+}
+@media (max-width:599px){
+  html body #section-2 .th-actions a{min-height:46px!important;padding:0 12px!important;font-size:14px!important;white-space:nowrap}
+  html body #section-2 .th-actions{flex-wrap:nowrap!important}
+  html body #section-3 .ad-network{margin-top:12px!important}
+}
+@media (max-width:1023px){ html body #section-1 .te-heading,html body #section-2>h2#th-title,html body #section-2 .th-intro,html body #section-2 .ti{margin-left:0!important;margin-right:0!important} }
+
+/* Solutions demos at real size (phones, 16 Nov 2026; plan in output/element-lab/demos.html): the lab used to shrink
+   these with zoom (57-81%). At real size they reflow to the phone and stay readable; tall ones are trimmed of demo items. */
+@media (max-width:599px){
+  html body #section-1 .te-visual:not(#ad-x){zoom:1!important}
+  html body #section-1 .te-visual .nt-sidebar{display:none!important}
+  html body #section-1 .te-visual :is(.nt-code,.nt-codebody,.nt-code-lines):not(#ad-x){height:auto!important;min-height:0!important}
+  html body #section-1 .te-visual .te-code-content{font-size:12px!important;line-height:1.55!important}
+  html body #section-2 .ti :is(span,small,em,b,i,p,div,strong,li,label,a,h4,h5,u){font-size:max(11px,1em)!important}
+  /* Integrating yourself / With Bridgify: the two options one under the other at full width (side by side they were
+     two narrow columns), and the diagram on the full width (it had no width on phones, so the badges ran off-screen). */
+  html body #section-2 .ti-copy:not(#ad-x){grid-template-columns:1fr!important;gap:8px!important}
+  html body #section-2 .ti-opt:not(#ad-x){width:auto!important;height:auto!important;min-height:0!important}
+  html body #section-2 .ti-map:not(#ad-x){width:100%!important;min-width:0!important;height:auto!important;min-height:300px;left:auto!important;right:auto!important;transform:none!important;margin:8px 0 0!important}
+  html body #section-2 .ti-map>svg{width:100%!important;left:0!important}
+  html body #section-2 .ti-sources:not(#ad-x){width:100%!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important;left:auto!important;transform:none!important;justify-items:center}
+  html body #section-2 .ti-src{transform:none!important;rotate:none!important;translate:none!important;width:auto!important}
+  html body #section-2 .ti-src:not(#ad-x){min-width:58px!important;padding:4px 6px!important;justify-content:center}
+}
+
+/* Round 11 (17 Nov 2026), phones: hero copy sticks; the integration demo rises over it on an opaque ground */
+@media (max-width:599px){
+  html body #section-1.te-hero:not(#ad-x){overflow:clip!important}
+  html body #section-1 .ad-te-copy{position:sticky;top:calc(var(--ad-header-h) + 8px);z-index:0;transform-origin:50% 0}
+  html body #section-1 .te-visual:not(#ad-x){position:relative!important;z-index:1;zoom:1!important;background-color:#160e0d!important;box-shadow:0 -24px 48px rgba(0,0,0,.5)!important}
+}
+@media (max-width:599px) and (prefers-reduced-motion:reduce){ html body #section-1 .ad-te-copy{position:static} }
+
+/* Round 13 (17 Nov 2026), phones */
+@media (max-width:599px){
+  /* 2 · How do I avoid integrating: copy holds, the comparison rises over it */
+  html body #section-2.th-section:not(#ad-x){overflow:clip!important}
+  html body #section-2 .ad-th-copy{position:sticky;top:calc(var(--ad-header-h) + 8px);z-index:0;transform-origin:50% 0}
+  html body #section-2 .ti:not(#ad-x){position:relative;z-index:1;gap:20px!important;padding:16px 14px 20px!important;box-shadow:0 -20px 40px rgba(24,15,16,.18)}
+  /* the two ways as one switch; the chosen way's points under it */
+  html body #section-2 .ti-copy:not(#ad-x){position:relative;display:grid!important;grid-template-columns:1fr 1fr!important;gap:4px!important;
+    padding:4px 4px calc(var(--ad-list-h,88px) + 20px)!important;border-radius:14px;background:#ffffff06;box-shadow:inset 0 0 0 1px #eee9de1a}
+  html body #section-2 .ti-opt:not(#ad-x){position:static!important;min-height:56px!important;padding:8px 10px!important;justify-content:center!important;align-items:center;text-align:center;border-radius:10px;opacity:.6}
+  html body #section-2 .ti-opt[aria-pressed="true"]:not(#ad-x){opacity:1;background:#f466491f;box-shadow:inset 0 0 0 1px #f46649}
+  html body #section-2 .ti-opt::before,html body #section-2 .ti-hold{display:none!important}
+  html body #section-2 .ti-opt-title:not(#ad-x){margin:0!important;font-size:15px!important;line-height:1.25!important}
+  html body #section-2 .ti-opt ul:not(#ad-x){position:absolute;left:16px;right:16px;top:76px;gap:6px!important;text-align:left;opacity:0;transition:opacity .45s cubic-bezier(.16,1,.3,1);pointer-events:none}
+  html body #section-2 .ti-opt[aria-pressed="true"] ul:not(#ad-x){opacity:1}
+  html body #section-2 .ti-opt li:not(#ad-x){font-size:14px!important;line-height:1.4!important;color:#eee9de}
+  /* the map: twelve light source chips in two rows, smaller labels */
+  html body #section-2 .ti-map:not(#ad-x){min-height:0!important;gap:32px!important;margin:0!important;padding:0!important}
+  html body #section-2 .ti-sources:not(#ad-x){grid-template-columns:repeat(6,minmax(0,1fr))!important;grid-template-rows:repeat(2,26px)!important;gap:6px!important}
+  html body #section-2 .ti-src:not(#ad-x){width:100%!important;min-width:0!important;padding:0!important;gap:0!important;justify-content:center!important;border-radius:7px!important}
+  html body #section-2 .ti-src svg:not(#ad-x){display:none!important}
+  html body #section-2 .ti-src b:not(#ad-x){font-size:11px!important;letter-spacing:.03em!important;font-weight:500!important}
+
+  /* 3 · Add experience discovery: three products in step, with room */
+  html body #section-3 .ad-columns.ad-scroller:not(#ad-x){display:grid!important;grid-auto-flow:column;grid-auto-columns:calc(100% - 24px);
+    grid-template-rows:repeat(4,auto);column-gap:32px!important;row-gap:0!important;align-items:stretch!important}
+  html body #section-3 .ad-columns.ad-scroller>.ad-column:not(#ad-x){display:grid!important;grid-row:span 4;grid-template-rows:subgrid;row-gap:0!important;flex:none!important}
+  html body #section-3 .ad-column>h3:not(#ad-x){margin:0 0 16px!important;align-self:start;align-items:flex-start!important}
+  html body #section-3 .ad-column>.ad-copy:not(#ad-x){margin:0 0 24px!important;align-self:start;font-size:15px!important;line-height:1.6!important}
+  html body #section-3 .ad-column>.ad-label:not(#ad-x){margin:0 0 12px!important;align-self:end}
+  html body #section-3 .ad-column>:is(.ad-window,.ad-phone):not(#ad-x){align-self:stretch;height:auto!important;min-height:250px}
+  /* the Experiences API: where the three products meet, with its own link */
+  html body #section-3 .ad-network:not(#ad-x){display:flex!important;flex-direction:column;align-items:center;gap:4px!important;height:auto!important;padding-top:40px!important;position:relative}
+  html body #section-3 .ad-network::before{content:"";position:absolute;top:0;left:50%;width:1px;height:32px;background:linear-gradient(#f4664900,#f46649)}
+  html body #section-3 .ad-network .ad-api:not(#ad-x){position:relative!important;left:auto!important;top:auto!important;transform:none!important;margin:0!important;width:100%;justify-content:center;gap:12px!important;padding:16px 20px!important;border-radius:16px!important}
+  html body #section-3 .ad-network .ad-api>svg:not(#ad-x){width:28px!important;height:28px!important}
+  html body #section-3 .ad-foot:not(#ad-x){align-items:flex-start}
+  html body #section-3 :is(.ad-listing,.ad-brand) button:not(#ad-x){white-space:nowrap!important;width:auto!important;max-width:none!important;padding-inline:12px!important;font-size:14px!important}
+  /* the comparison fits one screen: tighter catalogue and map */
+  html body #section-2 .ti:not(#ad-x){gap:16px!important;padding:14px 12px 16px!important}
+  html body #section-2 .ti-copy:not(#ad-x){padding-bottom:calc(var(--ad-list-h,88px) + 14px)!important}
+  html body #section-2 .ti-opt:not(#ad-x){min-height:48px!important}
+  html body #section-2 .ti-opt-title:not(#ad-x){font-size:14px!important}
+  html body #section-2 .ti-opt ul:not(#ad-x){top:64px}
+  html body #section-2 .ti-map:not(#ad-x){gap:24px!important}
+  html body #section-2 .ti-app-top:not(#ad-x){padding:8px 12px!important}
+  html body #section-2 .ti-app-body:not(#ad-x){height:166px!important}
+  html body #section-2 .ti-layer:not(#ad-x){padding:10px!important;gap:6px!important}
+  html body #section-2 .ti-row:not(#ad-x){padding:5px 7px!important}
+  html body #section-2 .ti-row img:not(#ad-x){width:30px!important}
+  /* empty helpers under the section on phones */
+  html body #section-3 :is(.ad-feedback,.process-preview):not(#ad-x){display:none!important}
+}
+
+/* Round 14 (17 Nov 2026), phones: the comparison opens to the screen's edges as it rises (its side margins shrink
+   from the gutter to 0, corners to square), then holds under the header while the scroll turns it to With Bridgify */
+@media (max-width:599px) and (prefers-reduced-motion:no-preference){
+  html body #section-2.th-section:not(#ad-x){padding-bottom:0!important}
+  html body #section-2 .ti:not(#ad-x){position:sticky!important;top:0;z-index:1;
+    margin:0 calc(var(--ad-gutter) * -1 * var(--ad-ti-open, 0))!important;
+    padding:calc(var(--ad-header-h) + 24px) calc(12px + (var(--ad-gutter) - 12px) * var(--ad-ti-open, 0)) 20px!important;
+    height:100svh;align-content:start;
+    border-radius:calc(23px * (1 - var(--ad-ti-open, 0)))!important;box-shadow:none!important}
+  html body #section-2 .ad-ti-hold{height:70svh}
+  /* the map takes the rest of the screen: sources at the top, the catalogue at the bottom, Bridgify in the middle
+     with the same space above and below it */
+  html body #section-2 .ti:not(#ad-x){display:flex!important;flex-direction:column;padding-bottom:24px!important}
+  html body #section-2 .ti-map:not(#ad-x){flex:1 1 auto;min-height:0!important;justify-content:space-between!important;gap:24px!important}
+}
+
+/* Add experience discovery (17 Nov 2026), phones: no icons beside the three titles (they pushed the titles off the
+   text's left edge), titles on the left edge, and no rule above the second and third product (the two stray lines) */
+@media (max-width:599px){
+  html body #section-3 .ad-column>h3>svg:not(#ad-x){position:absolute!important;width:0!important;height:0!important;overflow:hidden!important;visibility:hidden!important}  /* not display:none: the page measures these icons (getPointAtLength) */
+  html body #section-3 .ad-column>h3:not(#ad-x){gap:0!important;justify-content:flex-start!important;text-align:left!important}
+  html body #section-3 .ad-column:not(#ad-x){border-top:0!important;border-left:0!important;padding-top:0!important}
+}
+
+/* Round 16 (17 Nov 2026), phones: the new hero (typed request, Bridgify hub, category tabs). The code window keeps
+   exactly the room of its seven typed lines (it held 210px for them), so nothing below jumps while it types; the
+   hub sits closer; the category tabs are full taps. */
+@media (max-width:599px){
+  html body #section-1 .te-visual .te-code-content:not(#ad-x){min-height:calc(7 * 1.55em)!important;margin:0!important}
+  html body #section-1 .te-visual .nt-bridge:not(#ad-x){height:auto!important;padding-block:12px!important}
+  html body #section-1 .te-visual .nt-tabs button:not(#ad-x){min-height:40px!important}
+}

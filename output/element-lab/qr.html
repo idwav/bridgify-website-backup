@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bridgify · QR למובייל</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<style>
+:root{--bg:#100A08;--ink:#EEE9DE;--mute:#EEE9DE99;--ln:#EEE9DE22;--coral:#F46649}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 system-ui,sans-serif;padding:32px 24px}
+h1{font-weight:500;font-size:26px;margin:0 0 6px}
+p{color:var(--mute);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+a.card{display:block;padding:16px;border:1px solid var(--ln);border-radius:14px;color:var(--ink);text-decoration:none;text-align:center}
+.qr{background:var(--ink);border-radius:10px;padding:10px;line-height:0}
+.qr img{width:100%;height:auto;image-rendering:pixelated}
+b{display:block;margin-top:10px;font-weight:500}
+.card.main{border-color:var(--coral)}
+</style>
+</head>
+<body>
+<h1>לסרוק בטלפון</h1>
+<p>כל קוד פותח את הדף עם השכבה האדפטיבית המוצעת.</p>
+<div class="grid" id="g"></div>
+<script>
+const base = location.origin + location.pathname.replace(/qr\.html$/, '') + 'phone.html?page=';
+const pages = [['personalization','AIyelet'],['marketplace','White-Label Marketplace'],['api','Experiences API'],['otas','OTAs'],['airlines','Airlines'],['hotels','Hotels'],['loyalty-finance','Loyalty & finance'],['travel-technology','Travel technology'],['super-apps','Super apps']];
+const g = document.getElementById('g');
+pages.forEach(([f, name], i) => {
+  const url = base + f + '.html';
+  const q = qrcode(0, 'M'); q.addData(url); q.make();
+  g.insertAdjacentHTML('beforeend', `<a class="card${i ? '' : ' main'}" href="${url}"><div class="qr">${q.createImgTag(8, 8)}</div><b>${name}</b></a>`);
+});
+</script>
+</body>
+</html>
