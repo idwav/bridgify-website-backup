@@ -84,7 +84,7 @@
     let step = 1, timer = 0, visible = false, manual = false;
     const set = n => { step = n; root.dataset.step = n; };
     const span = () => Math.max(1, section.offsetHeight - innerHeight);
-    const fromScroll = () => { if (!wide.matches) return; const p = Math.max(0, Math.min(.999, -section.getBoundingClientRect().top / span())); const n = Math.floor(p * items.length) + 1; if (n !== step) set(n); };
+    const fromScroll = () => { if (!wide.matches) return; const p = Math.max(0, Math.min(.999, -section.getBoundingClientRect().top / span())); const n = p < .2 ? 1 : p < .55 ? 2 : 3; if (n !== step) set(n); };
     const schedule = () => { clearTimeout(timer); if (wide.matches || manual || reduced.matches || !visible || document.hidden) return; timer = setTimeout(() => { set(step % items.length + 1); schedule(); }, 5200); };
     items.forEach((li, i) => {
       const pick = () => {
