@@ -24,6 +24,7 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:500 14
 .lines i{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--coral);opacity:.85}
 .flash{position:fixed;top:calc(var(--bar-h,54px) + 16px);left:50%;transform:translateX(-50%);padding:10px 18px;border-radius:10px;background:var(--coral);color:#180F10;font:700 18px/1 -apple-system,system-ui,sans-serif;opacity:0;transition:opacity .25s;pointer-events:none}
 .flash.on{opacity:1}
+body.clean .bar{display:none}
 </style>
 </head>
 <body>
@@ -58,6 +59,8 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:500 14
      (try-cap.css), so the page stays where you scrolled. Keys: A, B, T (today), or ← → to flip. */
   const q = new URLSearchParams(location.search);
   const S = { v: q.get('v') || '1560', w: q.get('w') === 'fit' ? 'fit' : +(q.get('w') || 1920), t: +(q.get('t') || 32), l: q.get('l') !== '0', s: q.get('s') === '1', y: +(q.get('y') || 96), h: q.get('h') !== '0' };
+  // ?bar=0: a clean screen with no toolbar (the page as a visitor sees it); the key H brings the toolbar back
+  if (q.get('bar') === '0') document.body.classList.add('clean');
   const NAME = { today: 'היום', 1440: 'A · תוכן עד 1440', 1560: 'B · תוכן עד 1560' };
   const ORDER = ['1440', '1560', 'today'];
   const f = document.getElementById('f'), frame = document.getElementById('frame'), lines = document.getElementById('lines'), stage = document.getElementById('stage');
@@ -101,7 +104,7 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:500 14
     st.textContent = css + `\nhtml:root{--try-cap:${S.v}px;--try-tab:${S.t}px}`;
   }
   function layout() {
-    document.documentElement.style.setProperty('--bar-h', document.getElementById('bar').offsetHeight + 'px');
+    document.documentElement.style.setProperty('--bar-h', (document.body.classList.contains('clean') ? 0 : document.getElementById('bar').offsetHeight) + 'px');
     const availW = stage.clientWidth, availH = stage.clientHeight;
     if (availW < 50 || availH < 50) return;  // hidden tab: wait for the next resize
     W = S.w === 'fit' ? availW : +S.w;
@@ -121,7 +124,7 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:500 14
     document.querySelectorAll('[data-t]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.t === S.t));
     document.querySelectorAll('[data-s]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.s === '1') === S.s));
     document.querySelectorAll('[data-l]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.l === '1') === S.l));
-    history.replaceState(null, '', '?' + new URLSearchParams({ v: S.v, w: S.w, t: S.t, l: S.l ? 1 : 0, s: S.s ? 1 : 0, y: S.y, h: S.h ? 1 : 0 }));
+    history.replaceState(null, '', '?' + new URLSearchParams({ ...(document.body.classList.contains('clean') ? { bar: 0 } : {}), v: S.v, w: S.w, t: S.t, l: S.l ? 1 : 0, s: S.s ? 1 : 0, y: S.y, h: S.h ? 1 : 0 }));
   }
   let ft;
   function setVersion(v) {
@@ -142,6 +145,7 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:500 14
   });
   function keys(e) {
     const k = e.key.toLowerCase();
+    if (k === 'h' || k === 'י') { document.body.classList.toggle('clean'); layout(); return; }
     if (k === 'a' || k === 'ש') setVersion('1440');
     else if (k === 'b' || k === 'נ') setVersion('1560');
     else if (k === 't' || k === 'א') setVersion('today');
