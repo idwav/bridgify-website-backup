@@ -6,7 +6,7 @@
    - copy: 7 of the 8 columns, on the content line;
    - visual: all 8 columns (it scales with its own width: container-type inline-size, 800/760), on the content line;
    - copy → visual: the table's hero→visual gap (64 on tablet);
-   - title size: --try-hero-tab (40 approved; the viewer can try 48 / 56 for comparison).
+   - title size: clamp(48px, 5.5vw, 56px), approved 17 Nov 2026 (--try-hero-tab lets the viewer compare 40 / 48 / 56).
    Grid, margins, spacing and colours are unchanged. Injected by live.html. */
 @media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
   html body #home .bv2-hero-layout {
@@ -18,7 +18,7 @@
   html body #home .bv2-hero-copy > p { max-width: none !important; }
   html body #home .bv2-hero-visual { width: 100% !important; max-width: none !important; margin: 0 !important; }
   /* title: the size under review (--try-hero-tab); it may use the whole copy column (the hero's own 760px cap is lifted) */
-  html body #home #hero-title { font-size: var(--try-hero-tab, 40px) !important; max-width: none !important; }
+  html body #home #hero-title { font-size: var(--try-hero-tab, clamp(48px, 5.5vw, 56px)) !important; max-width: none !important; }
   /* proof line under the buttons (Part of HBX Group · 1M+ experiences · 180+ countries): 12 → 16, the body size */
   html body #home .bv2-hero-proof { font-size: var(--try-proof, 16px) !important; letter-spacing: .02em !important; gap: 8px 14px !important; }
   html body #home .bv2-hero-proof > span + span::before { margin-right: 14px !important; }

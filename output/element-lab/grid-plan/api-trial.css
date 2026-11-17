@@ -1,0 +1,43 @@
+/* Lab only · the approved system on the API page (17 Nov 2026). Loaded after try-cap.css (which defines --try-margin:
+   cap 1560, tablet 32), header-compact.css, type-wide.css (tokens) and tokens-wide.css. Phone (≤599) is not touched.
+   What this adds for api.html: every section on the one content line, the integration heading's own 2.7% offset
+   removed, the shared closing CTA card edged on the content line, the split headings on the column-7 rule, and the
+   type roles read from the shared tokens (the integration cards used their own 1.85vw scale). */
+@media (min-width: 600px) {
+  /* one content line */
+  html body :is(section#top, section#network, section#whats-inside, section#customer-experience, section#integration, section#api-features, section#enterprise, section#faq) {
+    padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important;
+  }
+  /* the shared FAQ sets 4% with a stronger selector (brand-faq: body:not([data-copy-page=index]) …#faq) */
+  html body:not(#bf-lab) section#faq.copy-faq.copy-faq { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
+  html body #integration :is(header.am-heading, .am-eyebrow) { margin-left: 0 !important; }
+  /* the shared closing CTA and footer are one framed, full-bleed component (shared-footer.css: a 14px frame); they
+     keep their frame and their centred CTA, as approved for the global footer */
+  /* type roles */
+  html body #top .hero-copy > h2 { font-size: var(--type-hero) !important; line-height: 1.16 !important; }
+  html body :is(#an-title, #ak-title, #cx-title, #am-title, #af-title, #ae-title, #faq .copy-inner > h2, #bf-cta-title) { font-size: var(--type-section) !important; line-height: 1.2 !important; }
+  html body #integration :is(.am-build, .am-managed) h3 { font-size: var(--type-card) !important; line-height: 1.25 !important; }
+  html body #integration :is(.am-build, .am-managed) > p { font-size: var(--type-body) !important; line-height: 1.55 !important; }
+}
+@media (min-width: 1024px) {
+  /* split headings: two equal halves, intro from column 7, at most 560px, level with the title (split-align.js) */
+  html body :is(#whats-inside header.ex-head, #api-features header.ck-head) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; column-gap: 32px !important; align-items: start !important;
+  }
+  html body :is(#whats-inside header.ex-head > p, #api-features header.ck-head > p) { align-self: start !important; max-width: 560px !important; }
+}
+/* iPad Pro held upright (1024–1366 wide, portrait): the hero gets the same stacked recipe as the homepage hero on
+   tablets: copy on 7/8 of the width, the code demo across the content width, 64 between, the whole hero on one screen */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body section#top.api-hero-code {
+    grid-template-columns: minmax(0, 1fr) !important; row-gap: var(--bf-gap-to-visual, 64px) !important; column-gap: 0 !important;
+    align-content: center !important; min-height: 100svh !important;
+  }
+  html body #top .hero-copy { max-width: calc((100% + 32px) * 7 / 12 * 1.5 - 32px) !important; }
+  html body #top .hero-actions { flex-direction: row !important; align-items: center !important; }
+  html body #top .ahc-visual { width: 100% !important; max-width: none !important; margin: 0 !important; }
+}
+/* tablet hero title, as approved for the homepage: clamp(48px, 5.5vw, 56px) on tablets and an iPad Pro held upright */
+@media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body #top .hero-copy > h2 { font-size: clamp(48px, 5.5vw, 56px) !important; }
+}

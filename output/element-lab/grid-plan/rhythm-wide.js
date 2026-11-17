@@ -59,6 +59,8 @@
       const sec = document.querySelector(S.section); if (!sec) return;
       const frame = S.frame ? sec.querySelector(S.frame) : sec; if (!frame) return;
       const items = S.items.filter(([role]) => role !== 'deco').map(([role, sel]) => ({role, els: [...frame.querySelectorAll(sel)].filter(shown)})).filter(i => i.els.length);
+      // a "link" that renders as a framed button on wider screens (API "Read more" in #network) is spaced as a button
+      items.forEach(i => { if (i.role === 'link' && i.els.every(e => parseFloat(getComputedStyle(e).borderTopWidth) > 0)) i.role = 'actions'; });
       if (!items.length) return;
       items.forEach(i => i.els.forEach(el => { el.dataset.bfRole = i.role; }));
       // which consecutive items are stacked: measured on the page as it is, before anything moves

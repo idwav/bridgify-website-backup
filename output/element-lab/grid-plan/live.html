@@ -67,6 +67,15 @@ body.clean .bar{display:none}
   const S = { v: q.get('v') || '1560', w: q.get('w') === 'fit' ? 'fit' : +(q.get('w') || 1920), t: +(q.get('t') || 32), l: q.get('l') !== '0', s: q.get('s') === '1', y: +(q.get('y') || 96), h: q.get('h') !== '0', a: q.get('a') === '1', z: q.get('z') === '1', m: q.get('m') === '1', th: q.get('th') === '1', tz: q.get('tz') || '40', hv: q.get('hv') || 'b' };
   // ?bar=0: a clean screen with no toolbar (the page as a visitor sees it); the key H brings the toolbar back
   if (q.get('bar') === '0') document.body.classList.add('clean');
+  // which page: the homepage (default) or another page that has its own role map and page layer (?p=api)
+  const PAGES = {
+    home: { src: '../../../index-v2.html?version=2', roles: 'roles-index-v2.js', layer: null, pairs: null },
+    api: { src: '../../../api.html?version=2', roles: 'roles-api.js', layer: 'api-trial.css',
+      pairs: [['#whats-inside', 'h2', 'header.ex-head > p'], ['#api-features', 'h2', 'header.ck-head > p']] }
+  };
+  const PG = PAGES[q.get('p')] ? q.get('p') : 'home', CFG = PAGES[PG];
+  let pageCss = '';
+  if (CFG.layer) fetch(CFG.layer, { cache: 'no-store' }).then(r => r.text()).then(t => { pageCss = t; inject(); });
   const NAME = { today: 'היום', 1440: 'A · תוכן עד 1440', 1560: 'B · תוכן עד 1560' };
   const ORDER = ['1440', '1560', 'today'];
   const f = document.getElementById('f'), frame = document.getElementById('frame'), lines = document.getElementById('lines'), stage = document.getElementById('stage');
@@ -116,7 +125,7 @@ body.clean .bar{display:none}
     let st = d.getElementById('try-align');
     if (!S.a) { if (st) st.remove(); if (w.BridgifySplit) w.BridgifySplit.clear(); return; }
     if (!st) { st = d.createElement('style'); st.id = 'try-align'; st.textContent = alCss; d.head.appendChild(st); }
-    if (!w.BridgifySplit) { const sc = d.createElement('script'); sc.textContent = alJs; d.body.appendChild(sc); }
+    if (!w.BridgifySplit) { if (CFG.pairs) w.BridgifySplitPairs = CFG.pairs; const sc = d.createElement('script'); sc.textContent = alJs; d.body.appendChild(sc); }
     setTimeout(() => w.BridgifySplit && w.BridgifySplit.apply(), 250);
   }
   fetch('header-compact.css', { cache: 'no-store' }).then(r => r.text()).then(t => { hdr = t; header(); });
@@ -129,7 +138,7 @@ body.clean .bar{display:none}
     if (!st) { st = d.createElement('style'); st.id = 'try-hdr'; st.textContent = hdr; d.head.appendChild(st); }
   }
   fetch('try-cap.css', { cache: 'no-store' }).then(r => r.text()).then(t => { css = t; inject(); });
-  Promise.all(['tokens-wide.css', 'roles-index-v2.js', 'rhythm-wide.js'].map(u => fetch(u, { cache: 'no-store' }).then(r => r.text())))
+  Promise.all(['tokens-wide.css', CFG.roles, 'rhythm-wide.js'].map(u => fetch(u, { cache: 'no-store' }).then(r => r.text())))
     .then(([t, roles, eng]) => { spTok = t; spCode = roles + '\n' + eng; spacing(); });
   // step 3: tablet/desktop spacing tokens + the role-map engine, run inside the page; off = cleared back to today
   function spacing() {
@@ -156,7 +165,7 @@ body.clean .bar{display:none}
     let st = d.getElementById('try-cap');
     if (S.v === 'today') { if (st) st.remove(); return; }
     if (!st) { st = d.createElement('style'); st.id = 'try-cap'; d.head.appendChild(st); }
-    st.textContent = css + `\nhtml:root{--try-cap:${S.v}px;--try-tab:${S.t}px}`;
+    st.textContent = css + '\n' + pageCss + `\nhtml:root{--try-cap:${S.v}px;--try-tab:${S.t}px}`;
   }
   function layout() {
     if (typeof meas === 'function') setTimeout(meas, 0);
@@ -188,7 +197,7 @@ body.clean .bar{display:none}
     document.querySelectorAll('[data-t]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.t === S.t));
     document.querySelectorAll('[data-s]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.s === '1') === S.s));
     document.querySelectorAll('[data-l]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.l === '1') === S.l));
-    history.replaceState(null, '', '?' + new URLSearchParams({ ...(document.body.classList.contains('clean') ? { bar: 0 } : {}), v: S.v, w: S.w, t: S.t, l: S.l ? 1 : 0, s: S.s ? 1 : 0, y: S.y, h: S.h ? 1 : 0, a: S.a ? 1 : 0, z: S.z ? 1 : 0, m: S.m ? 1 : 0, th: S.th ? 1 : 0, tz: S.tz, hv: S.hv }));
+    history.replaceState(null, '', '?' + new URLSearchParams({ ...(document.body.classList.contains('clean') ? { bar: 0 } : {}), ...(PG !== 'home' ? { p: PG } : {}), v: S.v, w: S.w, t: S.t, l: S.l ? 1 : 0, s: S.s ? 1 : 0, y: S.y, h: S.h ? 1 : 0, a: S.a ? 1 : 0, z: S.z ? 1 : 0, m: S.m ? 1 : 0, th: S.th ? 1 : 0, tz: S.tz, hv: S.hv }));
   }
   let ft;
   function setVersion(v) {
@@ -224,7 +233,7 @@ body.clean .bar{display:none}
   addEventListener('keydown', keys);
   f.addEventListener('load', () => { inject(); header(); typ(); tabHero(); layout(); spacing(); align(); try { f.contentWindow.addEventListener('keydown', keys); } catch (e) {} });
   addEventListener('resize', () => { layout(); meas(); });
-  f.src = '../../../index-v2.html?version=2';
+  f.src = CFG.src;
   layout();
 })();
 </script>

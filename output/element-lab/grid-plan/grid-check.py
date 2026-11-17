@@ -11,11 +11,27 @@ from playwright.sync_api import sync_playwright
 
 HERE = pathlib.Path(__file__).parent
 OUT = HERE / "check"; OUT.mkdir(exist_ok=True)
-BASE = "http://127.0.0.1:8084/index-v2.html?version=2"
-WIDTHS = [int(x) for x in (sys.argv[1].split(",") if len(sys.argv) > 1 else "390,768,1024,1280,1440,1920".split(","))]
+ARGS = [a for a in sys.argv[1:] if not a.startswith("--")]
+PAGE = next((a[7:] for a in sys.argv[1:] if a.startswith("--page=")), "home")
+WIDTHS = [int(x) for x in (ARGS[0].split(",") if ARGS else "390,768,1024,1280,1440,1920".split(","))]
+PAGES = {
+  "home": {"url": "index-v2.html?version=2", "roles": "roles-index-v2.js", "css": ["tablet-hero.css"], "pairs": None,
+    "hero": "#home #hero-title",
+    "section": "#v2p-title, #opx-opportunity-title, #opx-why-title, #home-intent-title, #audiences-title, #partner-results-title, #sec2-title, #faq div.copy-inner > h2, #hc2-title",
+    "card": "#products .pr-body h4, #why-bridgify div.wy-copy > h4, #opportunity-study .pb-panel h4, #audiences .audience-card h3, #sources div.trust-copy > h2",
+    "buttons": "#start, section .hc2-actions a, section a.brand-action"},
+  "api": {"url": "api.html", "roles": "roles-api.js", "css": ["api-trial.css"],
+    "pairs": [["#whats-inside", "h2", "header.ex-head > p"], ["#api-features", "h2", "header.ck-head > p"]],
+    "hero": "#top .hero-copy > h2",
+    "section": "#an-title, #ak-title, #cx-title, #am-title, #af-title, #ae-title, #faq .copy-inner > h2, #bf-cta-title",
+    "card": "#integration .am-build h3, #integration .am-managed h3",
+    "buttons": "section .hero-actions a, section a.brand-action, .bf-cta-actions a"},
+}
+P = PAGES[PAGE]
+BASE = "http://127.0.0.1:8084/" + P["url"]
 R = lambda n: (HERE / n).read_text()
-CSS = [R("try-cap.css") + "\nhtml:root{--try-cap:1560px;--try-tab:32px}", R("header-compact.css"), R("type-wide.css"), R("tokens-wide.css"), R("split-align.css")]
-JS = [R("roles-index-v2.js") + "\n" + R("rhythm-wide.js"), R("split-align.js")]
+CSS = [R("try-cap.css") + "\nhtml:root{--try-cap:1560px;--try-tab:32px}", R("header-compact.css"), R("type-wide.css"), R("tokens-wide.css"), R("split-align.css")] + [R(c) for c in P["css"]]
+JS = [R(P["roles"]) + "\n" + R("rhythm-wide.js"), (f"window.BridgifySplitPairs = {json.dumps(P['pairs'])};\n" if P["pairs"] else "") + R("split-align.js")]
 # documented exceptions (SPACING-GRID-PLAN.md 2c, 3a): a divider with its own padding, a label row taller than the label
 KNOWN = {("#sources", "content→foot"), ("#sources", "sub→content"), ("#opportunity-study", "more→text"), ("#audiences", "label→title")}
 
@@ -27,20 +43,20 @@ def margin(w):
 def clamp(lo, v, hi): return max(lo, min(v, hi))
 def expect_type(w):
     if w <= 599: return None
-    if w <= 1023: return {"hero": 40, "section": 36, "card": 24}
+    if w <= 1023: return {"hero": clamp(48, .055 * w, 56), "section": 36, "card": 24}   # tablet hero: approved 17 Nov (48–56)
     return {"hero": clamp(40, .036 * w, 60), "section": clamp(36, .03 * w, 44), "card": clamp(24, .019 * w, 28)}
 
-MEASURE = r"""(m) => {
+MEASURE = r"""([m, S]) => {
  const vis = e => { const r=e.getBoundingClientRect(), c=getComputedStyle(e); return r.width>1 && r.height>1 && c.visibility!=='hidden' && c.display!=='none' && +c.opacity>0.01; };
  const de = document.documentElement, cw = de.clientWidth;
  const out = {};
  out.hscroll = de.scrollWidth > cw;
  // G1: the first heading, label or boxed card of each top-level section, against the margin
- out.g1 = [...document.querySelectorAll('section')].filter(s => !s.parentElement.closest('section') && vis(s)).map(s => {
+ out.g1 = [...document.querySelectorAll('section')].filter(s => !s.parentElement.closest('section') && vis(s) && !s.matches('.bf-cta-shell')).map(s => {
    const h = s.querySelector('.sec2-in, .hc2-box') || [...s.querySelectorAll('h1,h2')].filter(vis)[0]; if (!h) return null;
    let x = h.getBoundingClientRect().left; const lbl = s.querySelector('.brand-section-label, .hm-eyebrow, .v4-kicker, .bv2-hero-eyebrow, .sec2-eyebrow');
    // inside a boxed card the label sits on the card's own padding: only the box is checked against the margin
-   const boxed = !!s.querySelector('.sec2-in, .hc2-box');
+   const boxed = !!s.querySelector('.sec2-in, .hc2-box, .bf-cta-card');
    return {id: s.id || s.className.split(' ')[0], left: Math.round(x), label: !boxed && lbl && vis(lbl) ? Math.round(lbl.getBoundingClientRect().left) : null}; }).filter(Boolean);
  // G2: editorial text past the right margin (visuals, demos and full-bleed art excluded)
  const skip = '[aria-hidden=true], .hm-stage, .intent-stage, .pr-card-visual, .v2e-proof, .v2e-art, .hc2-demo, .bv2-hero-visual, .pb-panels, .pr-grid, .audience-grid, svg, header, footer, .site-footer, .trust-stat';
@@ -50,17 +66,17 @@ MEASURE = r"""(m) => {
  const fs = e => +parseFloat(getComputedStyle(e).fontSize).toFixed(1), lh = e => +(parseFloat(getComputedStyle(e).lineHeight) / parseFloat(getComputedStyle(e).fontSize)).toFixed(2);
  const q = s => [...document.querySelectorAll(s)].filter(vis);
  out.t1 = {
-   hero: q('#home #hero-title').map(e => [e.innerText.slice(0, 24), fs(e), lh(e)]),
-   section: q('#v2p-title, #opx-opportunity-title, #opx-why-title, #home-intent-title, #audiences-title, #partner-results-title, #sec2-title, #faq div.copy-inner > h2, #hc2-title').map(e => [e.innerText.slice(0, 24), fs(e), lh(e)]),
-   card: q('#products .pr-body h4, #why-bridgify div.wy-copy > h4, #opportunity-study .pb-panel h4, #audiences .audience-card h3, #sources div.trust-copy > h2').map(e => [e.innerText.slice(0, 24), fs(e), lh(e)]),
+   hero: q(S.hero).map(e => [e.innerText.slice(0, 24), fs(e), lh(e)]),
+   section: q(S.section).map(e => [e.innerText.slice(0, 24), fs(e), lh(e)]),
+   card: q(S.card).map(e => [e.innerText.slice(0, 24), fs(e), lh(e)]),
    body: q('section p').filter(e => e.innerText.trim().length > 40 && !e.closest(skip)).map(e => [e.innerText.slice(0, 24), fs(e)]),
-   button: q('#start, section .hc2-actions a, section a.brand-action').filter(e => !e.closest(skip)).map(e => [e.innerText.slice(0, 24), fs(e)]),
+   button: q(S.buttons).filter(e => !e.closest(skip)).map(e => [e.innerText.slice(0, 24), fs(e)]),
    label: q('.brand-section-label, .hm-eyebrow, .v4-kicker, .bv2-hero-eyebrow, .sec2-eyebrow, .audiences-kicker').map(e => [e.innerText.slice(0, 24), fs(e)]) };
  const root = getComputedStyle(de);
  out.t2 = [...document.querySelectorAll('section')].filter(s => !s.parentElement.closest('section')).flatMap(s => ['--type-hero', '--type-section', '--type-card']
    .filter(v => getComputedStyle(s).getPropertyValue(v).trim() !== root.getPropertyValue(v).trim()).map(v => ({id: s.id, token: v, local: getComputedStyle(s).getPropertyValue(v).trim()})));
  // N1: header at the top of the page
- const hd = document.querySelector('header.site-header-common'), lg = hd && hd.querySelector('a.wordmark'), bt = hd ? [...hd.querySelectorAll('.nav-actions > a')].filter(vis) : [];
+ const hd = document.querySelector('header.site-header-common'), lg = hd && hd.querySelector('a.wordmark, a.logo'), bt = hd ? [...hd.querySelectorAll('.nav-actions > a')].filter(vis) : [];
  out.n1 = hd ? {top: Math.round(hd.getBoundingClientRect().top), h: Math.round(hd.getBoundingClientRect().height), logo: lg ? Math.round(lg.getBoundingClientRect().left) : null, lastR: bt.length ? Math.round(cw - bt[bt.length - 1].getBoundingClientRect().right) : null} : null;
  return out; }"""
 
@@ -86,7 +102,7 @@ def main():
             for c in CSS: pg.add_style_tag(content=c)
             for j in JS: pg.add_script_tag(content=j)
             pg.evaluate("async () => { for (let y=0;y<document.body.scrollHeight;y+=600){scrollTo(0,y); await new Promise(r=>setTimeout(r,30));} scrollTo(0,0); await new Promise(r=>setTimeout(r,500)); BridgifyRhythmWide.apply(); await new Promise(r=>setTimeout(r,200)); BridgifySplit.apply(); await new Promise(r=>setTimeout(r,200)); }")
-            m = margin(w); r = pg.evaluate(MEASURE, m)
+            m = margin(w); r = pg.evaluate(MEASURE, [m, {k: P[k] for k in ('hero', 'section', 'card', 'buttons')}])
             # H1
             add(w, "H1 בלי גלילה הצידה", not r["hscroll"], "אין" if not r["hscroll"] else "יש גלילה אופקית")
             if m is not None:
@@ -135,7 +151,7 @@ def main():
             add(w, "SC1 גלילה חלקה (Why Bridgify)", sc["max"] <= 125 and sc["min"] >= 0, f"{sc['steps']} צעדים של 120px · הצעד הגדול {sc['max']} · הקטן {sc['min']}")
             pg.close(); print(w, "done", file=sys.stderr)
         b.close()
-    (OUT / "report.json").write_text(json.dumps({"run": started, "widths": WIDTHS, "rows": rows}, ensure_ascii=False, indent=1))
+    (OUT / (f"report-{PAGE}.json" if PAGE != "home" else "report.json")).write_text(json.dumps({"run": started, "widths": WIDTHS, "rows": rows}, ensure_ascii=False, indent=1))
     html(rows, started)
     fails = [x for x in rows if not x["ok"]]
     print(f"{len(rows)} checks · {len(fails)} failed")
@@ -153,15 +169,15 @@ def html(rows, started):
         return f'<td class="{cls}"><b>{mark}</b><span>{x["detail"]}</span></td>'
     n, f = len(rows), sum(1 for x in rows if not x["ok"])
     body = "".join(f"<tr><th>{r}</th>{''.join(td(r, w) for w in ws)}</tr>" for r in rules)
-    (OUT / "report.html").write_text(f"""<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
-<title>בדיקת גריד · דף הבית</title><style>
+    (OUT / (f"report-{PAGE}.html" if PAGE != "home" else "report.html")).write_text(f"""<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>בדיקת גריד · {PAGE}</title><style>
 :root{{--bg:#100A08;--panel:#1A1210;--line:#3a2c27;--ink:#EEE9DE;--muted:#9b8b80;--coral:#F46649;--ok:#2f6b4f;--bad:#8a2b1c;--known:#5a4a2a}}
 *{{box-sizing:border-box}} body{{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,system-ui,sans-serif;padding:24px 16px}}
 h1{{font-size:22px;margin:0 0 6px}} p{{color:var(--muted);margin:0 0 18px}} .sum{{display:inline-block;padding:6px 12px;border-radius:8px;background:{'var(--ok)' if f == 0 else 'var(--bad)'};color:#fff;font-weight:700;margin-bottom:16px}}
 .wrap{{overflow-x:auto}} table{{border-collapse:separate;border-spacing:4px;min-width:900px}} th{{text-align:right;font-weight:600;color:var(--muted);padding:6px 8px;vertical-align:top;white-space:nowrap}}
 thead th{{color:var(--ink);text-align:center}} td{{vertical-align:top;padding:8px 10px;border-radius:8px;min-width:160px;font-size:12px}} td b{{display:block;font-size:13px;margin-bottom:3px}} td span{{color:#e9ddd2;direction:ltr;unicode-bidi:plaintext;display:block}}
 .ok{{background:var(--ok)}} .bad{{background:var(--bad)}} .known{{background:var(--known)}} .na{{background:var(--panel);color:var(--muted);text-align:center}}
-</style></head><body><h1>בדיקת גריד, ריווח, יישור וטקסט · דף הבית (ניסוי)</h1>
+</style></head><body><h1>בדיקת גריד, ריווח, יישור וטקסט · {'דף הבית' if PAGE == 'home' else PAGE.upper()} (ניסוי)</h1>
 <p>כל הכללים שאושרו בשלבים 2–3, נמדדים אוטומטית בכל רוחב. הרצה: {started}. מעבדה בלבד; האתר לא השתנה.</p>
 <div class="sum">{n - f} מתוך {n} בדיקות עברו</div>
 <div class="wrap"><table><thead><tr><th>כלל</th>{''.join(f'<th>{w}px</th>' for w in ws)}</tr></thead><tbody>{body}</tbody></table></div></body></html>""")

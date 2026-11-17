@@ -3,7 +3,8 @@
    On the live site this becomes structure, not script: the label gets its own grid row, so the title and the intro
    share the second row. Exposes window.BridgifySplit = {apply, clear, report, mode}. */
 (() => {
-  const PAIRS = [
+  // the page can name its own split headings (window.BridgifySplitPairs); these are the homepage's
+  const PAIRS = window.BridgifySplitPairs || [
     ['#opportunity-study', 'h2', 'div.pb-intro'],
     ['#products', 'h2', 'p.pr-guide'],
     ['#personalization', 'h2', 'div.home-intent-copy'],
