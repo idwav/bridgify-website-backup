@@ -419,3 +419,10 @@
 #section-1 .market-demo .brand-settings>small{margin:7px 0 5px!important}
 #section-1 .market-demo .settings-mode{margin:8px 0!important}
 }
+
+/* Phones and tablets: the live store comes first, the headline and buttons sit under it. */
+@media(max-width:900px){
+#section-1.page-hero{display:grid!important}
+#section-1 .market-demo{order:-1}
+#section-1 .block-copy{order:1}
+}
