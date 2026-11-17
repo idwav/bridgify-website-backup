@@ -45,3 +45,11 @@
   html body #section-2 .ti-src{transform:none!important;rotate:none!important;translate:none!important;width:auto!important}
   html body #section-2 .ti-src:not(#ad-x){min-width:58px!important;padding:4px 6px!important;justify-content:center}
 }
+
+/* Round 11 (17 Nov 2026), phones: hero copy sticks; the integration demo rises over it on an opaque ground */
+@media (max-width:599px){
+  html body #section-1.te-hero:not(#ad-x){overflow:clip!important}
+  html body #section-1 .ad-te-copy{position:sticky;top:calc(var(--ad-header-h) + 8px);z-index:0;transform-origin:50% 0}
+  html body #section-1 .te-visual:not(#ad-x){position:relative!important;z-index:1;zoom:1!important;background-color:#160e0d!important;box-shadow:0 -24px 48px rgba(0,0,0,.5)!important}
+}
+@media (max-width:599px) and (prefers-reduced-motion:reduce){ html body #section-1 .ad-te-copy{position:static} }

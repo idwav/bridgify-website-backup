@@ -60,20 +60,16 @@ window.BridgifyRoles = {
      "#sc-title"
     ],
     [
-     "content",
-     "div.up-story-text > div.up-story-steps"
+     "control",
+     "div.up-story-steps"
     ],
     [
      "content",
-     "article.up-story-copy:nth-child(4) > h3"
-    ],
-    [
-     "text",
-     "article.up-story-copy:nth-child(4) > p"
+     "article.up-story-copy"
     ],
     [
      "content",
-     "div.up-story-sticky > div.up-layout"
+     "div.up-layout"
     ],
     [
      "text",

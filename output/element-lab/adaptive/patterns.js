@@ -266,7 +266,42 @@
     return {wrap: w, stage: st, go: i => scrollTo({top: w.getBoundingClientRect().top + scrollY - top + per() * i, behavior: 'smooth'})};
   }
 
-  window.BridgifyAdaptive = {MQ, menu, scroller, tabs, rowLinks, footer, fit, zoomFit, expander, reduce, fold, pin};
+  /* 12. Hold and rise (phones): the first scroll does not move the section; only `mover` rises (its negative top
+     margin grows one pixel per pixel scrolled) over what is above it, `run` pixels in all; then the page goes on.
+     `els` are the elements that hold (they go into a holder of fixed height with a sticky stage inside, so the stage
+     shrinks exactly as fast as the holder scrolls away). base(): the overlap at rest; run(): how far mover rises. */
+  function hold(els, mover, o = {}) {
+    els = [].concat(els).filter(Boolean); if (!els.length || !mover || els[0].closest('.ad-hold')) return null;
+    for (let a = els[0].parentElement; a && a !== document.body; a = a.parentElement) {
+      const c = getComputedStyle(a); if (/hidden|auto|scroll/.test(c.overflowX + c.overflowY)) a.style.setProperty('overflow', 'clip', 'important');
+    }
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const w = document.createElement('div'); w.className = 'ad-hold' + (o.className ? ' ' + o.className : '');
+    const st = document.createElement('div'); st.className = 'ad-hold-stage';
+    els[0].before(w); w.append(st); els.forEach(e => st.append(e));
+    let base = 0, run = 0, top = 0;
+    const on = () => MQ.mobile.matches && !reduced.matches;
+    const set = v => mover.style.setProperty('margin-top', -Math.round(v) + 'px', 'important');
+    const measure = () => {
+      w.style.height = ''; st.style.position = ''; st.style.top = '';
+      base = o.base ? o.base() : 0; set(base);
+      if (!on()) { mover.style.removeProperty('margin-top'); return; }
+      run = Math.max(0, o.run ? o.run() : 0);
+      w.style.height = st.offsetHeight + 'px';
+      top = Math.round(w.getBoundingClientRect().top + scrollY);
+      st.style.position = 'sticky'; st.style.top = top + 'px';
+      tick();
+    };
+    const tick = () => { if (!on() || !run) return; const s = Math.max(0, Math.min(run, top - w.getBoundingClientRect().top)); set(base + s); };
+    let raf = 0; addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; tick(); }); }, {passive: true});
+    const rest = () => { if (scrollY < 2 || top - w.getBoundingClientRect().top < 1) measure(); };
+    addEventListener('resize', measure); addEventListener('bf-shown', measure); addEventListener('load', () => setTimeout(measure, 200));
+    if (window.ResizeObserver) els.filter(e => e !== mover).forEach(e => new ResizeObserver(() => requestAnimationFrame(rest)).observe(e));
+    measure();
+    return {wrap: w, stage: st, measure};
+  }
+
+  window.BridgifyAdaptive = {MQ, menu, scroller, tabs, rowLinks, footer, fit, zoomFit, expander, reduce, fold, pin, hold};
   const boot = () => { menu(); footer(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
