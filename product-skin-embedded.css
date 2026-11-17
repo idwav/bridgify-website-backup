@@ -26,3 +26,40 @@
 #section-4 .embed-view{padding:11px 20px!important;border:0!important;border-radius:8px!important;background:#e8654a!important;color:#180f10!important;box-shadow:none!important;font:700 12px Sofia,sans-serif}
 @media(max-width:700px){#section-4 .embed-chrome small{display:none}}
 #section-4 .embed-rec-label{background:#f4664926!important;background-image:none!important;-webkit-text-fill-color:#ffba9b!important;color:#ffba9b!important}
+
+/* Fit one screen: the whole block, including the two links under it, stays inside the viewport height. */
+#section-4 .embed-heading{margin-bottom:clamp(14px,2.4vh,28px)}
+#section-4 .embed-heading h2{font-size:clamp(30px,5.2vh,44px)!important;line-height:1.15}
+#section-4 .embed-heading p{font-size:clamp(15px,2.3vh,19px)!important;line-height:1.45}
+#section-4 .embed-shell{padding:10px}
+#section-4 .embed-toolbar{padding:0 10px 10px}
+#section-4 .embed-switch button{padding:8px 16px!important;min-height:0!important}
+#section-4 .embed-destination{min-height:clamp(150px,27vh,300px)}
+#section-4 .embed-trip{padding:12px 14px 4px}
+#section-4 .embed-trip aside{padding:12px 16px 6px!important}
+#section-4 .embed-trip aside h3{font-size:clamp(16px,2.4vh,20px)}
+#section-4 .embed-recommendation{margin:8px 14px 12px;padding:10px 16px!important}
+#section-4 .embed-rec-content>img{height:clamp(64px,10.5vh,112px)}
+#section-4 .embed-rec-content{gap:18px}
+#section-4 .embed-links{padding-top:clamp(12px,2vh,22px)}
+#section-4 .embed-links a{padding:10px 18px}
+@media(max-width:700px){#section-4 .embed-destination{min-height:200px}#section-4 .embed-rec-content>img{height:90px}}
+@media(min-width:701px){#section-4 .embed-heading{grid-template-columns:1.15fr 1fr!important;gap:5%!important;align-items:end}}
+@media(max-width:700px){#section-4 .embed-heading{grid-template-columns:1fr!important;gap:12px!important}#section-4 .embed-heading p{font-size:16px!important}}
+#section-4 .embed-heading p{font-size:clamp(14px,2.1vh,17px)!important}
+#section-4.embed-section,#section-4{padding-top:clamp(28px,5vh,56px)!important;padding-bottom:clamp(28px,5vh,56px)!important}
+#section-4 .embed-heading h2{font-size:clamp(24px,3.9vh,34px)!important;margin:8px 0 0!important}
+#section-4 .embed-plan{padding:8px 12px!important;margin-bottom:8px!important}
+#section-4 .embed-plan *{line-height:1.3}
+#section-4 .embed-trip aside h3{margin-bottom:8px}
+#section-4 .embed-destination{min-height:clamp(140px,24vh,240px)}
+#section-4 .embed-recommendation{padding:8px 14px!important}
+#section-4 .embed-rec-content>img{height:clamp(56px,9vh,84px)}
+@media(max-height:900px) and (min-width:701px){
+#section-4 .embed-plan p{display:none}
+#section-4 .embed-plan h4{margin:2px 0 0}
+#section-4 .embed-rec-content p{display:none}
+#section-4 .embed-rec-content h3{margin-bottom:6px}
+#section-4 .embed-destination{min-height:clamp(120px,22vh,200px)}
+#section-4 .embed-nav{padding:8px 22px!important}
+}

@@ -37,3 +37,11 @@ html body #section-3.match-section .match-footer{border-top:0;padding-top:0;just
 
 /* Opaque cards so the card behind never shows through the front caption while the deck moves. */
 html body #section-3 .match-card{background:radial-gradient(ellipse at 0 0,#4a30262e,transparent 65%),linear-gradient(135deg,#342526,#201719)!important}
+
+/* Fixed frame: matches always arrive into the same slot, carried along the wire by the Bridgify points. */
+.match-connection{display:none}
+#section-3.match-section .match-slot{position:absolute;top:0;bottom:0;border:1.5px solid #f4664966;border-radius:20px;background:linear-gradient(135deg,#f466490d,transparent 60%);box-shadow:inset 0 0 40px #f4664910;z-index:0;pointer-events:none}
+#section-3.match-section .match-workspace{position:relative}
+#section-3.match-section .match-feed-dot{position:absolute;left:0;top:0;width:7px;height:7px;border-radius:50%;background:#fff3e6;box-shadow:0 0 10px #ff8a62,0 0 20px #f4664988;opacity:0;pointer-events:none;z-index:6}
+#section-3.match-section .match-engine:before,#section-3.match-section .match-engine:after{opacity:.35}
+#section-3.match-section.matching-result .match-slot{border-color:#f46649;box-shadow:inset 0 0 40px #f4664920,0 0 26px #f4664933}

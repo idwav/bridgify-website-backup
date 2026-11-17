@@ -99,3 +99,18 @@ body[data-page="about"]{background:#180f10;color:#eee9de}
 @media(max-width:760px){.ab-hero{padding:190px 7% 40px}.ab-story,.ab-pin,.ab-hbx{padding-inline:7%}.wm-brands{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.ab-cta,.ab-btn,.ab-link,.ms-s,.sd-chip,.ab-chapters p{transition:none}}
 .sd-chip>div{display:grid;min-width:0}
+
+/* Mission panel, scene 1: three different supplier formats converge into one schema. */
+.ms-s1{justify-content:flex-start}
+.ms-srcs{gap:12px;margin-top:18px}
+.ms-srcs figure{border:1px solid #f4664966;border-radius:14px;overflow:hidden;background:#24191bd9;box-shadow:0 12px 24px #0005}
+.ms-srcs img{aspect-ratio:4/3;border:0;border-radius:0;box-shadow:none}
+.ms-srcs figcaption{display:grid;gap:7px;margin:0;padding:10px 12px 12px;font:500 13px/1.25 Sofia,sans-serif;color:#eee9de}
+.ms-fmt{justify-self:start;font:700 10px Sofia,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#ffba9b;border:1px dashed #f4664999;border-radius:6px;padding:3px 8px}
+.ms-wire{display:block;width:100%;height:auto;margin:2px 0}
+.ms-wire path{fill:none;stroke:#f46649;stroke-opacity:.55;stroke-width:1.2}
+.ms-dots circle{fill:#fff3e6;filter:drop-shadow(0 0 4px #ff8a62)}
+.ms-s1 .ms-pill{margin-top:-4px;padding:14px 26px;font-size:17px;box-shadow:inset 0 1px #ffd8bd33,0 0 30px #f4664940}
+.ms-fields{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
+.ms-fields span{padding:7px 14px;border:1px solid #f4664966;border-radius:999px;background:#ffffff08;font:500 13px Sofia,sans-serif;color:#eee9de}
+@media(prefers-reduced-motion:reduce){.ms-dots{display:none}}
