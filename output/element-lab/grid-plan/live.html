@@ -69,15 +69,21 @@ body.clean .bar{display:none}
   const NAME = { today: 'היום', 1440: 'A · תוכן עד 1440', 1560: 'B · תוכן עד 1560' };
   const ORDER = ['1440', '1560', 'today'];
   const f = document.getElementById('f'), frame = document.getElementById('frame'), lines = document.getElementById('lines'), stage = document.getElementById('stage');
-  let css = '', W = 0, spTok = '', spCode = '', hdr = '', alCss = '', alJs = '', tyCss = '', msJs = '', thCss = '';
-  fetch('tablet-hero.css', { cache: 'no-store' }).then(r => r.text()).then(t => { thCss = t; tabHero(); });
+  let css = '', W = 0, spTok = '', spCode = '', hdr = '', alCss = '', alJs = '', tyCss = '', msJs = '', thCss = '', hpCss = '', hpJs = '';
+  Promise.all(['tablet-hero.css', 'hero-portrait.css', 'hero-portrait.js'].map(u => fetch(u, { cache: 'no-store' }).then(r => r.text())))
+    .then(([a, b, c]) => { thCss = a; hpCss = b; hpJs = c; tabHero(); });
   // tablet portrait hero composition (copy 7/8, visual 8/8 on the line), with the title size under review
   function tabHero() {
     let d, w; try { d = f.contentDocument; w = f.contentWindow; } catch (e) { return; }
     if (!d || !d.head || !thCss || d.URL === 'about:blank') return;
     let st = d.getElementById('try-tabhero');
-    if (!S.th) { if (st) st.remove(); }
-    else { if (!st) { st = d.createElement('style'); st.id = 'try-tabhero'; d.head.appendChild(st); } st.textContent = thCss + `\nhtml:root{--try-hero-tab:${S.tz}px}`; }
+    if (!S.th) { if (st) st.remove(); if (w.__bfPortraitHero) { w.location.reload(); return; } }
+    else {
+      if (!st) { st = d.createElement('style'); st.id = 'try-tabhero'; d.head.appendChild(st); }
+      // direction A: the hero diagram rebuilt on a portrait grid (tablet held upright)
+      st.textContent = thCss + '\n' + hpCss + `\nhtml:root{--try-hero-tab:${S.tz}px}`;
+      if (!w.__bfPortraitHero) { const sc = d.createElement('script'); sc.textContent = hpJs; d.body.appendChild(sc); }
+    }
     requestAnimationFrame(() => { if (S.s && w.BridgifyRhythmWide) w.BridgifyRhythmWide.apply(); });
   }
   fetch('measure-overlay.js', { cache: 'no-store' }).then(r => r.text()).then(t => { msJs = t; meas(); });

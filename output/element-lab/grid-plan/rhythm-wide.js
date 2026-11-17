@@ -85,7 +85,11 @@
         const name = pair(A.role, B.role, S.hero), g = parseFloat(tok(name));
         let z = 1; for (let w = b; w && w !== ca; w = w.parentElement) z *= parseFloat(getComputedStyle(w).zoom) || 1;
         const t0 = b.getBoundingClientRect().top, row = B.els.length > 1 ? B.els.filter(e => Math.abs(e.getBoundingClientRect().top - t0) < 4 || e.getBoundingClientRect().top < t0) : [b];
-        row.forEach(e => set(e, 'margin-top', ((g - padBot(a) - padTop(e)) / z) + 'px'));
+        // a button that shares a row with a link (hero "Book a demo" + "See how it works"): the gap goes on the row,
+        // so both stay on one centre line instead of the button dropping below the link
+        const rowBox = B.els.length === 1 && chain(b, ca).find(w => { const c = getComputedStyle(w); return /flex/.test(c.display) && !/column/.test(c.flexDirection) && [...w.children].filter(x => x.getBoundingClientRect().width > 1).length > 1; });
+        if (rowBox) { set(b, 'margin-top', '0px'); set(rowBox, 'margin-top', ((g - padBot(a)) / z) + 'px'); }
+        else row.forEach(e => set(e, 'margin-top', ((g - padBot(a) - padTop(e)) / z) + 'px'));
         last.push({section: S.section, a: A.role, b: B.role, token: name, want: g, aEl: a, bEl: b, above: items.slice(0, k).flatMap(I => I.els)});
       }
     });
