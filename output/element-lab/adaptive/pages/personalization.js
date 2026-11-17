@@ -71,7 +71,7 @@
     hero.style.removeProperty('height');
     if (A.MQ.mobile.matches) {
       hero.style.setProperty('min-height', '0', 'important'); hero.style.setProperty('height', 'auto', 'important');
-      fit(); if (window.ResizeObserver && !main.__adRO) { main.__adRO = new ResizeObserver(fit); main.__adRO.observe(main); }
+      fit(); if (window.ResizeObserver && !main.__adRO) { main.__adRO = new ResizeObserver(() => requestAnimationFrame(fit)); main.__adRO.observe(main);  /* next frame: resizing the frame inside the observer looped */ }
       paint();
     }
   };

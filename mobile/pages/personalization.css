@@ -1,0 +1,213 @@
+/* AIyelet · adaptive layer. */
+
+@media (max-width:1023px){
+  html body :is(#section-2,#section-3,#section-4,#day-itinerary,#faq){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important}
+  html body #faq .copy-inner{width:auto!important;max-width:none!important;margin-inline:0!important;padding-inline:0!important}
+}
+
+@media (max-width:599px){
+  html body :is(#section-2,#section-3,#section-4,#day-itinerary,#faq){padding-top:48px!important;padding-bottom:48px!important}
+  html body .ai-live-hero+#section-2{margin-top:0!important}
+
+  /* 2 · Intent */
+  html body #section-2 .intent-heading{gap:14px!important;margin-bottom:20px!important}
+
+  /* 3 · Matching: four context fields in a 2×2 grid; the engine is one row. */
+  html body #section-3 .match-head{gap:14px!important;margin-bottom:20px!important}
+  html body #section-3 .match-workspace{gap:12px!important}
+  html body #section-3 .match-controls{padding:14px!important}
+  html body #section-3 .match-controls>small{padding-bottom:8px!important;margin-bottom:8px!important}
+  html body #section-3 .match-fields{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px 10px!important}
+  html body #section-3 .match-control{min-height:0!important;height:auto!important;gap:8px!important}
+  html body #section-3 .match-control .match-icon{display:none!important}
+  html body #section-3 .match-control{display:block!important;padding:0!important}
+  html body #section-3 .match-control>div{display:block!important;margin:0!important;padding:0!important}
+  html body #section-3 .match-control label{display:block;margin:0 0 4px!important}
+  html body #section-3 .match-control strong{min-height:44px!important}
+  html body #section-3 .match-engine{min-height:0!important;height:auto!important;padding:12px 14px!important}
+  html body #section-3 .match-engine::before,html body #section-3 .match-engine::after{display:none!important}
+  html body #section-3 .match-deck{height:270px!important;min-height:0!important}
+  html body #section-3 .match-card{height:262px!important}
+  html body #section-3 .match-photo{height:170px!important}
+  html body #section-3 .match-footer{margin-top:10px!important}
+
+  /* 4 · Where it runs */
+  html body #section-4 .embed-heading{gap:14px!important;margin-bottom:20px!important}
+  html body #section-4 .embed-shell{padding:10px!important}
+  html body #section-4 .embed-toolbar{padding:4px 4px 10px!important;height:auto!important}
+  html body #section-4 .embed-browser{margin-inline:auto}
+  html body #section-4 .embed-links{margin-top:20px!important;gap:10px!important}
+
+  /* 5 · A full day: the starting suggestion is one compact card; the stops scroll sideways. */
+  html body #day-itinerary>header{gap:12px!important;margin-bottom:20px!important}
+  html body #day-itinerary .day-layout{gap:14px!important;height:auto!important}
+  html body #day-itinerary :is(.day-start,.day-plan){width:auto!important;max-width:100%!important;min-width:0!important;box-sizing:border-box}
+  html body #day-itinerary .day-start>*{min-width:0!important;width:auto!important}
+  html body #day-itinerary .day-start{display:grid!important;grid-template-columns:112px 1fr;column-gap:14px;align-items:start;padding:16px!important;height:auto!important}
+  html body #day-itinerary .day-start>*{grid-column:2;margin:0!important}
+  html body #day-itinerary .day-start>h3:first-child,html body #day-itinerary .day-start>.day-context{grid-column:1/-1}
+  html body #day-itinerary .day-start>.day-context{margin-bottom:12px!important}
+  html body #day-itinerary .day-start>.day-museum{grid-column:1;grid-row:3/span 3;height:112px!important}
+  html body #day-itinerary .day-start>.day-museum img{height:112px!important;object-fit:cover}
+  html body #day-itinerary .day-start>.day-select{grid-column:1/-1;margin-top:14px!important}
+  html body #day-itinerary .day-plan{padding:16px 0 16px 16px!important;height:auto!important;min-height:0!important}
+  html body #day-itinerary .day-plan>h3,html body #day-itinerary .day-plan>.day-progress{padding-right:16px}
+  html body #day-itinerary .ad-day-track{display:flex;gap:10px;padding-right:16px}
+  html body #day-itinerary .ad-day-track .day-stop{margin:0!important;height:auto!important}
+  html body #day-itinerary .ad-day-track .day-stop .day-museum,html body #day-itinerary .ad-day-track .day-stop>img{height:120px!important}
+  html body #day-itinerary .ad-day-track .day-stop img{height:120px!important;object-fit:cover}
+  html body #day-itinerary>footer{margin-top:14px!important}
+
+  /* 6 · FAQ */
+  html body #faq h2{margin-bottom:16px!important}
+  html body #faq summary{font-size:18px!important;line-height:1.35!important;padding-block:14px!important}
+}
+
+/* Tablet + mobile: FAQ and inner headings on the shared start line. */
+@media (max-width:1023px){
+  html body section#faq.copy-faq:not(#ad-x){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important}
+  html body section#faq.copy-faq .copy-inner{width:auto!important;max-width:none!important;margin-inline:0!important;padding-inline:0!important}
+}
+@media (max-width:1023px){ html body #section-2 .intent-heading{padding-left:0!important;padding-right:0!important} }
+@media (max-width:599px){ html body section#faq.copy-faq:not(#ad-x){padding-top:48px!important;padding-bottom:48px!important} }
+
+/* Round 2 · one phone screen per section (390×844). */
+@media (max-width:599px){
+  /* Matching: shorter deck and engine row. */
+  html body #section-3 .match-engine{padding:10px 14px!important}
+  html body #section-3 .match-deck{height:226px!important}
+  html body #section-3 .match-card{height:218px!important}
+  html body #section-3 .match-photo{height:132px!important}
+  html body #section-3 .match-controls>small{padding-bottom:6px!important;margin-bottom:6px!important}
+  html body #section-3 .match-fields{gap:6px 10px!important}
+
+  /* Where it runs: heading and intro read as one block. */
+  html body #section-4 .embed-heading{display:block!important;margin-bottom:18px!important}
+  html body #section-4 .embed-heading>p{margin-top:14px!important}
+  html body #section-4 .embed-heading h2{margin-bottom:0!important}
+  html body #section-4 .embed-links{margin-top:16px!important}
+
+  /* A full day: each stop is a compact card — photo beside the time, name and place. */
+  html body #day-itinerary .ad-day-track .day-stop{display:grid!important;grid-template-columns:96px minmax(0,1fr);column-gap:12px;align-items:start;padding:12px!important}
+  html body #day-itinerary .ad-day-track .day-stop .day-museum{height:96px!important;width:96px!important;margin:0!important}
+  html body #day-itinerary .ad-day-track .day-stop .day-museum :is(img,svg){width:96px!important;height:96px!important;object-fit:cover}
+  html body #day-itinerary .ad-day-track .day-stop-copy{min-width:0;padding:0!important}
+  html body #day-itinerary .ad-day-track .day-stop-copy h3{font-size:19px!important;margin:4px 0 2px!important;line-height:1.2!important}
+  html body #day-itinerary .ad-day-track .day-stop-copy p{font-size:14px!important;line-height:1.4!important;margin:2px 0 0!important}
+  html body #day-itinerary .day-plan>h3{margin-bottom:4px!important}
+  html body #day-itinerary .day-plan>.day-progress{margin-bottom:12px!important}
+  html body #day-itinerary .day-start{padding:14px!important}
+}
+@media (max-width:599px){
+  html body #day-itinerary :is(.day-start,.day-plan)>h3{font-size:22px!important;line-height:1.2!important}
+  html body #day-itinerary .day-start>.day-museum,html body #day-itinerary .day-start>.day-museum img{height:92px!important}
+  html body #day-itinerary .day-start{grid-template-columns:92px 1fr}
+  html body #day-itinerary .day-plan>.day-progress{font-size:16px!important;line-height:1.35!important}
+  html body #section-3 .match-engine{min-height:0!important}
+}
+
+/* ---------- Mobile rhythm (shared numbers, see WORKFLOW.md) on this page's own selectors ---------- */
+@media (max-width:599px){
+  html body :is(#section-2,#section-3,#section-4,#day-itinerary):not(#ad-x){padding-top:64px!important;padding-bottom:64px!important}
+  html body :is(#section-2 .intent-heading,#section-4 .embed-heading,#day-itinerary>header)>p{font-size:15px!important;line-height:24px!important}
+  html body #section-4 .embed-links a{min-height:40px!important;height:auto!important;padding-block:9px!important;font-size:15px!important}
+
+  /* Intent: the same compact card as on the homepage. */
+  html body #section-2 .intent-stage{padding:16px 16px 14px!important;min-height:0!important;height:auto!important}
+  html body #section-2 .intent-sentence{font-size:20px!important;padding:6px 0 10px!important;min-height:0!important}
+  html body #section-2 .intent-sentence :is(.intent-typed,mark,span){font-size:inherit!important}
+  html body #section-2 .intent-fields{grid-template-columns:1fr 1fr!important;grid-template-rows:auto!important;grid-auto-rows:auto!important;gap:8px!important;padding-top:12px!important;margin:0!important;height:auto!important;min-height:0!important}
+  html body #section-2 .intent-fields>.intent-field{position:relative!important;inset:auto!important;grid-row:auto!important;padding:10px 12px!important;min-height:0!important;height:auto!important;border-radius:10px!important}
+  html body #section-2 .intent-fields>.intent-field:nth-child(-n+2){grid-column:auto!important}
+  html body #section-2 .intent-field small{font-size:10px!important;margin:0 0 4px!important;letter-spacing:.12em!important}
+  html body #section-2 .intent-field strong{font-size:16px!important;line-height:1.2!important}
+  html body #section-2 .intent-fields>.intent-field:nth-child(3){grid-column:1/-1;display:flex!important;align-items:baseline;gap:8px;padding:4px 2px 0!important;border:0!important;background:none!important;box-shadow:none!important}
+  html body #section-2 .intent-fields>.intent-field:nth-child(3) small{font-size:9px!important;margin:0!important}
+  html body #section-2 .intent-fields>.intent-field:nth-child(3) strong{font-size:12px!important;font-weight:500!important;opacity:.75}
+
+  /* Matching: one card at a time, full width; the next card no longer peeks in cut off. */
+  html body #section-3 .match-deck{overflow:hidden!important}
+  html body #section-3 .match-card{width:100%!important;left:0!important;right:auto!important;box-sizing:border-box}
+
+  /* A full day: the three stops stack as a list. */
+  html body #day-itinerary .ad-day-track{flex-direction:column!important;padding-right:16px!important;overflow:visible!important}
+  html body #day-itinerary .ad-day-track .day-stop{width:100%!important;flex:none!important}
+}
+@media (max-width:599px){
+  /* Matching: the AIyelet engine row is a slim status bar, so the matched experience below stays in view. */
+  html body #section-3 .match-engine{grid-template-columns:auto minmax(0,1fr)!important;grid-template-rows:auto auto!important;column-gap:14px!important;row-gap:2px!important;align-items:center!important;padding:10px 14px!important;min-height:0!important;height:auto!important}
+  html body #section-3 .match-engine>strong{grid-column:1;grid-row:1;font-size:20px!important;line-height:1.1!important;margin:0!important}
+  html body #section-3 .match-engine>.match-engine-status{grid-column:1;grid-row:2;font-size:11px!important;line-height:1.2!important;margin:0!important}
+  html body #section-3 .match-engine>small{grid-column:2;grid-row:1/span 2;font-size:12px!important;line-height:1.35!important;margin:0!important;justify-self:end;text-align:right}
+}
+
+/* AIyelet demos at real size (phones, 16 Nov 2026; plan in output/element-lab/demos.html). */
+@media (max-width:599px){
+  /* Intent card, as on the homepage: labels 11, values 17, the context line 13. */
+  html body #section-2 .intent-field small{font-size:11px!important;letter-spacing:.1em!important}
+  html body #section-2 .intent-field strong{font-size:17px!important;font-weight:500!important}
+  html body #section-2 .intent-fields>.intent-field:nth-child(3) small{font-size:11px!important}
+  html body #section-2 .intent-fields>.intent-field:nth-child(3) strong{font-size:13px!important}
+
+  /* Match deck: one card at a time, full width and real size; the cards behind it show only as the deck's edges.
+     The page keeps cycling the lead card on its own. */
+  html body #section-3 .match-deck:not(#ad-x){height:262px!important;overflow:visible!important}
+  html body #section-3 .match-workspace :is(span,small,em,b,i,p,label,strong,div){font-size:max(11px,1em)!important}
+  html body #section-3 .match-card:not([data-position="0"]){opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+  html body #section-3 .match-card[data-position="0"]{box-shadow:0 10px 0 -5px #2A1D1C,0 10px 0 -4px #F466493D,0 20px 0 -10px #211617,0 20px 0 -9px #F466492A!important}
+
+  /* With / without AIyelet: the switch stays; the browser at real size (no zoom), with shorter photos so it fits. */
+  html body #section-4 .embed-nav:not(#ad-x){height:auto!important;min-height:0!important;padding:12px 16px!important}
+  html body #section-4 .embed-nav strong{font-size:13px!important}
+  html body #section-4 .embed-destination:not(#ad-x){height:140px!important;min-height:0!important}
+  html body #section-4 .embed-destination>div{bottom:14px!important;top:auto!important}
+  html body #section-4 .embed-destination small{font-size:12px!important}
+  html body #section-4 .embed-destination span{font-size:14px!important}
+  html body #section-4 .embed-trip:not(#ad-x){height:auto!important;min-height:0!important}
+  html body #section-4 .embed-rec-content>img{height:90px!important;object-fit:cover}
+  html body #section-4 .embed-rec-label{font-size:11px!important;height:auto!important}
+  html body #section-4 .embed-rec-content p{font-size:14px!important;height:auto!important}
+  html body #section-4 .embed-tags span{font-size:12px!important}
+  html body #section-4 .embed-browser:not(#ad-x){height:auto!important;min-height:0!important;zoom:1!important}
+  html body #section-4 .embed-destination h3:not(#ad-x){font-size:19px!important;line-height:1.2!important;height:auto!important}
+}
+
+/* Round 9 (17 Nov 2026): Match experiences on phones. Context first, the found card right under it, the AIyelet
+   box over the card (personalization.js places it across the photo's lower edge). */
+@media (max-width:599px){
+  html body #section-3 .match-workspace.ad-match-stack:not(#ad-x){display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto auto auto!important}
+  html body #section-3 .ad-match-stack>.match-deck{grid-row:3;grid-column:1;position:relative;z-index:1}
+  html body #section-3 .ad-match-stack>.match-controls{grid-row:1;grid-column:1}
+  html body #section-3 .ad-match-stack>.match-engine:not(#ad-x){grid-row:2;grid-column:1;align-self:start;z-index:3;position:relative;margin-inline:14px!important;
+    background:#1d1312!important;box-shadow:0 14px 36px rgba(0,0,0,.6),0 0 0 1px rgba(244,102,73,.35)!important}
+}
+
+/* Round 10 (17 Nov 2026) */
+@media (max-width:599px){
+  /* Where it runs: same height both ways; the matched experience jumps up over the trip photo, under "Your brand" */
+  html body #section-4 .ad-embed-over:not(#ad-x){position:relative!important;height:auto!important}
+  html body #section-4 .ad-embed-over .embed-trip:not(#ad-x),html body #section-4 .ad-embed-over .embed-destination:not(#ad-x){height:calc(var(--ad-rec-h,316px) + 24px)!important;min-height:0!important}
+  html body #section-4 .ad-embed-over .embed-destination img{height:100%!important;object-fit:cover}
+  html body #section-4 .ad-embed-over .embed-recommendation:not(#ad-x){position:absolute!important;left:10px!important;right:10px!important;top:calc(var(--ad-nav-h,47px) + 14px)!important;margin:0!important;z-index:3;
+    box-shadow:0 18px 40px rgba(0,0,0,.6)!important;transition:opacity .45s ease,translate .6s cubic-bezier(.16,1,.3,1)!important}
+  html body #section-4 .embed-shell.is-off .ad-embed-over .embed-recommendation{translate:0 48px;opacity:0!important;pointer-events:none}
+  html body #section-4 .embed-shell:not(.is-off) .ad-embed-over .embed-recommendation{translate:0 0}
+  html body #section-4 .embed-shell:not(#ad-x){padding-block:12px!important}
+  html body #section-4 .embed-toolbar:not(#ad-x){gap:8px!important;padding-bottom:10px!important;height:auto!important}
+  html body #section-4 .embed-control:not(#ad-x){display:none!important}
+  /* A full day: the starting suggestion sticks; the day plan comes up over it, opaque */
+  html body #day-itinerary .day-start:not(#ad-x){position:sticky!important;top:calc(var(--ad-header-h) + 12px);z-index:1}
+  html body #day-itinerary .day-plan:not(#ad-x){position:relative;z-index:2;background-color:#1d1312!important;box-shadow:0 -20px 44px rgba(0,0,0,.55)!important}
+  html body #day-itinerary .day-controls{display:none!important}
+}
+@media (max-width:599px) and (prefers-reduced-motion:reduce){ html body #day-itinerary .day-start{position:static!important} }
+
+/* Round 19 (17 Nov 2026), phones */
+@media (max-width:599px){
+  /* Where it runs: with AIyelet on, the trip's own words under the photo step aside (the card covers them) */
+  html body #section-4 .ad-embed-over .embed-destination>div{transition:opacity .4s}
+  html body #section-4 .embed-shell:not(.is-off) .ad-embed-over .embed-destination>div{opacity:0}
+  /* A full day: each photo fills its frame (it sat as a square in a taller frame, with bands above and below) */
+  html body #day-itinerary .day-museum:not(#ad-x){overflow:hidden!important;align-self:stretch}
+  html body #day-itinerary .day-museum img:not(#ad-x){width:100%!important;height:100%!important;object-fit:cover!important;margin:0!important;border-radius:inherit}
+}
