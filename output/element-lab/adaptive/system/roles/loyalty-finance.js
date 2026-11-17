@@ -74,6 +74,10 @@ window.BridgifyRoles = {
     [
      "content",
      "div.lu-layout > div.lu-panels"
+    ],
+    [
+     "content",
+     "div.lu-layout>div.ad-lu-exp"
     ]
    ]
   },
