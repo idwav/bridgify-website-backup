@@ -18,4 +18,6 @@
   html body #home .bv2-hero-copy > p { max-width: none !important; }
   html body #home .bv2-hero-visual { width: 100% !important; max-width: none !important; margin: 0 !important; }
   html body #home #hero-title { font-size: var(--try-hero-tab, 40px) !important; }
+  /* the hero ends like every section: section-y under the visual (it was 36) */
+  html body #home { padding-bottom: var(--bf-section-y, 80px) !important; }
 }

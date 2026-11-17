@@ -43,3 +43,8 @@
     --bf-card-pad: 32px;
   }
 }
+/* Sections whose content is one boxed card (security, closing CTA) took 32 / 40 from their own CSS; the section
+   rhythm is the same as everywhere: section-y outside the box, the box keeps its own inner padding. (17 Nov 2026) */
+@media (min-width: 600px) {
+  html body :is(section#security, section#home-cta) { padding-top: var(--bf-section-y) !important; padding-bottom: var(--bf-section-y) !important; }
+}
