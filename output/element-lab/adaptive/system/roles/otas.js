@@ -72,7 +72,7 @@ window.BridgifyRoles = {
      "header.rc-head > div > p"
     ],
     [
-     "actions",
+     "link",
      "header.rc-head > div > a"
     ],
     [
@@ -95,10 +95,6 @@ window.BridgifyRoles = {
     [
      "title",
      "#xc-title"
-    ],
-    [
-     "control",
-     "div.ad-seg"
     ],
     [
      "content",

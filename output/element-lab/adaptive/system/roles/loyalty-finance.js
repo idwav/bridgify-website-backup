@@ -74,6 +74,10 @@ window.BridgifyRoles = {
     [
      "content",
      "div.lu-layout > div.lu-panels"
+    ],
+    [
+     "content",
+     "div.lu-layout>div.ad-lu-exp"
     ]
    ]
   },
@@ -87,10 +91,6 @@ window.BridgifyRoles = {
     [
      "title",
      "#xc-title"
-    ],
-    [
-     "control",
-     "div.ad-seg"
     ],
     [
      "content",

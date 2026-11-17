@@ -56,7 +56,7 @@ window.BridgifyRoles = {
      "div.match-workspace > div.match-engine"
     ],
     [
-     "content",
+     "deco",
      "div.match-workspace > div.match-deck"
     ]
    ]
@@ -108,10 +108,6 @@ window.BridgifyRoles = {
     [
      "content",
      "footer > small"
-    ],
-    [
-     "actions",
-     "footer > div.day-controls"
     ]
    ]
   },

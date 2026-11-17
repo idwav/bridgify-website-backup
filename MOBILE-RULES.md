@@ -54,7 +54,8 @@ behind content).
 | ID | Between | Phone | Token |
 |---|---|---|---|
 | S1 | label → title | 16 | `--bf-gap-label-title` |
-| S2 | title → text · paragraph → paragraph | 24 · 16 | `--bf-gap-title-text` · `--bf-gap-text-text` |
+| S2 | title → text · paragraph → paragraph · title → its one-line subtitle (role `sub`, e.g. "Part of HBX Group.") | 24 · 16 · 8 | `--bf-gap-title-text` · `--bf-gap-text-text` · `--bf-gap-title-sub` |
+| S2b | figures or cards → the closing lines under them (role `foot`: sentence, link, note) | 24 | `--bf-gap-to-foot` |
 | S3 | text → Read more (to its visible text) | 8 | `--bf-gap-text-more` |
 | S4 | text or title → buttons · button ↔ button | 32 · 12 | `--bf-gap-to-actions` · `--bf-gap-actions-inner` |
 | S5 | text or buttons → text link | 16 | `--bf-gap-to-link` |
@@ -89,6 +90,8 @@ keeps its content at the top; the extra height goes below it.
 | L4 | Desktop and tablet layout do not move. |
 | M1, M2 | Nothing jumps after the first paint, in the phone preview (M1) and the way the live site loads (M2). |
 | M3 | Entrances as on desktop: the hero copy arrives in sequence (rise 20px and fade, 750ms, 100ms apart); section parts rise 40px as they enter. Off when the visitor asks for reduced motion. |
+| M4 | A sequence of stations (a trip, a passenger journey) is pinned: the stage stays on screen and the page's scroll moves one station at a time; the stop you are on is marked (lit label, filled ringed dot) and the screens move with it. The page grows by half a screen per station, so scrolling past the last one carries on. Off with reduced motion. Shared helper: `pin()` in `output/element-lab/adaptive/patterns.js`. |
+| M5 | A comparison that opens (Travel Technology, "How do I avoid integrating"): the dark stage rises over the copy and grows from the column width to the screen's edges, then holds full-screen while the scroll turns the first state into the second; scrolling back turns it back, and a tap still works. It ends at the section's edge (class `ad-bleed`, 0 below), the hold is a spacer after it (`ad-hold-space`). Off with reduced motion. |
 
 ## 7 · Building it on the live site
 
@@ -151,3 +154,15 @@ Full report: `output/element-lab/adaptive/system/compliance.md`.
 - **C2 (AIyelet):** the live page has "Pause animation" and "Start again" controls. They are against G3 and wait for
   the owner's decision.
 - **M2:** expected until the CSS route in §7 is built: the lab styles with JavaScript after the first paint.
+
+## Publishing a page (from the lab to the live site)
+
+The lab (`output/element-lab/adaptive/`) is the one source; Vercel does not deploy `output/`. To publish a page:
+1. Add it to `PAGES` in `scripts/sync-mobile.py` and run `python3 scripts/sync-mobile.py` (copies to `mobile/`).
+2. In the page's HTML: the five stylesheets before `</head>` with `media="(max-width:599px)"`, and
+   `<script src="mobile/load.js?v=N" data-page="<page>" data-v="N"></script>` before `</body>` (after the page's own
+   scripts). On wider screens nothing loads, so desktop and tablet stay exactly as they were.
+3. Check the real page (no injection) on a phone width and at 768 and 1440; run `verify.py` on the page.
+4. Before publishing: `python3 scripts/sync-mobile.py --check`. After any lab edit, sync again and raise `v`.
+Never hide with `display:none` an element the page's own scripts measure (it throws in Safari when the CSS loads
+first): hide it with zero size and `visibility:hidden` instead.

@@ -23,3 +23,79 @@ body:not(.embedded) #screen{height:540px;scrollbar-gutter:stable}
 body:not(.embedded) .chrome,body:not(.embedded) .product-nav,body:not(.embedded) .controls{flex-shrink:0}
 @media(max-width:1050px) and (min-width:761px){body:not(.embedded) .layout{grid-template-columns:240px minmax(0,1fr);gap:24px}body:not(.embedded) aside{width:240px}body:not(.embedded) .explanation h2{font-size:34px}.ai-page{padding-right:0}.ai-page>.cards{max-width:55%}.ai-chat{width:43%;min-width:0}}
 @media(max-width:760px){body:not(.embedded) .top,body:not(.embedded) main{width:calc(100% - 32px)}body:not(.embedded) .layout{grid-template-columns:1fr;gap:24px;padding-block:24px}body:not(.embedded) aside{width:100%;display:flex;padding-bottom:38px}body:not(.embedded) .explanation h2{font-size:34px}body:not(.embedded) #screen{height:480px}body:not(.embedded) #play{position:absolute}.ai-page>.cards{max-width:none}}
+
+/* Touch layouts: the tutorial remains readable instead of shrinking a desktop screen. */
+@media(max-width:1180px){
+ body:not(.embedded) .layout{grid-template-columns:minmax(0,1fr);gap:20px;min-height:0;padding-block:24px}
+ body:not(.embedded) aside{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;gap:16px;align-items:center;padding:0}
+ body:not(.embedded) .explanation{grid-column:1;grid-row:1}
+ body:not(.embedded) .explanation h2{white-space:normal;font-size:34px;margin:8px 0}
+ body:not(.embedded) .explanation p{max-width:620px;font-size:16px;line-height:1.5}
+ body:not(.embedded) #play{position:static;grid-column:2;grid-row:1;min-height:44px;font-size:16px;white-space:nowrap}
+ body:not(.embedded) #steps{grid-column:1/-1;grid-row:2;display:flex;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:0;padding:3px 0 7px;scrollbar-width:thin}
+ body:not(.embedded) #steps button{flex:0 0 auto;width:auto;min-height:44px;padding:10px 12px;border:1px solid #b44a3233;border-radius:8px;font-size:14px}
+ body:not(.embedded) #steps button[aria-current=step]{border-color:#f46649;background:#f4664914}
+ body:not(.embedded) #screen{height:clamp(480px,58svh,680px)}
+ .controls{min-height:64px;gap:12px}.controls button{min-height:44px;font-size:16px}
+ .top button,.parts-link{min-height:44px;display:inline-flex;align-items:center;font-size:14px}
+ .browser button{min-height:44px}input,select{font-size:16px;min-height:44px}
+ .searchbar input{font-size:16px}.searchbar label{font-size:11px}.searchbar button{font-size:16px}
+ .searchbar{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) auto}
+ .card h3{font-size:14px}.card p,.card small{font-size:12px}
+ .ticket-panel h3,.summary h3{font-size:16px}.summary p{font-size:14px}
+ .ticket-choice,.ticket-total,.quantity,.white-panel,.cartrow{font-size:14px}
+ .ticket-choice p,.ticket-choice small,.cartrow p{font-size:13px}
+ .summary-action,.ticket-total button,.price-box button{font-size:14px}
+ .form{grid-template-columns:repeat(2,minmax(0,1fr))}label{font-size:13px}
+ .api{overflow-wrap:anywhere;font-size:13px}
+ .ai-page{padding-right:0;height:auto;min-height:0}.ai-page>.cards{display:none}
+ .ai-chat{position:relative;width:100%;min-width:0;height:420px;min-height:0;margin-top:16px}
+ .ai-bubble,.ai-user,.ai-input input{font-size:16px}.ai-input button{min-width:44px}
+ .ai-recs strong,.ai-recs small{font-size:13px}.ai-recs img{height:100px}
+}
+@media(max-width:600px){
+ body:not(.embedded) .top,body:not(.embedded) main{width:calc(100% - 32px)}
+ .top{gap:8px;padding-block:12px;align-items:center}.top>a{font-size:22px}.top small{display:none}
+ .top nav{gap:0}.top .parts-link{display:none}
+ body:not(.embedded) .layout{padding-block:18px;gap:14px}
+ body:not(.embedded) aside{gap:12px;grid-template-columns:minmax(0,1fr)}
+ body:not(.embedded) .explanation{grid-column:1;grid-row:1}
+ body:not(.embedded) .explanation h2{font-size:30px}
+ body:not(.embedded) #play{grid-column:1;grid-row:3}
+ body:not(.embedded) #steps{grid-column:1;grid-row:2;max-width:100%}
+ body:not(.embedded) #screen,.screen-only #screen{height:540px;padding:18px 14px;scrollbar-gutter:auto}
+ .chrome{gap:10px}.chrome>span:nth-child(2){width:auto;flex:1;padding:5px 10px}
+ .product-nav{padding:12px 14px}.product-nav>span{font-size:0}.product-nav>span::after{content:'☰';font-size:20px}
+ .product-nav strong{font-size:14px}
+ .hero-img{min-height:180px;padding:30px 14px}.hero-img h2{font-size:24px}.hero-img p{font-size:14px}
+ .searchbar{margin:12px;grid-template-columns:minmax(0,1fr);gap:8px;padding:10px}
+ .searchbar>label:nth-child(2){display:grid}.searchbar input{width:100%}.searchbar button{width:100%}
+ .popular{padding:8px 14px 18px}.popular p{font-size:14px}.city-images{grid-template-columns:1fr;gap:10px}.city-images>div{height:140px}
+ .city-grid{grid-template-columns:1fr;height:auto}.city-large{height:190px}.city-stack{grid-template-columns:1fr 1fr;grid-template-rows:120px}.city-stack:last-child{display:none}
+ .city-large span{font-size:18px}.filterbar{flex-wrap:wrap;gap:6px}.filterbar span{font-size:12px}
+ .cards{grid-template-columns:1fr;gap:12px}.card{display:grid;grid-template-columns:110px minmax(0,1fr)}.card img{height:100%;min-height:132px}.card>div{padding:12px}.card h3{font-size:16px}.card p,.card small{font-size:13px}
+ .detail-heading{flex-direction:column;gap:12px}.detail-heading h2{font-size:24px}.price-box{display:flex;align-items:center;justify-content:space-between;gap:10px}.price-box small{font-size:13px}.price-box button{width:auto;margin:0}
+ .gallery{height:210px;grid-template-columns:1fr}.gallery>img{height:210px}.gallery>div{display:none}
+ .two{grid-template-columns:minmax(0,1fr)}.two>.summary{display:block}.ticket-panel{padding:14px}.ticket-total{margin-inline:-14px;flex-wrap:wrap}
+ .checkout-steps{gap:10px;justify-content:space-between;font-size:11px}.form{grid-template-columns:minmax(0,1fr)}
+ .cartrow{display:grid;grid-template-columns:56px minmax(0,1fr)}.cartrow img{width:56px;height:64px}.cartrow>b{grid-column:2;margin:0}
+ .controls{padding:10px;gap:8px}.controls button{padding-inline:12px}.controls #counter{font-size:13px}
+ .tags{flex-wrap:wrap}.tags span{font-size:13px}.ai-chat{height:440px}.ai-page h2{font-size:24px}
+ .embedded main{padding:0}.screen-only .controls #play{font-size:14px}
+ #demo-cursor{width:24px;height:24px;border:2px solid #fff8f1;border-radius:50%;background:#f4664970;box-shadow:0 0 0 5px #f4664920}
+ #demo-cursor svg{display:none}#demo-cursor:after{left:-4px;top:-4px}
+}
+@media(hover:none) and (min-width:601px){#demo-cursor{width:24px;height:24px;border:2px solid #fff8f1;border-radius:50%;background:#f4664970}#demo-cursor svg{display:none}#demo-cursor:after{left:-4px;top:-4px}}
+/* Preview devices use real iframe viewports, so the same responsive layout is tested. */
+.device-switcher{display:flex;justify-content:center;gap:6px;padding:16px;margin:0 auto}
+.device-switcher button{min-height:44px;padding:10px 20px;background:transparent;border:1px solid #f4664947;border-radius:8px;font:400 16px Sofia,sans-serif;color:inherit}
+.device-switcher button[aria-pressed=true]{background:#f46649;color:#180f10}
+.device-preview-open>main,.device-preview-open>footer{display:none}
+.device-stage{position:relative;margin:0 auto 32px;border-radius:16px;box-shadow:0 0 0 1px #f4664966,0 18px 48px #0003;overflow:hidden;background:#180f10}
+.device-stage[hidden]{display:none}.device-stage iframe{display:block;border:0;transform-origin:top left;background:#180f10}
+/* Keep intrinsic image sizes from expanding the city grid tracks. */
+.city-grid{grid-template-rows:minmax(0,1fr)}
+.city-grid>* ,.city-stack>div{min-width:0;min-height:0}
+.city-stack{grid-template-rows:repeat(2,minmax(0,1fr))}
+.city-grid img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+@media(max-width:600px){.city-grid{grid-template-rows:190px 120px}.city-stack{grid-template-rows:minmax(0,1fr)}}

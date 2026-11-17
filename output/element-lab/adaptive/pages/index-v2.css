@@ -545,3 +545,75 @@
   html body #products .pr-grid:not(#ad-z)>.pr-card:nth-child(3){top:calc(var(--ad-header-h) + 8px + 36px)!important;margin-bottom:0!important}
   html body #products .pr-grid+.ad-dots{display:none!important}
 }
+
+/* ---------- Hero visual on phones (17 Nov 2026) ----------
+   The desktop hero's story in one small row: experiences (left) flow through Bridgify (centre) into your app
+   (right). It closes the first screen, so the hero ends at the bottom of the viewport. The proof line
+   (HBX Group · 1M+ · 180+) is shown again in large type by the strip right under the hero, so the hero hides it. */
+@media (max-width:599px){
+  html body #home .bv2-hero-proof{display:none!important}
+  html body #home .bv2-hero-layout{display:flex!important;flex-direction:column}
+  html body #home .bv2-hero-copy{display:flex!important;flex-direction:column;flex:1 0 auto}
+  html body #home.bv2-hero{padding-bottom:20px!important}
+  .ad-hero-flow{position:relative;display:grid;grid-template-columns:96px 1fr 84px;align-items:center;flex:1 0 96px;min-height:96px;max-height:200px;width:100%}
+  .ad-hero-flow .hf-src{display:grid;grid-template-columns:44px 44px;gap:8px}
+  .ad-hero-flow .hf-src img{width:44px;height:44px;border-radius:12px;object-fit:cover;display:block;box-shadow:0 0 0 1px rgba(255,226,198,.12)}
+  .ad-hero-flow .hf-hub{justify-self:center;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;z-index:1}
+  .ad-hero-flow .hf-hub i{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#3a1d19,#1b0f10 70%);
+    box-shadow:0 0 0 1px rgba(244,102,73,.55),0 0 26px rgba(244,102,73,.35)}
+  .ad-hero-flow .hf-hub img{width:28px;height:auto;display:block}
+  .ad-hero-flow .hf-hub span{font:400 12px/1 Chillax,sans-serif;color:#EEE9DE;letter-spacing:.02em}
+  .ad-hero-flow .hf-app{height:96px;box-sizing:border-box;border-radius:14px;background:#1d1213;box-shadow:0 0 0 1px rgba(255,226,198,.16);padding:7px 6px;display:flex;flex-direction:column;gap:5px;position:relative;z-index:1}
+  .ad-hero-flow .hf-app b{font:500 11px/1 Sofia,sans-serif;color:#EEE9DE;padding:1px 2px 2px}
+  .ad-hero-flow .hf-app i{display:grid;grid-template-columns:24px 1fr;gap:6px;align-items:center;border-radius:8px;background:rgba(255,226,198,.06);padding:4px}
+  .ad-hero-flow .hf-app i img{width:24px;height:24px;border-radius:6px;object-fit:cover;display:block}
+  .ad-hero-flow .hf-app i u{display:flex;flex-direction:column;gap:4px}
+  .ad-hero-flow .hf-app i u::before,.ad-hero-flow .hf-app i u::after{content:"";height:3px;border-radius:2px;background:rgba(238,233,222,.45);width:90%}
+  .ad-hero-flow .hf-app i u::after{width:55%;background:#F46649}
+  .ad-hero-flow svg.hf-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+  .ad-hero-flow .hf-wires path{fill:none;stroke:rgba(244,102,73,.45);stroke-width:1.2}
+  .ad-hero-flow .hf-wires circle{fill:#FFB59E;filter:drop-shadow(0 0 4px #F46649)}
+}
+
+/* ---------- Round 4 after review on the phone (17 Nov 2026) ---------- */
+@media (max-width:599px){
+  /* Opportunity: the closed bar shows one line, so the "more below" fade is not needed; it was fading the bar's
+     own bottom border. */
+  html body #opportunity-study .pb-bar.ad-exp{-webkit-mask-image:none!important;mask-image:none!important}
+
+  /* Who it's for: each row shows its link, as on desktop (coral, under the line). The whole row stays the tap
+     target. Pressed, the row shows its photo under a dark shade, as on desktop hover, so the light text reads. */
+  html body #audiences .audience-card{position:relative!important;isolation:isolate;overflow:hidden}
+  html body #audiences .audience-card a.ad-rowlink-a:not(#ad-x){grid-column:2;position:static!important;width:auto;height:auto;overflow:visible;clip-path:none;white-space:normal;
+    margin:8px 0 0!important;padding:0!important;font:500 14px/20px Sofia,sans-serif!important;color:#C2462E!important;text-decoration:none}
+  html body #audiences .audience-icon{grid-row:1/span 3!important}
+  html body #audiences .audience-card:after{display:none!important}
+  html body #audiences .audience-photo:not(#ad-x){display:block!important}
+  html body #audiences .audience-card:not(#ad-x)::before{display:block!important}
+  html body #audiences .audience-card:is(:hover,:active,:focus-within) :is(h3,p){color:#FFF8F1!important}
+  html body #audiences .audience-card:is(:hover,:active,:focus-within) a.ad-rowlink-a:not(#ad-x){color:#FF9A80!important}
+  html body #audiences .audience-card:is(:hover,:active,:focus-within)::before{opacity:1!important}
+  html body #audiences .audience-card:is(:active,:focus-within) .audience-photo{opacity:1!important;transform:scale(1)!important}
+}
+
+/* Global supply, option 2 (lab: on by default; add &src1 to the phone link for the previous layout).
+   Figures first: 1M+ · 180+ · 1 on the first row, 3% · $280 on the second. Under them, close together: the closing
+   sentence as one clear line, the link as a text link (links carry no frame) and the asterisk note as a quiet line.
+   Nothing is hidden. "Part of HBX Group." sits 8px under the title (role "sub"). */
+@media (max-width:599px){
+  html.ad-src2 body section#sources.trust-strip:not(#ad-x){grid-template-columns:repeat(3,minmax(0,1fr))!important;column-gap:0!important}
+  html.ad-src2 body #sources .trust-stat:not(#ad-x){grid-column:span 1!important;padding:0 12px 0 0!important;border:0!important;min-height:0!important}
+  html.ad-src2 body #sources .trust-stat:nth-of-type(n+5):not(#ad-x){padding-top:20px!important}
+  html.ad-src2 body #sources .trust-copy p{font-size:13px!important;line-height:20px!important}
+  html.ad-src2 body #sources .trust-footnote:not(#ad-x){position:relative;display:flex!important;flex-direction:column;align-items:flex-start;padding:0!important;border:0!important;gap:0!important;row-gap:0!important}
+  html.ad-src2 body #sources .trust-footnote p:not(#ad-x){margin:0!important;padding:0!important;font-size:16px!important;line-height:24px!important;color:#180f10!important;font-weight:500!important}
+  html.ad-src2 body #sources .trust-footnote small:not(#ad-x){margin:-2px 0 0!important;padding:0!important;font-size:11px!important;line-height:16px!important;color:#180f1080!important}
+  html.ad-src2 body #sources .trust-footnote a:not(#ad-x){margin:-2px 0 0!important;padding:10px 0!important;border:0!important;background:none!important;box-shadow:none!important;
+    font:500 15px/24px Sofia,sans-serif!important;color:#C2462E!important;min-height:0!important;display:inline-flex;gap:8px;align-items:center}
+  html.ad-src2 body #sources .trust-footnote a *:not(#ad-x){background:none!important;border:0!important;box-shadow:none!important;color:inherit!important;width:auto!important;height:auto!important;padding:0!important;font-size:inherit!important}
+  html.ad-src2 body #sources .trust-footnote a::before,html.ad-src2 body #sources .trust-footnote a::after{display:none!important}
+}
+@media (max-width:599px){
+  /* Round 5: "One connection." ends its own line (the first desktop break stays); "A million+" gets its own line. */
+  html body #home #hero-title .v2-hero-br:first-of-type{display:inline!important}
+}

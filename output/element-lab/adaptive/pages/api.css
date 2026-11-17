@@ -133,3 +133,69 @@
   html body #whats-inside .ex-cats>*{flex:0 0 auto!important;white-space:nowrap}
 }
 @media (max-width:599px){ html body section#faq.copy-faq:not(#ad-x):not(#ad-y){padding-top:64px!important;padding-bottom:64px!important} }
+
+/* Normalization on phones (17 Nov 2026, after review): as on desktop. The before / after slider stays, with its
+   opening sweep and the booking card that arrives; the site's own portrait layout places the cards. The frame
+   takes the height left on a phone screen under the header, so the whole comparison is seen at once. */
+@media (max-width:599px){
+  html body #network .nz-wrap{zoom:1!important;transform:none!important;margin:0!important}
+  html body #network .nz-stage.nz-ba:not(#ad-x){aspect-ratio:auto!important;height:430px!important;zoom:1!important}
+  /* Round 7: everything inside a little smaller (85%), so the comparison is less tall and reads as a whole */
+  html body #network .nz-ba :is(.nz-raw,.nz-clean,.nz-ba-book){scale:.85}
+  html body #network .nz-ba .nz-ba-tag{scale:.9;transform-origin:0 50%}
+}
+
+/* What's inside on phones (16 Nov 2026): the five categories become one row of chips that scrolls sideways (all five
+   stay, no name is cut), and the results show two experiences instead of three. The block drops from 113% of the
+   screen to about two thirds. */
+@media (max-width:599px){
+  html body #whats-inside .ex-cats:not(#ad-x){flex-wrap:nowrap!important;overflow-x:auto!important;scroll-snap-type:x proximity;gap:8px!important;padding:12px 12px 4px!important;scrollbar-width:none;height:auto!important}
+  html body #whats-inside .ex-cats::-webkit-scrollbar{display:none}
+  html body #whats-inside .ex-cats>button{flex:0 0 auto!important;height:40px!important;min-height:40px!important;padding:0 14px 0 12px!important;border-radius:999px!important;width:auto!important;scroll-snap-align:start;gap:8px!important}
+  html body #whats-inside .ex-cats>button svg{width:18px!important;height:18px!important}
+  html body #whats-inside .ex-cats>button b{font-size:14px!important;white-space:nowrap!important}
+  html body #whats-inside .ex-results>.ex-card:nth-of-type(n+3){display:none!important}
+  /* the catalog figures are the point of the footer: 28px figures over 11px labels, three columns */
+  html body #whats-inside .ex-foot:not(#ad-x){display:grid!important;grid-template-columns:repeat(3,1fr);gap:8px!important;height:auto!important;padding:14px 16px!important}
+  html body #whats-inside .ex-foot>span{display:flex!important;flex-direction:column;font-size:11px!important;letter-spacing:.06em;line-height:1.3!important;height:auto!important}
+  html body #whats-inside .ex-foot>span b,html body #whats-inside .ex-foot>span strong{font-size:28px!important;line-height:1.1!important;letter-spacing:-.02em;font-weight:500!important}
+  /* hero code card: nothing under 11px */
+  html body #top .ahc-visual :is(span,small,em,b,i,div,p){font-size:max(11px,1em)!important}
+  html body #whats-inside .ex-call:not(#ad-x){white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere;height:auto!important;line-height:1.5!important;padding-block:6px!important}
+}
+
+/* The airline app on phones (16 Nov 2026): the phone at its real size instead of 68%, cut by the stage's lower edge
+   (the top of the screen carries the story: the trip, the experience, the booking), with the API rail over the cut. */
+@media (max-width:599px){
+  html body #customer-experience .cj-phone:not(#ad-x){zoom:1!important;top:22px!important}
+  html body #customer-experience .cj-stage:not(#ad-x){height:440px!important;overflow:hidden!important}
+  html body #customer-experience .cj-base:not(#ad-x){height:auto!important;padding:14px 0 12px!important;z-index:2}
+  html body #customer-experience .cj-base span,html body #customer-experience .cj-log,html body #customer-experience .cj-log *{font-size:12px!important}
+  html body #customer-experience .cj-call{font-size:12px!important;height:auto!important}
+}
+
+/* Round 5 after review on the phone (17 Nov 2026) */
+@media (max-width:599px){
+  /* Hero: the result first. The app card sits on top, inside the first screen; the code window comes under it and
+     overlaps the card's lower edge, layered above it. Same DOM: the card is moved up with `order`. */
+  html body #top .ahc-code:not(#ad-x){display:flex!important;flex-direction:column!important;background:none!important;border:0!important;box-shadow:none!important;overflow:visible!important}
+  html body #top .ahc-code>:not(.ahc-card){position:relative;z-index:2;background:#140d0c!important;border-inline:1px solid rgba(244,102,73,.28)!important}
+  html body #top .ahc-code>.ahc-bar{border-top:1px solid rgba(244,102,73,.28)!important;border-radius:14px 14px 0 0!important;box-shadow:0 -18px 34px rgba(0,0,0,.55)}
+  html body #top .ahc-code>.ahc-status{border-bottom:1px solid rgba(244,102,73,.28)!important;border-radius:0 0 14px 14px!important}
+  html body #top .ahc-card:not(#ad-x){order:-1;position:relative!important;z-index:1;margin:14px 0 0!important}
+  /* Your product, your customer: the dark base under the phone. Its rows were wider than the base and ran off
+     both sides; now every line is centred inside 16px margins. */
+  html body #customer-experience .cj-base:not(#ad-x){padding:14px 16px 12px!important;justify-items:center;text-align:center}
+  html body #customer-experience .cj-brand,html body #customer-experience .cj-log{width:100%!important;justify-content:center!important;justify-items:center!important}
+  html body #customer-experience .cj-log li:not(#ad-x){grid-template-columns:10px auto auto!important;justify-content:center!important;column-gap:10px!important;text-align:left;max-width:100%}
+  html body #customer-experience .cj-log li span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+}
+
+
+/* Round 9 (17 Nov 2026): hero. First screen: the code window already covers the lower part of the app card (the card
+   shows its tag, photo, name and rating). The first scroll does not move the hero: only the code rises, until it covers
+   the whole card; then the page goes on to the next section. No extra height: the hero holds exactly as long as the
+   code needs to rise, and ends where the code ends. --ad-overlap is set by api.js. */
+@media (max-width:599px){
+  html body #top .ahc-code>.ahc-bar:not(#ad-x){margin-top:calc(var(--ad-overlap,96px) * -1)!important}
+}
