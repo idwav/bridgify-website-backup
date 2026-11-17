@@ -44,7 +44,7 @@ body.clean .bar{display:none}
   <div class="grp"><b>מידות</b><button data-m="0">מוסתר</button><button data-m="1">מוצג</button></div>
   <div class="grp"><b>הירו בטאבלט</b><button data-th="0">היום</button><button data-th="1">מוצע</button></div>
   <div class="grp" id="ghv"><b>ויזואל הירו בטאבלט</b><button data-hv="a">א · אנכי</button><button data-hv="b">ב · רצועה</button></div>
-  <div class="grp" id="gth"><b>כותרת הירו בטאבלט</b><button data-tz="40">40</button><button data-tz="48">48</button><button data-tz="56">56</button></div>
+  <div class="grp" id="gth"><b>כותרת הירו בטאבלט</b><button data-tz="40">40</button><button data-tz="48">48</button><button data-tz="56">56</button><button data-tz="fluid">48→56</button></div>
   <div class="grp" id="gy"><b>בין סקשנים</b><button data-y="80">80</button><button data-y="96">96</button><button data-y="128">128</button></div>
   <div class="grp"><b>רוחב</b>
     <button data-w="fit">המסך שלי</button>
@@ -64,7 +64,7 @@ body.clean .bar{display:none}
   /* Lab only. One full screen of the real homepage. Switching A / B / today swaps only the injected CSS
      (try-cap.css), so the page stays where you scrolled. Keys: A, B, T (today), or ← → to flip. */
   const q = new URLSearchParams(location.search);
-  const S = { v: q.get('v') || '1560', w: q.get('w') === 'fit' ? 'fit' : +(q.get('w') || 1920), t: +(q.get('t') || 32), l: q.get('l') !== '0', s: q.get('s') === '1', y: +(q.get('y') || 96), h: q.get('h') !== '0', a: q.get('a') === '1', z: q.get('z') === '1', m: q.get('m') === '1', th: q.get('th') === '1', tz: +(q.get('tz') || 40), hv: q.get('hv') || 'b' };
+  const S = { v: q.get('v') || '1560', w: q.get('w') === 'fit' ? 'fit' : +(q.get('w') || 1920), t: +(q.get('t') || 32), l: q.get('l') !== '0', s: q.get('s') === '1', y: +(q.get('y') || 96), h: q.get('h') !== '0', a: q.get('a') === '1', z: q.get('z') === '1', m: q.get('m') === '1', th: q.get('th') === '1', tz: q.get('tz') || '40', hv: q.get('hv') || 'b' };
   // ?bar=0: a clean screen with no toolbar (the page as a visitor sees it); the key H brings the toolbar back
   if (q.get('bar') === '0') document.body.classList.add('clean');
   const NAME = { today: 'היום', 1440: 'A · תוכן עד 1440', 1560: 'B · תוכן עד 1560' };
@@ -82,7 +82,7 @@ body.clean .bar{display:none}
     else {
       if (!st) { st = d.createElement('style'); st.id = 'try-tabhero'; d.head.appendChild(st); }
       // direction A: the hero diagram rebuilt on a portrait grid (tablet held upright)
-      st.textContent = thCss + '\n' + hpCss + `\nhtml:root{--try-hero-tab:${S.tz}px}`;
+      st.textContent = thCss + '\n' + hpCss + `\nhtml:root{--try-hero-tab:${S.tz === 'fluid' ? 'clamp(48px, 5.5vw, 56px)' : S.tz + 'px'}}`;
       if (!w.__bfPortraitHero) { w.__bfHeroVariant = S.hv; const sc = d.createElement('script'); sc.textContent = hpJs; d.body.appendChild(sc); }
     }
     requestAnimationFrame(() => { if (S.s && w.BridgifyRhythmWide) w.BridgifyRhythmWide.apply(); });
@@ -178,7 +178,7 @@ body.clean .bar{display:none}
     document.querySelectorAll('[data-z]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.z === '1') === S.z));
     document.querySelectorAll('[data-m]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.m === '1') === S.m));
     document.querySelectorAll('[data-th]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.th === '1') === S.th));
-    document.querySelectorAll('[data-tz]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.tz === S.tz));
+    document.querySelectorAll('[data-tz]').forEach(b => b.setAttribute('aria-pressed', b.dataset.tz === String(S.tz)));
     document.getElementById('gth').hidden = !S.th;
     document.getElementById('ghv').hidden = !S.th;
     document.querySelectorAll('[data-hv]').forEach(b => b.setAttribute('aria-pressed', b.dataset.hv === S.hv));
@@ -202,7 +202,7 @@ body.clean .bar{display:none}
     if (b.dataset.s) { S.s = b.dataset.s === '1'; layout(); spacing(); return; }
     if (b.dataset.hv) { S.hv = b.dataset.hv; layout(); try { f.contentWindow.location.reload(); } catch (e) {} return; }
     if (b.dataset.th) { S.th = b.dataset.th === '1'; layout(); tabHero(); return; }
-    if (b.dataset.tz) { S.tz = +b.dataset.tz; layout(); tabHero(); return; }
+    if (b.dataset.tz) { S.tz = b.dataset.tz; layout(); tabHero(); return; }
     if (b.dataset.m) { S.m = b.dataset.m === '1'; if (S.m && !S.s) { S.s = true; spacing(); } layout(); meas(); return; }
     if (b.dataset.z) { S.z = b.dataset.z === '1'; layout(); typ(); return; }
     if (b.dataset.a) { S.a = b.dataset.a === '1'; layout(); align(); return; }

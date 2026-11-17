@@ -17,7 +17,11 @@
   html body #home .bv2-hero-copy { max-width: calc((100% + 24px) * 7 / 8 - 24px) !important; padding: 0 !important; }
   html body #home .bv2-hero-copy > p { max-width: none !important; }
   html body #home .bv2-hero-visual { width: 100% !important; max-width: none !important; margin: 0 !important; }
-  html body #home #hero-title { font-size: var(--try-hero-tab, 40px) !important; }
+  /* title: the size under review (--try-hero-tab); it may use the whole copy column (the hero's own 760px cap is lifted) */
+  html body #home #hero-title { font-size: var(--try-hero-tab, 40px) !important; max-width: none !important; }
+  /* proof line under the buttons (Part of HBX Group · 1M+ experiences · 180+ countries): 12 → 16, the body size */
+  html body #home .bv2-hero-proof { font-size: var(--try-proof, 16px) !important; letter-spacing: .02em !important; gap: 8px 14px !important; }
+  html body #home .bv2-hero-proof > span + span::before { margin-right: 14px !important; }
   /* the button and the text link beside it share one centre line (the link sat 14px high) */
   html body #home .bv2-hero-actions { align-items: center !important; }
   /* the hero ends like every section: section-y under the visual (it was 36) */
