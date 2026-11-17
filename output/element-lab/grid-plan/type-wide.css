@@ -1,0 +1,25 @@
+/* Lab only · step 3c trial (approved 17 Nov 2026): text sizes on tablet and desktop.
+   Same tokens as brand-typography.css (approved 14 Nov 2026); what this adds:
+   - a tablet state of its own (600–1023) with fixed sizes, so 600–760 no longer runs the phone formula;
+   - every homepage section title, inner heading and the hero read the tokens, with one line height per role.
+   Two homepage sections redefine the tokens locally (home-products-v2.css, home-why-v2.css: card clamp(22px,1.7vw,28px));
+   they are reset to the shared values here. (Other pages do the same: insights, press, marketplace; for the migration.)
+   Phone (≤599) is not touched. Diagram and demo text keep their own scale. Injected by live.html. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html:root, html body :is(#products.pr2, #why-bridgify.wy2) { --type-hero: 40px; --type-section: 36px; --type-card: 24px; --type-body: 16px; --type-lead: 16px; --type-cta: 16px; --type-eyebrow: 12px; }
+}
+@media (min-width: 1024px) {
+  html:root, html body :is(#products.pr2, #why-bridgify.wy2) { --type-hero: clamp(40px, 3.6vw, 60px); --type-section: clamp(36px, 3vw, 44px); --type-card: clamp(24px, 1.9vw, 28px); --type-body: 16px; --type-lead: 16px; --type-cta: 16px; --type-eyebrow: 12px; }
+}
+@media (min-width: 600px) {
+  /* hero */
+  html body #home #hero-title { font-size: var(--type-hero) !important; line-height: 1.16 !important; }
+  /* section titles */
+  html body :is(#v2p-title, #opx-opportunity-title, #opx-why-title, #home-intent-title, #audiences-title, #partner-results-title, #sec2-title, #faq div.copy-inner > h2, #hc2-title) {
+    font-size: var(--type-section) !important; line-height: 1.2 !important;
+  }
+  /* inner headings: cards, steps, the two problem panels; the numbers strip title stays at this scale too */
+  html body :is(#products h4, #why-bridgify div.wy-copy > h4, #opportunity-study .pb-panel h4, #audiences .audience-card h3, #sources div.trust-copy > h2) {
+    font-size: var(--type-card) !important; line-height: 1.25 !important;
+  }
+}

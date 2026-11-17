@@ -40,6 +40,7 @@ body.clean .bar{display:none}
   </div>
   <div class="grp"><b>תפריט בגלילה</b><button data-h="0">היום</button><button data-h="1">מצומצם</button></div>
   <div class="grp"><b>כותרת מפוצלת</b><button data-a="0">היום</button><button data-a="1">כלל: עמודה 7, מול הכותרת</button></div>
+  <div class="grp"><b>גדלי טקסט</b><button data-z="0">היום</button><button data-z="1">מוצע</button></div>
   <div class="grp" id="gy"><b>בין סקשנים</b><button data-y="80">80</button><button data-y="96">96</button><button data-y="128">128</button></div>
   <div class="grp"><b>רוחב</b>
     <button data-w="fit">המסך שלי</button>
@@ -59,13 +60,23 @@ body.clean .bar{display:none}
   /* Lab only. One full screen of the real homepage. Switching A / B / today swaps only the injected CSS
      (try-cap.css), so the page stays where you scrolled. Keys: A, B, T (today), or ← → to flip. */
   const q = new URLSearchParams(location.search);
-  const S = { v: q.get('v') || '1560', w: q.get('w') === 'fit' ? 'fit' : +(q.get('w') || 1920), t: +(q.get('t') || 32), l: q.get('l') !== '0', s: q.get('s') === '1', y: +(q.get('y') || 96), h: q.get('h') !== '0', a: q.get('a') === '1' };
+  const S = { v: q.get('v') || '1560', w: q.get('w') === 'fit' ? 'fit' : +(q.get('w') || 1920), t: +(q.get('t') || 32), l: q.get('l') !== '0', s: q.get('s') === '1', y: +(q.get('y') || 96), h: q.get('h') !== '0', a: q.get('a') === '1', z: q.get('z') === '1' };
   // ?bar=0: a clean screen with no toolbar (the page as a visitor sees it); the key H brings the toolbar back
   if (q.get('bar') === '0') document.body.classList.add('clean');
   const NAME = { today: 'היום', 1440: 'A · תוכן עד 1440', 1560: 'B · תוכן עד 1560' };
   const ORDER = ['1440', '1560', 'today'];
   const f = document.getElementById('f'), frame = document.getElementById('frame'), lines = document.getElementById('lines'), stage = document.getElementById('stage');
-  let css = '', W = 0, spTok = '', spCode = '', hdr = '', alCss = '', alJs = '';
+  let css = '', W = 0, spTok = '', spCode = '', hdr = '', alCss = '', alJs = '', tyCss = '';
+  fetch('type-wide.css', { cache: 'no-store' }).then(r => r.text()).then(t => { tyCss = t; typ(); });
+  // text sizes on tablet and desktop (step 3c); sizes change line breaks, so spacing and alignment re-run after
+  function typ() {
+    let d, w; try { d = f.contentDocument; w = f.contentWindow; } catch (e) { return; }
+    if (!d || !d.head || !tyCss || d.URL === 'about:blank') return;
+    let st = d.getElementById('try-type');
+    if (!S.z) { if (st) st.remove(); }
+    else if (!st) { st = d.createElement('style'); st.id = 'try-type'; st.textContent = tyCss; d.head.appendChild(st); }
+    requestAnimationFrame(() => { if (S.s && w.BridgifyRhythmWide) w.BridgifyRhythmWide.apply(); if (S.a && w.BridgifySplit) setTimeout(() => w.BridgifySplit.apply(), 100); });
+  }
   Promise.all(['split-align.css', 'split-align.js'].map(u => fetch(u, { cache: 'no-store' }).then(r => r.text()))).then(([c, j]) => { alCss = c; alJs = j; align(); });
   // alignment rule for split headings (title left, intro right): intro on column 7, level with the title
   function align() {
@@ -132,13 +143,14 @@ body.clean .bar{display:none}
     document.getElementById('gy').hidden = !(S.s && W >= 1024);
     document.querySelectorAll('[data-h]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.h === '1') === S.h));
     document.querySelectorAll('[data-a]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.a === '1') === S.a));
+    document.querySelectorAll('[data-z]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.z === '1') === S.z));
     document.querySelectorAll('[data-y]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.y === S.y));
     document.querySelectorAll('[data-v]').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === S.v));
     document.querySelectorAll('[data-w]').forEach(b => b.setAttribute('aria-pressed', b.dataset.w === String(S.w)));
     document.querySelectorAll('[data-t]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.t === S.t));
     document.querySelectorAll('[data-s]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.s === '1') === S.s));
     document.querySelectorAll('[data-l]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.l === '1') === S.l));
-    history.replaceState(null, '', '?' + new URLSearchParams({ ...(document.body.classList.contains('clean') ? { bar: 0 } : {}), v: S.v, w: S.w, t: S.t, l: S.l ? 1 : 0, s: S.s ? 1 : 0, y: S.y, h: S.h ? 1 : 0, a: S.a ? 1 : 0 }));
+    history.replaceState(null, '', '?' + new URLSearchParams({ ...(document.body.classList.contains('clean') ? { bar: 0 } : {}), v: S.v, w: S.w, t: S.t, l: S.l ? 1 : 0, s: S.s ? 1 : 0, y: S.y, h: S.h ? 1 : 0, a: S.a ? 1 : 0, z: S.z ? 1 : 0 }));
   }
   let ft;
   function setVersion(v) {
@@ -150,6 +162,7 @@ body.clean .bar{display:none}
     const b = e.target.closest('button'); if (!b) return;
     if (b.dataset.v) return setVersion(b.dataset.v);
     if (b.dataset.s) { S.s = b.dataset.s === '1'; layout(); spacing(); return; }
+    if (b.dataset.z) { S.z = b.dataset.z === '1'; layout(); typ(); return; }
     if (b.dataset.a) { S.a = b.dataset.a === '1'; layout(); align(); return; }
     if (b.dataset.h) { S.h = b.dataset.h === '1'; header(); layout(); return; }
     if (b.dataset.y) { S.y = +b.dataset.y; layout(); spacing(); return; }
@@ -167,7 +180,7 @@ body.clean .bar{display:none}
     else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { const i = ORDER.indexOf(S.v); setVersion(ORDER[(i + (e.key === 'ArrowLeft' ? 1 : 2)) % 3]); e.preventDefault(); }
   }
   addEventListener('keydown', keys);
-  f.addEventListener('load', () => { inject(); header(); layout(); spacing(); align(); try { f.contentWindow.addEventListener('keydown', keys); } catch (e) {} });
+  f.addEventListener('load', () => { inject(); header(); typ(); layout(); spacing(); align(); try { f.contentWindow.addEventListener('keydown', keys); } catch (e) {} });
   addEventListener('resize', layout);
   f.src = '../../../index-v2.html?version=2';
   layout();
