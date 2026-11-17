@@ -154,3 +154,15 @@ Full report: `output/element-lab/adaptive/system/compliance.md`.
 - **C2 (AIyelet):** the live page has "Pause animation" and "Start again" controls. They are against G3 and wait for
   the owner's decision.
 - **M2:** expected until the CSS route in §7 is built: the lab styles with JavaScript after the first paint.
+
+## Publishing a page (from the lab to the live site)
+
+The lab (`output/element-lab/adaptive/`) is the one source; Vercel does not deploy `output/`. To publish a page:
+1. Add it to `PAGES` in `scripts/sync-mobile.py` and run `python3 scripts/sync-mobile.py` (copies to `mobile/`).
+2. In the page's HTML: the five stylesheets before `</head>` with `media="(max-width:599px)"`, and
+   `<script src="mobile/load.js?v=N" data-page="<page>" data-v="N"></script>` before `</body>` (after the page's own
+   scripts). On wider screens nothing loads, so desktop and tablet stay exactly as they were.
+3. Check the real page (no injection) on a phone width and at 768 and 1440; run `verify.py` on the page.
+4. Before publishing: `python3 scripts/sync-mobile.py --check`. After any lab edit, sync again and raise `v`.
+Never hide with `display:none` an element the page's own scripts measure (it throws in Safari when the CSS loads
+first): hide it with zero size and `visibility:hidden` instead.
