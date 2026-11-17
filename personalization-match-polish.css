@@ -45,3 +45,12 @@ html body #section-3 .match-card{background:radial-gradient(ellipse at 0 0,#4a30
 #section-3.match-section .match-feed-dot{position:absolute;left:0;top:0;width:7px;height:7px;border-radius:50%;background:#fff3e6;box-shadow:0 0 10px #ff8a62,0 0 20px #f4664988;opacity:0;pointer-events:none;z-index:6}
 #section-3.match-section .match-engine:before,#section-3.match-section .match-engine:after{opacity:.35}
 #section-3.match-section.matching-result .match-slot{border-color:#f46649;box-shadow:inset 0 0 40px #f4664920,0 0 26px #f4664933}
+
+/* Real wires: each traveler field -> AIyelet -> the fixed frame, carried by Bridgify points. */
+#section-3.match-section .match-wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:4;overflow:visible}
+#section-3.match-section .match-wire{fill:none;stroke:#f46649;stroke-opacity:.5;stroke-width:1.2}
+#section-3.match-section .match-contact{fill:#fff3e6;stroke:#f46649;stroke-width:1}
+#section-3.match-section .match-pulse{fill:#fff3e6;filter:drop-shadow(0 0 5px #ff8a62)}
+#section-3.match-section .match-engine:before,#section-3.match-section .match-engine:after,#section-3.match-section .match-engine-contact{display:none}
+#section-3.match-section .match-feed-dot{display:none}
+@media(max-width:760px){#section-3.match-section .match-wires{display:none}#section-3.match-section .match-engine:before,#section-3.match-section .match-engine:after{display:block}}

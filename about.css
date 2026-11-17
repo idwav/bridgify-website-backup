@@ -114,3 +114,57 @@ body[data-page="about"]{background:#180f10;color:#eee9de}
 .ms-fields{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
 .ms-fields span{padding:7px 14px;border:1px solid #f4664966;border-radius:999px;background:#ffffff08;font:500 13px Sofia,sans-serif;color:#eee9de}
 @media(prefers-reduced-motion:reduce){.ms-dots{display:none}}
+
+/* Mission scene 2: one integration, three partner channels */
+.ms-s2{justify-content:flex-start}
+.ms-s2 .ms-top{margin-top:16px;padding:12px 24px;box-shadow:inset 0 1px #ffd8bd33,0 0 26px #f4664933}
+.ms-s2 .ms-wire{margin:0}
+.ms-chans{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ms-ch{margin:0;display:grid;gap:10px;justify-items:stretch}
+.ms-ch figcaption{display:flex;align-items:center;justify-content:space-between;font:600 13px Sofia,sans-serif;color:#eee9de}
+.ms-ok{font:700 10px Sofia,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#9ce6bd;background:#63d99a1c;border:1px solid #63d99a66;border-radius:999px;padding:3px 9px}
+.ms-app,.ms-site,.ms-co{position:relative;display:grid;gap:6px;align-content:start;padding:12px;border:1px solid #f4664988;border-radius:14px;background:#FFF8F1;color:#180f10;box-shadow:0 14px 28px #0006;min-height:190px;overflow:hidden}
+.ms-app{border-radius:22px;padding-top:20px}
+.ms-app i{position:absolute;top:7px;left:50%;width:34px;height:5px;border-radius:5px;background:#180f1033;transform:translateX(-50%)}
+.ms-bar{display:flex;gap:4px;padding-bottom:4px}.ms-bar i{width:7px;height:7px;border-radius:50%;background:#f4664966}
+.ms-app img,.ms-site img{width:100%;height:76px;object-fit:cover;border-radius:8px}
+.ms-app b,.ms-site b,.ms-co>b{font:700 13px Sofia,sans-serif}
+.ms-app em,.ms-site em{font:600 12px Sofia,sans-serif;font-style:normal;color:#8a3a22}
+.ms-book{justify-self:start;margin-top:2px;padding:6px 14px;border-radius:999px;background:#e8654a;color:#180f10;font:700 12px Sofia,sans-serif}
+.ms-co p{display:flex;justify-content:space-between;margin:0;padding:6px 0;border-bottom:1px solid #18101014;font:500 12px Sofia,sans-serif}
+.ms-co p em{font-style:normal;font-weight:700}
+.ms-co .ms-tot{font-weight:700;border-bottom:0}
+.ms-note{align-self:center;margin-top:18px;padding:10px 20px;border:1px solid #f46649;border-radius:14px;background:linear-gradient(130deg,#49302a,#201516);font:500 15px Sofia,sans-serif;text-align:center}
+/* Mission scene 3: a million options narrow to the right few */
+.ms-s3{justify-content:flex-start}
+.ms-all{display:flex;align-items:center;gap:16px;margin-top:18px}
+.ms-all>div{display:grid;line-height:1.05;flex:none}
+.ms-all b{font:300 44px Chillax,Sofia,sans-serif;color:#fff2e3}
+.ms-all span{font:500 13px Sofia,sans-serif;color:#d3c1b8}
+.ms-grid{flex:1;height:54px;border-radius:10px;background:radial-gradient(circle,#f48665 1.6px,transparent 2px) 0 0/11px 11px;opacity:.6;-webkit-mask:linear-gradient(90deg,#000 55%,transparent);mask:linear-gradient(90deg,#000 55%,transparent)}
+.ms-fun{margin:4px 0 0}
+.ms-s3 .ms-match{justify-content:center;margin-top:0}
+.ms-s3 .ms-few{grid-template-columns:1.5fr 1fr 1fr;margin-top:16px;align-items:stretch}
+.ms-few figure{position:relative;margin:0;border-radius:14px;overflow:hidden;border:1px solid #f4664966;min-height:130px}
+.ms-few figure img{position:absolute;inset:0;width:100%;height:100%;max-height:none;border:0;border-radius:0}
+.ms-few figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;background:linear-gradient(0deg,#180f10ee,transparent);font:600 13px Sofia,sans-serif;color:#fff;display:grid;gap:4px}
+.ms-few figcaption span{justify-self:start;font:700 10px Sofia,sans-serif;letter-spacing:.08em;text-transform:uppercase;background:#e8654a;color:#180f10;border-radius:999px;padding:3px 9px}
+.ms-few .ms-best{border-color:#f46649;box-shadow:0 0 24px #f4664940}
+@media(max-width:900px){
+.ms{grid-template-columns:minmax(0,1fr)}
+.ms-s{min-width:0;padding:20px 16px}
+.ms-cap{letter-spacing:.1em}
+.ms-chans,.ms-srcs{gap:8px}
+.ms-ch,.ms-srcs figure{min-width:0}
+.ms-app,.ms-site,.ms-co{padding:8px;min-height:0}
+.ms-app{padding-top:16px}
+.ms-app img,.ms-site img{height:56px}
+.ms-co p{font-size:11px}
+.ms-ch figcaption{flex-wrap:wrap;gap:4px;font-size:12px}
+.ms-ok{font-size:9px;padding:2px 7px}
+.ms-note{font-size:13px;padding:9px 14px}
+.ms-s3 .ms-match span{font-size:13px;padding:8px 12px}
+.ms-all b{font-size:36px}
+.ms-few figure{min-height:110px}
+.ms-fields{gap:6px}.ms-fields span{font-size:12px;padding:6px 11px}
+}

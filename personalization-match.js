@@ -6,13 +6,20 @@
  let motionStart=0,motionClock=0,currentLead=0,nextLead=0,moving=false,recycleStart=0;
  let index=0,elapsed=0,last=0,paused=false,visible=false,phase=-1;
  const slot=document.createElement('div');slot.className='match-slot';slot.setAttribute('aria-hidden','true');root.querySelector('.match-deck').prepend(slot);
- const FD=window.BridgifyFlow,workspace=root.querySelector('.match-workspace'),feedDots=Array.from({length:9},()=>{const d=document.createElement('i');d.className='match-feed-dot';d.setAttribute('aria-hidden','true');workspace.append(d);return d});
- function feed(){const wr=workspace.getBoundingClientRect(),c=root.querySelector('.match-controls').getBoundingClientRect(),e=root.querySelector('.match-engine').getBoundingClientRect(),dk=cards[0].getBoundingClientRect(),y=e.top+e.height/2-wr.top;const segs=[[c.right-wr.left,e.left-wr.left,600],[e.right-wr.left,dk.left-wr.left,1500]];feedDots.forEach((d,i)=>{let on=0,x=0;segs.forEach(([x0,x1,t0])=>{const u=(elapsed-t0-i*(FD?FD.delay:90))/900;if(u>0&&u<1){on=Math.min(1,u*10,(1-u)*14);x=x0+(x1-x0)*(FD?FD.smooth(u):u)}});d.style.opacity=on;d.style.transform=`translate(${x}px,${y}px) translate(-50%,-50%) scale(${.8+.4*(1-i/9)})`})}
+
+ const FD=window.BridgifyFlow,workspace=root.querySelector('.match-workspace'),NS='http://www.w3.org/2000/svg',wsvg=document.createElementNS(NS,'svg');wsvg.setAttribute('class','match-wires');wsvg.setAttribute('aria-hidden','true');workspace.prepend(wsvg);let runs=[];
+ const mk=(tag,at)=>{const e=document.createElementNS(NS,tag);Object.entries(at).forEach(([k,v])=>e.setAttribute(k,v));wsvg.append(e);return e};
+ function measureWires(){wsvg.replaceChildren();runs=[];if(innerWidth<=760)return;const wr=workspace.getBoundingClientRect();wsvg.setAttribute('viewBox',`0 0 ${wr.width} ${wr.height}`);const eng=root.querySelector('.match-engine').getBoundingClientRect(),ex0=eng.left-wr.left,ex1=eng.right-wr.left,ey=eng.top+eng.height/2-wr.top,sl=slot.getBoundingClientRect(),sx=sl.left-wr.left,sy=sl.top+sl.height/2-wr.top;
+  const seg=(x0,y0,x1,y1,t0)=>{const m=(x0+x1)/2,p=mk('path',{d:`M${x0} ${y0}C${m} ${y0} ${m} ${y1} ${x1} ${y1}`,class:'match-wire'});mk('circle',{cx:x0,cy:y0,r:2.4,class:'match-contact'});runs.push({p,t0,dots:Array.from({length:3},(_,i)=>mk('circle',{r:FD?FD.radius(i):3,class:'match-pulse',opacity:0}))})};
+  root.querySelectorAll('.match-control').forEach((c,i)=>{const b=c.getBoundingClientRect();seg(b.right-wr.left+4,b.top+b.height/2-wr.top,ex0,ey,500+i*140)});
+  seg(ex1,ey,sx,sy,1500);mk('circle',{cx:ex0,cy:ey,r:2.6,class:'match-contact'});mk('circle',{cx:sx,cy:sy,r:2.6,class:'match-contact'})}
+ new ResizeObserver(measureWires).observe(workspace);new ResizeObserver(measureWires).observe(root.querySelector('.match-deck'));document.fonts&&document.fonts.ready.then(measureWires);
+ function feed(){runs.forEach(({p,t0,dots})=>{const L=p.getTotalLength();dots.forEach((d,i)=>{const u=(elapsed-t0-i*(FD?FD.delay:90))/800,q=Math.max(0,Math.min(1,u));if(u<=0||u>=1){d.setAttribute('opacity',0);return}const pt=p.getPointAtLength(L*(FD?FD.smooth(q):q));d.setAttribute('cx',pt.x);d.setAttribute('cy',pt.y);d.setAttribute('opacity',Math.min(1,q*10,(1-q)*14))})})}
  const ease=t=>1-Math.pow(1-Math.max(0,Math.min(1,t)),3);
- const knots=[{x:.14,y:0,s:.97,o:0},{x:0,y:0,s:1,o:1},{x:-.14,y:0,s:.97,o:0},{x:-.14,y:0,s:.97,o:0},{x:-.14,y:0,s:.97,o:0}];
+ const knots=[{x:-.08,y:-6,s:.95,o:0},{x:0,y:0,s:1,o:1},{x:.36,y:12,s:.88,o:.92},{x:.62,y:24,s:.76,o:.55},{x:.62,y:24,s:.76,o:0}];
  const easeIO=t=>{t=Math.max(0,Math.min(1,t));return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
  function at(f){const k=Math.max(-1,Math.min(3,f))+1,i=Math.min(3,Math.floor(k)),u=k-i,a=knots[i],b=knots[i+1],m=p=>a[p]+(b[p]-a[p])*u;return {x:m('x'),y:m('y'),s:m('s'),o:m('o')}}
- function orbit(now){cards.forEach((c,i)=>c.style.setProperty('--arrival',i===currentLead&&!moving?window.BridgifyFlow.arrival(now-recycleStart):0));const deck=root.querySelector('.match-deck'),w=deck.clientWidth,cw=cards[0].offsetWidth,base=(w-cw)/2;slot.style.left=base+'px';slot.style.width=cw+'px';
+ function orbit(now){cards.forEach((c,i)=>c.style.setProperty('--arrival',i===currentLead&&!moving?window.BridgifyFlow.arrival(now-recycleStart):0));const deck=root.querySelector('.match-deck'),w=deck.clientWidth,cw=Math.round(Math.min(w*(w<500?.7:.58),420));cards.forEach(c=>c.style.width=cw+'px');const base=Math.max(0,(w-cw*1.62)/2);slot.style.left=base+'px';slot.style.width=cw+'px';
  let adv=0;if(moving){const t=reduced.matches?1:(now-motionStart)/1200;if(t>=1){currentLead=nextLead;recycleStart=now;moving=false}else adv=easeIO(t)}
  cards.forEach((card,i)=>{const slot=(i-currentLead+cards.length)%cards.length,f=slot-adv,p=at(f);
  card.style.transform=`translate3d(${base+p.x*cw}px,${p.y}px,0) scale(${p.s})`;card.style.opacity=p.o;card.style.zIndex=40-Math.round(f*10);card.style.filter='none';card.style.pointerEvents=p.o<.6?'none':'';});
