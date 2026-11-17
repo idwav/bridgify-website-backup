@@ -1,6 +1,6 @@
 (()=>{
  const section=document.querySelector('#section-5'),work=section?.querySelector('.launch-workspace');if(!work)return;
- const buttons=[...work.querySelectorAll('[data-launch]')],panel=work.querySelector('.launch-timeline'),live=work.querySelector('.launch-live'),label=work.querySelector('[data-live-label]'),reduced=matchMedia('(prefers-reduced-motion: reduce)'),F=window.BridgifyFlow;
+ const addr=work.querySelector('.launch-address>span'),brandMark=work.querySelector('.launch-brand>b'),buttons=[...work.querySelectorAll('[data-launch]')],panel=work.querySelector('.launch-timeline'),live=work.querySelector('.launch-live'),label=work.querySelector('[data-live-label]'),reduced=matchMedia('(prefers-reduced-motion: reduce)'),F=window.BridgifyFlow;
  const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.classList.add('launch-timeline-motion');svg.setAttribute('aria-hidden','true');svg.setAttribute('data-managed-contacts','true');panel.append(svg);
  const targets=[...buttons,live],paths=[],contacts=[];
  const make=(tag,attrs)=>{const e=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));svg.append(e);return e};
@@ -37,6 +37,11 @@
   const t=elapsed%cycle,day=t<configurationArrival?0:t<launchArrival?1:2;
   const step=t>=liveAt?4:t>=configurationArrival+2400?3:t>=configurationArrival+1200?2:t>=configurationArrival?1:0;
   if(work.dataset.launchStep!==String(step))work.dataset.launchStep=step;
+  // Day 1: the domain is typed in and the logo arrives. Day 2: the whole store takes the brand's colours.
+  const dom='trips.horizon.com',typedN=step>=1?dom.length:t<300?0:Math.min(dom.length,Math.floor((t-300)/55));
+  if(addr.dataset.n!==String(typedN)){addr.dataset.n=typedN;addr.innerHTML=typedN===0?'experiences.<strong>yourbrand.com</strong>':typedN<=6?dom.slice(0,typedN):'trips.<strong>'+dom.slice(6,typedN)+'</strong>'}
+  const logoOn=step>=1||t>=1300;if(brandMark.dataset.on!==String(logoOn)){brandMark.dataset.on=logoOn;brandMark.innerHTML=logoOn?'<i class="hz-mark"></i>HORIZON':'YOUR LOGO'}
+  const theme=step>=1?'horizon':'';if((work.dataset.brand||'')!==theme){if(theme)work.dataset.brand=theme;else delete work.dataset.brand}
   buttons.forEach((button,i)=>{
    const complete=i===0?t>=firstDeparture:i===1?t>=secondDeparture:t>=liveAt;
    button.classList.toggle('pending',i>day);

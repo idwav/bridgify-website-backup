@@ -332,3 +332,28 @@
 #section-5 .launch-chips i{white-space:nowrap}
 #section-5 .launch-cover:after{z-index:1;inset:0}
 #section-5 .launch-store .launch-search em{text-align:left;flex:1}
+
+/* ===== Live in 3 days: day 1 types the domain and brings the logo; day 2 re-colours the store ===== */
+#section-5 .launch-store,#section-5 .launch-brand b,#section-5 .launch-brand nav i,#section-5 .launch-search b,#section-5 .launch-chips i,#section-5 .launch-products article,#section-5 .launch-products article span em,#section-5 .launch-address,#section-5 .launch-cover:after{transition:background .9s,border-color .9s,color .9s,box-shadow .9s}
+#section-5 .hz-mark{display:inline-block;width:14px;height:14px;margin-right:9px;border-radius:50%;background:conic-gradient(#8fb8ff,#2f6df0 55%,#8fb8ff);vertical-align:-2px}
+#section-5 .launch-workspace[data-brand=horizon] .launch-store{background:linear-gradient(180deg,#0f1b33,#0a1224)!important;border-color:#4c8dff77!important;box-shadow:0 0 28px #4c8dff22!important}
+#section-5 .launch-workspace[data-brand=horizon] .launch-brand{border-bottom-color:#4c8dff44;text-shadow:none;color:#e7efff}
+#section-5 .launch-workspace[data-brand=horizon] .launch-brand b{border:1.5px solid #4c8dff!important;background:#4c8dff22!important;box-shadow:0 0 22px #4c8dff66!important;color:#fff;border-radius:999px;letter-spacing:.16em}
+#section-5 .launch-workspace[data-brand=horizon] .launch-brand nav i:first-child{border-bottom-color:#4c8dff}
+#section-5 .launch-workspace[data-brand=horizon] .launch-brand nav,#section-5 .launch-workspace[data-brand=horizon] .launch-brand em{color:#c4d6f5}
+#section-5 .launch-workspace[data-brand=horizon] .launch-cover:after{background:linear-gradient(0deg,#0a1224cc,#0a122433),linear-gradient(90deg,#1f4fc055,transparent)}
+#section-5 .launch-workspace[data-brand=horizon] .launch-store .launch-search b{background:#4c8dff;color:#06112a}
+#section-5 .launch-workspace[data-brand=horizon] .launch-chips i{border-color:#8fb8ff66;background:#0a1224aa}
+#section-5 .launch-workspace[data-brand=horizon] .launch-products article{background:#14233f;border-color:#4c8dff44}
+#section-5 .launch-workspace[data-brand=horizon][data-launch-step="3"] .launch-products article,#section-5 .launch-workspace[data-brand=horizon][data-launch-step="4"] .launch-products article{border-color:#4c8dff99;box-shadow:0 0 16px #4c8dff2a}
+#section-5 .launch-workspace[data-brand=horizon] .launch-products article span em{color:#9cc0ff}
+#section-5 .launch-workspace[data-brand=horizon] .launch-catalog h4{color:#e7efff}
+#section-5 .launch-workspace[data-brand=horizon] .launch-address{border-color:#4c8dff99!important;box-shadow:0 0 18px #4c8dff33!important}
+#section-5 .launch-workspace[data-brand=horizon] .launch-address strong{color:#9cc0ff}
+#section-5 .launch-workspace[data-brand=horizon] .launch-domain{background:#4c8dff12}
+#section-5 .launch-workspace[data-brand=horizon] .launch-brand nav i{color:#c4d6f5!important}
+#section-5 .launch-workspace[data-brand=horizon] .launch-brand nav i:first-child{color:#fff!important}
+#section-5 .launch-workspace[data-brand=horizon] .launch-chips i{border-color:#8fb8ff66!important;color:#fff!important}
+#section-5 .launch-workspace[data-brand=horizon] .launch-address{border-color:#4c8dffaa!important}
+#section-5 .launch-workspace[data-brand=horizon] .launch-address b{color:#8fb8ff!important}
+#section-5 .launch-workspace[data-brand=horizon] .launch-products article{border-color:#4c8dff66!important}
