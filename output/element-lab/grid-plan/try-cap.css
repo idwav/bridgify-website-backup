@@ -1,15 +1,19 @@
-/* Lab only · step 2 trial: one content max-width for the whole homepage.
-   Injected by try-cap.py while capturing; no site file loads it.
-   --try-cap is the content width cap: 1440 (proposal A) or 1560 (B: the hero's current edge, the "red line").
-   Margin = max(4vw clamped 40–64, (100vw − cap) / 2): the same left line for the hero and every section. */
+/* Lab only · step 2 trial: one content line for the whole homepage.
+   Injected by try-cap.py and live.html; no site file loads it.
+   Desktop (≥1024): --try-cap is the content width cap: 1440 (proposal A) or 1560 (B: the hero's current edge, the "red line").
+   Margin = max(4vw clamped 40–64, (100vw − cap) / 2): the same left line for the hero and every section.
+   Tablet (600–1023): margin --try-tab (32 or 40). Phone (≤599) is untouched. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html:root { --try-margin: var(--try-tab, 32px); }
+}
 @media (min-width: 1024px) {
-  html:root {
-    --try-margin: max(clamp(40px, 4vw, 64px), calc((100vw - var(--try-cap, 1440px)) / 2));
-    --home-gutter: var(--try-margin) !important;
-  }
+  html:root { --try-margin: max(clamp(40px, 4vw, 64px), calc((100vw - var(--try-cap, 1440px)) / 2)); }
   /* the hero used its own 1560 cap centred on the page; it now follows the same margin */
   html body .bv2-hero-layout { max-width: none !important; margin-inline: 0 !important; }
   html body #home .content { margin-left: 0 !important; }
+}
+@media (min-width: 600px) {
+  html:root { --home-gutter: var(--try-margin) !important; }
   html body #home { padding-inline: var(--try-margin) !important; }
   /* V2 sections that hard-code padding 3.7% instead of reading --home-gutter (home-products-v2, home-problem-v2,
      home-numbers-v2, home-cta-v2) or pad an inner column (partner-results) */

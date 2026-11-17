@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>גריד · תצוגה חיה</title>
+<style>
+:root{--bg:#100A08;--panel:#1A1210;--line:#3a2c27;--ink:#EEE9DE;--muted:#9b8b80;--coral:#F46649}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:500 14px/1.3 -apple-system,system-ui,sans-serif;overflow:hidden}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--panel)}
+.grp{display:flex;align-items:center;gap:4px}
+.grp b{color:var(--muted);font-weight:600;margin-inline-end:4px}
+.grp button{min-height:32px;padding:0 11px;border:1px solid var(--line);border-radius:8px;background:none;color:var(--ink);font:inherit;cursor:pointer}
+.grp button[aria-pressed="true"]{background:var(--coral);border-color:var(--coral);color:#180F10}
+.grp[hidden]{display:none}
+.info{margin-inline-start:auto;color:var(--muted);direction:ltr;font-variant-numeric:tabular-nums}
+.stage{height:calc(100% - var(--bar-h,54px));display:flex;justify-content:center;align-items:flex-start;padding-top:12px}
+.frame{position:relative;overflow:hidden;background:#000;box-shadow:0 0 0 1px var(--line)}
+.frame iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0;background:#fff}
+.lines{position:absolute;inset:0;pointer-events:none}
+.lines i{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--coral);opacity:.85}
+</style>
+</head>
+<body>
+<div class="bar" id="bar">
+  <div class="grp" id="gv"><b>גרסה</b>
+    <button data-v="today">היום</button>
+    <button data-v="1440">A · עד 1440</button>
+    <button data-v="1560">B · עד 1560</button>
+  </div>
+  <div class="grp" id="gw"><b>רוחב</b>
+    <button data-w="390">390</button><button data-w="768">768</button><button data-w="1024">1024</button>
+    <button data-w="1440">1440</button><button data-w="1920">1920</button><button data-w="2560">2560</button>
+  </div>
+  <div class="grp" id="gt"><b>שוליים בטאבלט</b>
+    <button data-t="32">32</button><button data-t="40">40</button>
+  </div>
+  <div class="grp" id="gl"><b>קו</b><button data-l="1">מוצג</button><button data-l="0">מוסתר</button></div>
+  <div class="info" id="info"></div>
+</div>
+<div class="stage" id="stage">
+  <div class="frame" id="frame"><iframe id="f" title="Bridgify homepage"></iframe><div class="lines" id="lines"></div></div>
+</div>
+<script>
+(() => {
+  /* Lab only. The real homepage loads at the chosen width; A/B inject try-cap.css (one content line), "היום" shows it as it is. */
+  const q = new URLSearchParams(location.search);
+  const S = { v: q.get('v') || '1560', w: +(q.get('w') || 1920), t: +(q.get('t') || 32), l: q.get('l') !== '0' };
+  const f = document.getElementById('f'), frame = document.getElementById('frame'), lines = document.getElementById('lines');
+  const HOME = '../../../index-v2.html?version=2';
+  let css = '';
+  fetch('try-cap.css', { cache: 'no-store' }).then(r => r.text()).then(t => { css = t; inject(); });
+
+  const margin = () => {
+    const w = S.w;
+    if (S.v === 'today' || w <= 599) return null;
+    if (w <= 1023) return S.t;
+    return Math.max(Math.min(Math.max(40, 0.04 * w), 64), (w - +S.v) / 2);
+  };
+  function inject() {
+    let d; try { d = f.contentDocument; } catch (e) { return; }
+    if (!d || !d.head) return;
+    let st = d.getElementById('try-cap');
+    if (S.v === 'today') { if (st) st.remove(); return; }
+    if (!st) { st = d.createElement('style'); st.id = 'try-cap'; d.head.appendChild(st); }
+    st.textContent = css + `\nhtml:root{--try-cap:${S.v}px;--try-tab:${S.t}px}`;
+  }
+  function layout() {
+    document.documentElement.style.setProperty('--bar-h', document.getElementById('bar').offsetHeight + 'px');
+    const stage = document.getElementById('stage');
+    const availW = stage.clientWidth - 24, availH = stage.clientHeight - 12;
+    if (availW < 50 || availH < 50) return;  // hidden tab: wait for the next resize
+    const s = Math.min(1, availW / S.w);
+    frame.style.width = S.w * s + 'px'; frame.style.height = availH + 'px';
+    f.style.width = S.w + 'px'; f.style.height = availH / s + 'px'; f.style.transform = `scale(${s})`;
+    const m = margin();
+    let sb = 0; try { const d = f.contentDocument; sb = d && d.documentElement.clientWidth ? S.w - d.documentElement.clientWidth : 0; } catch (e) {}
+    lines.innerHTML = (S.l && m != null) ? `<i style="left:${m * s}px"></i><i style="left:${(S.w - sb - m) * s}px"></i>` : '';
+    const name = S.v === 'today' ? 'היום' : (S.v === '1440' ? 'A' : 'B');
+    document.getElementById('info').textContent = `${S.w}px · ${name}` + (m != null ? ` · margin ${Math.round(m)}` : '') + ` · zoom ${Math.round(s * 100)}%`;
+    document.getElementById('gt').hidden = !(S.w >= 600 && S.w <= 1023);
+    document.querySelectorAll('[data-v]').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === S.v));
+    document.querySelectorAll('[data-w]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.w === S.w));
+    document.querySelectorAll('[data-t]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.t === S.t));
+    document.querySelectorAll('[data-l]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.l === '1') === S.l));
+    const u = new URLSearchParams({ v: S.v, w: S.w, t: S.t, l: S.l ? 1 : 0 });
+    history.replaceState(null, '', '?' + u);
+  }
+  document.getElementById('bar').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.v) S.v = b.dataset.v;
+    if (b.dataset.w) S.w = +b.dataset.w;
+    if (b.dataset.t) S.t = +b.dataset.t;
+    if (b.dataset.l) S.l = b.dataset.l === '1';
+    layout(); inject();
+  });
+  f.addEventListener('load', () => { inject(); layout(); });
+  addEventListener('resize', layout);
+  f.src = HOME;
+  layout();
+})();
+</script>
+</body>
+</html>
