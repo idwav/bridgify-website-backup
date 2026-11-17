@@ -1,0 +1,28 @@
+/* Travel technology companies · adaptive layer. */
+@media (max-width:1023px){ html body :is(#section-1,#section-2,#section-3,#section-4,#we-started-here,#market-signal){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important} }
+@media (max-width:599px){
+  html body :is(#section-2,#section-3,#section-4,#we-started-here,#market-signal){padding-top:48px!important;padding-bottom:48px!important}
+  html body #section-1{padding-top:calc(var(--ad-header-h) + 28px)!important;padding-bottom:28px!important;min-height:0!important}
+  /* 1 · Hero */
+  html body #section-1 .te-heading{gap:14px!important;margin-bottom:24px!important}
+  html body #section-1 .te-visual{margin-inline:auto!important}
+  /* 2 · Dozens of suppliers: actions share a row; the comparison and the map fit under them. */
+  html body #section-2 .th-intro{gap:14px!important;margin:14px 0 20px!important}
+  html body #section-2 .th-actions{display:flex!important;flex-wrap:wrap;gap:8px!important}
+  html body #section-2 .ti{padding:14px!important;gap:12px!important}
+  html body #section-2 .ti-map{margin-inline:auto!important}
+  /* 3 · Discovery and booking: the three product types scroll sideways. */
+  html body #section-3>svg{display:none!important}
+  html body #section-3 .ad-head{margin-bottom:20px!important}
+  html body #section-3 .ad-columns{align-items:flex-start}
+  html body #section-3 .ad-column{margin:0!important;padding:0!important}
+  html body #section-3 .ad-network{margin-top:16px!important}
+  html body #section-3 .ad-foot{margin-top:16px!important;gap:12px!important}
+  html body #section-3 .ad-foot>div{display:flex!important;flex-wrap:wrap;gap:8px!important}
+}
+@media (max-width:599px){
+  html body #section-2 .th-actions a{min-height:46px!important;padding:0 12px!important;font-size:14px!important;white-space:nowrap}
+  html body #section-2 .th-actions{flex-wrap:nowrap!important}
+  html body #section-3 .ad-network{margin-top:12px!important}
+}
+@media (max-width:1023px){ html body #section-1 .te-heading,html body #section-2>h2#th-title,html body #section-2 .th-intro,html body #section-2 .ti{margin-left:0!important;margin-right:0!important} }

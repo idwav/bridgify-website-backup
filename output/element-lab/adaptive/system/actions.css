@@ -1,0 +1,35 @@
+/* Bridgify spacing system · buttons and links (agreed 16 Nov 2026).
+
+   When is it a button, when a link?
+   - Button: an action that moves the visitor forward with Bridgify: book a demo, talk to us, start, get the docs.
+     A group has at most one primary (filled) and one secondary (outlined).
+   - Link: anything that takes the visitor to read or see more elsewhere ("Read: …", "See the …", "Prefer not to …").
+     Same look as "Read more": coral text, no border, no background. The ↗ stays where the copy has it.
+
+   Buttons in one group are the same size: 40px tall, 15px text, one width. On a phone they sit side by side at equal
+   widths when both labels fit in half the row; otherwise they stack at full width (rhythm.js decides by measuring).
+
+   The engine marks elements with data-bf-role / data-bf-kind / data-bf-tone. On the live site these become classes
+   in @layer components; in the lab the id-level selector and !important beat the old CSS. */
+@media (max-width: 599px) {
+  html body [data-bf-role=actions]:not(#ad-x):not(#ad-y) :is([data-bf-kind=primary],[data-bf-kind=secondary]) {
+    box-sizing: border-box !important; height: 40px !important; min-height: 40px !important;
+    padding: 0 16px !important; font-size: 15px !important; line-height: 20px !important; border-radius: 10px !important;
+    display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 8px !important;
+  }
+  html body [data-bf-role=actions]:not(#ad-x):not(#ad-y)[data-bf-stack=column] { display: flex !important; flex-direction: column !important; align-items: stretch !important; }
+  html body [data-bf-role=actions]:not(#ad-x):not(#ad-y)[data-bf-stack=column] > * { width: 100% !important; max-width: none !important; }
+  html body [data-bf-role=actions]:not(#ad-x):not(#ad-y)[data-bf-stack=row] { display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; }
+  html body [data-bf-role=actions]:not(#ad-x):not(#ad-y)[data-bf-stack=row] > * { flex: 1 1 0 !important; width: auto !important; min-width: 0 !important; }
+
+  /* the link: text only, a 44px tap area through padding that the spacing engine does not count */
+  html body [data-bf-role=link]:not(#ad-x):not(#ad-y),
+  html body [data-bf-role=link]:not(#ad-x):not(#ad-y):is(.brand-coral-frame,.brand-action) {
+    display: flex !important; width: max-content !important; max-width: 100% !important; height: auto !important; min-height: 0 !important;
+    padding: 10px 0 !important; border: 0 !important; border-radius: 0 !important; background: none !important; box-shadow: none !important;
+    font: 550 15px/24px Sofia, sans-serif !important;  /* body line height, so a two-line link reads like text */ letter-spacing: normal !important; text-align: left !important;
+    color: #FFB194 !important; text-decoration: none !important; justify-content: flex-start !important; align-items: flex-start !important;
+  }
+  html body [data-bf-role=link][data-bf-tone=light]:not(#ad-x):not(#ad-y) { color: #C2462E !important; }
+  html body [data-bf-role=link]:not(#ad-x):not(#ad-y)::before, html body [data-bf-role=link]:not(#ad-x):not(#ad-y)::after { content: none !important; }
+}

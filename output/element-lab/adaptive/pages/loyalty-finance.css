@@ -1,0 +1,49 @@
+/* Loyalty, rewards and financial services · adaptive layer. */
+@media (max-width:1023px){ html body :is(#section-1,#section-2,#section-3,#section-4,#we-started-here,#market-signal){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important} }
+@media (max-width:599px){
+  html body :is(#section-2,#section-3,#section-4,#we-started-here,#market-signal){padding-top:48px!important;padding-bottom:48px!important}
+  html body #section-1{padding-top:calc(var(--ad-header-h) + 28px)!important;padding-bottom:28px!important;min-height:0!important}
+  /* 1 · Hero */
+  html body #section-1 .lf-heading{gap:14px!important;margin-bottom:24px!important}
+  html body #section-1 .lr-demo{margin-inline:auto!important}
+  /* 2 · Points are a bill: the program ledger and the reward are two swipeable cards. */
+  html body #section-2>header{gap:12px!important;margin-bottom:18px!important}
+  html body #section-2 .lp-copy{gap:10px!important}
+  html body #section-2 .lp-transfer{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  html body #section-2 .lp-demo{align-items:flex-start}
+  html body #section-2 .lp-result{margin-top:16px!important}
+  /* 3 · Use cases: the three choices are one row of tabs; the explanation and preview follow. */
+  html body #section-3>h2{margin-bottom:18px!important}
+  html body #section-3 .lu-layout{gap:16px!important}
+  html body #section-3 .lu-tabs{display:grid!important;grid-template-columns:repeat(3,auto);justify-content:start;gap:6px!important;height:auto!important}
+  html body #section-3 .lu-choice{display:contents!important}
+  html body #section-3 .lu-choice>button{grid-row:1;min-height:44px!important;height:auto!important;padding:8px 10px!important;font-size:14px!important;gap:6px!important;white-space:nowrap}
+  html body #section-3 .lu-choice>button svg{width:16px!important;height:16px!important}
+  html body #section-3 .lu-choice>button svg:last-child{display:none!important}
+  html body #section-3 .lu-explanation{grid-row:2;grid-column:1/-1;padding:14px 0 0!important;margin:0!important}
+  html body #section-3 .lu-explanation h3{font-size:20px!important;margin:0 0 8px!important}
+  html body #section-3 .lu-panels{height:auto!important;min-height:0!important}
+  html body #section-3 .lu-preview{margin-inline:auto!important}
+  /* We started here: five compact rows. */
+  html body #we-started-here>header{gap:10px!important;margin-bottom:12px!important}
+  html body #we-started-here .lp-feature{min-height:0!important;height:auto!important;padding-block:12px!important}
+  html body #we-started-here .lp-feature h3{font-size:19px!important}
+  /* Market signal: the three channels share a row; the connector line hides. */
+  html body #market-signal>header{margin-bottom:18px!important}
+  html body #market-signal .lm-flow{gap:12px!important;height:auto!important}
+  html body #market-signal .lm-flow>svg{display:none!important}
+  html body #market-signal .lm-sources{display:grid!important;grid-template-columns:repeat(3,1fr);gap:6px!important;height:auto!important}
+  html body #market-signal .lm-sources>*{flex-direction:column!important;align-items:flex-start!important;gap:6px!important;padding:10px!important;min-height:0!important;height:auto!important;margin:0!important;font-size:15px!important}
+  html body #market-signal .lm-sources>* *{font-size:15px!important}
+  html body #market-signal .lm-body{margin-top:16px!important}
+}
+@media (max-width:599px){
+  html body #section-3 .lu-tabs{display:flex!important;flex-wrap:wrap!important;max-width:100%!important;width:auto!important}
+  html body #section-3 .lu-choice>button{order:1;flex:none!important;width:auto!important}
+  html body #section-3 .lu-explanation{order:2;flex:1 0 100%!important;width:100%!important;max-width:100%!important;min-width:0!important}
+  html body #section-3 :is(.lu-layout,.lu-choices,.lu-panels){width:auto!important;max-width:100%!important;min-width:0!important}
+}
+@media (max-width:599px){
+  html body #section-3 .lu-choice>button,html body #section-3 .lu-choice>button *{font-size:15px!important;line-height:1.2!important}
+}
+@media (max-width:1023px){ html body section#we-started-here:not(#ad-x),html body section#market-signal:not(#ad-x),html body section.lf-section:not(#ad-x){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important} }

@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Bridgify · מעבדה אדפטיבית</title>
+<link rel="stylesheet" href="../../brand-typography.css">
+<link rel="stylesheet" href="lab.css">
+<style>
+:root{--bg:#100A08;--card:#160F0D;--card2:#1c1310;--ln:rgba(178,138,104,.18);--ln2:rgba(178,138,104,.32);--tx:#EEE9DE;--mut:#C7B5A5;--dim:#9b8b80;--co:#F46649;--co2:#FFB194;--ok:#8FB59A;--md:#E3A15B;--ease:cubic-bezier(.16,1,.3,1)}
+body{background:var(--bg);color:var(--tx);padding-bottom:96px}
+.lab-pages a{padding:8px 14px;border:1px solid var(--line-dark);border-radius:11px;font:550 12px/1 Sofia,sans-serif;letter-spacing:.06em;color:#C7B5A5;text-decoration:none;white-space:nowrap}
+.lab-pages a.is-on{border-color:var(--coral);color:var(--warm);background:linear-gradient(135deg,#513029,#241718)}
+.av-intro{padding:52px var(--gutter) 8px;max-width:1220px}
+.av-intro h1{margin:14px 0 12px;font:300 var(--type-section)/1.2 Chillax,sans-serif;letter-spacing:-.025em}
+.av-intro p{margin:0 0 10px;max-width:900px;color:var(--mut)}
+.av-bps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:22px;max-width:980px}
+.av-bp{padding:14px 16px;border:1px solid var(--ln);border-radius:14px;background:var(--card)}
+.av-bp b{display:block;font:300 24px/1.1 Chillax,sans-serif;color:#FFF8F1}
+.av-bp span{display:block;margin-top:6px;font-size:14px;color:var(--mut);line-height:1.45}
+.av-bp em{font-style:normal;color:var(--co2)}
+.av-stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;padding:24px var(--gutter) 0}
+.av-stat{padding:16px 18px;border:1px solid var(--ln);border-radius:14px;background:var(--card)}
+.av-stat b{display:block;font:300 32px/1 Chillax,sans-serif;color:#FFF8F1}
+.av-stat span{display:block;margin-top:6px;font-size:14px;color:var(--mut)}
+.av-stat.is-hi b{color:var(--co)}
+.av-bar{position:sticky;top:var(--lab-top,58px);z-index:15;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:22px;padding:12px var(--gutter);background:#100A08F2;backdrop-filter:blur(10px);border-block:1px solid var(--ln)}
+.av-chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.av-chips::-webkit-scrollbar{display:none}
+.av-chip{flex:none;min-height:36px;padding:0 12px;border:1px solid var(--ln);border-radius:10px;background:none;color:var(--mut);font:550 13px/1 Sofia,sans-serif;cursor:pointer;white-space:nowrap}
+.av-chip[aria-pressed="true"]{border-color:var(--co);background:linear-gradient(135deg,#513029,#241718);color:#FFF8F1}
+.av-chip i{font-style:normal;margin-inline-start:7px;color:var(--dim)}
+.av-sep{width:1px;height:24px;background:var(--ln)}
+.av-sel{display:flex;align-items:center;gap:6px;font:550 12px/1 Sofia,sans-serif;color:var(--dim)}
+.av-sel select{min-height:36px;padding:0 8px;border:1px solid var(--ln);border-radius:10px;background:var(--card);color:var(--tx);font:550 13px/1 Sofia,sans-serif}
+.av-tool{min-height:36px;padding:0 12px;border:1px solid var(--ln);border-radius:10px;background:none;color:var(--tx);font:550 13px/1 Sofia,sans-serif;cursor:pointer}
+:is(.av-chip,.av-tool,.av-head,.av-seg button,.av-dec button,.av-foot button,.av-sel select):focus-visible{outline:2px solid var(--co);outline-offset:2px}
+.av-list{display:grid;gap:10px;padding:18px var(--gutter) 0}
+.av-group{margin:28px 0 4px;font:300 26px/1.2 Chillax,sans-serif;color:#FFF8F1}
+.av-group small{display:inline-block;margin-inline-start:12px;font:550 13px/1 Sofia,sans-serif;color:var(--dim)}
+.av-row{border:1px solid var(--ln);border-radius:16px;background:var(--card);overflow:hidden}
+.av-row.is-open{border-color:var(--ln2)}
+.av-row[data-st="proposal"]{border-inline-start:3px solid var(--co)}
+.av-row[data-st="keep"]{border-inline-start:3px solid var(--ok)}
+.av-row[data-st="pending"]{border-inline-start:3px solid #4a3a33}
+.av-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.4fr) 150px 150px 118px 24px;gap:16px;align-items:center;width:100%;padding:14px 18px;border:0;background:none;color:inherit;text-align:start;cursor:pointer;font:inherit}
+.av-where b{display:block;font:600 15px/1.3 Sofia,sans-serif;color:#FFF8F1}
+.av-where small{display:block;margin-top:3px;font-size:13px;color:var(--dim);direction:ltr;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.av-what{font-size:14px;line-height:1.45;color:var(--mut);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.av-screens{font-size:13px;color:var(--dim);line-height:1.35}
+.av-screens b{font:500 15px/1 Sofia,sans-serif;color:#FFF8F1;unicode-bidi:isolate}
+.av-screens .arr{color:var(--co2)}
+.av-pill{justify-self:start;padding:6px 10px;border:1px solid var(--ln);border-radius:20px;font:550 12px/1 Sofia,sans-serif;color:var(--dim);white-space:nowrap}
+.av-pill[data-v="proposal"]{border-color:#F4664999;color:#FFB194}.av-pill[data-v="keep"]{border-color:#8FB59A88;color:#B9D7C0}
+.av-pill[data-d="approve"]{border-color:#8FB59A88;color:#B9D7C0}.av-pill[data-d="change"]{border-color:#E3A15B88;color:#F2C48D}.av-pill[data-d="keep"]{border-color:var(--ln2);color:var(--tx)}
+.av-chev{width:20px;height:20px;color:var(--dim);transition:transform .4s var(--ease)}
+.av-row.is-open .av-chev{transform:rotate(180deg)}
+.av-body{display:none;padding:6px 18px 20px;border-top:1px solid var(--ln)}
+.av-row.is-open .av-body{display:block}
+.av-ctl{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
+.av-seg{display:inline-flex;padding:3px;border:1px solid var(--ln);border-radius:11px}
+.av-seg button{min-height:34px;padding:0 12px;border:0;border-radius:8px;background:none;color:var(--mut);font:550 13px/1 Sofia,sans-serif;cursor:pointer}
+.av-seg button[aria-pressed="true"]{background:#2a1b16;color:#FFF8F1}
+.av-devs{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,.66fr);gap:12px;align-items:start;margin-top:12px}
+.av-devs[data-only="desk"]{grid-template-columns:1fr}.av-devs[data-only="tab"]{grid-template-columns:minmax(0,560px)}.av-devs[data-only="mob"]{grid-template-columns:minmax(0,390px)}
+.av-devs[data-only="desk"] .av-fig:not([data-dev="desk"]),.av-devs[data-only="tab"] .av-fig:not([data-dev="tab"]),.av-devs[data-only="mob"] .av-fig:not([data-dev="mob"]){display:none}
+.av-fig{margin:0;border:1px solid var(--ln);border-radius:12px;background:#0b0706;overflow:hidden}
+.av-fig figcaption{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 12px;border-bottom:1px solid var(--ln);font:600 13px/1.3 Sofia,sans-serif}
+.av-fig figcaption b{color:#FFF8F1}.av-fig figcaption span{color:var(--dim);font-weight:500;direction:ltr;unicode-bidi:isolate}
+.av-fig[data-dev="desk"] figcaption b{color:var(--mut)}
+.av-fig .is-prop{color:var(--co2)}
+.av-embed{position:relative;overflow:hidden;background:#100A08}
+.av-embed iframe{position:absolute;top:0;right:0;border:0;transform-origin:top right;background:#100A08}
+.av-load{display:grid;place-items:center;height:260px;color:var(--dim);font-size:14px;text-align:center;padding:12px}
+.av-embed.is-scroll:after{content:"גללו בתוך המסך ↓";position:absolute;left:8px;bottom:8px;padding:5px 8px;border-radius:7px;background:#000b;color:#EEE9DE;font:550 11px/1 Sofia,sans-serif;pointer-events:none}
+.av-text{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.av-box{padding:14px 16px;border:1px solid var(--ln);border-radius:12px;background:var(--card2)}
+.av-box h4{margin:0 0 6px;font:650 12px/1.3 Sofia,sans-serif;letter-spacing:.1em;color:var(--co2)}
+.av-box p{margin:0;font-size:15px;line-height:1.55}
+.av-box p+p{margin-top:8px}
+.av-box .sub{font-size:13px;color:var(--dim)}
+.av-box ul{margin:6px 0 0;padding:0 18px 0 0;font-size:14px;line-height:1.5}
+.av-box q{direction:ltr;unicode-bidi:isolate;quotes:none;color:var(--tx)}
+.av-flags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.av-flag{padding:4px 8px;border-radius:7px;font:600 12px/1.3 Sofia,sans-serif;background:#2a1b16;color:var(--mut)}
+.av-flag.bad{background:#F4664926;color:#FFB194}.av-flag.good{background:#8FB59A24;color:#B9D7C0}
+.av-dec{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px}
+.av-dec button{min-height:38px;padding:0 14px;border:1px solid var(--ln);border-radius:10px;background:none;color:var(--tx);font:550 13px/1 Sofia,sans-serif;cursor:pointer}
+.av-dec button[aria-pressed="true"]{border-color:var(--co);background:linear-gradient(135deg,#513029,#241718)}
+.av-dec input{flex:1;min-width:220px;min-height:38px;padding:0 12px;border:1px solid var(--ln);border-radius:10px;background:var(--card);color:var(--tx);font:400 14px/1 Sofia,sans-serif}
+.av-missing{margin:22px var(--gutter) 0;padding:16px 18px;border:1px dashed var(--ln2);border-radius:14px;color:var(--mut);font-size:14px;line-height:1.6}
+.av-missing b{color:#FFF8F1}
+.av-foot{position:fixed;inset:auto 0 0;z-index:16;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:12px var(--gutter);background:#100A08F2;backdrop-filter:blur(10px);border-top:1px solid var(--ln)}
+.av-foot span{font-size:14px;color:var(--mut)}
+.av-foot div{display:flex;gap:8px;flex-wrap:wrap}
+.av-foot button{min-height:38px;padding:0 14px;border:1px solid var(--ln);border-radius:10px;background:none;color:var(--tx);font:550 13px/1 Sofia,sans-serif;cursor:pointer}
+.av-foot .is-main{border-color:var(--co);background:linear-gradient(135deg,#FF967B,#F46649);color:#180F10}
+@media (max-width:1100px){.av-head{grid-template-columns:minmax(0,1fr) 140px 118px 24px}.av-what,.av-head .av-screens.m2{display:none}.av-text{grid-template-columns:1fr}.av-stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){.av-devs{grid-template-columns:1fr}.av-bps{grid-template-columns:1fr}}
+@media (max-width:640px){.av-head{grid-template-columns:minmax(0,1fr) 24px}.av-head>:not(.av-where):not(.av-chev){display:none}.av-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.lab-pages{display:none}}
+</style>
+</head>
+<body>
+<header class="lab-top">
+  <div class="lab-brand"><i aria-hidden="true"></i>Element lab</div>
+  <nav class="lab-pages" aria-label="Pages"><a class="is-on" href="adaptive.html" aria-current="page">מעבדה אדפטיבית</a><a href="triage.html">מיון מובייל</a><a href="audit.html">בדיקת פערים</a><a href="spec.html">טבלת אפיון</a></nav>
+</header>
+
+<main>
+  <section class="av-intro">
+    <span class="lab-eyebrow">Adaptive lab · desktop · tablet · mobile</span>
+    <h1>מעבדה אדפטיבית: כל סקשן בשלושה מכשירים</h1>
+    <p>כל שורה היא סקשן מהאתר החי (main, כמו ב־Vercel). הדסקטופ מוצג כמו שהוא היום. בטאבלט ובמובייל רואים את ההצעה האדפטיבית, וכפתור "היום" מחזיר למצב של היום להשוואה. כל תצוגה היא העמוד האמיתי בתוך מסגרת ברוחב אמיתי, כך שאפשר לגלול, ללחוץ ולהחליק.</p>
+    <p>ההצעות נבנו כשכבה דקה של CSS ו־JS על ה־markup הקיים (<span dir="ltr">output/element-lab/adaptive/</span>). אחרי אישור, ההטמעה היא קישור הקבצים לעמוד, בלי בנייה מחדש. אין בהצעות טקסט חדש: כל תווית לקוחה מהעמוד עצמו.</p>
+    <div class="av-bps">
+      <div class="av-bp"><b>מובייל · עד 599</b><span>ייחוס <em>390</em> · בדיקה ב־360 וב־430<br>קו התחלה: 24px · header בגובה 60px</span></div>
+      <div class="av-bp"><b>טאבלט · 600–1023</b><span>ייחוס <em>768</em> · בדיקה ב־820 וב־1023<br>קו התחלה: 40px · header בגובה 64px</span></div>
+      <div class="av-bp"><b>דסקטופ · 1024+</b><span>ייחוס <em>1440</em> · בדיקה ב־1280 וב־1920<br>ללא שינוי בסבב הזה</span></div>
+    </div>
+  </section>
+  <div class="av-stats" id="stats"></div>
+  <div class="av-bar">
+    <div class="av-chips" id="pages" role="group" aria-label="סינון לפי עמוד"></div>
+    <span class="av-sep" aria-hidden="true"></span>
+    <div class="av-chips" id="states" role="group" aria-label="סינון לפי מצב"></div>
+    <span class="av-sep" aria-hidden="true"></span>
+    <label class="av-sel">מובייל<select id="wMob"><option>360</option><option selected>390</option><option>430</option></select></label>
+    <label class="av-sel">טאבלט<select id="wTab"><option selected>768</option><option>820</option><option>1023</option></select></label>
+    <label class="av-sel">דסקטופ<select id="wDesk"><option>1024</option><option>1280</option><option selected>1440</option><option>1920</option></select></label>
+    <button class="av-tool" type="button" id="expand">פתח הכל</button>
+  </div>
+  <div id="missing"></div>
+  <div class="av-list" id="list"></div>
+</main>
+
+<div class="av-foot">
+  <span id="count"></span>
+  <div>
+    <button type="button" id="copyTasks">העתקה כרשימת משימות</button>
+    <button type="button" class="is-main" id="export">ייצוא החלטות</button>
+    <button type="button" id="reset">איפוס החלטות</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+  const KEY = 'bridgify-adaptive-v1';
+  let store = {}; try { store = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} };
+  const VH = {360: 780, 390: 844, 430: 932, 768: 1024, 820: 1180, 1023: 1366, 1024: 768, 1280: 800, 1440: 900, 1920: 1080};
+  const ST = {proposal: 'הצעה מוכנה', keep: 'להשאיר כמו שהוא', pending: 'אחרי אישור הפיילוט'};
+  const DEC = {approve: 'מאושר', change: 'לשנות', keep: 'להשאיר כמו היום'};
+  const PAT = {header: 'Header קומפקטי', menu: 'תפריט מסך מלא', accordion: 'אקורדיון', segmented: 'מתג / טאבים', scroller: 'גלילה אופקית', rows: 'שורות לחיצות', hierarchy: 'היררכיה', static: 'בלי סיפור גלילה', 'keep+': 'תיקון נקודתי', keep: 'נשאר'};
+  let DATA = [], META = {}, page = 'all', state = 'all';
+  const open = new Set();
+  const status = r => r.dec ? r.dec.status : 'pending';
+  const match = r => (page === 'all' || r.page === page) && (state === 'all' || status(r) === state || (state === 'decided' && store[r.key]?.d));
+  const src = r => '../../' + (r.file === 'index-v2.html' ? '' : r.file) + '?version=2';
+  const pageName = f => f === 'index-v2.html' ? 'index-v2' : f.replace('.html', '');
+  const scr = (c, w) => c && c[w] ? c[w].screens : null;
+
+  const flagsOf = (c, w) => {
+    if (!c || !c[w]) return '';
+    const x = c[w], out = [];
+    out.push(`<span class="av-flag">${x.screens} מסכים · ${x.height}px</span>`);
+    if (x.pageOverflow) out.push('<span class="av-flag bad">גלילה אופקית בעמוד</span>');
+    if (x.overflow) out.push(`<span class="av-flag bad">${x.overflow} אלמנטים בורחים מהמסך</span>`);
+    if (x.tap) out.push(`<span class="av-flag bad" title="${esc((x.tapSample || []).join(' · '))}">${x.tap} מטרות לחיצה קטנות מ־44px</span>`);
+    if (x.text) out.push(`<span class="av-flag" title="כולל טקסט דקורטיבי בתוך מוקאפים">${x.text} טקסטים קטנים מ־12px (מינ׳ ${x.textMin}px)</span>`);
+    if (!x.overflow && !x.tap && !x.pageOverflow) out.push('<span class="av-flag good">בלי בריחה מהמסך ובלי מטרות קטנות</span>');
+    return out.join('');
+  };
+
+  const head = r => {
+    const d = store[r.key]?.d, b = scr(r.base, '390'), p = scr(r.prop, '390');
+    return `<button class="av-head" type="button" aria-expanded="${open.has(r.key)}">
+      <span class="av-where"><b>${esc(r.title)}</b><small>${esc(r.sel)}</small></span>
+      <span class="av-what">${esc(r.dec ? r.dec.mobile : (r.h || ''))}</span>
+      <span class="av-screens">מובייל: ${b != null ? `<b>${b}</b>` : '–'}${p != null && r.dec && r.dec.status === 'proposal' ? ` <span class="arr">←</span> <b>${p}</b>` : ''} מסכים</span>
+      <span class="av-pill" data-v="${status(r)}">${ST[status(r)]}</span>
+      <span class="av-pill" ${d ? `data-d="${d}"` : ''}>${d ? DEC[d] : 'אין החלטה'}</span>
+      <svg class="av-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg>
+    </button>`;
+  };
+  const body = r => {
+    const dec = r.dec, g = r.gap, s = store[r.key] || {};
+    const gapHtml = g ? `<p>קופי מול Copy v4: <b>${g.found}/${g.total}</b> שורות נמצאו בסקשן${r.doc ? ` · ${esc(r.doc)}` : ''}.</p>
+      ${g.missing.length ? `<p class="sub">לא נמצאו (בדיקה אוטומטית, ייתכן שזה ניסוח קרוב):</p><ul>${g.missing.map(m => `<li><q>${esc(m)}</q></li>`).join('')}</ul>` : '<p class="sub">כל השורות של הסקשן במסמך נמצאות באתר.</p>'}
+      ${r.spec ? `<p class="sub">ויזואל לפי האפיון: ${esc(r.spec.visual)}</p>` : ''}
+      ${r.job ? `<p class="sub">התפקיד (מבדיקת הפערים): ${esc(r.job)}</p>` : ''}` : '<p class="sub">רכיב משותף לכל העמודים.</p>';
+    return `<div class="av-body">
+      <div class="av-ctl">
+        <div class="av-seg" data-k="view" role="group" aria-label="מה להציג בטאבלט ובמובייל">
+          <button type="button" data-view="prop" aria-pressed="true">מוצע</button><button type="button" data-view="base" aria-pressed="false">היום</button>
+        </div>
+        <div class="av-seg" data-k="only" role="group" aria-label="מכשירים">
+          <button type="button" data-only="" aria-pressed="true">שלושתם</button><button type="button" data-only="desk" aria-pressed="false">דסקטופ</button><button type="button" data-only="tab" aria-pressed="false">טאבלט</button><button type="button" data-only="mob" aria-pressed="false">מובייל</button>
+        </div>
+      </div>
+      <div class="av-devs">
+        ${['desk', 'tab', 'mob'].map(dv => `<figure class="av-fig" data-dev="${dv}"><figcaption><b>${{desk: 'דסקטופ · היום', tab: 'טאבלט', mob: 'מובייל'}[dv]}</b><span></span></figcaption><div class="av-embed"></div></figure>`).join('')}
+      </div>
+      <div class="av-text">
+        <div class="av-box"><h4>${dec ? 'מובייל · ' + (PAT[dec.pattern] || '') : 'מובייל'}</h4><p>${esc(dec ? dec.mobile : 'ההצעה תיבנה אחרי אישור הדפוסים בפיילוט של דף הבית.')}</p>
+          <div class="av-flags">${flagsOf(dec && dec.status === 'proposal' ? r.prop : r.base, '390')}</div></div>
+        <div class="av-box"><h4>טאבלט</h4><p>${esc(dec ? dec.tablet : '–')}</p><div class="av-flags">${flagsOf(dec && dec.status === 'proposal' ? r.prop : r.base, '768')}</div></div>
+        <div class="av-box"><h4>למה</h4><p>${esc(dec ? dec.why : 'מה שנמדד היום מופיע בתגיות. ההחלטה על הדפוס תגיע אחרי הפיילוט.')}</p></div>
+      </div>
+      <div class="av-text" style="grid-template-columns:1fr">
+        <div class="av-box"><h4>פער מול המסמך</h4>${gapHtml}</div>
+      </div>
+      <div class="av-dec" role="group" aria-label="החלטה">
+        ${Object.entries(DEC).map(([k, v]) => `<button type="button" data-d="${k}" aria-pressed="${s.d === k}">${v}</button>`).join('')}
+        <input type="text" placeholder="הערה (למשל: להתחיל דווקא מ־With Bridgify)" value="${esc(s.note || '')}" aria-label="הערה">
+      </div>
+    </div>`;
+  };
+
+  const render = () => {
+    const rows = DATA.filter(match);
+    let html = '', last = '';
+    rows.forEach(r => {
+      if (r.page !== last) { last = r.page; html += `<h2 class="av-group">${esc(r.page)}<small>${rows.filter(x => x.page === r.page).length} סקשנים</small></h2>`; }
+      html += `<article class="av-row${open.has(r.key) ? ' is-open' : ''}" data-key="${esc(r.key)}" data-st="${status(r)}">${head(r)}${body(r)}</article>`;
+    });
+    $('#list').innerHTML = html || '<p class="av-missing">אין שורות שמתאימות לסינון.</p>';
+    $('#list').querySelectorAll('.av-row.is-open').forEach(mount);
+    stats();
+  };
+  const stats = () => {
+    const prop = DATA.filter(r => status(r) === 'proposal').length, keep = DATA.filter(r => status(r) === 'keep').length;
+    const pend = DATA.filter(r => status(r) === 'pending').length, decided = DATA.filter(r => store[r.key]?.d).length;
+    const flagged = DATA.filter(r => r.base['390'] && (r.base['390'].tap || r.base['390'].overflow)).length;
+    $('#stats').innerHTML = [[DATA.length, 'סקשנים ורכיבים'], [prop, 'הצעות מוכנות', 1], [keep, 'נשארים כמו שהם'], [pend, 'אחרי אישור הפיילוט'], [flagged, 'עם בעיה במובייל היום']]
+      .map(([n, l, hi]) => `<div class="av-stat${hi ? ' is-hi' : ''}"><b>${n}</b><span>${l}</span></div>`).join('');
+    $('#count').textContent = `${decided} מתוך ${DATA.length} עם החלטה`;
+  };
+  const chips = () => {
+    const pages = ['all', ...new Set(DATA.map(r => r.page))];
+    $('#pages').innerHTML = pages.map(p => `<button class="av-chip" type="button" data-page="${esc(p)}" aria-pressed="${p === page}">${p === 'all' ? 'הכל' : esc(p)}<i>${p === 'all' ? DATA.length : DATA.filter(r => r.page === p).length}</i></button>`).join('');
+    const sts = [['all', 'כל המצבים'], ['proposal', 'הצעות'], ['keep', 'נשארים'], ['pending', 'ממתינים'], ['decided', 'עם החלטה']];
+    $('#states').innerHTML = sts.map(([k, l]) => `<button class="av-chip" type="button" data-state="${k}" aria-pressed="${k === state}">${l}</button>`).join('');
+  };
+
+  /* Frames: the live page at a real width. Tablet and mobile load the adaptive layer unless "today" is chosen. */
+  const isolate = (doc, el) => {
+    const st = doc.createElement('style');
+    st.textContent = 'html,body{margin:0!important;padding:0!important;min-height:0!important;scroll-behavior:auto!important}body{background:#100A08!important}[data-rv],[data-scroll-enter]{opacity:1!important;translate:none!important;transform:none!important;clip-path:none!important}';
+    doc.head.appendChild(st);
+    let n = el;
+    while (n && n !== doc.body && n.parentElement) {
+      [...n.parentElement.children].forEach(x => { if (x !== n && !/^(script|style|link|template|noscript)$/i.test(x.tagName)) x.style.setProperty('display', 'none', 'important'); });
+      n = n.parentElement;
+    }
+    el.style.setProperty('margin', '0', 'important');
+    doc.defaultView.scrollTo(0, 0);
+  };
+  const inject = (doc, file) => new Promise(res => {
+    const base = 'adaptive/';
+    ['system/tokens.css', 'layout.css', 'patterns.css', `pages/${pageName(file)}.css`, 'system/actions.css'].forEach(f => { const l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = new URL(base + f, location.href).href; doc.head.appendChild(l); });
+    const scripts = ['patterns.js', `pages/${pageName(file)}.js`, `system/roles/${pageName(file)}.js`, 'system/rhythm.js'];
+    const next = i => {
+      if (i >= scripts.length) return setTimeout(res, 250);
+      const s = doc.createElement('script'); s.src = new URL(base + scripts[i], location.href).href;
+      s.onload = s.onerror = () => next(i + 1); doc.body.appendChild(s);
+    };
+    next(0);
+  });
+  const mount = art => {
+    const r = DATA.find(x => x.key === art.dataset.key); if (!r) return;
+    const view = art.dataset.view || 'prop';
+    art.querySelectorAll('.av-fig').forEach(fig => {
+      const dv = fig.dataset.dev, box = fig.querySelector('.av-embed');
+      const W = +({desk: $('#wDesk').value, tab: $('#wTab').value, mob: $('#wMob').value}[dv]), H = VH[W] || 900;
+      const layer = dv !== 'desk' && view === 'prop' && r.dec && r.dec.status !== 'pending' || (dv !== 'desk' && view === 'prop' && r.page === 'Shared');
+      fig.querySelector('figcaption b').innerHTML = dv === 'desk' ? 'דסקטופ · היום' : `${dv === 'tab' ? 'טאבלט' : 'מובייל'} · <span class="${layer ? 'is-prop' : ''}">${layer ? 'מוצע' : 'היום'}</span>`;
+      fig.querySelector('figcaption > span').textContent = W + '×' + H;
+      box.innerHTML = '<div class="av-load">טוען את העמוד החי…</div>'; box.classList.remove('is-scroll');
+      const f = document.createElement('iframe'); f.title = `${r.title} · ${W}px`; f.loading = 'lazy';
+      f.src = src(r); f.style.width = W + 'px'; f.style.height = H + 'px'; f.style.opacity = '0'; f.style.transition = 'opacity .35s ease'; box.appendChild(f);
+      let shown = H;
+      const fit = () => { const s = Math.min(1, box.clientWidth / W); f.style.transform = `scale(${s})`; f.style.right = Math.max(0, (box.clientWidth - W * s) / 2) + 'px'; box.style.height = Math.round(shown * s) + 'px'; };
+      box._fit = fit; fit();
+      if (!box._ro) { box._ro = new ResizeObserver(() => box._fit && box._fit()); box._ro.observe(box); }
+      let started = false;
+      const reveal = () => { f.style.opacity = '1'; const m = box.querySelector('.av-load'); if (m) m.remove(); };
+      setTimeout(reveal, 3500);
+      const ready = () => { let d = null; try { d = f.contentDocument; } catch (e) {} return d && d.URL !== 'about:blank' && d.readyState !== 'loading' && d.body; };
+      const poll = setInterval(() => { if (started) return clearInterval(poll); if (ready()) { clearInterval(poll); run(); } }, 120);
+      f.addEventListener('load', () => run());
+      const run = async () => { if (started || !ready()) return; started = true;
+        let doc = null; try { doc = f.contentDocument; } catch (e) {}
+        const msg = box.querySelector('.av-load');
+        if (!doc) { if (msg) msg.textContent = 'לא ניתן לטעון כאן.'; return; }
+        if (layer) await inject(doc, r.file);
+        if (r.mode === 'header' || r.mode === 'menu') {
+          if (r.mode === 'menu' && layer) { const b = doc.querySelector('.ad-menu-btn'); b && b.click(); const g = doc.querySelector('.ad-menu-group'); if (g) g.open = true; }
+          if (msg) msg.remove(); f.style.opacity = '1'; return;
+        }
+        const el = doc.querySelector(r.sel);
+        if (!el) { if (msg) msg.textContent = 'הסקשן לא נמצא בעמוד.'; f.style.opacity = '1'; return; }
+        isolate(doc, el);
+        let tries = 0;
+        const settle = () => {
+          const h = Math.ceil(el.getBoundingClientRect().height);
+          shown = Math.max(240, Math.min(h, H)); f.style.height = H + 'px'; fit();
+          box.classList.toggle('is-scroll', h > H + 4);
+          ++tries;
+          if (tries < 3) setTimeout(settle, 450); else if (tries === 3) { reveal(); setTimeout(settle, 1500); }
+        };
+        setTimeout(settle, 250);
+      };
+    });
+  };
+  const unmount = art => art.querySelectorAll('.av-embed').forEach(b => { b.innerHTML = ''; b.style.height = ''; });
+
+  document.addEventListener('click', e => {
+    const c = e.target.closest('[data-page]'); if (c && c.classList.contains('av-chip')) { page = c.dataset.page; chips(); render(); return; }
+    const s = e.target.closest('[data-state]'); if (s) { state = s.dataset.state; chips(); render(); return; }
+    const h = e.target.closest('.av-head');
+    if (h) {
+      const art = h.closest('.av-row'), k = art.dataset.key, on = !art.classList.contains('is-open');
+      art.classList.toggle('is-open', on); h.setAttribute('aria-expanded', String(on));
+      on ? (open.add(k), mount(art)) : (open.delete(k), unmount(art)); return;
+    }
+    const sb = e.target.closest('.av-seg button');
+    if (sb) {
+      const art = sb.closest('.av-row'); sb.parentElement.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b === sb)));
+      if (sb.dataset.view) { art.dataset.view = sb.dataset.view; mount(art); }
+      else { art.querySelector('.av-devs').dataset.only = sb.dataset.only; requestAnimationFrame(() => art.querySelectorAll('.av-embed').forEach(b => b._fit && b._fit())); }
+      return;
+    }
+    const db = e.target.closest('.av-dec button');
+    if (db) {
+      const art = db.closest('.av-row'), k = art.dataset.key; store[k] = store[k] || {};
+      store[k].d = store[k].d === db.dataset.d ? null : db.dataset.d; save();
+      db.parentElement.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.d === store[k].d)));
+      const pills = art.querySelectorAll('.av-head .av-pill'); const p = pills[1];
+      if (store[k].d) { p.dataset.d = store[k].d; p.textContent = DEC[store[k].d]; } else { delete p.dataset.d; p.textContent = 'אין החלטה'; }
+      stats();
+    }
+  });
+  document.addEventListener('input', e => {
+    const i = e.target.closest('.av-dec input'); if (!i) return;
+    const k = i.closest('.av-row').dataset.key; store[k] = store[k] || {}; store[k].note = i.value; save();
+  });
+  ['#wMob', '#wTab', '#wDesk'].forEach(s => $(s).addEventListener('change', () => document.querySelectorAll('.av-row.is-open').forEach(mount)));
+  $('#expand').addEventListener('click', e => {
+    const rows = DATA.filter(match), all = rows.some(r => !open.has(r.key));
+    rows.forEach(r => all ? open.add(r.key) : open.delete(r.key)); e.target.textContent = all ? 'סגור הכל' : 'פתח הכל'; render();
+  });
+  const plan = () => DATA.map(r => ({key: r.key, page: r.page, file: r.file, selector: r.sel, status: status(r), pattern: r.dec?.pattern || null,
+    decision: store[r.key]?.d || null, note: store[r.key]?.note || '', mobile: r.dec?.mobile || null, tablet: r.dec?.tablet || null,
+    layer: r.dec ? {css: `output/element-lab/adaptive/pages/${pageName(r.file)}.css`, js: `output/element-lab/adaptive/pages/${pageName(r.file)}.js`} : null}));
+  $('#export').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify({generated: new Date().toISOString(), source: 'Bridgify adaptive lab', rows: plan()}, null, 2)], {type: 'application/json'});
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'bridgify-adaptive-decisions.json'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  });
+  $('#copyTasks').addEventListener('click', async e => {
+    const lines = plan().filter(p => p.decision).map(p => `[ ] ${p.page} · ${p.selector}: ${DEC[p.decision]}${p.note ? ' (' + p.note + ')' : ''}`);
+    const b = e.currentTarget, l = b.textContent;
+    try { await navigator.clipboard.writeText(lines.join('\n') || 'אין החלטות עדיין.'); b.textContent = 'הועתק ✓'; } catch (err) { b.textContent = 'ההעתקה נחסמה'; }
+    setTimeout(() => b.textContent = l, 1600);
+  });
+  $('#reset').addEventListener('click', () => { if (confirm('לאפס את כל ההחלטות וההערות בדפדפן הזה?')) { store = {}; save(); render(); } });
+  const top = () => document.documentElement.style.setProperty('--lab-top', $('.lab-top').offsetHeight + 'px');
+  addEventListener('resize', top); top();
+
+  const load = () => new Promise((res, rej) => { const s = document.createElement('script'); s.src = 'adaptive/adaptive-data.js?t=' + Date.now(); s.onload = () => res(window.ADAPTIVE_DATA); s.onerror = rej; document.head.appendChild(s); });
+  load().then(j => {
+    DATA = j.rows; META = j;
+    const miss = Object.entries(j.docSectionsNotOnSite || {});
+    if (miss.length) $('#missing').innerHTML = `<div class="av-missing"><b>סקשנים שמופיעים ב־Copy v4 ולא נמצאו באתר:</b> ${miss.map(([p, l]) => `${esc(j.names[p] || p)}: ${l.map(esc).join(', ')}`).join(' · ')}. הם לא נכנסים לסבב הזה, ונשמרים לסבב הפערים.</div>`;
+    const h = location.hash.slice(1); if (h) open.add(decodeURIComponent(h));
+    const qp = new URLSearchParams(location.search).get('page'); if (qp && DATA.some(r => r.page === qp)) page = qp;
+    chips(); render();
+  });
+})();
+</script>
+</body>
+</html>

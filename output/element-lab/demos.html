@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Bridgify · הדגמות במובייל</title>
+<style>
+:root{--bg:#100A08;--card:#1A120F;--ink:#EEE9DE;--mute:#EEE9DE99;--ln:#EEE9DE22;--coral:#F46649;--peach:#FFB194;--ok:#3DDC97;--bad:#FF6B6B}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.55 system-ui,-apple-system,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+h1{font-weight:500;font-size:26px;line-height:1.2;margin:0 0 8px}
+h2{font-weight:500;font-size:19px;margin:40px 0 14px}
+p.lead{color:var(--mute);margin:0 0 6px;max-width:760px}
+.note{border-inline-start:3px solid var(--coral);padding:8px 12px;background:#F466490F;border-radius:6px;color:var(--ink);font-size:14px;margin:14px 0 0;max-width:760px}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.stat{border:1px solid var(--ln);border-radius:10px;padding:8px 12px}
+.stat b{display:block;font-size:20px;font-weight:600}
+.stat span{color:var(--mute);font-size:12px}
+/* patterns */
+.pats{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.pat{border:1px solid var(--ln);border-radius:14px;padding:14px;background:var(--card);cursor:pointer;text-align:start;color:inherit;font:inherit}
+.pat[aria-pressed=true]{border-color:var(--coral);background:#2A1712}
+.pat h3{margin:10px 0 4px;font-size:16px;font-weight:600}
+.pat p{margin:0;color:var(--mute);font-size:13.5px}
+.pat .n{float:left;color:var(--peach);font-size:12px}
+.ill{height:74px;border-radius:10px;background:#0B0706;position:relative;overflow:hidden;border:1px solid var(--ln)}
+.ill i{position:absolute;display:block;border-radius:4px;background:#EEE9DE33}
+.ill i.c{background:var(--coral)}
+/* filters */
+.bar{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px}
+.chip{border:1px solid var(--ln);background:none;color:var(--ink);border-radius:999px;padding:7px 12px;font:inherit;font-size:13px;cursor:pointer;min-height:36px}
+.chip[aria-pressed=true]{background:var(--coral);border-color:var(--coral);color:#180F10}
+/* demo cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.demo{border:1px solid var(--ln);border-radius:16px;background:var(--card);overflow:hidden;display:flex;flex-direction:column}
+.shot{height:360px;overflow:hidden;background:#000;position:relative;cursor:zoom-in}
+.shot img{width:100%;display:block}
+.shot::after{content:"";position:absolute;inset:auto 0 0;height:60px;background:linear-gradient(transparent,var(--card))}
+.body{padding:14px 16px 18px}
+.page{color:var(--peach);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.demo h3{margin:4px 0 2px;font-size:17px;font-weight:600}
+.type{color:var(--mute);font-size:13px}
+.m{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.m span{font-size:12px;border-radius:6px;padding:3px 7px;background:#EEE9DE14}
+.m span.bad{background:#FF6B6B26;color:#FFB3B3}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.tag{font-size:12.5px;border:1px solid var(--coral);color:var(--peach);border-radius:999px;padding:2px 9px}
+.tag.alt{border-color:var(--ln);color:var(--mute)}
+.plan{margin:0;font-size:14px}
+dialog{border:0;padding:0;background:transparent;max-width:min(430px,94vw)}
+dialog img{width:100%;border-radius:12px;display:block}
+dialog::backdrop{background:#000C}
+@media (max-width:599px){.wrap{padding:20px 16px 60px}h1{font-size:23px}.grid{grid-template-columns:1fr}.shot{height:300px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>הדגמות במובייל: מה לצמצם ואיך להציג</h1>
+  <p class="lead">כל הבלוקים מהמעבדה נמדדו ב־iPhone 13 (Safari, 390×664), עם שכבת המובייל ומערכת הריווחים. מוצגים כאן רק אלה שיש בהם בעיה: הם מוקטנים, הטקסט בהם קטן מ־11px, או שהם גולשים מעבר למסך. לכל אחד יש המלצה, והחלופה מסומנת באפור.</p>
+  <p class="note">מה מותר להוריד: רק נתוני דמה בתוך ההדגמות, כלומר פריטים ברשימה, תמונות ושורות קוד. כותרות, טקסטים וכל מה שמגיע מ־Copy v4 לא יורדים. אפשר רק לקפל או להסתיר אותם.</p>
+  <div class="stats" id="stats"></div>
+
+  <h2>9 דרכים להציג הדגמה בטלפון</h2>
+  <div class="pats" id="pats"></div>
+
+  <h2 id="list">ההדגמות לפי עמוד</h2>
+  <div class="bar" id="pages"></div>
+  <div class="grid" id="grid"></div>
+</div>
+<dialog id="dlg"><img alt=""></dialog>
+<script src="demos-data.js"></script>
+<script>
+const PATS = {
+  trim:   ['פחות, בגודל אמיתי', 'מורידים פריטים שחוזרים על עצמם: רשימה עד 3 פריטים, עד 2 תמונות, 4–6 שורות קוד. מה שנשאר מוצג ב־100% ולא מוקטן.', [[8,10,58,12,1],[8,28,58,12],[8,46,58,12],[74,10,46,48]]],
+  phone:  ['טלפון מציג טלפון', 'מוקאפ של דפדפן דסקטופ נבנה מחדש כמסך טלפון בגודל אמיתי. זה מתאים לחנות, למייל ולאתר ההטבות.', [[44,6,40,62],[50,14,28,8,1],[50,28,28,18],[50,52,28,8]]],
+  bleed:  ['גלישה מכוונת', 'ההדגמה בגודל אמיתי ונחתכת בקצה המסך או בתחתיתו, כמו מכשיר שחציו מחוץ לפריים. רואים פחות, אבל קוראים הכול.', [[30,14,110,70],[38,22,60,10,1],[38,38,90,26]]],
+  open:   ['פתח במסך מלא', 'מציגים תצוגה מקדימה קטנה. לחיצה פותחת את ההדגמה במסך מלא, עם הגדלה בצביטה וגרירה.', [[10,10,50,54],[70,6,52,62,1],[80,16,32,10]]],
+  rise:   ['כרטיס שעולה ונצמד', 'הכרטיס עולה מלמטה וגדל מ־92% ל־100% כשהוא נכנס למסך. אחר כך הוא נצמד (sticky) והשלבים גוללים מעליו.', [[28,30,74,46,1],[36,18,58,8],[36,6,58,8]]],
+  steps:  ['שלב אחרי שלב', 'מפצלים את ההדגמה למצבים ומחליפים ביניהם במתג או אוטומטית, למשל לפני ואחרי. בכל רגע מוצג מצב אחד בגודל אמיתי.', [[10,8,50,12,1],[64,8,50,12],[10,28,104,40]]],
+  deck:   ['חפיסה', 'כרטיס אחד ברוחב מלא, והבא מציץ מאחוריו. מחליקים ביד.', [[20,14,80,56],[28,8,80,56],[36,2,80,56,1]]],
+  peek:   ['גלילה עם הצצה', 'גלילה אופקית בגודל אמיתי. הכרטיס הבא מציץ בקצה המסך ונקודות מראות איפה נמצאים.', [[6,10,90,52,1],[102,10,90,52],[52,66,6,4],[62,66,6,4]]],
+  figure: ['המספר במקום הדיאגרמה', 'דיאגרמה זעירה מוחלפת במסר עצמו באות גדולה, למשל "5 מקורות ← אינטגרציה אחת". מה שנשאר מהציור מוצג בגודל אמיתי.', [[10,14,30,30,1],[48,24,20,8],[76,14,40,30]]],
+};
+const D = window.DEMOS || [];
+const PN = {'index-v2':'דף הבית','api':'Experiences API','marketplace':'White-Label','personalization':'AIyelet','otas':'OTAs','airlines':'Airlines','hotels':'Hotels','loyalty-finance':'Loyalty & Finance','travel-technology':'Travel Tech','super-apps':'Super Apps'};
+let fPat = null, fPage = null;
+const $ = s => document.querySelector(s);
+const el = (t, a = {}, h = '') => { const e = document.createElement(t); Object.assign(e, a); if (h) e.innerHTML = h; return e; };
+
+// stats
+const shrunk = D.filter(d => d.scale < .95).length, tiny = D.filter(d => d.minfs < 11).length, past = D.filter(d => d.past > 0 && !d.scroller).length;
+$('#stats').innerHTML = [[D.length, 'הדגמות לטיפול'], [shrunk, 'מוקטנות'], [tiny, 'עם טקסט מתחת ל־11px'], [past, 'גולשות מעבר למסך'], [D.filter(d => d.name.includes('משותף')).length ? 6 : 0, 'דפים שמתוקנים בתיקון אחד']]
+  .map(([n, t]) => `<div class="stat"><b>${n}</b><span>${t}</span></div>`).join('');
+
+// patterns menu
+Object.entries(PATS).forEach(([k, [t, d, shapes]]) => {
+  const n = D.filter(x => x.patterns[0] === k).length, alt = D.filter(x => x.patterns.slice(1).includes(k)).length;
+  const b = el('button', {className: 'pat', type: 'button'}); b.setAttribute('aria-pressed', 'false');
+  b.innerHTML = `<div class="ill">${shapes.map(([x, y, w, h, c]) => `<i class="${c ? 'c' : ''}" style="right:${x}px;top:${y}px;width:${w}px;height:${h}px"></i>`).join('')}</div>
+    <h3>${t}<span class="n">${n} מומלץ${alt ? ` · ${alt} חלופה` : ''}</span></h3><p>${d}</p>`;
+  b.onclick = () => { fPat = fPat === k ? null : k; document.querySelectorAll('.pat').forEach(p => p.setAttribute('aria-pressed', 'false')); if (fPat) b.setAttribute('aria-pressed', 'true'); render(); $('#list').scrollIntoView({behavior: 'smooth'}); };
+  $('#pats').append(b);
+});
+
+// page filter
+const pages = [...new Set(D.map(d => d.page))];
+[[null, 'הכול'], ...pages.map(p => [p, PN[p] || p])].forEach(([p, t]) => {
+  const c = el('button', {className: 'chip', type: 'button', textContent: t}); c.setAttribute('aria-pressed', String(p === null));
+  c.onclick = () => { fPage = p; document.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', 'false')); c.setAttribute('aria-pressed', 'true'); render(); };
+  $('#pages').append(c);
+});
+
+function render() {
+  const g = $('#grid'); g.innerHTML = '';
+  D.filter(d => (!fPat || d.patterns.includes(fPat)) && (!fPage || d.page === fPage)).forEach(d => {
+    const m = [
+      [`מוצג ב־${Math.round(d.scale * 100)}%`, d.scale < .95],
+      [`הטקסט הקטן ביותר ${d.minfs}px`, d.minfs < 11],
+      [`${Math.round(d.small * 100)}% מהטקסט מתחת ל־12px`, d.small > .3],
+      [d.scroller ? 'גלילה אופקית' : (d.past ? `גולש ${d.past}px` : 'לא גולש'), d.past > 0 && !d.scroller],
+      [`${Math.round(d.screen * 100)}% מגובה המסך`, d.screen > .85],
+    ];
+    const card = el('article', {className: 'demo'});
+    card.innerHTML = `<div class="shot"><img loading="lazy" src="${d.shot}" alt="${d.name} היום"></div>
+      <div class="body"><div class="page">${PN[d.page] || d.page}</div><h3>${d.name}</h3><div class="type">${d.type}</div>
+      <div class="m">${m.map(([t, b]) => `<span class="${b ? 'bad' : ''}">${t}</span>`).join('')}</div>
+      <div class="tags">${d.patterns.map((p, i) => `<span class="tag ${i ? 'alt' : ''}">${PATS[p][0]}</span>`).join('')}</div>
+      <p class="plan">${d.plan}</p></div>`;
+    card.querySelector('.shot').onclick = () => { const dl = $('#dlg'); dl.querySelector('img').src = d.shot; dl.showModal(); };
+    g.append(card);
+  });
+}
+$('#dlg').onclick = () => $('#dlg').close();
+render();
+</script>
+</body>
+</html>

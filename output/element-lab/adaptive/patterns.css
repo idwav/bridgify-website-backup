@@ -1,0 +1,224 @@
+/* Bridgify adaptive layer · pattern library
+   Every pattern is inert on desktop: its rules live inside the mobile/tablet media queries,
+   so the classes patterns.js adds change nothing at 1024px and wider. */
+
+/* ---------- 1. Compact header + menu sheet (shared, ≤1023) ---------- */
+.ad-menu-btn,.ad-menu{display:none}
+@media (max-width:1023px){
+  html body header.top.site-header-common{
+    inset:10px 12px auto!important;min-height:0!important;height:var(--ad-header-h)!important;
+    padding:0 calc(var(--ad-gutter) - 12px)!important;flex-wrap:nowrap!important;gap:12px!important;align-items:center!important}
+  html body header.top.site-header-common>nav,
+  html body header.top.site-header-common .nav-login{display:none!important}
+  html body .site-header-common img.brand-logo-full{height:30px!important}
+  html body .site-header-common .nav-actions{margin-left:auto!important;gap:8px!important}
+  html body .site-header-common .nav-actions>a.nav-contact{
+    height:var(--ad-touch)!important;min-height:var(--ad-touch)!important;min-width:0!important;
+    padding-inline:16px!important;font-size:12px!important;letter-spacing:.08em!important}
+  .ad-menu-btn{display:grid;place-items:center;flex:none;width:var(--ad-touch);height:var(--ad-touch);
+    margin-right:-6px;padding:0;border:0;border-radius:11px;background:transparent;color:#FFF8F1;cursor:pointer}
+  .ad-menu-btn:focus-visible{outline:2px solid #F46649;outline-offset:2px}
+  .ad-menu-btn i{position:relative;display:block;width:22px;height:12px}
+  .ad-menu-btn i:before,.ad-menu-btn i:after{content:"";position:absolute;left:0;right:0;height:1.5px;border-radius:1px;background:currentColor;
+    transition:transform .35s cubic-bezier(.16,1,.3,1),top .35s cubic-bezier(.16,1,.3,1)}
+  .ad-menu-btn i:before{top:0}.ad-menu-btn i:after{top:10.5px}
+  .ad-menu-btn[aria-expanded="true"] i:before{top:5.25px;transform:rotate(45deg)}
+  .ad-menu-btn[aria-expanded="true"] i:after{top:5.25px;transform:rotate(-45deg)}
+
+  .ad-menu{position:fixed;inset:0;z-index:2147483000;display:flex;flex-direction:column;
+    padding:calc(var(--ad-header-h) + 26px) var(--ad-gutter) calc(24px + env(safe-area-inset-bottom));
+    background:#160F0D;color:#EEE9DE;overflow-y:auto;overscroll-behavior:contain;
+    opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .3s,transform .4s cubic-bezier(.16,1,.3,1),visibility 0s .4s}
+  .ad-menu.is-open{opacity:1;visibility:visible;transform:none;transition:opacity .3s,transform .4s cubic-bezier(.16,1,.3,1)}
+  html.ad-menu-lock,html.ad-menu-lock body{overflow:hidden!important}
+  html.ad-menu-lock header.top.site-header-common{z-index:2147483001!important;transform:none!important}
+  .ad-menu-group{border-bottom:1px solid #EEE9DE1f}
+  .ad-menu-group>summary,.ad-menu-row{display:flex;align-items:center;justify-content:space-between;min-height:56px;
+    font:550 15px/1.3 Sofia,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#EEE9DE;text-decoration:none;cursor:pointer;list-style:none}
+  .ad-menu-group>summary::-webkit-details-marker{display:none}
+  .ad-menu-group>summary:after{content:"+";font:300 24px/1 Sofia,sans-serif;color:#F46649;transition:transform .3s}
+  .ad-menu-group[open]>summary:after{transform:rotate(45deg)}
+  .ad-menu-row{border-bottom:1px solid #EEE9DE1f}
+  .ad-menu-row:after{content:"↗";color:#F46649;letter-spacing:0}
+  .ad-menu-links{display:grid;padding:0 0 14px}
+  .ad-menu-links a{display:flex;align-items:center;min-height:48px;font:400 17px/1.35 Sofia,sans-serif;color:#EEE9DEcc;text-decoration:none}
+  .ad-menu-links a:active,.ad-menu-links a:hover{color:#FFF8F1}
+  .ad-menu-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;padding-top:28px}
+  .ad-menu-actions a{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:11px;
+    font:550 14px/1 Sofia,sans-serif;letter-spacing:.08em;text-decoration:none}
+  .ad-menu-actions a:first-child{border:1px solid #F46649;color:#EEE9DE}
+  .ad-menu-actions a:last-child{background:linear-gradient(135deg,#FF967B,#F46649);color:#180F10}
+  .ad-menu :focus-visible{outline:2px solid #F46649;outline-offset:2px}
+  .ad-menu:focus{outline:none}
+}
+@media (min-width:600px) and (max-width:1023px){
+  .ad-menu-actions{max-width:520px}
+  .ad-menu-links{grid-template-columns:1fr 1fr;column-gap:24px}
+}
+
+/* ---------- 2. Horizontal scroller with peek (cards, products, use cases) ---------- */
+.ad-dots{display:none}
+@media (max-width:1023px){
+  html body .ad-scroller{
+    display:flex!important;grid-template-columns:none!important;gap:12px!important;
+    margin-inline:calc(var(--ad-gutter) * -1)!important;padding-inline:var(--ad-gutter)!important;
+    scroll-padding-inline:var(--ad-gutter);overflow-x:auto!important;overflow-y:hidden;
+    scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  html body .ad-scroller::-webkit-scrollbar{display:none}
+  html body .ad-scroller>*{flex:0 0 var(--ad-card,84%)!important;width:auto!important;max-width:none!important;min-width:0!important;
+    scroll-snap-align:start;scroll-snap-stop:always}
+  .ad-dots{display:flex;justify-content:center;gap:8px;margin-top:18px}
+  .ad-dots i{width:6px;height:6px;border-radius:3px;background:currentColor;opacity:.28;transition:width .35s cubic-bezier(.16,1,.3,1),opacity .35s}
+  .ad-dots i.is-on{width:22px;opacity:1;background:#F46649}
+}
+@media (min-width:600px) and (max-width:1023px){
+  html body .ad-scroller>*{flex-basis:var(--ad-card-tablet,46%)!important}
+}
+
+/* ---------- 3. Segmented tabs: one panel at a time ---------- */
+.ad-seg{display:none}
+@media (max-width:1023px){
+  .ad-seg{display:none}
+  .ad-tabs-on .ad-seg{display:flex;gap:4px;padding:4px;border:1px solid currentColor;border-color:color-mix(in srgb,currentColor 18%,transparent);
+    border-radius:13px;overflow-x:auto;scrollbar-width:none}
+  .ad-seg::-webkit-scrollbar{display:none}
+  .ad-seg button{flex:1 0 auto;min-height:var(--ad-touch);padding:0 14px;border:0;border-radius:10px;background:none;
+    color:inherit;opacity:.72;font:550 14px/1.2 Sofia,sans-serif;white-space:nowrap;cursor:pointer;transition:background .3s,opacity .3s}
+  .ad-seg button[aria-selected="true"]{opacity:1;background:color-mix(in srgb,#F46649 18%,transparent);box-shadow:inset 0 0 0 1px #F4664999}
+  .ad-seg button:focus-visible{outline:2px solid #F46649;outline-offset:2px}
+  html body .ad-tabs-on [data-ad-panel]:not(.ad-on){display:none!important}
+}
+
+/* ---------- 4. Row links: the whole card is the tap target ---------- */
+@media (max-width:1023px){
+  html body .ad-rowlink{position:relative!important}
+  html body .ad-rowlink a.ad-rowlink-a:after{content:"";position:absolute;inset:0;z-index:2}
+  html body .ad-rowlink a.ad-rowlink-a:focus-visible{outline:none}
+  html body .ad-rowlink:has(a.ad-rowlink-a:focus-visible){outline:2px solid #F46649;outline-offset:2px}
+}
+
+/* ---------- 5. Footer groups as an accordion (mobile) ---------- */
+@media (max-width:599px){
+  html body .bf-footer-nav.ad-acc{display:block!important}
+  html body .bf-footer-nav.ad-acc .bf-footer-group{border-bottom:1px solid #EEE9DE1f}
+  html body .bf-footer-nav.ad-acc .bf-footer-group>h3{display:flex!important;align-items:center;gap:14px;min-height:56px;margin:0!important;cursor:pointer;justify-content:flex-start!important;text-align:left!important}
+  html body .bf-footer-nav.ad-acc .bf-footer-group>h3:after{margin-left:auto;content:"+";font:300 22px/1 Sofia,sans-serif;color:#F46649;transition:transform .3s}
+  html body .bf-footer-nav.ad-acc .bf-footer-group.is-open>h3:after{transform:rotate(45deg)}
+  html body .bf-footer-nav.ad-acc .bf-footer-group>ul{display:none!important;padding-bottom:16px!important}
+  html body .bf-footer-nav.ad-acc .bf-footer-group.is-open>ul{display:grid!important}
+  html body .bf-footer-nav.ad-acc .bf-footer-group>ul a{display:flex;align-items:center;min-height:44px}
+}
+
+/* ---------- 6. Touch: hover-only reveals become visible, decorative motion calms down ---------- */
+@media (hover:none) and (max-width:1023px){
+  html body .ad-touch-visible{opacity:1!important;transform:none!important}
+}
+
+/* ---------- 7. Tap to expand (mobile): clamped text with a fade, full text on tap ---------- */
+@media (max-width:599px){
+  html body .ad-exp:not(.ad-open){display:-webkit-box!important;-webkit-box-orient:vertical;-webkit-line-clamp:var(--ad-lines,2);overflow:hidden;cursor:pointer}
+  html body .ad-exp{position:relative}
+}
+
+/* ---------- 7b. Fold marker: a coral + at the end of a folded paragraph, on the section's own background ---------- */
+@media (max-width:599px){
+  html body .ad-exp.ad-exp-mark:not(.ad-open)::after{content:"+";position:absolute;right:0;bottom:0;padding-left:36px;
+    background:linear-gradient(90deg,transparent,var(--ad-exp-bg,#100A08) 45%);color:#F46649;font:300 22px/1.2 Sofia,sans-serif}
+}
+
+/* ---------- 9. Solutions templates shared by the six solution pages ---------- */
+@media (max-width:1023px){
+  /* FAQ on the shared start line (beats brand-faq.css). */
+  html body section#faq:not(#ad-x){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important}
+  html body section#faq :is(.copy-inner,.al-faq-list){width:auto!important;max-width:none!important;margin-inline:0!important;padding-inline:0!important}
+  html body .xc-head,html body .xc-grid,html body .xc-note{width:auto!important;max-width:none!important;margin-inline:0!important}
+}
+@media (max-width:599px){
+  html body section#faq:not(#ad-x){padding-top:48px!important;padding-bottom:48px!important}
+  html body section#faq summary{font-size:18px!important;line-height:1.35!important;padding-block:14px!important}
+  html body section#faq h2{margin-bottom:12px!important}
+  /* "Choose how": the two ways scroll sideways as cards. */
+  html body .xc-head{margin-bottom:20px!important;gap:12px!important}
+  html body .xc-head h2{margin-bottom:0!important}
+  html body .xc-head>p{margin-top:12px!important}
+  html body .xc-grid.ad-scroller{align-items:stretch}
+  html body .xc-grid.ad-scroller>.xc-card{margin:0!important}
+  html body .xc-vis{height:170px!important;min-height:0!important}
+  html body .xc-body{padding:16px!important}
+  html body .xc-note{margin-top:16px!important}
+}
+
+/* ---------- Mobile header at Linear's proportions (≤599) ----------
+   Measured on linear.app at 390×664: 65px bar, 22px logo, 32px pill actions at 13px.
+   Ours keeps the floating bar: 52px tall, 24px logo (it carries "Part of HBX Group"), a 32px action. */
+@media (max-width:599px){
+  html body header.top.site-header-common{inset:8px 10px auto!important;width:auto!important;max-width:none!important;padding:0 10px 0 14px!important;border-radius:14px!important}
+  html body .site-header-common img.brand-logo-full{height:24px!important;width:auto!important}
+  html body .site-header-common .nav-actions{gap:4px!important}
+  html body .site-header-common .nav-actions>a.nav-contact{height:32px!important;min-height:32px!important;padding:0 12px!important;font-size:11px!important;letter-spacing:.07em!important;border-radius:9px!important;line-height:1!important}
+  .ad-menu-btn{width:40px;height:40px;margin-right:-4px;border-radius:10px}
+  .ad-menu-btn i{width:20px;height:10px}
+  .ad-menu-btn i:after{top:8.5px}
+  .ad-menu-btn[aria-expanded="true"] i:before,.ad-menu-btn[aria-expanded="true"] i:after{top:4.25px}
+}
+
+/* ---------- Read more (mobile): sits under folded text ---------- */
+.ad-more{display:none}
+@media (max-width:599px){
+  .ad-more{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin:2px 0 6px;padding:0;border:0;background:none;color:#FFB194;font:550 15px/1 Sofia,sans-serif;cursor:pointer}
+  .ad-more.ad-more-light{color:#C2462E}
+  .ad-more span{transition:transform .3s}
+  .ad-more[aria-expanded="true"] span{transform:rotate(45deg)}
+  html body .ad-exp.ad-exp-mark::after{content:none!important}
+}
+
+/* ---------- Mobile rhythm for every page (agreed on the homepage, 16 Nov 2026; see WORKFLOW.md) ----------
+   Titles 28 for hero and sections (Chillax 400 on phones), body 15/24, labels 11, main buttons 40px, sections 64px apart.
+   FAQ questions follow DESIGN.md: Sofia 500, not Chillax Light. */
+@media (max-width:599px){
+  html body :is(main>section,body>section):not(:first-of-type):not(.page-hero):not(.brand-cta){padding-top:64px!important;padding-bottom:64px!important}
+  /* Hero title = section title (28px, Chillax 400), agreed 16 Nov 2026 after the API trial. Pages put the visible hero
+     title in different elements (h1, h2[data-copy-display], an iframe) and their own sizes (34, 34.32, 36px) beat a
+     plain h1 rule, so patterns.js tags the visible one as .ad-hero-title and this id-level rule wins on every page. */
+  html body .ad-hero-title:not(#ad-x):not(#ad-y):not(#ad-z){font-size:var(--ad-title)!important;line-height:1.15!important;font-weight:400!important;letter-spacing:-.7px!important}
+  html body .ad-hero-title:not(#ad-x):not(#ad-y):not(#ad-z) :is(span,em,strong,b){font-size:inherit!important}
+  /* The closing call-to-action title is a section title too (it measured 30-33px Light on every page). */
+  html body :is(.brand-cta,.bf-cta,[class*=recurring-cta]) h2:not(#ad-x):not(#ad-y),html body #bf-cta-title:not(#ad-x):not(#ad-y){font-size:var(--ad-title)!important;line-height:1.15!important;font-weight:400!important;letter-spacing:-.7px!important}
+  html body #bf-cta-title:not(#ad-x):not(#ad-y) :is(span,em,strong,b){font-size:inherit!important}
+  html body section:not(:first-of-type) h2{font-size:var(--ad-title)!important;line-height:1.15!important;font-weight:400!important}
+  html body section :is(h1,h2)~p:not([class*=eyebrow]):not([class*=kicker]),html body section header p:not([class*=eyebrow]):not([class*=kicker]),html body .block-copy>p{font-size:15px!important;line-height:24px!important}
+  html body section :is([class*=eyebrow],[class*=kicker],.brand-section-label){font-size:11px!important}
+  html body section :is(.btn,.brand-action):not(.ad-seg *):not([role=tab]){min-height:40px!important;height:auto!important;padding-block:9px!important;padding-inline:16px!important;font-size:15px!important;border-radius:10px!important}
+  html body :is(.copy-faq,#faq) summary{font-family:Sofia,sans-serif!important;font-weight:500!important;font-size:18px!important;line-height:1.4!important;letter-spacing:normal!important}
+}
+@media (max-width:599px){
+  /* brand-consistency.js frames bordered buttons; Read more is a text link, never a framed button. */
+  html body .ad-more,html body .ad-more:is(.brand-coral-frame,.brand-action){border:0!important;box-shadow:none!important;background:none!important;width:auto!important;padding:0!important;min-height:44px!important;height:auto!important}
+  html body .ad-more::before,html body .ad-more::after{content:none!important}
+}
+@media (max-width:599px){ html body section#faq.copy-faq:not(#ad-x):not(#ad-y):not(#ad-z){padding-top:64px!important;padding-bottom:64px!important} }
+@media (max-width:599px){
+  /* Read more sits right under its paragraph: the last visible line fades out, the link follows within ~10px.
+     The link keeps a 44px tap area through padding, pulled up with a negative margin so it does not add space. */
+  html body .ad-exp:not(.ad-open){-webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 1.6em),rgba(0,0,0,.28));mask-image:linear-gradient(180deg,#000 calc(100% - 1.6em),rgba(0,0,0,.28))}
+  html body .ad-more,html body .ad-more:is(.brand-coral-frame,.brand-action){display:flex!important;width:max-content!important;min-height:0!important;padding:12px 0!important;margin:-10px 0 -8px!important;line-height:20px!important}
+  html body .ad-exp+.ad-more{position:relative;z-index:1}
+}
+@media (max-width:599px){ html body section .ad-exp.ad-exp:has(+ .ad-more):not(#ad-x):not(#ad-y){margin-bottom:0!important} }
+@media (max-width:599px){
+  /* Intent card (homepage + AIyelet): the bracket that joins the sentence to the fields is drawn for the desktop row
+     of three; on phones it lands on top of the two fields, so it is not drawn. */
+  html body .intent-fields::before{content:none!important;display:none!important}
+}
+
+/* ---------- Solutions pages (shared template) · mobile rhythm on their own section ids ---------- */
+@media (max-width:599px){
+  html body section:is(#section-2,#section-3,#section-4,#market-signal,#we-started-here):not(#ad-x):not(#ad-y){padding-top:64px!important;padding-bottom:64px!important}
+  html body section:is(#section-2,#section-3,#section-4,#market-signal,#we-started-here):not(#ad-x) h2{font-size:28px!important;line-height:1.15!important;font-weight:400!important}
+  html body section:is(#section-1,#section-2,#section-3,#section-4,#market-signal,#we-started-here):not(#ad-x) :is([class*=head],[class*=heading],[class*=copy],header)>p:not([class*=eyebrow]):not([class*=kicker]):not([class*=label]){font-size:15px!important;line-height:24px!important}
+  /* Choose how: the switch sits under the intro; the card shows whole, at full width. */
+  html body #section-4.ad-tabs-on .xc-grid{display:block!important;overflow:visible!important}
+  html body #section-4.ad-tabs-on .xc-grid>*{width:auto!important;max-width:none!important;flex:none!important;margin:0!important}
+  html body #section-4 .ad-seg{margin:20px 0 14px!important}
+  html body #section-4.ad-tabs-on .ad-dots{display:none!important}
+}

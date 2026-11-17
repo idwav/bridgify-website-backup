@@ -1,0 +1,928 @@
+Bridgify Website Copy, v4 for design
+Copy for every page in the website brief. Each page lists its URL, the SEO fields (title tag, meta description, H1), the copy for each section and its FAQ block.
+How to read this doc
+The studio leads the UX. Section order, layouts and the ideas in italics are suggestions, not instructions. Merge, split, reorder or replace sections wherever a better experience calls for it, and tell us if the copy needs to change to fit.
+Product visual marks where we expect a visual of the product next to the copy, the way the current site shows the architecture diagram. That expectation is firm; what the visual looks like, and whether it's static, animated or interactive, is the studio's call.
+Link lines give the clickable words in quotes, then the page or section they go to. They are instructions for the build, not live links.
+Mockups of partner screens should use made-up brands unless a partner has approved the use of its brand.
+Headline is the large display line in each section. Body is the supporting copy. Buttons are CTA labels.
+H1 (SEO) is the page's single H1. On most pages it sits as a small eyebrow above the display headline, so search engines get the keyword and visitors get the clear line.
+[CONFIRM] marks a fact Bridgify still needs to sign off before launch. [TBD] marks content the Bridgify team will supply. Please design around both.
+FAQ blocks sit above the final CTA on each page, with FAQPage schema. Each answer reads on its own.
+Spelling is American English throughout.
+The message in one page
+Everything on the site comes back to these lines. If a page ever feels unclear, check it against this list.
+What we are
+The infrastructure behind travel experiences. Bridgify, part of HBX Group.
+The line
+One connection. A million travel experiences, matched to every customer.
+How we describe ourselves
+The world's leading B2B travel experiences infrastructure. A B2B traveltech company. (Never "platform" or "aggregator" when describing Bridgify.)
+What it means
+One integration lets a brand sell 1M+ tours, attractions, activities and events in 180+ countries in its own channels, matched to each customer. Bridgify runs the supply, distribution and personalization. The brand keeps the customer.
+Why us
+1. Aggregate. The largest experiences catalog available through a single integration: the major marketplaces, aggregators and direct suppliers, 1M+ experiences in 180+ countries. Keep the suppliers you know, add the rest.
+2. Normalize. Every source mapped and de-duplicated into one schema. One integration instead of one per supplier.
+3. Distribute. Into the partner's own channels, under the partner's brand: inside their product (Experiences API), as a branded store (White-Label Marketplace) or inside their discovery (AIyelet). Bookings, payments, currencies and fulfillment handled. The partner owns the customer.
+4. Personalize. AIyelet matches the right experience to the right traveler, using intent and context, inside the partner's product. A million options only sell when each traveler sees the right few.
+5. Enterprise-ready, and part of HBX Group. SLAs, KYC support, real-time availability and pricing, multi-currency settlement.
+Proof we can use
+1M+ experiences · 180+ countries · 1 integration · 3x the conversion of standard travel marketplaces. White-Label Marketplace only: 3% average conversion · $280 average order value · 3 tickets per order on average.
+Who it's for
+Brands that already have the traveler: OTAs and travel platforms, airlines, loyalty programs, banks and card issuers, travel technology companies, hotels, super apps.
+Who it's not for
+Travelers looking to book a tour (you'll find us inside our partners' apps), and tour operators looking for a reservation system.
+Voice
+Short, direct sentences. Numbers instead of adjectives. The partner's brand comes first. No hype words, no em dashes.
+Background: the hero builds on the studio's placeholder line. "One connection" is the integration, "a million travel experiences" is the supply, and "matched to every customer" is the personalization, delivered to the partner's own customers. "Customer" works for every industry: a bank reads cardholders, an airline passengers, a hotel guests.
+Site-wide elements
+Main navigation
+Menu
+Label
+Goes to
+Products (the heading itself)
+Products
+Homepage, "Products" section (/#products)
+Products
+Experiences API
+/experiences-api
+Products
+White-Label Marketplace
+/white-label-marketplace
+Products
+AIyelet: AI personalization
+/aiyelet-ai-personalization
+Solutions
+OTAs and travel platforms
+/solutions/otas
+Solutions
+Airlines
+/solutions/airlines
+Solutions
+Loyalty, rewards and financial services
+/solutions/loyalty-programs
+Solutions
+Travel technology companies
+/solutions/travel-technology
+Solutions
+Hotels
+/solutions/hotels
+Solutions
+Super apps and consumer platforms
+/solutions/super-apps
+Developers
+API documentation
+/developers
+Resources
+Insights
+/blog
+Resources
+Press
+/newsroom
+Company
+About
+/about
+Company
+Careers
+/careers
+Button
+Book a demo
+/contact
+Idea: one-line descriptions under each product in the menu. Experiences API, "Build experiences into your product." White-Label Marketplace, "Launch a branded experiences store." AIyelet, "Match the right experience to each traveler."
+Footer
+Tagline: Bridgify. The infrastructure behind travel experiences. 
+Columns: the same menus and labels as the main navigation, plus Careers and Contact.
+Small print line: Bridgify works with businesses. Looking to book an experience for your own trip? You'll find our supply inside the apps, sites and rewards programs of our partners.
+Recurring CTA band
+For the bottom of any page that doesn't have its own CTA.
+Headline: Tell us who your customers are. We'll show you what they'd book.
+Buttons: "Book a demo" → Contact page · "Read the API docs" → Developers page
+1. Homepage
+URL: / (unchanged) · Audience: all buyers · Primary keywords: travel experiences infrastructure, travel experiences API
+Title tag
+Bridgify | The Infrastructure Behind Travel Experiences
+Meta description
+Bridgify, part of HBX Group, is the world's leading B2B travel experiences infrastructure: 1M+ tours, attractions and activities, matched to every customer.
+Organization schema description
+Bridgify is the world's leading B2B travel experiences infrastructure, part of HBX Group. One integration connects brands to 1M+ tours, attractions, activities and events in 180+ countries, through the Experiences API, White-Label Marketplace and AIyelet.
+H1 (SEO)
+The infrastructure behind travel experiences
+
+Section
+Copy
+1. Hero
+Eyebrow / H1: The infrastructure behind travel experiences
+Headline: One connection. A million+  travel experiences, matched to every customer.
+Body: Bridgify, part of HBX Group, brings 1M+ tours, attractions, activities and events into your app, site or rewards program, under your brand. We run the supply, distribution and personalization behind it.
+Buttons: "Book a demo" → Contact page · "See how it works" → "Why Bridgify" section further down this page
+Trust row: Part of HBX Group · 1M+ experiences · 180+ countries
+Product visual: yes.
+Idea: many supply streams (museum tickets, a food tour, a stadium seat, a boat trip) flowing into one connection and out into a partner's branded screen.
+2. Proof bar
+Headline: Global supply through one integration
+Stats: 1M+ experiences · 180+ countries · 1 integration · 3% average conversion · $280 average order value
+Line under the stats: The largest experiences catalog available through a single integration.
+Link: "How the Experiences API works" → Experiences API page
+3. The problem and what we do
+Headline: Your customers already book experiences. Just not with you.
+Body: Tours, tickets and events are spread across thousands of suppliers, each with its own booking system, prices, cancellation rules and ticket formats. Connecting them one by one is so much work that most brands never do it, and their customers book somewhere else.
+When experiences sit inside your channel, you keep the customer from booking to destination. Every experience they book with you builds loyalty, and gives you what you need to sell them the next one.
+Bridgify does the connecting once, for every partner. We aggregate, normalize and distribute global supply through one connected layer. You decide how it looks and who sees it.
+With Bridgify: oneBuilding it yourself: a contract and an API per supplier · the same museum ticket listed five times · your engineers maintaining connections instead of your product
+ contract, one integration, one schema · de-duplicated content · we maintain the connections
+Link (small, optional): "Read: what is experiences infrastructure?" → existing article at /articles/infrastructure
+Background: the SEO agency asked for this link to the existing article. The studio can keep it quiet or drop it.
+4. Why Bridgify
+Headline: Everything between global supply and your customer
+Aggregate: Keep the suppliers you know. Add the rest. The largest experiences catalog available through a single integration: the major marketplaces, aggregators and direct suppliers, so you're never tied to one source.
+Link: "See the 1M+ experiences behind the API" → Experiences API page, "What's inside" section
+Normalize: Every source mapped and de-duplicated into one schema. The same museum ticket shows up once, with the best content.
+Distribute: Your channels, your brand, your customer. Sell experiences in your app, site, booking flow or rewards program, with bookings, payments, currencies and fulfillment handled for you.
+Personalize: The right experience for the right traveler. AIyelet reads intent and context and puts the experiences that fit in front of each customer.
+Product visual: yes. The architecture diagram on the current site (partners on top, the Bridgify layer in the middle, supply sources below) is a good reference, updated to these four pillars.
+5. Personalization
+Headline: Don't give travelers a library. Give them the right book.
+Body: A million experiences are only useful if each traveler finds the right one. Type "something romantic in Paris" and AIyelet returns a short list of experiences that fit, not ten thousand results. Relevance is what turns supply into bookings.
+Link: "Meet AIyelet" → AIyelet page
+Product visual: yes.
+Idea: a small taste of the AIyelet intent demo, a prompt turning into result cards.
+6. Products (anchor: #products)
+Headline: Three products. One connected layer.
+Experiences API: Build it your way. The full catalog inside your own product and checkout.
+Link: "Explore the Experiences API" → Experiences API page
+White-Label Marketplace: Your branded experiences store, with search, checkout and payments built in. No developers needed. Live in 3 days.
+Link: "Explore the White-Label Marketplace" → White-Label Marketplace page
+AIyelet: The right experience for each traveler. AI matching inside the Experiences API and the White-Label Marketplace.
+Link: "Meet AIyelet" → AIyelet page
+Sub-headline: Which product is right for you?
+Building experiences into your own product? Experiences API.
+Launching without development? White-Label Marketplace.
+Want each customer to see the experiences that fit? AIyelet, inside both.
+Product visual: yes, a glimpse of each product.
+Background: this section is the products overview. The "Products" heading in the main menu jumps here, and the old /products URL redirects here.
+7. Who it's for
+Headline: Built for brands that already have the traveler
+OTAs and travel platforms: Sell the day, not only the flight and the room. Link: "Experiences for OTAs" → OTAs page
+Airlines: Go beyond the flight, under your own brand. Link: "Destination experiences for airlines" → Airlines page
+Loyalty, rewards and financial services: Give your members' points something worth spending on. Link: "Travel rewards for loyalty programs and banks" → Loyalty page
+Travel technology companies: Add experiences to your product without the supplier work. Link: "Experiences for travel software" → Travel technology page
+Hotels: Help guests make the most of the destination. Link: "Experiences for hotels" → Hotels page
+Super apps and consumer platforms: One more reason to open your app. Link: "Experiences for super apps" → Super apps page
+8. The numbers
+Headline: What White-Label Marketplace partners see
+Stats: 3% average conversion · $280 average order value · 3 tickets per order
+Body: Most of that comes from putting bookable experiences inside a journey the customer has already started: their booking, their app, their rewards page.
+
+
+
+
+9. Security and compliance
+Headline: Built for enterprise security
+Badges: ISO [TBD] · GDPR [TBD] · [TBD: team to add other certifications and validations]
+10. FAQ
+See FAQ block below.
+11. CTA
+Headline: Tell us who your customers are. We'll show you what they'd book.
+Body: Share your customers, markets and channels. We'll come back with the supply and the product that fit.
+Button: "Book a demo" → Contact page
+Homepage FAQ
+What is Bridgify? Bridgify, part of HBX Group, is the infrastructure behind travel experiences. OTAs, airlines, hotels, banks, loyalty programs and super apps use it to offer 1M+ tours, attractions, activities and events in 180+ countries under their own brand, through one integration.
+What is experiences infrastructure? The layer between experience suppliers and the brands that sell to their customers. It connects many suppliers, normalizes their content into one schema and handles availability, booking and payments, so a brand sells tours, attractions, activities and events through one integration instead of one per supplier. Bridgify is the world's leading B2B travel experiences infrastructure.
+How do travel brands launch experiences without building infrastructure? They connect to an experiences infrastructure provider instead of each supplier. Bridgify aggregates and normalizes global supply and handles booking and payments. The brand either builds its own front end on the Experiences API or launches the White-Label Marketplace, which is ready-made.
+What's the fastest way to launch travel experiences? The White-Label Marketplace. It comes with search, experience pages, checkout, payments and 1M+ experiences already in place, needs no developers, and goes live in 3 days. You add your branding, domain and payment details.
+Should I use the API or the White-Label Marketplace? Use the Experiences API if your team wants to build the experience inside your own product. Use the White-Label Marketplace if you want a branded store without the build. Both run on the same supply, and many partners start with one and add the other.
+
+Can travelers book directly on bridgify.io? No. Bridgify works with businesses. Travelers book our partners' experiences inside the partners' own apps, sites and rewards programs.
+2. About Bridgify
+URL: /about (unchanged) · Audience: buyers, press, partners, candidates · Primary keyword: B2B traveltech company
+Title tag
+About Bridgify | B2B Traveltech Company, Part of HBX Group
+Meta description
+Bridgify is the world's leading B2B travel experiences infrastructure, bringing 1M+ tours and attractions to the brands people use. Part of HBX Group.
+H1 (SEO)
+Bringing the world's experiences to the brands people use, and the right ones to every customer
+
+Section
+Copy
+1. Hero
+Eyebrow: A B2B traveltech company, part of HBX Group
+Headline / H1: Bringing the world's experiences to the brands people use, and the right ones to every customer.
+Body: Bridgify is the world's leading B2B travel experiences infrastructure. We connect 1M+ tours, attractions, activities and events to the brands people use, distribute them through the brand's own channels, and match them to every customer. We manage the infrastructure. Our partners own the customer.
+2. How we started
+Headline: We started because selling experiences was close to impossible.
+Body: Amit Shamni and Yaniv Green founded Bridgify in 2019. Every experience supplier worked differently: different booking systems, prices, cancellation rules and ticket formats. Selling experiences at scale meant connecting them one by one. We built the infrastructure that makes them work as one.
+Our first partners weren't travel companies. They were credit card companies and loyalty programs, with millions of customers who travel and a clear wish to give them more value on the trip. Working with them taught us what still shapes the product: how to handle many currencies, how loyalty points work, and how to give members something worth redeeming.
+3. Mission
+Headline: From fragmented supply to the right experience for every customer
+Body: Travel experiences are spread across suppliers, systems and markets. We connect that supply, normalize it into one schema and make it bookable through one integration, inside our partners' own channels. Then AIyelet matches each customer to the experiences that fit, so a million options become the right few.
+Our mission, in one line: make the world's experiences usable at scale for any partner that wants to sell them, matched to the right traveler at the right moment.
+Link: "Read: why multi-source matters" → existing article at /articles/aggregation
+4. Timeline
+Headline: From startup to part of HBX Group
+2019: Amit Shamni and Yaniv Green found Bridgify.
+Then: Bridgify launches with card issuers and loyalty programs, and grows to 1M+ experiences in 180+ countries.
+May 2026: Bridgify becomes part of HBX Group.
+[
+5. HBX Group
+Headline: Startup speed, HBX Group scale
+Body: In May 2026 Bridgify became part of HBX Group, one of the world's largest B2B travel distribution networks. Bridgify is the AI-native experiences layer inside HBX Group's infrastructure: the experiences expertise and personalization of a focused team, with the reach and stability of a global travel technology group. 
+6. Team
+Headline: The people behind the infrastructure
+Founders: Amit Shamni, Co-Founder and CEO · Yaniv Green, Co-Founder and CBO
+Quote: "We don't want to give travelers a library. We want to give them the right book." Amit Shamni, Co-Founder and CEO
+Team: [TBD: names, roles and photos for the full team, about 15 people]
+Body: A team working across travel supply, technology and enterprise distribution.
+[CONFIRM founder bios and photos]
+
+
+
+8. CTA
+Headline: See how Bridgify could work for your business
+Body: Tell us who your customers are and what you want to offer them. We'll help you choose the right product.
+Buttons: "Book a demo" → Contact page · "Join the team" → Careers page · "Press" → Press page
+3. Experiences API
+URL: /experiences-api (new; 301 redirect from /attractions-api) · Audience: product and engineering leads at OTAs, travel tech companies, banks, fintechs and super apps · Primary keywords: travel APIs, travel API; supporting (from the old attractions page): attractions API, attraction tickets API (Viator API and GetYourGuide API paused until supplier names are cleared; see the note to the SEO agency at the end of this doc)
+Title tag
+Travel APIs for Tours, Attractions & Activities | Bridgify
+Meta description
+The largest experiences catalog through one integration: 1M+ tours, attractions, activities and events, multi-source supply and real-time availability.
+H1 (SEO)
+Experiences API: one travel API for tours, attractions, activities and events
+
+Section
+Copy
+1. Hero
+Eyebrow / H1: Experiences API: one travel API for tours, attractions, activities and events
+Headline: One API. More than a million travel experiences.
+Body: The largest experiences catalog available through a single integration. Build discovery and booking into your own product. One schema. Real-time availability and pricing. Your checkout, your brand.
+Buttons: "Discuss your integration" → Contact page · "Read the docs" → Developers page
+Product visual: yes.
+Idea: for this technical audience, a real-looking request and response often works better than an illustration. [CONFIRM a sample endpoint and fields from the docs]
+2. Aggregation and normalization
+Headline: Connect to multiple supplier networks through one API
+Body: One API that brings together the major global experience marketplaces, aggregators and direct suppliers: 1M+ tours, attractions, activities and events through a single integration.
+We map, normalize and de-duplicate every source into one schema, so the same museum ticket shows up once, with the best content.
+Link: "Read: why multi-source matters" → existing article at /articles/aggregation
+Product visual: yes. The architecture diagram from the current site is a good reference here.
+3. What's inside (anchor: #whats-inside)
+Headline: Keep the suppliers you use. Add the rest.
+Body: Each major marketplace has its own API, contract and content format. Integrating five of them means five projects, five schemas and the same attraction listed five times. The Experiences API brings them together with direct suppliers in one schema, without the duplicates.
+Categories: Tours and activities · Attractions and attraction tickets (museums, landmarks, theme parks) · Live events (concerts, sports, shows) · Shopping vouchers and experiential gift cards · Guided experiences and local categories
+Stats: 1M+ experiences · 180+ countries · 1 integration
+Idea: a "what's inside" explorer where visitors pick a city and a category and see real examples. Supplier names as text unless brand use is cleared.
+4. Your product, your customer
+Headline: Keep the customer experience in your product
+Body: Embed experiences in your existing app, site or checkout and design discovery around your brand. Travelers never leave you, and the customer relationship stays yours.
+5. Who does what
+Headline: Your team builds the interface. We manage the supply layer.
+You: the customer journey, the interface, the checkout, the brand.
+Bridgify: supplier connections, content mapping, availability and pricing, booking and cancellation, ongoing maintenance.
+Links: "Experiences API documentation" → Developers page · "Prefer not to build a front end? See the White-Label Marketplace" → White-Label Marketplace page
+6. What a tours and activities API should include
+Headline: What features should a tours and activities API include?
+Lead: Five things to check in any experiences API, ours included:
+Coverage. How many sources, destinations and categories sit behind it. Bridgify: 1M+ experiences, 180+ countries, multiple sources.
+Real-time availability and pricing. Bookable means bookable at the moment of search.
+Content quality. Rich descriptions and media, de-duplicated across suppliers.
+Booking and cancellation handling. Confirmation, vouchers and cancellation policies shown before checkout.
+Multi-currency. Price and settle in the currencies your customers use.
+Background: this answers the buyer's question openly first, then shows we meet it.
+7. Enterprise
+Headline: Built for the bank and the super app
+Body: SLAs, KYC support, real-time availability and pricing, multi-currency settlement, analytics and a dedicated account team. And as part of HBX Group, Bridgify brings the stability enterprise procurement asks for.
+Proof: 3x the conversion of standard travel marketplaces
+
+8. FAQ
+See FAQ block below.
+9. CTA
+Headline: Discuss your API integration
+Body: Tell us what you're building and where experiences should appear. We'll walk through the integration with you.
+Buttons: "Book a demo" → Contact page · "Read the docs" → Developers page
+Experiences API FAQ
+How does the Bridgify Experiences API work? You integrate once. Bridgify connects to multiple global marketplaces, aggregators and suppliers, normalizes their content into one schema and returns search, availability, pricing and booking through a single API. Your team builds the interface; Bridgify manages the supply behind it.
+What is an API for travel? A travel API lets one system request travel content and bookings from another. A bank app, for example, can show live tours and take bookings without holding any supply itself. Bridgify's Experiences API covers tours, attractions, activities and events.
+What is the difference between a travel API and a booking API? "Travel API" is the broad term for any API that serves travel content, such as flights, hotels or experiences. A booking API is the part that confirms and manages reservations. The Experiences API does both for experiences: discovery content plus booking and cancellation.
+How do I choose the best API for activity inventory? Start with coverage: how many sources, destinations and categories are behind it. Then check real-time availability, content quality, and booking and cancellation handling. A multi-source API gives you more coverage and less dependence on one supplier.
+Which experiences APIs offer real-time availability and pricing? Look for one that checks availability and price live when the traveler searches and again at booking, not from a cached feed. Bridgify's Experiences API returns real-time availability and pricing across 1M+ tours, attractions, activities and events from multiple suppliers, through one integration.
+Why not connect to a single marketplace directly? Going direct gives you one catalog on one supplier's terms. The major marketplaces are strong networks, and they're inside the Bridgify catalog. Bridgify gives you several of them, plus direct suppliers, through one integration and one schema. If you want the deepest relationship with one supplier, go direct. If you want coverage and flexibility, that's what we do.
+
+What is an attraction ticket API? An API that lets a platform sell entry tickets to museums, landmarks, theme parks and other venues: availability, prices, booking and the ticket itself. The Experiences API covers attraction tickets alongside tours, activities and events, from multiple suppliers.
+What's the difference between an attraction ticket API and an activities API? An attraction ticket API sells entry to venues such as museums, landmarks and theme parks. An activities API sells things people do, such as tours, classes and day trips. Most travel brands need both. The Experiences API covers both, plus events, in one schema.
+How do I add attraction tickets to a travel app? Connect to an API that already holds attraction ticket supply, then build search, ticket pages and checkout in your app. With the Experiences API, that's one integration for museums, landmarks and theme parks alongside tours and events. No developers? Link a White-Label Marketplace from your app instead.
+What's the difference between a things-to-do API and a tours and activities API? The terms overlap. "Things to do" is the traveler-facing term and usually covers attractions, tours, activities and events. "Tours and activities" is the supplier-side term. The Experiences API covers the full range.
+Does the API include event tickets? Yes. Live events, including concerts, sports and shows, sit alongside tours, attractions and activities.
+How long does integration take? It depends on how much of the journey you build yourself. Your team integrates one API instead of one per supplier, and our team supports you through it. If you need to launch without development, the White-Label Marketplace goes live in 3 days. 
+
+4. White-Label Marketplace
+URL: /white-label-marketplace (new) · Audience: banks, card issuers, loyalty programs, airlines, hotels · Primary keyword: travel marketplace; white-label travel marketplace
+Title tag
+White-Label Travel Marketplace for Experiences | Bridgify
+Meta description
+Your branded marketplace for tours, attractions, activities and events. 1M+ experiences, search, checkout and payments. No developers needed. Live in 3 days.
+H1 (SEO)
+White-label travel marketplace for tours, attractions and experiences
+
+Section
+Copy
+1. Hero
+Eyebrow / H1: White-label travel marketplace for tours, attractions and experiences
+Headline: Your branded experiences store. No developers needed.
+Body: The Bridgify White-Label Marketplace gives you search, experience pages, reviews, checkout and payments, stocked with 1M+ tours, attractions, activities and events from multiple global suppliers. Your brand and domain on top. Live in 3 days. 
+Buttons: "See a demo store" → Contact page [CONFIRM: or a live demo store URL] · "Talk to us" → Contact page
+Product visual: yes.
+Idea: the same store shown under a few made-up brands (a bank, an airline, a hotel group), so visitors see the branding change while the supply stays.
+2. Product tour
+Headline: From discovery to checkout, under your brand
+Body: AI search, experience details, reviews and checkout in one branded journey, with reporting and loyalty integration behind it. A white-label booking engine for tours and activities that's already built, already stocked and already taking payments.
+Product visual: yes, the store's main screens. [CONFIRM current marketplace screenshots]
+3. Branding and localization
+Headline: Your brand, your markets, your currencies
+Body: Use your branding, domain, languages and currencies. Run it as a travel website, inside your app or as a page in your rewards portal. Every screen feels native to your brand.
+4. What runs underneath
+Headline: You bring the brand. We run everything behind it.
+Body: Peace of mind, built in. Supply, payments, checkout, cancellations and margin optimization run end to end on our side. We run the operation, so you don't have to.
+5. Launch
+Headline: Live in 3 days
+Body: Three days from signature to launch. Bridgify configures your brand, domain and catalog. You provide your logo, domain and payment details.
+6. Build or buy
+Headline: Is it better to build or buy a travel experiences marketplace?
+Body: Building means signing suppliers, mapping content and building search, checkout and payments before you sell anything. Buying means launching on a store where all of that already works. For most brands, buying is faster. Build only if experiences are your core product and you have a team to maintain the supplier connections.
+7. Who it's for
+Headline: For brands that want a store, not a project
+Links: "Loyalty programs and banks" → Loyalty page · "Airlines" → Airlines page · "Hotels" → Hotels page · "Super apps" → Super apps page
+8. Proof
+Stats: 3% average conversion · $280 average order value · 3 tickets per order
+
+9. FAQ
+See FAQ block below.
+10. CTA
+Headline: Discuss your marketplace launch
+Body: Tell us about your audience, markets and brand. We'll define the offering together.
+Button: "Book a demo" → Contact page
+White-Label Marketplace FAQ
+What is a white-label marketplace? A ready-made store you run under your own brand. Bridgify's covers tours, attractions, activities and events, with search, experience pages, reviews, checkout and payments included. You set the branding and the offer; Bridgify runs the supply and commerce behind it.
+What does a fully managed, end-to-end white-label marketplace include? Supply, content, search, checkout, payments, cancellations and customer service, all run by Bridgify under your brand. You provide your logo, domain and payment details. 
+How do I build a white-label travel marketplace? You don't have to build it from scratch. You choose your branding, markets, currencies and offer, and launch a store that already includes supply, checkout and payments. Bridgify configures it for you.
+How long does it take to launch? Three days from signature to launch. Bridgify configures your brand, domain and catalog; you provide your logo, domain and payment details.
+We have no development resources. Can we still launch? Yes. The White-Label Marketplace needs no developers. It's ready to use, under your brand, in days.
+How can a bank launch a branded travel experiences marketplace? The bank launches the White-Label Marketplace under its own brand and links it from its app or card benefits pages. Members can book, pay earn points and redeem them on 1M+ experiences. Bridgify runs the supply and commerce behind it.
+What are the leading white-label travel experiences marketplaces? When you compare them, check three things. How many supply sources are behind the store. Whether it launches without developers. Whether it includes personalization. Bridgify combines the largest experiences catalog available through a single integration, a complete white-label front end and AIyelet personalization, and it's part of HBX Group.
+Which white-label marketplace has AI trip personalization? Bridgify's. AIyelet can run inside the White-Label Marketplace, turning a request like "something romantic in Paris" into bookable suggestions.
+Should I choose the White-Label Marketplace or the API? White-label gets you to market fastest, with no development. The API gives you full control inside your own product. They run on the same supply, so you can start with one and add the other.
+Is there an experiences API that supports white-label travel solutions? Yes. Bridgify's White-Label Marketplace and Experiences API run on the same supply. Launch a branded store with no developers, or build your own front end on the API, and add the other later.
+5. AIyelet: AI personalization
+URL: /aiyelet-ai-personalization (new) · Audience: product leads at OTAs, super apps, banks and loyalty programs · Primary keyword: AI experience recommendations
+Title tag
+AIyelet: AI Tour & Experience Recommendations | Bridgify
+Meta description
+AIyelet recommends the right tours, attractions and activities to each traveler, using intent and context, inside your own product. By Bridgify.
+H1 (SEO)
+AIyelet: AI experience recommendations for tours, attractions and activities
+
+Section
+Copy
+1. Hero
+Eyebrow / H1: AIyelet: AI experience recommendations for tours, attractions and activities
+Headline: Don't give travelers a library. Give them the right book.
+Body: A million experiences only help if each traveler finds the right one. AIyelet reads intent and context and recommends the experiences that fit, inside your app, site or marketplace.
+Buttons: "Try it" → the intent demo further down this page · "Talk to us" → Contact page
+Product visual: yes.
+2. Intent demo
+Headline: Start with what the traveler has in mind
+Demo prompt: "I want to do something romantic in Paris."
+Body: No categories, no filters. Travelers say what they want in their own words, and AIyelet turns it into bookable suggestions.
+Product visual: yes.
+Idea: this could be the most playful moment on the site, for example a few preset prompts ("romantic in Paris", "rainy day with kids in London", "food in Tokyo on a budget") that return experience cards. [CONFIRM whether a live demo is possible or it should be scripted]
+3. How it works
+Headline: Match experiences to what travelers are looking for
+Body: AIyelet combines what the traveler asks for with the context you have, such as destination, dates and travel style, and matches it against 1M+ experiences aggregated from multiple global sources. The result is a short list of relevant activity recommendations, not a generic catalog.
+Inputs and output: Intent · Destination · Dates · Travel style, in. Ranked, bookable experiences, out.
+4. Itineraries
+Headline: From one good suggestion to a full day
+Body: AIyelet can also arrange the experiences it picks within a day or a plan: what to do, when and in what order. Its job is relevance: choosing the experiences that fit this traveler.
+Product visual: yes.
+5. Where it runs
+Headline: AI-powered personalization for tours and activities, inside your product
+Body: The simplest way to offer personalized experiences through an API: AIyelet runs inside your own product, through the Experiences API or inside the White-Label Marketplace. The traveler stays with your brand. The matching happens where your customer already is.
+Links: "Experiences API" → Experiences API page · "White-Label Marketplace" → White-Label Marketplace page
+6. FAQ
+See FAQ block below.
+7. CTA
+Headline: Discuss personalization for your product
+Body: Tell us where customers discover experiences in your product. We'll show you how AIyelet would work there.
+Button: "Book a demo" → Contact page
+AIyelet FAQ
+How do AI experience recommendations work? AIyelet reads traveler intent, profile and context, such as destination and travel style when available. It matches them against more than one million experiences and returns personalized recommendations instead of a generic list.
+Isn't a catalog of a million experiences just noise? Not with AIyelet on top. Bridgify organizes the supply into one clean schema, and AIyelet shows each traveler the few experiences that fit their destination, dates and travel style.
+What is intent-based search? Travelers describe what they want in their own words. "I want to do something romantic in Paris" returns relevant, bookable experiences, without the traveler choosing categories and filters first.
+Is there an AI-powered itinerary planner API for travel platforms? AIyelet is Bridgify's AI personalization layer for experiences. Given a destination, dates and traveler context, it recommends and ranks the experiences that fit and can arrange them within a day or a plan, inside your own product. It doesn't plan the full trip.
+Travelers can book experiences inside AI assistants now. Why add them to our own product? Inside an assistant, the traveler meets the marketplace's brand, and the customer relationship belongs to the marketplace. AIyelet puts the matching inside your product, so you keep the whole trip: the customer, their booking data and the chance to sell them the next experience.
+Can I offer personalized travel experiences without building a recommendation engine? Yes. AIyelet sits on top of Bridgify's supply, so recommendations come through the same integration as the experiences. You don't need to build or train your own model.
+Does personalization work with both the API and the White-Label Marketplace? Yes. AIyelet can power recommendations in your own product through the Experiences API, or inside the White-Label Marketplace under your brand.
+
+6. Developers
+URL: /developers (new) · Audience: engineers and technical PMs · Primary keyword: travel API for developers
+Title tag
+Developers | Bridgify Experiences API Documentation
+Meta description
+Documentation for the Bridgify Experiences API: getting started, API reference and integration support for tours, attractions and activities.
+H1 (SEO)
+Build with Bridgify
+
+Section
+Copy
+1. Hero
+Eyebrow: Travel API for developers
+Headline / H1: Build with Bridgify
+Body: Everything you need to connect to 1M+ tours, attractions, activities and events through one API. One schema across every supplier, real-time availability and pricing, booking and cancellation.
+Buttons: "Read the docs" → API documentation (Redocly) · "Request API access" → Contact page
+Product visual: yes.
+2. Documentation
+Headline: Find what you need
+Entry points, each linking to its section of the API documentation: Getting started · API reference · Search and availability · Booking and cancellation · Authentication [CONFIRM against the Redocly structure]
+3. What good looks like
+Headline: What makes a tours and activities API high performing?
+Body: Fast, accurate answers at the two moments that matter: search and checkout. Cache static content such as descriptions and images, and ask for live availability and price when the traveler searches and books. Handle timeouts and retries cleanly, and monitor booking errors. Our docs show how to do each of these with the Experiences API.
+4. Access and support
+Headline: Talk to us about access and implementation
+Body: Planning an enterprise experiences API integration? Tell us about your product and use case. We'll set up access and give you an integration contact for the whole build. [CONFIRM access flow and whether a sandbox exists]
+Button: "Request API access" → Contact page
+Developers FAQ
+How do I get access to the Bridgify Experiences API? Contact us with your use case. After a short technical and commercial conversation you get credentials, documentation and an integration contact. 
+How do I connect an experiences API to my website? Your developers call the API to search experiences, show details and complete bookings in your own interface. If you'd rather not build a front end, the White-Label Marketplace gives you a branded store instead.
+What are the best practices for travel API integration performance and uptime? Cache static content such as descriptions and images, and request live availability and price when the traveler searches and books. Handle timeouts and retries cleanly, and monitor booking errors. Our docs show how to do each of these with the Experiences API.
+What are the steps to implement an experiences API for travel agencies? (anchor: #implementation-steps)
+Agree on scope: markets, categories and where experiences appear.
+Get credentials and test access.
+Build search and experience pages.
+Build the booking and cancellation flow.
+Test end to end.
+Go live, with monitoring.
+Is there an experiences API with secure payment and cancellation handling? Yes. The booking flow covers payment, confirmation and cancellation, and returns each experience's cancellation policy before checkout. With the API, payment runs through your own checkout; the White-Label Marketplace has payments built in.
+7. OTAs and travel platforms
+URL: /solutions/otas (new) · Audience: product, commercial and partnership leads at OTAs and travel platforms · Primary keyword: B2B travel platform (title tag and hero body)
+Title tag
+Tours & Activities for OTAs | B2B Travel Platform | Bridgify
+Meta description
+Add 1M+ tours, attractions and events to your OTA through one integration: multi-source supply, real-time availability, your brand.
+H1 (SEO)
+Tours, attractions and activities for OTAs and travel platforms
+
+Section
+Copy
+1. Hero
+Eyebrow / H1: Tours, attractions and activities for OTAs and travel platforms
+Headline: You sold them the flight and the room. Now sell them the days in between.
+Body: Whether you run an OTA or a B2B travel platform, add 1M+ tours, attractions, activities and events to your offering through one integration with Bridgify, part of HBX Group. Keep the traveler for the whole trip, not only the booking, without a new supplier contract per destination.
+Buttons: "Book a demo" → Contact page · "See the Experiences API" → Experiences API page
+2. Supply
+Headline: Enterprise multi-source experiences aggregation for OTAs
+Subhead: Expand your supply through one integration
+Body: One API that aggregates multiple global marketplaces, aggregators and suppliers: 1M+ tours, attractions, activities and events through a single integration. Real-time availability and pricing, de-duplicated content. Already selling one marketplace's catalog? Keep it, and add the rest.
+Links: "How the Experiences API works" → Experiences API page · "Read: why multi-source matters" → existing article at /articles/aggregation
+3. Through the trip
+Headline: Recommend experiences throughout the trip
+Moments: At booking · In the confirmation email · In the pre-trip email · In the app at the destination
+Body: Use what you already know about the trip, such as destination, dates and party size, and let AIyelet pick the experiences that fit.
+Link: "How AIyelet picks experiences" → AIyelet page
+Product visual: yes, experiences inside an OTA's own booking journey.
+4. Deployment
+Headline: Embed it in your platform or launch a branded store
+Option 1: The Experiences API plugs into your booking engine as another product line, next to flights and hotels. Link: "See the Experiences API" → Experiences API page
+Option 2: The White-Label Marketplace gives you a branded experiences store that links from your site. No developers needed, live in 3 days. Link: "See the White-Label Marketplace" → White-Label Marketplace page
+5. FAQ
+See FAQ block below.
+6. CTA
+Headline: Discuss adding experiences to your travel platform
+Body: Tell us about your customers, markets and booking flow. We'll recommend the supply and product that fit.
+Button: "Book a demo" → Contact page
+OTAs FAQ
+How do OTAs get one-contract access to experiences? Through an experiences infrastructure provider such as Bridgify. One commercial agreement and one integration give access to more than one million tours, attractions, activities and events from multiple global suppliers, instead of a contract and an API per marketplace.
+How should I evaluate experiences API suppliers that offer multi-source aggregation? Compare four things: the number and quality of supply sources; how content is mapped and de-duplicated; real-time availability and pricing; and enterprise support and SLAs.
+How does an experiences API integrate with booking engines? It plugs into your existing booking engine as another product line. Your engine calls it for search, availability, pricing and booking, then shows experiences next to flights and hotels in the same checkout, or as an add-on after booking.
+What are the best B2B travel API providers for tours, activities and experiences? It depends on the coverage you need. Single-source APIs give you one marketplace's catalog. A multi-source API such as Bridgify's combines several marketplaces, aggregators and direct suppliers behind one integration, so you get more coverage and less dependence on one source.
+Can we keep our existing marketplace connections? Yes. Many of the marketplaces OTAs already work with are inside the Bridgify catalog. You can keep your direct connections, run both, or move them into one integration.
+How can a smaller travel platform compete without a large catalog of tours? Connect to a multi-source catalog instead of building one. With Bridgify, a smaller platform offers the same 1M+ experiences in 180+ countries as a large one, from day one.
+8. Airlines
+URL: /solutions/airlines (new) · Audience: ancillary revenue, digital, loyalty and partnership leads at airlines · Primary keyword: destination experiences API
+Title tag
+Destination Experiences API for Airlines | Bridgify
+Meta description
+Sell tours, attractions and events under your airline's brand, in your booking flow and loyalty program. One destination experiences API, 1M+ experiences.
+H1 (SEO)
+Destination experiences for airlines
+
+Section
+Copy
+1. Hero
+Eyebrow / H1: Destination experiences for airlines
+Headline: Take your customer experience beyond the flight.
+Body: Your passengers know where they're going before anyone else does. Offer them 1M+ tours, attractions, activities and events at their destination, under your airline's brand, with Bridgify, part of HBX Group, running the supply behind it.
+Buttons: "Book a demo" → Contact page · "See the Experiences API" → Experiences API page
+2. Ancillary revenue
+Headline: Earn beyond the flight
+Body: Seats and bags end at the gate. Destination experiences extend the journey past the flight and become part of your ancillary offering, with no supplier network to build. Every booking happens in your channels and earns revenue for you. An experiences API turns the traffic you already have, on your site, app and emails, into ancillary revenue.
+3. The passenger journey
+Headline: Help passengers plan what to do when they land
+Moments: Booking confirmation · Manage my booking · Pre-departure email · App on arrival
+Body: Use destination, dates and party size to make suggestions relevant. And because experiences also work as rewards, members can earn and redeem their miles on them, inside your loyalty program. 
+Link: "Experiences in loyalty programs" → Loyalty page
+Product visual: yes, experiences inside an airline's own channels.
+4. Channels
+Headline: Offer experiences through your own channels
+Body: Embed experiences through the Experiences API, a destination experiences API that aggregates multiple global marketplaces, aggregators and suppliers. Or launch a branded store with the White-Label Marketplace, no developers needed. Either way, no change to your booking engine.
+Links: "See the Experiences API" → Experiences API page · "See the White-Label Marketplace" → White-Label Marketplace page
+5. FAQ
+See FAQ block below.
+6. CTA
+Headline: Plan your airline's experiences offering
+Body: Tell us where experiences could fit into your passenger journey. We'll map the channels and the integration with you.
+Button: "Book a demo" → Contact page
+Airlines FAQ
+What is a destination experiences API? An API that gives an airline or travel brand bookable tours, attractions, activities and events at the passenger's destination. Bridgify's combines multiple suppliers behind one integration, so airlines sell experiences in their own channels without contracting local providers.
+What are the alternatives to a single-supplier destination experiences API? Airlines can contract one marketplace's API, build supplier connections in-house, or connect to a multi-source provider. Bridgify is the third option: multiple marketplaces, aggregators and suppliers in one normalized API, for wider destination coverage through one integration.
+How can airlines make ancillary revenue from tours and activities? Offer destination experiences where passengers already are: the booking flow, confirmation emails, manage-my-booking and the app. With Bridgify, airlines sell 1M+ experiences under their own brand without contracting suppliers or building the infrastructure.
+Where in the passenger journey should airlines offer experiences? At booking, while the trip is being planned. Before departure, when passengers research the destination. And on arrival, in the app.
+Can loyalty members redeem miles for experiences?
+ Yes. Airlines can offer experiences as a miles redemption option, using the same infrastructure Bridgify runs for card and loyalty programs.
+Do we need to change our booking engine? No. Embed experiences through the API in your existing channels, or launch a branded experiences store that links from them.
+9. Loyalty, rewards and financial services
+URL: /solutions/loyalty-programs (new) · Audience: loyalty, travel, product and partnership leads at banks, card issuers, fintechs and loyalty programs · Primary keyword: travel rewards program
+Background: this is the highest-priority page on the site. Bridgify's first partners came from this category, and their sharpest need is points redemption, so the page leads with that.
+Title tag
+Travel Rewards & Experiences for Loyalty Programs | Bridgify
+Meta description
+Give members 1M+ tours, attractions and events to redeem points on, under your brand. A travel rewards marketplace or API, with payments built in.
+H1 (SEO)
+Travel rewards and experiences for loyalty programs and banks
+
+Section
+Copy
+1. Hero
+Eyebrow / H1: Travel rewards and experiences for loyalty programs and banks
+Headline: Your members are sitting on points. Give them something worth spending them on.
+Body: Bridgify, part of HBX Group, gives your travel rewards program 1M+ experiences to redeem on: tours, attractions, activities and events in 180+ countries, inside your rewards flow, under your brand. Launch a branded marketplace or embed experiences in your app.
+Buttons: "Book a demo" → Contact page · "See the White-Label Marketplace" → White-Label Marketplace page
+Product visual: yes, experiences inside a rewards program, redeemable with points.
+2. The redemption problem
+Headline: Points aren't a marketing budget. They're a bill.
+Body: Every point your members hold is a liability on your balance sheet until they redeem it. The fix isn't fewer points. It's a redemption menu members want to use.
+Experiences give members a reason to redeem, and a reason to come back: concerts, cooking classes, a day at the Louvre, plus vouchers and experiential gift cards, in 180+ countries.
+3. Where we come from
+Headline: We started here
+Body: Bridgify's first partners were card issuers and loyalty programs, not travel companies. They had the members and the reach, and wanted experiences their members would come back to. We built the operation behind that: the traveler-facing experience, multi-currency handling, points redemption, reporting, and the team to run it end to end. That's still how we work.
+
+4. Use cases
+Headline: Experiences for cardholders, wallet users and members
+H3: How can banks integrate global experiences into card programs?
+Add a branded experiences store to your card benefits, or embed tours, attractions and activities in your banking app through one API built for digital banking. Cardholders book and pay, earn points or redeem them, without leaving your brand.
+H3: How can loyalty programs add tours as redemption rewards?
+Add an experiences catalog to your travel loyalty program, so members can redeem points on tours, attractions, events, shopping vouchers and experiential gift cards. Bridgify provides the supply, content and booking, and connects to your program through the White-Label Marketplace or the API.
+H3: Experiences in digital wallets and payment apps
+Put bookable experiences where users already pay.
+Link: "Experiences for super apps and fintechs" → Super apps page
+5. Market signal
+Headline: Banks are building travel brands. Every one of them needs redemption options.
+Body: Large card issuers now run dedicated travel sites, apps and cards. Almost all of them also run points programs, and every points program needs rewards worth redeeming. Experiences fill that gap.
+6. Product and operations
+Headline: Choose a marketplace or integrate into your product
+White-Label Marketplace: A branded travel rewards platform with AI search, checkout, payments, reporting,points earning and redemption built in. No developers needed, live in 3 days. Link: "See the White-Label Marketplace" → White-Label Marketplace page
+Experiences API: A rewards and loyalty API for experiences that plugs into the loyalty platform and app you already run. Link: "See the Experiences API" → Experiences API page
+Enterprise line: SLAs, KYC support, multi-currency settlement and real-time availability. Built for banks, not for indie apps.
+7. FAQ
+See FAQ block below.
+8. CTA
+Headline: Discuss an experiences offering for your members
+Body: Tell us about your program, your members and your points currency. We'll help you define the offering and the integration.
+Button: "Book a demo" → Contact page
+Loyalty and financial services FAQ
+How can a bank or loyalty program embed experiences? Two ways. Launch a branded travel rewards marketplace with search, checkout and payments built in, or embed experiences in your existing app through an API. Bridgify provides both, with 1M+ tours, attractions, activities and events from multiple global suppliers behind one integration.
+How do I add experiences redemption to a rewards program? Connect your program to an experiences catalog that accepts your points. With Bridgify, members earn and redeem points on 1M+ experiences inside your rewards flow, and your loyalty engine keeps managing points, tiers and members.
+Which experiences infrastructure solutions power loyalty program redemptions? Bridgify started with card issuers and loyalty programs. It gives members 1M+ tours, attractions, activities and events to redeem points on, through a white-label marketplace or an API, while your loyalty engine keeps managing points, tiers and members.
+What is the best platform to monetize cardholder travel experiences? Look for broad global supply, a branded customer experience, payments and checkout built in, and enterprise reliability. Bridgify, part of HBX Group, gives financial institutions the largest experiences catalog available through a single integration, through a white-label marketplace or an API.
+What are the best secure experience APIs for financial institutions? Look for an enterprise provider with a track record in financial services, KYC support, secure payment handling and clear SLAs. Bridgify started with card issuers and loyalty programs and works with banks and card companies today.
+Does Bridgify replace our loyalty program software? No. Bridgify adds an experiences catalog to the loyalty platform you already run. Your loyalty engine manages points, tiers and members; Bridgify supplies and manages the experiences.
+What are the alternatives to building a travel API for banks and loyalty platforms? Instead of contracting suppliers and building integrations in-house, connect once to an experiences infrastructure provider. Bridgify aggregates multiple suppliers, normalizes the content and handles booking, so your team builds only the customer journey, or none of it with white-label.
+
+10. Travel technology companies
+URL: /solutions/travel-technology (new) · Audience: founders, product and partnership leads at travel software companies, agency platforms and tour-operator systems · Primary keyword: B2B travel agency software
+Title tag
+Add Experiences to B2B Travel Agency Software | Bridgify
+Meta description
+Embed 1M+ tours, attractions and events in your travel software, agency platform or tour-operator system through one API.
+H1 (SEO)
+Embed global experiences in the platform you're building
+
+Section
+Copy
+1. Hero
+Eyebrow: For travel technology companies and B2B travel agency software
+Headline / H1: Embed global experiences in the platform you're building
+Body: Every major experiences network in your product through one API, with Bridgify, part of HBX Group. Your team stays on your core product. We handle the suppliers.
+Buttons: "Book a demo" → Contact page · "Read the docs" → Developers page
+2. Build vs connect
+Headline: How do I avoid integrating dozens of travel suppliers?
+Body: Connect to one provider that has already integrated them. Bridgify connects the supplier networks, normalizes the content into one schema and keeps the connections running.
+Integrating suppliers yourself: one contract, API and data format per source · mapping and de-duplication on your side · maintenance forever
+With Bridgify: one integration · one schema · we maintain it
+3. Use cases
+Headline: Add experience discovery and booking to your product
+H3: Experiences for B2B travel agency software
+Give agents tours, attractions and activities next to the flights and hotels they already sell, with real-time availability and booking, through a travel agency API.
+H3: Activities for tour operators and packages
+Add experiences to packages or sell them as add-ons, with no new supplier contracts per destination.
+H3: Hotel tech, PMS and mobility platforms
+Put experiences inside guest apps and mobility journeys. Links: "Experiences for hotels" → Hotels page · "Experiences for super apps" → Super apps page
+Personalization line: Add AIyelet to suggest experiences based on traveler intent. Link: "Meet AIyelet" → AIyelet page
+Product visual: yes, experiences inside a travel software product.
+4. How to integrate
+Headline: Choose how to integrate and distribute experiences
+Body: Use the Experiences API and build the customer journey inside your platform.
+Links: "See the Experiences API" → Experiences API page · "Implementation steps for developers" → Developers page, implementation steps FAQ
+5. FAQ
+See FAQ block below.
+6. CTA
+Headline: Discuss how experiences fit into your platform
+Body: Tell us what you're building. We'll work through the integration, distribution and customer journey with you.
+Button: "Book a demo" → Contact page
+Travel technology FAQ
+What's the best approach to integrating multiple experience providers into my platform? Use a multi-source experiences provider instead of building and maintaining separate supplier APIs. Mapping, de-duplication, availability sync and booking flows are handled once, upstream, and your team keeps building your core product.
+Is there a travel agency API for tours and activities? Yes. The Bridgify Experiences API gives travel agency software and agent tools access to tours, attractions, activities and events, with real-time availability, pricing and booking.
+What are the most reliable B2B tours distribution platforms? Look for broad supply, real-time availability and pricing, and enterprise support. A single-marketplace API depends on one catalog. A multi-source provider such as Bridgify, part of HBX Group, brings several suppliers together behind one integration, so one missing source doesn't leave a gap.
+Can tour operators add activities to their packages? Yes, through the API or a branded store, with no new supplier contracts per destination.
+Can we resell experiences to our own B2B customers? Yes. Travel technology companies can offer Bridgify’s experiences to the agencies, hotels and operators on their platform, through one integration with the Experiences API. Commercial terms are agreed per partner.
+Is Bridgify a reservation system for tour operators? No. Reservation systems help operators manage their own bookings and channels. Bridgify sits on the other side: it connects supply that's already distributed to the platforms that sell it.
+11. Hotels
+URL: /solutions/hotels (new) · Audience: hotel groups, digital, guest-experience and revenue leads, PMS and hotel-tech providers · Primary keywords: experiences API for hotels, tours and activities for hotels
+Title tag
+Experiences API for Hotels: Tours & Activities | Bridgify
+Meta description
+Add 1M+ tours, attractions and activities to your guest journey, digital concierge or PMS through one experiences API or a branded marketplace.
+H1 (SEO)
+Experiences API for hotels: tours, attractions and activities for your guests
+
+Section
+Copy
+1. Hero
+Eyebrow / H1: Experiences API for hotels: tours, attractions and activities for your guests
+Headline: Your guests didn't travel for the room.
+Body: They came for the city, the beach, the show. Sell the stay and everything around it: 1M+ tours, attractions, activities and events under your hotel brand. Bridgify, part of HBX Group, runs the supply and booking behind it.
+Buttons: "Book a demo" → Contact page · "See the Experiences API" → Experiences API page
+2. The problem and the fix
+Headline: Offer local experiences without managing each supplier
+Body: A bookable experiences offer means suppliers, content and payments in every destination you operate. Bridgify brings all of it through one integration, so your team stays focused on the guest. Hotel ancillary revenue from every tour and ticket, with no new supplier contracts.
+Line: One API that aggregates multiple global marketplaces, aggregators and suppliers: 1M+ tours, attractions, activities and events through a single integration.
+3. Guest journey
+Headline: Make experiences part of the stay
+Moments: Pre-arrival email · Check-in · Guest app and digital concierge · In-room and lobby screens
+Body: Help guests plan before they arrive and discover more while they're there, with suggestions based on the destination and their trip.
+Product visual: yes, experiences inside a hotel's guest journey.
+4. Deployment
+Headline: Fit experiences into your guest journey
+Body: Integrate the Experiences API into your guest app or digital concierge, or launch a White-Label Marketplace under your brand, no developers needed.
+Links: "See the Experiences API" → Experiences API page · "See the White-Label Marketplace" → White-Label Marketplace page
+H3: For PMS and hotel-tech providers
+Add experiences to your PMS, digital concierge or hotel guest experience software through one API, and offer them to every hotel on your platform. Link: "For hotel-tech providers" → Travel technology page
+5. FAQ
+See FAQ block below.
+6. CTA
+Headline: Plan your hotel's experiences offering
+Body: Tell us about your properties, destinations and guest journey. We'll recommend the supply and product that fit.
+Button: "Book a demo" → Contact page
+Hotels FAQ
+How can hotels sell tours and activities to guests? Add bookable local experiences to the channels guests already use: pre-arrival emails, the booking confirmation, the hotel app and in-room screens. With Bridgify, hotels offer 1M+ tours, attractions, activities and events under their own brand.
+How can hotels increase ancillary revenue with local experiences? Every booked tour, ticket or activity earns the hotel revenue, without adding staff or supplier contracts. It adds a revenue line from the destination itself, next to room upsells.
+Can Bridgify integrate with our PMS or guest app? You don’t need an integration. The simplest route for hotels is the White-Label Marketplace: a branded experiences store you link from your guest app, website, pre-arrival emails and in-room screens, live in 3 days. Hotel-tech providers that want experiences inside their own product can use the Experiences API.. 
+Do we need staff to manage experience bookings? No. Bridgify handles supplier connections, content, availability booking and customer service. 
+Do you work with independent hotels? We work with hotel groups and with the technology providers that serve independent and boutique hotels. If you run an independent property, ask your guest-app or booking-engine provider about Bridgify.
+12. Super apps and consumer platforms
+URL: /solutions/super-apps (new) · Audience: product and BD leads at super apps, fintechs, wallets and mobility apps · Primary keyword: travel booking API
+Title tag
+Travel Booking API for Super Apps & Fintechs | Bridgify
+Meta description
+Add 1M+ bookable tours, attractions and events to your super app, wallet or mobility app through one travel booking API or a branded marketplace.
+H1 (SEO)
+A travel booking API for super apps and consumer platforms
+
+Section
+Copy
+1. Hero
+Eyebrow / H1: A travel booking API for super apps and consumer platforms
+Headline: Bring travel experiences into the app people already use.
+Body: Your users pay, ride and plan in your app. Add 1M+ tours, attractions, activities and events, and give them a reason to come back. Bridgify, part of HBX Group, runs the supply and booking.
+Buttons: "Book a demo" → Contact page · "See the Experiences API" → Experiences API page
+Product visual: yes, experiences inside a consumer app.
+2. How to add it
+Headline: How to add tours and activities to a super app
+Subhead: A new offering, without the supplier infrastructure
+Body: Connect one travel booking API instead of dozens of suppliers. One API that aggregates multiple global marketplaces, aggregators and suppliers: 1M+ tours, attractions, activities and events through a single integration. You decide how experiences fit into your app.
+3. Use cases
+Headline: Connect experiences to what users are planning
+H3: Why super apps add travel experiences
+Users already plan, pay and get around through the app. Tours, attractions and events fit the trip they're on, and add a new revenue line.
+H3: How do fintechs embed travel experiences into their apps?
+Through an API inside the app's own checkout and payment flow, or a branded store linked from the app. Users search, book and pay without leaving.
+H3: Experiences in mobility apps
+Suggest things to do where users are heading, at the moment they're heading there.
+
+Personalization line: AIyelet uses destination, location and intent to show the experiences each user is most likely to book. Link: "Meet AIyelet" → AIyelet page
+4. Deployment
+Headline: Choose how experiences fit your platform
+Body: Embed through the Experiences API or launch a White-Label Marketplace, and decide where discovery and checkout sit in your app.
+Links: "See the Experiences API" → Experiences API page · "See the White-Label Marketplace" → White-Label Marketplace page
+5. FAQ
+See FAQ block below.
+6. CTA
+Headline: Discuss an experiences offering for your platform
+Body: Tell us about your users, markets and product. We'll work through the integration and personalization with you.
+Button: "Book a demo" → Contact page
+Super apps FAQ
+How do I add tours and activities to a super app? Connect to an experiences infrastructure provider instead of individual suppliers. With Bridgify, a super app integrates one travel booking API, or launches a branded store, to offer more than one million tours, attractions, activities and events. Bridgify handles supply, content and booking.
+How can fintechs offer bookable tours in-app? Embed the Bridgify Experiences API so users search, book and pay for tours without leaving the app. For a faster launch, use the White-Label Marketplace with payments and checkout built in.
+How do super apps embed travel experiences? As another in-app service. Destination, location and user context surface relevant tours and tickets, and checkout runs through the app's own payment flow.
+Can users stay in our app all the way through checkout? Yes, with the API. Your team builds the interface and checkout inside the app, and Bridgify provides availability, pricing and booking behind it.
+Is there an attractions API for super apps and digital wallets? Yes. The Experiences API covers attraction tickets as well as tours, activities and events, from multiple suppliers. Link: "See the 1M+ experiences behind the API" → Experiences API page, "What's inside" section
+13. Insights
+URL: /blog (unchanged) · Audience: buyers researching the category
+Migration: every existing article and blog post on the current site moves to the new site with its URL unchanged, including /articles/aggregation and /articles/infrastructure. [TBD: full list of current articles from the Base44 site]
+Title tag
+Travel Experiences Insights | Bridgify
+Meta description
+Insights on experience supply, API integration, white-label marketplaces, personalization and loyalty from the Bridgify team, part of HBX Group.
+H1 (SEO)
+Insights on the business of travel experiences
+
+Section
+Copy
+1. Hero
+Headline / H1: Insights on the business of travel experiences
+Body: How brands connect experience supply, build customer journeys and use personalization. Straight answers to the questions buyers ask us, from the Bridgify team.
+2. Start here
+Headline: Two reads that explain the category
+Links: "What is experiences infrastructure?" → existing article at /articles/infrastructure · "Travel aggregators: why multi-source wins" → existing article at /articles/aggregation
+3. Latest
+Headline: Latest from the team
+4. Browse by topic
+Headline: Find the question you're working on
+Topics: Experience supply · API integration · White-label · Personalization · Loyalty and banking · OTAs · Airlines · Hotels
+5. Product bridge
+Headline: See how these ideas work in practice
+Links: "Experiences API" → Experiences API page · "White-Label Marketplace" → White-Label Marketplace page · "AIyelet" → AIyelet page
+6. CTA
+Headline: Have an experiences project in mind?
+Body: Tell us what you're exploring. We'll answer the questions that matter to your team.
+Button: "Talk to us" → Contact page
+14. Careers
+URL: /careers (unchanged)
+Title tag
+Careers at Bridgify | Join the Travel Experiences Team
+Meta description
+Help build the infrastructure behind travel experiences. Open roles at Bridgify, part of HBX Group.
+H1 (SEO)
+Help build the infrastructure behind travel experiences
+
+Section
+Copy
+1. Hero
+Headline / H1: Help build the infrastructure behind travel experiences
+Body: Bridgify, part of HBX Group, connects 1M+ experiences to the apps, sites and rewards programs people use every day. The work is real engineering and real commerce, at real scale.
+Button: "See open roles" → "Open roles" section on this page
+2. The work
+Headline: The problems you'd work on
+Body: Connecting dozens of supplier systems into one schema. Keeping availability and prices right in real time. Matching the right experience to the right traveler with AI. Building commerce that banks and airlines trust.
+3. Team
+Headline: Startup speed, HBX Group scale
+Body: A focused team that ships quickly, now part of one of the world's largest B2B travel distribution networks. [TBD: team size, location, culture points and photos]
+4. Open roles
+Headline: Open roles
+[TBD: open roles, to be added by Yaniv / Shany]
+5. CTA
+Headline: Found a role that fits?
+Body: Apply through the listing and tell us what you'd bring.
+15. Press
+URL: /newsroom (unchanged)
+Migration: every existing newsroom item on the current site moves to the new site with its URL unchanged. One newsroom article currently appears in AI answers for "B2B travel API alternatives for banks and loyalty platforms", so its URL must not change. [TBD: full list of current newsroom items from the Base44 site]
+Title tag
+Bridgify in the Press | News and Announcements
+Meta description
+Coverage, interviews and announcements about Bridgify, part of HBX Group, and the business of travel experiences.
+H1 (SEO)
+Bridgify in the press
+
+Section
+Copy
+1. Hero
+Headline / H1: Bridgify in the press
+Body: Coverage, interviews and announcements about Bridgify and the business of travel experiences.
+2. Featured
+Headline: Bridgify becomes part of HBX Group
+Body: May 2026.
+Link: "Read the announcement" → the HBX Group announcement article in the newsroom
+3. Coverage
+Headline: What they're saying
+Body: Articles and features about Bridgify. [CONFIRM which pieces of media coverage to feature]
+4. Interviews and podcasts
+Headline: Hear from the founders
+Body: Amit Shamni and Yaniv Green on experience distribution, product and where the market is going.
+5. Announcements
+Headline: Company news
+Body: Product launches, partnerships and company updates.
+6. Media contact
+Headline: Writing about travel experiences?
+Body: For interviews, comments and brand assets, email noae@bridgify.io
+
+16. Contact and book a demo
+URL: /contact (unchanged)
+Title tag
+Book a Demo | Bridgify Experiences API and White-Label
+Meta description
+Talk to Bridgify about adding 1M+ tours, attractions and experiences to your product through the Experiences API, White-Label Marketplace or AIyelet.
+H1 (SEO)
+Let's talk about your experiences offering
+
+Section
+Copy
+1. Hero
+Headline / H1: Let's talk about your experiences offering
+Body: Tell us what you want to build and who it's for. We'll show you how the Experiences API, the White-Label Marketplace or AIyelet would fit your business.
+2. What the demo covers
+Headline: A demo about your product, not ours
+Body: Share your customers, markets and channels, and we'll focus on the supply and the product that matter to you.
+3. Form
+Form intro: A few details so the right person replies.
+Fields: Name · Work email · Company · Role · Industry (OTA or travel platform / Airline / Bank, card issuer or loyalty program / Travel technology / Hotel or hotel tech / Super app or consumer platform / Other) · What are you looking for? (Experiences API / White-Label Marketplace / AIyelet / Not sure yet) · Markets you serve · Anything else we should know
+Button: Book my demo
+4. What happens next
+Headline: What happens after you send this
+Step 1: We read it and route it to the right person.
+Step 2: We reply to set up a call. 
+Step 3: On the call, we cover your goals, the integration and next steps.
+5. Not a partner yet?
+Already a partner? Use your support channel or contact your account manager.
+Planning a trip? Bridgify works with businesses, so we can't take bookings here. You'll find our experiences inside our partners' apps and programs.
+Appendix: decisions versus the SEO brief
+The SEO brief was followed for title tags, meta descriptions, H1s, keyword placement, the aggregators line and the FAQ blocks. The rule of thumb where it departs: the website has to make sense to a buyer first. These are the places the copy differs from the brief.
+SEO brief
+In this draft
+Why
+Keep all existing URLs; Experiences API at /products; a separate "Attractions API" page at /attractions-api
+One Experiences API page at /experiences-api, with the coverage and supplier content merged in. /attractions-api 301s to it. /products 301s to the homepage Products section. New pages use URLs that match their names: /aiyelet-ai-personalization, /solutions/travel-technology, /solutions/super-apps
+Bridgify has three products. URLs and pages follow the products so the site makes sense; the keywords and FAQs moved with the content.
+Nav label "White-label travel marketplace"; "AI experience recommendations"
+"White-Label Marketplace" and "AIyelet: AI personalization" in the nav; the search phrases stay in titles and H1s
+Product names follow the canonical names.
+Merchant and affiliate inventory as a commercial choice
+Removed everywhere. No commercial model on the site
+Bridgify doesn't offer affiliate; commercial terms are for the sales conversation.
+"Launch in weeks", "7-day activation", $320 average transaction, 4% look-to-book
+White-Label Marketplace: "live in 3 days", "no developers needed"; $280 average order value and 3% average conversion in White-Label contexts only; no time claim for the API
+Only approved proof points are used, matching the HBX sales materials.
+
+
+
+Two delivery options on the homepage
+Three products, with a "Which product is right for you?" guide on the homepage
+The three-products-one-layer structure is a core differentiator.
+"Aggregator of aggregators", "experiences aggregator" for Bridgify
+Not used to describe Bridgify
+Bridgify is positioned as infrastructure, not an aggregator.
+Third-party comparison articles and rankings as proof
+Not used anywhere on the site
+Bridgify's own facts (HBX Group, scale, partner numbers) carry the proof instead.
+"B2B travel platform" as the OTA keyword; "B2B travel company" on About
+"B2B travel platform" kept in the OTA title tag only; About uses "B2B traveltech company"
+Bridgify is positioned as infrastructure and as a traveltech company.
+Fixed inventory list "tours, attractions, activities and events"
+Kept everywhere, plus shopping vouchers and experiential gift cards where full breadth is described (Experiences API and loyalty pages)
+Those categories matter most to loyalty buyers.
+Loyalty page opens on engagement
+Opens on points redemption and the cost of unredeemed points
+Redemption is the sharpest need for banks and loyalty programs, and it's where Bridgify started.
+"Inventory" as the umbrella word
+"Supply" for the category
+Brand vocabulary.
+Appendix: open items to confirm before launch
+Full list of current blog articles and newsroom items to migrate, with their URLs.
+Pricing wording for the "How much does it cost?" FAQs (homepage, Experiences API, loyalty).
+A typical API integration timeline we can publish, if any.
+
+AIyelet data handling and privacy wording; whether the intent demo can be live or should be scripted.
+Security certifications and validations for the homepage strip (ISO, GDPR and others); none should be named until confirmed.
+API access flow, sandbox, and the documentation entry points against the Redocly structure.
+If the architecture diagram carries over from the current site: confirm the "REST API · Webhooks" label before it appears. Drop the "99.9% uptime" line.
+Named PMS integrations; customer-service ownership for bookings.
+B2B2B resale terms.
+HBX Group description wording, approved with HBX.
+Team names, roles and photos; advisory board; founder bios; extra timeline milestones.
+Open roles (Yaniv / Shany).
+Amit's sign-off on the "points are a bill" line on the loyalty page, since his article on it isn't published yet.
+Supplier names (Viator, GetYourGuide, Tiqets, Klook, Musement) and client names and logos (AMEX Israel, Isracard, Max, Moovit, Pango): removed site-wide pending clearance. To be restored once cleared.
+Final URLs and 301s (/experiences-api, /aiyelet-ai-personalization, /solutions/travel-technology, /solutions/super-apps; /attractions-api to /experiences-api; /products to the homepage Products section), to share with the SEO agency and developer.
+Which media coverage to feature on the Press page; press email, press kit and the HBX announcement link.
+Marketplace screenshots and demo store; whether per-city coverage counts can be shown.
+Response time promise on the contact page.
+
+Note for the SEO agency: changes in this round
+Three changes in this round affect the SEO brief:
+Supplier names are removed from every page until Bridgify clears them. The supporting keywords "Viator API" and "GetYourGuide API" on the Experiences API page are paused. The FAQ "Does Bridgify include the Viator API?" is removed, and "Why not connect to Viator or GetYourGuide directly?" now reads "Why not connect to a single marketplace directly?". We'll restore the names and keywords once cleared
+Client names and logos are removed from every page until cleared.
