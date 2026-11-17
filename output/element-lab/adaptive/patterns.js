@@ -224,7 +224,84 @@
     expander(el, {lines, trigger: more});
   }
 
-  window.BridgifyAdaptive = {MQ, menu, scroller, tabs, rowLinks, footer, fit, zoomFit, expander, reduce, fold};
+  /* 11. Pinned stations (phones): the stage stays on screen while the page scrolls, and the scroll moves the reader
+     through its stations one by one (a trip, a passenger journey). The page's own height grows by one "step" per
+     station, so the reader is never trapped: scrolling past the last station simply carries on. Off with reduced
+     motion and on wider screens, where the stage is an ordinary block. els: the elements that form the stage. */
+  function pin(els, o = {}) {
+    els = [].concat(els).filter(Boolean); if (!els.length || els[0].closest('.ad-pin')) return null;
+    const w = document.createElement('div'); w.className = 'ad-pin';
+    const st = document.createElement('div'); st.className = 'ad-pin-stage';
+    els[0].before(w); w.append(st); els.forEach(e => st.append(e));
+    if (o.className) w.classList.add(o.className);
+    // sticky needs every ancestor to let it stick: hidden/auto overflow becomes clip (same clipping, no scroll box)
+    for (let a = w.parentElement; a && a !== document.body; a = a.parentElement) {
+      const c = getComputedStyle(a); if (/hidden|auto|scroll/.test(c.overflowX + c.overflowY)) a.style.setProperty('overflow', 'clip', 'important');
+    }
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const steps = o.steps || 2, per = () => Math.round(innerHeight * (o.per || .5));
+    const head = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ad-header-h')) || 64;
+    let last = -1, raf = 0, top = 0;
+    const layout = () => {
+      const on = MQ.mobile.matches && !reduced.matches;
+      w.classList.toggle('is-on', on);
+      if (!on) { w.style.height = ''; st.style.top = ''; return; }
+      top = Math.max(head() + 12, Math.round((innerHeight - st.offsetHeight) / 2));
+      st.style.top = top + 'px';
+      w.style.height = (st.offsetHeight + per() * (steps - 1)) + 'px';
+      tick();
+    };
+    const tick = () => {
+      raf = 0; if (!w.classList.contains('is-on')) return;
+      const run = Math.max(1, w.offsetHeight - st.offsetHeight);
+      const p = Math.max(0, Math.min(1, (top - w.getBoundingClientRect().top) / run));
+      if (o.onProgress) o.onProgress(p);
+      const i = Math.min(steps - 1, Math.round(p * (steps - 1)));
+      if (i !== last) { last = i; if (o.onStep) o.onStep(i); }
+    };
+    addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(tick); }, {passive: true});
+    addEventListener('resize', layout); MQ.mobile.addEventListener('change', layout); reduced.addEventListener('change', layout);
+    if (window.ResizeObserver) new ResizeObserver(() => requestAnimationFrame(layout)).observe(st);
+    layout();
+    return {wrap: w, stage: st, go: i => scrollTo({top: w.getBoundingClientRect().top + scrollY - top + per() * i, behavior: 'smooth'})};
+  }
+
+  /* 12. Hold and rise (phones): the first scroll does not move the section; only `mover` rises (its negative top
+     margin grows one pixel per pixel scrolled) over what is above it, `run` pixels in all; then the page goes on.
+     `els` are the elements that hold (they go into a holder of fixed height with a sticky stage inside, so the stage
+     shrinks exactly as fast as the holder scrolls away). base(): the overlap at rest; run(): how far mover rises. */
+  function hold(els, mover, o = {}) {
+    els = [].concat(els).filter(Boolean); if (!els.length || !mover || els[0].closest('.ad-hold')) return null;
+    for (let a = els[0].parentElement; a && a !== document.body; a = a.parentElement) {
+      const c = getComputedStyle(a); if (/hidden|auto|scroll/.test(c.overflowX + c.overflowY)) a.style.setProperty('overflow', 'clip', 'important');
+    }
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const w = document.createElement('div'); w.className = 'ad-hold' + (o.className ? ' ' + o.className : '');
+    const st = document.createElement('div'); st.className = 'ad-hold-stage';
+    els[0].before(w); w.append(st); els.forEach(e => st.append(e));
+    let base = 0, run = 0, top = 0;
+    const on = () => MQ.mobile.matches && !reduced.matches;
+    const set = v => mover.style.setProperty('margin-top', -Math.round(v) + 'px', 'important');
+    const measure = () => {
+      w.style.height = ''; st.style.position = ''; st.style.top = '';
+      base = o.base ? o.base() : 0; set(base);
+      if (!on()) { mover.style.removeProperty('margin-top'); return; }
+      run = Math.max(0, o.run ? o.run() : 0);
+      w.style.height = st.offsetHeight + 'px';
+      top = Math.round(w.getBoundingClientRect().top + scrollY);
+      st.style.position = 'sticky'; st.style.top = top + 'px';
+      tick();
+    };
+    const tick = () => { if (!on() || !run) return; const s = Math.max(0, Math.min(run, top - w.getBoundingClientRect().top)); set(base + s); };
+    let raf = 0; addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; tick(); }); }, {passive: true});
+    const rest = () => { if (scrollY < 2 || top - w.getBoundingClientRect().top < 1) measure(); };
+    addEventListener('resize', measure); addEventListener('bf-shown', measure); addEventListener('load', () => setTimeout(measure, 200));
+    if (window.ResizeObserver) els.filter(e => e !== mover).forEach(e => new ResizeObserver(() => requestAnimationFrame(rest)).observe(e));
+    measure();
+    return {wrap: w, stage: st, measure};
+  }
+
+  window.BridgifyAdaptive = {MQ, menu, scroller, tabs, rowLinks, footer, fit, zoomFit, expander, reduce, fold, pin, hold};
   const boot = () => { menu(); footer(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
@@ -306,4 +383,39 @@
   };
   tag();  // at once, before the first paint; again when the document is complete
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', tag);
+})();
+
+/* Product cards as a stack (solutions pages, phones): the covered card steps back, as on the homepage products. */
+(() => {
+  const grid = document.querySelector('.xc .xc-grid'); if (!grid) return;
+  const mq = matchMedia('(max-width:599px)'), reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const cards = [...grid.children]; let raf = 0;
+  for (let a = grid.parentElement; a && a !== document.body; a = a.parentElement) {
+    const c = getComputedStyle(a); if (/hidden|auto|scroll/.test(c.overflowX + c.overflowY)) a.style.setProperty('overflow', 'clip', 'important');
+  }
+  const paint = () => { raf = 0;
+    cards.forEach((c, i) => { const n = cards[i + 1];
+      if (!mq.matches || reduced.matches || !n) { c.style.removeProperty('scale'); c.style.removeProperty('filter'); return; }
+      const r = c.getBoundingClientRect(), q = n.getBoundingClientRect(), p = Math.max(0, Math.min(1, (r.bottom - q.top) / r.height));
+      c.style.setProperty('scale', String(1 - p * .08)); c.style.setProperty('filter', `brightness(${1 - p * .45})`); });
+  };
+  addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(paint); }, {passive: true}); addEventListener('resize', paint); paint();
+})();
+
+/* One heading style (see patterns.css): every coloured word in a section heading that is not already the moving
+   gradient gets it, in the dark-section or the light-section colours, decided by the heading's own text colour. */
+(() => {
+  const lum = c => { const m = c.match(/[\d.]+/g); if (!m) return 1; const [r, g, b] = m.map(Number); return (0.299 * r + 0.587 * g + 0.114 * b) / 255; };
+  const run = () => document.querySelectorAll('section h1:not(.copy-seo), section h2').forEach(h => {
+    const hc = getComputedStyle(h);
+    [...h.querySelectorAll('span, em')].forEach(a => {
+      if (a.closest('.ad-ink') || a.querySelector('span, em')) return;
+      const c = getComputedStyle(a);
+      if (c.animationName && c.animationName !== 'none') return;              // already the moving gradient
+      const coloured = c.backgroundImage !== 'none' || c.color !== hc.color;
+      if (!coloured || !a.textContent.trim()) return;
+      a.classList.add('ad-ink'); if (lum(hc.color) < .5) a.classList.add('ad-ink-light');
+    });
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
 })();

@@ -95,14 +95,19 @@ window.DEMOS = [
    "trim",
    "steps"
   ],
-  "plan": "40 שורות קוד ב־6.3px. מראים 2 ספקים במקום 5, כל אחד ב־4 שורות ב־12px, ו־\"לפני / אחרי\" כמתג במקום מחוון גרירה. ב\"אחרי\": אובייקט Bridgify אחד ב־6 שורות.",
+  "plan": "מתג \"לפני / אחרי\" במקום מחוון הגרירה, בגודל אמיתי. \"לפני\": חמשת פידי הספקים כגלילה הצידה, קוד ב־12px. \"אחרי\": אובייקט Bridgify אחד ב־12px וכרטיס ההזמנה שנוצר ממנו. בטאבלט נשאר המחוון.",
   "shot": "demos/api-01.jpg",
   "scale": 0.82,
   "minfs": 6.3,
   "small": 0.98,
   "past": 0,
   "screen": 0.6,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/nz-before.jpg",
+   "after/nz-after.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "api",
@@ -111,14 +116,18 @@ window.DEMOS = [
   "patterns": [
    "trim"
   ],
-  "plan": "הבלוק גבוה מהמסך (113%). הקטגוריות מ־5 ל־3 ותוצאות החיפוש מ־3 ל־2, בגודל הקיים.",
+  "plan": "חמש הקטגוריות הופכות לשורת צ׳יפים אחת שנגללת הצידה (כולן נשארות, אף שם לא נחתך), ובתוצאות 2 חוויות במקום 3. שורת ה־GET יורדת שורה במקום להיחתך. הבלוק ירד מ־113% מגובה המסך לכשני שלישים.",
   "shot": "demos/api-02.jpg",
   "scale": 1,
   "minfs": 11,
   "small": 0.06,
   "past": 0,
   "screen": 1.13,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/ex-after.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "api",
@@ -128,14 +137,20 @@ window.DEMOS = [
    "bleed",
    "trim"
   ],
-  "plan": "הטלפון מוקטן ל־68% והטקסט 9px. מראים אותו בגודל אמיתי, חתוך בתחתית (רואים את הטיול ואת כרטיס החוויה הראשון). הכרטיס השני יורד, ושורת ה־API נשארת 12px.",
+  "plan": "הטלפון בגודל אמיתי (במקום 68%), חתוך בתחתית הבמה, עם פס ה־API מעל החיתוך. שלבי הסיפור (גילוי, בחירת שעה, תשלום) ממשיכים להתחלף, וכל הטקסט בטלפון קריא.",
   "shot": "demos/api-03.jpg",
   "scale": 0.68,
   "minfs": 9,
   "small": 0.78,
   "past": 0,
   "screen": 0.51,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/cj-after-0.jpg",
+   "after/cj-after-1.jpg",
+   "after/cj-after-2.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "marketplace",
@@ -144,14 +159,18 @@ window.DEMOS = [
   "patterns": [
    "trim"
   ],
-  "plan": "במצב טוב יחסית (10px). החוויות המומלצות מ־3 ל־2 בגודל אמיתי.",
+  "plan": "שתי חוויות מומלצות במקום שלוש, רחבות יותר, והתוויות ב־11px. שאר החנות נשארה כמו שהיא.",
   "shot": "demos/marketplace-00.jpg",
   "scale": 1,
   "minfs": 10,
   "small": 0.22,
   "past": 0,
   "screen": 0.72,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/mk-after-hero.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "marketplace",
@@ -161,14 +180,18 @@ window.DEMOS = [
    "phone",
    "steps"
   ],
-  "plan": "מסכי דפדפן מוקטנים ל־78%. מסך טלפון אחד בגודל אמיתי לכל שלב (Search · Experience · Reviews · Checkout), עם הטאבים שכבר יש.",
+  "plan": "בלי הקטנה: בגודל אמיתי הסיור מסתדר לבד לרוחב הטלפון (540px, נכנס במסך). כל ארבעת השלבים נשארים עם הטאבים.",
   "shot": "demos/marketplace-02.jpg",
   "scale": 0.78,
   "minfs": 9,
   "small": 0.85,
   "past": 0,
   "screen": 0.63,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/mk-after-tour.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "marketplace",
@@ -177,14 +200,18 @@ window.DEMOS = [
   "patterns": [
    "phone"
   ],
-  "plan": "מסך טלפון בגודל אמיתי עם כרטיס חוויה אחד שמחליף שפה ומטבע, במקום חלון דפדפן מוקטן.",
+  "plan": "בלי הקטנה: התצוגה בגודל אמיתי (420px), והמחיר €39.00 מודגש ב־28px כמספר מרכזי.",
   "shot": "demos/marketplace-04.jpg",
   "scale": 0.78,
   "minfs": 9,
   "small": 0.56,
   "past": 0,
   "screen": 0.5,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/mk-after-loc.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "marketplace",
@@ -194,14 +221,19 @@ window.DEMOS = [
    "rise",
    "trim"
   ],
-  "plan": "הכי בעייתי: הבלוק מוקטן ל־42% ותופס 131% מהמסך. הימים נשארים בגודל אמיתי, ותצוגת החנות נצמדת למסך (sticky) ומתחלפת לפי היום תוך כדי גלילה. אפשרות פשוטה יותר: להוריד את תצוגת החנות בטלפון, כי היא כבר מופיעה בהירו.",
+  "plan": "שלושת הימים כטקסט על קו עם נקודות, בלי קופסאות. החנות בגודל אמיתי (במקום 42%), עם תמונת כיסוי נמוכה יותר וחוויה מומלצת אחת.",
   "shot": "demos/marketplace-08.jpg",
   "scale": 0.42,
   "minfs": 9,
   "small": 0.42,
   "past": 0,
   "screen": 1.31,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/mk-after-launch.jpg",
+   "after/mk-st2-store.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "personalization",
@@ -210,14 +242,18 @@ window.DEMOS = [
   "patterns": [
    "trim"
   ],
-  "plan": "כמו בדף הבית: שדות ב־13px לפחות.",
+  "plan": "כמו בדף הבית: התוויות 11px, הערכים שזוהו (Romantic, Paris) ב־17px, ושורת ה־Context ב־13px.",
   "shot": "demos/personalization-01.jpg",
   "scale": 1,
   "minfs": 9,
   "small": 0.45,
   "past": 0,
   "screen": 0.29,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/ai-after-intent.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "personalization",
@@ -226,14 +262,18 @@ window.DEMOS = [
   "patterns": [
    "deck"
   ],
-  "plan": "הכרטיסים יוצאים מהמסך והכיתובים 8.4px. כרטיס אחד ברוחב מלא ובגודל אמיתי, והבא מציץ מאחוריו. מחליקים ביד, כמו חפיסה.",
+  "plan": "חפיסה: כרטיס אחד בכל פעם, ברוחב מלא ובגודל אמיתי. הכרטיסים שמאחוריו מופיעים רק כשולי החפיסה מתחתיו, במקום מניפה של כרטיסים זעירים שבורחת מהמסך. הכרטיס הראשי ממשיך להתחלף לבד.",
   "shot": "demos/personalization-04.jpg",
   "scale": 1,
   "minfs": 8.4,
   "small": 0.55,
   "past": 74,
   "screen": 0.34,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/ai-after-deck.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "personalization",
@@ -243,14 +283,19 @@ window.DEMOS = [
    "steps",
    "trim"
   ],
-  "plan": "80% מהטקסט קטן. מתג אחד בין \"בלי\" ל\"עם\", בגודל אמיתי, ו־2 תוצאות במקום 4.",
+  "plan": "המתג \"בלי / עם AIyelet\" נשאר. הדפדפן בגודל אמיתי (במקום מוקטן), עם תמונות נמוכות יותר כדי שייכנס. כל הטקסט קריא, 11px ומעלה.",
   "shot": "demos/personalization-05.jpg",
   "scale": 1,
   "minfs": 9,
   "small": 0.8,
   "past": 0,
   "screen": 0.77,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/ai-after-embed.jpg",
+   "after/ai-after-embed2.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "otas",
@@ -260,14 +305,18 @@ window.DEMOS = [
    "trim",
    "rise"
   ],
-  "plan": "מוקטן ל־75%, טקסט 6px, וגולש 394px. שלושה כרטיסים זה מתחת לזה בגודל אמיתי: Already sold ← The days in between (3 תמונות) ← You keep the traveler. הברקוד והשורה התחתונה יורדים.",
+  "plan": "הכרטיס בגודל אמיתי (במקום 75%), התמונות של \"הימים שבאמצע\" נמוכות יותר. כל הטקסט 11px ומעלה, ושום דבר לא בורח מהמסך.",
   "shot": "demos/otas-00.jpg",
   "scale": 0.75,
   "minfs": 6,
   "small": 0.69,
   "past": 394,
   "screen": 0.83,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/z2-otas-0.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "otas",
@@ -277,14 +326,18 @@ window.DEMOS = [
    "figure",
    "trim"
   ],
-  "plan": "מוקטן ל־74%. \"3 סוגי מקורות → אינטגרציה אחת\" בגדול, ורשת התמונות מ־6 ל־3.",
+  "plan": "הדיאגרמה בגודל אמיתי (במקום 74%): שלושת סוגי המקורות ← Bridgify ← 3 תמונות במקום 6.",
   "shot": "demos/otas-01.jpg",
   "scale": 0.74,
   "minfs": 9,
   "small": 0.89,
   "past": 0,
   "screen": 0.85,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/z2-otas-1.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "otas",
@@ -294,14 +347,18 @@ window.DEMOS = [
    "peek",
    "trim"
   ],
-  "plan": "הגלילה נשארת. בתוך כל כרטיס פריטי הטיול יורדים מ־3 ל־2, כדי שהכרטיס ייכנס בגובה המסך.",
+  "plan": "הגלילה הצידה נשארת; הטקסט בתוך הכרטיסים הועלה ל־11px לפחות.",
   "shot": "demos/otas-02.jpg",
   "scale": 1,
   "minfs": 9,
   "small": 0.16,
   "past": 1611,
   "screen": 0.96,
-  "scroller": true
+  "scroller": true,
+  "after": [
+   "after/otas-rc-rc.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "otas",
@@ -311,14 +368,19 @@ window.DEMOS = [
    "trim",
    "open"
   ],
-  "plan": "טקסט של 5.8px. שורת קוד אחת ב־13px ושורת תוצאה אחת (תמונה, שם, מחיר) בגודל אמיתי. לחיצה פותחת את ההדגמה המלאה. תיקון אחד מכסה את OTAs, Airlines, Hotels, Loyalty, Travel Tech ו־Super Apps.",
+  "plan": "רכיב משותף לששת עמודי הפתרונות, תוקן פעם אחת: במקום מיניאטורות ב־5.8–8.5px, כל כרטיס מראה את העיקר בגודל אמיתי, אחד מתחת לשני. Experiences API: ארבע שורות קוד ב־12.5px והתוצאה באפליקציה. White-Label: החנות עם שתי חוויות.",
   "shot": "demos/otas-04.jpg",
   "scale": 1,
   "minfs": 5.8,
   "small": 0.63,
   "past": 0,
   "screen": 0.58,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/otas-xc-api.jpg",
+   "after/otas-xc-wl.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "airlines",
@@ -328,14 +390,18 @@ window.DEMOS = [
    "bleed",
    "trim"
   ],
-  "plan": "מוקטן ל־68%. הטלפון בגודל אמיתי וחתוך: אישור ההזמנה למעלה וחוויה אחת מתחתיו.",
+  "plan": "הטלפון בגודל אמיתי (במקום 68%), כל הטקסט קריא ו־11px ומעלה.",
   "shot": "demos/airlines-07.jpg",
   "scale": 0.68,
   "minfs": 9,
   "small": 0.87,
   "past": 0,
   "screen": 0.63,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/z2-airlines-0.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "hotels",
@@ -345,14 +411,18 @@ window.DEMOS = [
    "bleed",
    "trim"
   ],
-  "plan": "מוקטנת ל־67%. המפה בגודל אמיתי, חתוכה סביב המרכז, עם 2 נקודות מסומנות. הרשימה שמתחתיה יורדת.",
+  "plan": "המפה בגודל אמיתי (במקום 67%), עם הטאבים והנקודות קריאים.",
   "shot": "demos/hotels-01.jpg",
   "scale": 0.67,
   "minfs": 8.1,
   "small": 0.74,
   "past": 0,
   "screen": 0.57,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/z2-hotels-0.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "hotels",
@@ -362,14 +432,18 @@ window.DEMOS = [
    "phone",
    "trim"
   ],
-  "plan": "מוקטן ל־67% עם טקסט 5.3px. המייל כמו באפליקציית מייל בטלפון: נושא, תמונה, חוויה אחת וכפתור, בגודל אמיתי.",
+  "plan": "המייל בגודל אמיתי (במקום 67%), עם תמונה נמוכה יותר; \"IN PARIS\" עלה ל־11px.",
   "shot": "demos/hotels-04.jpg",
   "scale": 0.67,
   "minfs": 5.3,
   "small": 0.52,
   "past": 0,
   "screen": 0.66,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/z2-hotels-1.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "loyalty-finance",
@@ -378,14 +452,18 @@ window.DEMOS = [
   "patterns": [
    "trim"
   ],
-  "plan": "מוקטן ל־81%. יתרת הנקודות והטבה אחת או שתיים בגודל אמיתי.",
+  "plan": "אתר ההטבות בגודל אמיתי (במקום 81%).",
   "shot": "demos/loyalty-finance-00.jpg",
   "scale": 0.81,
   "minfs": 9.7,
   "small": 0.46,
   "past": 0,
   "screen": 0.64,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/z2-loyalty-finance-0.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "loyalty-finance",
@@ -395,14 +473,18 @@ window.DEMOS = [
    "phone",
    "trim"
   ],
-  "plan": "מוקטן ל־64%. הכרטיס והטבה אחת בגודל אמיתי. ההטבה השנייה יורדת.",
+  "plan": "הטבות הכרטיס בגודל אמיתי (במקום 64%).",
   "shot": "demos/loyalty-finance-03.jpg",
   "scale": 0.64,
   "minfs": 9,
   "small": 0.77,
   "past": 0,
   "screen": 0.57,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/z2-loyalty-finance-1.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "travel-technology",
@@ -411,14 +493,18 @@ window.DEMOS = [
   "patterns": [
    "trim"
   ],
-  "plan": "18 שורות מוקטנות ל־57%. 6 השורות החשובות ב־12px mono, והאייקונים בצד יורדים.",
+  "plan": "הקוד בגודל אמיתי (במקום 57%) ב־12px, בלי סרגל האייקונים בצד, והחלון בגובה התוכן.",
   "shot": "demos/travel-technology-00.jpg",
   "scale": 0.57,
   "minfs": 9,
   "small": 1,
   "past": 24,
   "screen": 0.69,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/z2-travel-technology-0.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "travel-technology",
@@ -428,14 +514,19 @@ window.DEMOS = [
    "steps",
    "trim"
   ],
-  "plan": "הבלוק גבוה מהמסך (120%) והטקסט 8px. מתג בין \"לבד\" ל\"עם Bridgify\", ו־3 תמונות במקום 6.",
+  "plan": "שתי האפשרויות אחת מתחת לשנייה ברוחב מלא (היו שתי עמודות צרות). תוקן באג: הדיאגרמה הייתה ברוחב 0 בטלפון, והתגיות (XML, JSON...) ברחו מהמסך ונחתכו.",
   "shot": "demos/travel-technology-01.jpg",
   "scale": 1,
   "minfs": 8,
   "small": 0.14,
   "past": 0,
   "screen": 1.2,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/travel-technology-ti-a.jpg",
+   "after/travel-technology-ti-b.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "super-apps",
@@ -445,14 +536,18 @@ window.DEMOS = [
    "bleed",
    "trim"
   ],
-  "plan": "מוקטן ל־80%. הטלפון בגודל אמיתי וחתוך בתחתית. שורת אייקוני השירותים יורדת.",
+  "plan": "אפליקציית ה־Super App בגודל אמיתי (במקום 80%); ב־iPhone SE מוקטנת ל־85% כדי להיכנס לעמודה.",
   "shot": "demos/super-apps-00.jpg",
   "scale": 0.8,
   "minfs": 9,
   "small": 0.84,
   "past": 0,
   "screen": 0.66,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/z2-super-apps-0.jpg"
+  ],
+  "status": "נבנה במעבדה"
  },
  {
   "page": "super-apps",
@@ -461,13 +556,17 @@ window.DEMOS = [
   "patterns": [
    "rise"
   ],
-  "plan": "מוקטן ל־74%. הטלפון נצמד למסך (sticky) בגודל אמיתי, ושלבי הסיפור עולים מעליו בגלילה, כמו בדסקטופ.",
+  "plan": "הטלפון של הסיפור בגודל אמיתי (במקום 74%).",
   "shot": "demos/super-apps-04.jpg",
   "scale": 0.74,
   "minfs": 10.4,
   "small": 0.65,
   "past": 0,
   "screen": 0.6,
-  "scroller": false
+  "scroller": false,
+  "after": [
+   "after/z2-super-apps-1.jpg"
+  ],
+  "status": "נבנה במעבדה"
  }
 ];

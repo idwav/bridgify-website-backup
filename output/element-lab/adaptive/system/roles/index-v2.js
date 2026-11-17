@@ -26,7 +26,7 @@ window.BridgifyRoles = {
     ],
     [
      "visual",
-     "div.bv2-hero-copy > div.bv2-hero-proof"
+     "div.bv2-hero-copy > div.ad-hero-flow"
     ]
    ],
    "hero": true
@@ -39,7 +39,7 @@ window.BridgifyRoles = {
      "div.trust-copy > h2"
     ],
     [
-     "text",
+     "sub",
      "div.trust-copy > p"
     ],
     [
@@ -47,7 +47,7 @@ window.BridgifyRoles = {
      "div.trust-stat"
     ],
     [
-     "content",
+     "foot",
      "div.trust-footnote"
     ]
    ]

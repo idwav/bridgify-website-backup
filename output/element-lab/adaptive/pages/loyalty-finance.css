@@ -47,3 +47,25 @@
   html body #section-3 .lu-choice>button,html body #section-3 .lu-choice>button *{font-size:15px!important;line-height:1.2!important}
 }
 @media (max-width:1023px){ html body section#we-started-here:not(#ad-x),html body section#market-signal:not(#ad-x),html body section.lf-section:not(#ad-x){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important} }
+
+/* Solutions demos at real size (phones, 16 Nov 2026; plan in output/element-lab/demos.html): the lab used to shrink
+   these with zoom (57-81%). At real size they reflow to the phone and stay readable; tall ones are trimmed of demo items. */
+@media (max-width:599px){
+  html body #section-1 .lr-demo:not(#ad-x),html body #section-3 .lu-panels:not(#ad-x){zoom:1!important}
+}
+
+/* Round 11 (17 Nov 2026), phones */
+@media (max-width:599px){
+  /* Hero: copy sticks under the header; the demo rises over it at its own size, on an opaque ground */
+  html body #section-1.lf-hero:not(#ad-x){overflow:clip!important}
+  html body #section-1 .lf-heading:not(#ad-x){position:sticky!important;top:calc(var(--ad-header-h) + 8px);z-index:0;transform-origin:50% 0;align-self:start}
+  html body #section-1 .lr-demo:not(#ad-x){position:relative;z-index:1;zoom:1!important;background:#140d0c;border-radius:18px;box-shadow:0 -24px 48px rgba(0,0,0,.5)}
+  /* Use cases are peers, not a sequence: the three choices sit side by side as chips, the explanation of the chosen
+     one under them, then its preview */
+  html body #section-3 .lu-tabs:not(#ad-x){display:flex!important;flex-wrap:wrap!important;gap:8px!important;height:auto!important}
+  html body #section-3 .lu-tabs button:not(#ad-x){order:0;flex:none!important;width:auto!important;min-height:40px!important;height:40px!important;padding:0 14px!important;font-size:14px!important}
+  html body #section-3 .lu-tabs .lu-explanation:not(#ad-x){order:1;flex:1 0 100%!important;margin-top:8px!important}
+  html body #section-3 .lu-tabs .lu-choice:not(.is-active) .lu-explanation{display:none!important}
+  html body #section-3 .lu-panels:not(#ad-x){zoom:1!important}
+}
+@media (max-width:599px) and (prefers-reduced-motion:reduce){ html body #section-1 .lf-heading{position:static!important} }

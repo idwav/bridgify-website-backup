@@ -73,11 +73,11 @@ window.BridgifyRoles = {
     ],
     [
      "control",
-     "div.hs-copy > div.hs-steps"
+     "div.hs-steps"
     ],
     [
      "content",
-     "#hs-panel-0 > div.hs-mail-window"
+     "div.hs-preview"
     ]
    ]
   },
@@ -95,10 +95,6 @@ window.BridgifyRoles = {
     [
      "text",
      "header.xc-head > p"
-    ],
-    [
-     "control",
-     "div.ad-seg"
     ],
     [
      "content",

@@ -15,6 +15,9 @@
   /* gap between two roles → token name */
   const pair = (a, b, hero) => {
     if (a === 'more') a = 'text';                       // Read more belongs to its paragraph
+    if (a === 'title' && b === 'sub') return 'gap-title-sub'; // a one-line subtitle belongs to its title
+    if (a === 'sub') a = 'text';
+    if (b === 'foot') return 'gap-to-foot';             // closing lines under figures or cards (sentence, link, note)
     if (b === 'visual' || (hero && b === 'content')) return 'gap-to-visual';
     if (a === 'label') return 'gap-label-title';
     if (a === 'title' && b === 'text') return 'gap-title-text';
@@ -89,7 +92,8 @@
         // ...and so does every layout box between the hero and its first item (the homepage centred its copy)
         if (S.hero) [sec, ...chain(first, sec)].forEach(w => { const c = getComputedStyle(w); if (!/flex|grid/.test(c.display)) return;
           set(w, 'align-content', 'start'); if (!/column/.test(c.flexDirection) && /flex/.test(c.display)) set(w, 'align-items', 'flex-start'); else if (/grid/.test(c.display)) set(w, 'align-items', 'start'); else set(w, 'justify-content', 'flex-start'); });
-        set(sec, 'padding-bottom', tok('section-y'));
+        // a full-bleed stage that ends the section (MOBILE-RULES M5) meets the next section directly
+        set(sec, 'padding-bottom', last.classList && last.classList.contains('ad-bleed') ? '0px' : tok('section-y'));
       }
       // inside a group (FAQ rows): no extra space between members beyond their own borders
       items.forEach(i => i.els.slice(1).forEach(el => set(el, 'margin-top', '0px')));

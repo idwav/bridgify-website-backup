@@ -222,3 +222,96 @@
   html body #section-4 .ad-seg{margin:20px 0 14px!important}
   html body #section-4.ad-tabs-on .ad-dots{display:none!important}
 }
+
+/* The two product cards on every solutions page ("Embed it in your platform or launch a branded store"), phones,
+   16 Nov 2026. Their pictures were miniatures drawn at 5.8-8.5px. Now each shows its point at real size, stacked:
+   Experiences API: four lines of code at 12.5px (request, answer, title, price) and the result it becomes in the app.
+   White-Label: the branded store with two experiences. Only demo items are trimmed. One rule for all six pages. */
+@media (max-width:599px){
+  html body .xc-card .xc-vis:not(#ad-x):not(#ad-y):not(#ad-z){flex:none!important;aspect-ratio:auto!important;contain:none!important;height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important;display:flex!important;flex-direction:column;gap:10px;padding:14px!important}
+  html body .xc-card .xc-vis:not(#ad-x)>*{position:static!important;inset:auto!important;transform:none!important;width:auto!important;height:auto!important;max-height:none!important;margin:0!important;flex:none!important;overflow:visible!important}
+  html body .xc-card .xc-app-card:not(#ad-x){overflow:hidden!important}
+  html body .xc-card .xc-link{display:none!important}
+  html body .xc-card .xc-code header span{font-size:11px!important;width:auto!important;height:auto!important}
+  html body .xc-card .xc-code pre{font-size:12.5px!important;line-height:1.6!important;padding:8px 12px!important;white-space:pre-wrap!important;overflow-wrap:anywhere;height:auto!important}
+  html body .xc-card .xc-code pre>span{line-height:1.6!important;height:auto!important;width:auto!important}
+  html body .xc-card .xc-code pre *{font-size:inherit!important}
+  html body .xc-card .xc-code pre>span:nth-child(3),html body .xc-card .xc-code pre>span:nth-child(n+6){display:none!important}
+  html body .xc-card .xc-app-top{height:auto!important;padding:8px 12px!important;gap:8px!important}
+  html body .xc-card .xc-app-top span{font-size:13px!important;width:auto!important;height:auto!important}
+  html body .xc-card .xc-app-top em{font-size:11px!important;width:auto!important;height:auto!important;margin-inline-start:auto}
+  html body .xc-card .xc-app-label{font-size:11px!important;height:auto!important;padding:6px 12px 0!important}
+  html body .xc-card .xc-app-card{display:grid!important;grid-template-columns:84px 1fr;gap:12px;width:auto!important;height:auto!important;margin:8px 12px 12px!important;align-items:center}
+  html body .xc-card .xc-app-card img{width:84px!important;height:64px!important;object-fit:cover;border-radius:8px}
+  html body .xc-card .xc-app-card>div{width:auto!important;height:auto!important;padding:0!important}
+  html body .xc-card .xc-app-card strong{font-size:15px!important;width:auto!important;height:auto!important}
+  html body .xc-card .xc-app-card small{font-size:12px!important;width:auto!important;height:auto!important}
+  html body .xc-card .xc-app-card p,html body .xc-card .xc-app-card p *{font-size:13px!important;height:auto!important;width:auto!important}
+  html body .xc-card .xc-tag{font-size:11px!important;align-self:flex-start;padding:4px 10px!important}
+  /* White-Label card */
+  html body .xc-card .xc-badge{font-size:11px!important;order:-2;align-self:flex-start}
+  html body .xc-card .xc-swatches{order:-1;align-self:flex-start;display:flex!important;gap:6px}
+  html body .xc-card .xc-store .bar{height:auto!important;padding:7px 10px!important}
+  html body .xc-card .xc-store .bar span{font-size:11px!important;width:auto!important;height:auto!important}
+  html body .xc-card .xc-store nav{height:auto!important;padding:8px 10px!important;flex-wrap:wrap;gap:6px 10px}
+  html body .xc-card .xc-store nav b{font-size:13px!important;width:auto!important;height:auto!important}
+  html body .xc-card .xc-store nav span,html body .xc-card .xc-store nav u{font-size:11px!important;width:auto!important;height:auto!important}
+  html body .xc-card .xc-store nav em{font-size:11px!important;width:auto!important;height:auto!important}
+  html body .xc-card .xc-store h5{font-size:17px!important;line-height:1.25!important;margin:4px 10px 8px!important;width:auto!important;height:auto!important}
+  html body .xc-card .xc-store .search{height:auto!important;padding:8px 10px!important;margin:0 10px!important;width:auto!important}
+  html body .xc-card .xc-store .search span{font-size:12px!important;width:auto!important;height:auto!important}
+  html body .xc-card .xc-store .search b{font-size:11px!important;width:auto!important;height:auto!important}
+  html body .xc-card .xc-store .cards{grid-template-columns:1fr 1fr!important;gap:8px!important;padding:10px!important;height:auto!important}
+  html body .xc-card .xc-store .cards>div:nth-child(n+3){display:none!important}
+  html body .xc-card .xc-store .cards>div{width:auto!important;height:auto!important}
+  html body .xc-card .xc-store .cards img{width:100%!important;height:70px!important;object-fit:cover}
+  html body .xc-card .xc-store .cards strong{font-size:13px!important;width:auto!important;height:auto!important}
+  html body .xc-card .xc-store .cards small{font-size:12px!important;width:auto!important;height:auto!important}
+  html body .xc-card .xc-vis :is(span,small,em,b,i,p,div,strong,u){font-size:max(11px,1em)}
+}
+
+/* Pinned stations (patterns.js pin): the stage sticks while its stations scroll by. */
+@media (max-width:599px){
+  .ad-pin.is-on>.ad-pin-stage{position:sticky;z-index:1}
+  .ad-pin.is-on .ad-scroller{scroll-snap-type:none!important}
+}
+
+/* Product cards as a stack (solutions pages, phones, 17 Nov 2026): the homepage products component. The two cards
+   ("Experiences API", "White-Label Marketplace") pile up as the reader scrolls: each sticks under the header, the next
+   slides over it and the covered one steps back (patterns.js). Type as on the homepage cards: name Chillax Light 22,
+   text Sofia 16/1.55, and the call to action a text link with a coral arrow (no frame). The store demo shows at full
+   strength (it used to wait at 35% for an entrance that phones never trigger). */
+@media (max-width:599px){
+  html body .xc .xc-grid:not(#ad-z){display:block!important;overflow:visible!important;scroll-snap-type:none!important;padding:0!important;gap:0!important;mask-image:none!important;-webkit-mask-image:none!important}
+  html body .xc .xc-grid:not(#ad-z)>.xc-card{position:sticky!important;width:auto!important;max-width:none!important;margin:0 0 16px!important;transform-origin:50% 0;background:#1A120F!important;box-shadow:0 -12px 32px #0009}
+  html body .xc .xc-grid:not(#ad-z)>.xc-card:nth-child(1){top:calc(var(--ad-header-h) + 8px + 12px)!important}
+  html body .xc .xc-grid:not(#ad-z)>.xc-card:nth-child(2){top:calc(var(--ad-header-h) + 8px + 24px)!important;margin-bottom:0!important}
+  html body .xc .xc-grid+.ad-dots,html body .xc .ad-seg{display:none!important}
+  html body .xc .xc-body h3:not(#ad-x){font:300 22px/1.2 Chillax,sans-serif!important;letter-spacing:-.44px!important;color:#EEE9DE!important;margin:0!important}
+  html body .xc .xc-body .xc-desc:not(#ad-x){font:400 16px/1.55 Sofia,sans-serif!important;letter-spacing:-.3px;color:#D7C9BD!important;margin:12px 0 20px!important}
+  html body .xc .xc-cta:not(#ad-x){min-height:0!important;padding:10px 0!important;margin:-10px 0!important;border:0!important;background:none!important;box-shadow:none!important;gap:10px!important;color:#EEE9DE!important;font:550 16px/1.25 Sofia,sans-serif!important}
+  html body .xc .xc-cta:not(#ad-x) i{width:auto!important;height:auto!important;background:none!important;color:#F46649!important;border-radius:0!important}
+  html body .xc .xc-app:not(#ad-x){opacity:1!important;transform:none!important}
+}
+
+/* One heading style (phones, 17 Nov 2026). The homepage, API and White-Label headings are the reference: Chillax 400,
+   28/32, -0.7px, and the coloured words in a moving gradient (coral → peach → cream and back, 5s). The solutions pages
+   carried their own versions: still two-stop gradients at other angles and colours, a flat coral in "Choose how",
+   a Medium-weight alias of Chillax ("InfoChillax") on Super Apps, and normal letter spacing on some light sections.
+   patterns.js marks every coloured word that is not already the moving one; these rules make it the reference. */
+@media (max-width:599px){
+  html body section :is(h1,h2):not(.copy-seo):not(#ad-x){font-family:Chillax,sans-serif!important;font-weight:400!important;letter-spacing:-.7px!important}
+  html body :is(h1,h2) .ad-ink:not(#ad-x){font-family:inherit!important;font-weight:inherit!important;font-style:normal!important;color:#f48b73!important;
+    background-image:linear-gradient(110deg,#f46649 0%,#ff967b 23%,#ffe2c6 43%,#f88b72 60%,#f46649 78%,#ffb49a 100%)!important;background-size:240% 100%!important;
+    -webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important;animation:v2-ink-flow 5s ease-in-out infinite alternate!important}
+  html body :is(h1,h2) .ad-ink.ad-ink-light:not(#ad-x){color:#d9482c!important;background-image:linear-gradient(110deg,#cf3f25 0%,#e5573a 30%,#e8603f 50%,#d9482c 72%,#cf3f25 100%)!important}
+}
+@keyframes v2-ink-flow{from{background-position:0% 50%}to{background-position:100% 50%}}
+@media (prefers-reduced-motion:reduce){ html body :is(h1,h2) .ad-ink{animation:none!important} }
+
+/* The weight behind the headings (phones). The reference pages load Chillax Regular for weight 400 (API, White-Label:
+   the woff2; homepage: the OTF). The solutions pages load only Light (300) and Medium (500), so a 400 heading was drawn
+   with the nearest face, Medium: visibly thicker. Here every page gets the same Regular file for 400. */
+@media (max-width:599px){
+  @font-face{font-family:Chillax;src:url("/Chillax_Complete/Fonts/WEB/fonts/Chillax-Regular.woff2") format("woff2"),url("/Chillax_Complete/Fonts/OTF/Chillax-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+}
