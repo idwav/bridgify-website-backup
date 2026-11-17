@@ -100,6 +100,7 @@
   const applyAll = () => { apply(); if (MQ.matches) mirrorSteps(); };
   // the gaps as they render now, against the token each one should have
   const report = () => last.map(p => ({section: p.section, pair: p.a + '→' + p.b, token: p.token, want: p.want,
+    x: Math.round(p.bEl.getBoundingClientRect().left + scrollX), y: Math.round(p.bEl.getBoundingClientRect().top + padTop(p.bEl) + scrollY),
     // measured from the lowest thing above it in its column: under a split heading that is the longer column
     got: Math.round((p.bEl.getBoundingClientRect().top + padTop(p.bEl)) - Math.max(p.aEl.getBoundingClientRect().bottom - padBot(p.aEl), ...p.above.filter(e => { const r = e.getBoundingClientRect(), b = p.bEl.getBoundingClientRect();
       // only what sits in b's own column (starts within b's horizontal span) and above it
