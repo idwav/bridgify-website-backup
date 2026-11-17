@@ -26,6 +26,17 @@ PAGES = {
     "section": "#an-title, #ak-title, #cx-title, #am-title, #af-title, #ae-title, #faq .copy-inner > h2, #bf-cta-title",
     "card": "#integration .am-build h3, #integration .am-managed h3",
     "buttons": "section .hero-actions a, section a.brand-action, .bf-cta-actions a"},
+  "marketplace": {"url": "marketplace.html", "roles": "roles-marketplace.js", "css": ["marketplace-trial.css"],
+    "pairs": [["#section-2", "h2.tour-title", "header > p"], ["#section-3", "h2", "header.wl-heading > p"], ["#section-4", "#commerce-title", "header.wo-heading > p"]],
+    "hero": "#section-1 h1.copy-seo",
+    "section": "#section-2 h2.tour-title, #section-3 .wl-heading h2, #commerce-title, #launch-title, #bb-title, #ma-title, #results-title, #faq .copy-inner > h2",
+    "card": "#section-3 .wl-details h3, #section-5 .launch-setup h3, #build-or-buy .bc-card-heading h3, #marketplace-audiences .ma-industry-card h3",
+    "buttons": "section .actions a, section a.brand-action, .bf-cta-actions a"},
+  "personalization": {"url": "personalization.html", "roles": "roles-personalization.js", "css": ["personalization-trial.css"], "pairs": None,
+    "hero": "x-none",
+    "section": "#section-2 .intent-heading h2, #section-3 .match-head h2, #section-4 .embed-heading h2, #day-itinerary header h2, #faq .copy-inner > h2",
+    "card": "#section-4 .embed-shell h3, #day-itinerary .day-start h3, #day-itinerary .day-plan h3",
+    "buttons": "section a.brand-action, .bf-cta-actions a"},
 }
 P = PAGES[PAGE]
 BASE = "http://127.0.0.1:8084/" + P["url"]
@@ -59,7 +70,7 @@ MEASURE = r"""([m, S]) => {
    const boxed = !!s.querySelector('.sec2-in, .hc2-box, .bf-cta-card');
    return {id: s.id || s.className.split(' ')[0], left: Math.round(x), label: !boxed && lbl && vis(lbl) ? Math.round(lbl.getBoundingClientRect().left) : null}; }).filter(Boolean);
  // G2: editorial text past the right margin (visuals, demos and full-bleed art excluded)
- const skip = '[aria-hidden=true], .hm-stage, .intent-stage, .pr-card-visual, .v2e-proof, .v2e-art, .hc2-demo, .bv2-hero-visual, .pb-panels, .pr-grid, .audience-grid, svg, header, footer, .site-footer, .trust-stat';
+ const skip = '[aria-hidden=true], .market-demo, .presentation, .screens, .wl-preview-stage, .launch-workspace, .bc-comparison, .wo-stack, .results-panel, .match-workspace, .embed-shell, .day-layout, iframe, .ahc-visual, .nz-wrap, .ex-app, .cj-stage, .am-panel, .hm-stage, .intent-stage, .pr-card-visual, .v2e-proof, .v2e-art, .hc2-demo, .bv2-hero-visual, .pb-panels, .pr-grid, .audience-grid, svg, header, footer, .site-footer, .trust-stat';
  out.g2 = m == null ? [] : [...document.querySelectorAll('section h1, section h2, section p, section .brand-action')].filter(e => vis(e) && !e.closest(skip))
    .filter(e => e.getBoundingClientRect().right > cw - m + 1.5).map(e => ({t: e.innerText.trim().slice(0, 40), over: Math.round(e.getBoundingClientRect().right - (cw - m))}));
  // T1 / T2: text sizes by role; local redefinitions of the type tokens

@@ -3,13 +3,13 @@
    - a tablet state of its own (600–1023) with fixed sizes, so 600–760 no longer runs the phone formula;
    - every homepage section title, inner heading and the hero read the tokens, with one line height per role.
    Two homepage sections redefine the tokens locally (home-products-v2.css, home-why-v2.css: card clamp(22px,1.7vw,28px); opportunity-study.css: section);
-   they are reset to the shared values here. (Other pages do the same: insights, press, marketplace; for the migration.)
+   they are reset to the shared values here. Pages that set their own scale on body[data-copy-page] (marketplace, insights, press) are reset the same way.
    Phone (≤599) is not touched. Diagram and demo text keep their own scale. Injected by live.html. */
 @media (min-width: 600px) and (max-width: 1023px) {
-  html:root, html body :is(#products.pr2, #why-bridgify.wy2, #opportunity-study.pb2) { --type-hero: 40px; --type-section: 36px; --type-card: 24px; --type-body: 16px; --type-lead: 16px; --type-cta: 16px; --type-eyebrow: 12px; }
+  html:root, html body[data-copy-page], html body :is(#products.pr2, #why-bridgify.wy2, #opportunity-study.pb2) { --type-hero: 40px; --type-section: 36px; --type-card: 24px; --type-body: 16px; --type-lead: 16px; --type-cta: 16px; --type-eyebrow: 12px; }
 }
 @media (min-width: 1024px) {
-  html:root, html body :is(#products.pr2, #why-bridgify.wy2, #opportunity-study.pb2) { --type-hero: clamp(40px, 3.6vw, 60px); --type-section: clamp(36px, 3vw, 44px); --type-card: clamp(24px, 1.9vw, 28px); --type-body: 16px; --type-lead: 16px; --type-cta: 16px; --type-eyebrow: 12px; }
+  html:root, html body[data-copy-page], html body :is(#products.pr2, #why-bridgify.wy2, #opportunity-study.pb2) { --type-hero: clamp(40px, 3.6vw, 60px); --type-section: clamp(36px, 3vw, 44px); --type-card: clamp(24px, 1.9vw, 28px); --type-body: 16px; --type-lead: 16px; --type-cta: 16px; --type-eyebrow: 12px; }
 }
 @media (min-width: 600px) {
   /* hero */

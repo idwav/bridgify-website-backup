@@ -1,0 +1,23 @@
+/* Lab only · the approved system on the AIyelet (personalization) page (17 Nov 2026). Loaded after the shared layers.
+   Phone (≤599) is not touched. personalization.html: every section on the one content line (section-3 used 3.6%,
+   the intent heading had its own 22px inset), card headings on the shared token. The hero is the embedded AIyelet
+   demo (an iframe with its own layout); it keeps its frame. */
+@media (min-width: 600px) {
+  html body :is(section#section-2, section#section-3, section#section-4, section#day-itinerary) {
+    padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important;
+  }
+  html body:not(#bf-lab) section#faq.copy-faq.copy-faq { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
+  html body #section-2 .intent-heading { padding-left: 0 !important; }
+  html body :is(#section-2 .intent-heading h2, #section-3 .match-head h2, #section-4 .embed-heading h2, #day-itinerary header h2, #faq .copy-inner > h2) {
+    font-size: var(--type-section) !important; line-height: 1.2 !important;
+  }
+  html body :is(#section-4 .embed-shell h3, #day-itinerary :is(.day-start, .day-plan) h3) { font-size: var(--type-card) !important; line-height: 1.25 !important; }
+  html body #day-itinerary header > p { font-size: var(--type-lead) !important; }
+  /* the start card sat centred against the taller plan; both columns start under the heading */
+  html body #day-itinerary .day-layout { align-items: start !important; }
+}
+/* Tablets and an iPad Pro held upright: the full-screen sections (min-height 100vh, content centred) become as tall
+   as their content plus section-y. The embedded AIyelet hero keeps its own frame. */
+@media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body :is(section#section-2, section#section-3, section#section-4) { min-height: 0 !important; }
+}

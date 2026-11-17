@@ -13,6 +13,9 @@
   // active step, and the same gaps are then given to the other steps (mirrorSteps).
   const ACT = 'article.wy-step.is-active ';
   const WIDE = {'#why-bridgify': {after: 'control', item: ['sub', ACT + 'div.wy-copy > h4'], scope: ['div.wy-copy > p', 'div.wy-copy > a.wy-more']}};
+  // marketplace hero: the map's title class (h2.ad-hero-title) is gone from this page; its title is the SEO h1 (shown
+  // from desktop) and the h2 promise under it
+  if (MAP.page === 'marketplace') MAP.sections.forEach(S => S.items.forEach(i => { if (i[1] === 'div.block-copy > h2.ad-hero-title') i[1] = 'div.block-copy > :is(h1.copy-seo, h2)'; }));
   MAP.sections.forEach(S => { const x = WIDE[S.section]; if (!x || S.items.some(i => i[1] === x.item[1])) return;
     S.items.forEach(i => { if (x.scope.includes(i[1])) i[1] = ACT + i[1]; });
     const k = S.items.findIndex(i => i[0] === x.after); if (k >= 0) S.items.splice(k + 1, 0, x.item); });
@@ -92,7 +95,8 @@
         const rowBox = B.els.length === 1 && chain(b, ca).find(w => { const c = getComputedStyle(w); return /flex/.test(c.display) && !/column/.test(c.flexDirection) && [...w.children].filter(x => x.getBoundingClientRect().width > 1).length > 1; });
         if (rowBox) { set(b, 'margin-top', '0px'); set(rowBox, 'margin-top', ((g - padBot(a)) / z) + 'px'); }
         else row.forEach(e => set(e, 'margin-top', ((g - padBot(a) - padTop(e)) / z) + 'px'));
-        last.push({section: S.section, a: A.role, b: B.role, token: name, want: g, aEl: a, bEl: b, above: items.slice(0, k).flatMap(I => I.els)});
+        const targets = rowBox ? [rowBox] : row;
+        last.push({section: S.section, a: A.role, b: B.role, token: name, want: g, aEl: a, bEl: b, above: items.slice(0, k).flatMap(I => I.els), targets, z});
       }
     });
   };
@@ -103,8 +107,15 @@
       ['margin-top', 'padding-top', 'border-top-width', 'margin-bottom', 'padding-bottom'].forEach(prop => { const v = src.style.getPropertyValue(prop); if (!v) return;
         steps.forEach(st => { if (st === act) return; const el = st.querySelector(sel); if (el) set(el, prop, v); }); }); });
   };
-  const applyAll = () => { apply(); if (MQ.matches) mirrorSteps(); };
+  const applyAll = () => { apply(); if (MQ.matches) { correct(); mirrorSteps(); } };
   // the gaps as they render now, against the token each one should have
+  // the gap as it renders: from the lowest thing above b in its own column to b's top
+  const gapOf = p => Math.round((p.bEl.getBoundingClientRect().top + padTop(p.bEl)) - Math.max(p.aEl.getBoundingClientRect().bottom - padBot(p.aEl), ...p.above.filter(e => { const r = e.getBoundingClientRect(), b = p.bEl.getBoundingClientRect();
+      return r.height > 1 && r.top < b.top && r.left >= b.left - 2 && r.left < b.right; }).map(e => e.getBoundingClientRect().bottom)));
+  // one correction pass: whatever a page adds between two items that the map does not name (an inner padding, a
+  // stray margin, an empty row) is taken off the margin, so the gap that renders is the table's value
+  const correct = () => last.forEach(p => { const d = p.want - gapOf(p); if (Math.abs(d) <= 1) return;
+    p.targets.forEach(t => { const m = parseFloat(t.style.getPropertyValue('margin-top')) || 0; set(t, 'margin-top', (m + d / p.z) + 'px'); }); });
   const report = () => last.map(p => ({section: p.section, pair: p.a + '→' + p.b, token: p.token, want: p.want,
     x: Math.round(p.bEl.getBoundingClientRect().left + scrollX), y: Math.round(p.bEl.getBoundingClientRect().top + padTop(p.bEl) + scrollY),
     // measured from the lowest thing above it in its column: under a split heading that is the longer column

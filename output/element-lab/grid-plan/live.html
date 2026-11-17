@@ -71,11 +71,20 @@ body.clean .bar{display:none}
   const PAGES = {
     home: { src: '../../../index-v2.html?version=2', roles: 'roles-index-v2.js', layer: null, pairs: null },
     api: { src: '../../../api.html?version=2', roles: 'roles-api.js', layer: 'api-trial.css',
-      pairs: [['#whats-inside', 'h2', 'header.ex-head > p'], ['#api-features', 'h2', 'header.ck-head > p']] }
+      pairs: [['#whats-inside', 'h2', 'header.ex-head > p'], ['#api-features', 'h2', 'header.ck-head > p']] },
+    marketplace: { src: '../../../marketplace.html?version=2', roles: 'roles-marketplace.js', layer: 'marketplace-trial.css',
+      pairs: [['#section-2', 'h2.tour-title', 'header > p'], ['#section-3', 'h2', 'header.wl-heading > p'], ['#section-4', '#commerce-title', 'header.wo-heading > p']] },
+    personalization: { src: '../../../personalization.html?version=2', roles: 'roles-personalization.js', layer: 'personalization-trial.css', pairs: [], script: 'personalization-hero.js' }
   };
   const PG = PAGES[q.get('p')] ? q.get('p') : 'home', CFG = PAGES[PG];
   let pageCss = '';
   if (CFG.layer) fetch(CFG.layer, { cache: 'no-store' }).then(r => r.text()).then(t => { pageCss = t; inject(); });
+  // a page script (e.g. the AIyelet hero's tablet layout), run once per load inside the page
+  let pageJs = '';
+  const pageScript = () => { let d, w; try { d = f.contentDocument; w = f.contentWindow; } catch (e) { return; }
+    if (!pageJs || !d || !d.body || d.URL === 'about:blank' || w.__bfPageScript || S.v === 'today') return;
+    w.__bfPageScript = true; const sc = d.createElement('script'); sc.textContent = pageJs; d.body.appendChild(sc); };
+  if (CFG.script) fetch(CFG.script, { cache: 'no-store' }).then(r => r.text()).then(t => { pageJs = t; pageScript(); });
   const NAME = { today: 'היום', 1440: 'A · תוכן עד 1440', 1560: 'B · תוכן עד 1560' };
   const ORDER = ['1440', '1560', 'today'];
   const f = document.getElementById('f'), frame = document.getElementById('frame'), lines = document.getElementById('lines'), stage = document.getElementById('stage');
@@ -231,7 +240,7 @@ body.clean .bar{display:none}
     else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { const i = ORDER.indexOf(S.v); setVersion(ORDER[(i + (e.key === 'ArrowLeft' ? 1 : 2)) % 3]); e.preventDefault(); }
   }
   addEventListener('keydown', keys);
-  f.addEventListener('load', () => { inject(); header(); typ(); tabHero(); layout(); spacing(); align(); try { f.contentWindow.addEventListener('keydown', keys); } catch (e) {} });
+  f.addEventListener('load', () => { inject(); header(); typ(); tabHero(); pageScript(); layout(); spacing(); align(); try { f.contentWindow.addEventListener('keydown', keys); } catch (e) {} });
   addEventListener('resize', () => { layout(); meas(); });
   f.src = CFG.src;
   layout();

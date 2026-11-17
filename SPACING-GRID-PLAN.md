@@ -387,6 +387,24 @@
 - **בדיקה:** `grid-check.py --page=api` עובר 47/47. דף הבית עדיין עובר 52/52.
 - **קישור:** `now-api.html`. צילומים: `trial-space/api-1920-hero.jpg`, ‏`api-1920-split.jpg`, ‏`api-tablet.jpg`.
 
+## 6ב · White-Label ו־AIyelet לפי אותה שיטה (ניסוי, 17 בנובמבר 2026)
+**הבקשה (המשתמש):** "אותה חשיבה, בדיוק באותה דרך", ל־White-Label ול־AIyelet. מעבדה בלבד, וקבצי האתר לא השתנו.
+- **שכבות:** השכבות המשותפות, מפות התפקידים של המובייל (`roles-marketplace.js` ו־`roles-personalization.js` מ־PR #9), ‏`marketplace-trial.css` ו־`personalization-trial.css`. להירו של AIyelet נוסף `personalization-hero.js`.
+- **מה תוקן:**
+  - **קו התוכן:** ‏White-Label ישב על 4%. ב־AIyelet ‏section-3 ישב על 3.6%, ולכותרת של section-2 היה עוד 22px פנימי. עכשיו כולם על קו אחד, עם תקרה של 1560.
+  - **גדלי טקסט:**
+    - **סולם פרטי:** ‏`marketplace-type.css` הגדיר סולם משלו על `body[data-copy-page]` ‏(2.9vw / 1.7vw). מעכשיו `type-wide.css` מאפס כל סולם כזה, וזה חל גם על insights ו־press.
+    - **גדלים חורגים:** ליד 18 ← 16, ‏labels ‏13 ← 12, כותרת "Your launch timeline" ‏24 ← טוקן.
+    - **חריג נשמר:** החריג ב־`TYPOGRAPHY.md` נשמר. ה־h1 של ה־SEO בגודל hero, וההבטחה בגודל כרטיס.
+  - **כותרות מפוצלות** (White-Label: ‏From discovery, ‏Your brand, ‏You bring the brand): הטקסט בעמודה 7, ראשו מול ראש הכותרת.
+  - **טאבלט לאורך:**
+    - **סקשנים בגובה מסך:** בשני העמודים הסקשנים היו בגובה מסך מלא (`min-height: 100vh`, תוכן ממורכז), ונשארו פסים ריקים גדולים. עכשיו הגובה לפי התוכן, ועוד section-y.
+    - **ההירו של White-Label:** מוערם.
+    - **ההירו של AIyelet** (דף נפרד בתוך iframe, במה של 1600×900): מקבל את הפריסה המוערמת שלו לטלפון, עם ערכי הטאבלט. כותרת 56 ב־12.9 ו־48 ב־11, והמסגרת ברוחב התוכן. הכול נכנס במסך.
+- **שיפור במנוע הריווח (כל העמודים):** אחרי שהריווח נקבע, הוא נמדד בפועל ומתוקן פעם אחת. כך כל דבר שהעמוד מוסיף בין שני פריטים, כמו ריווח פנימי, margin תועה או יישור למרכז, יורד מה־margin. בזכות זה נסגרו גם החריגים המתועדים בדף הבית.
+- **בדיקה:** ‏`grid-check.py`: ‏White-Label 47/47, ‏AIyelet 47/47, ‏API 47/47, דף הבית 47/47.
+- **קישורים:** `now-marketplace.html`, ‏`now-personalization.html`. צילומים: `trial-space/whitelabel-aiyelet-ipad11.jpg`, ‏`aiyelet-whitelabel-ipadpro.jpg`, ‏`whitelabel-1920.jpg`, ‏`aiyelet-1920.jpg`.
+
 ## שלב 6 · סדר מעבר ומיגרציה (הצעה, עודכן 17 בנובמבר 2026)
 כל צעד הוא ענף ו־PR משלו. אין קומיט ל־main ואין פריסה. ‏V1 ‏(`index.html`) לא משתנה.
 0. **תשתית, בלי שינוי נראה:**

@@ -1,5 +1,5 @@
 {
- "run": "2026-11-17 19:37",
+ "run": "2026-11-17 19:58",
  "widths": [
   390,
   768,
@@ -56,14 +56,7 @@
    "rule": "S טבלת הריווח",
    "ok": true,
    "known": false,
-   "detail": "26/28 זוגות בדיוק"
-  },
-  {
-   "w": 768,
-   "rule": "S חריגים מתועדים",
-   "ok": true,
-   "known": true,
-   "detail": "#sources sub→content 80 (טבלה 48), #sources content→foot 64 (טבלה 32)"
+   "detail": "28/28 זוגות בדיוק"
   },
   {
    "w": 768,
@@ -119,14 +112,7 @@
    "rule": "S טבלת הריווח",
    "ok": true,
    "known": false,
-   "detail": "25/26 זוגות בדיוק"
-  },
-  {
-   "w": 1024,
-   "rule": "S חריגים מתועדים",
-   "ok": true,
-   "known": true,
-   "detail": "#audiences label→title 38 (טבלה 24)"
+   "detail": "26/26 זוגות בדיוק"
   },
   {
    "w": 1024,
@@ -189,14 +175,7 @@
    "rule": "S טבלת הריווח",
    "ok": true,
    "known": false,
-   "detail": "24/25 זוגות בדיוק"
-  },
-  {
-   "w": 1280,
-   "rule": "S חריגים מתועדים",
-   "ok": true,
-   "known": true,
-   "detail": "#audiences label→title 38 (טבלה 24)"
+   "detail": "25/25 זוגות בדיוק"
   },
   {
    "w": 1280,
@@ -259,14 +238,7 @@
    "rule": "S טבלת הריווח",
    "ok": true,
    "known": false,
-   "detail": "24/25 זוגות בדיוק"
-  },
-  {
-   "w": 1440,
-   "rule": "S חריגים מתועדים",
-   "ok": true,
-   "known": true,
-   "detail": "#audiences label→title 38 (טבלה 24)"
+   "detail": "25/25 זוגות בדיוק"
   },
   {
    "w": 1440,
@@ -329,14 +301,7 @@
    "rule": "S טבלת הריווח",
    "ok": true,
    "known": false,
-   "detail": "24/25 זוגות בדיוק"
-  },
-  {
-   "w": 1920,
-   "rule": "S חריגים מתועדים",
-   "ok": true,
-   "known": true,
-   "detail": "#audiences label→title 38 (טבלה 24)"
+   "detail": "25/25 זוגות בדיוק"
   },
   {
    "w": 1920,
