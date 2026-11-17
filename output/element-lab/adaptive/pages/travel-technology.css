@@ -127,7 +127,7 @@
 /* Add experience discovery (17 Nov 2026), phones: no icons beside the three titles (they pushed the titles off the
    text's left edge), titles on the left edge, and no rule above the second and third product (the two stray lines) */
 @media (max-width:599px){
-  html body #section-3 .ad-column>h3>svg{display:none!important}
+  html body #section-3 .ad-column>h3>svg:not(#ad-x){position:absolute!important;width:0!important;height:0!important;overflow:hidden!important;visibility:hidden!important}  /* not display:none: the page measures these icons (getPointAtLength) */
   html body #section-3 .ad-column>h3:not(#ad-x){gap:0!important;justify-content:flex-start!important;text-align:left!important}
   html body #section-3 .ad-column:not(#ad-x){border-top:0!important;border-left:0!important;padding-top:0!important}
 }

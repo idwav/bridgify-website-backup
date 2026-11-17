@@ -1,0 +1,36 @@
+/* Bridgify adaptive layer · shared skeleton
+   Three device classes, one set of numbers for the whole site:
+     mobile   ≤ 599px   reference 390 · checked at 360 / 430
+     tablet   600–1023  reference 768 · checked at 820 / 1023
+     desktop  ≥ 1024    reference 1440 · unchanged by this layer
+   Content starts on one left line that matches the header logo:
+     mobile 24px · tablet 40px · desktop calc(3vw + 10px) (unchanged).
+   Typography comes from brand-typography.css; this file adds no type scale. */
+
+:root{
+  --ad-gutter:calc(3vw + 10px);
+  --ad-header-h:78px;
+  --ad-touch:44px;
+  --ad-section-y:clamp(64px,8vw,96px);
+}
+@media (max-width:1023px){
+  :root{--ad-gutter:40px;--ad-header-h:64px;--ad-section-y:72px}
+  /* The homepage already reads its margin from --home-gutter; one variable moves every V2 section. */
+  html body{--home-gutter:var(--ad-gutter)!important}
+}
+@media (max-width:599px){
+  :root{--ad-gutter:24px;--ad-header-h:52px;--ad-section-y:56px;--ad-title:28px}
+}
+
+/* Mobile and tablet never scroll sideways. Sections that bleed art beyond the edge clip it. */
+@media (max-width:1023px){
+  html,body{overflow-x:clip}
+  html body main>section,html body>section{overflow-x:clip}
+}
+
+/* Line breaks on phones and tablets: titles break into even lines and paragraphs never end on one lonely word.
+   Same words, the browser only chooses where to wrap (text-wrap: Safari 17.4+, Chrome 117+; older browsers wrap as before). */
+@media (max-width:1023px){
+  html body :is(h1,h2,h3,h4,summary){text-wrap:balance}
+  html body :is(p,li,figcaption,dd){text-wrap:pretty}
+}
