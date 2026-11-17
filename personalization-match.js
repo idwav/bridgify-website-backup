@@ -6,7 +6,7 @@
  let motionStart=0,motionClock=0,currentLead=0,nextLead=0,moving=false,recycled=-1,recycleStart=0;
  let index=0,elapsed=0,last=0,paused=false,visible=false,phase=-1;
  const ease=t=>1-Math.pow(1-Math.max(0,Math.min(1,t)),3);
- function pose(slot,w){return {x:w*(w<500?.9:1)*[0,.54,.63,.69,.74,.78][slot],y:slot*9,scale:[1,.8,.68,.57,.48,.4][slot]};}
+ function pose(slot,w){const scale=[1,.8,.68,.57,.48,.4][slot],cw=cards[0].offsetWidth;return {x:slot?w-cw*(1+scale)/2:0,y:slot*9,scale};} // queued cards end on the container's right edge (shared grid line)
  function draw(card,p,opacity,z){card.style.transform=`translate3d(${p.x}px,${p.y}px,0) scale(${p.scale})`;card.style.opacity=opacity;card.style.zIndex=z;card.style.filter=`brightness(${.42+p.scale*.58})`;}
  function orbit(now){cards.forEach((c,i)=>c.style.setProperty('--arrival',i===currentLead&&!moving?window.BridgifyFlow.arrival(now-recycleStart):0));const w=root.querySelector('.match-deck').clientWidth;let t=reduced.matches?1:Math.min(1,(now-motionStart)/1550);
  if(moving&&t>=1){recycled=currentLead;recycleStart=now;currentLead=nextLead;moving=false;}
@@ -34,7 +34,42 @@
  if(phase===4)arrange(scene.lead)
  }
  function start(n){index=(n+scenes.length)%scenes.length;elapsed=0;phase=-1;fields.forEach(f=>f.classList.remove('resolved'));root.classList.remove('matching-signal','matching-result');if(reduced.matches||paused)elapsed=1600;render()}
- function frame(now){const delta=last?Math.min(now-last,80):0;last=now;if(visible&&!paused&&!document.hidden&&!reduced.matches){elapsed+=delta;if(elapsed>=5200)start(index+1);else render()}if(visible&&!paused&&!document.hidden){motionClock+=delta;orbit(motionClock);}requestAnimationFrame(frame)}
+
+ // Wiring: the approved BridgifyFlow dots (9 round dots, 90ms apart, smoothstep) run on the live layout.
+ // Fields feed the engine as they resolve; the engine then feeds the lead card. Static wires show in reduced motion.
+ const F=window.BridgifyFlow,ns='http://www.w3.org/2000/svg',ws=root.querySelector('.match-workspace'),engine=root.querySelector('.match-engine'),deck=root.querySelector('.match-deck');
+ let wire=null;
+ function mk(tag,attrs,parent){const e=document.createElementNS(ns,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent.append(e);return e}
+ function buildWires(){
+  if(wire){wire.svg.remove();wire=null}
+  if(innerWidth<=700){root.classList.remove('match-wired');return}
+  const W=ws.getBoundingClientRect(),C=root.querySelector('.match-controls').getBoundingClientRect(),E=engine.getBoundingClientRect(),D=deck.getBoundingClientRect();
+  const x0=C.right-W.left,xe=E.left-W.left,x1=E.right-W.left,x2=D.left-W.left,yc=E.top+E.height/2-W.top;
+  if(xe-x0<10||x2-x1<10)return;
+  const svg=mk('svg',{class:'match-wires','aria-hidden':'true',width:W.width,height:W.height,viewBox:`0 0 ${W.width} ${W.height}`},ws);
+  const defs=mk('defs',{},svg),cp=mk('clipPath',{id:'match-wire-clip'},defs);mk('rect',{x:x0,y:0,width:xe-x0,height:W.height},cp);const cp2=mk('clipPath',{id:'match-wire-clip-out'},defs);mk('rect',{x:x1,y:0,width:x2-x1,height:W.height},cp2);
+  const xb=x0+(xe-x0)*.5,r=8,rows=fields.map(f=>{const b=f.querySelector('strong').getBoundingClientRect();return b.top+b.height/2-W.top});
+  const paths=rows.map(y=>{const d=y<yc?1:-1;return `M${x0} ${y}H${xb-r}Q${xb} ${y} ${xb} ${y+d*r}V${yc-d*r}Q${xb} ${yc} ${xb+r} ${yc}H${xe}`});
+  paths.push(`M${x1} ${yc}H${x2}`);
+  const els=paths.map(d=>{const p=mk('path',{d,fill:'none',stroke:'#f46649','stroke-width':1,'stroke-linecap':'round','stroke-linejoin':'round',opacity:.55},svg);return {p,len:p.getTotalLength()}});
+  const g1=mk('g',{'clip-path':'url(#match-wire-clip)'},svg),g2=mk('g',{'clip-path':'url(#match-wire-clip-out)'},svg);
+  const dots=els.map((_,k)=>Array.from({length:9},(_,i)=>mk('circle',{r:F.radius(i),fill:'#fff8f1',stroke:'#f46649','stroke-width':.7,opacity:0},k<rows.length?g1:g2)));
+  // fixed contacts: one on the controls frame per field, one on the lead card frame
+  [...rows.map(y=>[x0,y]),[x2,yc]].forEach(([x,y])=>mk('circle',{cx:x,cy:y,r:3,fill:'#eee9de',stroke:'#f46649','stroke-width':1},svg));
+  wire={svg,els,dots,n:rows.length};root.classList.add('match-wired');
+ }
+ function wires(){
+  if(!wire)return;const live=visible&&!paused&&!document.hidden&&!reduced.matches;
+  wire.dots.forEach((row,k)=>row.forEach((d,i)=>{
+   if(!live){d.setAttribute('opacity',0);return}
+   const start=k<wire.n?k*300:900,local=elapsed-start-i*F.delay,dur=k<wire.n?900:1000;
+   if(local<0||local>dur){d.setAttribute('opacity',0);return}
+   const u=local/dur,pt=wire.els[k].p.getPointAtLength(wire.els[k].len*F.smooth(u));
+   d.setAttribute('cx',pt.x);d.setAttribute('cy',pt.y);d.setAttribute('opacity',Math.min(1,u*10)*Math.min(1,(1-u)*6)*(1-i*.065));
+  }));
+ }
+ new ResizeObserver(buildWires).observe(ws);document.fonts?.ready.then(buildWires);buildWires();
+ function frame(now){const delta=last?Math.min(now-last,80):0;last=now;if(visible&&!paused&&!document.hidden&&!reduced.matches){elapsed+=delta;if(elapsed>=5200)start(index+1);else render()}if(visible&&!paused&&!document.hidden){motionClock+=delta;orbit(motionClock);}wires();requestAnimationFrame(frame)}
  root.querySelectorAll('[data-match]').forEach(button=>button.onclick=()=>{if(button.dataset.match==='pause'){paused=!paused;root.classList.toggle('match-paused',paused);pause.textContent=paused?'Play':'Pause';pause.setAttribute('aria-label',paused?'Play carousel':'Pause carousel')}else start(index+(button.dataset.match==='next'?1:-1))});
  new IntersectionObserver(([entry])=>{visible=entry.isIntersecting},{threshold:.15}).observe(root);
  reduced.addEventListener('change',()=>{start(index)});arrange(0);start(0);requestAnimationFrame(frame);

@@ -34,3 +34,11 @@ html body #section-3 .match-footer{color:#d3c1b8;opacity:1}html body #section-3 
 @media(prefers-reduced-motion:reduce){#section-3.match-section .match-engine,#section-3.match-section .match-engine-contact{transition:none}}
 
 html body #section-3.match-section .match-footer{border-top:0;padding-top:0;justify-content:flex-end}
+#section-3.match-section .match-engine-contact-out{left:auto;right:-3px}#section-3.match-section.matching-result .match-engine-contact-out{box-shadow:0 0 12px #f46649}
+@media(max-width:700px){#section-3.match-section .match-engine-contact-out{display:none}}
+
+/* Live wiring overlay: replaces the static pseudo lines on desktop once the script has built it. */
+#section-3.match-section .match-workspace{position:relative}
+#section-3.match-section .match-wires{position:absolute;left:0;top:0;pointer-events:none;overflow:visible;z-index:6}
+@media(min-width:701px){#section-3.match-wired.match-section .match-engine:before,#section-3.match-wired.match-section .match-engine:after{display:none}}
+@media(max-width:700px){#section-3.match-section .match-wires{display:none}}
