@@ -54,3 +54,48 @@
 .ai-frame{opacity:var(--fade,1)}
 @media(max-width:700px){.ai-split{grid-template-columns:1fr}.ai-store{display:none}}
 @media(prefers-reduced-motion:reduce){.msg,.chat-chips span{transition:none}}
+
+/* Chatbot only: no store behind it */
+.chat-mode .pnav,.ai-store{display:none}
+.ai-split{grid-template-columns:1fr;height:100%}
+.chat-mode{height:100%}
+.ai-chat{width:100%;max-width:560px;margin:0 auto;background:transparent;height:100%}
+.ai-split{height:calc(100% - 38px)}
+.ai-chat{height:100%;max-width:600px}
+.chat-mode{overflow:hidden}
+
+/* Chat fills the whole block, large and legible */
+.ai-chat{max-width:none;width:100%;margin:0}
+.chat-head{padding:18px 30px;gap:14px}
+.chat-head>span{width:44px;height:44px;border-radius:13px;font-size:22px}
+.chat-head b{font-size:19px}.chat-head small{font-size:14px}
+.chat-thread{gap:13px;padding:18px 30px}
+.msg{max-width:84%;padding:14px 20px;border-radius:18px;font-size:18px;line-height:1.4}
+.m-chips small,.chat-chips i{font-size:12px}
+.chat-chips{gap:9px}.chat-chips span{padding:8px 16px;font-size:16px}
+.m-think{gap:16px;min-width:340px}.m-think strong{font-size:17px}.m-think small{font-size:14px}
+.m-think .loading-ring{width:46px;height:46px;font-size:24px}
+.m-results{width:88%;max-width:88%}.m-results>strong{font-size:17px;margin-bottom:11px}
+.chat-cards{grid-template-columns:1fr 1fr;gap:12px}
+.chat-cards article{grid-template-columns:76px 1fr;gap:12px;padding:9px;border-radius:14px}
+.chat-cards img{width:76px;height:62px;border-radius:9px}
+.chat-cards small{font-size:11px}.chat-cards b{font-size:16px;line-height:1.2}
+.chat-composer{margin:0 30px 26px;padding:10px 10px 10px 26px;min-height:64px;font-size:19px;border-width:1.5px}
+.chat-caret{height:22px;width:2px}
+.chat-send{width:46px;height:46px;font-size:22px}
+.search-pointer{right:2px;bottom:-4px;font-size:40px;line-height:1;transform:translate(-120px,26px);opacity:0}
+.search-pointer.show{opacity:1;transform:translate(0,0);transition:opacity .2s,transform .7s cubic-bezier(.3,.8,.3,1)}
+
+/* Fit: once matches appear, the finding row gives way so nothing is clipped */
+.chat-thread:has(.m-results.show) .m-think{display:none}
+.chat-thread{justify-content:flex-start;gap:11px;padding:16px 30px}
+.msg{padding:12px 18px}
+.chat-composer{margin:0 30px 22px}
+.chat-head{padding:12px 30px}.chat-head>span{width:38px;height:38px}
+.msg{font-size:16.5px;padding:10px 16px}
+.chat-thread{gap:9px;padding:14px 30px}
+.m-chips{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.m-chips small{margin:0}
+.chat-chips span{padding:6px 13px;font-size:15px}
+.m-results>strong{margin-bottom:8px}
+.chat-cards article{grid-template-columns:64px 1fr;padding:7px}.chat-cards img{width:64px;height:52px}
+.chat-composer{margin:0 30px 18px;min-height:58px}.chat-send{width:42px;height:42px}

@@ -272,3 +272,41 @@
 #section-5 .launch-store .launch-search{background:#fffaf4!important;border:0!important}
 #section-5 .launch-store .launch-search em{color:#7a665b!important}
 #section-5 .launch-store .launch-search i{color:#e8613f!important}
+
+/* Journey: taller site header and hero so every screen fills the window evenly */
+#section-2.market-product-tour .pnav{padding:19px 26px;font-size:13px}
+#section-2.market-product-tour .pnav span{font-size:13px;color:#d8c7be}
+#section-2.market-product-tour .search-scene{height:236px}
+#section-2.market-product-tour .search-copy{top:44px}
+#section-2.market-product-tour .search-copy h2{font-size:30px}
+#section-2.market-product-tour .search-box{padding:14px 20px;font-size:15px}
+#section-2.market-product-tour .experience-photo{height:136px}
+#section-2.market-product-tour .review-layout{padding:40px 26px 36px;align-items:start}
+#section-2.market-product-tour .review-summary{padding:22px}
+
+/* ===== Localization v3: one settings panel drives one large live stage ===== */
+#section-3 .wl-connections{display:none}
+#section-3 .wl-layout{grid-template-columns:minmax(300px,360px) minmax(0,1fr);gap:32px;align-items:stretch}
+#section-3 .wl-controls{display:flex;flex-direction:column;gap:0;padding:26px;border:1px solid #e3c4ae;border-radius:22px;background:#fffaf4;box-shadow:0 20px 44px #5d34231a}
+#section-3 .wl-panel-title{margin:0 0 6px;font:600 20px Sofia,sans-serif;color:#241611;display:grid;gap:4px}
+#section-3 .wl-panel-title small{font:400 14px Sofia,sans-serif;color:#7a6255}
+#section-3 .wl-group{order:0;padding:20px 0 0;margin-top:20px;background:none;border:0;border-top:1px solid #eedccd;border-radius:0;box-shadow:none}
+#section-3 .wl-group[data-group=mode]{order:1}#section-3 .wl-group[data-group=lang]{order:2}#section-3 .wl-group[data-group=currency]{order:3}
+#section-3 .wl-group>span{margin-bottom:12px;color:#8a3a22}
+#section-3 .wl-group>div{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:5px;background:#f6ece2;border-radius:14px}
+#section-3 .wl-group[data-group=mode]>div{grid-template-columns:1fr}
+#section-3 .wl-group button{padding:12px 8px;border:0;border-radius:10px;background:transparent;font:600 15px Sofia,sans-serif;text-align:center;color:#6d5547;box-shadow:none}
+#section-3 .wl-group[data-group=mode] button{text-align:left;padding:13px 16px}
+#section-3 .wl-group button:hover{background:#fffaf4;color:#241611;box-shadow:none}
+#section-3 .wl-group button[aria-pressed="true"]{background:#e8613f!important;color:#fff!important;box-shadow:0 6px 16px #e8613f40!important}
+#section-3 .wl-preview-stage{position:relative;min-height:520px;border-radius:22px;border:1px solid #e3c4ae;background:radial-gradient(circle,#d9b9a455 1.2px,transparent 1.6px) 0 0/22px 22px,linear-gradient(160deg,#f6e8da,#efe0d0);padding:44px 28px 28px}
+#section-3 .wl-flash{position:absolute;top:14px;left:50%;transform:translateX(-50%);padding:7px 16px;border-radius:999px;background:#241611;color:#fff2e3;font:600 13px Sofia,sans-serif;opacity:0;white-space:nowrap}
+#section-3 .wl-flash.go{animation:wl-flash 2.6s ease both}
+@keyframes wl-flash{0%{opacity:0;transform:translate(-50%,-6px)}12%,70%{opacity:1;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,0)}}
+@media(max-width:900px){#section-3 .wl-layout{grid-template-columns:1fr}#section-3 .wl-preview-stage{min-height:0}}
+#section-3.wl-localization .wl-group{border:0!important;border-top:1px solid #eedccd!important;background:none!important;box-shadow:none!important;padding:20px 0 0!important;border-radius:0!important;margin-top:20px}
+#section-3.wl-localization .wl-group:before,#section-3.wl-localization .wl-group:after{display:none!important}
+#section-3 .wl-brand{gap:16px}#section-3 .wl-nav{gap:14px;font-size:12.5px;min-width:0}#section-3 .wl-nav i{white-space:nowrap}#section-3 .wl-chip{flex:none}
+#section-3 .wl-preview-stage{padding-left:22px;padding-right:22px}
+#section-2.market-product-tour .review-layout{padding:24px 26px 20px}
+#section-2.market-product-tour .review-summary{padding:18px}

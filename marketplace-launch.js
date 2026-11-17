@@ -24,9 +24,9 @@
  };
  // One animation clock controls particles, completion marks and storefront states.
  const travelDuration=1550,tailDuration=8*F.delay;
- const firstDeparture=1200,configurationArrival=firstDeparture+travelDuration;
- const secondDeparture=6500,launchArrival=secondDeparture+travelDuration;
- const liveAt=launchArrival+tailDuration+850,cycle=liveAt+4200;
+ const firstDeparture=1400,configurationArrival=firstDeparture+travelDuration;
+ const secondDeparture=5600,launchArrival=secondDeparture+travelDuration;
+ const liveAt=launchArrival+tailDuration+850,cycle=liveAt+3600;
  let elapsed=0,last=0,raf=0,visible=false;
  const hideMotion=()=>{
   pulses.forEach(pulse=>pulse.setAttribute('opacity',0));
