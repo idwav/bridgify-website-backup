@@ -115,3 +115,63 @@
   const ask = () => { if (!raf) raf = requestAnimationFrame(paint); };
   addEventListener('scroll', ask, {passive: true}); addEventListener('resize', ask); A.MQ.mobile.addEventListener('change', ask); ask();
 })();
+
+/* Hero visual on phones: experiences → Bridgify → your app (see index-v2.css "Hero visual on phones").
+   Only words already in the desktop hero: "Bridgify", "YourBrand". Wires are drawn from the boxes' real
+   positions; dots travel along them. Still with reduced motion. */
+(() => {
+  const A = window.BridgifyAdaptive; if (!A || !A.MQ.mobile.matches) return;
+  const copy = document.querySelector('#home .bv2-hero-copy'); if (!copy || copy.querySelector('.ad-hero-flow')) return;
+  const src = ['colosseum', 'food-tour', 'catamaran', 'concert'].map(n => `<img src="assets/hero-experiences/${n}.jpg" alt="" width="48" height="48" decoding="async">`).join('');
+  const label = document.querySelector('#home .bv2-funnel')?.getAttribute('aria-label') || '';
+  const el = document.createElement('div');
+  el.className = 'ad-hero-flow'; el.setAttribute('role', 'img'); el.setAttribute('aria-label', label);
+  el.innerHTML = `<svg class="hf-wires" aria-hidden="true"></svg><div class="hf-src" aria-hidden="true">${src}</div>
+    <div class="hf-hub" aria-hidden="true"><i><img src="assets/bridgify-icon.svg" alt=""></i><span>Bridgify</span></div>
+    <div class="hf-app" aria-hidden="true"><b>YourBrand</b><i><img src="assets/api-card-colosseum.jpg" alt=""><u></u></i><i><img src="assets/hero-santorini.jpg" alt=""><u></u></i></div>`;
+  copy.appendChild(el);
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const NS = 'http://www.w3.org/2000/svg';
+  const draw = () => {
+    const svg = el.querySelector('svg'), o = el.getBoundingClientRect(); if (!o.width) return;
+    const R = e => { const r = e.getBoundingClientRect(); return {l: r.left - o.left, r: r.right - o.left, t: r.top - o.top, b: r.bottom - o.top, cx: (r.left + r.right) / 2 - o.left, cy: (r.top + r.bottom) / 2 - o.top}; };
+    const imgs = [...el.querySelectorAll('.hf-src img')].map(R), hub = R(el.querySelector('.hf-hub i')), app = R(el.querySelector('.hf-app'));
+    const sx = imgs[1].r, hx = hub.l - 2, hy = hub.cy;
+    const ys = [imgs[1].t + 12, imgs[1].b - 12, imgs[3].t + 12, imgs[3].b - 12];
+    const paths = ys.map(y => `M${sx} ${y}C${(sx + hx) / 2} ${y} ${(sx + hx) / 2} ${hy} ${hx} ${hy}`);
+    paths.push(`M${hub.r + 2} ${hy}L${app.l} ${hy}`);
+    svg.setAttribute('viewBox', `0 0 ${o.width} ${o.height}`); svg.innerHTML = '';
+    paths.forEach((d, i) => {
+      const p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); p.id = 'hf-p' + i; svg.appendChild(p);
+      if (reduced) return;
+      const c = document.createElementNS(NS, 'circle'); c.setAttribute('r', i === 4 ? '2.6' : '2');
+      c.innerHTML = `<animateMotion dur="${i === 4 ? 1.4 : 2.2}s" begin="${i === 4 ? 2.0 : i * 0.55}s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#hf-p${i}"/></animateMotion>`;
+      svg.appendChild(c);
+    });
+  };
+  requestAnimationFrame(draw); addEventListener('resize', () => requestAnimationFrame(draw));
+  el.querySelectorAll('img').forEach(i => i.complete || i.addEventListener('load', draw, {once: true}));
+})();
+
+/* Round 4: option 2 of the Global supply strip is on unless the link asks for the previous one (&src1).
+   Touch screens only show :active while a touch listener exists. */
+(() => {
+  let q = location.search; try { q += top.location.search; } catch (e) {}
+  if (!/[?&]src1\b/.test(q)) document.documentElement.classList.add('ad-src2');
+  document.addEventListener('touchstart', () => {}, {passive: true});
+})();
+
+/* Round 5: hero title on phones in four lines: "One connection." / "A million+" / "travel experiences, matched" /
+   "to every customer." "A million+" stands on its own line, as the figure it is. Text unchanged. */
+(() => {
+  const A = window.BridgifyAdaptive; if (!A || !A.MQ.mobile.matches) return;
+  const h = document.querySelector('#home #hero-title'); if (!h || h.querySelector('.ad-br')) return;
+  const w = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
+  for (let n; (n = w.nextNode());) {
+    const i = n.data.indexOf('million+'); if (i < 0) continue;
+    const after = n.splitText(i + 'million+'.length);
+    const br = document.createElement('br'); br.className = 'ad-br'; after.parentNode.insertBefore(br, after);
+    after.data = after.data.replace(/^\s+/, '');
+    break;
+  }
+})();

@@ -10,5 +10,5 @@
     A.scroller($('#section-3 .ad-columns'), {card: '88%'});
   }
   /* Choose how: one whole card at a time behind a switch on phones. */
-  const xc = $('#section-4 .xc-grid'); if (xc && xc.children.length > 1) A.tabs($('#section-4'), [...xc.children], {when: A.MQ.mobile, before: xc, label: 'Choose how'});
+  /* Choose how: the two product cards stack as on the homepage (patterns.js "Product cards as a stack"). */
 })();

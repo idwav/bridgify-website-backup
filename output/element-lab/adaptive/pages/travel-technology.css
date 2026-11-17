@@ -26,3 +26,22 @@
   html body #section-3 .ad-network{margin-top:12px!important}
 }
 @media (max-width:1023px){ html body #section-1 .te-heading,html body #section-2>h2#th-title,html body #section-2 .th-intro,html body #section-2 .ti{margin-left:0!important;margin-right:0!important} }
+
+/* Solutions demos at real size (phones, 16 Nov 2026; plan in output/element-lab/demos.html): the lab used to shrink
+   these with zoom (57-81%). At real size they reflow to the phone and stay readable; tall ones are trimmed of demo items. */
+@media (max-width:599px){
+  html body #section-1 .te-visual:not(#ad-x){zoom:1!important}
+  html body #section-1 .te-visual .nt-sidebar{display:none!important}
+  html body #section-1 .te-visual :is(.nt-code,.nt-codebody,.nt-code-lines):not(#ad-x){height:auto!important;min-height:0!important}
+  html body #section-1 .te-visual .te-code-content{font-size:12px!important;line-height:1.55!important}
+  html body #section-2 .ti :is(span,small,em,b,i,p,div,strong,li,label,a,h4,h5,u){font-size:max(11px,1em)!important}
+  /* Integrating yourself / With Bridgify: the two options one under the other at full width (side by side they were
+     two narrow columns), and the diagram on the full width (it had no width on phones, so the badges ran off-screen). */
+  html body #section-2 .ti-copy:not(#ad-x){grid-template-columns:1fr!important;gap:8px!important}
+  html body #section-2 .ti-opt:not(#ad-x){width:auto!important;height:auto!important;min-height:0!important}
+  html body #section-2 .ti-map:not(#ad-x){width:100%!important;min-width:0!important;height:auto!important;min-height:300px;left:auto!important;right:auto!important;transform:none!important;margin:8px 0 0!important}
+  html body #section-2 .ti-map>svg{width:100%!important;left:0!important}
+  html body #section-2 .ti-sources:not(#ad-x){width:100%!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important;left:auto!important;transform:none!important;justify-items:center}
+  html body #section-2 .ti-src{transform:none!important;rotate:none!important;translate:none!important;width:auto!important}
+  html body #section-2 .ti-src:not(#ad-x){min-width:58px!important;padding:4px 6px!important;justify-content:center}
+}

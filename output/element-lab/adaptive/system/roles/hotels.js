@@ -97,10 +97,6 @@ window.BridgifyRoles = {
      "header.xc-head > p"
     ],
     [
-     "control",
-     "div.ad-seg"
-    ],
-    [
      "content",
      "div.xc-grid > article.xc-card"
     ],

@@ -137,6 +137,67 @@
   /* Matching: the AIyelet engine row is a slim status bar, so the matched experience below stays in view. */
   html body #section-3 .match-engine{grid-template-columns:auto minmax(0,1fr)!important;grid-template-rows:auto auto!important;column-gap:14px!important;row-gap:2px!important;align-items:center!important;padding:10px 14px!important;min-height:0!important;height:auto!important}
   html body #section-3 .match-engine>strong{grid-column:1;grid-row:1;font-size:20px!important;line-height:1.1!important;margin:0!important}
-  html body #section-3 .match-engine>.match-engine-status{grid-column:1;grid-row:2;font-size:10px!important;line-height:1.2!important;margin:0!important}
+  html body #section-3 .match-engine>.match-engine-status{grid-column:1;grid-row:2;font-size:11px!important;line-height:1.2!important;margin:0!important}
   html body #section-3 .match-engine>small{grid-column:2;grid-row:1/span 2;font-size:12px!important;line-height:1.35!important;margin:0!important;justify-self:end;text-align:right}
 }
+
+/* AIyelet demos at real size (phones, 16 Nov 2026; plan in output/element-lab/demos.html). */
+@media (max-width:599px){
+  /* Intent card, as on the homepage: labels 11, values 17, the context line 13. */
+  html body #section-2 .intent-field small{font-size:11px!important;letter-spacing:.1em!important}
+  html body #section-2 .intent-field strong{font-size:17px!important;font-weight:500!important}
+  html body #section-2 .intent-fields>.intent-field:nth-child(3) small{font-size:11px!important}
+  html body #section-2 .intent-fields>.intent-field:nth-child(3) strong{font-size:13px!important}
+
+  /* Match deck: one card at a time, full width and real size; the cards behind it show only as the deck's edges.
+     The page keeps cycling the lead card on its own. */
+  html body #section-3 .match-deck:not(#ad-x){height:262px!important;overflow:visible!important}
+  html body #section-3 .match-workspace :is(span,small,em,b,i,p,label,strong,div){font-size:max(11px,1em)!important}
+  html body #section-3 .match-card:not([data-position="0"]){opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+  html body #section-3 .match-card[data-position="0"]{box-shadow:0 10px 0 -5px #2A1D1C,0 10px 0 -4px #F466493D,0 20px 0 -10px #211617,0 20px 0 -9px #F466492A!important}
+
+  /* With / without AIyelet: the switch stays; the browser at real size (no zoom), with shorter photos so it fits. */
+  html body #section-4 .embed-nav:not(#ad-x){height:auto!important;min-height:0!important;padding:12px 16px!important}
+  html body #section-4 .embed-nav strong{font-size:13px!important}
+  html body #section-4 .embed-destination:not(#ad-x){height:140px!important;min-height:0!important}
+  html body #section-4 .embed-destination>div{bottom:14px!important;top:auto!important}
+  html body #section-4 .embed-destination small{font-size:12px!important}
+  html body #section-4 .embed-destination span{font-size:14px!important}
+  html body #section-4 .embed-trip:not(#ad-x){height:auto!important;min-height:0!important}
+  html body #section-4 .embed-rec-content>img{height:90px!important;object-fit:cover}
+  html body #section-4 .embed-rec-label{font-size:11px!important;height:auto!important}
+  html body #section-4 .embed-rec-content p{font-size:14px!important;height:auto!important}
+  html body #section-4 .embed-tags span{font-size:12px!important}
+  html body #section-4 .embed-browser:not(#ad-x){height:auto!important;min-height:0!important;zoom:1!important}
+  html body #section-4 .embed-destination h3:not(#ad-x){font-size:19px!important;line-height:1.2!important;height:auto!important}
+}
+
+/* Round 9 (17 Nov 2026): Match experiences on phones. Context first, the found card right under it, the AIyelet
+   box over the card (personalization.js places it across the photo's lower edge). */
+@media (max-width:599px){
+  html body #section-3 .match-workspace.ad-match-stack:not(#ad-x){display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto auto auto!important}
+  html body #section-3 .ad-match-stack>.match-deck{grid-row:3;grid-column:1;position:relative;z-index:1}
+  html body #section-3 .ad-match-stack>.match-controls{grid-row:1;grid-column:1}
+  html body #section-3 .ad-match-stack>.match-engine:not(#ad-x){grid-row:2;grid-column:1;align-self:start;z-index:3;position:relative;margin-inline:14px!important;
+    background:#1d1312!important;box-shadow:0 14px 36px rgba(0,0,0,.6),0 0 0 1px rgba(244,102,73,.35)!important}
+}
+
+/* Round 10 (17 Nov 2026) */
+@media (max-width:599px){
+  /* Where it runs: same height both ways; the matched experience jumps up over the trip photo, under "Your brand" */
+  html body #section-4 .ad-embed-over:not(#ad-x){position:relative!important;height:auto!important}
+  html body #section-4 .ad-embed-over .embed-trip:not(#ad-x),html body #section-4 .ad-embed-over .embed-destination:not(#ad-x){height:calc(var(--ad-rec-h,316px) + 24px)!important;min-height:0!important}
+  html body #section-4 .ad-embed-over .embed-destination img{height:100%!important;object-fit:cover}
+  html body #section-4 .ad-embed-over .embed-recommendation:not(#ad-x){position:absolute!important;left:10px!important;right:10px!important;top:calc(var(--ad-nav-h,47px) + 14px)!important;margin:0!important;z-index:3;
+    box-shadow:0 18px 40px rgba(0,0,0,.6)!important;transition:opacity .45s ease,translate .6s cubic-bezier(.16,1,.3,1)!important}
+  html body #section-4 .embed-shell.is-off .ad-embed-over .embed-recommendation{translate:0 48px;opacity:0!important;pointer-events:none}
+  html body #section-4 .embed-shell:not(.is-off) .ad-embed-over .embed-recommendation{translate:0 0}
+  html body #section-4 .embed-shell:not(#ad-x){padding-block:12px!important}
+  html body #section-4 .embed-toolbar:not(#ad-x){gap:8px!important;padding-bottom:10px!important;height:auto!important}
+  html body #section-4 .embed-control:not(#ad-x){display:none!important}
+  /* A full day: the starting suggestion sticks; the day plan comes up over it, opaque */
+  html body #day-itinerary .day-start:not(#ad-x){position:sticky!important;top:calc(var(--ad-header-h) + 12px);z-index:1}
+  html body #day-itinerary .day-plan:not(#ad-x){position:relative;z-index:2;background-color:#1d1312!important;box-shadow:0 -20px 44px rgba(0,0,0,.55)!important}
+  html body #day-itinerary .day-controls{display:none!important}
+}
+@media (max-width:599px) and (prefers-reduced-motion:reduce){ html body #day-itinerary .day-start{position:static!important} }

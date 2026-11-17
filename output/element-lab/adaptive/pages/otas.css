@@ -23,3 +23,64 @@
   html body #section-3 .rc-screens>*{position:relative!important;inset:auto!important;transform:none!important;opacity:1!important;visibility:visible!important}
 }
 @media (max-width:1023px){ html body #section-1 .ys-copy{padding-inline:0!important} }
+
+/* Solutions demos at real size (phones, 16 Nov 2026; plan in output/element-lab/demos.html): the lab used to shrink
+   these with zoom (57-81%). At real size they reflow to the phone and stay readable; tall ones are trimmed of demo items. */
+@media (max-width:599px){
+  html body #section-1 .ys-ticket:not(#ad-x),html body #section-2 .sc:not(#ad-x){zoom:1!important}
+  html body #section-2 .sc-exps>*:nth-child(n+4){display:none!important}
+  html body #section-1 .ys-day img,html body #section-1 .ys-day [class*=img]{max-height:84px!important;object-fit:cover}
+  html body #section-1 .ys-photo:not(#ad-x){height:92px!important;min-height:0!important}
+  html body #section-1 .ys-ticket :is(span,small,em,b,i,p,div,strong,li,label,a,h4,h5,u){font-size:max(11px,1em)!important}
+  html body #section-3 .rc-panel :is(span,small,em,b,i,p,div,strong,li,label,a,h4,h5,u){font-size:max(11px,1em)!important}
+}
+
+/* Trip ticket on phones (17 Nov 2026): as the reader scrolls, the ticket rises over the hero copy (which stays and
+   steps back, as in the homepage products stack) and opens to the screen edges. otas.js drives the share; with
+   reduced motion the ticket simply sits full width. The photo labels lose their pill: the word alone, on a shade. */
+@media (max-width:599px){
+  html body #section-1 .ys-copy{position:sticky!important;top:calc(var(--ad-header-h) + 8px);z-index:0;transform-origin:50% 0}
+  html body #section-1 .ys-ticket:not(#ad-x){position:relative!important;z-index:1;background-color:#1d1314!important;
+    box-shadow:0 -24px 48px rgba(0,0,0,.45)!important;padding-inline:calc(13px + var(--ys-open,0) * var(--ad-gutter))!important;
+    margin-inline:calc(var(--ys-open,0) * var(--ad-gutter) * -1)!important;width:calc(100% + var(--ys-open,0) * 2 * var(--ad-gutter))!important;max-width:none!important;box-sizing:border-box!important;border-radius:calc((1 - var(--ys-open,0)) * 25px)!important;
+    border-left-color:rgba(244,102,73,calc((1 - var(--ys-open,0)) * .32))!important;border-right-color:rgba(244,102,73,calc((1 - var(--ys-open,0)) * .32))!important}
+  html body #section-1 .ys-photo:not(#ad-x){border-color:transparent!important;position:relative;overflow:hidden}
+  html body #section-1 .ys-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,8,9,.78) 0%,rgba(14,8,9,.25) 48%,transparent 70%);pointer-events:none}
+  html body #section-1 .ys-photo>span:not(#ad-x){background:none!important;border:0!important;border-radius:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+    box-shadow:none!important;padding:0!important;top:8px!important;left:9px!important;right:auto!important;bottom:auto!important;z-index:1;
+    font-size:13px!important;font-weight:500!important;letter-spacing:.01em;color:#FFF7EE!important;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+}
+@media (max-width:599px) and (prefers-reduced-motion:reduce){ html body #section-1 .ys-ticket{--ys-open:1} html body #section-1 .ys-copy{position:static!important} }
+
+/* Round 6 (17 Nov 2026): Through the trip, pinned (patterns.js pin). The four labels are smaller and kept apart
+   (equal columns, two lines at most); the stop you are on is clear; the screens move with the scroll. */
+@media (max-width:599px){
+  html body #section-3 .ad-rc-pin .ad-pin-stage{background:#1a1110;padding-top:8px}
+  html body #section-3 .rc-stages.ad-stops:not(#ad-x){grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:8px!important;padding-bottom:22px!important;margin:0 0 16px!important;height:auto!important}
+  html body #section-3 .rc-stages.ad-stops>div:not(#ad-x){font-size:11px!important;line-height:14px!important;text-align:center;opacity:.5;transition:opacity .3s,color .3s;padding:0!important;min-width:0;overflow-wrap:normal;word-break:normal;hyphens:none!important;-webkit-hyphens:none!important}
+  html body #section-3 .rc-stages.ad-stops>div.ad-on{opacity:1;color:#FFB59E!important;font-weight:600}
+  html body #section-3 .rc-stages.ad-stops>div.ad-past{opacity:.8}
+  html body #section-3 .rc-stages.ad-stops>div>i{transition:transform .3s,background .3s,box-shadow .3s}
+  html body #section-3 .rc-stages.ad-stops>div.ad-on>i{background:#F46649!important;transform:scale(1.3);box-shadow:0 0 0 4px rgba(244,102,73,.25),0 0 12px rgba(244,102,73,.6)}
+  html body #section-3 .rc-stages.ad-stops>div.ad-past>i{background:#F46649!important}
+  html body #section-3 .rc-stages.ad-stops>svg{opacity:.35}
+}
+@media (max-width:599px){
+  /* labels take up to three lines (42px): the stops and their line sit under the tallest label, not across it */
+  html body #section-3 .rc-stages.ad-stops:not(#ad-x){padding-bottom:36px!important;align-items:stretch}
+  html body #section-3 .rc-stages.ad-stops>div>i:not(#ad-x){top:50px!important;bottom:auto!important}
+}
+
+/* Round 10 (17 Nov 2026): Through the trip. No box around the demo (its own cards keep theirs); no rule under the
+   heading; the "How AIyelet picks experiences" link is a text link, as every "read more elsewhere" link on the site.
+   The two context lines are brighter and a little more open, and they stay on screen while the stops change. */
+@media (max-width:599px){
+  html body #section-3 .rc-head:not(#ad-x){border-bottom:0!important}
+  html body #section-3 .rc-panel:not(#ad-x){border:0!important;background:none!important;box-shadow:none!important;padding:0!important;border-radius:0!important}
+  html body #section-3 .rc-panel:not(#ad-x)::before,html body #section-3 .rc-panel:not(#ad-x)::after{display:none!important}
+  html body #section-3 .ad-rc-pin .ad-pin-stage{background:#140d0c!important;padding:8px 0 0!important}
+  html body #section-3 .rc-context:not(#ad-x){gap:10px!important;margin-bottom:18px!important}
+  html body #section-3 .rc-context>span:not(#ad-x){color:#FFF8F1!important;font-size:15px!important;line-height:22px!important;padding:10px 12px!important;letter-spacing:.005em}
+  html body #section-3 .rc-context>span b{color:#FFB59E!important}
+  html body #section-3 .rc-screens:not(#ad-x){padding-right:0!important}
+}

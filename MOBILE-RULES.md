@@ -54,7 +54,8 @@ behind content).
 | ID | Between | Phone | Token |
 |---|---|---|---|
 | S1 | label → title | 16 | `--bf-gap-label-title` |
-| S2 | title → text · paragraph → paragraph | 24 · 16 | `--bf-gap-title-text` · `--bf-gap-text-text` |
+| S2 | title → text · paragraph → paragraph · title → its one-line subtitle (role `sub`, e.g. "Part of HBX Group.") | 24 · 16 · 8 | `--bf-gap-title-text` · `--bf-gap-text-text` · `--bf-gap-title-sub` |
+| S2b | figures or cards → the closing lines under them (role `foot`: sentence, link, note) | 24 | `--bf-gap-to-foot` |
 | S3 | text → Read more (to its visible text) | 8 | `--bf-gap-text-more` |
 | S4 | text or title → buttons · button ↔ button | 32 · 12 | `--bf-gap-to-actions` · `--bf-gap-actions-inner` |
 | S5 | text or buttons → text link | 16 | `--bf-gap-to-link` |
@@ -89,6 +90,7 @@ keeps its content at the top; the extra height goes below it.
 | L4 | Desktop and tablet layout do not move. |
 | M1, M2 | Nothing jumps after the first paint, in the phone preview (M1) and the way the live site loads (M2). |
 | M3 | Entrances as on desktop: the hero copy arrives in sequence (rise 20px and fade, 750ms, 100ms apart); section parts rise 40px as they enter. Off when the visitor asks for reduced motion. |
+| M4 | A sequence of stations (a trip, a passenger journey) is pinned: the stage stays on screen and the page's scroll moves one station at a time; the stop you are on is marked (lit label, filled ringed dot) and the screens move with it. The page grows by half a screen per station, so scrolling past the last one carries on. Off with reduced motion. Shared helper: `pin()` in `output/element-lab/adaptive/patterns.js`. |
 
 ## 7 · Building it on the live site
 

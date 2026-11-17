@@ -22,6 +22,8 @@
       /* heading group: each step away in meaning is one step up the scale */
       --bf-gap-label-title: var(--bf-space-16);
       --bf-gap-title-text: var(--bf-space-24);
+      --bf-gap-title-sub: var(--bf-space-8);    /* title → its one-line subtitle ("Part of HBX Group.") */
+      --bf-gap-to-foot: var(--bf-space-24);     /* figures or cards → the closing lines under them */
       --bf-gap-text-text: var(--bf-space-16);
       --bf-gap-text-more: var(--bf-space-8);    /* measured to the visible "Read more" text, not its tap area */
       --bf-gap-to-actions: var(--bf-space-32);  /* text or title → buttons */

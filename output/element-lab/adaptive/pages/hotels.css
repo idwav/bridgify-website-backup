@@ -26,3 +26,14 @@
   html body #section-3 .hs-panel{margin-inline:auto!important}
 }
 @media (max-width:1023px){ html body #section-3 .hs-sticky{padding-left:0!important;padding-right:0!important} }
+
+/* Solutions demos at real size (phones, 16 Nov 2026; plan in output/element-lab/demos.html): the lab used to shrink
+   these with zoom (57-81%). At real size they reflow to the phone and stay readable; tall ones are trimmed of demo items. */
+@media (max-width:599px){
+  html body #section-1 .hm-map:not(#ad-x),html body #section-3 .hs-preview:not(#ad-x){zoom:1!important}
+  html body #section-3 .hs-message img{height:150px!important;object-fit:cover}
+  html body #section-3 .hs-email-letter>img:not(#ad-x){height:150px!important;max-height:150px!important;object-fit:cover}
+  html body #section-3 .hs-hotel-wordmark small{font-size:11px!important}
+  html body #section-3 :is(.hs-preview,.hs-panel,.hs-mail-window,.hs-mail-layout,.hs-message):not(#ad-x){height:auto!important;min-height:0!important;max-height:none!important}
+  html body #section-1 .hm-layout :is(span,small,em,b,i,p,div,strong,li,label,a,h4,h5,u){font-size:max(11px,1em)!important}
+}

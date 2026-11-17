@@ -18,3 +18,11 @@
   html body #section-3 .up-story-phone{margin-top:18px!important}
   html body #section-3 .sc-foot{margin-top:16px!important;gap:12px!important}
 }
+
+/* Solutions demos at real size (phones, 16 Nov 2026; plan in output/element-lab/demos.html): the lab used to shrink
+   these with zoom (57-81%). At real size they reflow to the phone and stay readable; tall ones are trimmed of demo items. */
+@media (max-width:599px){
+  html body #section-1 .sc-preview:not(#ad-x),html body #section-3 .up-story-phone:not(#ad-x){zoom:1!important}
+}
+/* The super-app phone is 320px wide: on a 320px-wide screen (iPhone SE) it is scaled to the 272px column. */
+@media (max-width:359px){ html body #section-1 .sc-preview:not(#ad-x):not(#ad-y){zoom:.85!important} }

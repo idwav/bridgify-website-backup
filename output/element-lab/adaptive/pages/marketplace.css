@@ -214,3 +214,71 @@
   /* Who it's for: tile names one weight up, like the homepage list. */
   html body #marketplace-audiences .ma-industry-card h3{font-weight:500!important;font-size:18px!important;line-height:1.25!important}
 }
+
+/* White-Label demos at real size (phones, 16 Nov 2026; plan in output/element-lab/demos.html).
+   Rule: show less at real size; text without boxes, a box only where there is an image or a screen. */
+@media (max-width:599px){
+  /* Hero store: two featured experiences, wider, labels at 11. */
+  html body #section-1 .market-cards:not(#ad-x){grid-template-columns:1fr 1fr!important}
+  html body #section-1 .market-cards>article:nth-child(n+3){display:none!important}
+  html body #section-1 .market-cards small{font-size:11px!important}
+
+  /* Product tour and localization preview: no shrinking. At real size they reflow to the phone and fit the screen
+     (540px and 420px), so the zoom the lab used before is switched off. */
+  html body #section-2 .presentation:not(#ad-x),html body #section-3 .wl-preview-stage:not(#ad-x){zoom:1!important}
+
+  /* Launch timeline: the three days as text on a line, no boxes; the store at real size with a shorter cover and one
+     featured experience. */
+  html body #section-5 .launch-days:not(#ad-x){gap:0!important;padding-inline-start:18px!important;border-inline-start:1px solid #F4664955;margin-inline-start:6px}
+  html body #section-5 .launch-days>button:not(#ad-x){border:0!important;background:none!important;box-shadow:none!important;padding:12px 0 12px 8px!important;width:auto!important;min-height:0!important;height:auto!important;border-radius:0!important;text-align:start;position:relative}
+  html body #section-5 .launch-days>button::before{content:"";position:absolute;inset-inline-start:-23px;top:18px;width:9px;height:9px;border-radius:50%;background:#F46649;box-shadow:0 0 0 3px #1A120F}
+  html body #section-5 .launch-days>button.pending::before{background:#EEE9DE55}
+  html body #section-5 .launch-days>button::after{content:none!important}
+  html body #section-5 .launch-days>button>span{padding:0!important}
+  html body #section-5 .launch-days small{font-size:14px!important;line-height:1.45!important}
+  html body #section-5 .launch-store:not(#ad-x){zoom:1!important}
+  html body #section-5 .launch-cover:not(#ad-x){height:170px!important}
+  html body #section-5 .launch-cover img{height:100%!important;object-fit:cover}
+  html body #section-5 .launch-products>article:nth-child(n+2){display:none!important}
+  /* nothing under 11px inside the store demos; the price in the brand preview is a key figure (28px) */
+  html body #section-1 .market-demo :is(span,small,em,b,i,p,div,a,label),html body #section-2 .presentation :is(span,small,em,b,i,p,div,a,label){font-size:max(11px,1em)!important}
+  html body #section-3 .wl-booking>strong{font-size:28px!important;line-height:1.1!important}
+}
+
+/* Round 7 (17 Nov 2026) */
+@media (max-width:599px){
+  /* Hero: the copy stays and steps back; the store rises over it at its own size until it covers the hero, then the
+     page goes on. The demo gets the page colour behind it so nothing shows through its gaps. */
+  html body #section-1.page-hero:not(#ad-x){overflow:clip!important}
+  html body #section-1 .block-copy{position:sticky!important;top:calc(var(--ad-header-h) + 8px);z-index:0;transform-origin:50% 0}
+  html body #section-1 .market-demo:not(#ad-x){position:relative!important;z-index:1;background:#140d0c;border-radius:18px;box-shadow:0 -24px 48px rgba(0,0,0,.5);padding-block:8px}
+  /* Live in 3 days: your domain and store lead; the launch timeline comes up over its lower half, layered above it */
+  html body #section-5 .launch-workspace:not(#ad-x){display:flex!important;flex-direction:column!important}
+  html body #section-5 .launch-store:not(#ad-x){order:0;position:relative;z-index:1}
+  html body #section-5 .launch-timeline:not(#ad-x){order:1;position:relative;z-index:2;margin-top:calc(var(--ad-store-h,480px) * -.5)!important;background:#1a110f!important;box-shadow:0 -22px 44px rgba(0,0,0,.55)!important}
+}
+@media (max-width:599px) and (prefers-reduced-motion:reduce){ html body #section-1 .block-copy{position:static!important} }
+
+/* Round 8 (17 Nov 2026) */
+@media (max-width:599px){
+  /* Live in 3 days, as the hero: the store stays where it is and the launch timeline rises over it, layer by layer,
+     until it covers the screen; then the page goes on. */
+  html body #section-5 .launch-store:not(#ad-x){position:sticky!important;top:calc(var(--ad-header-h) + 8px)}
+  html body #section-5 .launch-timeline:not(#ad-x){margin-top:calc(var(--ad-store-h,480px) * -.5)!important}
+
+  /* Who it's for: the homepage list. One row per industry: icon (36, no frame) beside the name, one divider between
+     rows, the name's own arrow; pressed, the row shows its photo under a dark shade and the text turns light. */
+  html body #marketplace-audiences .ma-industry-grid:not(#ad-x){grid-template-columns:1fr!important;border-top:1px solid #180f1026}
+  html body #marketplace-audiences .ma-industry-card:not(#ad-x),html body #marketplace-audiences .ma-industry-card:nth-child(even):not(#ad-x){display:grid!important;grid-template-columns:36px minmax(0,1fr);column-gap:16px;align-items:center;
+    padding:20px 28px 20px 0!important;border:0!important;border-bottom:1px solid #180f1026!important;position:relative;isolation:isolate;overflow:hidden;background:none!important;min-height:0!important}
+  html body #marketplace-audiences .ma-industry-number{display:none!important}
+  html body #marketplace-audiences .ma-industry-icon:not(#ad-x){width:36px!important;height:36px!important;margin:0!important;border:0!important;background:none!important;box-shadow:none!important;padding:0!important;color:#F46649}
+  html body #marketplace-audiences .ma-industry-icon svg{width:100%!important;height:100%!important}
+  html body #marketplace-audiences .ma-industry-card h3:not(#ad-x){font-size:18px!important;line-height:1.25!important;font-weight:500!important;margin:0!important}
+  html body #marketplace-audiences .ma-industry-more{display:none!important}
+  html body #marketplace-audiences .ma-industry-card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#180f103d,#180f10c9 48%,#180f10ed);opacity:0;transition:opacity .35s;transform:none!important}
+  html body #marketplace-audiences .ma-industry-photo:not(#ad-x){display:block!important}
+  html body #marketplace-audiences .ma-industry-card:is(:active,:focus-visible)::before{opacity:1}
+  html body #marketplace-audiences .ma-industry-card:is(:active,:focus-visible) .ma-industry-photo{opacity:1;transform:scale(1)}
+  html body #marketplace-audiences .ma-industry-card:is(:active,:focus-visible) h3{color:#FFF8F1!important}
+}

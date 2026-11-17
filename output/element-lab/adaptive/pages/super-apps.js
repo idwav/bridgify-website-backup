@@ -7,6 +7,5 @@
     A.zoomFit($('#section-1 .sc-preview'), 440);
     A.zoomFit($('#section-3 .up-story-phone'), 400);
   }
-  /* Choose how: the two products are peers, not a sequence. A switch shows one whole card at a time. */
-  { const g = $('#section-4 .xc-grid'); if (g && g.children.length > 1) A.tabs($('#section-4'), [...g.children], {when: A.MQ.mobile, before: g, label: 'Choose how'}); }
+  /* Choose how: the two product cards stack as on the homepage (patterns.js "Product cards as a stack"). */
 })();

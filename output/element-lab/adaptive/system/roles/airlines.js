@@ -76,28 +76,16 @@ window.BridgifyRoles = {
      "header.al-journey-heading > p.al-enter"
     ],
     [
-     "content",
-     "#al-touchpoint-booking"
+     "control",
+     "div.al-touchpoints"
     ],
     [
      "content",
-     "#al-touchpoint-manage"
+     "div.al-phone"
     ],
     [
      "content",
-     "#al-touchpoint-email"
-    ],
-    [
-     "content",
-     "#al-touchpoint-arrival"
-    ],
-    [
-     "content",
-     "div.jp-copy > aside.al-loyalty"
-    ],
-    [
-     "content",
-     "div.jp-preview > div.al-phone"
+     "aside.al-loyalty"
     ]
    ]
   },
@@ -115,10 +103,6 @@ window.BridgifyRoles = {
     [
      "text",
      "header.xc-head > p"
-    ],
-    [
-     "control",
-     "div.ad-seg"
     ],
     [
      "content",

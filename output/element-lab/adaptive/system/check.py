@@ -26,6 +26,12 @@ MEASURE = r"""(MAP) => {
     // a button row is where its buttons are; padding or a divider inside the row must not hide extra space
     if (el.dataset && el.dataset.bfRole === 'actions') { const bs = [...el.querySelectorAll('a,button')].filter(vis).map(x => x.getBoundingClientRect()); if (bs.length) return {t: Math.min(...bs.map(r => r.top)) + scrollY, b: Math.max(...bs.map(r => r.bottom)) + scrollY, l: Math.min(...bs.map(r => r.left)), r: Math.max(...bs.map(r => r.right))}; }
     const r = el.getBoundingClientRect(); let t = r.top + scrollY, b = r.bottom + scrollY;
+    // a pinned stage (patterns.js pin) leaves at the bottom of its scroll run
+    const stg = el.parentElement && el.parentElement.classList.contains('ad-pin-stage') ? el.parentElement : null;
+    if (stg) { const kids = [...stg.children].filter(vis), run = stg.parentElement.getBoundingClientRect();
+      const sr = stg.getBoundingClientRect();
+      // the top is where it is (measured with the page at the top, the stage not yet stuck); the bottom is the run's end
+      if (kids[kids.length - 1] === el) b = run.bottom - (sr.bottom - r.bottom) + scrollY; }
     if (el.classList.contains('ad-more') || (el.dataset && el.dataset.bfRole === 'link')) { const c = getComputedStyle(el); t += parseFloat(c.paddingTop); b -= parseFloat(c.paddingBottom); }
     return {t, b, l: r.left, r: r.right}; };
   const px = n => parseFloat(R.tok(n));

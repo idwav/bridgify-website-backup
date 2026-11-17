@@ -224,7 +224,49 @@
     expander(el, {lines, trigger: more});
   }
 
-  window.BridgifyAdaptive = {MQ, menu, scroller, tabs, rowLinks, footer, fit, zoomFit, expander, reduce, fold};
+  /* 11. Pinned stations (phones): the stage stays on screen while the page scrolls, and the scroll moves the reader
+     through its stations one by one (a trip, a passenger journey). The page's own height grows by one "step" per
+     station, so the reader is never trapped: scrolling past the last station simply carries on. Off with reduced
+     motion and on wider screens, where the stage is an ordinary block. els: the elements that form the stage. */
+  function pin(els, o = {}) {
+    els = [].concat(els).filter(Boolean); if (!els.length || els[0].closest('.ad-pin')) return null;
+    const w = document.createElement('div'); w.className = 'ad-pin';
+    const st = document.createElement('div'); st.className = 'ad-pin-stage';
+    els[0].before(w); w.append(st); els.forEach(e => st.append(e));
+    if (o.className) w.classList.add(o.className);
+    // sticky needs every ancestor to let it stick: hidden/auto overflow becomes clip (same clipping, no scroll box)
+    for (let a = w.parentElement; a && a !== document.body; a = a.parentElement) {
+      const c = getComputedStyle(a); if (/hidden|auto|scroll/.test(c.overflowX + c.overflowY)) a.style.setProperty('overflow', 'clip', 'important');
+    }
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const steps = o.steps || 2, per = () => Math.round(innerHeight * (o.per || .5));
+    const head = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ad-header-h')) || 64;
+    let last = -1, raf = 0, top = 0;
+    const layout = () => {
+      const on = MQ.mobile.matches && !reduced.matches;
+      w.classList.toggle('is-on', on);
+      if (!on) { w.style.height = ''; st.style.top = ''; return; }
+      top = Math.max(head() + 12, Math.round((innerHeight - st.offsetHeight) / 2));
+      st.style.top = top + 'px';
+      w.style.height = (st.offsetHeight + per() * (steps - 1)) + 'px';
+      tick();
+    };
+    const tick = () => {
+      raf = 0; if (!w.classList.contains('is-on')) return;
+      const run = Math.max(1, w.offsetHeight - st.offsetHeight);
+      const p = Math.max(0, Math.min(1, (top - w.getBoundingClientRect().top) / run));
+      if (o.onProgress) o.onProgress(p);
+      const i = Math.min(steps - 1, Math.round(p * (steps - 1)));
+      if (i !== last) { last = i; if (o.onStep) o.onStep(i); }
+    };
+    addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(tick); }, {passive: true});
+    addEventListener('resize', layout); MQ.mobile.addEventListener('change', layout); reduced.addEventListener('change', layout);
+    if (window.ResizeObserver) new ResizeObserver(() => requestAnimationFrame(layout)).observe(st);
+    layout();
+    return {wrap: w, stage: st, go: i => scrollTo({top: w.getBoundingClientRect().top + scrollY - top + per() * i, behavior: 'smooth'})};
+  }
+
+  window.BridgifyAdaptive = {MQ, menu, scroller, tabs, rowLinks, footer, fit, zoomFit, expander, reduce, fold, pin};
   const boot = () => { menu(); footer(); };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
@@ -306,4 +348,21 @@
   };
   tag();  // at once, before the first paint; again when the document is complete
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', tag);
+})();
+
+/* Product cards as a stack (solutions pages, phones): the covered card steps back, as on the homepage products. */
+(() => {
+  const grid = document.querySelector('.xc .xc-grid'); if (!grid) return;
+  const mq = matchMedia('(max-width:599px)'), reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const cards = [...grid.children]; let raf = 0;
+  for (let a = grid.parentElement; a && a !== document.body; a = a.parentElement) {
+    const c = getComputedStyle(a); if (/hidden|auto|scroll/.test(c.overflowX + c.overflowY)) a.style.setProperty('overflow', 'clip', 'important');
+  }
+  const paint = () => { raf = 0;
+    cards.forEach((c, i) => { const n = cards[i + 1];
+      if (!mq.matches || reduced.matches || !n) { c.style.removeProperty('scale'); c.style.removeProperty('filter'); return; }
+      const r = c.getBoundingClientRect(), q = n.getBoundingClientRect(), p = Math.max(0, Math.min(1, (r.bottom - q.top) / r.height));
+      c.style.setProperty('scale', String(1 - p * .08)); c.style.setProperty('filter', `brightness(${1 - p * .45})`); });
+  };
+  addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(paint); }, {passive: true}); addEventListener('resize', paint); paint();
 })();

@@ -15,6 +15,9 @@
   /* gap between two roles → token name */
   const pair = (a, b, hero) => {
     if (a === 'more') a = 'text';                       // Read more belongs to its paragraph
+    if (a === 'title' && b === 'sub') return 'gap-title-sub'; // a one-line subtitle belongs to its title
+    if (a === 'sub') a = 'text';
+    if (b === 'foot') return 'gap-to-foot';             // closing lines under figures or cards (sentence, link, note)
     if (b === 'visual' || (hero && b === 'content')) return 'gap-to-visual';
     if (a === 'label') return 'gap-label-title';
     if (a === 'title' && b === 'text') return 'gap-title-text';
