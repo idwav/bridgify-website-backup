@@ -40,8 +40,6 @@
 
 /* Round 11 (17 Nov 2026), phones */
 @media (max-width:599px){
-  /* Hero title: the accent in the brand gradient, as on every other page (it was a flat peach) */
-  html body #hm-title span:not(#ad-x){background:linear-gradient(110deg,#ffc3a2,#f46649)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;-webkit-text-fill-color:transparent!important}
   /* Round 12: "Your hotel" and the map rise together over the heading. The heading sticks under the header; the
      two cards are one block on an opaque ground, so the heading is hidden as they pass over it. */
   html body #section-1.hm-hero:not(#ad-x){overflow:clip!important}

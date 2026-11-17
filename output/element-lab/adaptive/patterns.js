@@ -401,3 +401,21 @@
   };
   addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(paint); }, {passive: true}); addEventListener('resize', paint); paint();
 })();
+
+/* One heading style (see patterns.css): every coloured word in a section heading that is not already the moving
+   gradient gets it, in the dark-section or the light-section colours, decided by the heading's own text colour. */
+(() => {
+  const lum = c => { const m = c.match(/[\d.]+/g); if (!m) return 1; const [r, g, b] = m.map(Number); return (0.299 * r + 0.587 * g + 0.114 * b) / 255; };
+  const run = () => document.querySelectorAll('section h1:not(.copy-seo), section h2').forEach(h => {
+    const hc = getComputedStyle(h);
+    [...h.querySelectorAll('span, em')].forEach(a => {
+      if (a.closest('.ad-ink') || a.querySelector('span, em')) return;
+      const c = getComputedStyle(a);
+      if (c.animationName && c.animationName !== 'none') return;              // already the moving gradient
+      const coloured = c.backgroundImage !== 'none' || c.color !== hc.color;
+      if (!coloured || !a.textContent.trim()) return;
+      a.classList.add('ad-ink'); if (lum(hc.color) < .5) a.classList.add('ad-ink-light');
+    });
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+})();
