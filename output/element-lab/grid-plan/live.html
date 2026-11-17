@@ -33,6 +33,10 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:500 14
     <button data-v="1560">B · עד 1560</button>
     <button data-v="today">היום</button>
   </div>
+  <div class="grp"><b>ריווח</b>
+    <button data-s="0">היום</button>
+    <button data-s="1">שלב 3 (טיוטה)</button>
+  </div>
   <div class="grp"><b>רוחב</b>
     <button data-w="fit">המסך שלי</button>
     <button data-w="768">768</button><button data-w="1024">1024</button><button data-w="1440">1440</button>
@@ -51,12 +55,24 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:500 14
   /* Lab only. One full screen of the real homepage. Switching A / B / today swaps only the injected CSS
      (try-cap.css), so the page stays where you scrolled. Keys: A, B, T (today), or ← → to flip. */
   const q = new URLSearchParams(location.search);
-  const S = { v: q.get('v') || '1560', w: q.get('w') === 'fit' ? 'fit' : +(q.get('w') || 1920), t: +(q.get('t') || 32), l: q.get('l') !== '0' };
+  const S = { v: q.get('v') || '1560', w: q.get('w') === 'fit' ? 'fit' : +(q.get('w') || 1920), t: +(q.get('t') || 32), l: q.get('l') !== '0', s: q.get('s') === '1' };
   const NAME = { today: 'היום', 1440: 'A · תוכן עד 1440', 1560: 'B · תוכן עד 1560' };
   const ORDER = ['1440', '1560', 'today'];
   const f = document.getElementById('f'), frame = document.getElementById('frame'), lines = document.getElementById('lines'), stage = document.getElementById('stage');
-  let css = '', W = 0;
+  let css = '', W = 0, spTok = '', spCode = '';
   fetch('try-cap.css', { cache: 'no-store' }).then(r => r.text()).then(t => { css = t; inject(); });
+  Promise.all(['tokens-wide.css', 'roles-index-v2.js', 'rhythm-wide.js'].map(u => fetch(u, { cache: 'no-store' }).then(r => r.text())))
+    .then(([t, roles, eng]) => { spTok = t; spCode = roles + '\n' + eng; spacing(); });
+  // step 3: tablet/desktop spacing tokens + the role-map engine, run inside the page; off = cleared back to today
+  function spacing() {
+    let d, w; try { d = f.contentDocument; w = f.contentWindow; } catch (e) { return; }
+    if (!d || !d.head || !d.body || !spTok || d.URL === 'about:blank') return;
+    let st = d.getElementById('try-space');
+    if (!S.s) { if (st) st.remove(); if (w.BridgifyRhythmWide) w.BridgifyRhythmWide.clear(); return; }
+    if (!st) { st = d.createElement('style'); st.id = 'try-space'; st.textContent = spTok; d.head.appendChild(st); }
+    if (!w.BridgifyRhythmWide) { const sc = d.createElement('script'); sc.textContent = spCode; d.body.appendChild(sc); }
+    else requestAnimationFrame(() => w.BridgifyRhythmWide.apply());
+  }
 
   const margin = () => {
     if (S.v === 'today' || W <= 599) return null;
@@ -87,20 +103,22 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:500 14
     document.querySelectorAll('[data-v]').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === S.v));
     document.querySelectorAll('[data-w]').forEach(b => b.setAttribute('aria-pressed', b.dataset.w === String(S.w)));
     document.querySelectorAll('[data-t]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.t === S.t));
+    document.querySelectorAll('[data-s]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.s === '1') === S.s));
     document.querySelectorAll('[data-l]').forEach(b => b.setAttribute('aria-pressed', (b.dataset.l === '1') === S.l));
-    history.replaceState(null, '', '?' + new URLSearchParams({ v: S.v, w: S.w, t: S.t, l: S.l ? 1 : 0 }));
+    history.replaceState(null, '', '?' + new URLSearchParams({ v: S.v, w: S.w, t: S.t, l: S.l ? 1 : 0, s: S.s ? 1 : 0 }));
   }
   let ft;
   function setVersion(v) {
-    if (v === S.v) return; S.v = v; inject(); layout();
+    if (v === S.v) return; S.v = v; inject(); layout(); spacing();
     const el = document.getElementById('flash'); el.textContent = NAME[v]; el.classList.add('on');
     clearTimeout(ft); ft = setTimeout(() => el.classList.remove('on'), 900);
   }
   document.getElementById('bar').addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
     if (b.dataset.v) return setVersion(b.dataset.v);
+    if (b.dataset.s) { S.s = b.dataset.s === '1'; layout(); spacing(); return; }
     if (b.dataset.w) S.w = b.dataset.w === 'fit' ? 'fit' : +b.dataset.w;
-    if (b.dataset.t) { S.t = +b.dataset.t; inject(); }
+    if (b.dataset.t) { S.t = +b.dataset.t; inject(); spacing(); }
     if (b.dataset.l) S.l = b.dataset.l === '1';
     layout();
   });
@@ -112,7 +130,7 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:500 14
     else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { const i = ORDER.indexOf(S.v); setVersion(ORDER[(i + (e.key === 'ArrowLeft' ? 1 : 2)) % 3]); e.preventDefault(); }
   }
   addEventListener('keydown', keys);
-  f.addEventListener('load', () => { inject(); layout(); try { f.contentWindow.addEventListener('keydown', keys); } catch (e) {} });
+  f.addEventListener('load', () => { inject(); layout(); spacing(); try { f.contentWindow.addEventListener('keydown', keys); } catch (e) {} });
   addEventListener('resize', layout);
   f.src = '../../../index-v2.html?version=2';
   layout();
