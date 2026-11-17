@@ -4,39 +4,54 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const mk = (tag, attrs, parent) => { const e = document.createElementNS(ns, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.append(e); return e; };
 
-  // Story: two panels. "One by one": every supplier format wires to the partner separately. "As one": they converge through one infrastructure.
-  document.querySelectorAll('[data-as]').forEach(panel => {
-    if (!F) return;
-    const stage = panel.querySelector('.as-stage'), W = 600, H = 360, one = panel.dataset.as === 'one';
-    const svg = mk('svg', { class: 'as-wires', viewBox: `0 0 ${W} ${H}`, preserveAspectRatio: 'none', 'aria-hidden': 'true' }, stage);
-    const cx = [85, 221, 357, 493], top = 68, bottom = 292, hubTop = 142, hubBottom = 198, hx = 300;
-    const defs = one
-      ? cx.map(x => `M${x} ${top}C${x} ${top + 50},${hx} ${hubTop - 50},${hx} ${hubTop}`).concat([`M${hx} ${hubBottom}V${bottom}`])
-      : [[3, 0], [0, 1], [2, 2], [1, 3]].map(([port, i]) => { const px = 120 + port * 120; return `M${cx[i]} ${top}C${cx[i]} ${top + 130},${px} ${bottom - 150},${px} ${bottom}`; });
-    const paths = defs.map(d => { const p = mk('path', { d, fill: 'none', stroke: '#f46649', 'stroke-width': 1, 'stroke-linecap': 'round', opacity: one ? .6 : .4, 'vector-effect': 'non-scaling-stroke' }, svg); return { p, len: p.getTotalLength() }; });
-    const g = mk('g', {}, svg);
-    const dots = paths.map(() => Array.from({ length: one ? 9 : 5 }, (_, i) => mk('circle', { r: one ? F.radius(i) : 2.2, fill: '#fff8f1', stroke: '#f46649', 'stroke-width': .7, opacity: 0 }, g)));
-    const target = one ? stage.querySelector('[data-hub]') : null, box = stage.querySelector('.as-box');
-    const cycle = one ? 6400 : 7600;
-    const reset = () => { dots.flat().forEach(d => d.setAttribute('opacity', 0)); if (target) F.glow(target, 0); F.glow(box, 0); };
-    if (reduced.matches) { paths.forEach(pa => pa.p.setAttribute('opacity', one ? .8 : .5)); return; }
+  // Hero: experiences from around the world flow into Bridgify, then out to the brands people use (approved BridgifyFlow wiring).
+  const wm = document.querySelector('[data-wm]');
+  if (wm && F) {
+    const pins = [...wm.querySelectorAll('.wm-pin')], hub = wm.querySelector('[data-hub]'), brands = [...wm.querySelectorAll('[data-brand]')];
+    let svg = null, paths = [], dots = [];
+    const T = { cycle: 8200, travel: 1500, gap: 130, second: 2600, gap2: 260 };
+    const build = () => {
+      svg?.remove(); svg = null; paths = []; dots = [];
+      if (innerWidth <= 1100) return;
+      const box = wm.getBoundingClientRect(), r = 10, h = hub.getBoundingClientRect();
+      svg = mk('svg', { class: 'wm-wires', width: box.width, height: box.height, viewBox: `0 0 ${box.width} ${box.height}`, 'aria-hidden': 'true' }, svg ? null : wm);
+      const hx = h.left + h.width / 2 - box.left, ht = h.top - box.top, hb = h.bottom - box.top;
+      pins.forEach(pin => {
+        const b = pin.getBoundingClientRect(), sx = b.left + b.width / 2 - box.left, sy = b.top + b.height / 2 - box.top;
+        const d = `M${sx} ${sy}C${sx} ${sy + (ht - sy) * .55},${hx} ${ht - (ht - sy) * .45},${hx} ${ht}`;
+        const p = mk('path', { d, fill: 'none', stroke: '#f46649', 'stroke-width': 1, 'stroke-linecap': 'round', opacity: .5 }, svg);
+        paths.push({ p, len: p.getTotalLength(), stage: 0 });
+      });
+      brands.forEach(card => {
+        const b = card.getBoundingClientRect(), tx = b.left + b.width / 2 - box.left, ty = b.top - box.top, my = hb + (ty - hb) / 2, k = tx > hx + 1 ? 1 : tx < hx - 1 ? -1 : 0;
+        const d = k ? `M${hx} ${hb}V${my - r}Q${hx} ${my} ${hx + k * r} ${my}H${tx - k * r}Q${tx} ${my} ${tx} ${my + r}V${ty}` : `M${hx} ${hb}V${ty}`;
+        const p = mk('path', { d, fill: 'none', stroke: '#f46649', 'stroke-width': 1, 'stroke-linecap': 'round', opacity: .55 }, svg);
+        paths.push({ p, len: p.getTotalLength(), stage: 1 });
+        mk('circle', { cx: tx, cy: ty, r: 3.5, fill: '#eee9de', stroke: '#f46649', 'stroke-width': 1.2 }, svg);
+      });
+      mk('circle', { cx: hx, cy: ht, r: 3.5, fill: '#eee9de', stroke: '#f46649', 'stroke-width': 1.2 }, svg);
+      mk('circle', { cx: hx, cy: hb, r: 3.5, fill: '#eee9de', stroke: '#f46649', 'stroke-width': 1.2 }, svg);
+      const g = mk('g', {}, svg);
+      dots = paths.map(() => Array.from({ length: 9 }, (_, i) => mk('circle', { r: F.radius(i), fill: '#fff8f1', stroke: '#f46649', 'stroke-width': .7, opacity: 0 }, g)));
+    };
+    const reset = () => { dots.flat().forEach(d => d.setAttribute('opacity', 0)); F.glow(hub, 0); brands.forEach(b => F.glow(b, 0)); };
     const draw = elapsed => {
-      const t = elapsed % cycle; let gh = 0, gb = 0;
+      const t = elapsed % T.cycle; let gh = 0; const gb = brands.map(() => 0);
       paths.forEach((pa, j) => {
-        const merge = one && j === paths.length - 1;
-        const start = one ? (merge ? 2300 : 200 + j * 120) : 200 + j * 650, dur = one ? 1500 : 2600 + j * 300, arrive = start + dur;
-        if (one) { if (merge) gb = F.arrival(t - arrive); else gh = Math.max(gh, F.arrival(t - arrive)); } else gb = Math.max(gb, F.arrival(t - arrive) * .5);
+        const bi = j - pins.length, start = pa.stage === 0 ? 300 + j * T.gap : T.second + bi * T.gap2, arrive = start + T.travel;
+        if (pa.stage === 0) gh = Math.max(gh, F.arrival(t - arrive)); else gb[bi] = F.arrival(t - arrive);
         dots[j].forEach((d, i) => {
-          const local = t - start - i * (one ? F.delay : 520);
-          if (local < 0 || local > dur) { d.setAttribute('opacity', 0); return; }
-          const u = local / dur, pt = pa.p.getPointAtLength(pa.len * (one ? F.smooth(u) : u));
-          d.setAttribute('cx', pt.x); d.setAttribute('cy', pt.y); d.setAttribute('opacity', Math.min(1, u * 10) * Math.min(1, (1 - u) * 8) * (one ? 1 - i * .065 : .85));
+          const local = t - start - i * F.delay;
+          if (local < 0 || local > T.travel) { d.setAttribute('opacity', 0); return; }
+          const u = local / T.travel, pt = pa.p.getPointAtLength(pa.len * F.smooth(u));
+          d.setAttribute('cx', pt.x); d.setAttribute('cy', pt.y); d.setAttribute('opacity', Math.min(1, u * 10) * Math.min(1, (1 - u) * 8) * (1 - i * .065));
         });
       });
-      if (target) F.glow(target, gh); F.glow(box, gb);
+      F.glow(hub, gh); brands.forEach((b, i) => F.glow(b, gb[i]));
     };
-    F.run(panel, draw, reset);
-  });
+    build(); new ResizeObserver(() => { build(); reset(); }).observe(wm); document.fonts?.ready.then(build);
+    F.run(wm, draw, reset);
+  }
 
   // Mission: the scene stays pinned while the chapter follows the scroll; chapters are also clickable.
   const pin = document.querySelector('[data-pin]');
