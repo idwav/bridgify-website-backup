@@ -1,0 +1,18 @@
+/* Lab only · step 2 trial: one content max-width for the whole homepage.
+   Injected by try-cap.py while capturing; no site file loads it.
+   --try-cap is the content width cap: 1440 (proposal A) or 1560 (B: the hero's current edge, the "red line").
+   Margin = max(4vw clamped 40–64, (100vw − cap) / 2): the same left line for the hero and every section. */
+@media (min-width: 1024px) {
+  html:root {
+    --try-margin: max(clamp(40px, 4vw, 64px), calc((100vw - var(--try-cap, 1440px)) / 2));
+    --home-gutter: var(--try-margin) !important;
+  }
+  /* the hero used its own 1560 cap centred on the page; it now follows the same margin */
+  html body .bv2-hero-layout { max-width: none !important; margin-inline: 0 !important; }
+  html body #home .content { margin-left: 0 !important; }
+  html body #home { padding-inline: var(--try-margin) !important; }
+  /* V2 sections that hard-code padding 3.7% instead of reading --home-gutter (home-products-v2, home-problem-v2,
+     home-numbers-v2, home-cta-v2) or pad an inner column (partner-results) */
+  html body :is(#products.pr2, #opportunity-study.pb2, .sec2, #faq.copy-faq, .hc2, #why-bridgify) { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
+  html body #marketplace-results .v2e-copy { padding-left: var(--try-margin) !important; }
+}

@@ -1,0 +1,374 @@
+{
+ "1440@1440": {
+  "margin": 57.6,
+  "logo": 70,
+  "docW": 1440,
+  "rows": [
+   {
+    "id": "home",
+    "left": 58,
+    "right": 795
+   },
+   {
+    "id": "sources",
+    "left": 58,
+    "right": 58
+   },
+   {
+    "id": "opportunity-study",
+    "left": 58,
+    "right": 58
+   },
+   {
+    "id": "why-bridgify",
+    "left": 58,
+    "right": 86
+   },
+   {
+    "id": "personalization",
+    "left": 58,
+    "right": 58
+   },
+   {
+    "id": "products",
+    "left": 58,
+    "right": 58
+   },
+   {
+    "id": "audiences",
+    "left": 58,
+    "right": 88
+   },
+   {
+    "id": "marketplace-results",
+    "left": 58,
+    "right": 733
+   },
+   {
+    "id": "security",
+    "left": 58,
+    "right": 807
+   },
+   {
+    "id": "faq",
+    "left": 58,
+    "right": 322
+   },
+   {
+    "id": "home-cta",
+    "left": 58,
+    "right": 123
+   }
+  ]
+ },
+ "1560@1440": {
+  "margin": 57.6,
+  "logo": 70,
+  "docW": 1440,
+  "rows": [
+   {
+    "id": "home",
+    "left": 58,
+    "right": 795
+   },
+   {
+    "id": "sources",
+    "left": 58,
+    "right": 58
+   },
+   {
+    "id": "opportunity-study",
+    "left": 58,
+    "right": 58
+   },
+   {
+    "id": "why-bridgify",
+    "left": 58,
+    "right": 86
+   },
+   {
+    "id": "personalization",
+    "left": 58,
+    "right": 58
+   },
+   {
+    "id": "products",
+    "left": 58,
+    "right": 58
+   },
+   {
+    "id": "audiences",
+    "left": 58,
+    "right": 88
+   },
+   {
+    "id": "marketplace-results",
+    "left": 58,
+    "right": 733
+   },
+   {
+    "id": "security",
+    "left": 58,
+    "right": 807
+   },
+   {
+    "id": "faq",
+    "left": 58,
+    "right": 322
+   },
+   {
+    "id": "home-cta",
+    "left": 58,
+    "right": 123
+   }
+  ]
+ },
+ "1440@1920": {
+  "margin": 240.0,
+  "logo": 85,
+  "docW": 1920,
+  "rows": [
+   {
+    "id": "home",
+    "left": 240,
+    "right": 1049
+   },
+   {
+    "id": "sources",
+    "left": 240,
+    "right": 240
+   },
+   {
+    "id": "opportunity-study",
+    "left": 240,
+    "right": 240
+   },
+   {
+    "id": "why-bridgify",
+    "left": 240,
+    "right": 271
+   },
+   {
+    "id": "personalization",
+    "left": 240,
+    "right": 240
+   },
+   {
+    "id": "products",
+    "left": 240,
+    "right": 240
+   },
+   {
+    "id": "audiences",
+    "left": 240,
+    "right": 270
+   },
+   {
+    "id": "marketplace-results",
+    "left": 241,
+    "right": 890
+   },
+   {
+    "id": "security",
+    "left": 240,
+    "right": 1051
+   },
+   {
+    "id": "faq",
+    "left": 240,
+    "right": 620
+   },
+   {
+    "id": "home-cta",
+    "left": 240,
+    "right": 324
+   }
+  ]
+ },
+ "1560@1920": {
+  "margin": 180.0,
+  "logo": 85,
+  "docW": 1920,
+  "rows": [
+   {
+    "id": "home",
+    "left": 180,
+    "right": 1055
+   },
+   {
+    "id": "sources",
+    "left": 180,
+    "right": 180
+   },
+   {
+    "id": "opportunity-study",
+    "left": 180,
+    "right": 180
+   },
+   {
+    "id": "why-bridgify",
+    "left": 180,
+    "right": 213
+   },
+   {
+    "id": "personalization",
+    "left": 180,
+    "right": 180
+   },
+   {
+    "id": "products",
+    "left": 180,
+    "right": 180
+   },
+   {
+    "id": "audiences",
+    "left": 180,
+    "right": 210
+   },
+   {
+    "id": "marketplace-results",
+    "left": 181,
+    "right": 922
+   },
+   {
+    "id": "security",
+    "left": 180,
+    "right": 1057
+   },
+   {
+    "id": "faq",
+    "left": 180,
+    "right": 680
+   },
+   {
+    "id": "home-cta",
+    "left": 180,
+    "right": 264
+   }
+  ]
+ },
+ "1440@2560": {
+  "margin": 560.0,
+  "logo": 106,
+  "docW": 2560,
+  "rows": [
+   {
+    "id": "home",
+    "left": 560,
+    "right": 1369
+   },
+   {
+    "id": "sources",
+    "left": 560,
+    "right": 560
+   },
+   {
+    "id": "opportunity-study",
+    "left": 560,
+    "right": 560
+   },
+   {
+    "id": "why-bridgify",
+    "left": 560,
+    "right": 591
+   },
+   {
+    "id": "personalization",
+    "left": 560,
+    "right": 560
+   },
+   {
+    "id": "products",
+    "left": 560,
+    "right": 560
+   },
+   {
+    "id": "audiences",
+    "left": 560,
+    "right": 590
+   },
+   {
+    "id": "marketplace-results",
+    "left": 561,
+    "right": 1060
+   },
+   {
+    "id": "security",
+    "left": 560,
+    "right": 1371
+   },
+   {
+    "id": "faq",
+    "left": 560,
+    "right": 940
+   },
+   {
+    "id": "home-cta",
+    "left": 560,
+    "right": 650
+   }
+  ]
+ },
+ "1560@2560": {
+  "margin": 500.0,
+  "logo": 106,
+  "docW": 2560,
+  "rows": [
+   {
+    "id": "home",
+    "left": 500,
+    "right": 1375
+   },
+   {
+    "id": "sources",
+    "left": 500,
+    "right": 500
+   },
+   {
+    "id": "opportunity-study",
+    "left": 500,
+    "right": 500
+   },
+   {
+    "id": "why-bridgify",
+    "left": 500,
+    "right": 533
+   },
+   {
+    "id": "personalization",
+    "left": 500,
+    "right": 500
+   },
+   {
+    "id": "products",
+    "left": 500,
+    "right": 500
+   },
+   {
+    "id": "audiences",
+    "left": 500,
+    "right": 530
+   },
+   {
+    "id": "marketplace-results",
+    "left": 501,
+    "right": 1092
+   },
+   {
+    "id": "security",
+    "left": 500,
+    "right": 1377
+   },
+   {
+    "id": "faq",
+    "left": 500,
+    "right": 1000
+   },
+   {
+    "id": "home-cta",
+    "left": 500,
+    "right": 590
+   }
+  ]
+ }
+}
