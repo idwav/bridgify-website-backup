@@ -23,13 +23,3 @@ body:not(.embedded) #screen{height:540px;scrollbar-gutter:stable}
 body:not(.embedded) .chrome,body:not(.embedded) .product-nav,body:not(.embedded) .controls{flex-shrink:0}
 @media(max-width:1050px) and (min-width:761px){body:not(.embedded) .layout{grid-template-columns:240px minmax(0,1fr);gap:24px}body:not(.embedded) aside{width:240px}body:not(.embedded) .explanation h2{font-size:34px}.ai-page{padding-right:0}.ai-page>.cards{max-width:55%}.ai-chat{width:43%;min-width:0}}
 @media(max-width:760px){body:not(.embedded) .top,body:not(.embedded) main{width:calc(100% - 32px)}body:not(.embedded) .layout{grid-template-columns:1fr;gap:24px;padding-block:24px}body:not(.embedded) aside{width:100%;display:flex;padding-bottom:38px}body:not(.embedded) .explanation h2{font-size:34px}body:not(.embedded) #screen{height:480px}body:not(.embedded) #play{position:absolute}.ai-page>.cards{max-width:none}}
-
-/* Embedded in site sections: the screen only, filling its frame */
-.embedded.screen-only,.embedded.screen-only body{background:transparent;height:100%;margin:0}
-.embedded.screen-only main{height:100%;padding:0;width:100%;max-width:none;margin:0}
-.embedded.screen-only .layout{height:100%;padding:0;display:block}
-.embedded.screen-only .browser{display:flex;flex-direction:column;height:100%;width:100%;margin:0;border-radius:0;border:0;box-shadow:none}
-.embedded.screen-only #screen{flex:1;height:auto;min-height:0}
-.embedded.screen-only .intro,.embedded.screen-only footer,.embedded.screen-only .top{display:none}
-.no-controls .controls{display:none}
-.no-chrome .chrome{display:none}

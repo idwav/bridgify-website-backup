@@ -22,7 +22,7 @@ const themeButton=$('#theme-toggle');
 function theme(dark){document.documentElement.dataset.theme=dark?'dark':'light';themeButton.textContent=dark?'Light mode':'Dark mode';themeButton.setAttribute('aria-pressed',String(dark));params.set('theme',dark?'dark':'light');history.replaceState(null,'','?'+params.toString())}
 theme(params.get('theme')==='dark');themeButton.onclick=()=>theme(document.documentElement.dataset.theme!=='dark');
 if(params.has('embed'))document.body.classList.add('embedded');
-if(params.get('view')==='screen')document.body.classList.add('screen-only');if(params.get('controls')==='0')document.body.classList.add('no-controls');if(params.get('chrome')==='0')document.body.classList.add('no-chrome');
+if(params.get('view')==='screen')document.body.classList.add('screen-only');
 let timer,run=0;const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const item=()=>items[state.item],money=n=>'€'+n.toFixed(2),date=()=>new Date(state.date+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
