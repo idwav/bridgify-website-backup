@@ -178,3 +178,27 @@ body[data-page="about"]{background:#180f10;color:#eee9de}
 .ms-s3 .ms-few{grid-template-columns:repeat(3,1fr);margin-top:0;gap:12px;flex:1;min-height:0}
 .ms-s3 .ms-few figure{min-height:120px}
 @media(max-width:900px){.ms-s3 .ms-group{flex-wrap:wrap}}
+
+/* Mission scenes: spacing for the shared wires; elements wake up as the points arrive. */
+.ms-wires{position:absolute;inset:0;pointer-events:none;overflow:visible;z-index:3}
+.ms-s{gap:0}
+.ms-s1 .ms-pill{margin-top:44px}
+.ms-s1 .ms-fields span{opacity:.35;transition:opacity .5s,border-color .5s,background .5s}
+.ms-s1 .ms-fields span.on{opacity:1;border-color:#f46649;background:#f4664918}
+.ms-s2 .ms-chans{margin-top:44px}
+.ms-ok{opacity:.35;transition:opacity .5s}
+.ms-ok.on{opacity:1}
+.ms-s3 .ms-search{position:relative;margin-top:40px;display:flex;align-items:center;gap:10px;padding:6px 6px 6px 22px;border:1px solid #ffffff33;border-radius:999px;background:#180f10d9;font:400 16px Sofia,sans-serif;color:#fff8f1;min-height:52px}
+.ms-q{min-height:20px;white-space:nowrap}
+.ms-caret{width:2px;height:20px;background:#f46649;animation:ms-blink 1s steps(1) infinite}
+@keyframes ms-blink{50%{opacity:0}}
+.ms-go{margin-left:auto;display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;background:#e8654a;color:#180f10;font:700 14px Sofia,sans-serif;transition:transform .2s,box-shadow .3s}
+.ms-go svg{width:16px;height:16px;fill:currentColor}
+.ms-go.pressed{transform:scale(.93);box-shadow:0 0 22px #f46649}
+.ms-ptr{position:absolute;right:20px;top:60%;font-size:30px;line-height:1;color:#fff5e5;filter:drop-shadow(0 2px 2px #000);opacity:0;transform:translate(-80px,26px);transition:opacity .2s,transform .7s cubic-bezier(.3,.8,.3,1);pointer-events:none}
+.ms-ptr.show{opacity:1;transform:none}
+.ms-s3 .ms-few{margin-top:44px;grid-template-columns:repeat(3,1fr)}
+.ms-s3 .ms-few figure{opacity:0;transform:translateY(12px);transition:opacity .6s,transform .7s cubic-bezier(.22,1,.36,1)}
+.ms-s3 .ms-few figure.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.ms-s3 .ms-few figure{transition:none}.ms-caret{animation:none}}
+@media(min-width:1101px){.ms-s1 .ms-pill{margin-top:64px}.ms-s1 .ms-fields{margin-top:40px}.ms-s2 .ms-chans{margin-top:64px}.ms-s2 .ms-note{margin-top:28px}.ms-s3 .ms-search{margin-top:52px}.ms-s3 .ms-few{margin-top:56px}}
