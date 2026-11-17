@@ -30,7 +30,36 @@
     .copy button{margin-top:32px!important;vertical-align:top}
     .copy button{min-height:40px!important;height:40px!important;font-size:15px!important;padding:0 16px!important;border-radius:10px!important}
     .copy{position:relative;z-index:0;transform-origin:50% 0;will-change:transform,opacity}
-    .scene{margin-top:48px!important;position:relative;z-index:1;transform-origin:50% 100%;will-change:transform}}`;
+    /* (17 Nov) one primary action, as on every other hero: "Try it" filled in the brand coral, "Talk to us" outlined */
+    .copy button:not(.alt):not(#ad-x){background:linear-gradient(110deg,#ff9862,#f46649)!important;color:#180f10!important;border-color:transparent!important;box-shadow:0 6px 18px #f4664940!important;font-weight:600!important}
+    .scene{margin-top:48px!important;position:relative;z-index:1;transform-origin:50% 100%;will-change:transform}
+    /* Round 19 (17 Nov 2026): the hero is now a chat (product-skin-ai.css). Built for a fixed desktop panel, it was
+       381px wide in a 323px frame with desktop type. On phones it fits the frame, reads at 14px and grows with its
+       messages (no box that scrolls inside); the two matches stack as rows of photo and words. */
+    .chat-mode:not(#ad-x),.ai-split:not(#ad-x){display:block!important;height:auto!important;overflow:visible!important}
+    .ai-chat:not(#ad-x){width:100%!important;max-width:none!important;min-width:0!important;height:auto!important;margin:0!important}
+    .chat-head:not(#ad-x){padding:12px 16px!important;gap:12px!important}
+    .chat-head>span:not(#ad-x){width:34px!important;height:34px!important;font-size:17px!important;border-radius:10px!important}
+    .chat-head b:not(#ad-x){font-size:15px!important}.chat-head small:not(#ad-x){font-size:12px!important}
+    .chat-thread:not(#ad-x){display:grid!important;grid-template-columns:minmax(0,1fr);align-items:start;height:auto!important;overflow:visible!important;gap:8px!important;padding:12px 16px!important}
+    .chat-thread>.msg.bot:not(#ad-x){justify-self:start}.chat-thread>.msg.user:not(#ad-x){justify-self:end}
+    /* "Finding experiences" and the results take turns in one place, so the chat never changes height */
+    .chat-thread>.m-think:not(#ad-x),.chat-thread>.m-results:not(#ad-x){grid-row:4;grid-column:1}
+    .chat-thread:has(.m-results.show)>.m-think:not(#ad-x){display:flex!important;visibility:hidden}
+    .msg:not(#ad-x){max-width:88%!important;padding:10px 14px!important;font-size:14px!important;line-height:1.4!important;border-radius:14px}
+    .m-chips:not(#ad-x){display:block!important}.m-chips small:not(#ad-x){display:block;margin:0 0 8px!important;font-size:11px!important}
+    .chat-chips:not(#ad-x){display:flex!important;flex-wrap:wrap!important;gap:6px!important}
+    .chat-chips span:not(#ad-x){padding:5px 10px!important;font-size:13px!important}.chat-chips i:not(#ad-x){font-size:10px!important}
+    .m-think:not(#ad-x){min-width:0!important;gap:12px!important}.m-think .loading-ring:not(#ad-x){width:36px!important;height:36px!important;font-size:18px!important}
+    .m-think strong:not(#ad-x){font-size:14px!important}.m-think small:not(#ad-x){font-size:12px!important}
+    .m-results:not(#ad-x){width:100%!important;max-width:100%!important;box-sizing:border-box}.m-results>strong:not(#ad-x){font-size:14px!important;margin:0 0 8px!important}
+    .chat-cards:not(#ad-x){display:grid!important;grid-template-columns:1fr!important;gap:8px!important}
+    .chat-cards article:not(#ad-x){display:flex!important;align-items:center;gap:12px;padding:8px!important;min-width:0}
+    .chat-cards article img:not(#ad-x){width:56px!important;height:56px!important;flex:none;object-fit:cover;border-radius:8px}
+    .chat-cards article div:not(#ad-x){display:grid;gap:2px;min-width:0}
+    .chat-cards article small:not(#ad-x){font-size:10px!important;line-height:1.2!important}.chat-cards article b:not(#ad-x){font-size:14px!important;line-height:1.25!important}
+    .chat-composer:not(#ad-x){margin:4px 16px 16px!important;min-height:48px!important;padding:4px 4px 4px 16px!important;font-size:14px!important}
+    .chat-composer .chat-send:not(#ad-x){width:40px!important;height:40px!important;min-width:40px!important;font-size:18px!important}}`;
   let doc = null, main = null, copyEl = null, scene = null;
   const fit = () => { if (!main || !fr) return; fr.style.setProperty('height', Math.ceil(main.getBoundingClientRect().height) + 'px', 'important'); };
   const tune = () => {
@@ -110,7 +139,10 @@
   const br = $('#section-4 .embed-browser'), rec = br && $('.embed-recommendation', br);
   if (br && rec) {
     br.classList.add('ad-embed-over');
-    const size = () => br.style.setProperty('--ad-rec-h', rec.offsetHeight + 'px');
+    // (17 Nov) the page now draws a browser bar above "Your brand": the card starts under whatever sits above it
+    const nav = $('.embed-nav', br);
+    const size = () => { br.style.setProperty('--ad-rec-h', rec.offsetHeight + 'px');
+      if (nav) br.style.setProperty('--ad-nav-h', Math.round(nav.getBoundingClientRect().bottom - br.getBoundingClientRect().top) + 'px'); };
     size(); addEventListener('resize', size); if (window.ResizeObserver) new ResizeObserver(size).observe(rec);
   }
   /* A full day: your starting suggestion stays; "Your day in Paris" rises over it as you scroll, then the page goes on. */
