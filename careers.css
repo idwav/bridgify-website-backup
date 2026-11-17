@@ -7,7 +7,7 @@
 
 :root{--ce:cubic-bezier(.16,1,.3,1)}
 body{background:#180f10;color:#eee9de}
-.careers-page{overflow:hidden;background:#180f10;color:#eee9de}
+.careers-page{overflow:clip;background:#180f10;color:#eee9de}
 .careers-page h1,.careers-page h2,.careers-page h3{font-family:Chillax,sans-serif;font-weight:300;letter-spacing:-.025em;margin:0}
 .careers-page em{font-style:normal}
 .careers-page a:focus-visible,.careers-page [tabindex]:focus-visible{outline:3px solid #f46649;outline-offset:4px}
@@ -196,10 +196,21 @@ body{background:#180f10;color:#eee9de}
 .jb-cta h3{font-size:clamp(28px,2.6vw,40px);line-height:1.15}
 .careers-page .jb-cta p{margin:0 0 10px}
 
+/* ---------- Culture: the stage stays on screen while scrolling changes the statement ---------- */
+@media(min-width:1101px){
+ .cw-values{display:block;min-height:320svh;padding:0}
+ .cw-values .cm-wrap{position:sticky;top:0;box-sizing:border-box;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:clamp(48px,6.5svh,96px) 3.3%}
+ .cm-progress{display:flex;gap:6px;margin-top:22px}
+ .cm-progress i{flex:1;height:2px;border-radius:2px;background:#18101022;overflow:hidden}
+ .cm-progress i:after{content:"";display:block;height:100%;width:0;background:#f46649;transition:width .5s var(--ce)}
+ .cm[data-step="1"] .cm-progress i:nth-child(1):after,.cm[data-step="2"] .cm-progress i:nth-child(-n+2):after,.cm[data-step="3"] .cm-progress i:after{width:100%}
+}
+@media(max-width:1100px){.cm-progress{display:none}}
+
 /* ---------- One screen per section (desktop): content centred, never stretched ---------- */
 @media(min-width:1101px){
- .cw,.cr,.cp{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(48px,6.5svh,96px)}
- .cw>*,.cr>*,.cp>*{width:100%}
+ .cw:not(.cw-values),.cr,.cp{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(48px,6.5svh,96px)}
+ .cw:not(.cw-values)>*,.cr>*,.cp>*{width:100%}
 }
 
 @media(max-width:1100px){

@@ -77,20 +77,27 @@
     update();
   }
 
-  // ---- Culture: statements with a live stage; auto-advances while visible, click or key takes over.
+  // ---- Culture: on desktop the stage is sticky and scrolling changes the statement; elsewhere it auto-advances or follows taps.
   document.querySelectorAll('[data-cm]').forEach(root => {
-    const items = [...root.querySelectorAll('.cm-list li')];
+    const items = [...root.querySelectorAll('.cm-list li')], section = root.closest('section');
+    const wide = matchMedia('(min-width:1101px)');
     let step = 1, timer = 0, visible = false, manual = false;
     const set = n => { step = n; root.dataset.step = n; };
-    const schedule = () => { clearTimeout(timer); if (manual || reduced.matches || !visible || document.hidden) return; timer = setTimeout(() => { set(step % items.length + 1); schedule(); }, 5200); };
+    const span = () => Math.max(1, section.offsetHeight - innerHeight);
+    const fromScroll = () => { if (!wide.matches) return; const p = Math.max(0, Math.min(.999, -section.getBoundingClientRect().top / span())); const n = Math.floor(p * items.length) + 1; if (n !== step) set(n); };
+    const schedule = () => { clearTimeout(timer); if (wide.matches || manual || reduced.matches || !visible || document.hidden) return; timer = setTimeout(() => { set(step % items.length + 1); schedule(); }, 5200); };
     items.forEach((li, i) => {
-      const pick = () => { manual = true; clearTimeout(timer); set(i + 1); };
+      const pick = () => {
+        manual = true; clearTimeout(timer); set(i + 1);
+        if (wide.matches) scrollTo({ top: scrollY + section.getBoundingClientRect().top + span() * (i + .5) / items.length, behavior: reduced.matches ? 'auto' : 'smooth' });
+      };
       li.addEventListener('click', pick);
       li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
     });
+    addEventListener('scroll', fromScroll, { passive: true }); addEventListener('resize', () => { fromScroll(); schedule(); });
     new IntersectionObserver(([e]) => { visible = e.isIntersecting; schedule(); }, { threshold: .35 }).observe(root);
     document.addEventListener('visibilitychange', schedule); reduced.addEventListener('change', schedule);
-    set(1);
+    set(1); fromScroll();
   });
 
   // ---- Convergence wiring (approved motion): problems -> platform, departments -> the door.
