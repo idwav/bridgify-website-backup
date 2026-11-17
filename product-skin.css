@@ -310,3 +310,25 @@
 #section-3 .wl-preview-stage{padding-left:22px;padding-right:22px}
 #section-2.market-product-tour .review-layout{padding:24px 26px 20px}
 #section-2.market-product-tour .review-summary{padding:18px}
+
+/* ===== One search bar everywhere: dark glass pill, left text, coral Search button ===== */
+#section-1 .market-search.static{display:flex;padding:6px 6px 6px 16px!important}
+#section-1 .market-search.static .search-go{margin-left:auto}
+#section-2.market-product-tour .search-box{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 6px 6px 22px;border:1px solid #ffffff33;background:#180f10d9;color:#fff8f1}
+#section-2.market-product-tour .search-box span:last-child{font-size:0;background:#e8654a;padding:10px 20px;border-radius:999px}
+#section-2.market-product-tour .search-box span:last-child:after{content:"Search";font:700 13px Sofia,sans-serif;color:#180f10}
+#section-5 .launch-store .launch-search{display:flex;align-items:center;justify-content:space-between;gap:12px;width:min(580px,88%);padding:6px 6px 6px 22px;border:1px solid #ffffff33!important;background:#180f10d9!important;box-shadow:none;color:#fff8f1}
+#section-5 .launch-store .launch-search em{color:#fff8f1!important;font:400 15px Sofia,sans-serif}
+#section-5 .launch-store .launch-search b{background:#e8654a;color:#180f10;font:700 13px Sofia,sans-serif;padding:10px 20px}
+/* Live in 3 days: hero content centred like the journey's search screen */
+#section-5 .launch-cover{height:260px;display:flex;align-items:center;justify-content:center}
+#section-5 .launch-cover>div{position:relative;inset:auto;right:auto;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 24px}
+#section-5 .launch-cover h3{font:300 36px/1.12 Chillax,Sofia,sans-serif!important;margin:0 0 20px!important}
+#section-5 .launch-chips{justify-content:center;margin-top:14px}
+#section-5 .launch-cover{position:relative;overflow:hidden}
+#section-5 .launch-cover>img{position:absolute!important;inset:0;width:100%!important;height:100%!important;object-fit:cover}
+#section-5 .launch-cover>div{z-index:2}
+#section-5 .launch-store .launch-search em{white-space:nowrap}
+#section-5 .launch-chips i{white-space:nowrap}
+#section-5 .launch-cover:after{z-index:1;inset:0}
+#section-5 .launch-store .launch-search em{text-align:left;flex:1}
