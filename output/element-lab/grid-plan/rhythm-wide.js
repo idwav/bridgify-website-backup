@@ -43,7 +43,10 @@
   };
 
   const touched = [];
-  const set = (el, prop, val) => { touched.push([el, prop, el.style.getPropertyValue(prop), el.style.getPropertyPriority(prop)]); el.style.setProperty(prop, val, 'important'); };
+  // measure-only (window.__bfMeasureOnly): map the pairs and report the gaps as they render, set nothing. Used to check
+  // a page that already has the baked CSS (scripts/build-wide.py, grid-check.py --baked).
+  const DRY = !!window.__bfMeasureOnly;
+  const set = (el, prop, val) => { if (DRY) return; touched.push([el, prop, el.style.getPropertyValue(prop), el.style.getPropertyPriority(prop)]); el.style.setProperty(prop, val, 'important'); };
   const clear = () => { while (touched.length) { const [el, p, v, pr] = touched.pop(); if (v) el.style.setProperty(p, v, pr); else el.style.removeProperty(p); } root.removeAttribute('data-bf-rhythm-wide'); last = []; };
   const shown = el => { const r = el.getBoundingClientRect(); if (r.width < 2 || r.height < 2) return false; const c = getComputedStyle(el); return c.display !== 'none' && c.visibility !== 'hidden'; };
   const chain = (el, stop) => { const out = []; for (let a = el.parentElement; a && a !== stop; a = a.parentElement) out.push(a); return out; };
@@ -107,7 +110,7 @@
       ['margin-top', 'padding-top', 'border-top-width', 'margin-bottom', 'padding-bottom'].forEach(prop => { const v = src.style.getPropertyValue(prop); if (!v) return;
         steps.forEach(st => { if (st === act) return; const el = st.querySelector(sel); if (el) set(el, prop, v); }); }); });
   };
-  const applyAll = () => { apply(); if (MQ.matches) { correct(); mirrorSteps(); } };
+  const applyAll = () => { apply(); if (MQ.matches && !DRY) { correct(); mirrorSteps(); } };
   // the gaps as they render now, against the token each one should have
   // the gap as it renders: from the lowest thing above b in its own column to b's top
   const gapOf = p => Math.round((p.bEl.getBoundingClientRect().top + padTop(p.bEl)) - Math.max(p.aEl.getBoundingClientRect().bottom - padBot(p.aEl), ...p.above.filter(e => { const r = e.getBoundingClientRect(), b = p.bEl.getBoundingClientRect();

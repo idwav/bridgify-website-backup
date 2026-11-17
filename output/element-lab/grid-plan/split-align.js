@@ -17,7 +17,7 @@
   const textBox = el => { const ks = [...el.querySelectorAll('p, a, button')].filter(e => e.getBoundingClientRect().height > 1);
     const rs = (ks.length ? ks : [el]).map(e => e.getBoundingClientRect()); return { top: Math.min(...rs.map(r => r.top)), bottom: Math.max(...rs.map(r => r.bottom)) }; };
   API.apply = () => {
-    clear(); if (!MQ.matches) return;
+    clear(); if (!MQ.matches || window.__bfMeasureOnly) return;
     PAIRS.forEach(([s, ts, rs]) => {
       const sec = document.querySelector(s); if (!sec) return;
       const t = sec.querySelector(ts), r = sec.querySelector(rs); if (!t || !r) return;

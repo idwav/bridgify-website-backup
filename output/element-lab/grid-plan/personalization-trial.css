@@ -12,7 +12,10 @@
     font-size: var(--type-section) !important; line-height: 1.2 !important;
   }
   html body :is(#section-4 .embed-shell h3, #day-itinerary :is(.day-start, .day-plan) h3) { font-size: var(--type-card) !important; line-height: 1.25 !important; }
-  html body #day-itinerary header > p { font-size: var(--type-lead) !important; }
+  html body :is(#day-itinerary header > p, #section-4 .embed-heading > p) { font-size: var(--type-lead) !important; }
+  /* the traveller-context controls sat centred against the taller card deck; they start under the heading (the engine
+     and the deck keep their centred composition) */
+  html body #section-3 .match-workspace > .match-controls { align-self: start !important; }
   /* the start card sat centred against the taller plan; both columns start under the heading */
   html body #day-itinerary .day-layout { align-items: start !important; }
 }

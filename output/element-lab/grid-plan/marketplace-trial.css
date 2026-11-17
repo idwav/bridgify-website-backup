@@ -33,7 +33,7 @@
    (copy 7/8, the store demo across the content width), as on the homepage and API. */
 @media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
   html body :is(section#section-1, section#section-2, section#section-3, section#section-4, section#build-or-buy, section#marketplace-audiences, section#marketplace-results) { min-height: 0 !important; }
-  html body section#section-1.page-hero { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; row-gap: var(--bf-gap-to-visual, 64px) !important; column-gap: 0 !important; align-items: start !important; }
+  html body section#section-1.page-hero { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; row-gap: 0 !important; /* the copy→demo gap is the spacing table's (64), set on the demo */ column-gap: 0 !important; align-items: start !important; }
   html body #section-1 .block-copy { max-width: calc((100% + 24px) * 7 / 8 - 24px) !important; grid-column: 1 !important; grid-row: 1 !important; margin-left: 0 !important; margin-right: 0 !important; padding-left: 0 !important; padding-right: 0 !important; justify-self: start !important; }
   html body #section-1 .market-demo { width: 100% !important; max-width: none !important; margin: 0 !important; justify-self: stretch !important; grid-column: 1 !important; grid-row: 2 !important; }
 }

@@ -1,0 +1,50 @@
+/* Lab only · step 3 draft: the spacing table for tablet and desktop (SPACING-GRID-PLAN.md, step 3).
+   Same token names as the approved phone tokens (PR #9 system/tokens.css); the phone block is not repeated here and
+   nothing ≤599 changes. Injected by live.html together with rhythm-wide.js. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  :root {
+    --bf-section-y: 80px;
+    --bf-hero-top: 64px;
+    --bf-gap-label-title: 16px;
+    --bf-gap-title-text: 24px;
+    --bf-gap-title-sub: 8px;
+    --bf-gap-to-foot: 32px;
+    --bf-gap-text-text: 16px;
+    --bf-gap-text-more: 8px;
+    --bf-gap-to-actions: 40px;
+    --bf-gap-to-link: 16px;
+    --bf-gap-actions-inner: 12px;
+    --bf-gap-to-control: 40px;
+    --bf-gap-control-content: 24px;
+    --bf-gap-to-content: 48px;
+    --bf-gap-to-visual: 64px;
+    --bf-card-gap: 24px;
+    --bf-card-pad: 24px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --bf-section-y: 96px;
+    --bf-hero-top: 80px;
+    --bf-gap-label-title: 24px;
+    --bf-gap-title-text: 32px;
+    --bf-gap-title-sub: 8px;
+    --bf-gap-to-foot: 32px;
+    --bf-gap-text-text: 16px;
+    --bf-gap-text-more: 8px;
+    --bf-gap-to-actions: 48px;
+    --bf-gap-to-link: 24px;
+    --bf-gap-actions-inner: 16px;
+    --bf-gap-to-control: 48px;
+    --bf-gap-control-content: 32px;
+    --bf-gap-to-content: 64px;
+    --bf-gap-to-visual: 64px;
+    --bf-card-gap: 32px;
+    --bf-card-pad: 32px;
+  }
+}
+/* Sections whose content is one boxed card (security, closing CTA) took 32 / 40 from their own CSS; the section
+   rhythm is the same as everywhere: section-y outside the box, the box keeps its own inner padding. (17 Nov 2026) */
+@media (min-width: 600px) {
+  html body :is(section#security, section#home-cta) { padding-top: var(--bf-section-y) !important; padding-bottom: var(--bf-section-y) !important; }
+}
