@@ -3,19 +3,16 @@
  const cards=[...root.querySelectorAll('.match-card')],fields=[...root.querySelectorAll('.match-control')],values=fields.map(f=>f.querySelector('.match-value')),pause=root.querySelector('[data-match=pause]');
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const scenes=[{values:['Paris','Romantic','Couple · evenings','Nov 20–22'],lead:0},{values:['London','Live music','Friends · evenings','Nov 23–25'],lead:1},{values:['Rome','Attractions','Couple · daytime','Nov 26–28'],lead:2},{values:['London','Attractions','Family · daytime','Dec 2–4'],lead:3},{values:['Paris','Food','Food lovers · daytime','Dec 5–7'],lead:4},{values:['Florence','Culture','Solo · daytime','Dec 8–10'],lead:5}];
- let motionStart=0,motionClock=0,currentLead=0,nextLead=0,moving=false,recycled=-1,recycleStart=0;
+ let motionStart=0,motionClock=0,currentLead=0,nextLead=0,moving=false,recycleStart=0;
  let index=0,elapsed=0,last=0,paused=false,visible=false,phase=-1;
  const ease=t=>1-Math.pow(1-Math.max(0,Math.min(1,t)),3);
- function pose(slot,w){return {x:w*(w<500?.9:1)*[0,.54,.63,.69,.74,.78][slot],y:slot*9,scale:[1,.8,.68,.57,.48,.4][slot]};}
- function draw(card,p,opacity,z){card.style.transform=`translate3d(${p.x}px,${p.y}px,0) scale(${p.scale})`;card.style.opacity=opacity;card.style.zIndex=z;card.style.filter=`brightness(${.42+p.scale*.58})`;}
- function orbit(now){cards.forEach((c,i)=>c.style.setProperty('--arrival',i===currentLead&&!moving?window.BridgifyFlow.arrival(now-recycleStart):0));const w=root.querySelector('.match-deck').clientWidth;let t=reduced.matches?1:Math.min(1,(now-motionStart)/1550);
- if(moving&&t>=1){recycled=currentLead;recycleStart=now;currentLead=nextLead;moving=false;}
- cards.forEach((card,i)=>{const slot=(i-currentLead+cards.length)%cards.length;const p=pose(slot,w);
- if(!moving){draw(card,p,i===recycled?.35+.65*ease((now-recycleStart)/500):1,20-slot);return;}
- const advance=ease((t-.12)/.88);
- if(slot===0){const shrink=ease(t/.78),scale=1-shrink*.6;const incomingScale=.8+.2*advance;const back=pose(5,w);const retreat=ease((t-.18)/.82);draw(card,{x:back.x*retreat,y:back.y*shrink,scale},1-.65*shrink,scale<incomingScale?5:25);return;}
- const q=pose(slot-1,w);draw(card,{x:p.x+(q.x-p.x)*advance,y:p.y+(q.y-p.y)*advance,scale:p.scale+(q.scale-p.scale)*advance},1,20-slot);
- });
+ const knots=[{x:-.12,y:-8,s:.94,o:0},{x:0,y:0,s:1,o:1},{x:.4,y:14,s:.86,o:.88},{x:.62,y:26,s:.72,o:.5},{x:.62,y:26,s:.72,o:0}];
+ const easeIO=t=>{t=Math.max(0,Math.min(1,t));return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+ function at(f){const k=Math.max(-1,Math.min(3,f))+1,i=Math.min(3,Math.floor(k)),u=k-i,a=knots[i],b=knots[i+1],m=p=>a[p]+(b[p]-a[p])*u;return {x:m('x'),y:m('y'),s:m('s'),o:m('o')}}
+ function orbit(now){cards.forEach((c,i)=>c.style.setProperty('--arrival',i===currentLead&&!moving?window.BridgifyFlow.arrival(now-recycleStart):0));const w=root.querySelector('.match-deck').clientWidth,k=w<500?.9:1;
+ let adv=0;if(moving){const t=reduced.matches?1:(now-motionStart)/1200;if(t>=1){currentLead=nextLead;recycleStart=now;moving=false}else adv=easeIO(t)}
+ cards.forEach((card,i)=>{const slot=(i-currentLead+cards.length)%cards.length,f=slot-adv,p=at(f);
+ card.style.transform=`translate3d(${p.x*w*k}px,${p.y}px,0) scale(${p.s})`;card.style.opacity=p.o;card.style.zIndex=40-Math.round(f*10);card.style.filter=`brightness(${.5+p.s*.5})`;card.style.pointerEvents=p.o<.6?'none':'';});
  }
  function arrange(lead){if(lead===currentLead&&!moving){cards.forEach((card,i)=>card.setAttribute('aria-hidden',i!==lead));return;}
  // Only adjacent cards advance through the visible queue. Other selections reset off-stage.
