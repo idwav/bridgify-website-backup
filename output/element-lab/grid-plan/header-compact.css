@@ -1,0 +1,24 @@
+/* Lab only · header trial (user request 17 Nov 2026): once the page starts scrolling the header bar takes a compact
+   form, so it covers less of the content, without hurting legibility.
+   The site already marks that moment: shared-navigation.js adds .is-stuck after 24px of scroll.
+   Desktop only (≥1024): below 951px the site's two-row header already steps aside while reading down (.is-tucked).
+   What shrinks: bar height 78 → 56, top offset 16 → 8, logo 40 → 32, buttons 44 → 36.
+   What stays: nav and button text size (12px), letter spacing, the bar's side padding (so the logo stays on the
+   content line), colours. Injected by live.html; no site file loads it. */
+@media (min-width: 1024px) {
+  html body header.top.site-header-common.site-header-common {
+    transition: top .32s cubic-bezier(.22,1,.36,1), height .32s cubic-bezier(.22,1,.36,1), min-height .32s cubic-bezier(.22,1,.36,1),
+      background-color .4s cubic-bezier(.22,1,.36,1), box-shadow .4s cubic-bezier(.22,1,.36,1), transform .45s cubic-bezier(.22,1,.36,1) !important;
+  }
+  html body header.top.site-header-common.site-header-common img.brand-logo-full { transition: height .32s cubic-bezier(.22,1,.36,1) !important; }
+  html body header.top.site-header-common.site-header-common .nav-actions > a { transition: height .32s cubic-bezier(.22,1,.36,1), min-height .32s cubic-bezier(.22,1,.36,1), background .48s, color .48s !important; }
+
+  html body header.top.site-header-common.site-header-common.is-stuck { top: 8px !important; height: 56px !important; min-height: 56px !important; }
+  html body header.top.site-header-common.site-header-common.is-stuck img.brand-logo-full { height: 32px !important; }
+  html body header.top.site-header-common.site-header-common.is-stuck .nav-actions > a { height: 36px !important; min-height: 36px !important; }
+}
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+  html body header.top.site-header-common.site-header-common,
+  html body header.top.site-header-common.site-header-common img.brand-logo-full,
+  html body header.top.site-header-common.site-header-common .nav-actions > a { transition: none !important; }
+}
