@@ -69,7 +69,7 @@ window.BridgifyRoles = {
     ],
     [
      "content",
-     "div.wl-controls > div.wl-group"
+     "div.wl-layout>div.wl-controls"
     ],
     [
      "content",

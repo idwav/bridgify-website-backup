@@ -201,3 +201,13 @@
   html body #day-itinerary .day-controls{display:none!important}
 }
 @media (max-width:599px) and (prefers-reduced-motion:reduce){ html body #day-itinerary .day-start{position:static!important} }
+
+/* Round 19 (17 Nov 2026), phones */
+@media (max-width:599px){
+  /* Where it runs: with AIyelet on, the trip's own words under the photo step aside (the card covers them) */
+  html body #section-4 .ad-embed-over .embed-destination>div{transition:opacity .4s}
+  html body #section-4 .embed-shell:not(.is-off) .ad-embed-over .embed-destination>div{opacity:0}
+  /* A full day: each photo fills its frame (it sat as a square in a taller frame, with bands above and below) */
+  html body #day-itinerary .day-museum:not(#ad-x){overflow:hidden!important;align-self:stretch}
+  html body #day-itinerary .day-museum img:not(#ad-x){width:100%!important;height:100%!important;object-fit:cover!important;margin:0!important;border-radius:inherit}
+}

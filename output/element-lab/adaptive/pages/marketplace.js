@@ -75,3 +75,21 @@
   }
   document.addEventListener('touchstart', () => {}, {passive: true});
 })();
+
+/* Round 19 (17 Nov 2026), phones: Your brand, your markets, your currencies. The settings are not for tapping on a
+   phone: they change by themselves while the section is on screen, and the store under them follows, both in view
+   at once (the card and the preview fit one screen together). */
+(() => {
+  const A = window.BridgifyAdaptive; if (!A || !A.MQ.mobile.matches) return;
+  const lay = document.querySelector('#section-3 .wl-layout'); if (!lay) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const btn = (g, i) => { const grp = lay.querySelector(`.wl-group[data-group="${g}"]`); return grp && grp.querySelectorAll('button')[i]; };
+  const seq = [['mode', 1], ['lang', 1], ['currency', 1], ['mode', 2], ['lang', 2], ['currency', 2], ['mode', 0], ['lang', 0], ['currency', 0]];
+  lay.querySelectorAll('.wl-group button').forEach(b => b.setAttribute('tabindex', '-1'));
+  let vis = false, k = 0;
+  new IntersectionObserver(([e]) => { vis = e.isIntersecting; }, {threshold: .6}).observe(lay);
+  setInterval(() => {
+    if (!vis || document.hidden || reduced.matches) return;
+    const [g, i] = seq[k % seq.length]; k++; const b = btn(g, i); if (b) b.click();
+  }, 2200);
+})();
