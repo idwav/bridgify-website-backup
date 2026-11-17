@@ -1,0 +1,12 @@
+/* Lab only · the homepage's own content-line fixes (the part of try-cap.css that is specific to index-v2.html).
+   Used by the published build (wide/pages/index-v2.css); the live viewer keeps try-cap.css for its A/B switch. */
+@media (min-width: 1024px) {
+  html body .bv2-hero-layout { max-width: none !important; margin-inline: 0 !important; }
+  html body #home .content { margin-left: 0 !important; }
+}
+@media (min-width: 600px) {
+  html:root { --home-gutter: var(--try-margin) !important; }
+  html body #home { padding-inline: var(--try-margin) !important; }
+  html body :is(#products.pr2, #opportunity-study.pb2, .sec2, #faq.copy-faq, .hc2, #why-bridgify) { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
+  html body #marketplace-results .v2e-copy { padding-left: max(0px, calc(var(--try-margin) - (100vw - min(100vw, 100svh * 1672 / 941)) / 2)) !important; }
+}

@@ -1,0 +1,6 @@
+/* Bridgify spacing system · the content line (approved 17 Nov 2026, SPACING-GRID-PLAN.md step 2).
+   One variable for every page: --try-margin is the side margin of the content.
+   Tablet 600–1023: 32. Desktop ≥1024: 4vw clamped 40–64, and never less than (100vw − 1560px) / 2, so content stops
+   at 1560 and centres on wide screens. Phone (≤599) is the mobile layer's (24) and is not touched here. */
+@media (min-width: 600px) and (max-width: 1023px) { html:root { --try-margin: 32px; } }
+@media (min-width: 1024px) { html:root { --try-margin: max(clamp(40px, 4vw, 64px), calc((100vw - 1560px) / 2)); } }

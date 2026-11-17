@@ -13,6 +13,7 @@ HERE = pathlib.Path(__file__).parent
 OUT = HERE / "check"; OUT.mkdir(exist_ok=True)
 ARGS = [a for a in sys.argv[1:] if not a.startswith("--")]
 PAGE = next((a[7:] for a in sys.argv[1:] if a.startswith("--page=")), "home")
+BAKED = "--baked" in sys.argv   # check the published build (wide/) instead of the lab layers: no spacing is set at run time
 WIDTHS = [int(x) for x in (ARGS[0].split(",") if ARGS else "390,768,1024,1280,1440,1920".split(","))]
 PAGES = {
   "home": {"url": "index-v2.html?version=2", "roles": "roles-index-v2.js", "css": ["tablet-hero.css"], "pairs": None,
@@ -43,6 +44,10 @@ BASE = "http://127.0.0.1:8084/" + P["url"]
 R = lambda n: (HERE / n).read_text()
 CSS = [R("try-cap.css") + "\nhtml:root{--try-cap:1560px;--try-tab:32px}", R("header-compact.css"), R("type-wide.css"), R("tokens-wide.css"), R("split-align.css")] + [R(c) for c in P["css"]]
 JS = [R(P["roles"]) + "\n" + R("rhythm-wide.js"), (f"window.BridgifySplitPairs = {json.dumps(P['pairs'])};\n" if P["pairs"] else "") + R("split-align.js")]
+if BAKED:
+    W = HERE.parents[2] / "wide"; WP = {"home": "index-v2"}.get(PAGE, PAGE)
+    CSS = [(W / f).read_text() for f in ("grid.css", "tokens.css", "type.css", "header.css", "split.css")] + [(W / "pages" / f"{WP}.css").read_text()]
+    JS = ["window.__bfMeasureOnly = true;\n" + JS[0], "window.__bfMeasureOnly = true;\n" + JS[1]] + ([(W / "pages" / f"{WP}.js").read_text()] if (W / "pages" / f"{WP}.js").exists() else [])
 # documented exceptions (SPACING-GRID-PLAN.md 2c, 3a): a divider with its own padding, a label row taller than the label
 KNOWN = {("#sources", "content→foot"), ("#sources", "sub→content"), ("#opportunity-study", "more→text"), ("#audiences", "label→title")}
 
@@ -162,7 +167,7 @@ def main():
             add(w, "SC1 גלילה חלקה (Why Bridgify)", sc["max"] <= 125 and sc["min"] >= 0, f"{sc['steps']} צעדים של 120px · הצעד הגדול {sc['max']} · הקטן {sc['min']}")
             pg.close(); print(w, "done", file=sys.stderr)
         b.close()
-    (OUT / (f"report-{PAGE}.json" if PAGE != "home" else "report.json")).write_text(json.dumps({"run": started, "widths": WIDTHS, "rows": rows}, ensure_ascii=False, indent=1))
+    (OUT / ((f"report-{PAGE}" if PAGE != "home" else "report") + ("-baked" if BAKED else "") + ".json")).write_text(json.dumps({"run": started, "widths": WIDTHS, "rows": rows}, ensure_ascii=False, indent=1))
     html(rows, started)
     fails = [x for x in rows if not x["ok"]]
     print(f"{len(rows)} checks · {len(fails)} failed")
@@ -180,7 +185,7 @@ def html(rows, started):
         return f'<td class="{cls}"><b>{mark}</b><span>{x["detail"]}</span></td>'
     n, f = len(rows), sum(1 for x in rows if not x["ok"])
     body = "".join(f"<tr><th>{r}</th>{''.join(td(r, w) for w in ws)}</tr>" for r in rules)
-    (OUT / (f"report-{PAGE}.html" if PAGE != "home" else "report.html")).write_text(f"""<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+    (OUT / ((f"report-{PAGE}" if PAGE != "home" else "report") + ("-baked" if BAKED else "") + ".html")).write_text(f"""<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
 <title>בדיקת גריד · {PAGE}</title><style>
 :root{{--bg:#100A08;--panel:#1A1210;--line:#3a2c27;--ink:#EEE9DE;--muted:#9b8b80;--coral:#F46649;--ok:#2f6b4f;--bad:#8a2b1c;--known:#5a4a2a}}
 *{{box-sizing:border-box}} body{{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,system-ui,sans-serif;padding:24px 16px}}
