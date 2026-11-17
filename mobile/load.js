@@ -5,6 +5,8 @@
    tablet stay exactly as they are. */
 (() => {
   if (!matchMedia('(max-width:599px)').matches) return;
+  // inside the lab's phone preview (output/element-lab/phone.html) the lab layer is injected instead
+  try { if (window.frameElement && /\/phone\.html$/.test(parent.location.pathname)) return; } catch (e) {}
   const me = document.currentScript, base = me.src.replace(/load\.js(\?.*)?$/, ''), page = me.dataset.page, v = me.dataset.v || '1';
   const list = ['patterns.js', `pages/${page}.js`, `roles/${page}.js`, 'rhythm.js'];
   const next = i => {

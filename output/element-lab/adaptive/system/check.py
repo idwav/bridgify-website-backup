@@ -142,6 +142,8 @@ def load_map(page):
 
 
 async def open_page(pg, base, page):
+    from published import route_stripped  # a published page's own layer tags out first (MOBILE-RULES.md)
+    await route_stripped(pg, f'**/{"" if page == "index-v2" else page + ".html"}?*')
     await pg.goto(f'{base}/{"" if page == "index-v2" else page + ".html"}?version=2', wait_until='networkidle')
     for f in ['system/tokens.css', 'layout.css', 'patterns.css', f'pages/{page}.css', 'system/actions.css']:
         p = os.path.join(LAYER, f)
