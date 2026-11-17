@@ -16,7 +16,7 @@ LAB = os.path.join(ROOT, 'output', 'element-lab', 'adaptive')
 OUT = os.path.join(ROOT, 'mobile')
 
 # Pages whose phone layer is live. Add one at a time, after it has been checked on a phone.
-PAGES = ['travel-technology']
+PAGES = ['travel-technology', 'marketplace']
 
 SHARED = {
     'tokens.css': 'system/tokens.css',
