@@ -59,4 +59,6 @@
     location.href = 'mailto:' + window.BRIDGIFY_CAREERS_EMAIL + '?subject=' + encodeURIComponent('Application: ' + role.title) + '&body=' + encodeURIComponent(body);
     done('Your email app is open', 'Attach your CV (' + cv.files[0].name + ') to the email and send it. Online submission is not connected yet.');
   });
+  // Preview of the confirmation screen (sample roles only): apply.html?role=<slug>&sample=1&done=1
+  if (role.sample && q.get('done') === '1') done('Thank you', 'Your application for ' + role.title + ' was sent.');
 })();
