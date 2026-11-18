@@ -93,3 +93,6 @@ html body .blog-filters button[aria-pressed=true]:hover{color:#180f10!important;
 .blog-feature-copy p{font-size:15px;line-height:1.5;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
 .blog-feature-copy .blog-meta{margin:10px 0 6px}
 }
+
+/* Same side gutter as the rest of the site (3.34vw, min 24px) */
+@media(min-width:600px){.blog-main{padding-left:max(24px,3.34vw);padding-right:max(24px,3.34vw)}}

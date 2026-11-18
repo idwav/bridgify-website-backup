@@ -132,7 +132,7 @@
         Q.textContent = tt < 1400 ? '' : SETS[k].q.slice(0, type);
         ms.querySelector('.ms-caret').style.opacity = tt < 2900 ? 1 : 0;
         PTR.classList.toggle('show', tt > 2500 && tt < 3300); GO.classList.toggle('pressed', tt > 2900 && tt < 3150);
-        FEW.forEach((f, i) => f.classList.toggle('on', tt > 4600 + i * 160 && tt < 9000));
+        FEW.forEach((f, i) => f.classList.toggle('on', tt > 3250 + i * 130 && tt < 9000));
       }
     };
     const draw = elapsed => {
