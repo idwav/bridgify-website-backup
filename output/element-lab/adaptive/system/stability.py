@@ -38,6 +38,7 @@ async def main():
             css, js = files(n)
             async def h(route):
                 r = await route.fetch(); body = await r.text()
+                from published import strip_layer; body = strip_layer(body)  # the lab layer only, once
                 body = body.replace('</head>', ''.join(f'<link rel="stylesheet" href="{LB}{c}">' for c in css) + '</head>', 1)
                 body = body.replace('</body>', ''.join(f'<script src="{LB}{j}"></script>' for j in js) + '</body>', 1)
                 await route.fulfill(response=r, body=body)
