@@ -169,3 +169,21 @@
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > p:nth-child(2) { margin-top: 32px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
 }
+
+/* Idan review: "Bridgify runs" list - each row shares the column height, label centred in its row and larger */
+@media (min-width: 600px) {
+  html body .hr-managed ul { display: flex; flex-direction: column; }
+  html body .hr-managed li { flex: 1 1 0; align-items: center; padding-top: 0; padding-bottom: 0; }
+  html body .hr-managed li > span { margin-top: 0; display: grid; place-items: center; }
+  html body .hr-managed li p { margin: 0; }
+  html body .hr-managed strong { font-size: clamp(20px, 1.6vw, 26px); line-height: 1.2; }
+}
+
+/* Idan review: the copy column of the pinned email scene is centred against the animation, not stuck to its top */
+@media (min-width: 1000px) {
+  html body #section-3 .hs-sticky { align-items: center !important; }
+}
+@media (min-width: 1000px) and (min-height: 701px) {
+  /* pinned frame centred between the header and the bottom of the screen when it fits (738px = frame height at desktop widths) */
+  html body #section-3 .hs-sticky { top: max(96px, calc((100svh + 88px - 738px) / 2)) !important; }
+}

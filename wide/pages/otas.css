@@ -185,3 +185,8 @@
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > p:nth-child(2) { margin-top: 32px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
 }
+
+/* Idan review: the "Already sold / days in between / You keep the traveler" card runs on the site grid (same left and right edge as the text above it) and sits a little higher */
+@media (min-width: 901px) {
+  html body section#section-1.ys-hero .ys-ticket { max-width: none !important; width: 100% !important; margin-top: 40px !important; }
+}

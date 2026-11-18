@@ -31,3 +31,9 @@
      the card's own 24px before the button (owner, 18 Nov 2026); the button still sits at the card bottom. */
   html body:not(#bf-lab) #section-4.xc .xc-body > h3:has(+ a.xc-cta) { margin-bottom: 24px !important; }
 }
+
+/* Idan review: Developers sections (Find what you need / What makes an API high performing / Talk to us) start on the site gutter (4%), like the header and the other pages, not 4.5vw */
+@media (min-width: 600px) {
+  html body section#performance.dev-section, html body section#access.dev-section { margin-left: 4% !important; margin-right: 4% !important; }
+  html body section#section-2.dev-section { padding-left: 4% !important; padding-right: 4% !important; }
+}

@@ -256,3 +256,8 @@
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > p:nth-child(2) { margin-top: 32px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
 }
+
+/* Idan review: the wire through "Your marketplace" runs the full gap, from the dot under "You bring" to the dot above "Bridgify runs" */
+@media (min-width: 600px) {
+  html body #section-4 .wo-seam::before { top: -64px; bottom: -64px; }
+}
