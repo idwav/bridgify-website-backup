@@ -14,12 +14,12 @@ window.BridgifyRoles = {
      "#ys-title"
     ],
     [
-     "actions",
-     "div.ys-copy > div.ys-actions"
-    ],
-    [
      "text",
      "div.ys-copy > p"
+    ],
+    [
+     "actions",
+     "div.ys-copy > div.ys-actions"
     ],
     [
      "visual",

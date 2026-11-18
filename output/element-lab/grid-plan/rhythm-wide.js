@@ -36,8 +36,6 @@
     if (b === 'dots') return 'gap-control-content';
     if (a === 'dots') a = 'content';
     if (b === 'link') return /^(text|actions|link)$/.test(a) ? 'gap-to-link' : 'gap-to-content';
-    // text under a row of buttons (the OTAs hero puts its buttons between the title and the text): as close as a link
-    if (a === 'actions' && b === 'text') return 'gap-to-link';
     if (b === 'actions') return 'gap-to-actions';
     if (b === 'control') return 'gap-to-control';
     if (a === 'control') return 'gap-control-content';

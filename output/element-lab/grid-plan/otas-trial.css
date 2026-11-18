@@ -24,13 +24,12 @@
 @media (min-width: 600px) {
   html body #section-1 .ys-copy { padding-left: 0 !important; padding-right: 0 !important; }
 }
-/* From 901 the hero is centred with the buttons under the title and the text under the buttons (otas-hero.css). On a
-   tablet it kept the source order (text, then buttons), so one role map could not space both. Tablets get the same
-   order as the desktop, left-aligned: title, buttons, text. */
-@media (min-width: 600px) and (max-width: 900px) {
-  html body .ys-hero .ys-copy { display: flex !important; flex-direction: column !important; }
-  html body .ys-hero .ys-copy > .ys-eyebrow { order: 0 !important; }
-  html body .ys-hero .ys-copy > h1 { order: 1 !important; }
-  html body .ys-hero .ys-actions { order: 2 !important; }
-  html body .ys-hero .ys-copy > p { order: 3 !important; }
+/* The hero (owner, 18 Nov 2026): the same order and gaps as every other hero: label, title, text, buttons, then the
+   demo. otas-hero.css put the buttons between the title and the text from 901 up; the text goes back above them.
+   The hero is at least a screen tall with section-y under the demo, so the demo is never cut at the bottom of the
+   screen and the next section does not show inside the hero. */
+@media (min-width: 600px) {
+  html body .ys-hero .ys-copy > p { order: 2 !important; }
+  html body .ys-hero .ys-actions { order: 3 !important; }
+  html body section#section-1.ys-hero { min-height: 100svh !important; padding-bottom: var(--bf-section-y) !important; }
 }

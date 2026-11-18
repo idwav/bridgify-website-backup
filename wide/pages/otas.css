@@ -26,15 +26,14 @@
 @media (min-width: 600px) {
   html body #section-1 .ys-copy { padding-left: 0 !important; padding-right: 0 !important; }
 }
-/* From 901 the hero is centred with the buttons under the title and the text under the buttons (otas-hero.css). On a
-   tablet it kept the source order (text, then buttons), so one role map could not space both. Tablets get the same
-   order as the desktop, left-aligned: title, buttons, text. */
-@media (min-width: 600px) and (max-width: 900px) {
-  html body .ys-hero .ys-copy { display: flex !important; flex-direction: column !important; }
-  html body .ys-hero .ys-copy > .ys-eyebrow { order: 0 !important; }
-  html body .ys-hero .ys-copy > h1 { order: 1 !important; }
-  html body .ys-hero .ys-actions { order: 2 !important; }
-  html body .ys-hero .ys-copy > p { order: 3 !important; }
+/* The hero (owner, 18 Nov 2026): the same order and gaps as every other hero: label, title, text, buttons, then the
+   demo. otas-hero.css put the buttons between the title and the text from 901 up; the text goes back above them.
+   The hero is at least a screen tall with section-y under the demo, so the demo is never cut at the bottom of the
+   screen and the next section does not show inside the hero. */
+@media (min-width: 600px) {
+  html body .ys-hero .ys-copy > p { order: 2 !important; }
+  html body .ys-hero .ys-actions { order: 3 !important; }
+  html body section#section-1.ys-hero { min-height: 100svh !important; padding-bottom: var(--bf-section-y) !important; }
 }
 
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
@@ -43,7 +42,7 @@
   html body #section-1 > div:nth-child(1) { margin-bottom: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
   html body #section-1 > div:nth-child(1) > div:nth-child(1) { margin-bottom: 0px !important; }
   html body #ys-title { margin-top: 16px !important; margin-bottom: 0px !important; }
-  html body #section-1 > div:nth-child(1) > p:nth-child(3) { margin-top: 16px !important; margin-bottom: 0px !important; }
+  html body #section-1 > div:nth-child(1) > p:nth-child(3) { margin-top: 24px !important; margin-bottom: 0px !important; }
   html body #section-1 > div:nth-child(1) > div:nth-child(4) { margin-top: 40px !important; margin-bottom: 0px !important; row-gap: 12px !important; column-gap: 12px !important; }
   html body #section-1 > div:nth-child(2) { margin-top: 64px !important; }
   html body #section-2 { padding-top: 80px !important; padding-bottom: 80px !important; }
@@ -91,7 +90,7 @@
   html body #section-1 > div:nth-child(1) { margin-bottom: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
   html body #section-1 > div:nth-child(1) > div:nth-child(1) { margin-bottom: 0px !important; }
   html body #ys-title { margin-top: 24px !important; margin-bottom: 0px !important; }
-  html body #section-1 > div:nth-child(1) > p:nth-child(3) { margin-top: 24px !important; margin-bottom: 0px !important; }
+  html body #section-1 > div:nth-child(1) > p:nth-child(3) { margin-top: 32px !important; margin-bottom: 0px !important; }
   html body #section-1 > div:nth-child(1) > div:nth-child(4) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
   html body #section-1 > div:nth-child(2) { margin-top: 64px !important; }
   html body #section-2 { padding-top: 96px !important; padding-bottom: 96px !important; }
