@@ -87,9 +87,10 @@
     return bad;
   }
   function done(title, text) {
-    form.hidden = true; document.getElementById('apply-done').hidden = false; A('doneTitle').textContent = title; A('doneText').textContent = text;
-    document.getElementById('apply-title').hidden = true;
-    formSec.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+    A('doneTitle').textContent = title; A('doneText').textContent = text;
+    document.getElementById('apply-done').hidden = false;
+    document.getElementById('job-root').classList.add('is-done');
+    window.scrollTo(0, 0);
   }
   form.addEventListener('submit', function (e) {
     e.preventDefault(); status.textContent = '';
