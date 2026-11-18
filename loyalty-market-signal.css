@@ -109,3 +109,6 @@ html body #market-signal .lm2-sticky > p.lm-body{margin:clamp(16px,2.6vh,28px) 0
 .lm2-views{min-height:clamp(200px,29vh,300px)}
 .lm2-stage{gap:clamp(28px,4.2vh,48px)}
 @media(max-height:830px){.lm2-views{min-height:190px}.lm2-stage{padding:22px 28px;gap:28px}.lm2-sticky>header h2{font-size:clamp(30px,2.6vw,38px)!important}html body #market-signal > div.lm2-pin > div.lm2-sticky > div.lm2-grid{margin-top:20px!important}}
+
+/* exactly the cardholders list: no progress line, the open item is marked only by its peach card and the turned chevron */
+.lm2-list li:after,.lm2-grid[data-step] .lm2-list li:after{display:none!important;content:none!important}
