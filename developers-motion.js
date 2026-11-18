@@ -17,29 +17,18 @@ new ResizeObserver(layout).observe(panel);[hub,product,...sources].forEach(e=>ne
 F.run(panel,t=>{const time=clock(t)%F.cycle;routes.forEach(a=>{const length=a.path.getTotalLength();a.dots.forEach((d,i)=>{const u=(time-a.start-i*F.delay)/a.duration;if(u<0||u>1){d.style.opacity=0;return}const q=a.path.getPointAtLength(length*F.smooth(u));d.setAttribute('cx',q.x);d.setAttribute('cy',q.y);d.style.opacity=Math.max(0,Math.min(1,u*10,(1-u)*18))*(1-i*.065)});glow(a.target,F.arrival(time-a.start-a.duration))})},()=>{routes.forEach(a=>a.dots.forEach(d=>d.style.opacity=0));glow(hub,0);glow(product,0)});}
 const perf=document.querySelector('.dev-performance-panel');
 if(perf){
- // Two moments, one wiring: inside each column a pulse runs picture -> node -> node, then both columns drop into the safety net.
- const cols=[...perf.querySelectorAll('.dp-lane')],safe=[...perf.querySelectorAll('.dp-safe')],net=perf.querySelector('.dp-safety');
- const colNodes=cols.map(l=>[...l.querySelectorAll('.dp-img,.dp-node')]);
- const track=svg('svg',{class:'dev-flow-svg dev-performance-wires','aria-hidden':'true'});perf.append(track);let routes=[];
- const CYCLE=8400,START=[300,2900],HOP=800,DUR=700;
- function layout(){track.replaceChildren();routes=[];const r=perf.getBoundingClientRect();track.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);
-  const box=e=>{const b=e.getBoundingClientRect();return{x:b.left-r.left,y:b.top-r.top,w:b.width,h:b.height}};const contacts=new Set();
-  const ring=(x,y)=>{const k=Math.round(x)+','+Math.round(y);if(contacts.has(k))return;contacts.add(k);track.append(svg('circle',{cx:x,cy:y,r:3.5,fill:'#eee9de',stroke:'#f46649','stroke-width':1.2}))};
-  const add=(x0,y0,x1,y1,start,to)=>{const m=y0+(y1-y0)/2,rr=Math.min(10,Math.abs(y1-y0)/2-1),k=x1>x0?1:-1;const d=Math.abs(x1-x0)<1?`M${x0} ${y0}V${y1}`:`M${x0} ${y0}V${m-rr}Q${x0} ${m} ${x0+k*rr} ${m}H${x1-k*rr}Q${x1} ${m} ${x1} ${m+rr}V${y1}`;
-   const path=svg('path',{d,fill:'none',stroke:'#f46649','stroke-width':1,'stroke-linecap':'round',opacity:.55});track.append(path);ring(x0,y0);ring(x1,y1);
-   const dots=Array.from({length:9},(_,k)=>{const c=svg('circle',{r:F.radius(k),fill:'#fff8f1',stroke:'#f46649','stroke-width':.7,opacity:0});track.append(c);return c});
-   routes.push({path,len:path.getTotalLength(),dots,start,duration:DUR,to})};
-  const n=net?box(net):null;
-  colNodes.forEach((nodes,ci)=>{let t=START[ci];for(let i=0;i<nodes.length-1;i++){const a=box(nodes[i]),b=box(nodes[i+1]);add(a.x+a.w/2,a.y+a.h,b.x+b.w/2,b.y,t,nodes[i+1]);t+=HOP}
-   const stacked=cols.length>1&&box(cols[1]).y>box(cols[0]).y+40;if(n&&(!stacked||ci===cols.length-1)){const l=box(nodes[nodes.length-1]);add(l.x+l.w/2,l.y+l.h,l.x+l.w/2,n.y,t,null)}});
- }
- new ResizeObserver(layout).observe(perf);document.fonts?.ready.then(layout);layout();
- const first=colNodes.map(n=>n[0]);
- F.run(perf,t=>{const time=t%CYCLE;
-  first.forEach((e,i)=>glow(e,F.arrival(time-START[i]+200)));
-  routes.forEach(a=>{a.dots.forEach((d,i)=>{const u=(time-a.start-i*F.delay)/a.duration;if(u<0||u>1){d.setAttribute('opacity',0);return}const q=a.path.getPointAtLength(a.len*F.smooth(u));d.setAttribute('cx',q.x);d.setAttribute('cy',q.y);d.setAttribute('opacity',Math.max(0,Math.min(1,u*10,(1-u)*18))*(1-i*.065))});if(a.to)glow(a.to,F.arrival(time-a.start-a.duration+150))});
-  safe.forEach((e,i)=>glow(e,F.arrival(time-(6100+i*300))))},
- ()=>{[...first,...safe,...routes.map(a=>a.to).filter(Boolean)].forEach(e=>glow(e,0));routes.forEach(a=>a.dots.forEach(d=>d.setAttribute('opacity',0)))});
+ // A request waterfall: tabs choose the moment; bars grow (cached, live, retried), then the three promises light up on the chart.
+ const tabs=[...perf.querySelectorAll('.dp2-tabs button')],order=tabs.map(t=>t.dataset.tab),reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+ let timers=[],manual=false,visible=false,current='search';
+ const clear=()=>{timers.forEach(clearTimeout);timers=[]};
+ const at=(ms,fn)=>timers.push(setTimeout(fn,ms));
+ function play(tab){clear();current=tab;perf.dataset.tab=tab;tabs.forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===tab)));
+  perf.classList.remove('is-run','hl-timeout','hl-retry','hl-monitor');void perf.offsetWidth;
+  if(reducedMotion.matches){perf.classList.add('is-run','hl-timeout','hl-retry','hl-monitor');return}
+  at(150,()=>perf.classList.add('is-run'));at(3200,()=>perf.classList.add('hl-timeout'));at(3900,()=>perf.classList.add('hl-retry'));at(4600,()=>perf.classList.add('hl-monitor'));
+  if(!manual)at(8200,()=>play(order[(order.indexOf(tab)+1)%order.length]))}
+ tabs.forEach(b=>b.addEventListener('click',()=>{manual=true;play(b.dataset.tab)}));
+ new IntersectionObserver(([e])=>{visible=e.isIntersecting;if(visible)play(current);else clear()},{threshold:.25}).observe(perf);
 }
 // Find what you need: the five guides are one journey; a pulse travels card to card on the site's wiring.
 const docsRoot=document.querySelector('#section-2 .dev-docs');

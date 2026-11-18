@@ -1,15 +1,50 @@
-#market-signal{padding:72px 4vw;background:#eee9de;color:#180f10;color-scheme:light}#market-signal h2{font:300 clamp(34px,3vw,44px)/1.2 Chillax,sans-serif;margin:20px 0 40px;text-wrap:balance}#market-signal h2 span{background:linear-gradient(105deg,#a64530,#d45c3f);background-clip:text;-webkit-background-clip:text;color:transparent}.lm-flow{display:grid;grid-template-columns:1fr .4fr 1.3fr;align-items:center;position:relative;margin:45px 0}.lm-sources{display:grid;gap:18px}.lm-source{display:flex;align-items:center;gap:22px;padding:22px 28px;border:1px solid #f4664952;border-radius:12px;background:radial-gradient(ellipse at 15% 0,#fff8f1b0,transparent 65%),linear-gradient(135deg,#fff8f155,#f4664905);box-shadow:inset 0 1px #fff8f1,0 6px 14px -10px #50342c22;position:relative;z-index:1}.lm-source svg{width:30px;height:30px;fill:none;stroke:#c45b40;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}#market-signal h3{font:300 26px/1.25 Chillax,sans-serif;margin:0}.lm-need{grid-column:3;padding:45px 35px;border:1px solid #f4664980;border-radius:16px;background:radial-gradient(ellipse at 15% 0,#ffbf9824,transparent 65%),linear-gradient(135deg,#302426ed,#1d1517f5);color:#eee9de;box-shadow:inset 0 1px #ffd8bd45,0 12px 24px #50342c14,0 0 calc(var(--arrival,0)*22px) #f4664930;position:relative;z-index:1}.lm-need small{font:400 12px LoyaltySofia,Sofia,sans-serif;letter-spacing:.12em;color:#ffb594}#market-signal .lm-need h3{font-size:28px;margin:20px 0;text-wrap:balance}.lm-need p{font:400 18px/1.5 LoyaltySofia,Sofia,sans-serif;margin:0;color:#d8ccc3}.lm-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}.lm-wires path{fill:none;stroke:#f46649;stroke-width:1.5;stroke-linecap:round}.lm-wires circle{fill:#fff8f1;stroke:#f46649;stroke-width:.7}.lm-body{font:400 18px/1.6 LoyaltySofia,Sofia,sans-serif;margin:36px 0 0}@media(max-width:700px){#market-signal{padding:48px 4vw}.lm-flow{grid-template-columns:1fr;gap:60px}.lm-need{grid-column:1;padding:30px 22px}.lm-source{padding:18px 22px}#market-signal .lm-need h3{font-size:28px}.lm-body{font-size:18px}}
-
-/* Redesign (Idan review): the three sources are flat rows like "Who it's for" (outlined icon box, hairlines, no cards);
-   the hub is one tall dark panel as high as the rows; wires end in rings on both sides. */
-@media(min-width:701px){
- html body #market-signal > div.lm-flow:nth-child(2){margin-top:56px!important;margin-bottom:0!important;grid-template-columns:minmax(0,1fr) clamp(96px,10vw,160px) minmax(0,1.1fr);align-items:stretch;margin:56px 0 40px!important}
- html body #market-signal > div.lm-flow:nth-child(2) > div.lm-sources:nth-child(1){margin:0!important;align-self:stretch;gap:0;border-bottom:1px solid #b95d3833;grid-auto-rows:1fr;align-content:stretch}
- #market-signal .lm-source{min-height:96px;padding:0;border:0;border-top:1px solid #b95d3833;border-radius:0;background:none;box-shadow:none;gap:24px}
- #market-signal .lm-source svg{box-sizing:border-box;width:56px;height:56px;padding:14px;border:1px solid #f4664980;border-radius:13px;stroke:#cf5035}
- #market-signal .lm-need{display:flex;flex-direction:column;justify-content:center;padding:clamp(32px,4vw,56px)}
- #market-signal .lm-need h3{font-size:clamp(28px,2.6vw,38px)!important;margin:20px 0 12px!important}
- #market-signal .lm-need p{font-size:17px}
- #market-signal .lm-wires circle.lm-ring{fill:#eee9de;stroke:#f46649;stroke-width:1.2}
-}
-#market-signal .lm-body{color:#4a3a35!important}
+/* Market signal: an interactive scene. Pick the surface (site, app, card); the same Louvre tour is offered on it and its points flow into the one thing every program needs. */
+#market-signal{padding:80px 4vw;background:#eee9de;color:#180f10;color-scheme:light}
+#market-signal h2{font:300 clamp(34px,3vw,44px)/1.2 Chillax,sans-serif;margin:20px 0 0;text-wrap:balance}
+#market-signal h2 span{background:linear-gradient(105deg,#a64530,#d45c3f);background-clip:text;-webkit-background-clip:text;color:transparent}
+.lm2-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,80px);align-items:stretch;margin-top:56px}
+.lm2-list{list-style:none;margin:0;padding:0;display:grid;grid-auto-rows:1fr;border-bottom:1px solid #b95d3833}
+.lm2-list li{position:relative;display:flex;align-items:center;gap:24px;min-height:96px;border-top:1px solid #b95d3833;cursor:pointer;outline-offset:-2px}
+.lm2-list li:focus-visible{outline:2px solid #f46649}
+.lm2-ic{display:grid;place-items:center;width:56px;height:56px;flex:none;border:1px solid #f4664980;border-radius:13px;color:#cf5035;transition:background .4s,color .4s,border-color .4s}
+.lm2-ic svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+#market-signal .lm2-list h3{margin:0;font:300 clamp(24px,2vw,28px)/1.25 Chillax,sans-serif;color:#8b7a70;transition:color .4s}
+.lm2-list li:after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:0;background:#f46649}
+.lm2-grid[data-step="1"] .lm2-list li:nth-child(1),.lm2-grid[data-step="2"] .lm2-list li:nth-child(2),.lm2-grid[data-step="3"] .lm2-list li:nth-child(3){}
+.lm2-grid[data-step="1"] li:nth-child(1) h3,.lm2-grid[data-step="2"] li:nth-child(2) h3,.lm2-grid[data-step="3"] li:nth-child(3) h3{color:#180f10}
+.lm2-grid[data-step="1"] li:nth-child(1) .lm2-ic,.lm2-grid[data-step="2"] li:nth-child(2) .lm2-ic,.lm2-grid[data-step="3"] li:nth-child(3) .lm2-ic{background:#f46649;color:#180f10;border-color:#f46649}
+.lm2-grid[data-step="1"] li:nth-child(1):after,.lm2-grid[data-step="2"] li:nth-child(2):after,.lm2-grid[data-step="3"] li:nth-child(3):after{width:100%;transition:width 6.2s linear}
+.lm2-grid.is-manual li:after{transition:none!important}
+.lm2-stage{position:relative;display:flex;flex-direction:column;gap:clamp(44px,6vh,64px);padding:clamp(24px,3vw,40px);border:1px solid #f4664980;border-radius:20px;background:radial-gradient(ellipse at 15% 0,#ffbf9824,transparent 60%),linear-gradient(135deg,#302426,#1d1517);color:#eee9de;box-shadow:inset 0 1px #ffd8bd45,0 14px 30px #50342c26}
+.lm2-cap{position:absolute;top:14px;right:20px;font:400 11px Sofia,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#bda99c}
+.lm2-views{position:relative;display:grid;min-height:clamp(210px,28vh,260px);place-items:center}
+.lm2-view{grid-area:1/1;display:flex;flex-direction:column;align-items:center;gap:16px;width:100%;opacity:0;transform:translateY(10px);visibility:hidden;transition:opacity .45s,transform .6s cubic-bezier(.22,1,.36,1),visibility .45s}
+.lm2-grid[data-step="1"] .v1,.lm2-grid[data-step="2"] .v2,.lm2-grid[data-step="3"] .v3{opacity:1;transform:none;visibility:visible}
+.lm2-tile{display:flex;align-items:center;gap:16px;width:min(100%,420px);padding:12px;border:1px solid #f4664966;border-radius:14px;background:#ffffff0d;transition:box-shadow .4s,border-color .4s}
+.lm2-tile img{width:84px;height:84px;object-fit:cover;border-radius:10px;flex:none}
+.lm2-tile small{display:block;font:500 11px Sofia,sans-serif;letter-spacing:.12em;color:#ffb594}
+.lm2-tile b{display:block;margin:6px 0 4px;font:300 21px/1.25 Chillax,sans-serif}
+.lm2-tile span{font:400 15px Sofia,sans-serif;color:#d3c1b8}
+.lm2-browser{width:min(100%,460px);border:1px solid #f4664966;border-radius:14px;background:#00000026;padding-bottom:16px;display:grid;justify-items:center;gap:16px}
+.lm2-bar{display:flex;align-items:center;gap:6px;width:100%;box-sizing:border-box;padding:10px 14px;border-bottom:1px solid #f4664933;font:400 13px Sofia,sans-serif;color:#d3c1b8}
+.lm2-bar i{width:7px;height:7px;border-radius:50%;background:#f46649;opacity:.8}.lm2-bar span{margin-left:10px}
+.lm2-browser .lm2-tile{width:calc(100% - 32px)}
+.lm2-phone{position:relative;width:min(100%,250px);padding:26px 12px 14px;border:1px solid #f4664999;border-radius:30px;background:#00000033;display:grid;justify-items:center}
+.lm2-notch{position:absolute;top:9px;left:50%;width:54px;height:6px;margin-left:-27px;border-radius:3px;background:#f4664966}
+.lm2-phone .lm2-tile{flex-direction:column;align-items:flex-start;width:100%}.lm2-phone .lm2-tile img{width:100%;height:96px}
+.lm2-card{width:min(100%,320px);aspect-ratio:1.586;max-height:150px;padding:20px 22px;border:1px solid #f4664999;border-radius:16px;background:linear-gradient(135deg,#4a3430,#2a1c1d);display:flex;flex-direction:column;justify-content:space-between;box-shadow:inset 0 1px #ffd8bd33}
+.lm2-card small{font:500 11px Sofia,sans-serif;letter-spacing:.14em;color:#ffb594}.lm2-card strong{font:300 30px/1 Chillax,sans-serif}.lm2-card strong span{font:400 14px Sofia,sans-serif;color:#d3c1b8}
+.lm2-hub{position:relative;z-index:1;padding:clamp(22px,2.4vw,32px);border:1px solid #f4664999;border-radius:16px;background:#1d151799;text-align:left;box-shadow:0 0 calc(var(--arrival,0)*26px) #f4664955;transition:border-color .3s}
+.lm2-hub small{font:400 12px Sofia,sans-serif;letter-spacing:.12em;color:#ffb594}
+#market-signal .lm2-hub h3{margin:14px 0 8px;font:300 clamp(26px,2.3vw,34px)/1.2 Chillax,sans-serif;color:#eee9de}
+.lm2-hub p{margin:0;font:400 16px/1.5 Sofia,sans-serif;color:#d3c1b8}
+.lm2-wire{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:2}
+#market-signal .lm-body{margin:40px 0 0;max-width:80ch;color:#4a3a35;font:400 16px/1.55 Sofia,sans-serif}
+@media(max-width:900px){.lm2-grid{grid-template-columns:1fr;margin-top:40px}.lm2-list li{min-height:80px}}
+@media(max-width:599px){#market-signal{padding:64px 24px}.lm2-stage{padding:20px 16px;gap:44px}.lm2-views{min-height:230px}.lm2-tile b{font-size:18px}.lm2-tile img{width:72px;height:72px}.lm2-phone .lm2-tile img{width:100%;height:84px}}
+@media(prefers-reduced-motion:reduce){.lm2-view,.lm2-list li:after{transition:none}}
+html body #market-signal > div.lm2-grid:nth-child(2){margin-top:56px!important}
+html body #market-signal > div.lm2-grid:nth-child(2) > ol.lm2-list:nth-child(1){margin:0!important;grid-auto-rows:104px;align-content:center;border-bottom:0}
+.lm2-list li:last-child{border-bottom:1px solid #b95d3833}
+.lm2-views{min-height:clamp(200px,26vh,240px)}
+.lm2-stage{gap:clamp(36px,5vh,52px)}

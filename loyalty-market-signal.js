@@ -1,1 +1,36 @@
-(()=>{function init(){const root=document.querySelector('.lm-flow'),F=window.BridgifyFlow;if(!root||!F)return;const svg=root.querySelector('.lm-wires'),sources=[...root.querySelectorAll('.lm-source')],target=root.querySelector('.lm-need'),ns='http://www.w3.org/2000/svg';let paths=[],dots=[];function el(tag,attrs){const n=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);svg.append(n);return n}function layout(){svg.replaceChildren();paths=[];dots=[];const r=root.getBoundingClientRect(),t=target.getBoundingClientRect(),mobile=innerWidth<=700;svg.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);sources.forEach(source=>{const b=source.getBoundingClientRect();if(mobile)return;const x=b.right-r.left,y=b.top-r.top+b.height/2,tx=t.left-r.left,ty=t.top-r.top+t.height/2,m=x+(tx-x)*.5;const d=Math.abs(y-ty)<1?`M${x} ${y}H${tx}`:`M${x} ${y}H${m-10}Q${m} ${y} ${m} ${y+(ty>y?10:-10)}V${ty+(ty>y?-10:10)}Q${m} ${ty} ${m+10} ${ty}H${tx}`;paths.push(el('path',{d}));el('circle',{cx:x,cy:y,r:3.5,class:'lm-ring'});if(!svg.querySelector('.lm-ring-hub'))el('circle',{cx:tx,cy:ty,r:3.5,class:'lm-ring lm-ring-hub'});dots.push(Array.from({length:3},(_,i)=>el('circle',{r:F.radius(i),opacity:0})));});if(mobile){const b=sources[2].getBoundingClientRect(),x=r.width/2,y=b.bottom-r.top,ty=t.top-r.top;paths.push(el('path',{d:`M${x} ${y}V${ty}`}));el('circle',{cx:x,cy:y,r:2.8});dots.push(Array.from({length:3},(_,i)=>el('circle',{r:F.radius(i),opacity:0})));}el('circle',{cx:mobile?r.width/2:t.left-r.left,cy:mobile?t.top-r.top:t.top-r.top+t.height/2,r:2.8})}new ResizeObserver(layout).observe(root);document.fonts.ready.then(layout);layout();F.run(root,t=>{const phase=t%5300;paths.forEach((p,i)=>{dots[i].forEach((dot,n)=>{const u=(phase-n*F.delay)/1600,q=F.clamp(u),pos=p.getPointAtLength(p.getTotalLength()*F.smooth(q));dot.setAttribute('cx',pos.x);dot.setAttribute('cy',pos.y);dot.setAttribute('r',F.radius(n)*(.8+.3*Math.sin(q*Math.PI)));dot.setAttribute('opacity',u>0&&u<1?(1-n*.065)*Math.min(1,q*10,(1-q)*18):0)});p.style.strokeWidth=String(1.5+.3*Math.sin(F.clamp(phase/1780)*Math.PI))});target.style.setProperty('--arrival',F.arrival(phase-1780))},()=>{dots.flat().forEach(d=>d.setAttribute('opacity',0));target.style.setProperty('--arrival',0)})}document.readyState==='complete'?init():window.addEventListener('load',init)})();
+(() => {
+  const grid = document.querySelector('.lm2-grid'), F = window.BridgifyFlow;
+  if (!grid) return;
+  const items = [...grid.querySelectorAll('.lm2-list li')], stage = grid.querySelector('.lm2-stage'), hub = grid.querySelector('.lm2-hub');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)'), NS = 'http://www.w3.org/2000/svg';
+  let step = 1, timer = 0, visible = false, manual = false, stepAt = 0, svg = null, path = null, dots = [], rings = [];
+  const mk = (tag, a, parent) => { const e = document.createElementNS(NS, tag); Object.entries(a).forEach(([k, v]) => e.setAttribute(k, v)); parent.append(e); return e; };
+  const tileOf = () => grid.querySelector('.lm2-view.v' + step + ' .lm2-tile');
+  function build() {
+    svg?.remove(); svg = null; dots = []; path = null;
+    const r = stage.getBoundingClientRect(), t = tileOf(); if (!r.width || !t) return;
+    const a = t.getBoundingClientRect(), h = hub.getBoundingClientRect();
+    const x0 = a.left + a.width / 2 - r.left, y0 = a.bottom - r.top, x1 = h.left + h.width / 2 - r.left, y1 = h.top - r.top;
+    svg = mk('svg', { class: 'lm2-wire', viewBox: `0 0 ${r.width} ${r.height}`, 'aria-hidden': 'true' }, stage);
+    path = mk('path', { d: `M${x0} ${y0}V${y1}`, fill: 'none', stroke: '#f46649', 'stroke-width': 1, 'stroke-linecap': 'round', opacity: .6 }, svg);
+    [[x0, y0], [x1, y1]].forEach(([x, y]) => mk('circle', { cx: x, cy: y, r: 3.5, fill: '#eee9de', stroke: '#f46649', 'stroke-width': 1.2 }, svg));
+    dots = F ? Array.from({ length: 9 }, (_, i) => mk('circle', { r: F.radius(i), fill: '#fff8f1', stroke: '#f46649', 'stroke-width': .7, opacity: 0 }, svg)) : [];
+  }
+  function set(n, fromUser) {
+    step = n; grid.dataset.step = n; stepAt = -1; if (fromUser) { manual = true; grid.classList.add('is-manual'); }
+    items.forEach((li, i) => li.setAttribute('aria-pressed', String(i === n - 1)));
+    requestAnimationFrame(build);
+  }
+  const schedule = () => { clearTimeout(timer); if (manual || reduced.matches || !visible || document.hidden) return; timer = setTimeout(() => { set(step % items.length + 1); schedule(); }, 6500); };
+  items.forEach((li, i) => { const pick = () => { clearTimeout(timer); set(i + 1, true); }; li.addEventListener('click', pick); li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } }); });
+  new ResizeObserver(build).observe(stage); document.fonts?.ready.then(build);
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; schedule(); }, { threshold: .3 }).observe(grid);
+  document.addEventListener('visibilitychange', schedule); reduced.addEventListener('change', schedule);
+  set(1);
+  if (F) F.run(stage, elapsed => {
+    if (stepAt < 0) stepAt = elapsed; const t = (elapsed - stepAt) % 4200, tile = tileOf();
+    if (path) { const len = path.getTotalLength(); dots.forEach((d, i) => { const u = (t - 700 - i * F.delay) / 1400; if (u < 0 || u > 1) { d.setAttribute('opacity', 0); return; } const q = path.getPointAtLength(len * F.smooth(u)); d.setAttribute('cx', q.x); d.setAttribute('cy', q.y); d.setAttribute('opacity', Math.max(0, Math.min(1, u * 10, (1 - u) * 18)) * (1 - i * .065)); }); }
+    if (tile) { const g = F.arrival(t - 400); tile.style.boxShadow = `0 0 ${g * 20}px rgba(244,102,73,${g * .6})`; tile.style.borderColor = g > .02 ? '#f46649' : ''; }
+    const ga = F.arrival(t - 700 - 1400 - 8 * F.delay + 200); hub.style.setProperty('--arrival', ga); hub.style.borderColor = ga > .02 ? '#ffb594' : '';
+  }, () => { dots.forEach(d => d.setAttribute('opacity', 0)); });
+})();

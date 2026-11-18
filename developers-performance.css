@@ -1,23 +1,38 @@
-/* Developers, "What makes ... high performing": two moments side by side, each a vertical chain on the site's wiring,
-   both dropping into the safety net underneath. The same chain on every screen; only the number of columns changes. */
-.dp{position:relative;isolation:isolate;padding:clamp(24px,3vw,40px)!important;min-height:0!important;display:block!important}
-.dp-lanes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,64px)}
-.dp-lane{display:flex;flex-direction:column;align-items:center;gap:0;padding:0;border:0;min-width:0}
-.dp-lane h3{display:flex;align-items:center;gap:16px;align-self:flex-start;margin:0 0 28px;font:300 var(--type-card,26px)/1.2 Chillax,sans-serif;letter-spacing:0;text-transform:none;color:#eee9de}
-.dp-lane h3 .dev-icon{box-sizing:border-box;width:56px;height:56px;padding:14px;flex:none;border:1px solid #f4664980;border-radius:13px;color:#f46649;background:linear-gradient(125deg,#a26e5540,#38262680)}
-.dp-track{display:flex;flex-direction:column;align-items:center;gap:36px;width:100%;min-height:0}
-.dp-img{width:min(100%,360px);height:clamp(120px,15vh,160px);object-fit:cover;border-radius:14px;border:1px solid #f4664966;flex:none}
-.dp-node{white-space:nowrap;min-width:min(100%,260px);justify-content:center;text-align:center;font:500 17px/1.2 Sofia,sans-serif}
-.dp-safety{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:48px;padding:24px 0 0;border-top:1px solid #f4664933}
-.dp-safe{display:flex;align-items:center;justify-content:center;gap:16px;padding:6px 16px;font:500 17px/1.3 Sofia,sans-serif;color:#eee9de;border-left:1px solid #f4664926}
-.dp-safe:first-child{border-left:0}
-.dp-safe .dev-icon{box-sizing:border-box;width:48px;height:48px;padding:12px;flex:none;border:1px solid #f4664980;border-radius:12px;color:#f46649;background:linear-gradient(125deg,#a26e5540,#38262680)}
-.dp .dev-performance-wires{z-index:2}
-@media(max-width:760px){.dp-lanes{grid-template-columns:1fr;gap:40px}.dp-safety{grid-template-columns:1fr;gap:16px}.dp-safe{justify-content:flex-start;border-left:0}}
-@media(max-width:599px){
- .dp{padding:24px 16px!important}
- .dp-lane h3{font-size:19px;gap:12px;margin-bottom:24px}.dp-lane h3 .dev-icon{width:44px;height:44px;padding:11px}
- .dp-track{gap:24px}.dp-img{height:88px}
- .dp-node{font-size:15px;white-space:normal}
- .dp-safety{margin-top:40px;padding-top:24px}.dp-safe{padding:0}
-}
+/* Developers, "What makes ... high performing": a request waterfall. Tabs pick the moment (Search or Checkout), bars show what is
+   cached and what is asked live, and the three reliability promises light up on the chart itself. Same markup on every screen. */
+.dp2{position:relative;isolation:isolate;display:block!important;padding:clamp(24px,3vw,40px)!important;min-height:0!important}
+.dp2-tabs{display:flex;gap:12px;margin-bottom:clamp(24px,3vw,40px)}
+.dp2-tabs button{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:8px 22px 8px 10px;border:1px solid #f4664966;border-radius:999px;background:transparent;color:#d3c1b8;font:500 16px/1 Sofia,sans-serif;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+.dp2-tabs button .dev-icon{box-sizing:border-box;width:32px;height:32px;padding:7px;border-radius:50%;background:#f466491f;color:#f46649}
+.dp2-tabs button[aria-selected=true]{background:linear-gradient(120deg,#f46649,#ff9a78);color:#180f10;border-color:transparent}
+.dp2-tabs button[aria-selected=true] .dev-icon{background:#180f1022;color:#180f10}
+.dp2-tabs button:focus-visible{outline:2px solid #ffb594;outline-offset:3px}
+.dp2-chart{position:relative;display:grid;border-top:1px solid #f4664926;padding-top:8px}
+.dp2-view{grid-area:1/1;display:grid;grid-auto-rows:minmax(72px,auto);align-content:start;opacity:0;visibility:hidden;transition:opacity .35s}
+.dp2[data-tab=search] .dp2-view[data-view=search],.dp2[data-tab=checkout] .dp2-view[data-view=checkout]{opacity:1;visibility:visible}
+.dp2-row{display:grid;grid-template-columns:minmax(210px,260px) 1fr;align-items:center;gap:24px;border-bottom:1px solid #f4664918}
+.dp2-name{justify-self:start;white-space:nowrap}
+.dp2-track{position:relative;height:32px;margin-right:clamp(20px,5%,64px);background:repeating-linear-gradient(90deg,#f466491a 0 1px,transparent 1px 10%);border-radius:8px}
+.dp2-bar{position:absolute;top:0;bottom:0;left:calc(var(--s)*1%);width:calc((var(--e) - var(--s))*1%);border-radius:8px;transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.22,1,.36,1) calc(var(--d,0)*1ms)}
+.dp2-row .dp2-bar{transition-delay:var(--d,0ms)}
+.dp2-bar.static{background:linear-gradient(90deg,#d3c1b8aa,#eee9de)}
+.dp2-bar.live{background:linear-gradient(105deg,#f46649,#ffb594);box-shadow:0 0 18px #f4664966}
+.dp2-bar.fail{background:repeating-linear-gradient(135deg,#f4664955 0 6px,transparent 6px 12px);border:1px dashed #f46649;opacity:.8}
+.dp2.is-run .dp2-bar{transform:none}
+.dp2-dot{position:absolute;top:50%;left:calc(var(--x)*1%);width:10px;height:10px;margin:-5px 0 0 6px;border-radius:50%;background:#eee9de;border:1.5px solid #f46649;opacity:0;transition:opacity .4s}
+.dp2.hl-monitor .dp2-dot{opacity:1;box-shadow:0 0 14px #f46649}
+.dp2-limit{position:absolute;top:0;bottom:0;left:calc(260px + 24px + (100% - 260px - 24px - clamp(20px,5%,64px)) * .92);width:0;border-left:1px dashed #f4664966;pointer-events:none;transition:border-color .4s,filter .4s;z-index:1}
+.dp2-limit .dev-icon{position:absolute;top:-18px;left:-14px;width:28px;height:28px;padding:5px;box-sizing:border-box;border:1px solid #f4664980;border-radius:50%;background:#24191b;color:#f46649}
+.dp2.hl-timeout .dp2-limit{border-left:1px solid #f46649;filter:drop-shadow(0 0 6px #f46649)}
+.dp2.hl-retry .dp2-bar.fail{opacity:1;box-shadow:0 0 16px #f4664988}
+.dp2-safety{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(24px,3vw,36px);padding-top:24px;border-top:1px solid #f4664933}
+.dp2-safe{display:flex;align-items:center;justify-content:center;gap:16px;padding:6px 16px;font:500 17px/1.3 Sofia,sans-serif;color:#eee9de;border-left:1px solid #f4664926;transition:color .4s}
+.dp2-safe:first-child{border-left:0}
+.dp2-safe .dev-icon{box-sizing:border-box;width:48px;height:48px;padding:12px;flex:none;border:1px solid #f4664980;border-radius:12px;color:#f46649;background:linear-gradient(125deg,#a26e5540,#38262680);transition:box-shadow .4s,border-color .4s}
+.dp2.hl-timeout .dp2-safe[data-hl=timeout] .dev-icon,.dp2.hl-retry .dp2-safe[data-hl=retry] .dev-icon,.dp2.hl-monitor .dp2-safe[data-hl=monitor] .dev-icon{border-color:#ffb594;box-shadow:0 0 18px #f46649aa}
+@media(max-width:900px){.dp2-row{grid-template-columns:1fr;gap:10px;padding:16px 0}.dp2-track{margin-right:12px}.dp2-limit{left:calc((100% - 12px) * .92)}.dp2-view{grid-auto-rows:auto}}
+@media(max-width:760px){.dp2-safety{grid-template-columns:1fr;gap:16px}.dp2-safe{justify-content:flex-start;border-left:0;padding:0}}
+@media(max-width:599px){.dp2{padding:24px 16px!important}.dp2-tabs button{font-size:15px;padding-right:16px}.dp2-name{font-size:15px}.dp2-limit{top:8px}}
+@media(prefers-reduced-motion:reduce){.dp2-bar{transition:none;transform:none}}
+html body .dp2 .dp2-tabs button{background:transparent!important;color:#d3c1b8!important;border:1px solid #f4664966!important;box-shadow:none!important}
+html body .dp2 .dp2-tabs button[aria-selected=true]{background:linear-gradient(120deg,#f46649,#ff9a78)!important;color:#180f10!important;border-color:transparent!important;box-shadow:0 6px 20px #f4664944!important}
