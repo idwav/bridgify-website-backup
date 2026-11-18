@@ -1,0 +1,45 @@
+/* Super apps and consumer platforms · adaptive layer. */
+@media (max-width:1023px){ html body :is(#section-1,#section-2,#section-3,#section-4,#we-started-here,#market-signal){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important} }
+@media (max-width:599px){
+  html body :is(#section-2,#section-3,#section-4,#we-started-here,#market-signal){padding-top:48px!important;padding-bottom:48px!important}
+  html body #section-1{padding-top:calc(var(--ad-header-h) + 28px)!important;padding-bottom:28px!important;min-height:0!important}
+  /* 1 · Hero */
+  html body #section-1 .sc-hero-copy{gap:14px!important;margin-bottom:24px!important}
+  html body #section-1 .sc-hero-actions{display:flex!important;flex-wrap:wrap;gap:8px!important}
+  html body #section-1 .sc-preview{margin-inline:auto!important}
+  /* 3 · What users are planning: the three topics are one swipeable row; the phone fits under the copy. */
+  html body #section-3 .up-story-track,html body #section-3 .up-story-sticky{position:static!important;height:auto!important;min-height:0!important;top:auto!important}
+  html body #section-3 .up-story-text{gap:14px!important}
+  html body #section-3 .up-story-steps{display:flex!important;gap:6px!important;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--ad-gutter)*-1)!important;padding-inline:var(--ad-gutter)!important;height:auto!important}
+  html body #section-3 .up-story-steps::-webkit-scrollbar{display:none}
+  html body #section-3 .up-story-steps>button{flex:none!important;width:auto!important;min-height:44px!important;padding:0 12px!important;border:1px solid #EEE9DE2e!important;border-radius:10px!important;white-space:nowrap}
+  html body #section-3 .up-story-steps>button:is([aria-selected="true"],.is-active,.active){border-color:#F46649!important}
+  html body #section-3 .up-story-copy h3{font-size:22px!important;margin-bottom:8px!important}
+  html body #section-3 .up-story-phone{margin-top:18px!important}
+  html body #section-3 .sc-foot{margin-top:16px!important;gap:12px!important}
+}
+
+/* Solutions demos at real size (phones, 16 Nov 2026; plan in output/element-lab/demos.html): the lab used to shrink
+   these with zoom (57-81%). At real size they reflow to the phone and stay readable; tall ones are trimmed of demo items. */
+@media (max-width:599px){
+  html body #section-1 .sc-preview:not(#ad-x),html body #section-3 .up-story-phone:not(#ad-x){zoom:1!important}
+}
+/* The super-app phone is 320px wide: on a 320px-wide screen (iPhone SE) it is scaled to the 272px column. */
+@media (max-width:359px){ html body #section-1 .sc-preview:not(#ad-x):not(#ad-y){zoom:.85!important} }
+
+/* Round 11 (17 Nov 2026), phones */
+@media (max-width:599px){
+  html body #section-1.sc-consumer-hero:not(#ad-x){overflow:clip!important}
+  html body #section-1 .sc-hero-copy:not(#ad-x){position:sticky!important;top:calc(var(--ad-header-h) + 8px);z-index:0;transform-origin:50% 0;align-self:start}
+  html body #section-1 .sc-preview:not(#ad-x){position:relative;z-index:1;zoom:1!important;width:auto!important;justify-self:stretch!important;justify-content:center!important;margin-inline:calc(var(--ad-gutter) * -1)!important;padding:16px var(--ad-gutter) 0!important;background:linear-gradient(180deg,rgba(18,11,10,0) 0,#120b0a 28px)!important}
+  /* the story, pinned: steps as one row, the words for the chosen step, then the phone (cropped to the screen) */
+  html body #section-3 .up-story-sticky:not(#ad-x){position:static!important;height:auto!important;min-height:0!important}
+  html body #section-3 .up-story-track:not(#ad-x){height:auto!important;min-height:0!important}
+  html body #section-3 .ad-up-pin .ad-pin-stage{background:#140d0c;padding-block:8px}
+  html body #section-3 .ad-up-pin .up-story-steps:not(#ad-x){display:flex!important;flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none;gap:8px!important;width:auto!important;margin-inline:calc(var(--ad-gutter) * -1)!important;padding-inline:var(--ad-gutter)!important}
+  html body #section-3 .ad-up-pin .up-story-steps::-webkit-scrollbar{display:none}
+  html body #section-3 .ad-up-pin .up-story-steps>button:not(#ad-x){flex:none!important;width:auto!important;white-space:nowrap}
+  html body #section-3 .ad-up-pin .up-story-copy h3{font-size:20px!important;line-height:1.25!important}
+  html body #section-3 .ad-up-pin .up-story-phone:not(#ad-x){height:clamp(300px,calc(100svh - var(--ad-header-h) - 290px),520px)!important;overflow:hidden!important;zoom:1!important}
+}
+@media (max-width:599px) and (prefers-reduced-motion:reduce){ html body #section-1 .sc-hero-copy{position:static!important} }

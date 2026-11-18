@@ -48,7 +48,9 @@ MEASURE = r"""
       const firstH = sec.querySelector('h1,h2'); const isHead = !!firstH && (k === firstH || k.contains(firstH));
       // a pinned run (patterns.js pin) is as tall as its stage on screen, not the scroll it adds
       const r = (k.classList.contains('ad-pin') && k.querySelector('.ad-pin-stage') || k).getBoundingClientRect(), top = k.getBoundingClientRect().top + scrollY;
-      const b = { section: sec.id || sec.className.split(' ')[0], block: path(k), heading: isHead, height: Math.round(r.height), usable: Math.round(usable), fit: +(r.height / usable).toFixed(2) };
+      // a pinned run inside the block is scroll distance, not height the reader sees at once: count only its stage
+      const inner = !k.classList.contains('ad-pin') && k.querySelector('.ad-pin.is-on'), run = inner ? inner.getBoundingClientRect().height - inner.querySelector('.ad-pin-stage').getBoundingClientRect().height : 0, hh = r.height - run;
+      const b = { section: sec.id || sec.className.split(' ')[0], block: path(k), heading: isHead, height: Math.round(hh), usable: Math.round(usable), fit: +(hh / usable).toFixed(2) };
       if (si === 0) b.firstView = +Math.max(0, Math.min(1, (VH - top) / r.height)).toFixed(2);
       b.demo = !!k.querySelector('svg,img,canvas,iframe,[aria-hidden=true],button,[role=tab]') || k.querySelectorAll('*').length > 40;
       if (k.classList.contains('ad-bleed')) b.demo = false;  // a full-bleed stage fills the screen by design (MOBILE-RULES M5)
@@ -188,6 +190,8 @@ async def main():
             ctx = await br.new_context(**d); pg = await ctx.new_page()
             for page in a.pages.split(','):
                 name = page.replace('.html', '')
+                sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'system')); from published import route_stripped
+                await route_stripped(pg, f'**/{"" if page == "index-v2.html" else page}?*')
                 await pg.goto(f'{a.base}/{"" if page == "index-v2.html" else page}?version=2', wait_until='networkidle')
                 await inject(pg, name); await pg.add_style_tag(content=REVEAL)
                 h = await pg.evaluate('document.body.scrollHeight')

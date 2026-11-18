@@ -1,0 +1,53 @@
+/* Lab only · the approved system on the White-Label Marketplace page (17 Nov 2026). Loaded after the shared layers
+   (try-cap.css, header-compact.css, type-wide.css, tokens-wide.css). Phone (≤599) is not touched.
+   marketplace.html: every section on the one content line (it used 4%), section titles and card headings on the
+   shared tokens (marketplace-type.css set its own 2.9vw / 1.7vw scale, reset in type-wide.css), the three split
+   headings on the column-7 rule. TYPOGRAPHY.md exception kept: the visible SEO h1 takes the hero scale, the branded
+   store promise (.ad-hero-title) the card scale. */
+@media (min-width: 600px) {
+  html body :is(section#section-1, section#section-2, section#section-3, section#section-4, section#section-5, section#build-or-buy, section#marketplace-audiences, section#marketplace-results) {
+    padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important;
+  }
+  html body:not(#bf-lab) section#faq.copy-faq.copy-faq { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
+  html body #section-1 h1.copy-seo { font-size: var(--type-hero) !important; line-height: 1.16 !important; }
+  html body :is(#section-2 h2.tour-title, #section-3 .wl-heading h2, #commerce-title, #launch-title, #bb-title, #ma-title, #results-title, #faq .copy-inner > h2) {
+    font-size: var(--type-section) !important; line-height: 1.2 !important;
+  }
+  html body :is(#section-3 .wl-details h3, #section-5 .launch-setup.launch-timeline h3, #section-5 .launch-setup h3, #build-or-buy .bc-card-heading h3, #marketplace-audiences .ma-industry-card h3) {
+    font-size: var(--type-card) !important; line-height: 1.25 !important;
+  }
+}
+@media (min-width: 600px) {
+  /* body and lead are 16, labels 12 (the page ran 18 and 13) */
+  html body #section-5 .launch-heading p.lead { font-size: var(--type-lead) !important; }
+  html body :is(#section-1, #section-2, #section-3, #section-4, #section-5, #build-or-buy, #marketplace-audiences) .brand-section-label { font-size: var(--type-eyebrow) !important; }
+}
+@media (min-width: 1024px) {
+  html body :is(#section-2 header:has(.tour-title), #section-3 header.wl-heading, #section-4 header.wo-heading) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; column-gap: 32px !important; align-items: start !important;
+  }
+  html body :is(#section-2 header:has(.tour-title) > p, #section-3 header.wl-heading > p, #section-4 header.wo-heading > p) { align-self: start !important; max-width: 560px !important; }
+}
+/* Tablets and an iPad Pro held upright: the page's full-screen sections (min-height 100vh, content centred) left
+   large empty bands on a tall screen. Here a section is as tall as its content plus section-y; the hero stacks
+   (copy 7/8, the store demo across the content width), as on the homepage and API. */
+@media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body :is(section#section-1, section#section-2, section#section-3, section#section-4, section#build-or-buy, section#marketplace-audiences, section#marketplace-results) { min-height: 0 !important; }
+  html body section#section-1.page-hero { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; row-gap: 0 !important; /* the copy→demo gap is the spacing table's (64), set on the demo below */ column-gap: 0 !important; align-items: start !important; }
+  html body #section-1 .block-copy { max-width: calc((100% + 24px) * 7 / 8 - 24px) !important; grid-column: 1 !important; grid-row: 1 !important; margin-left: 0 !important; margin-right: 0 !important; padding-left: 0 !important; padding-right: 0 !important; justify-self: start !important; }
+  html body #section-1 .market-demo { width: 100% !important; max-width: none !important; margin: var(--bf-gap-to-visual) 0 0 !important; /* set here, not left to the spacing engine: an iPad Pro held upright is in the desktop class, whose spacing is baked on a landscape screen where this hero is side by side (18 Nov 2026: the demo sat on the buttons) */ justify-self: stretch !important; grid-column: 1 !important; grid-row: 2 !important; }
+}
+
+/* "Your brand, your markets, your currencies" (18 Nov 2026, owner): the settings panel and the live stage beside it are
+   one row of the same height. The panel sets the height; the stage takes it (contain: size keeps the stage's own
+   content from making the row taller) and centres the store preview in it. Side by side only above 900, where the
+   page's own layout puts them in two columns. */
+@media (min-width: 901px) {
+  html body #section-3 .wl-layout { align-items: stretch !important; }
+  html body #section-3 .wl-preview-stage { contain: size !important; height: auto !important; min-height: 0 !important; display: flex !important; flex-direction: column !important; justify-content: center !important; padding-top: 44px !important; padding-bottom: 28px !important; }
+}
+
+/* An iPad Pro held upright gets the tablet hero title, as on the homepage and API (approved 17 Nov: 48-56). */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body #section-1.page-hero .block-copy > h1.copy-seo { font-size: clamp(48px, 5.5vw, 56px) !important; }
+}

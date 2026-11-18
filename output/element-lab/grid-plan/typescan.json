@@ -1,0 +1,3122 @@
+{
+ "600": {
+  "h1": [
+   [
+    "home",
+    42,
+    "300",
+    "Chillax",
+    1.16,
+    "One connection. A\u00a0million+"
+   ]
+  ],
+  "h2": [
+   [
+    "sources",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Global supply through one "
+   ],
+   [
+    "opportunity-study",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Your customers already boo"
+   ],
+   [
+    "why-bridgify",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Everything between global "
+   ],
+   [
+    "personalization",
+    34,
+    "300",
+    "Chillax",
+    1.2,
+    "Don't give travelers a lib"
+   ],
+   [
+    "products",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Three products.\nOne connec"
+   ],
+   [
+    "audiences",
+    34,
+    "300",
+    "Chillax",
+    1.2,
+    "Built for brands that alre"
+   ],
+   [
+    "marketplace-results",
+    34,
+    "300",
+    "Chillax",
+    1.2,
+    "What White-Label Marketpla"
+   ],
+   [
+    "security",
+    34,
+    "300",
+    "Chillax",
+    1.2,
+    "Built for enterprise secur"
+   ],
+   [
+    "faq",
+    34,
+    "300",
+    "Chillax",
+    1.2,
+    "Frequently asked questions"
+   ],
+   [
+    "home-cta",
+    34,
+    "300",
+    "Chillax",
+    1.2,
+    "Tell us who your customers"
+   ]
+  ],
+  "h3": [
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "OTAs and travel platforms"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Airlines"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Hotels"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Loyalty, rewards and finan"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Travel technology companie"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Super apps and consumer pl"
+   ]
+  ],
+  "h4": [
+   [
+    "opportunity-study",
+    23,
+    "300",
+    "Chillax",
+    1.25,
+    "Building it yourself:"
+   ],
+   [
+    "opportunity-study",
+    23,
+    "300",
+    "Chillax",
+    1.25,
+    "With Bridgify:"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Aggregate"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Normalize"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Distribute"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Personalize"
+   ],
+   [
+    "products",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Experiences API"
+   ],
+   [
+    "products",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "White-Label Marketplace"
+   ],
+   [
+    "products",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "AIyelet"
+   ]
+  ],
+  "label": [
+   [
+    "home",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "THE INFRASTRUCTURE BEHIND "
+   ],
+   [
+    "opportunity-study",
+    7.5,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    7.5,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    7.5,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    7.5,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    7.5,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    7.7,
+    "550",
+    "Sofia",
+    1.2,
+    "ONE CONNECTION"
+   ],
+   [
+    "opportunity-study",
+    7.7,
+    "550",
+    "Sofia",
+    1.2,
+    "ATTRACTION \u00b7 PARIS"
+   ],
+   [
+    "why-bridgify",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "WHY BRIDGIFY"
+   ],
+   [
+    "personalization",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "AIYELET \u00b7 PERSONALIZATION"
+   ],
+   [
+    "products",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "PRODUCTS"
+   ],
+   [
+    "audiences",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "WHO IT'S FOR"
+   ],
+   [
+    "security",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "SECURITY AND COMPLIANCE"
+   ]
+  ],
+  "body": [
+   [
+    "home",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Bridgify, part of HBX Grou"
+   ],
+   [
+    "sources",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The largest experiences ca"
+   ],
+   [
+    "opportunity-study",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Tours, tickets and events "
+   ],
+   [
+    "opportunity-study",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Bridgify does the connecti"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Keep the suppliers you kno"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Every source mapped and de"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Your channels, your brand,"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The right experience for t"
+   ],
+   [
+    "personalization",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "A million experiences are "
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Which product is right for"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Build it your way.\nThe ful"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Your branded experiences s"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The right experience for e"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Sell the day, not only the"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Go beyond the flight, unde"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Help guests make the most "
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Give your members\u2019 points "
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Add experiences to your pr"
+   ],
+   [
+    "marketplace-results",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Most of that comes from pu"
+   ],
+   [
+    "home-cta",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Share your customers, mark"
+   ]
+  ],
+  "button": [
+   [
+    "home",
+    16,
+    "550",
+    "Sofia",
+    1.2,
+    "Book a demo\n\u2197"
+   ],
+   [
+    "sources",
+    16,
+    "550",
+    "Sofia",
+    1.4,
+    "How the Experiences API wo"
+   ],
+   [
+    "personalization",
+    16,
+    "550",
+    "Sofia",
+    1.25,
+    "Meet AIyelet"
+   ],
+   [
+    "home-cta",
+    16,
+    "550",
+    "Sofia",
+    1.25,
+    "Book a demo"
+   ]
+  ]
+ },
+ "768": {
+  "h1": [
+   [
+    "home",
+    40,
+    "300",
+    "Chillax",
+    1.16,
+    "One connection. A\u00a0million+"
+   ]
+  ],
+  "h2": [
+   [
+    "sources",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Global supply through one "
+   ],
+   [
+    "opportunity-study",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Your customers already boo"
+   ],
+   [
+    "why-bridgify",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Everything between global "
+   ],
+   [
+    "personalization",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Don't give travelers a lib"
+   ],
+   [
+    "products",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Three products.\nOne connec"
+   ],
+   [
+    "audiences",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Built for brands that alre"
+   ],
+   [
+    "marketplace-results",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "What White-Label Marketpla"
+   ],
+   [
+    "security",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Built for enterprise secur"
+   ],
+   [
+    "faq",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Frequently asked questions"
+   ],
+   [
+    "home-cta",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Tell us who your customers"
+   ]
+  ],
+  "h3": [
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "OTAs and travel platforms"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Airlines"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Hotels"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Loyalty, rewards and finan"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Travel technology companie"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Super apps and consumer pl"
+   ]
+  ],
+  "h4": [
+   [
+    "opportunity-study",
+    23,
+    "300",
+    "Chillax",
+    1.25,
+    "Building it yourself:"
+   ],
+   [
+    "opportunity-study",
+    23,
+    "300",
+    "Chillax",
+    1.25,
+    "With Bridgify:"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Aggregate"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Normalize"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Distribute"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Personalize"
+   ],
+   [
+    "products",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Experiences API"
+   ],
+   [
+    "products",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "White-Label Marketplace"
+   ],
+   [
+    "products",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "AIyelet"
+   ]
+  ],
+  "label": [
+   [
+    "home",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "THE INFRASTRUCTURE BEHIND "
+   ],
+   [
+    "opportunity-study",
+    9.9,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    9.9,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    9.9,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    9.9,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    9.9,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    10.2,
+    "550",
+    "Sofia",
+    1.2,
+    "ONE CONNECTION"
+   ],
+   [
+    "opportunity-study",
+    10.2,
+    "550",
+    "Sofia",
+    1.2,
+    "ATTRACTION \u00b7 PARIS"
+   ],
+   [
+    "why-bridgify",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "WHY BRIDGIFY"
+   ],
+   [
+    "personalization",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "AIYELET \u00b7 PERSONALIZATION"
+   ],
+   [
+    "products",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "PRODUCTS"
+   ],
+   [
+    "audiences",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "WHO IT'S FOR"
+   ],
+   [
+    "security",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "SECURITY AND COMPLIANCE"
+   ]
+  ],
+  "body": [
+   [
+    "home",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Bridgify, part of HBX Grou"
+   ],
+   [
+    "sources",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The largest experiences ca"
+   ],
+   [
+    "opportunity-study",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Tours, tickets and events "
+   ],
+   [
+    "opportunity-study",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Bridgify does the connecti"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Keep the suppliers you kno"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Every source mapped and de"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Your channels, your brand,"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The right experience for t"
+   ],
+   [
+    "personalization",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "A million experiences are "
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Which product is right for"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Build it your way.\nThe ful"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Your branded experiences s"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The right experience for e"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Sell the day, not only the"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Go beyond the flight, unde"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Help guests make the most "
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Give your members\u2019 points "
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Add experiences to your pr"
+   ],
+   [
+    "marketplace-results",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Most of that comes from pu"
+   ],
+   [
+    "home-cta",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Share your customers, mark"
+   ]
+  ],
+  "button": [
+   [
+    "home",
+    16,
+    "550",
+    "Sofia",
+    1.2,
+    "Book a demo\n\u2197"
+   ],
+   [
+    "sources",
+    16,
+    "550",
+    "Sofia",
+    1.4,
+    "How the Experiences API wo"
+   ],
+   [
+    "personalization",
+    16,
+    "550",
+    "Sofia",
+    1.25,
+    "Meet AIyelet"
+   ],
+   [
+    "home-cta",
+    16,
+    "550",
+    "Sofia",
+    1.25,
+    "Book a demo"
+   ]
+  ]
+ },
+ "1024": {
+  "h1": [
+   [
+    "home",
+    40,
+    "300",
+    "Chillax",
+    1.16,
+    "One connection.\nA\u00a0million+"
+   ]
+  ],
+  "h2": [
+   [
+    "sources",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Global supply through one "
+   ],
+   [
+    "opportunity-study",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Your customers already boo"
+   ],
+   [
+    "why-bridgify",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Everything between global "
+   ],
+   [
+    "personalization",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Don't give travelers a lib"
+   ],
+   [
+    "products",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Three products.\nOne connec"
+   ],
+   [
+    "audiences",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Built for brands that alre"
+   ],
+   [
+    "marketplace-results",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "What White-Label Marketpla"
+   ],
+   [
+    "security",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Built for enterprise secur"
+   ],
+   [
+    "faq",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Frequently asked questions"
+   ],
+   [
+    "home-cta",
+    36,
+    "300",
+    "Chillax",
+    1.2,
+    "Tell us who your customers"
+   ]
+  ],
+  "h3": [
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "OTAs and travel platforms"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Airlines"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Hotels"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Loyalty, rewards and finan"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Travel technology companie"
+   ],
+   [
+    "audiences",
+    24,
+    "300",
+    "Chillax",
+    1.25,
+    "Super apps and consumer pl"
+   ]
+  ],
+  "h4": [
+   [
+    "opportunity-study",
+    23,
+    "300",
+    "Chillax",
+    1.25,
+    "Building it yourself:"
+   ],
+   [
+    "opportunity-study",
+    23,
+    "300",
+    "Chillax",
+    1.25,
+    "With Bridgify:"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Aggregate"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Normalize"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Distribute"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Personalize"
+   ],
+   [
+    "products",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Experiences API"
+   ],
+   [
+    "products",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "White-Label Marketplace"
+   ],
+   [
+    "products",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "AIyelet"
+   ]
+  ],
+  "label": [
+   [
+    "home",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "THE INFRASTRUCTURE BEHIND "
+   ],
+   [
+    "opportunity-study",
+    10.3,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    10.3,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    10.3,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    10.3,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    10.3,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    11.1,
+    "550",
+    "Sofia",
+    1.2,
+    "ONE CONNECTION"
+   ],
+   [
+    "opportunity-study",
+    11.1,
+    "550",
+    "Sofia",
+    1.2,
+    "ATTRACTION \u00b7 PARIS"
+   ],
+   [
+    "why-bridgify",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "WHY BRIDGIFY"
+   ],
+   [
+    "personalization",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "AIYELET \u00b7 PERSONALIZATION"
+   ],
+   [
+    "products",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "PRODUCTS"
+   ],
+   [
+    "audiences",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "WHO IT'S FOR"
+   ],
+   [
+    "security",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "SECURITY AND COMPLIANCE"
+   ]
+  ],
+  "body": [
+   [
+    "home",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Bridgify, part of HBX Grou"
+   ],
+   [
+    "sources",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The largest experiences ca"
+   ],
+   [
+    "opportunity-study",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Tours, tickets and events "
+   ],
+   [
+    "opportunity-study",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Bridgify does the connecti"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Keep the suppliers you kno"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Every source mapped and de"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Your channels, your brand,"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The right experience for t"
+   ],
+   [
+    "personalization",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "A million experiences are "
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Which product is right for"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Build it your way.\nThe ful"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Your branded experiences s"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The right experience for e"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Sell the day, not only the"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Go beyond the flight, unde"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Help guests make the most "
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Give your members\u2019 points "
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Add experiences to your pr"
+   ],
+   [
+    "marketplace-results",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Most of that comes from pu"
+   ],
+   [
+    "home-cta",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Share your customers, mark"
+   ]
+  ],
+  "button": [
+   [
+    "home",
+    16,
+    "550",
+    "Sofia",
+    1.2,
+    "Book a demo\n\u2197"
+   ],
+   [
+    "sources",
+    16,
+    "550",
+    "Sofia",
+    1.4,
+    "How the Experiences API wo"
+   ],
+   [
+    "personalization",
+    16,
+    "550",
+    "Sofia",
+    1.25,
+    "Meet AIyelet"
+   ],
+   [
+    "home-cta",
+    16,
+    "550",
+    "Sofia",
+    1.25,
+    "Book a demo"
+   ]
+  ]
+ },
+ "1280": {
+  "h1": [
+   [
+    "home",
+    46.1,
+    "300",
+    "Chillax",
+    1.16,
+    "One connection.\nA\u00a0million+"
+   ]
+  ],
+  "h2": [
+   [
+    "sources",
+    24.3,
+    "300",
+    "Chillax",
+    1.25,
+    "Global supply through one "
+   ],
+   [
+    "opportunity-study",
+    38.4,
+    "300",
+    "Chillax",
+    1.2,
+    "Your customers already boo"
+   ],
+   [
+    "why-bridgify",
+    38.4,
+    "300",
+    "Chillax",
+    1.2,
+    "Everything between global "
+   ],
+   [
+    "personalization",
+    38.4,
+    "300",
+    "Chillax",
+    1.2,
+    "Don't give travelers a lib"
+   ],
+   [
+    "products",
+    38.4,
+    "300",
+    "Chillax",
+    1.2,
+    "Three products.\nOne connec"
+   ],
+   [
+    "audiences",
+    38.4,
+    "300",
+    "Chillax",
+    1.2,
+    "Built for brands that alre"
+   ],
+   [
+    "marketplace-results",
+    38.4,
+    "300",
+    "Chillax",
+    1.2,
+    "What White-Label Marketpla"
+   ],
+   [
+    "security",
+    38.4,
+    "300",
+    "Chillax",
+    1.2,
+    "Built for enterprise secur"
+   ],
+   [
+    "faq",
+    38.4,
+    "300",
+    "Chillax",
+    1.2,
+    "Frequently asked questions"
+   ],
+   [
+    "home-cta",
+    38.4,
+    "300",
+    "Chillax",
+    1.2,
+    "Tell us who your customers"
+   ]
+  ],
+  "h3": [
+   [
+    "audiences",
+    24.3,
+    "300",
+    "Chillax",
+    1.25,
+    "OTAs and travel platforms"
+   ],
+   [
+    "audiences",
+    24.3,
+    "300",
+    "Chillax",
+    1.25,
+    "Airlines"
+   ],
+   [
+    "audiences",
+    24.3,
+    "300",
+    "Chillax",
+    1.25,
+    "Hotels"
+   ],
+   [
+    "audiences",
+    24.3,
+    "300",
+    "Chillax",
+    1.25,
+    "Loyalty, rewards and finan"
+   ],
+   [
+    "audiences",
+    24.3,
+    "300",
+    "Chillax",
+    1.25,
+    "Travel technology companie"
+   ],
+   [
+    "audiences",
+    24.3,
+    "300",
+    "Chillax",
+    1.25,
+    "Super apps and consumer pl"
+   ]
+  ],
+  "h4": [
+   [
+    "opportunity-study",
+    23,
+    "300",
+    "Chillax",
+    1.25,
+    "Building it yourself:"
+   ],
+   [
+    "opportunity-study",
+    23,
+    "300",
+    "Chillax",
+    1.25,
+    "With Bridgify:"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Aggregate"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Normalize"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Distribute"
+   ],
+   [
+    "why-bridgify",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Personalize"
+   ],
+   [
+    "products",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "Experiences API"
+   ],
+   [
+    "products",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "White-Label Marketplace"
+   ],
+   [
+    "products",
+    22,
+    "300",
+    "Chillax",
+    1.25,
+    "AIyelet"
+   ]
+  ],
+  "label": [
+   [
+    "home",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "THE INFRASTRUCTURE BEHIND "
+   ],
+   [
+    "opportunity-study",
+    7.7,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    7.7,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    7.7,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    7.7,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    7.7,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    8,
+    "550",
+    "Sofia",
+    1.2,
+    "ONE CONNECTION"
+   ],
+   [
+    "opportunity-study",
+    8,
+    "550",
+    "Sofia",
+    1.2,
+    "ATTRACTION \u00b7 PARIS"
+   ],
+   [
+    "why-bridgify",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "WHY BRIDGIFY"
+   ],
+   [
+    "personalization",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "AIYELET \u00b7 PERSONALIZATION"
+   ],
+   [
+    "products",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "PRODUCTS"
+   ],
+   [
+    "audiences",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "WHO IT'S FOR"
+   ],
+   [
+    "security",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "SECURITY AND COMPLIANCE"
+   ]
+  ],
+  "body": [
+   [
+    "home",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Bridgify, part of HBX Grou"
+   ],
+   [
+    "sources",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The largest experiences ca"
+   ],
+   [
+    "opportunity-study",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Tours, tickets and events "
+   ],
+   [
+    "opportunity-study",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Bridgify does the connecti"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Keep the suppliers you kno"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Every source mapped and de"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Your channels, your brand,"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The right experience for t"
+   ],
+   [
+    "personalization",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "A million experiences are "
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Which product is right for"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Build it your way.\nThe ful"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Your branded experiences s"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The right experience for e"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Sell the day, not only the"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Go beyond the flight, unde"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Help guests make the most "
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Give your members\u2019 points "
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Add experiences to your pr"
+   ],
+   [
+    "marketplace-results",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Most of that comes from pu"
+   ],
+   [
+    "home-cta",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Share your customers, mark"
+   ]
+  ],
+  "button": [
+   [
+    "home",
+    16,
+    "550",
+    "Sofia",
+    1.2,
+    "Book a demo\n\u2197"
+   ],
+   [
+    "sources",
+    16,
+    "550",
+    "Sofia",
+    1.4,
+    "How the Experiences API wo"
+   ],
+   [
+    "personalization",
+    16,
+    "550",
+    "Sofia",
+    1.25,
+    "Meet AIyelet"
+   ],
+   [
+    "home-cta",
+    16,
+    "550",
+    "Sofia",
+    1.25,
+    "Book a demo"
+   ]
+  ]
+ },
+ "1440": {
+  "h1": [
+   [
+    "home",
+    51.8,
+    "300",
+    "Chillax",
+    1.16,
+    "One connection.\nA\u00a0million+"
+   ]
+  ],
+  "h2": [
+   [
+    "sources",
+    27.4,
+    "300",
+    "Chillax",
+    1.25,
+    "Global supply through one "
+   ],
+   [
+    "opportunity-study",
+    43.2,
+    "300",
+    "Chillax",
+    1.2,
+    "Your customers already boo"
+   ],
+   [
+    "why-bridgify",
+    43.2,
+    "300",
+    "Chillax",
+    1.2,
+    "Everything between global "
+   ],
+   [
+    "personalization",
+    43.2,
+    "300",
+    "Chillax",
+    1.2,
+    "Don't give travelers a lib"
+   ],
+   [
+    "products",
+    43.2,
+    "300",
+    "Chillax",
+    1.2,
+    "Three products.\nOne connec"
+   ],
+   [
+    "audiences",
+    43.2,
+    "300",
+    "Chillax",
+    1.2,
+    "Built for brands that alre"
+   ],
+   [
+    "marketplace-results",
+    43.2,
+    "300",
+    "Chillax",
+    1.2,
+    "What White-Label Marketpla"
+   ],
+   [
+    "security",
+    43.2,
+    "300",
+    "Chillax",
+    1.2,
+    "Built for enterprise secur"
+   ],
+   [
+    "faq",
+    43.2,
+    "300",
+    "Chillax",
+    1.2,
+    "Frequently asked questions"
+   ],
+   [
+    "home-cta",
+    43.2,
+    "300",
+    "Chillax",
+    1.2,
+    "Tell us who your customers"
+   ]
+  ],
+  "h3": [
+   [
+    "audiences",
+    27.4,
+    "300",
+    "Chillax",
+    1.25,
+    "OTAs and travel platforms"
+   ],
+   [
+    "audiences",
+    27.4,
+    "300",
+    "Chillax",
+    1.25,
+    "Airlines"
+   ],
+   [
+    "audiences",
+    27.4,
+    "300",
+    "Chillax",
+    1.25,
+    "Hotels"
+   ],
+   [
+    "audiences",
+    27.4,
+    "300",
+    "Chillax",
+    1.25,
+    "Loyalty, rewards and finan"
+   ],
+   [
+    "audiences",
+    27.4,
+    "300",
+    "Chillax",
+    1.25,
+    "Travel technology companie"
+   ],
+   [
+    "audiences",
+    27.4,
+    "300",
+    "Chillax",
+    1.25,
+    "Super apps and consumer pl"
+   ]
+  ],
+  "h4": [
+   [
+    "opportunity-study",
+    25.9,
+    "300",
+    "Chillax",
+    1.25,
+    "Building it yourself:"
+   ],
+   [
+    "opportunity-study",
+    25.9,
+    "300",
+    "Chillax",
+    1.25,
+    "With Bridgify:"
+   ],
+   [
+    "why-bridgify",
+    24.5,
+    "300",
+    "Chillax",
+    1.25,
+    "Aggregate"
+   ],
+   [
+    "why-bridgify",
+    24.5,
+    "300",
+    "Chillax",
+    1.25,
+    "Normalize"
+   ],
+   [
+    "why-bridgify",
+    24.5,
+    "300",
+    "Chillax",
+    1.25,
+    "Distribute"
+   ],
+   [
+    "why-bridgify",
+    24.5,
+    "300",
+    "Chillax",
+    1.25,
+    "Personalize"
+   ],
+   [
+    "products",
+    24.5,
+    "300",
+    "Chillax",
+    1.25,
+    "Experiences API"
+   ],
+   [
+    "products",
+    24.5,
+    "300",
+    "Chillax",
+    1.25,
+    "White-Label Marketplace"
+   ],
+   [
+    "products",
+    24.5,
+    "300",
+    "Chillax",
+    1.25,
+    "AIyelet"
+   ]
+  ],
+  "label": [
+   [
+    "home",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "THE INFRASTRUCTURE BEHIND "
+   ],
+   [
+    "opportunity-study",
+    8.7,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    8.7,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    8.7,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    8.7,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    8.7,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    9,
+    "550",
+    "Sofia",
+    1.2,
+    "ONE CONNECTION"
+   ],
+   [
+    "opportunity-study",
+    9,
+    "550",
+    "Sofia",
+    1.2,
+    "ATTRACTION \u00b7 PARIS"
+   ],
+   [
+    "why-bridgify",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "WHY BRIDGIFY"
+   ],
+   [
+    "personalization",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "AIYELET \u00b7 PERSONALIZATION"
+   ],
+   [
+    "products",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "PRODUCTS"
+   ],
+   [
+    "audiences",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "WHO IT'S FOR"
+   ],
+   [
+    "security",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "SECURITY AND COMPLIANCE"
+   ]
+  ],
+  "body": [
+   [
+    "home",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Bridgify, part of HBX Grou"
+   ],
+   [
+    "sources",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The largest experiences ca"
+   ],
+   [
+    "opportunity-study",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Tours, tickets and events "
+   ],
+   [
+    "opportunity-study",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Bridgify does the connecti"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Keep the suppliers you kno"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Every source mapped and de"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Your channels, your brand,"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The right experience for t"
+   ],
+   [
+    "personalization",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "A million experiences are "
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Which product is right for"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Build it your way.\nThe ful"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Your branded experiences s"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The right experience for e"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Sell the day, not only the"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Go beyond the flight, unde"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Help guests make the most "
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Give your members\u2019 points "
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Add experiences to your pr"
+   ],
+   [
+    "marketplace-results",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Most of that comes from pu"
+   ],
+   [
+    "home-cta",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Share your customers, mark"
+   ]
+  ],
+  "button": [
+   [
+    "home",
+    16,
+    "550",
+    "Sofia",
+    1.2,
+    "Book a demo\n\u2197"
+   ],
+   [
+    "sources",
+    16,
+    "550",
+    "Sofia",
+    1.4,
+    "How the Experiences API wo"
+   ],
+   [
+    "personalization",
+    16,
+    "550",
+    "Sofia",
+    1.25,
+    "Meet AIyelet"
+   ],
+   [
+    "home-cta",
+    16,
+    "550",
+    "Sofia",
+    1.25,
+    "Book a demo"
+   ]
+  ]
+ },
+ "1920": {
+  "h1": [
+   [
+    "home",
+    60,
+    "300",
+    "Chillax",
+    1.16,
+    "One connection.\nA\u00a0million+"
+   ]
+  ],
+  "h2": [
+   [
+    "sources",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "Global supply through one "
+   ],
+   [
+    "opportunity-study",
+    44,
+    "300",
+    "Chillax",
+    1.2,
+    "Your customers already boo"
+   ],
+   [
+    "why-bridgify",
+    44,
+    "300",
+    "Chillax",
+    1.2,
+    "Everything between global "
+   ],
+   [
+    "personalization",
+    44,
+    "300",
+    "Chillax",
+    1.2,
+    "Don't give travelers a lib"
+   ],
+   [
+    "products",
+    44,
+    "300",
+    "Chillax",
+    1.2,
+    "Three products.\nOne connec"
+   ],
+   [
+    "audiences",
+    44,
+    "300",
+    "Chillax",
+    1.2,
+    "Built for brands that alre"
+   ],
+   [
+    "marketplace-results",
+    44,
+    "300",
+    "Chillax",
+    1.2,
+    "What White-Label Marketpla"
+   ],
+   [
+    "security",
+    44,
+    "300",
+    "Chillax",
+    1.2,
+    "Built for enterprise secur"
+   ],
+   [
+    "faq",
+    44,
+    "300",
+    "Chillax",
+    1.2,
+    "Frequently asked questions"
+   ],
+   [
+    "home-cta",
+    44,
+    "300",
+    "Chillax",
+    1.2,
+    "Tell us who your customers"
+   ]
+  ],
+  "h3": [
+   [
+    "audiences",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "OTAs and travel platforms"
+   ],
+   [
+    "audiences",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "Airlines"
+   ],
+   [
+    "audiences",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "Hotels"
+   ],
+   [
+    "audiences",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "Loyalty, rewards and finan"
+   ],
+   [
+    "audiences",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "Travel technology companie"
+   ],
+   [
+    "audiences",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "Super apps and consumer pl"
+   ]
+  ],
+  "h4": [
+   [
+    "opportunity-study",
+    32,
+    "300",
+    "Chillax",
+    1.25,
+    "Building it yourself:"
+   ],
+   [
+    "opportunity-study",
+    32,
+    "300",
+    "Chillax",
+    1.25,
+    "With Bridgify:"
+   ],
+   [
+    "why-bridgify",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "Aggregate"
+   ],
+   [
+    "why-bridgify",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "Normalize"
+   ],
+   [
+    "why-bridgify",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "Distribute"
+   ],
+   [
+    "why-bridgify",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "Personalize"
+   ],
+   [
+    "products",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "Experiences API"
+   ],
+   [
+    "products",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "White-Label Marketplace"
+   ],
+   [
+    "products",
+    28,
+    "300",
+    "Chillax",
+    1.25,
+    "AIyelet"
+   ]
+  ],
+  "label": [
+   [
+    "home",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "THE INFRASTRUCTURE BEHIND "
+   ],
+   [
+    "opportunity-study",
+    11.9,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    11.9,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    11.9,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    11.9,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    11.9,
+    "550",
+    "Sofia",
+    1,
+    "DUPLICATE"
+   ],
+   [
+    "opportunity-study",
+    12.3,
+    "550",
+    "Sofia",
+    1.2,
+    "ONE CONNECTION"
+   ],
+   [
+    "opportunity-study",
+    12.3,
+    "550",
+    "Sofia",
+    1.2,
+    "ATTRACTION \u00b7 PARIS"
+   ],
+   [
+    "why-bridgify",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "WHY BRIDGIFY"
+   ],
+   [
+    "personalization",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "AIYELET \u00b7 PERSONALIZATION"
+   ],
+   [
+    "products",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "PRODUCTS"
+   ],
+   [
+    "audiences",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "WHO IT'S FOR"
+   ],
+   [
+    "security",
+    12,
+    "550",
+    "Sofia",
+    1.4,
+    "SECURITY AND COMPLIANCE"
+   ]
+  ],
+  "body": [
+   [
+    "home",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Bridgify, part of HBX Grou"
+   ],
+   [
+    "sources",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The largest experiences ca"
+   ],
+   [
+    "opportunity-study",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Tours, tickets and events "
+   ],
+   [
+    "opportunity-study",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Bridgify does the connecti"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Keep the suppliers you kno"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Every source mapped and de"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Your channels, your brand,"
+   ],
+   [
+    "why-bridgify",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The right experience for t"
+   ],
+   [
+    "personalization",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "A million experiences are "
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Which product is right for"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Build it your way.\nThe ful"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Your branded experiences s"
+   ],
+   [
+    "products",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "The right experience for e"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Sell the day, not only the"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Go beyond the flight, unde"
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Help guests make the most "
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Give your members\u2019 points "
+   ],
+   [
+    "audiences",
+    16,
+    "400",
+    "Sofia",
+    1.5,
+    "Add experiences to your pr"
+   ],
+   [
+    "marketplace-results",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Most of that comes from pu"
+   ],
+   [
+    "home-cta",
+    16,
+    "400",
+    "Sofia",
+    1.55,
+    "Share your customers, mark"
+   ]
+  ],
+  "button": [
+   [
+    "home",
+    16,
+    "550",
+    "Sofia",
+    1.2,
+    "Book a demo\n\u2197"
+   ],
+   [
+    "sources",
+    16,
+    "550",
+    "Sofia",
+    1.4,
+    "How the Experiences API wo"
+   ],
+   [
+    "personalization",
+    16,
+    "550",
+    "Sofia",
+    1.25,
+    "Meet AIyelet"
+   ],
+   [
+    "home-cta",
+    16,
+    "550",
+    "Sofia",
+    1.25,
+    "Book a demo"
+   ]
+  ]
+ }
+}

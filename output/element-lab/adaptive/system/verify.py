@@ -17,7 +17,7 @@ import argparse, asyncio, json, os, re, subprocess, sys, time
 from playwright.async_api import async_playwright
 
 HERE = os.path.dirname(os.path.abspath(__file__)); LAYER = os.path.dirname(HERE)
-PAGES = ['index-v2', 'api', 'marketplace', 'personalization', 'otas', 'airlines', 'hotels', 'loyalty-finance', 'travel-technology', 'super-apps']
+PAGES = ['index-v2', 'api', 'marketplace', 'personalization', 'otas', 'airlines', 'hotels', 'loyalty-finance', 'travel-technology', 'super-apps', 'developers', 'about-us']
 DEVICES = [('webkit', 'iPhone SE'), ('webkit', 'iPhone 13'), ('webkit', 'iPhone 15 Pro Max'), ('chromium', 'iPhone 13'), ('chromium', 'Pixel 7')]
 
 # Every rule in MOBILE-RULES.md, with what checks it. Messages from check.py are matched to rules by their wording.
@@ -67,7 +67,13 @@ def inject_lists(page, system=True):
     return [c for c in css if os.path.exists(os.path.join(LAYER, c))], [j for j in js if os.path.exists(os.path.join(LAYER, j))]
 
 
+async def strip_published(pg, page):
+    from published import route_stripped
+    await route_stripped(pg, f'**/{"" if page == "index-v2" else page + ".html"}?*')
+
+
 async def load(pg, page, layer, system=True):
+    await strip_published(pg, page)
     await pg.goto(f'http://localhost:8081/{"" if page == "index-v2" else page + ".html"}?version=2', wait_until='networkidle')
     if layer:
         css, js = inject_lists(page, system)

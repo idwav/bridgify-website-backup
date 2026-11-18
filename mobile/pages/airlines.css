@@ -1,0 +1,56 @@
+/* Airlines · adaptive layer. */
+@media (max-width:1023px){ html body :is(#section-1,#section-2,#section-3,#section-4,#we-started-here,#market-signal){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important} }
+@media (max-width:599px){
+  html body :is(#section-2,#section-3,#section-4,#we-started-here,#market-signal){padding-top:48px!important;padding-bottom:48px!important}
+  html body #section-1{padding-top:calc(var(--ad-header-h) + 28px)!important;padding-bottom:28px!important;min-height:0!important}
+  /* 1 · Hero: the three journey moments scroll sideways under the copy. */
+  html body #section-1 .aj-heading{gap:14px!important;margin-bottom:24px!important}
+  html body #section-1 .aj-journey>svg{display:none!important}
+  html body #section-1 .aj-journey{align-items:flex-start}
+  html body #section-1 .aj-journey>li{margin:0!important}
+  /* 2 · Ancillary revenue: intro folds; the trip and the bookings are two swipeable cards. */
+  html body #section-2 .ar-heading{gap:14px!important;margin-bottom:20px!important}
+  html body #section-2 .ar-layout{align-items:flex-start}
+  html body #section-2 .ar-layout>*{margin:0!important}
+  /* 3 · Passenger journey: the four touchpoints are one swipeable row; the phone fits under them. */
+  html body #section-3 .jp-sticky{position:static!important;height:auto!important;min-height:0!important;top:auto!important}
+  html body #section-3{height:auto!important;min-height:0!important}
+  html body #section-3 .al-journey-heading{gap:12px!important;margin-bottom:16px!important}
+  html body #section-3 .al-touchpoints{display:flex!important;gap:6px!important;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--ad-gutter)*-1)!important;padding-inline:var(--ad-gutter)!important;height:auto!important}
+  html body #section-3 .al-touchpoints::-webkit-scrollbar{display:none}
+  html body #section-3 .al-touchpoints>button{flex:none!important;min-height:44px!important;height:auto!important;padding:8px 12px!important;width:auto!important;border:1px solid #EEE9DE2e!important;border-radius:10px!important;display:flex!important;gap:8px;align-items:center}
+  html body #section-3 .al-touchpoints>button[aria-selected="true"],html body #section-3 .al-touchpoints>button.is-active{border-color:#F46649!important}
+  html body #section-3 .al-touchpoints>button span{font-size:12px!important;white-space:nowrap;line-height:1.2!important;height:auto!important}
+  html body #section-3 .al-loyalty{margin-top:18px!important;gap:12px!important}
+  html body #section-3 .al-miles{margin-top:var(--bf-gap-to-content)!important} /* S7: content after the button */
+  html body #section-3 .jp-preview{margin-top:20px!important}
+  html body #section-3 .al-phone{margin-inline:auto!important}
+  /* FAQ list */
+  html body #faq .al-faq-list details summary{font-size:18px!important}
+}
+@media (max-width:1023px){
+  html body #section-3 .jp-sticky{display:block!important;width:auto!important;max-width:100%!important;grid-template-columns:none!important}
+  html body #section-3 :is(.jp-copy,.jp-preview,.al-journey-heading,.al-loyalty){width:auto!important;max-width:100%!important;min-width:0!important}
+}
+@media (max-width:599px){ html body #section-3 .al-loyalty a{width:100%!important;justify-content:center} }
+@media (max-width:599px){ html body #section-1 svg.ad-aj-line{display:none!important} }
+
+/* Solutions demos at real size (phones, 16 Nov 2026; plan in output/element-lab/demos.html): the lab used to shrink
+   these with zoom (57-81%). At real size they reflow to the phone and stay readable; tall ones are trimmed of demo items. */
+@media (max-width:599px){
+  html body #section-3 .al-phone:not(#ad-x){zoom:1!important}
+  html body #section-3 .jp-preview :is(span,small,em,b,i,p,div,strong,li,label,a,h4,h5,u){font-size:max(11px,1em)!important}
+}
+
+/* Round 6 (17 Nov 2026): pinned journeys on phones (patterns.js pin). */
+@media (max-width:599px){
+  /* Hero trip: one card at a time, the next one peeking; the scroll moves it, so no snapping */
+  html body #section-1 .ad-pin-stage{padding-block:4px}
+  /* Passenger journey: touchpoints as one row above the phone; the phone fills the rest of the screen */
+  html body #section-3 .ad-jp-pin .ad-pin-stage{display:flex;flex-direction:column;background:#120b0a;padding-block:8px}
+  html body #section-3 .ad-jp-pin .al-touchpoints:not(#ad-x){flex-wrap:nowrap!important;scroll-behavior:smooth}
+  html body #section-3 .ad-jp-pin .al-touchpoints>button:not(#ad-x){flex-direction:row!important;opacity:.55;transition:opacity .3s,border-color .3s}
+  html body #section-3 .ad-jp-pin .al-touchpoints>button[aria-selected="true"]{opacity:1}
+  html body #section-3 .ad-jp-pin .al-phone:not(#ad-x){height:clamp(380px,calc(100svh - var(--ad-header-h) - 120px),600px)!important;overflow:hidden!important;width:100%!important;max-width:342px!important}
+  html body #section-3 .ad-jp-pin .al-phone-panels{min-height:0!important;flex:1 1 auto;overflow:hidden}
+}

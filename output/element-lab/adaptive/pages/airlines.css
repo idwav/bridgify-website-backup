@@ -22,7 +22,7 @@
   html body #section-3 .al-touchpoints>button[aria-selected="true"],html body #section-3 .al-touchpoints>button.is-active{border-color:#F46649!important}
   html body #section-3 .al-touchpoints>button span{font-size:12px!important;white-space:nowrap;line-height:1.2!important;height:auto!important}
   html body #section-3 .al-loyalty{margin-top:18px!important;gap:12px!important}
-  html body #section-3 .al-miles{margin-top:4px!important}
+  html body #section-3 .al-miles{margin-top:var(--bf-gap-to-content)!important} /* S7: content after the button */
   html body #section-3 .jp-preview{margin-top:20px!important}
   html body #section-3 .al-phone{margin-inline:auto!important}
   /* FAQ list */
