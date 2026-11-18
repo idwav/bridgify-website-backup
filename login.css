@@ -73,3 +73,6 @@ body[data-copy-page="login"] .top .connect{background:#eee9de;color:#180f10}
 .login-mascot::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#e0662b 0%,#bf4a1d 55%,#8f3415 100%);-webkit-mask:url(assets/login-octopus.webp) center/100% 100% no-repeat;mask:url(assets/login-octopus.webp) center/100% 100% no-repeat;opacity:.92}
 .login-mascot img{position:relative;filter:url(#oct-matte)}
 .login-eye{z-index:1}
+
+/* soft warm glow around the octopus */
+.login-mascot{filter:drop-shadow(0 0 18px #f4664966) drop-shadow(0 0 46px #f4664933)}
