@@ -4,10 +4,10 @@
   const box = document.querySelector('[data-hc2]'); if (!box) return;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const AUD = [
-    ['Passengers landing in Rome would book', [['colosseum', 'Colosseum entry', '€39'], ['food-tour', 'Rome food tour', '€65'], ['florence', 'Day trip to Florence', '€29']]],
-    ['Hotel guests in Paris would book', [['seine-dinner', 'Seine dinner cruise', '€95'], ['eiffel', 'Eiffel Tower summit', '€42'], ['louvre', 'Louvre entry', '€22']]],
-    ['Cardholders would spend their points on', [['santorini', 'Santorini sunset sail', '4,800 pts'], ['alps', 'Alpine day hike', '5,400 pts'], ['london-eye', 'London Eye', '3,600 pts']]],
-    ['App users would book this weekend', [['beach-club', 'Beach club day', '€70'], ['concert', 'Live concert', '€79'], ['catamaran', 'Catamaran sail', '€120']]]
+    ['Passengers landing in Rome would book', [['assets/v2/08-colosseum-480.jpg', 'Colosseum entry', '€39'], ['assets/v2/30-rome-food-480.jpg', 'Rome food tour', '€65'], ['assets/v2/09-florence-480.jpg', 'Day trip to Florence', '€29']]],
+    ['Hotel guests in Paris would book', [['assets/v2/07-seine-dinner-480.jpg', 'Seine dinner cruise', '€95'], ['assets/v2/04-eiffel-night-480.jpg', 'Eiffel Tower summit', '€42'], ['assets/v2/02-louvre-480.jpg', 'Louvre entry', '€22']]],
+    ['Cardholders would spend their points on', [['assets/v2/13-santorini-480.jpg', 'Santorini sunset sail', '4,800 pts'], ['assets/v2/10-alps-480.jpg', 'Alpine day hike', '5,400 pts'], ['assets/v2/12-london-eye-480.jpg', 'London Eye', '3,600 pts']]],
+    ['App users would book this weekend', [['assets/v2/14-beach-club-480.jpg', 'Beach club day', '€70'], ['assets/v2/16-live-music-960.jpg', 'Live concert', '€79'], ['assets/v2/11-catamaran-480.jpg', 'Catamaran sail', '€120']]]
   ];
   const btns = [...box.querySelectorAll('[data-aud]')], cards = [...box.querySelectorAll('.hc2-card')], cap = box.querySelector('.hc2-cap span');
   let cur = 0, swap = 0, loop = 0, picked = false, seen = false;
@@ -20,7 +20,7 @@
       cap.textContent = AUD[i][0];
       AUD[i][1].forEach(([img, name, price], j) => {
         const c = cards[j];
-        c.querySelector('img').src = `assets/hero-experiences/${img}.jpg`;
+        c.querySelector('img').src = `${img}`;
         c.querySelector('b').textContent = name; c.querySelector('small').textContent = price;
       });
       box.classList.remove('is-swap');

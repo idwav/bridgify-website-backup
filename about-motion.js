@@ -76,7 +76,7 @@
     const pinEl = document.querySelector('[data-pin]'), wideQ = matchMedia('(min-width:1101px)');
     const SETS = [
       { q: 'Paris · Art & culture', r: [['assets/v2/02-louvre-1600.jpg', 'Louvre Museum'], ['assets/v2/04-eiffel-night-480.jpg', 'Eiffel Tower by night'], ['assets/v2/07-seine-dinner-480.jpg', 'Seine dinner cruise']] },
-      { q: 'Italy · History & food', r: [['assets/v2/08-colosseum-960.jpg', 'Colosseum guided tour'], ['assets/v2/09-florence-960.jpg', 'Florence walking tour'], ['assets/hero-food.jpg', 'Roman food tour']] },
+      { q: 'Italy · History & food', r: [['assets/v2/08-colosseum-960.jpg', 'Colosseum guided tour'], ['assets/v2/09-florence-960.jpg', 'Florence walking tour'], ['assets/v2/30-rome-food-480.jpg', 'Roman food tour']] },
       { q: 'Alps · Outdoors', r: [['assets/v2/10-alps-960.jpg', 'Alpine hike'], ['assets/v2/11-catamaran-960.jpg', 'Lake sailing day'], ['assets/v2/15-maldives-960.jpg', 'Island escape']] }
     ];
     const sc = { 1: { el: ms.querySelector('.ms-s1') }, 2: { el: ms.querySelector('.ms-s2') }, 3: { el: ms.querySelector('.ms-s3') } };
