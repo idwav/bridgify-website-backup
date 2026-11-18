@@ -119,3 +119,16 @@
 .apply-page.is-done .apply-done-ico{width:76px;height:76px}
 .apply-page.is-done .apply-done-ico svg{width:34px;height:34px}
 .apply-page.is-done .apply-done h2{font-size:clamp(34px,4vw,56px)}
+
+/* Confirmation: the ring pops in, the check draws itself, then the text rises in. */
+.apply-done:not([hidden]) .apply-done-ico{animation:ad-pop .7s cubic-bezier(.2,1.35,.4,1) both,ad-glow 2.6s ease-in-out .9s 2}
+.apply-done:not([hidden]) .apply-done-ico svg path{stroke-dasharray:1;stroke-dashoffset:1;animation:ad-draw .55s cubic-bezier(.5,0,.2,1) .45s forwards}
+.apply-done:not([hidden]) h2{animation:ad-rise .7s cubic-bezier(.22,1,.36,1) .7s both}
+.apply-done:not([hidden]) p{animation:ad-rise .7s cubic-bezier(.22,1,.36,1) .85s both}
+.apply-done:not([hidden]) p+p{animation-delay:1s}
+.apply-done:not([hidden]) .career-cta{animation:ad-rise .7s cubic-bezier(.22,1,.36,1) 1.15s both}
+@keyframes ad-pop{0%{opacity:0;transform:scale(.5)}100%{opacity:1;transform:none}}
+@keyframes ad-draw{to{stroke-dashoffset:0}}
+@keyframes ad-rise{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
+@keyframes ad-glow{0%,100%{box-shadow:0 0 28px #f4664955}50%{box-shadow:0 0 52px #f46649aa}}
+@media(prefers-reduced-motion:reduce){.apply-done:not([hidden]) *{animation:none!important}.apply-done:not([hidden]) .apply-done-ico svg path{stroke-dashoffset:0}}
