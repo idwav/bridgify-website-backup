@@ -209,3 +209,20 @@ body[data-page="about"]{background:#180f10;color:#eee9de}
 .wm-count{top:100%;left:0;margin-top:14px;max-width:none;display:flex;align-items:center;gap:12px}
 .wm-count b{display:inline;font-size:30px}
 }
+
+/* Scene 3: the results area is a visible template from the start (dashed frames with corner nodes);
+   pressing AIyelet fills the frames with the matched experiences. */
+.ms-s3 .ms-few figure{opacity:1;transform:none;border:1.5px dashed #f4664999;background:#ffffff08;box-shadow:none;transition:border-color .4s,background .4s,box-shadow .5s}
+.ms-s3 .ms-few figure img,.ms-s3 .ms-few figure figcaption{opacity:0;transform:scale(1.04);transition:opacity .5s,transform .7s cubic-bezier(.22,1,.36,1)}
+.ms-s3 .ms-few figure:before{content:"Your experience here";position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 12px;font:500 13px Sofia,sans-serif;letter-spacing:.04em;color:#d3c1b8;transition:opacity .25s}
+.ms-s3 .ms-few figure:after{content:"";position:absolute;inset:-4px;pointer-events:none;z-index:2;background:
+radial-gradient(circle,#eee9de 0 2.2px,#f46649 2.6px 3.6px,transparent 4px) 0 0/8px 8px no-repeat,
+radial-gradient(circle,#eee9de 0 2.2px,#f46649 2.6px 3.6px,transparent 4px) 100% 0/8px 8px no-repeat,
+radial-gradient(circle,#eee9de 0 2.2px,#f46649 2.6px 3.6px,transparent 4px) 0 100%/8px 8px no-repeat,
+radial-gradient(circle,#eee9de 0 2.2px,#f46649 2.6px 3.6px,transparent 4px) 100% 100%/8px 8px no-repeat,
+radial-gradient(circle,#eee9de 0 2.2px,#f46649 2.6px 3.6px,transparent 4px) 50% 0/8px 8px no-repeat,
+radial-gradient(circle,#eee9de 0 2.2px,#f46649 2.6px 3.6px,transparent 4px) 50% 100%/8px 8px no-repeat;transition:opacity .4s}
+.ms-s3 .ms-few figure.on{border:1px solid #f4664966;border-style:solid;background:none}
+.ms-s3 .ms-few figure.on img,.ms-s3 .ms-few figure.on figcaption{opacity:1;transform:none}
+.ms-s3 .ms-few figure.on:before,.ms-s3 .ms-few figure.on:after{opacity:0}
+.ms-s3 .ms-few figure.on.ms-best{border-color:#f46649;box-shadow:0 0 24px #f4664940}

@@ -88,6 +88,87 @@ window.BRIDGIFY_ROLES = [
     nice: ['Sample: background in travel, banking or loyalty.'],
     process: ['Intro call', 'Role conversation', 'Case discussion', 'Team interview', 'Offer'],
     applyUrl: ''
+  },
+  {
+    slug: 'frontend-engineer',
+    published: true,
+    sample: true,
+    title: 'Frontend Engineer',
+    team: 'engineering',
+    teamLabel: 'Engineering',
+    location: 'Tel Aviv · Hybrid',
+    type: 'Full-time',
+    deck: 'Build the interfaces partners put in front of millions of travelers.',
+    about: [
+      'Sample text: replace with the real description. Describe the team, what it owns and what success looks like in the first year.',
+      'Keep it to two short paragraphs.'
+    ],
+    doing: [
+      'Sample: the first responsibility of this role.',
+      'Sample: the second responsibility of this role.',
+      'Sample: the third responsibility of this role.'
+    ],
+    bring: [
+      'Sample: the experience this role needs.',
+      'Sample: the skills this role needs.'
+    ],
+    nice: ['Sample: something that would help.'],
+    process: ['Intro call', 'Role conversation', 'Team interview', 'Offer'],
+    applyUrl: ''
+  },
+  {
+    slug: 'product-manager',
+    published: true,
+    sample: true,
+    title: 'Product Manager',
+    team: 'product',
+    teamLabel: 'Product & Design',
+    location: 'Tel Aviv · Hybrid',
+    type: 'Full-time',
+    deck: 'Decide what we build next for the infrastructure behind travel experiences.',
+    about: [
+      'Sample text: replace with the real description. Describe the team, what it owns and what success looks like in the first year.',
+      'Keep it to two short paragraphs.'
+    ],
+    doing: [
+      'Sample: the first responsibility of this role.',
+      'Sample: the second responsibility of this role.',
+      'Sample: the third responsibility of this role.'
+    ],
+    bring: [
+      'Sample: the experience this role needs.',
+      'Sample: the skills this role needs.'
+    ],
+    nice: ['Sample: something that would help.'],
+    process: ['Intro call', 'Role conversation', 'Team interview', 'Offer'],
+    applyUrl: ''
+  },
+  {
+    slug: 'customer-success-manager',
+    published: true,
+    sample: true,
+    title: 'Customer Success Manager',
+    team: 'commercial',
+    teamLabel: 'Commercial',
+    location: 'London · Hybrid',
+    type: 'Full-time',
+    deck: 'Help partners get the most from Bridgify after launch.',
+    about: [
+      'Sample text: replace with the real description. Describe the team, what it owns and what success looks like in the first year.',
+      'Keep it to two short paragraphs.'
+    ],
+    doing: [
+      'Sample: the first responsibility of this role.',
+      'Sample: the second responsibility of this role.',
+      'Sample: the third responsibility of this role.'
+    ],
+    bring: [
+      'Sample: the experience this role needs.',
+      'Sample: the skills this role needs.'
+    ],
+    nice: ['Sample: something that would help.'],
+    process: ['Intro call', 'Role conversation', 'Team interview', 'Offer'],
+    applyUrl: ''
   }
 ];
 
@@ -97,33 +178,29 @@ window.BRIDGIFY_CAREERS_EMAIL = 'contact@bridgify.io';
 /* Where the application form posts (multipart POST). Leave empty until it is connected: the form then opens an email draft instead. */
 window.BRIDGIFY_APPLY_ENDPOINT = '';
 
-/* Careers board: when published roles exist, they replace the "No open role currently" rows and link to the job page. */
+/* Careers list: roles grouped by team, one row each (title, location, Learn more). Teams without a role keep "No open role currently". */
 (function () {
   var q = location.search, showSample = /[?&]sample=1/.test(q);
   var roles = (window.BRIDGIFY_ROLES || []).filter(function (r) { return r.published || (r.sample && showSample); });
   window.BRIDGIFY_VISIBLE_ROLES = roles;
-  function wireCta() {
-    var a = document.querySelector('.jb-cta a.career-cta');
-    if (a) a.href = 'mailto:' + window.BRIDGIFY_CAREERS_EMAIL + '?subject=' + encodeURIComponent('Careers at Bridgify');
-  }
+  var TEAMS = [['engineering', 'Engineering'], ['product', 'Product & Design'], ['commercial', 'Commercial']];
+  var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   function init() {
-    wireCta();
-    var list = document.querySelector('.jb-list');
-    if (!list || !roles.length) return;
-    var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
-    var suffix = showSample ? '&sample=1' : '';
-    var vq = /[?&]version=2/.test(q) ? '&version=2' : '';
-    list.innerHTML = roles.map(function (r) {
-      var href = 'job.html?role=' + encodeURIComponent(r.slug) + suffix + vq;
-      return '<li class="jb-row jb-role" data-team="' + esc(r.team) + '"><h3><a href="' + href + '">' + esc(r.title) + '</a></h3>' +
-        '<span class="jb-meta">' + esc(r.teamLabel) + ' · ' + esc(r.location) + ' · ' + esc(r.type) + '</span>' +
-        '<a class="jb-apply" href="' + href + '">View role <span aria-hidden="true">↗</span></a></li>';
+    var cta = document.querySelector('.rl-more a.career-cta');
+    if (cta) cta.href = 'mailto:' + window.BRIDGIFY_CAREERS_EMAIL + '?subject=' + encodeURIComponent('Careers at Bridgify');
+    var host = document.getElementById('role-list');
+    if (!host || !roles.length) return;
+    var suffix = (showSample ? '&sample=1' : '') + (/[?&]version=2/.test(q) ? '&version=2' : '');
+    host.innerHTML = TEAMS.map(function (t) {
+      var rows = roles.filter(function (r) { return r.team === t[0]; }).map(function (r) {
+        var href = 'job.html?role=' + encodeURIComponent(r.slug) + suffix;
+        return '<li class="rl-row"><a class="rl-link" href="' + href + '"><span class="rl-title">' + esc(r.title) + '</span><span class="rl-loc">' + esc(r.location) + '</span><span class="rl-go">Learn more</span></a></li>';
+      }).join('') || '<li class="rl-row rl-empty"><span class="rl-title">No open role currently</span></li>';
+      return '<div class="rl-group" data-team="' + t[0] + '"><h3 class="rl-team">' + t[1] + '</h3><ul class="rl-list">' + rows + '</ul></div>';
     }).join('');
-    var count = document.querySelector('.jb-count');
-    if (count) count.innerHTML = '<i></i>' + roles.length + ' open role' + (roles.length === 1 ? '' : 's');
     var intro = document.querySelector('.roles-intro');
     if (intro) intro.hidden = true;
   }
-  /* This script sits before careers-motion.js at the end of the body, so the board exists and rows are in place before the filter reads them. */
-  if (document.querySelector('.jb-list')) init(); else document.addEventListener('DOMContentLoaded', init);
+  /* This script sits before careers-motion.js at the end of the body, so the list exists when it runs. */
+  if (document.getElementById('role-list')) init(); else document.addEventListener('DOMContentLoaded', init);
 })();
