@@ -12,7 +12,7 @@ index.html (Version 1) is never linked.
 import argparse, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = '7'
+V = '13'
 PAGES = ['index-v2', 'api', 'marketplace', 'personalization', 'otas', 'airlines', 'hotels', 'loyalty-finance',
          'super-apps', 'travel-technology', 'developers', 'insights', 'press', 'about-us', 'careers', 'contact']
 SHARED = ['interim.css', 'tokens.css', 'type.css', 'header.css', 'buttons.css', 'shared.css']

@@ -100,6 +100,56 @@
     set(1); fromScroll();
   });
 
+  // ---- Culture stage wiring: the same wires as the rest of the site (ring contacts, pulses, light on arrival).
+  document.querySelectorAll('[data-cm]').forEach(root => {
+    if (!F) return;
+    const NS = 'http://www.w3.org/2000/svg', mk = (tag, a, parent) => { const e = document.createElementNS(NS, tag); Object.entries(a).forEach(([k, v]) => e.setAttribute(k, v)); (parent || null)?.append(e); return e; };
+    const net = root.querySelector('.cm-net'), pipe = root.querySelector('.cm-pipe');
+    if (!net || !pipe) return;
+    const sets = [];
+    const prep = (host, name) => { const o = { host, svg: null, segs: [], glows: [], name }; sets.push(o); return o; };
+    const A = prep(pipe, 2), B = prep(net, 3);
+    const ring = (svg, x, y) => mk('circle', { cx: x, cy: y, r: 3.5, fill: '#eee9de', stroke: '#f46649', 'stroke-width': 1.2 }, svg);
+    const seg = (o, d, start, duration, target) => {
+      const path = mk('path', { d, fill: 'none', stroke: '#f46649', 'stroke-width': 1, 'stroke-linecap': 'round', opacity: .55 }, o.svg);
+      const dots = Array.from({ length: 9 }, (_, i) => mk('circle', { r: F.radius(i), fill: '#fff8f1', stroke: '#f46649', 'stroke-width': .7, opacity: 0 }, o.svg));
+      o.segs.push({ path, dots, len: path.getTotalLength(), start, duration, target });
+    };
+    const build = () => {
+      sets.forEach(o => { o.svg?.remove(); o.svg = null; o.segs = []; });
+      // Ownership: Idea -> Build -> Ship -> Measure
+      { const o = A, h = o.host.getBoundingClientRect(), nodes = [...o.host.querySelectorAll('.cm-stg i')]; if (h.width && nodes.length) {
+        o.svg = mk('svg', { class: 'cm-wires', width: h.width, height: h.height, viewBox: `0 0 ${h.width} ${h.height}`, 'aria-hidden': 'true' }, o.host);
+        const c = nodes.map(n => { const b = n.getBoundingClientRect(); return { x: b.left + b.width / 2 - h.left, y: b.top + b.height / 2 - h.top }; });
+        const ow = root.querySelector('.cm-owner span'); let lead = 0;
+        if (ow) { const b = ow.getBoundingClientRect(), x0 = b.left + b.width / 2 - h.left, y0 = b.bottom - h.top, rr = 10; if (c[0].x - x0 > rr + 2) { seg(o, `M${x0} ${y0}V${c[0].y - rr}Q${x0} ${c[0].y} ${x0 + rr} ${c[0].y}H${c[0].x}`, 200, 900, nodes[0]); lead = 800; ring(o.svg, x0, y0); } }
+        for (let i = 0; i < c.length - 1; i++) seg(o, `M${c[i].x} ${c[i].y}H${c[i + 1].x}`, 300 + lead + i * 800, 750, nodes[i + 1]);
+        o.glows = nodes; } }
+      // Operators: your team -> OTAs, banks, airlines, super apps
+      { const o = B, h = o.host.getBoundingClientRect(), core = o.host.querySelector('.cm-core'), ps = [...o.host.querySelectorAll('.cm-p')]; if (h.width && core) {
+        o.svg = mk('svg', { class: 'cm-wires', width: h.width, height: h.height, viewBox: `0 0 ${h.width} ${h.height}`, 'aria-hidden': 'true' }, o.host);
+        const box = e => { const b = e.getBoundingClientRect(); return { l: b.left - h.left, r: b.right - h.left, t: b.top - h.top, b: b.bottom - h.top, cx: b.left + b.width / 2 - h.left, cy: b.top + b.height / 2 - h.top }; };
+        const k = box(core), rr = 10;
+        ps.forEach((p, i) => { const q = box(p), left = q.cx < k.cx, up = q.cy < k.cy, x0 = left ? k.l : k.r, y0 = k.cy, k2 = left ? -1 : 1, v = up ? -1 : 1, yEnd = up ? q.b : q.t;
+          const d = `M${x0} ${y0}H${q.cx - k2 * rr}Q${q.cx} ${y0} ${q.cx} ${y0 + v * rr}V${yEnd}`;
+          seg(o, d, 300 + (i % 2) * 150, 1500, p); ring(o.svg, q.cx, yEnd); });
+        ring(o.svg, k.l, k.cy); ring(o.svg, k.r, k.cy); o.glows = ps; } }
+    };
+    const stage = root.querySelector('.cm-stage');
+    let stepAt = 0, prev = 0, built = false;
+    const draw = elapsed => {
+      const step = +root.dataset.step;
+      if (step !== prev) { prev = step; stepAt = elapsed; }
+      const t = elapsed - stepAt;
+      sets.forEach(o => { if (!o.svg) return; const on = o.name === step, tt = t % 5300;
+        o.segs.forEach(a => { a.dots.forEach((d, i) => { const u = on ? (tt - a.start - i * F.delay) / a.duration : -1; if (u < 0 || u > 1) { d.setAttribute('opacity', 0); return; } const q = a.path.getPointAtLength(a.len * F.smooth(u)); d.setAttribute('cx', q.x); d.setAttribute('cy', q.y); d.setAttribute('opacity', Math.max(0, Math.min(1, u * 10, (1 - u) * 18)) * (1 - i * .065)); });
+          F.glow(a.target, on ? F.arrival(tt - a.start - a.duration + 150) : 0); a.target.style.borderColor = ''; if (!(a.target instanceof SVGElement) && on && F.arrival(tt - a.start - a.duration + 150) > 0) a.target.style.borderColor = '#f46649'; }); });
+    };
+    const reset = () => { sets.forEach(o => o.segs.forEach(a => { a.dots.forEach(d => d.setAttribute('opacity', 0)); F.glow(a.target, 0); })); };
+    new ResizeObserver(() => { build(); }).observe(root); document.fonts?.ready.then(build); build();
+    F.run(stage || root, draw, reset);
+  });
+
   // ---- Convergence wiring (approved motion): problems -> platform, departments -> the door.
   function converge(root, sources, target, dir, cycle) {
     if (!F) return;

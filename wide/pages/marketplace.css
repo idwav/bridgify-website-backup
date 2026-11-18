@@ -261,3 +261,9 @@
 @media (min-width: 600px) {
   html body #section-4 .wo-seam::before { top: -64px; bottom: -64px; }
 }
+
+/* Idan review: the wire is the site's wire (1px coral line, ring contacts, pulses travelling the whole way) */
+@media (min-width: 600px) {
+  html body #section-4 .wo-seam::before { width: 1px; opacity: .55; transform: translateX(-.5px); }
+  html body #section-4 .wo-feed-dot { width: 6px; height: 6px; background: #fff8f1; border: 1px solid #f46649; z-index: 0; }
+}

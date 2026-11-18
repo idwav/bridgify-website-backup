@@ -232,3 +232,10 @@ body{background:#180f10;color:#eee9de}
  .jb-bar{padding:14px}.jb-list{padding:0 14px}.jb-row{grid-template-columns:44px minmax(0,1fr);gap:14px}.jb-row .role-status{grid-column:2;justify-self:start}.jb-ico{width:44px;height:44px}.jb-tabs button{font-size:14px;padding:0 12px}
 }
 @media(prefers-reduced-motion:reduce){.cw-shift,.cv-steps li,.cv-book,.career-cta,.cm-view,.cm-list p{transition:none}.cw-shift{opacity:1}.cm *{animation:none!important}.jb-tabs button{transition:none}.cm-flag .cm-bad{opacity:0}.cm-flag .cm-fix{opacity:1}}
+
+/* Culture stage: the wires are drawn by careers-motion.js in the site's wire style */
+.cm-net>svg:not(.cm-wires){display:none}
+.cm-pipe:before,.cm-run{display:none!important}
+.cm[data-step="2"] .cm-stg i{animation:none!important}
+.cm-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.cm-core,.cm-p{z-index:1}
