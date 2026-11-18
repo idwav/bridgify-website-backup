@@ -39,3 +39,7 @@
   html body #story .ms-ch>figcaption:not(#ad-x){display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;gap:6px!important;height:auto!important;margin:0!important;padding:0!important;font-size:13px!important;line-height:16px!important;text-align:left}
   html body #story .ms-ch>figcaption>b.ms-ok:not(#ad-x){margin:0!important}
 }
+/* small phones (iPhone SE): the three facts keep their columns and may take two lines each */
+@media (max-width:359px){
+  html body #top .ab-proof>span:not(#ad-x):not(#ad-y){white-space:normal!important;flex:1 1 0!important;min-width:0!important}
+}
