@@ -69,4 +69,79 @@
     addEventListener('scroll', fromScroll, { passive: true }); addEventListener('resize', fromScroll);
     set(1); fromScroll();
   }
+
+  // Mission wiring: the same BridgifyFlow wires as the hero (orthogonal path, contacts, nine-point trail, arrival glow).
+  const ms = document.querySelector('.ms');
+  if (ms && F) {
+    const pinEl = document.querySelector('[data-pin]'), wideQ = matchMedia('(min-width:1101px)');
+    const SETS = [
+      { q: 'Paris · Art & culture', r: [['assets/louvre-cour-napoleon.jpg', 'Louvre Museum'], ['assets/hero-experiences/eiffel.jpg', 'Eiffel Tower by night'], ['assets/hero-experiences/seine-dinner.jpg', 'Seine dinner cruise']] },
+      { q: 'Italy · History & food', r: [['assets/api-card-colosseum.jpg', 'Colosseum guided tour'], ['assets/api-card-florence.jpg', 'Florence walking tour'], ['assets/hero-food.jpg', 'Roman food tour']] },
+      { q: 'Alps · Outdoors', r: [['assets/api-card-alps.jpg', 'Alpine hike'], ['assets/hero-sailing.jpg', 'Lake sailing day'], ['assets/api-card-maldives.jpg', 'Island escape']] }
+    ];
+    const sc = { 1: { el: ms.querySelector('.ms-s1') }, 2: { el: ms.querySelector('.ms-s2') }, 3: { el: ms.querySelector('.ms-s3') } };
+    const pathD = (sx, sy, tx, ty, r = 10) => { if (Math.abs(tx - sx) < 1) return `M${sx} ${sy}V${ty}`; const my = sy + (ty - sy) / 2, k = tx > sx ? 1 : -1; return `M${sx} ${sy}V${my - r}Q${sx} ${my} ${sx + k * r} ${my}H${tx - k * r}Q${tx} ${my} ${tx} ${my + r}V${ty}`; };
+    const conns = n => {
+      const e = sc[n].el, q = s => [...e.querySelectorAll(s)];
+      if (n === 1) { const pill = e.querySelector('.ms-pill'); return q('.ms-srcs figure').map((f, i) => ({ from: f, to: pill, start: 300 + i * 130, glow: pill })); }
+      if (n === 2) { const top = e.querySelector('.ms-top'); return q('.ms-ch').map((c, i) => ({ from: top, to: c.firstElementChild, start: 300 + i * 200, glow: c.firstElementChild })); }
+      const all = e.querySelector('.ms-all'), search = e.querySelector('.ms-search');
+      return [{ from: all, to: search, start: 300, glow: search }, ...q('.ms-few figure').map((f, i) => ({ from: search, to: f, start: 3100 + i * 140, glow: f }))];
+    };
+    const build = () => {
+      [1, 2, 3].forEach(n => {
+        const s = sc[n]; s.svg?.remove(); s.paths = []; s.dots = [];
+        const box = s.el.getBoundingClientRect(); if (!box.width) return;
+        s.svg = mk('svg', { class: 'ms-wires', width: box.width, height: box.height, viewBox: `0 0 ${box.width} ${box.height}`, 'aria-hidden': 'true' }, s.el);
+        const cs = conns(n), contacts = new Set();
+        cs.forEach(c => {
+          const a = c.from.getBoundingClientRect(), b = c.to.getBoundingClientRect(), sx = a.left + a.width / 2 - box.left, sy = a.bottom - box.top, tx = b.left + b.width / 2 - box.left, ty = b.top - box.top;
+          const p = mk('path', { d: pathD(sx, sy, tx, ty), fill: 'none', stroke: '#f46649', 'stroke-width': 1, 'stroke-linecap': 'round', opacity: .55 }, s.svg);
+          s.paths.push({ p, len: p.getTotalLength(), c });
+          [[sx, sy], [tx, ty]].forEach(([x, y]) => { const key = Math.round(x) + ',' + Math.round(y); if (!contacts.has(key)) { contacts.add(key); mk('circle', { cx: x, cy: y, r: 3.5, fill: '#eee9de', stroke: '#f46649', 'stroke-width': 1.2 }, s.svg); } });
+        });
+        const g = mk('g', {}, s.svg);
+        s.dots = s.paths.map(() => Array.from({ length: 9 }, (_, i) => mk('circle', { r: F.radius(i), fill: '#fff8f1', stroke: '#f46649', 'stroke-width': .7, opacity: 0 }, g)));
+      });
+    };
+    const Q = ms.querySelector('.ms-q'), PTR = ms.querySelector('.ms-ptr'), GO = ms.querySelector('.ms-go'), FEW = [...ms.querySelectorAll('.ms-few figure')], CHIPS = [...ms.querySelectorAll('.ms-fields span')], OKS = [...ms.querySelectorAll('.ms-ok')];
+    let lastSet = -1;
+    const fillSet = i => { if (lastSet === i) return; lastSet = i; FEW.forEach((f, k) => { const [src, name] = SETS[i].r[k]; const img = f.querySelector('img'); if (img.getAttribute('src') !== src) img.setAttribute('src', src); img.alt = name; f.querySelector('figcaption').innerHTML = (k === 0 ? '<span>Best match</span>' : '') + name; f.classList.toggle('ms-best', k === 0); }); };
+    const showAll = () => { fillSet(0); Q.textContent = SETS[0].q; FEW.forEach(f => f.classList.add('on')); CHIPS.forEach(c => c.classList.add('on')); OKS.forEach(o => o.classList.add('on')); };
+    const reset = () => { Object.values(sc).forEach(s => s.dots?.flat().forEach(d => d.setAttribute('opacity', 0))); };
+    const CYC = { 1: 7000, 2: 7000, 3: 9600 };
+    let prevStep = 0, stepAt = 0;
+    const drawScene = (n, t) => {
+      const s = sc[n]; if (!s.paths) return;
+      const tt = t % CYC[n], gl = new Map();
+      s.paths.forEach((pa, j) => {
+        const start = pa.c.start, arrive = start + 1500;
+        gl.set(pa.c.glow, Math.max(gl.get(pa.c.glow) || 0, F.arrival(tt - arrive)));
+        s.dots[j].forEach((d, i) => {
+          const local = tt - start - i * F.delay; if (local < 0 || local > 1500) { d.setAttribute('opacity', 0); return; }
+          const u = local / 1500, pt = pa.p.getPointAtLength(pa.len * F.smooth(u));
+          d.setAttribute('cx', pt.x); d.setAttribute('cy', pt.y); d.setAttribute('opacity', Math.min(1, u * 10) * Math.min(1, (1 - u) * 8) * (1 - i * .065));
+        });
+      });
+      gl.forEach((v, el) => F.glow(el, v));
+      if (n === 1) CHIPS.forEach((c, i) => c.classList.toggle('on', tt > 2000 + i * 140));
+      if (n === 2) OKS.forEach((o, i) => o.classList.toggle('on', tt > 2200 + i * 200));
+      if (n === 3) {
+        const k = Math.floor(t / CYC[3]) % SETS.length; fillSet(k);
+        const type = Math.max(0, Math.min(SETS[k].q.length, Math.floor((tt - 1400) / 60)));
+        Q.textContent = tt < 1400 ? '' : SETS[k].q.slice(0, type);
+        ms.querySelector('.ms-caret').style.opacity = tt < 2900 ? 1 : 0;
+        PTR.classList.toggle('show', tt > 2500 && tt < 3300); GO.classList.toggle('pressed', tt > 2900 && tt < 3150);
+        FEW.forEach((f, i) => f.classList.toggle('on', tt > 4600 + i * 160 && tt < 9000));
+      }
+    };
+    const draw = elapsed => {
+      const step = +(pinEl?.dataset.step || 1), wide = wideQ.matches;
+      if (step !== prevStep) { prevStep = step; stepAt = elapsed; reset(); }
+      [1, 2, 3].forEach(n => { if (!wide || n === step) drawScene(n, wide ? elapsed - stepAt : elapsed); });
+    };
+    build(); new ResizeObserver(() => { build(); reset(); }).observe(ms); document.fonts?.ready.then(build);
+    if (reduced.matches) showAll();
+    F.run(ms, draw, reset);
+  }
 })();

@@ -37,3 +37,46 @@ html body #section-3.match-section .match-footer{border-top:0;padding-top:0;just
 
 /* Opaque cards so the card behind never shows through the front caption while the deck moves. */
 html body #section-3 .match-card{background:radial-gradient(ellipse at 0 0,#4a30262e,transparent 65%),linear-gradient(135deg,#342526,#201719)!important}
+
+/* Fixed frame: matches always arrive into the same slot, carried along the wire by the Bridgify points. */
+.match-connection{display:none}
+#section-3.match-section .match-slot{position:absolute;top:0;bottom:0;border:1.5px solid #f4664966;border-radius:20px;background:linear-gradient(135deg,#f466490d,transparent 60%);box-shadow:inset 0 0 40px #f4664910;z-index:0;pointer-events:none}
+#section-3.match-section .match-workspace{position:relative}
+#section-3.match-section .match-feed-dot{position:absolute;left:0;top:0;width:7px;height:7px;border-radius:50%;background:#fff3e6;box-shadow:0 0 10px #ff8a62,0 0 20px #f4664988;opacity:0;pointer-events:none;z-index:6}
+#section-3.match-section .match-engine:before,#section-3.match-section .match-engine:after{opacity:.35}
+#section-3.match-section.matching-result .match-slot{border-color:#f46649;box-shadow:inset 0 0 40px #f4664920,0 0 26px #f4664933}
+
+/* Real wires: each traveler field -> AIyelet -> the fixed frame, carried by Bridgify points. */
+#section-3.match-section .match-wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:4;overflow:visible}
+#section-3.match-section .match-wire{fill:none;stroke:#f46649;stroke-opacity:.5;stroke-width:1.2}
+#section-3.match-section .match-contact{fill:#fff3e6;stroke:#f46649;stroke-width:1}
+#section-3.match-section .match-pulse{fill:#fff3e6;filter:drop-shadow(0 0 5px #ff8a62)}
+#section-3.match-section .match-engine:before,#section-3.match-section .match-engine:after,#section-3.match-section .match-engine-contact{display:none}
+#section-3.match-section .match-feed-dot{display:none}
+@media(max-width:760px){#section-3.match-section .match-wires{display:none}#section-3.match-section .match-engine:before,#section-3.match-section .match-engine:after{display:block}}
+
+/* ===== Results panel: the matched card plus the ranked queue, wired straight from AIyelet ===== */
+#section-3.match-section .match-slot,#section-3.match-section .match-connection{display:none!important}
+html body #section-3.match-section .match-deck{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);grid-template-rows:auto 1fr;gap:14px 20px;padding:18px 20px 20px;height:auto;min-height:0;perspective:none;align-self:center;border:1.5px solid #f4664988;border-radius:22px;background:radial-gradient(ellipse at 0 0,#ffbf9814,transparent 60%),linear-gradient(135deg,#2c2021,#1b1314);box-shadow:inset 0 1px #ffd8bd30,0 18px 40px #0006,0 0 calc(var(--arrival,0)*30px) rgb(244 102 73 / calc(var(--arrival,0)*.45))}
+#section-3.match-section .match-panel-head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid #f4664933}
+#section-3.match-section .match-panel-head b{font:600 15px Sofia,sans-serif;color:#eee9de}
+#section-3.match-section .match-panel-head span{font:600 11px Sofia,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#ffba9b}
+#section-3.match-section .match-stage{position:relative;min-height:340px;transition:opacity .5s}
+#section-3.match-section:not(.matching-result) .match-stage{opacity:.5}
+html body #section-3.match-section .match-card{position:absolute;inset:0;width:100%;height:100%;opacity:0;transform:translateX(-26px);pointer-events:none;transition:opacity .6s,transform .8s cubic-bezier(.2,.8,.2,1)}
+html body #section-3.match-section .match-card.is-active{opacity:1;transform:none;pointer-events:auto}
+html body #section-3.match-section .match-card.is-leaving{transform:translateX(26px)}
+#section-3.match-section .match-queue{list-style:none;margin:0;padding:0;display:grid;gap:8px;align-content:stretch}
+#section-3.match-section .match-row{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;padding:8px 12px 8px 8px;border:1px solid #f4664933;border-radius:12px;background:#ffffff06;opacity:.62;transition:opacity .5s,border-color .5s,background .5s,box-shadow .5s}
+#section-3.match-section .match-row img{width:64px;height:46px;object-fit:cover;border-radius:8px}
+#section-3.match-section .match-row b{display:block;font:600 15px/1.2 Sofia,sans-serif;color:#eee9de}
+#section-3.match-section .match-row small{display:block;margin-top:3px;font:400 12px Sofia,sans-serif;color:#bcaaa3}
+#section-3.match-section .match-row.is-active{opacity:1;border-color:#f46649;background:#f4664918;box-shadow:0 0 18px #f4664930}
+#section-3.match-section .match-row.is-active b:after{content:"Best match";margin-left:8px;padding:2px 8px;border-radius:999px;background:#e8654a;color:#180f10;font:700 10px Sofia,sans-serif;letter-spacing:.06em;text-transform:uppercase;vertical-align:2px}
+@media(max-width:1000px){html body #section-3.match-section .match-deck{grid-template-columns:1fr}#section-3.match-section .match-stage{min-height:320px}}
+@media(prefers-reduced-motion:reduce){html body #section-3.match-section .match-card,#section-3.match-section .match-row{transition:none}}
+
+#section-3.match-section .match-row b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#section-3.match-section .match-row.is-active b:after{white-space:nowrap}
+@media(max-width:1000px){#section-3.match-section .match-panel-head span{display:none}html body #section-3.match-section .match-deck{padding:14px;min-width:0;overflow:hidden}#section-3.match-section .match-row b{font-size:14px}}
+@media(max-width:760px){#section-3.match-section .match-queue{display:none}#section-3.match-section .match-stage{min-height:300px}}
+@media(min-width:761px) and (max-width:1250px){#section-3.match-section .match-row.is-active b:after{content:"Best";margin-left:6px}#section-3.match-section .match-row{grid-template-columns:52px 1fr;gap:10px}#section-3.match-section .match-row img{width:52px;height:40px}}

@@ -1,0 +1,342 @@
+{
+ "run": "2026-11-17 21:56",
+ "widths": [
+  390,
+  768,
+  1024,
+  1280,
+  1440,
+  1920
+ ],
+ "rows": [
+  {
+   "w": 390,
+   "rule": "H1 בלי גלילה הצידה",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 390,
+   "rule": "טלפון: לא משתנה",
+   "ok": true,
+   "known": false,
+   "detail": "שכבות הניסוי לא פועלות מתחת ל־600 (המובייל המאושר נבדק ב־PR #9)"
+  },
+  {
+   "w": 390,
+   "rule": "SC1 גלילה חלקה (Why Bridgify)",
+   "ok": true,
+   "known": false,
+   "detail": "80 צעדים של 120px · הצעד הגדול 120 · הקטן 120"
+  },
+  {
+   "w": 768,
+   "rule": "H1 בלי גלילה הצידה",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 768,
+   "rule": "G1 קו התוכן",
+   "ok": true,
+   "known": false,
+   "detail": "קו 32 · 8 סקשנים · כולם על הקו"
+  },
+  {
+   "w": 768,
+   "rule": "G2 שום טקסט לא עובר את השוליים מימין",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 768,
+   "rule": "S טבלת הריווח",
+   "ok": true,
+   "known": false,
+   "detail": "29/29 זוגות בדיוק"
+  },
+  {
+   "w": 768,
+   "rule": "T1 גדלי טקסט",
+   "ok": true,
+   "known": false,
+   "detail": "25 טקסטים · hero 48 · סקשן 36 · פנימית 24 · גוף 16"
+  },
+  {
+   "w": 768,
+   "rule": "T2 בלי סולם טקסט מקומי",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 768,
+   "rule": "N1 header על הקו",
+   "ok": true,
+   "known": false,
+   "detail": "לוגו 32 · כפתור 32 (קו 32)"
+  },
+  {
+   "w": 768,
+   "rule": "SC1 גלילה חלקה (Why Bridgify)",
+   "ok": true,
+   "known": false,
+   "detail": "80 צעדים של 120px · הצעד הגדול 120 · הקטן 108"
+  },
+  {
+   "w": 1024,
+   "rule": "H1 בלי גלילה הצידה",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 1024,
+   "rule": "G1 קו התוכן",
+   "ok": true,
+   "known": false,
+   "detail": "קו 41 · 8 סקשנים · כולם על הקו"
+  },
+  {
+   "w": 1024,
+   "rule": "G2 שום טקסט לא עובר את השוליים מימין",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 1024,
+   "rule": "S טבלת הריווח",
+   "ok": true,
+   "known": false,
+   "detail": "21/21 זוגות בדיוק"
+  },
+  {
+   "w": 1024,
+   "rule": "T1 גדלי טקסט",
+   "ok": true,
+   "known": false,
+   "detail": "25 טקסטים · hero 40 · סקשן 36 · פנימית 24 · גוף 16"
+  },
+  {
+   "w": 1024,
+   "rule": "T2 בלי סולם טקסט מקומי",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 1024,
+   "rule": "N1 header",
+   "ok": true,
+   "known": false,
+   "detail": "לוגו 41 · כפתור 41 (קו 41) · למעלה top 0 גובה 88 · בגלילה top 0 גובה 64"
+  },
+  {
+   "w": 1024,
+   "rule": "A1 כותרת מפוצלת",
+   "ok": true,
+   "known": false,
+   "detail": "עמודה 7 = 528 · #whats-inside x528 רוחב 455 ראש +0, #api-features x528 רוחב 455 ראש +0"
+  },
+  {
+   "w": 1024,
+   "rule": "SC1 גלילה חלקה (Why Bridgify)",
+   "ok": true,
+   "known": false,
+   "detail": "80 צעדים של 120px · הצעד הגדול 120 · הקטן 0"
+  },
+  {
+   "w": 1280,
+   "rule": "H1 בלי גלילה הצידה",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 1280,
+   "rule": "G1 קו התוכן",
+   "ok": true,
+   "known": false,
+   "detail": "קו 51 · 8 סקשנים · כולם על הקו"
+  },
+  {
+   "w": 1280,
+   "rule": "G2 שום טקסט לא עובר את השוליים מימין",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 1280,
+   "rule": "S טבלת הריווח",
+   "ok": true,
+   "known": false,
+   "detail": "21/21 זוגות בדיוק"
+  },
+  {
+   "w": 1280,
+   "rule": "T1 גדלי טקסט",
+   "ok": true,
+   "known": false,
+   "detail": "25 טקסטים · hero 46.1 · סקשן 38.4 · פנימית 24.3 · גוף 16"
+  },
+  {
+   "w": 1280,
+   "rule": "T2 בלי סולם טקסט מקומי",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 1280,
+   "rule": "N1 header",
+   "ok": true,
+   "known": false,
+   "detail": "לוגו 51 · כפתור 51 (קו 51) · למעלה top 0 גובה 88 · בגלילה top 0 גובה 64"
+  },
+  {
+   "w": 1280,
+   "rule": "A1 כותרת מפוצלת",
+   "ok": true,
+   "known": false,
+   "detail": "עמודה 7 = 656 · #whats-inside x656 רוחב 560 ראש +0, #api-features x656 רוחב 560 ראש +0"
+  },
+  {
+   "w": 1280,
+   "rule": "SC1 גלילה חלקה (Why Bridgify)",
+   "ok": true,
+   "known": false,
+   "detail": "80 צעדים של 120px · הצעד הגדול 120 · הקטן 0"
+  },
+  {
+   "w": 1440,
+   "rule": "H1 בלי גלילה הצידה",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 1440,
+   "rule": "G1 קו התוכן",
+   "ok": true,
+   "known": false,
+   "detail": "קו 58 · 8 סקשנים · כולם על הקו"
+  },
+  {
+   "w": 1440,
+   "rule": "G2 שום טקסט לא עובר את השוליים מימין",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 1440,
+   "rule": "S טבלת הריווח",
+   "ok": true,
+   "known": false,
+   "detail": "21/21 זוגות בדיוק"
+  },
+  {
+   "w": 1440,
+   "rule": "T1 גדלי טקסט",
+   "ok": true,
+   "known": false,
+   "detail": "25 טקסטים · hero 51.8 · סקשן 43.2 · פנימית 27.4 · גוף 16"
+  },
+  {
+   "w": 1440,
+   "rule": "T2 בלי סולם טקסט מקומי",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 1440,
+   "rule": "N1 header",
+   "ok": true,
+   "known": false,
+   "detail": "לוגו 58 · כפתור 58 (קו 58) · למעלה top 0 גובה 88 · בגלילה top 0 גובה 64"
+  },
+  {
+   "w": 1440,
+   "rule": "A1 כותרת מפוצלת",
+   "ok": true,
+   "known": false,
+   "detail": "עמודה 7 = 736 · #whats-inside x736 רוחב 560 ראש +0, #api-features x736 רוחב 560 ראש +0"
+  },
+  {
+   "w": 1440,
+   "rule": "SC1 גלילה חלקה (Why Bridgify)",
+   "ok": true,
+   "known": false,
+   "detail": "80 צעדים של 120px · הצעד הגדול 120 · הקטן 0"
+  },
+  {
+   "w": 1920,
+   "rule": "H1 בלי גלילה הצידה",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 1920,
+   "rule": "G1 קו התוכן",
+   "ok": true,
+   "known": false,
+   "detail": "קו 180 · 8 סקשנים · כולם על הקו"
+  },
+  {
+   "w": 1920,
+   "rule": "G2 שום טקסט לא עובר את השוליים מימין",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 1920,
+   "rule": "S טבלת הריווח",
+   "ok": true,
+   "known": false,
+   "detail": "21/21 זוגות בדיוק"
+  },
+  {
+   "w": 1920,
+   "rule": "T1 גדלי טקסט",
+   "ok": true,
+   "known": false,
+   "detail": "25 טקסטים · hero 60 · סקשן 44 · פנימית 28 · גוף 16"
+  },
+  {
+   "w": 1920,
+   "rule": "T2 בלי סולם טקסט מקומי",
+   "ok": true,
+   "known": false,
+   "detail": "אין"
+  },
+  {
+   "w": 1920,
+   "rule": "N1 header",
+   "ok": true,
+   "known": false,
+   "detail": "לוגו 180 · כפתור 180 (קו 180) · למעלה top 0 גובה 88 · בגלילה top 0 גובה 64"
+  },
+  {
+   "w": 1920,
+   "rule": "A1 כותרת מפוצלת",
+   "ok": true,
+   "known": false,
+   "detail": "עמודה 7 = 976 · #whats-inside x976 רוחב 560 ראש +0, #api-features x976 רוחב 560 ראש +0"
+  },
+  {
+   "w": 1920,
+   "rule": "SC1 גלילה חלקה (Why Bridgify)",
+   "ok": true,
+   "known": false,
+   "detail": "80 צעדים של 120px · הצעד הגדול 120 · הקטן 0"
+  }
+ ]
+}

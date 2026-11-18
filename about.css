@@ -11,7 +11,7 @@ body[data-page="about"]{background:#180f10;color:#eee9de}
 .ab-label{display:inline-flex;align-items:center;gap:10px;font:550 12px/1.4 Sofia,sans-serif;letter-spacing:.16em;text-transform:uppercase;background:linear-gradient(100deg,#eee9de,#f3b69f 55%,#f46649);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .ab-label:before{content:"";width:6px;height:6px;border-radius:50%;background:#f46649;flex:none}
 .ab-label-l{background:none;-webkit-text-fill-color:#B7412D;color:#B7412D}
-.ab-mark{width:30px;height:28px;flex:none;background:#f46649;-webkit-mask:url(assets/bridgify-nav-mark.svg) center/contain no-repeat;mask:url(assets/bridgify-nav-mark.svg) center/contain no-repeat}
+.ab-mark{width:32px;height:29px;flex:none;background:#eee9de;-webkit-mask:url(assets/bridgify-octopus-line.svg) center/contain no-repeat;mask:url(assets/bridgify-octopus-line.svg) center/contain no-repeat}
 
 /* Actions */
 .ab-actions{display:flex;flex-wrap:wrap;gap:26px;align-items:center}
@@ -73,7 +73,7 @@ body[data-page="about"]{background:#180f10;color:#eee9de}
 .ms-join:before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#f46649aa}
 .ms-join:after{content:"";position:absolute;left:50%;top:50%;width:1px;height:50%;background:#f46649aa}
 .ms-pill{align-self:center;display:inline-flex;align-items:center;gap:12px;padding:12px 22px;border:1px solid #f46649;border-radius:16px;background:linear-gradient(130deg,#49302a,#201516);font:500 16px Sofia,sans-serif;box-shadow:inset 0 1px #ffd8bd33,0 0 24px #f4664926}
-.ms-pill .ab-mark{width:24px;height:22px}
+.ms-pill .ab-mark{width:28px;height:25px}
 .ms-s2 .ms-pill{margin-top:22px}
 .ms-chan{margin-top:20px;border:1px solid #f46649;border-radius:16px;overflow:hidden;background:#FFF8F1;color:#180f10;box-shadow:0 14px 30px #0006}
 .ms-chan-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid #18101014;font:650 15px Sofia,sans-serif}.ms-chan-bar em{font:600 11px Sofia,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#F46649}
@@ -99,3 +99,113 @@ body[data-page="about"]{background:#180f10;color:#eee9de}
 @media(max-width:760px){.ab-hero{padding:190px 7% 40px}.ab-story,.ab-pin,.ab-hbx{padding-inline:7%}.wm-brands{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.ab-cta,.ab-btn,.ab-link,.ms-s,.sd-chip,.ab-chapters p{transition:none}}
 .sd-chip>div{display:grid;min-width:0}
+
+/* Mission panel, scene 1: three different supplier formats converge into one schema. */
+.ms-s1{justify-content:flex-start}
+.ms-srcs{gap:12px;margin-top:18px}
+.ms-srcs figure{border:1px solid #f4664966;border-radius:14px;overflow:hidden;background:#24191bd9;box-shadow:0 12px 24px #0005}
+.ms-srcs img{aspect-ratio:4/3;border:0;border-radius:0;box-shadow:none}
+.ms-srcs figcaption{display:grid;gap:7px;margin:0;padding:10px 12px 12px;font:500 13px/1.25 Sofia,sans-serif;color:#eee9de}
+.ms-fmt{justify-self:start;font:700 10px Sofia,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#ffba9b;border:1px dashed #f4664999;border-radius:6px;padding:3px 8px}
+.ms-wire{display:block;width:100%;height:auto;margin:2px 0}
+.ms-wire path{fill:none;stroke:#f46649;stroke-opacity:.55;stroke-width:1.2}
+.ms-dots circle{fill:#fff3e6;filter:drop-shadow(0 0 4px #ff8a62)}
+.ms-s1 .ms-pill{margin-top:-4px;padding:14px 26px;font-size:17px;box-shadow:inset 0 1px #ffd8bd33,0 0 30px #f4664940}
+.ms-fields{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px}
+.ms-fields span{padding:7px 14px;border:1px solid #f4664966;border-radius:999px;background:#ffffff08;font:500 13px Sofia,sans-serif;color:#eee9de}
+@media(prefers-reduced-motion:reduce){.ms-dots{display:none}}
+
+/* Mission scene 2: one integration, three partner channels */
+.ms-s2{justify-content:flex-start}
+.ms-s2 .ms-top{margin-top:16px;padding:12px 24px;box-shadow:inset 0 1px #ffd8bd33,0 0 26px #f4664933}
+.ms-s2 .ms-wire{margin:0}
+.ms-chans{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ms-ch{margin:0;display:grid;gap:10px;justify-items:stretch}
+.ms-ch figcaption{display:flex;align-items:center;justify-content:space-between;font:600 13px Sofia,sans-serif;color:#eee9de}
+.ms-ok{font:700 10px Sofia,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#9ce6bd;background:#63d99a1c;border:1px solid #63d99a66;border-radius:999px;padding:3px 9px}
+.ms-app,.ms-site,.ms-co{position:relative;display:grid;gap:6px;align-content:start;padding:12px;border:1px solid #f4664988;border-radius:14px;background:#FFF8F1;color:#180f10;box-shadow:0 14px 28px #0006;min-height:190px;overflow:hidden}
+.ms-app{border-radius:22px;padding-top:20px}
+.ms-app i{position:absolute;top:7px;left:50%;width:34px;height:5px;border-radius:5px;background:#180f1033;transform:translateX(-50%)}
+.ms-bar{display:flex;gap:4px;padding-bottom:4px}.ms-bar i{width:7px;height:7px;border-radius:50%;background:#f4664966}
+.ms-app img,.ms-site img{width:100%;height:76px;object-fit:cover;border-radius:8px}
+.ms-app b,.ms-site b,.ms-co>b{font:700 13px Sofia,sans-serif}
+.ms-app em,.ms-site em{font:600 12px Sofia,sans-serif;font-style:normal;color:#8a3a22}
+.ms-book{justify-self:start;margin-top:2px;padding:6px 14px;border-radius:999px;background:#e8654a;color:#180f10;font:700 12px Sofia,sans-serif}
+.ms-co p{display:flex;justify-content:space-between;margin:0;padding:6px 0;border-bottom:1px solid #18101014;font:500 12px Sofia,sans-serif}
+.ms-co p em{font-style:normal;font-weight:700}
+.ms-co .ms-tot{font-weight:700;border-bottom:0}
+.ms-note{align-self:center;margin-top:18px;padding:10px 20px;border:1px solid #f46649;border-radius:14px;background:linear-gradient(130deg,#49302a,#201516);font:500 15px Sofia,sans-serif;text-align:center}
+/* Mission scene 3: a million options narrow to the right few */
+.ms-s3{justify-content:flex-start}
+.ms-all{display:flex;align-items:center;gap:16px;margin-top:18px}
+.ms-all>div{display:grid;line-height:1.05;flex:none}
+.ms-all b{font:300 44px Chillax,Sofia,sans-serif;color:#fff2e3}
+.ms-all span{font:500 13px Sofia,sans-serif;color:#d3c1b8}
+.ms-grid{flex:1;height:54px;border-radius:10px;background:radial-gradient(circle,#f48665 1.6px,transparent 2px) 0 0/11px 11px;opacity:.6;-webkit-mask:linear-gradient(90deg,#000 55%,transparent);mask:linear-gradient(90deg,#000 55%,transparent)}
+.ms-fun{margin:4px 0 0}
+.ms-s3 .ms-match{justify-content:center;margin-top:0}
+.ms-s3 .ms-few{grid-template-columns:1.5fr 1fr 1fr;margin-top:16px;align-items:stretch}
+.ms-few figure{position:relative;margin:0;border-radius:14px;overflow:hidden;border:1px solid #f4664966;min-height:130px}
+.ms-few figure img{position:absolute;inset:0;width:100%;height:100%;max-height:none;border:0;border-radius:0}
+.ms-few figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;background:linear-gradient(0deg,#180f10ee,transparent);font:600 13px Sofia,sans-serif;color:#fff;display:grid;gap:4px}
+.ms-few figcaption span{justify-self:start;font:700 10px Sofia,sans-serif;letter-spacing:.08em;text-transform:uppercase;background:#e8654a;color:#180f10;border-radius:999px;padding:3px 9px}
+.ms-few .ms-best{border-color:#f46649;box-shadow:0 0 24px #f4664940}
+@media(max-width:900px){
+.ms{grid-template-columns:minmax(0,1fr)}
+.ms-s{min-width:0;padding:20px 16px}
+.ms-cap{letter-spacing:.1em}
+.ms-chans,.ms-srcs{gap:8px}
+.ms-ch,.ms-srcs figure{min-width:0}
+.ms-app,.ms-site,.ms-co{padding:8px;min-height:0}
+.ms-app{padding-top:16px}
+.ms-app img,.ms-site img{height:56px}
+.ms-co p{font-size:11px}
+.ms-ch figcaption{flex-wrap:wrap;gap:4px;font-size:12px}
+.ms-ok{font-size:9px;padding:2px 7px}
+.ms-note{font-size:13px;padding:9px 14px}
+.ms-s3 .ms-match span{font-size:13px;padding:8px 12px}
+.ms-all b{font-size:36px}
+.ms-few figure{min-height:110px}
+.ms-fields{gap:6px}.ms-fields span{font-size:12px;padding:6px 11px}
+}
+
+/* Scene 3, connected: the million -> narrowed by context + AIyelet -> three matches. */
+.ms-s3 .ms-all{margin-top:14px;padding:12px 16px;border:1px solid #f4664966;border-radius:14px;background:#24191bd9}
+.ms-s3 .ms-all-n{display:grid;line-height:1.05;flex:none}
+.ms-s3 .ms-grid{height:46px;-webkit-mask:linear-gradient(90deg,#000 70%,transparent);mask:linear-gradient(90deg,#000 70%,transparent)}
+.ms-s3 .ms-wire{margin:0}
+.ms-s3 .ms-group{justify-content:center;margin:0;flex-wrap:nowrap}
+.ms-s3 .ms-few{grid-template-columns:repeat(3,1fr);margin-top:0;gap:12px;flex:1;min-height:0}
+.ms-s3 .ms-few figure{min-height:120px}
+@media(max-width:900px){.ms-s3 .ms-group{flex-wrap:wrap}}
+
+/* Mission scenes: spacing for the shared wires; elements wake up as the points arrive. */
+.ms-wires{position:absolute;inset:0;pointer-events:none;overflow:visible;z-index:3}
+.ms-s{gap:0}
+.ms-s1 .ms-pill{margin-top:44px}
+.ms-s1 .ms-fields span{opacity:.35;transition:opacity .5s,border-color .5s,background .5s}
+.ms-s1 .ms-fields span.on{opacity:1;border-color:#f46649;background:#f4664918}
+.ms-s2 .ms-chans{margin-top:44px}
+.ms-ok{opacity:.35;transition:opacity .5s}
+.ms-ok.on{opacity:1}
+.ms-s3 .ms-search{position:relative;margin-top:40px;display:flex;align-items:center;gap:10px;padding:6px 6px 6px 22px;border:1px solid #ffffff33;border-radius:999px;background:#180f10d9;font:400 16px Sofia,sans-serif;color:#fff8f1;min-height:52px}
+.ms-q{min-height:20px;white-space:nowrap}
+.ms-caret{width:2px;height:20px;background:#f46649;animation:ms-blink 1s steps(1) infinite}
+@keyframes ms-blink{50%{opacity:0}}
+.ms-go{margin-left:auto;display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;background:#e8654a;color:#180f10;font:700 14px Sofia,sans-serif;transition:transform .2s,box-shadow .3s}
+.ms-go svg{width:16px;height:16px;fill:currentColor}
+.ms-go.pressed{transform:scale(.93);box-shadow:0 0 22px #f46649}
+.ms-ptr{position:absolute;right:20px;top:60%;font-size:30px;line-height:1;color:#fff5e5;filter:drop-shadow(0 2px 2px #000);opacity:0;transform:translate(-80px,26px);transition:opacity .2s,transform .7s cubic-bezier(.3,.8,.3,1);pointer-events:none}
+.ms-ptr.show{opacity:1;transform:none}
+.ms-s3 .ms-few{margin-top:44px;grid-template-columns:repeat(3,1fr)}
+.ms-s3 .ms-few figure{opacity:0;transform:translateY(12px);transition:opacity .6s,transform .7s cubic-bezier(.22,1,.36,1)}
+.ms-s3 .ms-few figure.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.ms-s3 .ms-few figure{transition:none}.ms-caret{animation:none}}
+@media(min-width:1101px){.ms-s1 .ms-pill{margin-top:64px}.ms-s1 .ms-fields{margin-top:40px}.ms-s2 .ms-chans{margin-top:64px}.ms-s2 .ms-note{margin-top:28px}.ms-s3 .ms-search{margin-top:52px}.ms-s3 .ms-few{margin-top:56px}}
+
+/* Phones and tablets: the 1M+ label sits under the map instead of on top of the dots. */
+@media(max-width:1100px){
+.wm-map{margin-bottom:70px}
+.wm-count{top:100%;left:0;margin-top:14px;max-width:none;display:flex;align-items:center;gap:12px}
+.wm-count b{display:inline;font-size:30px}
+}

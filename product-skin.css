@@ -388,3 +388,41 @@
 #section-5 .launch-workspace[data-brand=horizon][data-launch-step="1"] .launch-catalog,#section-5 .launch-workspace[data-brand=horizon][data-launch-step="2"] .launch-catalog{filter:grayscale(.7) brightness(1.03);opacity:.55}
 #section-5 .launch-workspace[data-brand=horizon] .launch-brand,#section-5 .launch-workspace[data-brand=horizon] .launch-brand *{-webkit-text-fill-color:currentColor!important;background-clip:border-box!important;-webkit-background-clip:border-box!important}
 #section-5 .launch-workspace[data-brand=horizon] .launch-brand{background:#fff!important}
+
+/* Phones: the journey window grows to fit its tallest screen, and the site header stays on one line. */
+@media(max-width:700px){
+#section-2.market-product-tour .screens{height:600px}
+#section-2.market-product-tour .pnav{padding:14px 16px;font-size:11px}
+#section-2.market-product-tour .pnav span{display:none}
+}
+@media(max-width:700px){
+#section-5 .launch-store .launch-search{width:100%;max-width:100%;padding:5px 5px 5px 16px;box-sizing:border-box}
+#section-5 .launch-store .launch-search em{min-width:0;overflow:hidden;text-overflow:ellipsis;font-size:13px}
+#section-5 .launch-store .launch-search b{flex:none;padding:9px 14px}
+#section-5 .launch-cover>div{padding:0 14px;box-sizing:border-box}
+}
+@media(min-width:701px) and (max-width:1100px){
+#section-2.market-product-tour .screens{height:540px}
+#section-5 .launch-brand nav{display:none}
+#section-5 .launch-brand{padding:16px 20px}
+#section-5 .launch-store .launch-search{width:100%;max-width:100%;box-sizing:border-box;padding:5px 5px 5px 16px}
+#section-5 .launch-store .launch-search em{min-width:0;overflow:hidden;text-overflow:ellipsis;font-size:13px}
+#section-5 .launch-store .launch-search b{flex:none;padding:9px 14px}
+#section-5 .launch-cover>div{padding:0 16px;box-sizing:border-box}
+#section-5 .launch-cover h3{font-size:30px!important}
+}
+
+/* Phone hero: the brand settings sit as a compact sheet at the bottom so the search and title stay visible. */
+@media(max-width:600px){
+#section-1 .market-demo .brand-settings{left:auto!important;right:8px!important;top:auto!important;bottom:8px!important;width:196px!important;padding:11px 12px!important;border-radius:14px!important}
+#section-1 .market-demo .brand-settings .settings-heading{margin-bottom:6px!important}
+#section-1 .market-demo .brand-settings>small{margin:7px 0 5px!important}
+#section-1 .market-demo .settings-mode{margin:8px 0!important}
+}
+
+/* Phones and tablets: the live store comes first, the headline and buttons sit under it. */
+@media(max-width:900px){
+#section-1.page-hero{display:grid!important}
+#section-1 .market-demo{order:-1}
+#section-1 .block-copy{order:1}
+}

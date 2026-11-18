@@ -1,0 +1,46 @@
+/* Lab only · header trial (user requests 17 Nov 2026).
+   1. The header is part of the page, not a floating card: full width, attached to the top edge, no rounded box.
+      At the top of the page it is transparent over the hero, like a normal hero header.
+   2. Once the page scrolls (.is-stuck, set by shared-navigation.js after 24px) it becomes a compact bar, still
+      attached to the top edge and full width, with the site's dark surface and fine coral line under it.
+   The logo and the last button sit on the content line in both states (side padding = the content margin).
+   Desktop (≥1024) and, since 17 Nov 2026, tablet (600–1023): attached the same way. The site's header has its own
+   layout switch at 950px: 951–1023 is one row (same sizes as desktop); 600–950 is two rows (logo + buttons, then the
+   menu), which still steps aside while reading down (.is-tucked) and comes back on the way up, compact.
+   Sizes: bar 88 at the top → 64 when scrolled; logo 40 → 32; buttons 44 → 36. Text stays 12px.
+   Injected by live.html after try-cap.css; no site file loads it. */
+@media (min-width: 951px) {
+  html body header.top.site-header-common.site-header-common {
+    top: 0 !important; left: 0 !important; right: 0 !important; max-width: none !important;
+    height: 88px !important; min-height: 88px !important;
+    padding-left: var(--try-margin, calc(3.2vw + 24px)) !important; padding-right: var(--try-margin, calc(3.2vw + 24px)) !important;
+    border-radius: 0 !important;
+    transition: height .32s cubic-bezier(.22,1,.36,1), min-height .32s cubic-bezier(.22,1,.36,1),
+      background-color .4s cubic-bezier(.22,1,.36,1), box-shadow .4s cubic-bezier(.22,1,.36,1) !important;
+  }
+  html body header.top.site-header-common.site-header-common img.brand-logo-full { transition: height .32s cubic-bezier(.22,1,.36,1) !important; }
+  html body header.top.site-header-common.site-header-common .nav-actions > a { transition: height .32s cubic-bezier(.22,1,.36,1), min-height .32s cubic-bezier(.22,1,.36,1), background .48s, color .48s !important; }
+
+  html body header.top.site-header-common.site-header-common.is-stuck { height: 64px !important; min-height: 64px !important; }
+  html body header.top.site-header-common.site-header-common.is-stuck img.brand-logo-full { height: 32px !important; }
+  html body header.top.site-header-common.site-header-common.is-stuck .nav-actions > a { height: 36px !important; min-height: 36px !important; }
+}
+/* tablet, two rows (600–950): attached, full width; compact when scrolled: 123 → about 92 tall. Menu text stays 10px. */
+@media (min-width: 600px) and (max-width: 950px) {
+  html body header.top.site-header-common.site-header-common {
+    top: 0 !important; left: 0 !important; right: 0 !important; border-radius: 0 !important; max-width: none !important;
+    padding: 12px var(--try-margin, 16px) !important;
+    transition: padding .32s cubic-bezier(.22,1,.36,1), background-color .4s cubic-bezier(.22,1,.36,1), box-shadow .4s cubic-bezier(.22,1,.36,1), transform .45s cubic-bezier(.22,1,.36,1) !important;
+  }
+  html body header.top.site-header-common.site-header-common img.brand-logo-full { transition: height .32s cubic-bezier(.22,1,.36,1) !important; }
+  html body header.top.site-header-common.site-header-common .nav-actions > a { transition: height .32s cubic-bezier(.22,1,.36,1), min-height .32s cubic-bezier(.22,1,.36,1), background .48s, color .48s !important; }
+  html body header.top.site-header-common.site-header-common.is-stuck { min-height: 0 !important; padding-top: 8px !important; padding-bottom: 6px !important; row-gap: 4px !important; }
+  html body header.top.site-header-common.site-header-common.is-stuck img.brand-logo-full { height: 26px !important; }
+  html body header.top.site-header-common.site-header-common.is-stuck .nav-actions > a { height: 32px !important; min-height: 32px !important; }
+  html body header.top.site-header-common.site-header-common.is-stuck :is(nav > a, summary) { padding-top: 6px !important; padding-bottom: 6px !important; }
+}
+@media (min-width: 600px) and (prefers-reduced-motion: reduce) {
+  html body header.top.site-header-common.site-header-common,
+  html body header.top.site-header-common.site-header-common img.brand-logo-full,
+  html body header.top.site-header-common.site-header-common .nav-actions > a { transition: none !important; }
+}
