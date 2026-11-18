@@ -80,3 +80,18 @@
     submit.querySelector('.login-submit-label').textContent = 'Log in';
   });
 })();
+
+// Octopus mascot: closes its eyes while the password is being entered, peeks with one eye after a pause in typing.
+(() => {
+  const mascot = document.querySelector('.login-mascot');
+  const password = document.getElementById('login-password');
+  if (!mascot || !password) return;
+  let peek;
+  const close = () => { clearTimeout(peek); mascot.dataset.eyes = 'closed'; };
+  password.addEventListener('focus', close);
+  password.addEventListener('input', () => {
+    close();
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) peek = setTimeout(() => { mascot.dataset.eyes = 'peek'; }, 850);
+  });
+  password.addEventListener('blur', () => { clearTimeout(peek); mascot.dataset.eyes = 'open'; });
+})();
