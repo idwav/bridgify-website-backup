@@ -80,6 +80,13 @@
   /* the intro's desktop rule on its left (a 1px line and its padding) goes with the split */
   html body:not(#bf-lab) :is(#section-3 header.wl-heading, #section-4 header.wo-heading, #section-5 .launch-heading, #build-or-buy header.bc-heading) > :is(p, div) { border-left: 0 !important; padding-left: 0 !important; }
 }
+/* Split headings on the desktop (owner review, 18 Nov 2026): every split heading the same way: two equal halves,
+   the intro from column 7, at most 560px, its first line level with the title's first line (split-align.js, baked).
+   These were centred or bottom-aligned on each other, so the title sat 12-110px off the intro. */
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) :is(#section-5 div.launch-heading, #build-or-buy header.bc-heading) { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; column-gap: 32px !important; align-items: start !important; padding-left: 0 !important; padding-right: 0 !important; }
+  html body:not(#bf-lab) :is(#section-5 div.launch-heading > p, #build-or-buy header.bc-heading > p) { align-self: start !important; max-width: 560px !important; }
+}
 
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {
@@ -210,14 +217,14 @@
   html body #section-5 > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; padding-top: 0px !important; row-gap: 0px !important; }
   html body #section-5 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body #launch-title { margin-top: 24px !important; }
-  html body #section-5 > div:nth-child(1) > p:nth-child(2) { margin-bottom: 0px !important; }
+  html body #section-5 > div:nth-child(1) > p:nth-child(2) { margin-top: 40.7969px !important; margin-bottom: 0px !important; }
   html body #section-5 > div:nth-child(2) { margin-top: 64px !important; margin-bottom: 0px !important; }
   html body #build-or-buy { padding-top: 96px !important; padding-bottom: 96px !important; row-gap: 0px !important; }
   html body #build-or-buy > header:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; }
   html body #build-or-buy > header:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; padding-top: 0px !important; row-gap: 0px !important; }
   html body #build-or-buy > header:nth-child(1) > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body #bb-title { margin-top: 24px !important; }
-  html body #build-or-buy > header:nth-child(1) > p:nth-child(2) { margin-bottom: 0px !important; }
+  html body #build-or-buy > header:nth-child(1) > p:nth-child(2) { margin-top: 40.7969px !important; margin-bottom: 0px !important; }
   html body #build-or-buy > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
   html body #build-or-buy > div:nth-child(2) > article:nth-child(1) { margin-top: 64px !important; }
   html body #build-or-buy > div:nth-child(2) > article:nth-child(2) { margin-top: 64px !important; margin-bottom: 0px !important; }

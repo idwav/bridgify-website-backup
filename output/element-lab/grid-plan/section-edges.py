@@ -10,8 +10,9 @@ Exit code 1 if anything is off that is not in KNOWN.
 """
 import sys, json
 from playwright.sync_api import sync_playwright
-pages = sys.argv[1].split(',')
-sizes = [tuple(map(int, s.split('x'))) for s in (sys.argv[2] if len(sys.argv) > 2 else '768x1024,834x1194,1024x1366').split(',')]
+args = [a for a in sys.argv[1:] if not a.startswith('--')]
+pages = args[0].split(',')
+sizes = [tuple(map(int, s.split('x'))) for s in (args[1] if len(args) > 1 else '768x1024,834x1194,1024x1366').split(',')]
 J = r"""() => {
   const vis = e => { const r = e.getBoundingClientRect(), c = getComputedStyle(e); return r.width > 2 && r.height > 2 && c.visibility !== 'hidden' && c.display !== 'none' && +c.opacity > 0.05; };
   const tops = [...document.querySelectorAll('main > section, body > section, main section[id]')].filter(s => !s.parentElement.closest('section') && vis(s));
@@ -64,10 +65,11 @@ with sync_playwright() as p:
     b = p.chromium.launch()
     for pg_ in pages:
         for w, h in sizes:
-            pg = b.new_page(viewport={'width': w, 'height': h}, reduced_motion='reduce')
+            # as a visitor sees it: motion on (scroll scenes pinned, as on a real iPad); --reduced checks the reduced-motion page
+            pg = b.new_page(viewport={'width': w, 'height': h}, reduced_motion='reduce' if '--reduced' in sys.argv else 'no-preference')
             url = 'index-v2.html' if pg_ == 'home' else pg_ + '.html'
             pg.goto(f'http://127.0.0.1:8084/{url}?version=2', wait_until='networkidle', timeout=60000)
-            pg.evaluate("async()=>{await document.fonts.ready;for(let y=0;y<document.body.scrollHeight;y+=500){scrollTo(0,y);await new Promise(r=>setTimeout(r,50))}scrollTo(0,0);await new Promise(r=>setTimeout(r,600))}")
+            pg.evaluate("async()=>{await document.fonts.ready;for(let y=0;y<document.body.scrollHeight;y+=500){scrollTo(0,y);await new Promise(r=>setTimeout(r,90))}scrollTo(0,0);await new Promise(r=>setTimeout(r,900))}")
             out[f'{pg_}@{w}x{h}'] = pg.evaluate(J); pg.close()
     b.close()
 want = lambda w: 80 if w < 1024 else 96

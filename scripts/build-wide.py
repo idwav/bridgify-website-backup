@@ -35,15 +35,15 @@ PAGES = {
     'api': ('api.html?version=2', 'roles-api.js', ['api-trial.css'],
             [['#whats-inside', 'h2', 'header.ex-head > p'], ['#api-features', 'h2', 'header.ck-head > p']], None),
     'marketplace': ('marketplace.html?version=2', 'roles-marketplace.js', ['marketplace-trial.css'],
-                    [['#section-2', 'h2.tour-title', 'header > p'], ['#section-3', 'h2', 'header.wl-heading > p'], ['#section-4', '#commerce-title', 'header.wo-heading > p']], None),
-    'personalization': ('personalization.html?version=2', 'roles-personalization.js', ['personalization-trial.css'], [], 'personalization-hero.js'),
+                    [['#section-2', 'h2.tour-title', 'header > p'], ['#section-3', 'h2', 'header.wl-heading > p'], ['#section-4', '#commerce-title', 'header.wo-heading > p'], ['#section-5', 'h2', 'div.launch-heading > p'], ['#build-or-buy', 'h2', 'header.bc-heading > p']], None),
+    'personalization': ('personalization.html?version=2', 'roles-personalization.js', ['personalization-trial.css'], [['#section-2', 'h2', 'div.intent-heading > p'], ['#section-4', 'h2', 'div.embed-heading > p']], 'personalization-hero.js'),
     # step 6.5: the six solution pages
-    'otas': ('otas.html?version=2', 'roles-otas.js', ['otas-trial.css'], [], None),
-    'airlines': ('airlines.html?version=2', 'roles-airlines.js', ['airlines-trial.css'], [], None),
-    'hotels': ('hotels.html?version=2', 'roles-hotels.js', ['hotels-trial.css'], [], None),
-    'loyalty-finance': ('loyalty-finance.html?version=2', 'roles-loyalty-finance.js', ['loyalty-finance-trial.css'], [], None),
-    'super-apps': ('super-apps.html?version=2', 'roles-super-apps.js', ['super-apps-trial.css'], [], None),
-    'travel-technology': ('travel-technology.html?version=2', 'roles-travel-technology.js', ['travel-technology-trial.css'], [], None),
+    'otas': ('otas.html?version=2', 'roles-otas.js', ['otas-trial.css'], [['#section-3', 'h2', 'header.rc-head > div']], None),
+    'airlines': ('airlines.html?version=2', 'roles-airlines.js', ['airlines-trial.css'], [['#section-2', 'h2', 'header.ar-heading > p'], ['#section-4', 'h2', 'header.xc-head > p']], None),
+    'hotels': ('hotels.html?version=2', 'roles-hotels.js', ['hotels-trial.css'], [['#section-4', 'h2', 'header.xc-head > p']], None),
+    'loyalty-finance': ('loyalty-finance.html?version=2', 'roles-loyalty-finance.js', ['loyalty-finance-trial.css'], [['#section-2', 'h2', 'header > div.lp-copy']], None),
+    'super-apps': ('super-apps.html?version=2', 'roles-super-apps.js', ['super-apps-trial.css'], [['#section-4', 'h2', 'header.xc-head > p']], None),
+    'travel-technology': ('travel-technology.html?version=2', 'roles-travel-technology.js', ['travel-technology-trial.css'], [['#section-4', 'h2', 'header.xc-head > p']], None),
 }
 # Each device class is baked at several widths, because a page's own layout changes inside a class (a section that
 # stacks below 800, a grid that gains a column at 1280). A value that is the same at every width of a class is written
@@ -87,7 +87,7 @@ def bake(b, page, cfg):
             pg.evaluate("async () => { await document.fonts.ready; for (let y = 0; y < document.body.scrollHeight; y += 600) { scrollTo(0, y); await new Promise(r => setTimeout(r, 30)); } scrollTo(0, 0); await new Promise(r => setTimeout(r, 500)); }")
             pg.evaluate(SNAP)
             pg.add_script_tag(content=js); pg.add_script_tag(content=sj)
-            pg.evaluate("async () => { await new Promise(r => setTimeout(r, 300)); BridgifyRhythmWide.apply(); await new Promise(r => setTimeout(r, 300)); if (window.BridgifySplit) BridgifySplit.apply(); await new Promise(r => setTimeout(r, 200)); }")
+            pg.evaluate("async () => { await new Promise(r => setTimeout(r, 300)); BridgifyRhythmWide.apply(); await new Promise(r => setTimeout(r, 300)); if (window.BridgifySplit) { BridgifySplit.apply(); await new Promise(r => setTimeout(r, 200)); /* the split moves the intro down to the title: space what follows it again */ BridgifyRhythmWide.apply(); await new Promise(r => setTimeout(r, 300)); BridgifySplit.apply(); } await new Promise(r => setTimeout(r, 200)); }")
             rows = pg.evaluate(DIFF, PROPS); pg.close()
             per.append((lo, hi, {sel: dict(decl) for sel, decl in rows}))
             print(f'  {page} @{w}: {len(rows)} elements', file=sys.stderr)
