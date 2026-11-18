@@ -102,8 +102,24 @@
   const mascot = document.querySelector('.login-mascot');
   if (!mascot || !matchMedia('(pointer:fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const eyes = [...mascot.querySelectorAll('.login-eye')];
-  const segs = [...mascot.querySelectorAll('.login-arm')];
-  const N = segs.length, DEG = 180 / Math.PI;
+  // Build the right arm from K thin slices. Each slice is a masked copy of the picture rotating about the centre line of the arm.
+  const body = mascot.querySelector('.login-body'), root = mascot.querySelector('.login-arms');
+  if (!body || !root) return;
+  const K = 12, Y0 = 60.5, Y1 = 100, N = 4;
+  const centre = [[56, 70], [66.3, 73.2], [75.2, 73.4], [81.5, 71.3], [88, 69.9], [97.6, 72.1], [100, 72.4]];
+  const cx = y => { for (let i = 1; i < centre.length; i++) if (y <= centre[i][0]) { const [ya, xa] = centre[i - 1], [yb, xb] = centre[i]; return xa + (xb - xa) * (y - ya) / (yb - ya); } return centre[centre.length - 1][1]; };
+  const slices = []; let parent = root;
+  for (let k = 0; k < K; k++) {
+    const ya = Y0 + (Y1 - Y0) * k / K, yb = Y0 + (Y1 - Y0) * (k + 1) / K, last = k === K - 1;
+    const arm = document.createElement('div'); arm.className = 'login-arm'; arm.style.transformOrigin = cx(ya).toFixed(2) + '% ' + ya.toFixed(2) + '%';
+    const im = document.createElement('img'); im.src = body.currentSrc || body.src; im.alt = ''; im.className = 'login-seg'; im.draggable = false;
+    const band = 'linear-gradient(to bottom,transparent ' + (ya - 1.2).toFixed(2) + '%,#000 ' + ya.toFixed(2) + '%' + (last ? ')' : ',#000 ' + (yb + .8).toFixed(2) + '%,transparent ' + (yb + .8).toFixed(2) + '%)');
+    const gate = 'linear-gradient(to right,transparent 48%,#000 48%)';
+    im.style.webkitMaskImage = im.style.maskImage = band + ',' + gate;
+    arm.append(im); parent.append(arm); parent = arm; slices.push(arm);
+  }
+  mascot.classList.add('is-live');
+  const segs = slices, DEG = 180 / Math.PI;
   let px = 0, py = 0;                       // pointer, -1..1 around the octopus
   const eye = eyes.map((_, i) => ({ x: 0, y: 0, vx: 0, vy: 0, k: i ? .16 : .22, c: i ? .5 : .56, blink: 1 }));
   const ang = Array(N).fill(0), vel = Array(N).fill(0);
@@ -143,8 +159,10 @@
       vel[i] += ((target - ang[i]) * k - c * vel[i]) * dt;
       ang[i] = clamp(ang[i] + vel[i] * dt, -14, 14);
     }
-    // The top segment is rigid (it stays part of the head); bending starts at the second one, so nothing of the static picture can peek out behind a rotated arm.
-    for (let i = 0; i < N; i++) { const v = i === 0 ? 0 : (i === 1 ? ang[1] * 1.15 : (ang[i] - ang[i - 1]) * 1.4); segs[i].style.setProperty('--a', clamp(v, -20, 20).toFixed(2) + 'deg'); }
+    // Smooth bend: the four spring angles are control points along the arm; every slice gets the difference of the interpolated angle.
+    const ctl = [0, ang[1] * 1.15, ang[2] * 1.15, ang[3] * 1.15];
+    const A = s => { const t = clamp(s, 0, 1) * 3, i = Math.min(2, Math.floor(t)), f0 = t - i, f = f0 * f0 * (3 - 2 * f0); return ctl[i] + (ctl[i + 1] - ctl[i]) * f; };
+    for (let k = 0; k < K; k++) segs[k].style.setProperty('--a', clamp(A((k + 1) / K) - A(k / K), -3, 3).toFixed(3) + 'deg');
     raf = requestAnimationFrame(step);
   }
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !raf) { last = 0; raf = requestAnimationFrame(step); } }, { threshold: .05 }).observe(mascot);
