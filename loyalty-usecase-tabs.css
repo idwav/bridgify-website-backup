@@ -2,3 +2,8 @@
 
 /* Keep complete copy available when scripting is unavailable. */
 html:not(.lu-enhanced) .lu-explanation{grid-template-rows:1fr;opacity:1}
+
+/* scroll-driven: pinned from the top of the section */
+.lu-pin{position:relative;height:calc(100svh * 2.7)}
+.lu-sticky{position:sticky;top:88px;padding-top:16px}
+.lu-pin.is-flat{height:auto}.lu-pin.is-flat .lu-sticky{position:static;padding-top:0}

@@ -24,7 +24,7 @@ if(perf){
  let timers=[],current=null,visible=false,manual=false;
  const clear=()=>{timers.forEach(clearTimeout);timers=[]};
  const at=(ms,fn)=>timers.push(setTimeout(fn,ms));
- const flat=()=>reducedMotion.matches||innerHeight<620||sticky.offsetHeight+(parseFloat(getComputedStyle(sticky).top)||0)>innerHeight-16;
+ const flat=()=>{const h=sticky.offsetHeight;sticky.style.top=Math.max(0,Math.min(88,innerHeight-h-12))+'px';return h>innerHeight-8};
  function play(tab){clear();current=tab;perf.dataset.tab=tab;tabs.forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===tab)));
   perf.classList.remove('is-run','hl-timeout','hl-retry','hl-monitor');void perf.offsetWidth;
   if(reducedMotion.matches){perf.classList.add('is-run','hl-timeout','hl-retry','hl-monitor');return}

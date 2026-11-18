@@ -50,7 +50,7 @@ html body #market-signal > div.lm2-grid:nth-child(2) > ol.lm2-list:nth-child(1){
 .lm2-stage{gap:clamp(36px,5vh,52px)}
 
 /* Scroll-driven: the stage is pinned, and the page's scroll moves one surface at a time (like the pinned scenes elsewhere). */
-.lm2-pin{position:relative;height:calc(100svh * 2.1)}
+.lm2-pin{position:relative;height:calc(100svh * 2.6)}
 .lm2-sticky{position:sticky;top:88px;padding-top:24px}
 .lm2-pin.is-flat{height:auto}.lm2-pin.is-flat .lm2-sticky{position:static}
 .lm2-list li:after{transition:none!important}

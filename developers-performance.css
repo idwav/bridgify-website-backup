@@ -38,7 +38,7 @@ html body .dp2 .dp2-tabs button{background:transparent!important;color:#d3c1b8!i
 html body .dp2 .dp2-tabs button[aria-selected=true]{background:linear-gradient(120deg,#f46649,#ff9a78)!important;color:#180f10!important;border-color:transparent!important;box-shadow:0 6px 20px #f4664944!important}
 
 /* Scroll-driven: the panel is pinned and the page's scroll switches Search / Checkout. */
-.dp2-pin{position:relative;height:calc(100svh * 1.7)}
+.dp2-pin{position:relative;height:calc(100svh * 2.1)}
 .dp2-sticky{position:sticky;top:88px;padding-top:24px}
 .dp2-pin.is-flat{height:auto}.dp2-pin.is-flat .dp2-sticky{position:static}
 

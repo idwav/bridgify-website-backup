@@ -16,7 +16,9 @@
     [[x0, y0], [x1, y1]].forEach(([x, y]) => mk('circle', { cx: x, cy: y, r: 3.5, fill: '#eee9de', stroke: '#f46649', 'stroke-width': 1.2 }, svg));
     dots = F ? Array.from({ length: 9 }, (_, i) => mk('circle', { r: F.radius(i), fill: '#fff8f1', stroke: '#f46649', 'stroke-width': .7, opacity: 0 }, svg)) : [];
   }
-  const pin = grid.closest('.lm2-pin'), flat = () => reduced.matches || innerHeight < 620 || grid.closest('.lm2-sticky').offsetHeight + (parseFloat(getComputedStyle(grid.closest('.lm2-sticky')).top) || 0) > innerHeight - 16;
+  const pin = grid.closest('.lm2-pin'), sticky = grid.closest('.lm2-sticky');
+  const fit = () => { const h = sticky.offsetHeight; sticky.style.top = Math.max(0, Math.min(88, innerHeight - h - 12)) + 'px'; return h > innerHeight - 8; };
+  const flat = () => fit();
   function set(n) {
     if (n === step && grid.classList.contains('is-live')) return;
     step = n; grid.dataset.step = n; stepAt = -1; grid.classList.add('is-live');
@@ -25,12 +27,12 @@
   }
   function fromScroll() {
     if (flat()) { pin.classList.add('is-flat'); return; } pin.classList.remove('is-flat');
-    const r = pin.getBoundingClientRect(), span = Math.max(1, pin.offsetHeight - grid.closest('.lm2-sticky').offsetHeight - parseFloat(getComputedStyle(grid.closest('.lm2-sticky')).top));
-    const p = Math.max(0, Math.min(.999, -(r.top - parseFloat(getComputedStyle(grid.closest('.lm2-sticky')).top)) / span)), n = Math.min(items.length, Math.floor(p * items.length) + 1);
+    const r = pin.getBoundingClientRect(), span = Math.max(1, pin.offsetHeight - sticky.offsetHeight - parseFloat(getComputedStyle(sticky).top));
+    const p = Math.max(0, Math.min(.999, -(r.top - parseFloat(getComputedStyle(sticky).top)) / span)), n = Math.min(items.length, Math.floor(p * items.length) + 1);
     items.forEach((li, i) => li.style.setProperty('--p', i + 1 < n ? 1 : i + 1 === n ? (p * items.length - i) : 0));
     set(n);
   }
-  items.forEach((li, i) => { const pick = () => { if (flat()) { set(i + 1); return; } const r = pin.getBoundingClientRect(), span = pin.offsetHeight - grid.closest('.lm2-sticky').offsetHeight - parseFloat(getComputedStyle(grid.closest('.lm2-sticky')).top); scrollTo({ top: scrollY + r.top - parseFloat(getComputedStyle(grid.closest('.lm2-sticky')).top) + span * (i + .5) / items.length, behavior: 'smooth' }); }; li.addEventListener('click', pick); li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } }); });
+  items.forEach((li, i) => { const pick = () => { if (flat()) { set(i + 1); return; } const r = pin.getBoundingClientRect(), span = pin.offsetHeight - sticky.offsetHeight - parseFloat(getComputedStyle(sticky).top); scrollTo({ top: scrollY + r.top - parseFloat(getComputedStyle(sticky).top) + span * (i + .5) / items.length, behavior: 'smooth' }); }; li.addEventListener('click', pick); li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } }); });
   addEventListener('scroll', fromScroll, { passive: true }); addEventListener('resize', fromScroll); reduced.addEventListener('change', fromScroll);
   new ResizeObserver(build).observe(stage); document.fonts?.ready.then(build);
   set(1); fromScroll();
