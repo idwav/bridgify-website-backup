@@ -1,10 +1,10 @@
 /* Open roles: one list that feeds both the Careers board and the job page (job.html?role=<slug>).
    To publish a role: add an entry below with published:true. Nothing else needs to change.
-   Roles marked sample:true are template content: they only show with ?sample=1 and are never listed publicly. */
+   Roles marked sample:true are template content: they are listed so the team can see how roles look, carry a "Sample role" note and stay noindex. Set published:false to hide them, or replace them with real roles. */
 window.BRIDGIFY_ROLES = [
   {
     slug: 'senior-backend-engineer',
-    published: false,
+    published: true,
     sample: true,
     title: 'Senior Backend Engineer',
     team: 'engineering',
@@ -35,7 +35,7 @@ window.BRIDGIFY_ROLES = [
   },
   {
     slug: 'product-designer',
-    published: false,
+    published: true,
     sample: true,
     title: 'Product Designer',
     team: 'product',
@@ -63,7 +63,7 @@ window.BRIDGIFY_ROLES = [
   },
   {
     slug: 'partnerships-manager',
-    published: false,
+    published: true,
     sample: true,
     title: 'Partnerships Manager',
     team: 'commercial',
