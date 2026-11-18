@@ -42,6 +42,11 @@
   html body .ys-hero .ys-copy > h1#ys-title { max-width: 13em !important; margin-left: auto !important; margin-right: auto !important; text-wrap: balance !important; }
   html body .ys-hero .ys-copy > h1#ys-title > span { display: block !important; text-wrap: balance !important; }
 }
+/* "Recommend experiences throughout the trip": the heading block had a faint coral rule under it (border-bottom on
+   header.rc-head) that read as a line under the button (owner, 18 Nov 2026). Removed. */
+@media (min-width: 600px) {
+  html body #section-3 header.rc-head { border-bottom: 0 !important; }
+}
 
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {
