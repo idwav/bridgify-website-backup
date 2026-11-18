@@ -67,7 +67,13 @@ def inject_lists(page, system=True):
     return [c for c in css if os.path.exists(os.path.join(LAYER, c))], [j for j in js if os.path.exists(os.path.join(LAYER, j))]
 
 
+async def strip_published(pg, page):
+    from published import route_stripped
+    await route_stripped(pg, f'**/{"" if page == "index-v2" else page + ".html"}?*')
+
+
 async def load(pg, page, layer, system=True):
+    await strip_published(pg, page)
     await pg.goto(f'http://localhost:8081/{"" if page == "index-v2" else page + ".html"}?version=2', wait_until='networkidle')
     if layer:
         css, js = inject_lists(page, system)

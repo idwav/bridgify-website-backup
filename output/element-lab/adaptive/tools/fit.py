@@ -188,6 +188,8 @@ async def main():
             ctx = await br.new_context(**d); pg = await ctx.new_page()
             for page in a.pages.split(','):
                 name = page.replace('.html', '')
+                sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'system')); from published import route_stripped
+                await route_stripped(pg, f'**/{"" if page == "index-v2.html" else page}?*')
                 await pg.goto(f'{a.base}/{"" if page == "index-v2.html" else page}?version=2', wait_until='networkidle')
                 await inject(pg, name); await pg.add_style_tag(content=REVEAL)
                 h = await pg.evaluate('document.body.scrollHeight')
