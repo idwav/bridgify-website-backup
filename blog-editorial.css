@@ -55,3 +55,14 @@ body[data-copy-page="insights"]{background:#180f10;color:#eee9de}.blog-main{padd
 .blog-card-copy{padding:22px}
 .blog-card h3{font-size:clamp(19px,1.5vw,23px);line-height:1.25;margin:12px 0 10px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
 .blog-card-copy>p{font-size:15px;line-height:1.55;margin:0 0 12px;-webkit-line-clamp:3}
+
+/* Four articles side by side on desktop, three on small laptops and iPad landscape, two on iPad portrait. */
+.blog-grid{gap:24px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:1000px){.blog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1280px){.blog-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(min-width:1000px){
+.blog-card-image{aspect-ratio:16/9}
+.blog-card-copy{padding:20px}
+.blog-card h3{font-size:clamp(18px,1.35vw,21px);margin:10px 0 8px}
+.blog-card-copy>p{font-size:14.5px;line-height:1.5;margin:0 0 10px}
+}
