@@ -4,16 +4,7 @@
   const $ = (q, r = document) => r.querySelector(q);
   /* What good looks like: the long paragraph folds to three lines (Read more opens it). */
   A.fold($('#performance .dev-heading > div > p'), 3);
-  /* The two moments (Search, Checkout) are stations (MOBILE-RULES M4): each takes the panel's full width, so nothing
-     is cut; once the row reaches the middle of the screen the page's scroll switches it from Search to Checkout
-     (one slide, never half of each), then goes on down to the reliability rows. */
-  const row = $('#performance .dev-moments');
-  if (row) {
-    A.scroller(row, {card: '100%'});
-    const dots = row.nextElementSibling && row.nextElementSibling.classList.contains('ad-dots') ? row.nextElementSibling : null;
-    if (A.pin) A.pin([row, dots], {steps: row.children.length, per: .6, className: 'ad-dm-pin',
-      onStep: i => { const it = row.children[i]; if (it) row.scrollTo({left: it.offsetLeft - row.offsetLeft, behavior: 'smooth'}); }});
-  }
+  /* The two moments (Search, Checkout) are two plain blocks, one above the other (the user's choice, 18 Nov 2026). */
 })();
 
 /* Hero on phones: as the reader scrolls, the code window rises over the hero copy (which stays and steps back, as on

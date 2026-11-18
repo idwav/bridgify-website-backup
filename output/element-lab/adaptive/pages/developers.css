@@ -17,18 +17,17 @@
   html body #section-2 .dev-docs .dev-icon{width:28px!important;height:28px!important}
   html body #section-2 .dev-docs>article:not(#ad-x)>h3{text-align:left!important;margin:0!important;font-size:18px!important;line-height:1.3!important;font-weight:500!important}
 
-  /* 3 · What good looks like: Search and Checkout scroll sideways at full size; the reliability rows follow. */
-  html body #performance .dev-moments:not(#ad-x){align-items:start!important}
-  html body #performance .dev-moments>article{scroll-snap-align:start}
-  /* stations: each moment fills the panel's width (no cut neighbour); the pinned stage sits on the panel's ground */
-  html body #performance .dev-moments.ad-scroller:not(#ad-x){margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important;scroll-padding:0!important;gap:24px!important;width:100%!important;box-sizing:border-box!important}
-  html body #performance .dev-reliability{margin-top:16px!important;padding-top:16px!important;gap:8px!important}
+  /* 3 · What good looks like: Search and Checkout are two blocks, one above the other, with a line between them. */
+  html body #performance .dev-moments:not(#ad-x){display:flex!important;flex-direction:column!important;gap:0!important;overflow:visible!important}
+  html body #performance .dev-moments>article:not(#ad-x){width:auto!important;padding:0!important;margin:0!important;border:0!important}
+  html body #performance .dev-moments>article+article:not(#ad-x){margin-top:24px!important;padding-top:24px!important;border-top:1px solid rgba(244,102,73,.22)!important}
+  html body #performance .dev-moments::before,html body #performance .dev-moments::after{display:none!important}
+  html body #performance .dev-reliability{margin-top:24px!important;padding-top:16px!important;gap:8px!important}
   html body #performance .dev-reliability>div{min-height:44px!important;height:44px!important}
   /* Checkout: the three steps wrap in rows instead of one column, so the card is as tall as Search and the scroller has no empty block. */
   html body #performance .dev-booking-flow:not(#ad-x){display:flex!important;flex-direction:row!important;align-items:center!important;flex-wrap:wrap!important;gap:8px!important;justify-content:flex-start!important;margin-top:12px!important}
   html body #performance .dev-booking-flow .dev-chip:not(#ad-x){width:auto!important;min-width:0!important;flex:none!important;font-size:14px!important;padding:8px 10px!important;min-height:0!important;white-space:nowrap}
   html body #performance .dev-booking-flow>b{font-size:16px!important}
-  html body #performance .dev-checkout-demo img{height:88px!important;object-fit:cover}
 }
 
 /* Side margins: every section's content sits on the 24px gutter (the page's own padding varied 16–26px with width). */
