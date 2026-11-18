@@ -44,3 +44,30 @@
   html body #section-2 .dev-docs .dev-docs-wires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 }
 @media (max-width: 1100px) { html body #section-2 .dev-docs .dev-docs-wires { display: none; } }
+
+/* Idan review: "We started here" rows and Developers "Find what you need" read like "Who it's for" on White Label:
+   flat, hairline dividers, coral outlined icon box, number at the edge, and no hover effect. */
+@media (min-width: 600px) {
+  html body .lp-feature .lp-feature-photo, html body .lp-feature:after { display: none !important; }
+  html body .lp-feature:is(:hover, :focus-visible) { color: inherit !important; }
+  html body .lp-feature:is(:hover, :focus-visible) .lp-feature-number { color: #998476 !important; }
+  html body .lp-feature:is(:hover, :focus-visible) > svg { stroke: #f46649 !important; }
+  html body .lp-feature > svg { box-sizing: border-box; width: 56px; height: 56px; padding: 14px; border: 1px solid #f4664980; border-radius: 13px; color: #cf5035; }
+  html body .lp-feature { min-height: 112px; }
+  html body .lp-feature:focus-visible { outline: 0 !important; }
+
+  html body #section-2 .dev-docs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 !important; border-top: 1px solid #b95d3833; border-bottom: 1px solid #b95d3833; padding-bottom: 0 !important; }
+  html body #section-2 .dev-docs .dev-docs-wires { display: none !important; }
+  html body #section-2 .dev-docs article { position: relative; display: flex; flex-direction: column; min-height: clamp(220px, 26vh, 280px); padding: 30px 32px !important; border-left: 1px solid #b95d3833 !important; background: none !important; box-shadow: none !important; transform: none !important; transition: none !important; }
+  html body #section-2 .dev-docs article:first-child { border-left: 0 !important; }
+  html body #section-2 .dev-docs article:before, html body #section-2 .dev-docs article:after { display: none !important; }
+  html body #section-2 .dev-docs .dev-doc-icon { display: contents; }
+  html body #section-2 .dev-docs .dev-doc-icon > span { position: absolute; top: 32px; right: 32px; font: 500 12px/1 Sofia, sans-serif; letter-spacing: .15em; color: #998476; }
+  html body #section-2 .dev-docs .dev-doc-icon > svg.dev-icon { box-sizing: border-box; width: 56px; height: 56px; padding: 14px; border: 1px solid #f4664980; border-radius: 13px; color: #cf5035; margin-bottom: 0; }
+  html body #section-2 .dev-docs h3 { margin-top: 44px; }
+}
+@media (min-width: 600px) and (max-width: 1100px) {
+  html body #section-2 .dev-docs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  html body #section-2 .dev-docs article:nth-child(4) { border-left: 0 !important; }
+  html body #section-2 .dev-docs article:nth-child(n+4) { border-top: 1px solid #b95d3833; }
+}
