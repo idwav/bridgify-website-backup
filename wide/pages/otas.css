@@ -73,6 +73,15 @@
 @media (min-width: 600px) {
   html body:not(#bf-lab) section#section-1.ys-hero { min-height: 100svh !important; }
 }
+/* Split headings are a desktop pattern (from 1024: title on columns 1-7, intro from column 7). On tablets these
+   headings stayed split, so the title sat centred against a long, narrow paragraph and the section seemed to start
+   late (owner, 18 Nov 2026). On tablets they stack: title, then the intro under it (title→text from the table). */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) :is(#section-3 header.rc-head) { display: flex !important; flex-direction: column !important; align-items: flex-start !important; justify-content: flex-start !important; column-gap: 0 !important; row-gap: 0 !important; }
+  html body:not(#bf-lab) :is(#section-3 header.rc-head) > * { width: auto !important; max-width: none !important; margin-left: 0 !important; grid-column: auto !important; align-self: stretch !important; }
+  /* the intro's desktop rule on its left (a 1px line and its padding) goes with the split */
+  html body:not(#bf-lab) :is(#section-3 header.rc-head) > :is(p, div) { border-left: 0 !important; padding-left: 0 !important; }
+}
 
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {
@@ -94,10 +103,10 @@
   html body #section-2 > div:nth-child(1) > div:nth-child(2) { margin-top: 48px !important; margin-bottom: 0px !important; }
   html body #section-3 { padding-top: 80px !important; padding-bottom: 80px !important; row-gap: 0px !important; }
   html body #section-3 > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
-  html body #section-3 > header:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
-  html body #rc-title { margin-top: 16px !important; }
-  html body #section-3 > header:nth-child(2) > div:nth-child(2) { margin-bottom: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
-  html body #section-3 > header:nth-child(2) > div:nth-child(2) > p:nth-child(1) { margin-bottom: 0px !important; }
+  html body #section-3 > header:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; row-gap: 0px !important; }
+  html body #rc-title { margin-top: 16px !important; margin-bottom: 0px !important; }
+  html body #section-3 > header:nth-child(2) > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; row-gap: 0px !important; }
+  html body #section-3 > header:nth-child(2) > div:nth-child(2) > p:nth-child(1) { margin-top: 24px !important; margin-bottom: 0px !important; }
   html body #section-3 > header:nth-child(2) > div:nth-child(2) > a:nth-child(2) { margin-top: 40px !important; margin-bottom: 0px !important; }
   html body #section-3 > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; }
   html body #section-4 { padding-top: 80px !important; padding-bottom: 80px !important; row-gap: 0px !important; }

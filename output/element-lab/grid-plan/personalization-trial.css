@@ -38,3 +38,12 @@
 @media (min-width: 1024px) {
   html body :is(section#section-2, section#section-3, section#section-4) { min-height: 0 !important; justify-content: flex-start !important; }
 }
+/* Split headings are a desktop pattern (from 1024: title on columns 1-7, intro from column 7). On tablets these
+   headings stayed split, so the title sat centred against a long, narrow paragraph and the section seemed to start
+   late (owner, 18 Nov 2026). On tablets they stack: title, then the intro under it (title→text from the table). */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) :is(#section-4 .embed-heading) { display: flex !important; flex-direction: column !important; align-items: flex-start !important; justify-content: flex-start !important; column-gap: 0 !important; row-gap: 0 !important; }
+  html body:not(#bf-lab) :is(#section-4 .embed-heading) > * { width: auto !important; max-width: none !important; margin-left: 0 !important; grid-column: auto !important; align-self: stretch !important; }
+  /* the intro's desktop rule on its left (a 1px line and its padding) goes with the split */
+  html body:not(#bf-lab) :is(#section-4 .embed-heading) > :is(p, div) { border-left: 0 !important; padding-left: 0 !important; }
+}
