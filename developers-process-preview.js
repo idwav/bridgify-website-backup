@@ -2,7 +2,7 @@
  const section=document.querySelector('#section-2');
  if(!section)return;
  const rows=[...section.querySelectorAll('.step')];
- const images=["assets/enterprise-infrastructure-photo.png", "assets/enterprise-analytics-photo.png", "assets/enterprise-support-photo.png"];
+ const images=["assets/v2/23-infrastructure-1600.jpg", "assets/enterprise-analytics-photo.png", "assets/enterprise-support-photo.png"];
  const captions=["Getting started", "API reference", "Access & implementation"];
  const preview=document.createElement('div');preview.className='process-preview';preview.setAttribute('aria-hidden','true');
  const img=document.createElement('img');img.alt='';const caption=document.createElement('span');preview.append(img,caption);section.append(preview);

@@ -46,7 +46,7 @@
       <div class="nz-ba-layer nz-after"><span class="nz-ba-tag">After · 1 Bridgify object</span>${cleanCard()}
         <div class="nz-book nz-ba-book" aria-hidden="true">
           <div class="nz-book-bar">YourBrand<span>Experiences</span></div>
-          <img src="assets/hero-experiences/colosseum.jpg" alt="">
+          <img src="assets/v2/08-colosseum-480.jpg" alt="">
           <div class="nz-book-body"><small>Attraction · Rome</small><h5>Colosseum entry</h5><p>1 hour · Free cancellation up to 24h</p>
             <div class="nz-book-buy"><strong>€39 <small>per person</small></strong><span>Book now</span></div></div>
         </div></div>

@@ -1,7 +1,7 @@
 (()=>{
 const root=document.querySelector('.market-rows');if(!root)return;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');let paused=reduced.matches;
-const locales=[['France · Français','Paris','Français','DÉCOUVRIR','Des expériences à partager.','assets/paris-romantic-experience.png','fr'],['Italia · Italiano','Roma','Italiano','ESPLORA','Esperienze da condividere.','assets/api-card-colosseum.jpg','it'],['Ελλάδα · Ελληνικά','Σαντορίνη','Ελληνικά','ΑΝΑΚΑΛΥΨΤΕ','Εμπειρίες για να μοιραστείτε.','assets/hero-santorini.jpg','gr']];
+const locales=[['France · Français','Paris','Français','DÉCOUVRIR','Des expériences à partager.','assets/v2/01-seine-cruise-1600.jpg','fr'],['Italia · Italiano','Roma','Italiano','ESPLORA','Esperienze da condividere.','assets/v2/08-colosseum-960.jpg','it'],['Ελλάδα · Ελληνικά','Σαντορίνη','Ελληνικά','ΑΝΑΚΑΛΥΨΤΕ','Εμπειρίες για να μοιραστείτε.','assets/v2/13-santorini-960.jpg','gr']];
 const amounts=['$100.00','€90.00','£80.00'];
 function reveal(el){el.classList.remove('mr-changing');void el.offsetWidth;el.classList.add('mr-changing')}
 function update(row,i){const kind=row.dataset.demo;row.dataset.index=i;row.querySelectorAll('button').forEach((b,n)=>b.setAttribute('aria-pressed',String(n===i)));

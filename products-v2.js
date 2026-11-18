@@ -76,7 +76,7 @@
     section.querySelectorAll('[data-interest]').forEach(chip => chip.setAttribute('aria-pressed', String(chip === button)));
     const first = section.querySelector('.v2p-culture');
     const food = interest === 'food';
-    first.querySelector('img').src = food ? 'assets/hero-food.jpg' : 'assets/api-card-colosseum.jpg';
+    first.querySelector('img').src = food ? 'assets/hero-food.jpg' : 'assets/v2/08-colosseum-960.jpg';
     first.querySelector('h4').textContent = food ? 'Local Cooking Class' : 'Colosseum & Ancient Rome';
     first.querySelector('p').textContent = food ? 'Food experience · Rome, Italy' : 'Guided tour · Rome, Italy';
     first.querySelector('.v2p-tag').textContent = food ? '♧  Food' : '♜  Culture';

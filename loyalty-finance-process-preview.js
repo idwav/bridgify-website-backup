@@ -2,7 +2,7 @@
  const section=document.querySelector('#section-3');
  if(!section)return;
  const rows=[...section.querySelectorAll('.step')];
- const images=["assets/api-card-florence.jpg", "assets/api-attraction.png", "assets/api-concert.png"];
+ const images=["assets/v2/09-florence-960.jpg", "assets/v2/12-london-eye-1600.jpg", "assets/api-concert.png"];
  const captions=["Cardholders", "Wallet users", "Members"];
  const preview=document.createElement('div');preview.className='process-preview';preview.setAttribute('aria-hidden','true');
  const img=document.createElement('img');img.alt='';const caption=document.createElement('span');preview.append(img,caption);section.append(preview);

@@ -2,7 +2,7 @@
  const section=document.querySelector('#section-3');
  if(!section)return;
  const rows=[...section.querySelectorAll('.step')];
- const images=["assets/api-card-alps.jpg", "assets/api-hotel.png", "assets/api-card-colosseum.jpg"];
+ const images=["assets/v2/10-alps-960.jpg", "assets/v2/17-hotel-london-1600.jpg", "assets/v2/08-colosseum-960.jpg"];
  const captions=["Planning", "Booking", "At the destination"];
  const preview=document.createElement('div');preview.className='process-preview';preview.setAttribute('aria-hidden','true');
  const img=document.createElement('img');img.alt='';const caption=document.createElement('span');preview.append(img,caption);section.append(preview);
