@@ -69,10 +69,15 @@ body[data-copy-page="login"] .top .connect{background:#eee9de;color:#180f10}
 @media(max-width:480px){.login-mascot{width:min(62%,220px);right:-4%}}
 @media(prefers-reduced-motion:reduce){.login-eye{transition:none}}
 
-/* Octopus: more matte and stable. A solid backing under the translucent body (same silhouette), flatter highlights. */
-.login-mascot::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#e0662b 0%,#bf4a1d 55%,#8f3415 100%);-webkit-mask:url(assets/login-octopus.webp) center/100% 100% no-repeat;mask:url(assets/login-octopus.webp) center/100% 100% no-repeat;opacity:.92}
+/* Octopus: matte, see the tone filter in login.html. */
 .login-mascot img{position:relative;filter:url(#oct-matte)}
 .login-eye{z-index:1}
 
 /* soft warm glow around the octopus */
 .login-mascot{filter:drop-shadow(0 0 18px #f4664966) drop-shadow(0 0 46px #f4664933)}
+
+/* Follow the pointer: the eyes look at it, and the left arm (its own masked copy of the picture) reaches towards it. */
+.login-mascot .login-body{-webkit-mask-image:radial-gradient(ellipse 23.5% 23.7% at 29.3% 53.7%,transparent 70%,#000 71%);mask-image:radial-gradient(ellipse 23.5% 23.7% at 29.3% 53.7%,transparent 70%,#000 71%)}
+.login-mascot .login-arm{position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:radial-gradient(ellipse 23.5% 23.7% at 29.3% 53.7%,#000 70%,transparent 100%);mask-image:radial-gradient(ellipse 23.5% 23.7% at 29.3% 53.7%,#000 70%,transparent 100%);transform-origin:41.6% 51%;transform:rotate(var(--arm,0deg));will-change:transform}
+.login-eye{translate:var(--ex,0px) var(--ey,0px)}
+@media(prefers-reduced-motion:reduce){.login-mascot .login-arm{transform:none}.login-eye{translate:none}}
