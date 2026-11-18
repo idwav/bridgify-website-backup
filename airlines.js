@@ -4,30 +4,8 @@
   const compact = matchMedia('(max-width: 900px)');
   const hero = document.querySelector('.al-hero');
   const earn = document.querySelector('.al-earn');
-  const nav = document.querySelector('#airline-site-nav');
-  const header = document.querySelector('.top');
-  const menu = document.querySelector('.al-mobile-toggle');
   const entered = new Set();
   const running = new Set();
-  document.documentElement.classList.add('al-nav-ready');
-
-  function setMenu(open) {
-    header.dataset.menuOpen = String(open);
-    menu.setAttribute('aria-expanded', String(open));
-    menu.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-    nav.inert = compact.matches && !open;
-  }
-  menu.addEventListener('click', () => setMenu(header.dataset.menuOpen !== 'true'));
-  header.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && header.dataset.menuOpen === 'true') {
-      setMenu(false);
-      menu.focus();
-    }
-  });
-  nav.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
-  document.addEventListener('click', event => { if (!header.contains(event.target)) setMenu(false); });
-  compact.addEventListener('change', () => setMenu(false));
-  setMenu(false);
 
   function animate(element, keyframes, options) {
     if (!element || reduced.matches || !element.animate) return null;
