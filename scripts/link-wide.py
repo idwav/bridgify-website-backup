@@ -16,7 +16,7 @@ V = '2'
 PAGES = ['index-v2', 'api', 'marketplace', 'personalization', 'otas', 'airlines', 'hotels', 'loyalty-finance',
          'super-apps', 'travel-technology', 'developers', 'insights', 'press', 'about-us', 'careers', 'contact']
 SHARED = ['interim.css', 'tokens.css', 'type.css', 'header.css', 'buttons.css', 'shared.css']
-OWN = {'index-v2': True}   # page: True once its own step is approved (adds grid.css, split.css, pages/<page>.css and .js)
+OWN = {'index-v2': True, 'api': True}   # page: True once its own step is approved (adds grid.css, split.css, pages/<page>.css and .js)
 START, END = '<!-- wide: tablet + desktop layer -->', '<!-- /wide -->'
 
 
