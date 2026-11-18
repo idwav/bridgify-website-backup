@@ -29,7 +29,7 @@ window.BridgifyRoles = {
      "div.ab-hero-copy > div.ab-proof"
     ],
     [
-     "visual",
+     "content",
      "div.ab-hero-grid > div.wm"
     ]
    ],
