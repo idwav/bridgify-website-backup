@@ -1,0 +1,32 @@
+/* Press · adaptive layer (phones). Spacing between roles comes from system/tokens.css via the role map. */
+@media (max-width:599px){
+  /* In the news: 31 cards were ~640px each (a placeholder repeating the publication's name, a 24px headline and the
+     full summary). On phones each card is compact: name and date, an 18px headline, two lines of summary (Read more opens it), the link.
+     The name stays in the card's meta line; the summary is only clipped, the full text is one tap away. */
+  html body .nr-coverage .nr-card>.nr-image:not(#ad-x){display:block!important;height:0!important;overflow:hidden!important;visibility:hidden!important;margin:0!important;padding:0!important;border:0!important}
+  html body .nr-coverage .nr-card-copy:not(#ad-x){padding:16px 18px!important;gap:8px!important}
+  html body .nr-coverage .nr-card h3:not(#ad-x){font-size:18px!important;line-height:1.3!important;font-weight:500!important;margin:0!important}
+  html body .nr-coverage .nr-card p:not(#ad-x){margin:0!important;font-size:15px!important;line-height:24px!important}
+  html body .nr-coverage .nr-card .nr-link:not(#ad-x){margin-top:0!important}
+  html body .nr-coverage .nr-grid:not(#ad-x){gap:12px!important}
+}
+/* hero: the page's own top padding goes; the shared header rule puts the label 48 under the bar */
+@media (max-width:599px){ html body :is(.nr-main,.nr-hero):not(#ad-x){padding-top:0!important;margin-top:0!important} }
+
+/* section titles at the one phone title size (28px Chillax 400), like every other page */
+@media (max-width:599px){ html body .nr-about h2:not(#ad-x):not(#ad-y),html body .nr-coverage h2:not(#ad-x):not(#ad-y){font-family:Chillax,sans-serif!important;font-size:var(--ad-title)!important;font-weight:400!important;letter-spacing:-.7px!important;line-height:1.15!important} }
+
+/* type roles (WORKFLOW.md §3): hero title 28/400, body 15/24, labels 11 */
+@media (max-width:599px){
+  html body .nr-intro h1:not(#ad-x):not(#ad-y){font-family:Chillax,sans-serif!important;font-size:var(--ad-title)!important;font-weight:400!important;line-height:1.15!important;letter-spacing:-.7px!important}
+  html body .nr-intro h1 span{font-size:inherit!important}
+  html body :is(.nr-intro,.nr-feature,.nr-about,.nr-release,.nr-contact) p:not(#ad-x){font-size:15px!important;line-height:24px!important}
+  html body :is(.nr-intro,.nr-feature,.nr-release) .eyebrow:not(#ad-x){font-size:11px!important;line-height:15px!important}
+  html body .nr-coverage .nr-meta:not(#ad-x){font-size:11px!important}
+}
+/* the two feature cards (C10 interview, HBX announcement): card titles 19/500, not section titles */
+@media (max-width:599px){
+  html body :is(#nr-video-title,.nr-release h2):not(#ad-x):not(#ad-y):not(#ad-z){font-family:Chillax,sans-serif!important;font-size:19px!important;font-weight:500!important;line-height:1.3!important;letter-spacing:0!important}
+}
+/* the announcement is a framed card, not a section: card padding, not 64px section padding */
+@media (max-width:599px){ html body .nr-release:not(#ad-x):not(#ad-y){padding:24px 20px!important} }
