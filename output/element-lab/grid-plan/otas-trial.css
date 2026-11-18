@@ -45,3 +45,29 @@
 @media (min-width: 600px) {
   html body #section-3 header.rc-head { border-bottom: 0 !important; }
 }
+/* Hero frame (owner, 18 Nov 2026: sections started too late or too early on tablets). Every hero: the label starts
+   --bf-hero-top under the header (tablet: 123 + 64; an iPad Pro held upright has the desktop header: 88 + 80) and the
+   hero ends section-y under its last element. On the desktop the hero keeps its own height and centring; only its
+   bottom gets section-y, so its demo never runs into the next section. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) section#section-1 { min-height: 0 !important; height: auto !important; justify-content: flex-start !important; padding-top: calc(123px + var(--bf-hero-top)) !important; padding-bottom: var(--bf-section-y) !important; }
+}
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body:not(#bf-lab) section#section-1 { min-height: 0 !important; height: auto !important; justify-content: flex-start !important; padding-top: calc(88px + var(--bf-hero-top)) !important; padding-bottom: var(--bf-section-y) !important; }
+}
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) section#section-1 { padding-bottom: var(--bf-section-y) !important; }
+}
+/* "Enterprise multi-source" was a screen tall on the desktop (content 126px from the edges); under "Recommend
+   experiences" an empty placeholder (.process-preview: an empty image and an empty line) added 67px */
+@media (min-width: 1024px) {
+  html body section#section-2 { min-height: 0 !important; justify-content: flex-start !important; }
+}
+@media (min-width: 600px) {
+  html body #section-3 .process-preview:not(:has(img[src])) { display: none !important; }
+}
+/* OTAs keeps its hero at least a screen tall on every size (owner, 18 Nov 2026: the next section must not show
+   inside the hero); the frame above sets its top and bottom */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) section#section-1.ys-hero { min-height: 100svh !important; }
+}

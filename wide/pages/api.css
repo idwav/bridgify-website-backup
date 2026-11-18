@@ -43,6 +43,14 @@
 @media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
   html body #top .hero-copy > h2 { font-size: clamp(48px, 5.5vw, 56px) !important; }
 }
+/* Hero frame (owner, 18 Nov 2026): the label starts --bf-hero-top under the header on tablets (123 + 64) and on an
+   iPad Pro held upright (88 + 80), as on every page */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) section#top { padding-top: calc(123px + var(--bf-hero-top)) !important; }
+}
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body:not(#bf-lab) section#top { padding-top: calc(88px + var(--bf-hero-top)) !important; }
+}
 
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {

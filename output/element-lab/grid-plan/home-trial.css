@@ -10,3 +10,11 @@
   html body :is(#products.pr2, #opportunity-study.pb2, .sec2, #faq.copy-faq, .hc2, #why-bridgify) { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
   html body #marketplace-results .v2e-copy { padding-left: max(0px, calc(var(--try-margin) - (100vw - min(100vw, 100svh * 1672 / 941)) / 2)) !important; }
 }
+/* Hero frame (owner, 18 Nov 2026): the label starts --bf-hero-top under the header on tablets (123 + 64) and on an
+   iPad Pro held upright (88 + 80), as on every page */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) section#home { padding-top: calc(123px + var(--bf-hero-top)) !important; }
+}
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body:not(#bf-lab) section#home { padding-top: calc(88px + var(--bf-hero-top)) !important; }
+}

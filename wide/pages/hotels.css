@@ -26,6 +26,29 @@
 @media (min-width: 600px) {
   html body #section-3 .hs-sticky { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
 }
+/* Hero frame (owner, 18 Nov 2026: sections started too late or too early on tablets). Every hero: the label starts
+   --bf-hero-top under the header (tablet: 123 + 64; an iPad Pro held upright has the desktop header: 88 + 80) and the
+   hero ends section-y under its last element. On the desktop the hero keeps its own height and centring; only its
+   bottom gets section-y, so its demo never runs into the next section. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) section#section-1 { min-height: 0 !important; height: auto !important; justify-content: flex-start !important; padding-top: calc(123px + var(--bf-hero-top)) !important; padding-bottom: var(--bf-section-y) !important; }
+}
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body:not(#bf-lab) section#section-1 { min-height: 0 !important; height: auto !important; justify-content: flex-start !important; padding-top: calc(88px + var(--bf-hero-top)) !important; padding-bottom: var(--bf-section-y) !important; }
+}
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) section#section-1 { padding-bottom: var(--bf-section-y) !important; }
+}
+/* "Make experiences part of the stay" is pinned (a screen-tall sticky frame) on the desktop. On an iPad Pro held
+   upright that left 399px above and below its content; there it is a plain section, as on tablets. */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body #section-3 { height: auto !important; }
+  html body #section-3 .hs-sticky { position: relative !important; top: auto !important; min-height: 0 !important; height: auto !important; }
+}
+/* "Offer local experiences" was a screen tall on large screens (content 101px from the edges at 1920) */
+@media (min-width: 1024px) {
+  html body section#section-2 { min-height: 0 !important; justify-content: flex-start !important; }
+}
 
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {

@@ -36,6 +36,10 @@
   html body #section-3.match-section .match-row > span { min-width: 0 !important; }
   html body #section-3.match-section .match-row b { white-space: normal !important; overflow: visible !important; text-overflow: clip !important; }
 }
+/* "Start with what the traveler has in mind" was a screen tall on the desktop (content 165px from the edges) */
+@media (min-width: 1024px) {
+  html body :is(section#section-2, section#section-3, section#section-4) { min-height: 0 !important; justify-content: flex-start !important; }
+}
 
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {
