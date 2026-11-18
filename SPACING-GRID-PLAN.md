@@ -481,3 +481,9 @@ python3 output/element-lab/grid-plan/refs.py
 - `api.html` מקבל את השכבה המלאה: קו התוכן המאושר, תקרה 1560, כותרות מפוצלות (`#whats-inside`, `#api-features`) וריווח אפוי מ־`wide/pages/api.css`. השינוי בעמוד עצמו הוא רק שורת ה־`<!-- wide -->`.
 - בדיקות: `grid-check.py --live --page=api` עובר 47/47; `build-wide.py --check` ו־`link-wide.py --check` עוברים; בטלפון כל 861 האלמנטים בדיוק באותו מקום; אין גלילה אופקית ב־390, 768, 1024, 1440 ו־1920.
 - צילומי לפני/אחרי: `output/element-lab/grid-plan/trial-space/6-3/`.
+
+### 6.4 · White-Label (marketplace) ו־AIyelet (personalization)
+- שני העמודים מקבלים את השכבה המלאה מ־`wide/pages/marketplace.css` ו־`wide/pages/personalization.css` (+ `personalization.js` להירו בטאבלט לאורך). השינוי בעמודים הוא רק שורת ה־`<!-- wide -->`.
+- בדיקות: `grid-check.py --live` עובר 47/47 בשני העמודים; `build-wide.py --check` ו־`link-wide.py --check` עוברים; בטלפון כל האלמנטים זהים (marketplace 919, personalization 548); אין גלילה אופקית ב־390–1920.
+- נמצא ולא תוקן (קיים גם לפני): ב־White-Label בטאבלט כותרת ההירו (h1) לא מוצגת.
+- צילומי לפני/אחרי: `output/element-lab/grid-plan/trial-space/6-4/`.
