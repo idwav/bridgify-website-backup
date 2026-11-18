@@ -96,18 +96,21 @@
   password.addEventListener('blur', () => { clearTimeout(peek); mascot.dataset.eyes = 'open'; });
 })();
 
-// The octopus follows the pointer: eyes shift towards it, the left arm tilts towards it. Fine pointers only, no reduced motion.
+// The octopus follows the pointer: eyes shift towards it, the right arm swings towards it on a soft spring. Fine pointers only, no reduced motion.
 (() => {
   const mascot = document.querySelector('.login-mascot');
   if (!mascot || !matchMedia('(pointer:fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const eyes = [...mascot.querySelectorAll('.login-eye')];
-  let tx = 0, ty = 0, x = 0, y = 0, raf = 0;
+  let tx = 0, ty = 0, x = 0, y = 0, arm = 0, armV = 0, raf = 0;
   const frame = () => {
     x += (tx - x) * .14; y += (ty - y) * .14;
-    mascot.style.setProperty('--arm', (-y * 7).toFixed(2) + 'deg');
+    // spring: eases in, a small overshoot, then settles
+    const target = -tx * 9;
+    armV += (target - arm) * .055; armV *= .8; arm += armV;
+    mascot.style.setProperty('--arm', arm.toFixed(2) + 'deg');
     const closed = mascot.dataset.eyes === 'closed';
     eyes.forEach(e => { e.style.setProperty('--ex', (closed ? 0 : x * 2.4).toFixed(2) + 'px'); e.style.setProperty('--ey', (closed ? 0 : y * 2).toFixed(2) + 'px'); });
-    raf = (Math.abs(tx - x) + Math.abs(ty - y) > .002) ? requestAnimationFrame(frame) : 0;
+    raf = (Math.abs(tx - x) + Math.abs(ty - y) > .002 || Math.abs(target - arm) > .02 || Math.abs(armV) > .01) ? requestAnimationFrame(frame) : 0;
   };
   addEventListener('pointermove', e => {
     const r = mascot.getBoundingClientRect(), cx = r.left + r.width * .5, cy = r.top + r.height * .6;
