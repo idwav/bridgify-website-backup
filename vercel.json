@@ -26,7 +26,8 @@
     { "source": "/login", "destination": "/login.html" },
     { "source": "/contact", "destination": "/contact.html" },
     { "source": "/developers", "destination": "/developers.html" },
-    { "source": "/careers", "destination": "/careers.html" }
+    { "source": "/careers", "destination": "/careers.html" },
+    { "source": "/book-a-demo", "destination": "/demo.html" }
   ],
   "headers": [
     {

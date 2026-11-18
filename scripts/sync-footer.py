@@ -20,7 +20,7 @@ JS = '<script src="shared-footer.js?v=2" defer></script>'
 
 
 ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>'
-DEMO = ('Book a demo', 'contact.html')
+DEMO = ('Book a demo', 'demo.html')
 # Copy v4 gives most inner pages their own closing CTA; pages not listed keep the recurring band.
 PAGE_CTAS = {
     'about-us.html': ('See how Bridgify could work', 'for your business.',

@@ -44,7 +44,7 @@ MEASURE = r"""(MAP) => {
     .forEach(s => out.issues.push(`${s.id ? '#' + s.id : '.' + s.classList[0]}: section not in the role map (nothing in it is checked)`));
   MAP.sections.forEach(S => {
     const sec = document.querySelector(S.section); if (!sec) { out.issues.push(`${S.section}: section not found`); return; }
-    const frame = S.frame ? sec.querySelector(S.frame) : sec;
+    const frame = S.frame ? (sec.matches(S.frame) ? sec : sec.querySelector(S.frame)) : sec;  // a section can be its own frame (a framed card)
     const items0 = S.items.filter(([role, sel]) => !(role === 'more' && /ad-more/.test(sel))).map(([role, sel, opt]) => ({role, sel, opt, els: [...frame.querySelectorAll(sel)].filter(vis)}));
     const items = []; items0.forEach(i => { items.push(i); const el = i.els[i.els.length - 1], m = el && el.nextElementSibling; if (i.role === 'text' && m && m.classList.contains('ad-more') && vis(m)) items.push({role: 'more', sel: '(found)', els: [m]}); });
     items.filter(i => !i.els.length && i.opt !== 'optional').forEach(i => out.issues.push(`${S.section}: ${i.role} "${i.sel}" not found or hidden`));

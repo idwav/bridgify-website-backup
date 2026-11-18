@@ -1,0 +1,45 @@
+/* About · adaptive layer (phones). Spacing between roles comes from system/tokens.css via the role map;
+   this file only puts the sections on the shared 24px gutter. */
+@media (max-width:599px){
+  html body :is(#top,#our-story,#hbx):not(#ad-x){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important;box-sizing:border-box!important}
+  /* Our mission: the pinned block carries the padding, so the section itself has none */
+  html body #story:not(#ad-x){padding-left:0!important;padding-right:0!important}
+  html body #story .ab-pin:not(#ad-x){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important;box-sizing:border-box!important}
+  /* Read: why multi-source matters is a text link: its arrow loses the filled square */
+  html body #story .ab-btn .ab-arr:not(#ad-x){background:none!important;box-shadow:none!important;color:#FF8F6B!important;width:auto!important;height:auto!important}
+  html body :is(#top .ab-hero-grid,#our-story .ab-story-3,#story .ab-pin-copy,#story .ms,#hbx>div):not(#ad-x){width:auto!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
+}
+
+/* Round 2 (18 Nov 2026), phones */
+@media (max-width:599px){
+  /* Hero facts: one row of three equal columns, a thin line between them (no wrapped dot separators) */
+  html body #top .ab-proof:not(#ad-x){display:flex!important;flex-wrap:nowrap!important;justify-content:space-between!important;gap:0!important;align-items:center}
+  html body #top .ab-proof>span:not(#ad-x){margin:0!important;padding:0 8px!important;font-size:12px!important;line-height:16px!important;letter-spacing:0!important;white-space:nowrap!important;flex:none!important}
+  html body #top .ab-proof>span:first-child:not(#ad-x){padding-left:0!important}
+  html body #top .ab-proof>span:last-child:not(#ad-x){padding-right:0!important}
+  /* the map sits closer to the facts: its picture has an empty band on top */
+  html body #top .wm-map:not(#ad-x){margin-top:-20px!important}
+  html body #top .ab-proof>span+span{border-left:1px solid rgba(244,102,73,.28)!important}
+  html body #top .ab-proof>span::before,html body #top .ab-proof>span::after{display:none!important;content:none!important}
+
+  /* The hub feeds the three partner types: one row of three tiles under it, joined by lines as on desktop */
+  html body #top .wm-hub:not(#ad-x){position:relative!important;margin-inline:auto!important}
+  html body #top .wm-hub::after{content:"";position:absolute;left:50%;top:100%;width:1px;height:16px;background:rgba(244,102,73,.6)}
+  html body #top .wm-brands:not(#ad-x){display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;position:relative!important;margin-top:32px!important}
+  html body #top .wm-brands::before{content:"";position:absolute;top:-16px;left:calc(100% / 6);right:calc(100% / 6);height:1px;background:rgba(244,102,73,.6)}
+  html body #top .wm-brand:not(#ad-x){position:relative!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;gap:8px!important;height:auto!important;min-height:80px!important;padding:12px 6px!important;text-align:center}
+  html body #top .wm-brand::before{content:"";position:absolute;bottom:100%;left:50%;width:1px;height:16px;background:rgba(244,102,73,.6)}
+  html body #top .wm-brand>b{font-size:14px!important;line-height:18px!important;margin:0!important}
+
+  /* Our mission, scene 2 (partners' own channels): three cards of one height; under each, its name and the
+     Bookable tag on one left edge */
+  html body #story .ms-chans:not(#ad-x){align-items:stretch!important}
+  html body #story .ms-ch:not(#ad-x){display:flex!important;flex-direction:column!important;gap:8px!important;margin:0!important}
+  html body #story .ms-ch>div:not(#ad-x){flex:1 1 auto!important;height:auto!important;align-content:start}
+  html body #story .ms-ch>figcaption:not(#ad-x){display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;gap:6px!important;height:auto!important;margin:0!important;padding:0!important;font-size:13px!important;line-height:16px!important;text-align:left}
+  html body #story .ms-ch>figcaption>b.ms-ok:not(#ad-x){margin:0!important}
+}
+/* small phones (iPhone SE): the three facts keep their columns and may take two lines each */
+@media (max-width:359px){
+  html body #top .ab-proof>span:not(#ad-x):not(#ad-y){white-space:normal!important;flex:1 1 0!important;min-width:0!important}
+}

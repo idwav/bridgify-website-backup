@@ -1,0 +1,100 @@
+/* Job page: same dark language as Careers, reading layout like an article page. */
+.job-page{--ink:#eee9de;--muted:#cdbcb2;--line:#f4664933;--coral:#f46649;max-width:none;margin:0;padding:clamp(120px,15vh,168px) max(24px,3.34vw) 96px;color:var(--ink)}
+.job-split{display:grid;grid-template-columns:minmax(320px,.78fr) minmax(0,1.22fr);gap:clamp(40px,6vw,104px);align-items:start}
+.job-hero{position:sticky;top:112px;padding:0}
+.job-back{display:inline-flex;align-items:center;gap:8px;margin-bottom:28px;font:550 14px Sofia,sans-serif;color:var(--muted);text-decoration:none;transition:color .3s}
+.job-back:hover,.job-back:focus-visible{color:#fff}
+.job-hero h1{margin:14px 0 0;max-width:22em;font:300 clamp(36px,4.6vw,60px)/1.1 Chillax,Sofia,sans-serif;letter-spacing:-.02em;color:#fff}
+.job-deck{margin:22px 0 0;max-width:44em;font:400 clamp(17px,1.5vw,21px)/1.55 Sofia,sans-serif;color:var(--ink)}
+.job-meta{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0;padding:0}
+.job-meta li{padding:8px 16px;border:1px solid #f4664966;border-radius:999px;background:#ffffff08;font:550 14px Sofia,sans-serif}
+.job-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:32px}
+.job-share{padding:14px 22px;border:1px solid #f4664966;border-radius:8px;background:transparent;color:var(--ink);font:550 15px Sofia,sans-serif;cursor:pointer;transition:background .3s,border-color .3s}
+.job-share:hover,.job-share:focus-visible{background:#f4664918;border-color:var(--coral)}
+.job-sample{margin:22px 0 0;padding:10px 16px;border:1px dashed #ffba9b88;border-radius:10px;color:#ffba9b;font:500 14px Sofia,sans-serif;max-width:40em}
+.job-grid{display:grid;grid-template-columns:minmax(0,1fr) clamp(340px,28vw,420px);gap:clamp(32px,5vw,72px);align-items:start;padding-top:48px}
+.job-prose{max-width:58em}
+.job-prose h2{margin:44px 0 14px;font:300 clamp(24px,2.2vw,30px)/1.2 Chillax,Sofia,sans-serif;color:#fff}
+.job-prose h2:first-child{margin-top:0}
+.job-prose p{margin:0 0 16px;font:400 17px/1.7 Sofia,sans-serif;color:var(--ink)}
+.job-prose ul,.job-prose ol{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.job-prose ul li{position:relative;padding-left:26px;font:400 17px/1.6 Sofia,sans-serif}
+.job-prose ul li:before{content:"";position:absolute;left:4px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--coral);box-shadow:0 0 10px #f4664988}
+.job-steps{counter-reset:step}
+.job-steps li{counter-increment:step;display:flex;align-items:center;gap:16px;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(135deg,#ffffff0a,#ffffff03);font:500 16px Sofia,sans-serif}
+.job-steps li:before{content:counter(step);display:grid;place-items:center;width:30px;height:30px;flex:none;border-radius:50%;border:1px solid var(--coral);color:#ffba9b;font:700 13px Sofia,sans-serif}
+.job-card{position:sticky;top:112px;display:grid;gap:20px;padding:26px;border:1px solid #f4664966;border-radius:20px;background:radial-gradient(ellipse at 0 0,#ffbf9818,transparent 65%),linear-gradient(135deg,#2c2021,#1b1314);box-shadow:inset 0 1px #ffd8bd30,0 18px 40px #0006}
+.job-card-label{font:600 12px Sofia,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#ffba9b}
+.job-card dl{margin:0;display:grid;gap:0}
+.job-card dl>div{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
+.job-card dt{font:500 14px Sofia,sans-serif;color:var(--muted)}
+.job-card dd{margin:0;font:600 15px Sofia,sans-serif;text-align:right}
+.job-card .career-cta{justify-content:center;width:100%}
+.job-card-note{margin:0;text-align:center;font:500 13px Sofia,sans-serif;color:var(--muted)}
+.job-more{margin-top:72px;padding-top:36px;border-top:1px solid var(--line)}
+.job-more-list{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.job-more-list a{display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:center;padding:20px 22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,#ffffff0a,#ffffff03);color:var(--ink);text-decoration:none;transition:border-color .3s,transform .4s}
+.job-more-list a:hover,.job-more-list a:focus-visible{border-color:var(--coral);transform:translateY(-2px)}
+.job-more-list b{font:600 18px Sofia,sans-serif}
+.job-more-list span{grid-column:1;font:400 14px Sofia,sans-serif;color:var(--muted)}
+.job-more-list i{grid-row:1/3;grid-column:2;font-style:normal;color:var(--coral);font-size:20px}
+.job-missing{padding:60px 0;text-align:left}
+.job-missing h1{margin:0 0 14px;font:300 clamp(30px,4vw,48px)/1.1 Chillax,Sofia,sans-serif;color:#fff}
+.job-missing p{margin:0 0 28px;font:400 18px/1.6 Sofia,sans-serif}
+.job-bar{display:none}
+@media(max-width:900px){
+.job-grid{grid-template-columns:1fr}
+.job-card{position:static;order:-1}
+.job-page{padding-bottom:120px}
+.job-bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:#180f10;border-top:1px solid #f4664944;transform:translateY(110%);transition:transform .4s cubic-bezier(.22,1,.36,1)}.job-bar.show{transform:none}
+.job-bar .career-cta{width:100%;justify-content:center}
+.job-card .career-cta{display:none}
+}
+@media(max-width:600px){.job-page{padding-top:190px}.job-hero h1{font-size:34px}.job-actions .career-cta{width:100%;justify-content:center}.job-prose p,.job-prose li{font-size:16px}}
+/* Careers board rows that link to a role */
+.jb-role h3 a{color:inherit;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s}
+.jb-role h3 a:hover,.jb-role h3 a:focus-visible{background-size:100% 1px}
+
+/* Split layout: the role on the left stays in view while the description scrolls on the right. */
+.job-hero h1{font-size:clamp(34px,3.6vw,52px)}
+.job-prose{padding-top:6px;max-width:none}
+.job-prose p,.job-prose ul li{max-width:44em}
+@media(max-width:900px){
+.job-split{grid-template-columns:1fr;gap:36px}
+.job-hero{position:static;padding-bottom:32px;border-bottom:1px solid var(--line)}
+}
+
+/* Final layout: title block on top, tags on the left with Apply and Copy link on the right of the same line, description below on the left. */
+.job-split{display:block}
+.job-hero{position:static;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:32px;align-items:center;padding:0 0 36px;border-bottom:1px solid var(--line)}
+.job-hero>.job-back,.job-hero>.eyebrow,.job-hero>h1,.job-hero>.job-deck,.job-hero>.job-sample{grid-column:1/-1}
+.job-hero>.job-meta{grid-column:1;margin:26px 0 0}
+.job-hero>.job-actions{grid-column:2;margin:26px 0 0;justify-self:end;flex-wrap:nowrap}
+.job-hero h1{font-size:clamp(36px,4.6vw,60px);max-width:22em}
+.job-prose{max-width:58em;padding-top:48px}
+.job-prose p,.job-prose ul li{max-width:none}
+@media(max-width:900px){
+.job-hero{grid-template-columns:1fr}
+.job-hero>.job-meta,.job-hero>.job-actions{grid-column:1;justify-self:start}
+.job-hero>.job-actions{flex-wrap:wrap}
+.job-prose{padding-top:32px}
+}
+
+/* Blog-article structure: title block on top, then a sticky side column (sections + Apply) and the description. */
+.job-split{display:block}
+.job-hero{position:static;display:block;padding:0 0 36px;border-bottom:1px solid var(--line)}
+.job-hero>.job-meta{margin:26px 0 0}
+.job-reading{display:grid;grid-template-columns:clamp(240px,22vw,300px) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:start;padding-top:48px}
+.job-aside{position:sticky;top:112px;display:grid;gap:26px}
+.job-toc{display:grid;gap:2px;margin-top:14px}
+.job-toc a{padding:10px 0 10px 16px;border-left:2px solid var(--line);color:var(--muted);font:500 15px/1.3 Sofia,sans-serif;text-decoration:none;transition:color .3s,border-color .3s}
+.job-toc a:hover,.job-toc a:focus-visible{color:#fff;border-left-color:var(--coral)}
+.job-aside-cta{display:grid;gap:12px}
+.job-aside-cta .career-cta{justify-content:center;width:100%}
+.job-aside-cta .job-share{width:100%}
+.job-prose{padding-top:0;max-width:52em}
+.job-prose h2{scroll-margin-top:120px}
+@media(max-width:900px){
+.job-reading{grid-template-columns:1fr;gap:0;padding-top:32px}
+.job-aside{display:none}
+}
