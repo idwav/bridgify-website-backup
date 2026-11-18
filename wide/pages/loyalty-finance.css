@@ -39,6 +39,17 @@
 @media (min-width: 1024px) {
   html body:not(#bf-lab) section#section-1 { padding-bottom: var(--bf-section-y) !important; }
 }
+/* Hero composition on an iPad Pro held upright (owner, 18 Nov 2026): side by side the title had a 449px column and
+   broke into seven lines beside a demo floating at mid height. Here the label and title run across the content line,
+   and the text with its buttons sits beside the demo underneath; both start together, title-text under the title. */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body:not(#bf-lab) section#section-1 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; column-gap: 32px !important; row-gap: 0 !important; align-items: start !important; }
+  html body:not(#bf-lab) section#section-1 > .lf-heading { display: contents !important; }
+  html body:not(#bf-lab) section#section-1 > .lf-heading > :is(.eyebrow, h1) { grid-column: 1 / -1 !important; }
+  html body:not(#bf-lab) section#section-1 > .lf-heading > h1 { max-width: 15em !important; text-wrap: balance; }
+  html body:not(#bf-lab) section#section-1 > .lf-heading > div:last-child { grid-column: 1 !important; grid-row: 3 !important; }
+  html body:not(#bf-lab) section#section-1 > .lr-demo { grid-column: 2 !important; grid-row: 3 !important; align-self: start !important; margin-top: var(--bf-gap-title-text) !important; width: 100% !important; max-width: none !important; }
+}
 /* "We started here" had its own 64px top and bottom and a screen-tall minimum on the desktop: section-y */
 @media (min-width: 600px) {
   html body:not(#bf-lab) section#we-started-here.lf-section.lp-origin { padding-top: var(--bf-section-y) !important; padding-bottom: var(--bf-section-y) !important; min-height: 0 !important; }

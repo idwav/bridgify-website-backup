@@ -27,4 +27,7 @@
     background: currentColor !important; color: inherit !important;
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M6 18 18 6M6 6h12v12'/%3E%3Ccircle cx='6' cy='18' r='1.15' fill='black' stroke='none'/%3E%3C/svg%3E") center / contain no-repeat !important;
             mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M6 18 18 6M6 6h12v12'/%3E%3Ccircle cx='6' cy='18' r='1.15' fill='black' stroke='none'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+  /* Super Apps and Hotels cards have no description: the card title sat directly on the button (0px). The title keeps
+     the card's own 24px before the button (owner, 18 Nov 2026); the button still sits at the card bottom. */
+  html body:not(#bf-lab) #section-4.xc .xc-body > h3:has(+ a.xc-cta) { margin-bottom: 24px !important; }
 }

@@ -55,8 +55,12 @@
    so the section opened with 160-380px of empty space. The frame is now as tall as its content and sticks 96px under
    the top of the screen (the compact header is 64): the section opens section-y above its label like every other
    section, the steps still change as you scroll through the 280svh track, and the next section follows section-y under it. */
+/* While pinned, the next section must never slide in under the scene (owner, 18 Nov 2026: on an iPad Pro held upright
+   it joined for the last ~500px of the pin). The pinned frame therefore reaches from 96px to the bottom of the screen,
+   less the section's own bottom padding; the content stays at its top, so the section still opens with section-y. The
+   next section arrives only after the last step, when the frame scrolls away. */
 @media (min-width: 901px) and (min-height: 701px) and (prefers-reduced-motion: no-preference) {
-  html body #section-3 .hs-sticky { top: 96px !important; min-height: 0 !important; align-items: start !important; align-content: start !important; padding-top: 0 !important; padding-bottom: 0 !important; }
+  html body #section-3 .hs-sticky { top: 96px !important; min-height: calc(100lvh - 96px - var(--bf-section-y, 96px)) !important; align-items: start !important; align-content: start !important; padding-top: 0 !important; padding-bottom: 0 !important; }
 }
 /* With reduced motion the scene is not pinned, but its frame kept min-height 100svh with the content centred (399px
    above and below on an iPad Pro held upright): there it is as tall as its content */

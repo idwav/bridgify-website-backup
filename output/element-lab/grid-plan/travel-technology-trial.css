@@ -70,3 +70,15 @@
   html body:not(#bf-lab) :is(#section-4 header.xc-head) { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; column-gap: 32px !important; align-items: start !important; padding-left: 0 !important; padding-right: 0 !important; }
   html body:not(#bf-lab) :is(#section-4 header.xc-head > p) { align-self: start !important; max-width: 560px !important; }
 }
+/* Hero composition on tablets and an iPad Pro held upright (owner, 18 Nov 2026): the split left the title a 414-516px
+   column, so "experiences" stood alone on its line, and the intro began above the title beside a rule. As every other
+   split heading on a tablet, the title runs across the content line (two lines) and the text with its buttons follows
+   title-text below it, no rule; the demo follows as before. */
+@media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body:not(#bf-lab) section#section-1 .te-heading { grid-template-columns: minmax(0, 1fr) !important; row-gap: 0 !important; }
+  html body:not(#bf-lab) section#section-1 .te-heading > h1 { max-width: none !important; }
+  html body:not(#bf-lab) section#section-1 .te-heading > .te-intro { grid-column: 1 !important; padding-left: 0 !important; border-left: 0 !important; max-width: 600px !important; }
+}
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body:not(#bf-lab) section#section-1 .te-heading > .te-intro { margin-top: var(--bf-gap-title-text) !important; }
+}
