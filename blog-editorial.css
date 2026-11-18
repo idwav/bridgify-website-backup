@@ -49,3 +49,9 @@ body[data-copy-page="insights"]{background:#180f10;color:#eee9de}.blog-main{padd
 @media(min-width:951px) and (min-height:760px){.blog-post-hero{height:100svh}.blog-post-hero .blog-cover{min-height:0}}
 @media(max-width:950px){.blog-post-hero{padding-top:185px}}
 @media(max-width:600px){.blog-post-hero{height:auto;padding:185px 0 32px;gap:24px}.blog-post-hero .blog-cover{flex:none;height:auto;min-height:0;aspect-ratio:16/9}}
+
+/* Article cards: compact enough to sit in one screen on a laptop instead of being cut off. */
+.blog-card-image{aspect-ratio:5/2}
+.blog-card-copy{padding:22px}
+.blog-card h3{font-size:clamp(19px,1.5vw,23px);line-height:1.25;margin:12px 0 10px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.blog-card-copy>p{font-size:15px;line-height:1.55;margin:0 0 12px;-webkit-line-clamp:3}
