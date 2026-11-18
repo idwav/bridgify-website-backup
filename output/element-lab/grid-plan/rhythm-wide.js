@@ -93,6 +93,10 @@
         const name = pair(A.role, B.role, S.hero), g = parseFloat(tok(name));
         let z = 1; for (let w = b; w && w !== ca; w = w.parentElement) z *= parseFloat(getComputedStyle(w).zoom) || 1;
         const t0 = b.getBoundingClientRect().top, row = B.els.length > 1 ? B.els.filter(e => Math.abs(e.getBoundingClientRect().top - t0) < 4 || e.getBoundingClientRect().top < t0) : [b];
+        // content blocks the map lists one after another that sit side by side in one row (a settings panel | its preview):
+        // they share the gap, so the row keeps one top edge (18 Nov 2026: only the first got it and the stage sat 64px higher)
+        const topRow = el => !/center|end/.test(getComputedStyle(el.parentElement).alignItems) && !/center|end/.test(getComputedStyle(el).alignSelf);   // a row meant to share a top edge, not one centred on purpose
+        if (B.role === 'content' && topRow(b)) for (let j = k + 1; j < items.length && !stacked[j] && items[j].els[0].parentElement === b.parentElement && topRow(items[j].els[0]); j++) row.push(items[j].els[0]);
         // a button that shares a row with a link (hero "Book a demo" + "See how it works"): the gap goes on the row,
         // so both stay on one centre line instead of the button dropping below the link
         const rowBox = B.els.length === 1 && chain(b, ca).find(w => { const c = getComputedStyle(w); return /flex/.test(c.display) && !/column/.test(c.flexDirection) && [...w.children].filter(x => x.getBoundingClientRect().width > 1).length > 1; });

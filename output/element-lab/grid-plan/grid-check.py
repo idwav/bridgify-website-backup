@@ -15,7 +15,10 @@ ARGS = [a for a in sys.argv[1:] if not a.startswith("--")]
 PAGE = next((a[7:] for a in sys.argv[1:] if a.startswith("--page=")), "home")
 LIVE = "--live" in sys.argv     # check the page as the site serves it (its HTML links wide/): nothing is injected
 BAKED = "--baked" in sys.argv or LIVE   # check the published build (wide/) instead of the lab layers: no spacing is set at run time
-WIDTHS = [int(x) for x in (ARGS[0].split(",") if ARGS else "390,768,1024,1280,1440,1920".split(","))]
+# a width, or WxH for a screen of its own shape: 1024x1366 is an iPad Pro held upright, which is in the desktop class
+# but gets the stacked tablet layouts (18 Nov 2026: the White-Label demo sat on the hero buttons only there)
+SIZES = [(int(x.split("x")[0]), int(x.split("x")[1]) if "x" in x else 900) for x in (ARGS[0].split(",") if ARGS else "390,768,1024,1024x1366,1280,1440,1920".split(","))]
+WIDTHS = [w for w, _ in SIZES]
 PAGES = {
   "home": {"url": "index-v2.html?version=2", "roles": "roles-index-v2.js", "css": ["tablet-hero.css"], "pairs": None,
     "hero": "#home #hero-title",
@@ -112,11 +115,12 @@ SCROLL = r"""async () => {
 
 def main():
     rows, started = [], datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-    def add(w, rule, ok, detail, known=False): rows.append({"w": w, "rule": rule, "ok": bool(ok), "known": known, "detail": detail})
+    def add(w, rule, ok, detail, known=False): rows.append({"w": w if vh == 900 else f"{w}x{vh}", "rule": rule, "ok": bool(ok), "known": known, "detail": detail})
+    vh = 900
     with sync_playwright() as p:
         b = p.chromium.launch()
-        for w in WIDTHS:
-            pg = b.new_page(viewport={"width": w, "height": 900}, reduced_motion="reduce")
+        for w, vh in SIZES:
+            pg = b.new_page(viewport={"width": w, "height": vh}, reduced_motion="reduce")
             pg.goto(BASE, wait_until="networkidle", timeout=60000)
             for c in CSS: pg.add_style_tag(content=c)
             for j in JS: pg.add_script_tag(content=j)
@@ -136,9 +140,17 @@ def main():
                 bad = [x for x in rep if abs(x["got"] - x["want"]) > 1 and (x["section"], x["pair"]) not in KNOWN]
                 kn = [x for x in rep if abs(x["got"] - x["want"]) > 1 and (x["section"], x["pair"]) in KNOWN]
                 add(w, "S טבלת הריווח", not bad, f"{len(rep) - len(bad) - len(kn)}/{len(rep)} זוגות בדיוק" + ("; לא תקין: " + ", ".join(f"{x['section']} {x['pair']} {x['got']}≠{x['want']}" for x in bad) if bad else ""))
+                # R1: items the map lists one after another that sit side by side in one row start on one top edge
+                r1 = pg.evaluate("""() => { const out = []; const els = [...document.querySelectorAll('[data-bf-role]')];
+                  els.forEach((a, i) => { const b = els[i + 1]; if (!b || a.parentElement !== b.parentElement) return; const ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
+                    const top = e => !/center|end/.test(getComputedStyle(e.parentElement).alignItems) && !/center|end/.test(getComputedStyle(e).alignSelf);
+                    if (top(a) && top(b) && rb.left >= ra.right - 2 && Math.abs(rb.top - ra.top) > 1) out.push((a.closest('section') || {}).id + ' ' + a.className.split(' ')[0] + '|' + b.className.split(' ')[0] + ' ' + Math.round(rb.top - ra.top)); });
+                  return out; }""")
+                add(w, "R1 פריטים באותה שורה מתחילים באותו גובה", not r1, "כולם" if not r1 else ", ".join(r1))
                 if kn: add(w, "S חריגים מתועדים", True, ", ".join(f"{x['section']} {x['pair']} {x['got']} (טבלה {x['want']})" for x in kn), known=True)
                 # T1
                 e = expect_type(w); probs = []
+                if w >= 1024 and vh > w: e = dict(e, hero=clamp(48, .055 * w, 56))   # an iPad Pro held upright gets the approved tablet portrait hero (17 Nov)
                 for role, want, lhw in (("hero", e["hero"], 1.16), ("section", e["section"], 1.2), ("card", e["card"], 1.25)):
                     for t, f, l in r["t1"][role]:
                         if abs(f - want) > .6: probs.append(f"{t} {f}≠{round(want,1)}")

@@ -26,6 +26,16 @@
 @media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
   html body :is(section#section-2, section#section-3, section#section-4) { min-height: 0 !important; }
 }
+/* "Match experiences to what travelers are looking for" (18 Nov 2026, owner: the rows on the right were cut). The list
+   column was sized by its longest title on one line (white-space: nowrap), so at 1024-1360 the rows ran 54-64px past
+   the panel and, on an iPad Pro, past the screen. The list now takes its column's width and a long title wraps to a
+   second line instead of being cut. */
+@media (min-width: 761px) {
+  html body #section-3.match-section .match-queue { grid-template-columns: minmax(0, 1fr) !important; min-width: 0 !important; }
+  html body #section-3.match-section .match-row { grid-template-columns: auto minmax(0, 1fr) !important; min-width: 0 !important; }
+  html body #section-3.match-section .match-row > span { min-width: 0 !important; }
+  html body #section-3.match-section .match-row b { white-space: normal !important; overflow: visible !important; text-overflow: clip !important; }
+}
 
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {
@@ -106,7 +116,7 @@
   html body #day-itinerary > header:nth-child(1) > p:nth-child(2) { margin-top: 32px !important; margin-bottom: 0px !important; }
   html body #day-itinerary > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
   html body #day-itinerary > div:nth-child(2) > div:nth-child(1) { margin-top: 64px !important; }
-  html body #day-itinerary > div:nth-child(2) > div:nth-child(3) { margin-bottom: 0px !important; }
+  html body #day-itinerary > div:nth-child(2) > div:nth-child(3) { margin-top: 64px !important; margin-bottom: 0px !important; }
   html body #day-itinerary > footer:nth-child(3) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
   html body #day-itinerary > footer:nth-child(3) > small:nth-child(1) { margin-top: 64px !important; margin-bottom: 0px !important; }
   html body #faq { padding-top: 96px !important; padding-bottom: 96px !important; }
