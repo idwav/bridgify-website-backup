@@ -63,3 +63,19 @@
 .job-split{grid-template-columns:1fr;gap:36px}
 .job-hero{position:static;padding-bottom:32px;border-bottom:1px solid var(--line)}
 }
+
+/* Final layout: title block on top, tags on the left with Apply and Copy link on the right of the same line, description below on the left. */
+.job-split{display:block}
+.job-hero{position:static;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:32px;align-items:center;padding:0 0 36px;border-bottom:1px solid var(--line)}
+.job-hero>.job-back,.job-hero>.eyebrow,.job-hero>h1,.job-hero>.job-deck,.job-hero>.job-sample{grid-column:1/-1}
+.job-hero>.job-meta{grid-column:1;margin:26px 0 0}
+.job-hero>.job-actions{grid-column:2;margin:26px 0 0;justify-self:end;flex-wrap:nowrap}
+.job-hero h1{font-size:clamp(36px,4.6vw,60px);max-width:22em}
+.job-prose{max-width:58em;padding-top:48px}
+.job-prose p,.job-prose ul li{max-width:none}
+@media(max-width:900px){
+.job-hero{grid-template-columns:1fr}
+.job-hero>.job-meta,.job-hero>.job-actions{grid-column:1;justify-self:start}
+.job-hero>.job-actions{flex-wrap:wrap}
+.job-prose{padding-top:32px}
+}
