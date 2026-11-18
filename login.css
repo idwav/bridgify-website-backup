@@ -78,7 +78,7 @@ body[data-copy-page="login"] .top .connect{background:#eee9de;color:#180f10}
 .login-mascot{filter:drop-shadow(0 0 18px #f4664966) drop-shadow(0 0 46px #f4664933)}
 
 /* Follow the pointer. The right arm is four chained segments (copies of the picture, each masked to one band) that bend like a tentacle. */
-.login-mascot .login-body{-webkit-mask-image:linear-gradient(to bottom,#000 58%,transparent 58%),linear-gradient(to right,#000 62%,transparent 62%);mask-image:linear-gradient(to bottom,#000 58%,transparent 58%),linear-gradient(to right,#000 62%,transparent 62%);-webkit-mask-composite:source-over;mask-composite:add}
+.login-mascot .login-body{-webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 62%),linear-gradient(to right,#000 62%,transparent 62%);mask-image:linear-gradient(to bottom,#000 62%,transparent 62%),linear-gradient(to right,#000 62%,transparent 62%);-webkit-mask-composite:source-over;mask-composite:add}
 .login-mascot .login-arm{position:absolute;inset:0;transform:rotate(var(--a,0deg))}
 .login-mascot .a0{transform-origin:66% 50%}.login-mascot .a1{transform-origin:71.6% 60%}.login-mascot .a2{transform-origin:73.4% 72%}.login-mascot .a3{transform-origin:71% 84%}
 .login-mascot .login-seg{position:absolute;inset:0;width:100%;height:100%;-webkit-mask-composite:source-in;mask-composite:intersect}

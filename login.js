@@ -143,7 +143,8 @@
       vel[i] += ((target - ang[i]) * k - c * vel[i]) * dt;
       ang[i] = clamp(ang[i] + vel[i] * dt, -14, 14);
     }
-    for (let i = 0; i < N; i++) segs[i].style.setProperty('--a', clamp((ang[i] - (i ? ang[i - 1] : 0)) * (i ? 1.4 : 1), -20, 20).toFixed(2) + 'deg');
+    // The top segment is rigid (it stays part of the head); bending starts at the second one, so nothing of the static picture can peek out behind a rotated arm.
+    for (let i = 0; i < N; i++) { const v = i === 0 ? 0 : (i === 1 ? ang[1] * 1.15 : (ang[i] - ang[i - 1]) * 1.4); segs[i].style.setProperty('--a', clamp(v, -20, 20).toFixed(2) + 'deg'); }
     raf = requestAnimationFrame(step);
   }
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !raf) { last = 0; raf = requestAnimationFrame(step); } }, { threshold: .05 }).observe(mascot);
