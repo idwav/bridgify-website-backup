@@ -109,3 +109,13 @@
 .af-field input[type=text],.af-field input[type=email],.af-field input[type=tel],.af-field input[type=url],.af-field select{padding:12px 16px}
 .apply-form .af-drop{padding:20px 24px}
 }
+
+/* Confirmation: just the message, centred in the middle of the screen. */
+.apply-page.is-done{min-height:100svh;display:grid;place-items:center;padding-top:clamp(110px,14vh,150px);padding-bottom:clamp(60px,10vh,120px)}
+.apply-page.is-done .job-hero{display:none}
+.apply-page.is-done .apply-body{padding-top:0;max-width:none}
+.apply-page.is-done .apply-done{justify-items:center;text-align:center;padding:0;gap:16px}
+.apply-page.is-done .apply-done p{margin:0 0 18px}
+.apply-page.is-done .apply-done-ico{width:76px;height:76px}
+.apply-page.is-done .apply-done-ico svg{width:34px;height:34px}
+.apply-page.is-done .apply-done h2{font-size:clamp(34px,4vw,56px)}

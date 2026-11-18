@@ -39,7 +39,7 @@
   }
   function done(title, text) {
     $('#apply-form').hidden = true; var d = $('#apply-done'); d.hidden = false; A('doneTitle').textContent = title; A('doneText').textContent = text;
-    d.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    $('#apply-root').classList.add('is-done'); window.scrollTo(0, 0);
   }
   form.addEventListener('submit', function (e) {
     e.preventDefault(); status.textContent = '';
