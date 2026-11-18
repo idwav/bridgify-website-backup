@@ -40,3 +40,10 @@ body[data-copy-page="login"] .top .nav-login{border-color:#f46649;color:#ff9a7c}
 html[data-home-version="2"] .brand-flat-symbol,body:not([data-copy-page="index"]) .brand-flat-symbol{mask-image:url("assets/bridgify-icon.svg");-webkit-mask-image:url("assets/bridgify-icon.svg")}
 html[data-home-version="2"] .brand-name,body:not([data-copy-page="index"]) .brand-name{font-weight:400;letter-spacing:-.01em}
 body[data-copy-page="otas"] .ys-bridge strong,body[data-copy-page="otas"] .rc-phone-brand{font-family:Chillax,sans-serif;font-weight:400;letter-spacing:-.01em}
+
+/* Experiment (18 Nov 2026), version 2 of the logo file: desktop header shows the full logo with the full-width "Part of HBX Group" tagline.
+   Desktop only (≥1024px); tablet and phone keep the current logo. Same ink rules as before (light on dark headers,
+   the existing filters turn it dark on the light pages). */
+@media (min-width:1024px){
+  html body header.site-header-common img.brand-logo-full{content:url("assets/bridgify-logo-tagline.webp?v=2");height:48px!important;width:auto!important}
+}

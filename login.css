@@ -53,3 +53,18 @@ body[data-copy-page="login"] .top .connect{background:#eee9de;color:#180f10}
 @media(max-width:900px){.login-page{padding:170px 6% 72px;align-items:flex-start}.login-shell{grid-template-columns:1fr;gap:36px}.login-points{display:none}}
 @media(max-width:480px){.login-page{padding:224px 18px 56px}.login-card{border-radius:14px}}
 @media(prefers-reduced-motion:reduce){.login-submit,.login-form input{transition:none}.login-spinner{animation:none}}
+
+/* Octopus mascot sitting on the card's top edge (restored from the 5 Nov login draft).
+   Eyes close while the password field is focused and one peeks while typing. */
+.login-card{position:relative}
+.login-mascot{position:absolute;z-index:1;width:min(68%,300px);right:-7%;top:0;transform:translateY(-52.4%);pointer-events:none}
+.login-mascot img{display:block;width:100%;height:auto}
+.login-eye{position:absolute;width:8%;height:10%;border-radius:50%;background:radial-gradient(circle at 33% 24%,#fff1d0 0 9%,#71351e 12%,#24100b 40%,#0f0706 82%);box-shadow:0 1px 3px #6c2e10;transition:transform .16s ease}
+.login-eye-left{left:41%;top:34%;rotate:12deg}
+.login-eye-right{left:56%;top:36%;rotate:-10deg}
+.login-eye::after{content:"";position:absolute;inset:0;border-bottom:3px solid #28110a;border-radius:0 0 50% 50%;opacity:0}
+.login-mascot[data-eyes=closed] .login-eye,.login-mascot[data-eyes=peek] .login-eye-right{background:none;box-shadow:none;transform:scaleY(.46)}
+.login-mascot[data-eyes=closed] .login-eye::after,.login-mascot[data-eyes=peek] .login-eye-right::after{opacity:1}
+.login-form h2{position:relative;z-index:2}
+@media(max-width:480px){.login-mascot{width:min(62%,220px);right:-4%}}
+@media(prefers-reduced-motion:reduce){.login-eye{transition:none}}
