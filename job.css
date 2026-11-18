@@ -125,3 +125,37 @@
 .rl-more{padding-left:12px;padding-right:12px}
 .rl-more .career-cta{width:100%;justify-content:center}
 }
+
+/* Role page, same structure as the reference: role on the left (sticky), a quiet reading column on the right. */
+.job-page:not(.apply-page):not(.demo-page){padding-top:clamp(120px,15vh,160px)}
+.jl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,8vw,140px);align-items:start}
+.jl-side{position:sticky;top:112px}
+.jl-crumb{margin:0 0 22px;font:400 15px Sofia,sans-serif;color:#9d8f88}
+.jl-crumb a{color:inherit;text-decoration:none;transition:color .3s}
+.jl-crumb a:hover,.jl-crumb a:focus-visible{color:#fff}
+.jl-side h1{margin:0;font:300 clamp(38px,4.4vw,66px)/1.06 Chillax,Sofia,sans-serif;letter-spacing:-.02em;color:#fff;max-width:11em}
+.jl-meta{margin:22px 0 0;font:400 17px Sofia,sans-serif;color:#9d8f88}
+.jl-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:30px}
+.jl-share{padding:0;border:0;background:none;color:#cdbcb2;font:500 15px Sofia,sans-serif;cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#f4664966;transition:color .3s}
+.jl-share:hover,.jl-share:focus-visible{color:#fff}
+.jl-side .job-sample{margin-top:26px;max-width:26em}
+.jl-main{max-width:41em;padding-top:4px}
+.jl-lead{margin:0 0 30px;font:400 clamp(20px,1.7vw,26px)/1.45 Sofia,sans-serif;color:#f4efe6}
+.jl-main p{margin:0 0 20px;font:400 17px/1.65 Sofia,sans-serif;color:#b9aca4}
+.jl-main h2{margin:clamp(40px,6vh,60px) 0 18px;font:600 17px/1.3 Sofia,sans-serif;color:#fff;scroll-margin-top:120px}
+.jl-main ul,.jl-main ol{margin:0;padding:0 0 0 22px;display:grid;gap:12px;list-style:disc}
+.jl-main ol{list-style:decimal}
+.jl-main li{padding:0;border:0;background:none;font:400 17px/1.6 Sofia,sans-serif;color:#b9aca4;display:list-item}
+.jl-main li::marker{color:#f48665}
+.jl-main li:before{content:none!important}
+.jl-main ul li,.jl-main ol li{position:static}
+.jl-main .job-steps li{display:list-item;gap:0}
+@media(max-width:900px){
+.jl{grid-template-columns:1fr;gap:34px}
+.jl-side{position:static}
+.jl-side h1{max-width:none}
+}
+@media(max-width:600px){.job-page:not(.apply-page):not(.demo-page){padding-top:190px}.jl-actions .career-cta{width:100%;justify-content:center}.jl-main p,.jl-main li{font-size:16px}}
+
+.job-more{margin-top:clamp(56px,9vh,96px);padding-top:28px;border-top:1px solid #ffffff14}
+.job-more .rl-list{margin-top:10px}

@@ -20,31 +20,28 @@
 
   $('[data-job=team]').textContent = role.teamLabel;
   $('[data-job=title]').textContent = role.title;
-  $('[data-job=deck]').textContent = role.deck || '';
-  $('[data-job=deck]').hidden = !role.deck;
-  $('[data-job=meta]').innerHTML = [role.location, role.type, role.teamLabel].map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('');
+  $('[data-job=meta]').textContent = role.type + ' (' + role.location + ')';
   if (role.sample) $('[data-job=sample]').hidden = false;
 
   var applyHref = role.applyUrl || ('apply.html?role=' + encodeURIComponent(role.slug) + suffix);
   ['apply', 'apply3'].forEach(function (k) { $('[data-job=' + k + ']').href = applyHref; });
 
   function list(items, ordered) { var tag = ordered ? 'ol' : 'ul'; return '<' + tag + (ordered ? ' class="job-steps"' : '') + '>' + items.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</' + tag + '>'; }
-  var html = '';
+  var html = role.deck ? '<p class="jl-lead">' + esc(role.deck) + '</p>' : '';
   if (role.about && role.about.length) html += '<h2 id="s-about">About the role</h2>' + role.about.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
   if (role.doing && role.doing.length) html += '<h2 id="s-do">What you\'ll do</h2>' + list(role.doing);
   if (role.bring && role.bring.length) html += '<h2 id="s-bring">What you bring</h2>' + list(role.bring);
   if (role.nice && role.nice.length) html += '<h2 id="s-nice">Nice to have</h2>' + list(role.nice);
   if (role.process && role.process.length) html += '<h2 id="s-hire">How we hire</h2>' + list(role.process, true);
   $('[data-job=prose]').innerHTML = html;
-  $('[data-job=toc]').innerHTML = Array.prototype.map.call($('[data-job=prose]').querySelectorAll('h2'), function (h) { return '<a href="#' + h.id + '">' + esc(h.textContent) + '</a>'; }).join('');
 
   var others = visible.filter(function (r) { return r.slug !== role.slug; });
   if (others.length) {
     $('#job-more').hidden = false;
-    $('[data-job=more]').innerHTML = others.map(function (r) { return '<li><a href="job.html?role=' + encodeURIComponent(r.slug) + suffix + '"><b>' + esc(r.title) + '</b><span>' + esc(r.teamLabel) + ' · ' + esc(r.location) + '</span><i aria-hidden="true">↗</i></a></li>'; }).join('');
+    $('[data-job=more]').innerHTML = others.map(function (r) { return '<li class="rl-row"><a class="rl-link" href="job.html?role=' + encodeURIComponent(r.slug) + suffix + '"><span class="rl-title">' + esc(r.title) + '</span><span class="rl-loc">' + esc(r.location) + '</span><span class="rl-go">Learn more</span></a></li>'; }).join('');
   }
 
-  var bar = $('[data-job=bar]'), actions = document.querySelector('.job-hero');
+  var bar = $('[data-job=bar]'), actions = document.querySelector('.jl-side');
   if (bar && actions) {
     var sync = function () { bar.classList.toggle('show', actions.getBoundingClientRect().bottom < 80); };
     addEventListener('scroll', sync, { passive: true }); addEventListener('resize', sync); sync();
