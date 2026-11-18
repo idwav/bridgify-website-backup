@@ -6,6 +6,7 @@
    - the homepage: 3vw + 10px (--home-gutter).
    A page's step links grid.css after this file, which overrides it. Phone (≤599) is not touched. */
 @media (min-width: 600px) {
-  html:root { --try-margin: 4vw; }
-  html[data-home-version="2"]:root { --try-margin: var(--home-gutter, calc(3vw + 10px)); }
+  /* zero specificity, so grid.css (html:root) always wins once a page links it */
+  :where(html) { --try-margin: 4vw; }
+  :where(html[data-home-version="2"]) { --try-margin: var(--home-gutter, calc(3vw + 10px)); }
 }
