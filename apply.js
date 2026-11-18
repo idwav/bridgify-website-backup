@@ -46,7 +46,7 @@
   }
   form.addEventListener('submit', function (e) {
     e.preventDefault(); status.textContent = '';
-    if (preview) { var nm = cv.files[0] ? cv.files[0].name : 'your CV'; done('One more step', 'Your email is ready. Attach your CV (' + nm + ') and send it to complete your application for ' + role.title + '.'); return; }
+    if (preview) { var nm = cv.files[0] ? ' (' + cv.files[0].name + ')' : ''; done('One more step', 'Your email is ready. Attach your CV' + nm + ' and send it to complete your application for ' + role.title + '.'); return; }
     var bad = validate();
     if (bad.length) { var first = form.elements[bad[0]]; if (first && first.focus) first.focus(); status.textContent = 'Please check the highlighted fields.'; return; }
     var btn = $('#af-submit'), endpoint = window.BRIDGIFY_APPLY_ENDPOINT;
