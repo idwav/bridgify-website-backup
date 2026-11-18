@@ -16,3 +16,11 @@ The 112px thumbnails on the hero's experience cards are square crops of photos a
 `paris-romantic-experience.png` (Seine dinner and Eiffel Tower), `api-attraction.png`,
 `hero-santorini.jpg` and `api-card-maldives.jpg`. Names, categories and prices on the cards are
 illustrative.
+
+## Louvre (`louvre-cour-napoleon.jpg`, `hero-experiences/louvre.jpg`)
+
+Replaced on 18 November 2026 (owner's choice). The earlier photo was CC BY-SA 4.0 (Wikimedia Commons) and needed a
+visible credit, which the owner asked to remove. Now: RAFAEL MIRANDA, [Louvre pyramid at night](https://unsplash.com/photos/HRxkGGBn3eA),
+Unsplash, under the [Unsplash License](https://unsplash.com/license) (no credit required). Resized to 1280px wide;
+the 112px card thumbnail is a square crop of the same photo (pyramid and the Pavillon dome). The file name is kept so
+every page that used the old photo now shows this one.
