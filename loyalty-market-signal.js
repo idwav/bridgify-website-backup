@@ -16,17 +16,24 @@
     [[x0, y0], [x1, y1]].forEach(([x, y]) => mk('circle', { cx: x, cy: y, r: 3.5, fill: '#eee9de', stroke: '#f46649', 'stroke-width': 1.2 }, svg));
     dots = F ? Array.from({ length: 9 }, (_, i) => mk('circle', { r: F.radius(i), fill: '#fff8f1', stroke: '#f46649', 'stroke-width': .7, opacity: 0 }, svg)) : [];
   }
-  function set(n, fromUser) {
-    step = n; grid.dataset.step = n; stepAt = -1; if (fromUser) { manual = true; grid.classList.add('is-manual'); }
+  const pin = grid.closest('.lm2-pin'), flat = () => reduced.matches || innerHeight < 620 || grid.closest('.lm2-sticky').offsetHeight + (parseFloat(getComputedStyle(grid.closest('.lm2-sticky')).top) || 0) > innerHeight - 16;
+  function set(n) {
+    if (n === step && grid.classList.contains('is-live')) return;
+    step = n; grid.dataset.step = n; stepAt = -1; grid.classList.add('is-live');
     items.forEach((li, i) => li.setAttribute('aria-pressed', String(i === n - 1)));
     requestAnimationFrame(build);
   }
-  const schedule = () => { clearTimeout(timer); if (manual || reduced.matches || !visible || document.hidden) return; timer = setTimeout(() => { set(step % items.length + 1); schedule(); }, 6500); };
-  items.forEach((li, i) => { const pick = () => { clearTimeout(timer); set(i + 1, true); }; li.addEventListener('click', pick); li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } }); });
+  function fromScroll() {
+    if (flat()) { pin.classList.add('is-flat'); return; } pin.classList.remove('is-flat');
+    const r = pin.getBoundingClientRect(), span = Math.max(1, pin.offsetHeight - grid.closest('.lm2-sticky').offsetHeight - parseFloat(getComputedStyle(grid.closest('.lm2-sticky')).top));
+    const p = Math.max(0, Math.min(.999, -(r.top - parseFloat(getComputedStyle(grid.closest('.lm2-sticky')).top)) / span)), n = Math.min(items.length, Math.floor(p * items.length) + 1);
+    items.forEach((li, i) => li.style.setProperty('--p', i + 1 < n ? 1 : i + 1 === n ? (p * items.length - i) : 0));
+    set(n);
+  }
+  items.forEach((li, i) => { const pick = () => { if (flat()) { set(i + 1); return; } const r = pin.getBoundingClientRect(), span = pin.offsetHeight - grid.closest('.lm2-sticky').offsetHeight - parseFloat(getComputedStyle(grid.closest('.lm2-sticky')).top); scrollTo({ top: scrollY + r.top - parseFloat(getComputedStyle(grid.closest('.lm2-sticky')).top) + span * (i + .5) / items.length, behavior: 'smooth' }); }; li.addEventListener('click', pick); li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } }); });
+  addEventListener('scroll', fromScroll, { passive: true }); addEventListener('resize', fromScroll); reduced.addEventListener('change', fromScroll);
   new ResizeObserver(build).observe(stage); document.fonts?.ready.then(build);
-  new IntersectionObserver(([e]) => { visible = e.isIntersecting; schedule(); }, { threshold: .3 }).observe(grid);
-  document.addEventListener('visibilitychange', schedule); reduced.addEventListener('change', schedule);
-  set(1);
+  set(1); fromScroll();
   if (F) F.run(stage, elapsed => {
     if (stepAt < 0) stepAt = elapsed; const t = (elapsed - stepAt) % 4200, tile = tileOf();
     if (path) { const len = path.getTotalLength(); dots.forEach((d, i) => { const u = (t - 700 - i * F.delay) / 1400; if (u < 0 || u > 1) { d.setAttribute('opacity', 0); return; } const q = path.getPointAtLength(len * F.smooth(u)); d.setAttribute('cx', q.x); d.setAttribute('cy', q.y); d.setAttribute('opacity', Math.max(0, Math.min(1, u * 10, (1 - u) * 18)) * (1 - i * .065)); }); }

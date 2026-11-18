@@ -36,3 +36,8 @@
 @media(prefers-reduced-motion:reduce){.dp2-bar{transition:none;transform:none}}
 html body .dp2 .dp2-tabs button{background:transparent!important;color:#d3c1b8!important;border:1px solid #f4664966!important;box-shadow:none!important}
 html body .dp2 .dp2-tabs button[aria-selected=true]{background:linear-gradient(120deg,#f46649,#ff9a78)!important;color:#180f10!important;border-color:transparent!important;box-shadow:0 6px 20px #f4664944!important}
+
+/* Scroll-driven: the panel is pinned and the page's scroll switches Search / Checkout. */
+.dp2-pin{position:relative;height:calc(100svh * 1.7)}
+.dp2-sticky{position:sticky;top:clamp(88px,12vh,112px)}
+.dp2-pin.is-flat{height:auto}.dp2-pin.is-flat .dp2-sticky{position:static}

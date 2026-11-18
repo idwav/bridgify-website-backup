@@ -17,18 +17,28 @@ new ResizeObserver(layout).observe(panel);[hub,product,...sources].forEach(e=>ne
 F.run(panel,t=>{const time=clock(t)%F.cycle;routes.forEach(a=>{const length=a.path.getTotalLength();a.dots.forEach((d,i)=>{const u=(time-a.start-i*F.delay)/a.duration;if(u<0||u>1){d.style.opacity=0;return}const q=a.path.getPointAtLength(length*F.smooth(u));d.setAttribute('cx',q.x);d.setAttribute('cy',q.y);d.style.opacity=Math.max(0,Math.min(1,u*10,(1-u)*18))*(1-i*.065)});glow(a.target,F.arrival(time-a.start-a.duration))})},()=>{routes.forEach(a=>a.dots.forEach(d=>d.style.opacity=0));glow(hub,0);glow(product,0)});}
 const perf=document.querySelector('.dev-performance-panel');
 if(perf){
- // A request waterfall: tabs choose the moment; bars grow (cached, live, retried), then the three promises light up on the chart.
+ // A request waterfall. The panel is pinned; scrolling switches the moment (Search, Checkout). Bars grow (cached, live, retried),
+ // then the three promises light up on the chart. Without pinning (reduced motion, short screens) the tabs auto-play instead.
  const tabs=[...perf.querySelectorAll('.dp2-tabs button')],order=tabs.map(t=>t.dataset.tab),reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
- let timers=[],manual=false,visible=false,current='search';
+ const pin=perf.closest('.dp2-pin'),sticky=perf.closest('.dp2-sticky');
+ let timers=[],current=null,visible=false,manual=false;
  const clear=()=>{timers.forEach(clearTimeout);timers=[]};
  const at=(ms,fn)=>timers.push(setTimeout(fn,ms));
+ const flat=()=>reducedMotion.matches||innerHeight<620||sticky.offsetHeight+(parseFloat(getComputedStyle(sticky).top)||0)>innerHeight-16;
  function play(tab){clear();current=tab;perf.dataset.tab=tab;tabs.forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===tab)));
   perf.classList.remove('is-run','hl-timeout','hl-retry','hl-monitor');void perf.offsetWidth;
   if(reducedMotion.matches){perf.classList.add('is-run','hl-timeout','hl-retry','hl-monitor');return}
-  at(150,()=>perf.classList.add('is-run'));at(3200,()=>perf.classList.add('hl-timeout'));at(3900,()=>perf.classList.add('hl-retry'));at(4600,()=>perf.classList.add('hl-monitor'));
-  if(!manual)at(8200,()=>play(order[(order.indexOf(tab)+1)%order.length]))}
- tabs.forEach(b=>b.addEventListener('click',()=>{manual=true;play(b.dataset.tab)}));
- new IntersectionObserver(([e])=>{visible=e.isIntersecting;if(visible)play(current);else clear()},{threshold:.25}).observe(perf);
+  at(150,()=>perf.classList.add('is-run'));at(2600,()=>perf.classList.add('hl-timeout'));at(3300,()=>perf.classList.add('hl-retry'));at(4000,()=>perf.classList.add('hl-monitor'));
+  if(flat()&&!manual&&visible)at(8200,()=>play(order[(order.indexOf(tab)+1)%order.length]))}
+ const top=()=>parseFloat(getComputedStyle(sticky).top)||0;
+ function fromScroll(){if(flat()){pin.classList.add('is-flat');return}pin.classList.remove('is-flat');
+  const r=pin.getBoundingClientRect(),span=Math.max(1,pin.offsetHeight-sticky.offsetHeight-top());
+  const p=Math.max(0,Math.min(.999,-(r.top-top())/span)),tab=order[Math.min(order.length-1,Math.floor(p*order.length))];
+  if(tab!==current)play(tab)}
+ tabs.forEach(b=>b.addEventListener('click',()=>{manual=true;if(flat()){play(b.dataset.tab);return}const i=order.indexOf(b.dataset.tab),r=pin.getBoundingClientRect(),span=pin.offsetHeight-sticky.offsetHeight-top();scrollTo({top:scrollY+r.top-top()+span*(i+.5)/order.length,behavior:'smooth'})}));
+ new IntersectionObserver(([e])=>{visible=e.isIntersecting;if(visible&&current===null)play('search')},{threshold:.2}).observe(perf);
+ addEventListener('scroll',fromScroll,{passive:true});addEventListener('resize',fromScroll);reducedMotion.addEventListener('change',fromScroll);fromScroll();
+ if(current===null)play('search');
 }
 // Find what you need: the five guides are one journey; a pulse travels card to card on the site's wiring.
 const docsRoot=document.querySelector('#section-2 .dev-docs');
