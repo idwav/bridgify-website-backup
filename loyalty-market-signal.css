@@ -93,3 +93,12 @@ html body #market-signal > div.lm2-pin > div.lm2-sticky > div.lm2-grid > ol.lm2-
 .lm2-grid[data-step] .lm2-list li:after{width:calc(var(--p,0)*(100% - 48px))}
 /* screen proportion: the pinned view is as tall as the screen under the header, with its content centred in it */
 .lm2-sticky{display:flex;flex-direction:column;justify-content:center;min-height:calc(100svh - 100px);padding-top:0}
+
+/* taller animation window: the stage takes the screen height it is given */
+.lm2-views{min-height:clamp(230px,34vh,330px)}
+.lm2-stage{gap:clamp(36px,5vh,56px)}
+.lm2-tile img{width:clamp(64px,8vh,88px);height:clamp(64px,8vh,88px)}
+.lm2-browser{width:min(100%,500px)}
+.lm2-phone{width:min(100%,340px)}
+.lm2-card{width:min(100%,320px);height:clamp(96px,13vh,128px)}
+@media(max-width:599px){.lm2-views{min-height:230px}.lm2-tile img{width:64px;height:64px}}
