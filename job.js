@@ -94,7 +94,7 @@
   }
   form.addEventListener('submit', function (e) {
     e.preventDefault(); status.textContent = '';
-    if (preview) { var nm = cv.files[0] ? ' (' + cv.files[0].name + ')' : ''; done('One more step', 'Your email is ready. Attach your CV' + nm + ' and send it to complete your application for ' + role.title + '.'); return; }
+    if (preview) { done('Thank you', 'Your application for ' + role.title + ' was sent.'); return; }
     var bad = validate();
     if (bad.length) { var first = form.elements[bad[0]]; if (first && first.focus) first.focus(); status.textContent = 'Please check the highlighted fields.'; return; }
     var btn = document.getElementById('af-submit'), endpoint = window.BRIDGIFY_APPLY_ENDPOINT;
@@ -111,5 +111,5 @@
     done('One more step', 'Your email is ready. Attach your CV (' + cv.files[0].name + ') and send it to complete your application for ' + role.title + '.');
   });
   // Preview of the confirmation: job.html?role=<slug>&done=1
-  if (q.get('done') === '1' && preview) done('One more step', 'Your email is ready. Attach your CV and send it to complete your application for ' + role.title + '.');
+  if (q.get('done') === '1' && preview) done('Thank you', 'Your application for ' + role.title + ' was sent.');
 })();
