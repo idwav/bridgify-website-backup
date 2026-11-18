@@ -42,6 +42,36 @@ PAGES = {
     "section": "#section-2 .intent-heading h2, #section-3 .match-head h2, #section-4 .embed-heading h2, #day-itinerary header h2, #faq .copy-inner > h2",
     "card": "#section-4 .embed-shell h3, #day-itinerary .day-start h3, #day-itinerary .day-plan h3",
     "buttons": "section a.brand-action, .bf-cta-actions a"},
+  "otas": {"url": "otas.html", "roles": "roles-otas.js", "css": ["otas-trial.css"], "pairs": None,
+    "hero": "#ys-title",
+    "section": "#ms-title, #rc-title, #xc-title, #faq .copy-inner > h2",
+    "card": "#section-4.xc .xc-body h3",
+    "buttons": "section a.brand-action, section a.xc-cta, .bf-cta-actions a"},
+  "airlines": {"url": "airlines.html", "roles": "roles-airlines.js", "css": ["airlines-trial.css"], "pairs": None,
+    "hero": "#al-title",
+    "section": "#al-earn-title, #al-journey-title, #xc-title, #al-faq-title",
+    "card": "#section-4.xc .xc-body h3",
+    "buttons": "section a.brand-action, section a.xc-cta, .bf-cta-actions a"},
+  "hotels": {"url": "hotels.html", "roles": "roles-hotels.js", "css": ["hotels-trial.css"], "pairs": None,
+    "hero": "#hm-title",
+    "section": "#hr-title, #hs-title, #xc-title, #faq .copy-inner > h2",
+    "card": "#section-4.xc .xc-body h3",
+    "buttons": "section a.brand-action, section a.xc-cta, .bf-cta-actions a"},
+  "loyalty-finance": {"url": "loyalty-finance.html", "roles": "roles-loyalty-finance.js", "css": ["loyalty-finance-trial.css"], "pairs": None,
+    "hero": "#section-1 .lf-heading > h1",
+    "section": "#section-2 h2:not(.lp-x), #section-3 > h2, #xc-title, #we-started-here header h2, #market-signal header h2, #faq .copy-inner > h2",
+    "card": "#section-4.xc .xc-body h3",
+    "buttons": "section a.brand-action, section a.xc-cta, .bf-cta-actions a"},
+  "super-apps": {"url": "super-apps.html", "roles": "roles-super-apps.js", "css": ["super-apps-trial.css"], "pairs": None,
+    "hero": "#section-1 .sc-hero-copy > h1",
+    "section": "#ma-title, #sc-title, #xc-title, #faq .copy-inner > h2",
+    "card": "#section-4.xc .xc-body h3",
+    "buttons": "section a.brand-action, section a.xc-cta, .bf-cta-actions a"},
+  "travel-technology": {"url": "travel-technology.html", "roles": "roles-travel-technology.js", "css": ["travel-technology-trial.css"], "pairs": None,
+    "hero": "#te-title",
+    "section": "#th-title, #ad-title, #xc-title, #faq .copy-inner > h2",
+    "card": "#section-4.xc .xc-body h3",
+    "buttons": "section a.brand-action, section a.xc-cta, .bf-cta-actions a"}
 }
 P = PAGES[PAGE]
 BASE = "http://127.0.0.1:8084/" + P["url"]
@@ -56,6 +86,10 @@ if LIVE:
     CSS = []; JS = JS[:2]
 # documented exceptions (SPACING-GRID-PLAN.md 2c, 3a): a divider with its own padding, a label row taller than the label
 KNOWN = {("#sources", "content→foot"), ("#sources", "sub→content"), ("#opportunity-study", "more→text"), ("#audiences", "label→title")}
+# page-specific: Super Apps "Connect experiences to what users are planning" is a pinned scroll scene whose frame is a
+# screen tall (min-height 100svh, content centred), so the gap under it depends on the screen's height; it is exact at
+# the heights the build samples and drifts by up to 63px on others (18 Nov 2026)
+if PAGE == "super-apps": KNOWN = KNOWN | {("#section-3", "content→text")}
 
 def margin(w):
     if w <= 599: return None
@@ -76,12 +110,14 @@ MEASURE = r"""([m, S]) => {
  // G1: the first heading, label or boxed card of each top-level section, against the margin
  out.g1 = [...document.querySelectorAll('section')].filter(s => !s.parentElement.closest('section') && vis(s) && !s.matches('.bf-cta-shell')).map(s => {
    const h = s.querySelector('.sec2-in, .hc2-box') || [...s.querySelectorAll('h1,h2')].filter(vis)[0]; if (!h) return null;
-   let x = h.getBoundingClientRect().left; const lbl = s.querySelector('.brand-section-label, .hm-eyebrow, .v4-kicker, .bv2-hero-eyebrow, .sec2-eyebrow');
+   // a centred heading (the OTAs hero) is centred on the content: its column, not its first letter, sits on the line
+   const centred = getComputedStyle(h).textAlign === 'center';
+   let x = (centred ? h.parentElement : h).getBoundingClientRect().left; const lbl = s.querySelector('.brand-section-label, .hm-eyebrow, .v4-kicker, .bv2-hero-eyebrow, .sec2-eyebrow');
    // inside a boxed card the label sits on the card's own padding: only the box is checked against the margin
    const boxed = !!s.querySelector('.sec2-in, .hc2-box, .bf-cta-card');
-   return {id: s.id || s.className.split(' ')[0], left: Math.round(x), label: !boxed && lbl && vis(lbl) ? Math.round(lbl.getBoundingClientRect().left) : null}; }).filter(Boolean);
+   return {id: s.id || s.className.split(' ')[0], left: Math.round(x), label: !boxed && !centred && lbl && vis(lbl) ? Math.round(lbl.getBoundingClientRect().left) : null}; }).filter(Boolean);
  // G2: editorial text past the right margin (visuals, demos and full-bleed art excluded)
- const skip = '[aria-hidden=true], .market-demo, .presentation, .screens, .wl-preview-stage, .launch-workspace, .bc-comparison, .wo-stack, .results-panel, .match-workspace, .embed-shell, .day-layout, iframe, .ahc-visual, .nz-wrap, .ex-app, .cj-stage, .am-panel, .hm-stage, .intent-stage, .pr-card-visual, .v2e-proof, .v2e-art, .hc2-demo, .bv2-hero-visual, .pb-panels, .pr-grid, .audience-grid, svg, header, footer, .site-footer, .trust-stat';
+ const skip = '[aria-hidden=true], .ar-trip, .ar-bookings, .ys-ticket, .market-demo, .presentation, .screens, .wl-preview-stage, .launch-workspace, .bc-comparison, .wo-stack, .results-panel, .match-workspace, .embed-shell, .day-layout, iframe, .ahc-visual, .nz-wrap, .ex-app, .cj-stage, .am-panel, .hm-stage, .intent-stage, .pr-card-visual, .v2e-proof, .v2e-art, .hc2-demo, .bv2-hero-visual, .pb-panels, .pr-grid, .audience-grid, svg, header, footer, .site-footer, .trust-stat';
  out.g2 = m == null ? [] : [...document.querySelectorAll('section h1, section h2, section p, section .brand-action')].filter(e => vis(e) && !e.closest(skip))
    .filter(e => e.getBoundingClientRect().right > cw - m + 1.5).map(e => ({t: e.innerText.trim().slice(0, 40), over: Math.round(e.getBoundingClientRect().right - (cw - m))}));
  // T1 / T2: text sizes by role; local redefinitions of the type tokens

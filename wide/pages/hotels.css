@@ -1,0 +1,130 @@
+/* Bridgify tablet + desktop layer · hotels · built by scripts/build-wide.py from output/element-lab/grid-plan/. Do not edit; edit the lab and rebuild. */
+/* ---- hotels-trial.css ---- */
+/* Lab only · the approved system on hotels.html (step 6.5, 18 Nov 2026). Loaded after grid-vars.css (content line:
+   tablet 32, desktop clamp 40-64, content cap 1560), header-compact.css, type-wide.css and tokens-wide.css. Phone (<=599)
+   is not touched. What this adds: every section on the one content line, the type roles read from the shared tokens,
+   and the full-screen sections made as tall as their content on tablets and an iPad Pro held upright. */
+@media (min-width: 600px) {
+  html body :is(section#section-1, section#section-2, section#section-4, section#faq) { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
+  html body:not(#bf-lab) section#faq:is(.copy-faq, .al-faq) { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
+  html body :is(#hm-title) { font-size: var(--type-hero) !important; line-height: 1.16 !important; }
+  html body :is(#hr-title, #hs-title, #xc-title, #faq .copy-inner > h2) { font-size: var(--type-section) !important; line-height: 1.2 !important; }
+  /* the shared "choose" section (experience-choice-v2.css) defines its own --type-section / --type-card: read the page's */
+  html body section#section-4.xc { --type-section: inherit !important; --type-card: inherit !important; }
+  html body #section-4.xc .xc-note { font-size: var(--type-body) !important; line-height: 1.55 !important; }
+  html body #section-4.xc .xc-body h3 { font-size: var(--type-card) !important; line-height: 1.25 !important; }
+}
+@media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body :is(section#section-1, section#section-2, section#section-4) { min-height: 0 !important; }
+}
+/* the hero title on tablets and an iPad Pro held upright: the approved tablet hero (17 Nov 2026: 48-56), as on the
+   homepage, API and White-Label */
+@media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body:not(#bf-lab) :is(#hm-title) { font-size: clamp(48px, 5.5vw, 56px) !important; }
+}
+/* "Make experiences part of the stay" is a pinned scroll scene: its padding is on the sticky frame inside */
+@media (min-width: 600px) {
+  html body #section-3 .hs-sticky { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
+}
+
+/* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body #section-1 { row-gap: 0px !important; }
+  html body #section-1 > div:nth-child(1) { margin-bottom: 0px !important; padding-bottom: 0px !important; }
+  html body #section-1 > div:nth-child(1) > div:nth-child(1) { row-gap: 0px !important; }
+  html body #section-1 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) { margin-bottom: 0px !important; }
+  html body #hm-title { margin-top: 16px !important; }
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) { margin-bottom: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) > p:nth-child(1) { margin-bottom: 0px !important; }
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) { margin-top: 40px !important; margin-bottom: 0px !important; row-gap: 12px !important; column-gap: 12px !important; }
+  html body #section-1 > div:nth-child(2) { margin-top: 0px !important; padding-top: 0px !important; border-top-width: 0px !important; }
+  html body #section-1 > div:nth-child(2) > article:nth-child(1) { margin-top: 64px !important; }
+  html body #section-1 > div:nth-child(2) > article:nth-child(3) { margin-top: 64px !important; }
+  html body #section-2 { padding-top: 80px !important; padding-bottom: 80px !important; row-gap: 0px !important; }
+  html body #section-2 > header:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
+  html body #section-2 > header:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
+  html body #hr-title { margin-top: 16px !important; margin-bottom: 0px !important; }
+  html body #section-2 > header:nth-child(1) > p:nth-child(3) { margin-top: 24px !important; margin-bottom: 0px !important; }
+  html body #section-2 > div:nth-child(2) { margin-top: 48px !important; margin-bottom: 0px !important; }
+  html body #section-2 > footer:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; }
+  html body #section-3 { padding-top: 80px !important; padding-bottom: 80px !important; }
+  html body #section-3 > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
+  html body #section-3 > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
+  html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
+  html body #hs-title { margin-top: 16px !important; margin-bottom: 0px !important; }
+  html body #section-3 > div:nth-child(1) > div:nth-child(1) > p:nth-child(3) { margin-top: 24px !important; margin-bottom: 0px !important; }
+  html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) { margin-top: 40px !important; margin-bottom: 0px !important; }
+  html body #section-3 > div:nth-child(1) > div:nth-child(2) { margin-top: 24px !important; margin-bottom: 0px !important; }
+  html body #section-4 { padding-top: 80px !important; padding-bottom: 80px !important; row-gap: 0px !important; }
+  html body #section-4 > header:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
+  html body #section-4 > header:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
+  html body #section-4 > header:nth-child(1) > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
+  html body #xc-title { margin-top: 16px !important; margin-bottom: 0px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 24px !important; margin-bottom: 0px !important; }
+  html body #section-4 > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
+  html body #section-4 > div:nth-child(2) > article:nth-child(1) { margin-top: 48px !important; }
+  html body #section-4 > div:nth-child(2) > article:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; }
+  html body #section-4 > p:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; }
+  html body #faq { padding-top: 80px !important; padding-bottom: 80px !important; }
+  html body #faq > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  html body #faq > div:nth-child(1) > h2:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
+  html body #faq > div:nth-child(1) > details:nth-child(2) { margin-top: 48px !important; }
+  html body #faq > div:nth-child(1) > details:nth-child(3) { margin-top: 0px !important; }
+  html body #faq > div:nth-child(1) > details:nth-child(4) { margin-top: 0px !important; }
+  html body #faq > div:nth-child(1) > details:nth-child(5) { margin-top: 0px !important; }
+  html body #faq > div:nth-child(1) > details:nth-child(6) { margin-top: 0px !important; margin-bottom: 0px !important; }
+  html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) { row-gap: 0px !important; }
+  html body #bf-cta-title { margin-top: 0px !important; margin-bottom: 0px !important; }
+  html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > p:nth-child(2) { margin-top: 24px !important; margin-bottom: 0px !important; }
+  html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 40px !important; margin-bottom: 0px !important; row-gap: 12px !important; column-gap: 12px !important; }
+}
+@media (min-width: 1024px) {
+  html body #section-1 { row-gap: 0px !important; }
+  html body #section-1 > div:nth-child(1) { margin-bottom: 0px !important; padding-bottom: 0px !important; }
+  html body #section-1 > div:nth-child(1) > div:nth-child(1) { row-gap: 0px !important; }
+  html body #section-1 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) { margin-bottom: 0px !important; }
+  html body #hm-title { margin-top: 24px !important; }
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) { margin-bottom: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) > p:nth-child(1) { margin-bottom: 0px !important; }
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
+  html body #section-1 > div:nth-child(2) { margin-top: 0px !important; padding-top: 0px !important; border-top-width: 0px !important; }
+  html body #section-1 > div:nth-child(2) > article:nth-child(1) { margin-top: 64px !important; }
+  html body #section-1 > div:nth-child(2) > article:nth-child(3) { margin-top: 64px !important; }
+  html body #section-2 { padding-top: 96px !important; padding-bottom: 96px !important; row-gap: 0px !important; }
+  html body #section-2 > header:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
+  html body #section-2 > header:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
+  html body #hr-title { margin-top: 24px !important; margin-bottom: 0px !important; }
+  html body #section-2 > header:nth-child(1) > p:nth-child(3) { margin-top: 32px !important; margin-bottom: 0px !important; }
+  html body #section-2 > div:nth-child(2) { margin-top: 64px !important; margin-bottom: 0px !important; }
+  html body #section-2 > footer:nth-child(3) { margin-top: 64px !important; margin-bottom: 0px !important; }
+  html body #section-3 { padding-top: 96px !important; padding-bottom: 96px !important; }
+  html body #section-3 > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  html body #section-3 > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; padding-top: 0px !important; row-gap: 0px !important; }
+  html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
+  html body #hs-title { margin-top: 24px !important; margin-bottom: 0px !important; }
+  html body #section-3 > div:nth-child(1) > div:nth-child(1) > p:nth-child(3) { margin-top: 32px !important; margin-bottom: 0px !important; }
+  html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) { margin-top: 48px !important; }
+  html body #section-3 > div:nth-child(1) > div:nth-child(2) { margin-bottom: 0px !important; }
+  html body #section-4 { padding-top: 96px !important; padding-bottom: 96px !important; row-gap: 0px !important; }
+  html body #section-4 > header:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  html body #section-4 > header:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; padding-top: 0px !important; row-gap: 0px !important; }
+  html body #section-4 > header:nth-child(1) > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
+  html body #xc-title { margin-top: 24px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-bottom: 0px !important; }
+  html body #section-4 > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
+  html body #section-4 > div:nth-child(2) > article:nth-child(1) { margin-top: 64px !important; }
+  html body #section-4 > div:nth-child(2) > article:nth-child(2) { margin-top: 64px !important; margin-bottom: 0px !important; }
+  html body #section-4 > p:nth-child(3) { margin-top: 64px !important; margin-bottom: 0px !important; }
+  html body #faq { padding-top: 96px !important; padding-bottom: 96px !important; }
+  html body #faq > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  html body #faq > div:nth-child(1) > h2:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
+  html body #faq > div:nth-child(1) > details:nth-child(2) { margin-top: 64px !important; }
+  html body #faq > div:nth-child(1) > details:nth-child(3) { margin-top: 0px !important; }
+  html body #faq > div:nth-child(1) > details:nth-child(4) { margin-top: 0px !important; }
+  html body #faq > div:nth-child(1) > details:nth-child(5) { margin-top: 0px !important; }
+  html body #faq > div:nth-child(1) > details:nth-child(6) { margin-top: 0px !important; margin-bottom: 0px !important; }
+  html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) { row-gap: 0px !important; }
+  html body #bf-cta-title { margin-top: 0px !important; margin-bottom: 0px !important; }
+  html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > p:nth-child(2) { margin-top: 32px !important; margin-bottom: 0px !important; }
+  html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
+}

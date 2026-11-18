@@ -37,6 +37,13 @@ PAGES = {
     'marketplace': ('marketplace.html?version=2', 'roles-marketplace.js', ['marketplace-trial.css'],
                     [['#section-2', 'h2.tour-title', 'header > p'], ['#section-3', 'h2', 'header.wl-heading > p'], ['#section-4', '#commerce-title', 'header.wo-heading > p']], None),
     'personalization': ('personalization.html?version=2', 'roles-personalization.js', ['personalization-trial.css'], [], 'personalization-hero.js'),
+    # step 6.5: the six solution pages
+    'otas': ('otas.html?version=2', 'roles-otas.js', ['otas-trial.css'], [], None),
+    'airlines': ('airlines.html?version=2', 'roles-airlines.js', ['airlines-trial.css'], [], None),
+    'hotels': ('hotels.html?version=2', 'roles-hotels.js', ['hotels-trial.css'], [], None),
+    'loyalty-finance': ('loyalty-finance.html?version=2', 'roles-loyalty-finance.js', ['loyalty-finance-trial.css'], [], None),
+    'super-apps': ('super-apps.html?version=2', 'roles-super-apps.js', ['super-apps-trial.css'], [], None),
+    'travel-technology': ('travel-technology.html?version=2', 'roles-travel-technology.js', ['travel-technology-trial.css'], [], None),
 }
 # Each device class is baked at several widths, because a page's own layout changes inside a class (a section that
 # stacks below 800, a grid that gains a column at 1280). A value that is the same at every width of a class is written
@@ -72,6 +79,9 @@ def bake(b, page, cfg):
         per = []   # [(lo, hi, {selector: {prop: value}})]
         for w, h, lo, hi in samples:
             pg = b.new_page(viewport={'width': w, 'height': h}, reduced_motion='reduce')
+            # bake against the page without its published layer: once a page links wide/, the previous build would
+            # otherwise be in the page while it is measured, and a wrong earlier value could carry into the new one
+            pg.route('**/wide/**', lambda route: route.abort())
             pg.goto(BASE + url, wait_until='networkidle', timeout=60000)
             for c in css: pg.add_style_tag(content=c)
             pg.evaluate("async () => { await document.fonts.ready; for (let y = 0; y < document.body.scrollHeight; y += 600) { scrollTo(0, y); await new Promise(r => setTimeout(r, 30)); } scrollTo(0, 0); await new Promise(r => setTimeout(r, 500)); }")
@@ -99,13 +109,14 @@ def bake(b, page, cfg):
     return blocks
 
 
-def build(dest):
+def build(dest, only=None):
     os.makedirs(os.path.join(dest, 'pages'), exist_ok=True)
     for dst, src in SHARED.items():
         shutil.copyfile(os.path.join(LAB, src), os.path.join(dest, dst))
     with sync_playwright() as p:
         b = p.chromium.launch()
         for page, cfg in PAGES.items():
+            if only and page not in only: continue
             head = f'/* Bridgify tablet + desktop layer · {page} · built by scripts/build-wide.py from output/element-lab/grid-plan/. Do not edit; edit the lab and rebuild. */\n'
             body = '\n'.join(f'/* ---- {l} ---- */\n' + R(l) for l in cfg[2])
             baked = '\n'.join(bake(b, page, cfg))
@@ -115,9 +126,12 @@ def build(dest):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument('--check', action='store_true'); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument('--check', action='store_true')
+    ap.add_argument('--only', help='comma-separated pages to rebuild (while working on them; run a full build before publishing)')
+    a = ap.parse_args()
     if not a.check:
-        build(OUT); print(f'built wide/ ({len(PAGES)} page(s): {", ".join(PAGES)})'); return
+        only = a.only.split(',') if a.only else None
+        build(OUT, only); print(f'built wide/ ({", ".join(only or PAGES)})'); return
     tmp = tempfile.mkdtemp(); build(tmp)
     bad = []
     for r, _, fs in os.walk(tmp):

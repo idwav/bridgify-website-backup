@@ -1,0 +1,34 @@
+/* Lab only · the approved system on airlines.html (step 6.5, 18 Nov 2026). Loaded after grid-vars.css (content line:
+   tablet 32, desktop clamp 40-64, content cap 1560), header-compact.css, type-wide.css and tokens-wide.css. Phone (<=599)
+   is not touched. What this adds: every section on the one content line, the type roles read from the shared tokens,
+   and the full-screen sections made as tall as their content on tablets and an iPad Pro held upright. */
+@media (min-width: 600px) {
+  html body :is(section#section-1, section#section-2, section#section-3, section#section-4, section#faq) { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
+  html body:not(#bf-lab) section#faq:is(.copy-faq, .al-faq) { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
+  html body :is(#al-title) { font-size: var(--type-hero) !important; line-height: 1.16 !important; }
+  html body :is(#al-earn-title, #al-journey-title, #xc-title, #al-faq-title) { font-size: var(--type-section) !important; line-height: 1.2 !important; }
+  /* the shared "choose" section (experience-choice-v2.css) defines its own --type-section / --type-card: read the page's */
+  html body section#section-4.xc { --type-section: inherit !important; --type-card: inherit !important; }
+  html body #section-4.xc .xc-note { font-size: var(--type-body) !important; line-height: 1.55 !important; }
+  html body #section-4.xc .xc-body h3 { font-size: var(--type-card) !important; line-height: 1.25 !important; }
+}
+@media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body :is(section#section-1, section#section-2, section#section-3, section#section-4) { min-height: 0 !important; }
+}
+/* the hero title on tablets and an iPad Pro held upright: the approved tablet hero (17 Nov 2026: 48-56), as on the
+   homepage, API and White-Label */
+@media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body:not(#bf-lab) :is(#al-title) { font-size: clamp(48px, 5.5vw, 56px) !important; }
+}
+/* "Experiences in loyalty programs" sat in a narrow column and wrapped to two or three lines (60-80px tall). One line,
+   at the approved button height (52), as every other button (step 6.1 exception, closed in 6.5). */
+@media (min-width: 600px) {
+  html body #section-3 a.al-text-link.brand-action { white-space: nowrap !important; width: max-content !important; max-width: none !important; flex: none !important; }
+}
+/* On tablets the copy column is half the screen: with the button on one line, the earn/redeem pair no longer fits
+   beside it. There the loyalty note stacks: text, button, then the earn/redeem pair under them. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body #section-3 aside.al-loyalty { grid-template-columns: minmax(0, 1fr) !important; }
+  html body #section-3 aside.al-loyalty > .al-miles { grid-column: 1 !important; grid-row: auto !important; justify-self: start !important; margin-top: 24px !important; }
+  html body #section-3 aside.al-loyalty > * { grid-column: 1 !important; }
+}

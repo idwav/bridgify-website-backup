@@ -1,0 +1,41 @@
+/* Lab only · the approved system on travel-technology.html (step 6.5, 18 Nov 2026). Loaded after grid-vars.css (content line:
+   tablet 32, desktop clamp 40-64, content cap 1560), header-compact.css, type-wide.css and tokens-wide.css. Phone (<=599)
+   is not touched. What this adds: every section on the one content line, the type roles read from the shared tokens,
+   and the full-screen sections made as tall as their content on tablets and an iPad Pro held upright. */
+@media (min-width: 600px) {
+  html body :is(section#section-1, section#section-2, section#section-3, section#section-4, section#faq) { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
+  html body:not(#bf-lab) section#faq:is(.copy-faq, .al-faq) { padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important; }
+  html body :is(#te-title) { font-size: var(--type-hero) !important; line-height: 1.16 !important; }
+  html body :is(#th-title, #ad-title, #xc-title, #faq .copy-inner > h2) { font-size: var(--type-section) !important; line-height: 1.2 !important; }
+  /* the shared "choose" section (experience-choice-v2.css) defines its own --type-section / --type-card: read the page's */
+  html body section#section-4.xc { --type-section: inherit !important; --type-card: inherit !important; }
+  html body #section-4.xc .xc-note { font-size: var(--type-body) !important; line-height: 1.55 !important; }
+  html body #section-4.xc .xc-body h3 { font-size: var(--type-card) !important; line-height: 1.25 !important; }
+}
+@media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body :is(section#section-1, section#section-2, section#section-3, section#section-4) { min-height: 0 !important; }
+}
+/* the hero title on tablets and an iPad Pro held upright: the approved tablet hero (17 Nov 2026: 48-56), as on the
+   homepage, API and White-Label */
+@media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body:not(#bf-lab) :is(#te-title) { font-size: clamp(48px, 5.5vw, 56px) !important; }
+}
+/* the hero heading and the "How do I avoid" heading, and their labels, carried their own left offsets (42px, 32px): on the line */
+@media (min-width: 600px) {
+  html body :is(#section-1 .te-heading, #section-1 .te-eyebrow, #section-2 #th-title, #section-2 .th-eyebrow) { margin-left: 0 !important; }
+}
+/* the hero heading and its intro sit side by side; they were centred on each other, which pushed the title 9-17px
+   below its label. Both start at the top, as every split heading on the site. */
+@media (min-width: 600px) {
+  html body #section-1 .te-heading { align-items: start !important; }
+}
+/* the hero fills the screen (height 100svh) and its demo stretches into what is left (flex: 1). On a tablet or an iPad
+   Pro held upright that left a tall empty band above and below the demo (149px instead of 64 under the buttons). There
+   the hero is as tall as its content, and the demo sits on the content line like every other block. */
+@media (min-width: 600px) and (max-width: 1023px), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body #section-1.te-hero { height: auto !important; }
+  html body #section-1 .te-visual { flex: none !important; }
+}
+@media (min-width: 600px) {
+  html body:not(#bf-lab)[data-copy-page="travel-technology"] #section-1 .te-visual { margin-inline: 0 !important; }
+}
