@@ -16,7 +16,7 @@
     return;
   }
   document.title = role.title + ' | Careers at Bridgify';
-  if (role.published) { var r = document.querySelector('meta[name=robots]'); if (r) r.remove(); }
+  if (role.published && !role.sample) { var r = document.querySelector('meta[name=robots]'); if (r) r.remove(); }
 
   $('[data-job=team]').textContent = role.teamLabel;
   $('[data-job=title]').textContent = role.title;
