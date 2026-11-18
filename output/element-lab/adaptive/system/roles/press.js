@@ -85,7 +85,8 @@ window.BridgifyRoles = {
      "link",
      "a.nr-link"
     ]
-   ]
+   ],
+   "frame": ".nr-release"
   },
   {
    "section": ".nr-coverage",

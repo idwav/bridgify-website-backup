@@ -202,14 +202,16 @@
   }
 
   /* 7c. Fold with a visible + on the section's own background colour. */
-  function fold(el, lines) {
+  function fold(el, lines, o = {}) {
     if (!el || el.classList.contains('ad-exp')) return;
     /* A "Read more +" link under the folded text (the control the homepage already uses), not a + over the last word.
        Mobile only; tablet and desktop show the full text. */
     if (!MQ.mobile.matches) return;
-    /* Fold only when it saves more than two lines; one or two extra lines just stay visible. */
+    /* Fold only when it saves more than two lines; one or two extra lines just stay visible. Cards pass
+       {always: true}: a card shows its first lines and Read more whenever there is more (user, 18 Nov 2026). */
     const lh = parseFloat(getComputedStyle(el).lineHeight) || parseFloat(getComputedStyle(el).fontSize) * 1.5;
-    if (Math.round(el.getBoundingClientRect().height / lh) - lines <= 2) return;
+    const extra = Math.round(el.getBoundingClientRect().height / lh) - lines;
+    if (o.always ? extra < 1 : extra <= 2) return;
     const more = document.createElement('button');
     more.type = 'button'; more.className = 'ad-more'; more.setAttribute('aria-expanded', 'false');
     more.innerHTML = 'Read more <span aria-hidden="true">+</span>';

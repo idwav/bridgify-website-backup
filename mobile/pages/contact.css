@@ -9,3 +9,13 @@
 
 /* section titles at the one phone title size (28px Chillax 400), like every other page */
 @media (max-width:599px){ html body #section-5 h2:not(#ad-x):not(#ad-y){font-family:Chillax,sans-serif!important;font-size:var(--ad-title)!important;font-weight:400!important;letter-spacing:-.7px!important;line-height:1.15!important} }
+
+/* type roles and the three steps card (WORKFLOW.md §3): body 15/24; the steps are compact rows, name 18/500 */
+@media (max-width:599px){
+  html body :is(#section-1,#section-2,#section-3,#section-4,#section-5.block) p:not(#ad-x){font-size:15px!important;line-height:24px!important}
+  html body .art:not(#ad-x),html body .block-art:not(#ad-x){padding:8px 20px!important}
+  html body .rail:not(#ad-x){gap:0!important}
+  html body .rail-item:not(#ad-x){min-height:56px!important;height:auto!important;padding:8px 0!important;gap:16px!important;align-items:center!important}
+  html body .rail-item>b:not(#ad-x){font-size:20px!important;line-height:24px!important;min-width:28px}
+  html body .rail-item>span:not(#ad-x){font-family:Chillax,sans-serif!important;font-size:18px!important;font-weight:500!important;line-height:1.3!important}
+}
