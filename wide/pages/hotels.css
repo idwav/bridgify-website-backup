@@ -51,12 +51,17 @@
   html body:not(#bf-lab) :is(#section-4 header.xc-head > p) { align-self: start !important; max-width: 560px !important; }
 }
 /* The pinned scroll scene (owner, 18 Nov 2026: keep the scrolling, fix the spacing). Where the page pins it (wider
-   than 900 and taller than its own limit, mouse or touch), the frame used to be a screen tall with its content centred,
+   than 900, taller than its own limit, motion on; mouse or touch), the frame used to be a screen tall with its content centred,
    so the section opened with 160-380px of empty space. The frame is now as tall as its content and sticks 96px under
    the top of the screen (the compact header is 64): the section opens section-y above its label like every other
    section, the steps still change as you scroll through the 280svh track, and the next section follows section-y under it. */
-@media (min-width: 901px) {
+@media (min-width: 901px) and (min-height: 701px) and (prefers-reduced-motion: no-preference) {
   html body #section-3 .hs-sticky { top: 96px !important; min-height: 0 !important; align-items: start !important; align-content: start !important; padding-top: 0 !important; padding-bottom: 0 !important; }
+}
+/* With reduced motion the scene is not pinned, but its frame kept min-height 100svh with the content centred (399px
+   above and below on an iPad Pro held upright): there it is as tall as its content */
+@media (min-width: 600px) and (prefers-reduced-motion: reduce) {
+  html body #section-3 .hs-sticky { min-height: 0 !important; }
 }
 
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
