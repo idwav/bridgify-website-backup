@@ -76,3 +76,20 @@ html body #market-signal > div.lm2-pin > div.lm2-sticky > div.lm2-grid{margin-to
 .lm2-stage{gap:clamp(24px,3.4vh,40px)}
 .lm2-list{grid-auto-rows:clamp(72px,10vh,96px)}
 @media(max-width:599px){.lm2-phone .lm2-tile img{width:56px;height:56px}}
+
+/* Same left column as "Experiences for cardholders": cream cards with an icon, a Chillax name and a chevron; the active one is peach. */
+html body #market-signal > div.lm2-pin > div.lm2-sticky > div.lm2-grid > ol.lm2-list{display:grid;gap:14px;grid-auto-rows:auto;align-content:center;border:0;margin:0!important}
+.lm2-list li{position:relative;min-height:72px;padding:14px 24px;gap:16px;border:1px solid #c86a482b;border-top:1px solid #c86a482b;border-radius:10px;background:linear-gradient(135deg,#fff8f180,#eee9de);box-shadow:inset 0 1px #fff8f1a0;transition:background .3s,border-color .3s}
+.lm2-list li:last-child{border-bottom:1px solid #c86a482b}
+.lm2-list li:hover{border-color:#c35d3c88}
+.lm2-ic{width:32px;height:32px;border:0;border-radius:0;background:none!important;color:#180f10!important}
+.lm2-ic svg{width:32px;height:32px;stroke-width:1.3}
+#market-signal .lm2-list h3{flex:1;font:300 24px/1.25 Chillax,sans-serif;color:#180f10!important}
+.lm2-chev{width:18px;height:18px;flex:none;fill:none;stroke:#180f10;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s}
+.lm2-grid[data-step="1"] li:nth-child(1),.lm2-grid[data-step="2"] li:nth-child(2),.lm2-grid[data-step="3"] li:nth-child(3){background:linear-gradient(105deg,#ffdab94d,#f466490e);border-color:#c35d3c66}
+.lm2-grid[data-step="1"] li:nth-child(1) .lm2-chev,.lm2-grid[data-step="2"] li:nth-child(2) .lm2-chev,.lm2-grid[data-step="3"] li:nth-child(3) .lm2-chev{transform:rotate(90deg)}
+.lm2-grid[data-step="1"] li:nth-child(1) .lm2-ic,.lm2-grid[data-step="2"] li:nth-child(2) .lm2-ic,.lm2-grid[data-step="3"] li:nth-child(3) .lm2-ic{color:#cf5035!important;border:0}
+.lm2-list li:after{left:24px;right:auto;bottom:6px;height:2px;border-radius:2px;max-width:calc(100% - 48px)}
+.lm2-grid[data-step] .lm2-list li:after{width:calc(var(--p,0)*(100% - 48px))}
+/* screen proportion: the pinned view is as tall as the screen under the header, with its content centred in it */
+.lm2-sticky{display:flex;flex-direction:column;justify-content:center;min-height:calc(100svh - 100px);padding-top:0}
