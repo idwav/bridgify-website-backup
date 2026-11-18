@@ -159,3 +159,26 @@
 
 .job-more{margin-top:clamp(56px,9vh,96px);padding-top:28px;border-top:1px solid #ffffff14}
 .job-more .rl-list{margin-top:10px}
+
+/* Application form, under the description (same column). */
+.jl-apply{margin-top:clamp(56px,9vh,96px);padding-top:clamp(28px,4vh,40px);border-top:1px solid #ffffff14;scroll-margin-top:110px}
+.jl-apply>h2,.jl-apply h2#apply-title{margin:0 0 26px;font:600 17px/1.3 Sofia,sans-serif;color:#fff}
+.jl-form{display:grid;gap:26px}
+.jl-form .af-grid{gap:20px 22px}
+.jl-form .af-drop{padding:20px 22px}
+.jl-form textarea{min-height:110px}
+.jl-form .af-actions{margin-top:2px}
+.jl-apply .apply-done{justify-items:start;text-align:left;padding:6px 0 0;gap:12px}
+.jl-apply .apply-done h2{font:300 clamp(28px,2.6vw,38px)/1.15 Chillax,Sofia,sans-serif;margin:6px 0 0}
+.jl-apply .apply-done p{margin:0 0 12px}
+.jl-apply .job-sample{margin:14px 0 0;max-width:none}
+@media(max-width:700px){.jl-form .af-grid{grid-template-columns:1fr}.jl-form .af-actions .career-cta{width:100%;justify-content:center}}
+/* Right column starts level with the role title */
+.jl-crumb{margin:0 0 clamp(18px,3vh,26px)}
+.jl-main{padding-top:8px}
+.jl-main{padding-top:0}
+
+/* No lead sentence: the first heading sits level with the role title. */
+.jl-main #job-body>h2:first-child{margin-top:0}
+.jl-main{padding-top:6px}
+.jl-form[hidden],.jl-apply [hidden]{display:none!important}
