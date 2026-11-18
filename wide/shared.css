@@ -71,3 +71,25 @@
   html body #section-2 .dev-docs article:nth-child(4) { border-left: 0 !important; }
   html body #section-2 .dev-docs article:nth-child(n+4) { border-top: 1px solid #b95d3833; }
 }
+
+/* Loyalty hero card: Redeem presses, the chosen tour lights up as bought */
+html body #lr-redeem { transition: transform .25s, box-shadow .35s, border-color .3s; }
+html body #lr-redeem.lr-press { transform: scale(.96); border-color: #f46649; box-shadow: 0 0 24px #f4664999; }
+html body .lr-product { transition: box-shadow .5s, border-color .5s; border: 1px solid transparent; border-radius: 16px; }
+html body .lr-product.lr-bought { border-color: #f46649; box-shadow: 0 0 28px #f4664966; }
+
+
+/* "We started here": the same flat grid as "Who it's for" on White Label (icon box, number at the corner, title), five across */
+@media (min-width: 1101px) {
+  html body #we-started-here.lp-origin { display: block !important; }
+  html body #we-started-here .lp-feature-grid { display: grid !important; grid-template-columns: repeat(5, minmax(0, 1fr)) !important; border-top: 1px solid #b95d3833; border-bottom: 1px solid #b95d3833; margin-top: 56px !important; }
+  html body #we-started-here .lp-feature { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 0; min-height: clamp(240px, 28vh, 300px); padding: 30px 32px; border-bottom: 0 !important; border-left: 1px solid #b95d3833; }
+  html body #we-started-here .lp-feature:first-child { border-left: 0; }
+  html body #we-started-here .lp-feature-number { top: 32px; right: 32px; }
+  html body #we-started-here .lp-feature h3 { margin-top: 44px; }
+}
+@media (min-width: 600px) and (max-width: 1100px) {
+  html body #we-started-here .lp-feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  html body #we-started-here .lp-feature { border-left: 1px solid #b95d3833; }
+  html body #we-started-here .lp-feature:nth-child(odd) { border-left: 0; }
+}

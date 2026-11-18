@@ -15,22 +15,32 @@ if(mobile)route(`M${h.x+h.w/2} ${h.y+h.h}V${p.y}`,product,1800,900);else route(`
 }
 new ResizeObserver(layout).observe(panel);[hub,product,...sources].forEach(e=>new ResizeObserver(layout).observe(e));layout();const clock=controls(panel);
 F.run(panel,t=>{const time=clock(t)%F.cycle;routes.forEach(a=>{const length=a.path.getTotalLength();a.dots.forEach((d,i)=>{const u=(time-a.start-i*F.delay)/a.duration;if(u<0||u>1){d.style.opacity=0;return}const q=a.path.getPointAtLength(length*F.smooth(u));d.setAttribute('cx',q.x);d.setAttribute('cy',q.y);d.style.opacity=Math.max(0,Math.min(1,u*10,(1-u)*18))*(1-i*.065)});glow(a.target,F.arrival(time-a.start-a.duration))})},()=>{routes.forEach(a=>a.dots.forEach(d=>d.style.opacity=0));glow(hub,0);glow(product,0)});}
-const perf=document.querySelector('.dev-performance-panel'),chips=[...perf.querySelectorAll('.dev-chip.live'),...perf.querySelectorAll('.dev-booking-flow .dev-chip:not(.live)')],pc=controls(perf),rel=[...perf.querySelectorAll('.dev-reliability>div')];const track=svg('svg',{class:'dev-flow-svg dev-performance-wires','aria-hidden':'true'});perf.append(track);let performanceRoutes=[];
-function performanceLayout(){
- track.replaceChildren();performanceRoutes=[];const r=perf.getBoundingClientRect();track.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);
- const box=e=>{const b=e.getBoundingClientRect();return{x:b.left-r.left,y:b.top-r.top,w:b.width,h:b.height}};
- const add=(d,start,duration)=>{const path=svg('path',{d});track.append(path);[0,path.getTotalLength()].forEach(l=>{const q=path.getPointAtLength(l);track.append(svg('circle',{cx:q.x,cy:q.y,r:3,fill:'#fff8f1',stroke:'#f46649','stroke-width':1}))});const dots=Array.from({length:9},(_,i)=>{const d=svg('circle',{r:F.radius(i),fill:'#fff8f1',stroke:'#f46649','stroke-width':.7,opacity:0,class:'dev-flow-particle'});track.append(d);return d});performanceRoutes.push({path,dots,start,duration})};
- chips.slice(0,-1).forEach((el,i)=>{const a=box(el),b=box(chips[i+1]);let d;
- if(i===0&&innerWidth>1000){const base=box(perf.querySelector('.dev-timeline')).y,x=a.x+a.w/2,y=a.y+a.h,tx=b.x+b.w/2,ty=b.y+b.h;d=`M${x} ${y}V${base-10}Q${x} ${base} ${x+10} ${base}H${tx-10}Q${tx} ${base} ${tx} ${base-10}V${ty}`}
- else if(i===0){const x=a.x+a.w,y=a.y+a.h/2,rail=r.width-10,tx=b.x+b.w,ty=b.y+b.h/2;d=`M${x} ${y}H${rail-8}Q${rail} ${y} ${rail} ${y+8}V${ty-8}Q${rail} ${ty} ${rail-8} ${ty}H${tx}`}
- else if(Math.abs(a.y-b.y)<a.h/2){d=`M${a.x+a.w} ${a.y+a.h/2}H${b.x}`}
- else{const x=a.x+a.w/2,y=a.y+a.h,tx=b.x+b.w/2,ty=b.y;d=`M${x} ${y}C${x} ${(y+ty)/2} ${tx} ${(y+ty)/2} ${tx} ${ty}`}
- add(d,[0,1700,2600][i],[1600,800,800][i]);
- });
+const perf=document.querySelector('.dev-performance-panel');
+if(perf){
+ // Two moments, one wiring: inside each column a pulse runs picture -> node -> node, then both columns drop into the safety net.
+ const cols=[...perf.querySelectorAll('.dp-lane')],safe=[...perf.querySelectorAll('.dp-safe')],net=perf.querySelector('.dp-safety');
+ const colNodes=cols.map(l=>[...l.querySelectorAll('.dp-img,.dp-node')]);
+ const track=svg('svg',{class:'dev-flow-svg dev-performance-wires','aria-hidden':'true'});perf.append(track);let routes=[];
+ const CYCLE=8400,START=[300,2900],HOP=800,DUR=700;
+ function layout(){track.replaceChildren();routes=[];const r=perf.getBoundingClientRect();track.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);
+  const box=e=>{const b=e.getBoundingClientRect();return{x:b.left-r.left,y:b.top-r.top,w:b.width,h:b.height}};const contacts=new Set();
+  const ring=(x,y)=>{const k=Math.round(x)+','+Math.round(y);if(contacts.has(k))return;contacts.add(k);track.append(svg('circle',{cx:x,cy:y,r:3.5,fill:'#eee9de',stroke:'#f46649','stroke-width':1.2}))};
+  const add=(x0,y0,x1,y1,start,to)=>{const m=y0+(y1-y0)/2,rr=Math.min(10,Math.abs(y1-y0)/2-1),k=x1>x0?1:-1;const d=Math.abs(x1-x0)<1?`M${x0} ${y0}V${y1}`:`M${x0} ${y0}V${m-rr}Q${x0} ${m} ${x0+k*rr} ${m}H${x1-k*rr}Q${x1} ${m} ${x1} ${m+rr}V${y1}`;
+   const path=svg('path',{d,fill:'none',stroke:'#f46649','stroke-width':1,'stroke-linecap':'round',opacity:.55});track.append(path);ring(x0,y0);ring(x1,y1);
+   const dots=Array.from({length:9},(_,k)=>{const c=svg('circle',{r:F.radius(k),fill:'#fff8f1',stroke:'#f46649','stroke-width':.7,opacity:0});track.append(c);return c});
+   routes.push({path,len:path.getTotalLength(),dots,start,duration:DUR,to})};
+  const n=net?box(net):null;
+  colNodes.forEach((nodes,ci)=>{let t=START[ci];for(let i=0;i<nodes.length-1;i++){const a=box(nodes[i]),b=box(nodes[i+1]);add(a.x+a.w/2,a.y+a.h,b.x+b.w/2,b.y,t,nodes[i+1]);t+=HOP}
+   const stacked=cols.length>1&&box(cols[1]).y>box(cols[0]).y+40;if(n&&(!stacked||ci===cols.length-1)){const l=box(nodes[nodes.length-1]);add(l.x+l.w/2,l.y+l.h,l.x+l.w/2,n.y,t,null)}});
+ }
+ new ResizeObserver(layout).observe(perf);document.fonts?.ready.then(layout);layout();
+ const first=colNodes.map(n=>n[0]);
+ F.run(perf,t=>{const time=t%CYCLE;
+  first.forEach((e,i)=>glow(e,F.arrival(time-START[i]+200)));
+  routes.forEach(a=>{a.dots.forEach((d,i)=>{const u=(time-a.start-i*F.delay)/a.duration;if(u<0||u>1){d.setAttribute('opacity',0);return}const q=a.path.getPointAtLength(a.len*F.smooth(u));d.setAttribute('cx',q.x);d.setAttribute('cy',q.y);d.setAttribute('opacity',Math.max(0,Math.min(1,u*10,(1-u)*18))*(1-i*.065))});if(a.to)glow(a.to,F.arrival(time-a.start-a.duration+150))});
+  safe.forEach((e,i)=>glow(e,F.arrival(time-(6100+i*300))))},
+ ()=>{[...first,...safe,...routes.map(a=>a.to).filter(Boolean)].forEach(e=>glow(e,0));routes.forEach(a=>a.dots.forEach(d=>d.setAttribute('opacity',0)))});
 }
-new ResizeObserver(performanceLayout).observe(perf);chips.forEach(e=>new ResizeObserver(performanceLayout).observe(e));performanceLayout();
-F.run(perf,t=>{const time=pc(t)%F.cycle;chips.forEach((e,i)=>glow(e,F.arrival(time-[0,1600,2500,3400][i])));rel.forEach((e,i)=>glow(e,F.arrival(time-(3300+i*320))));performanceRoutes.forEach(a=>a.dots.forEach((d,i)=>{const u=(time-a.start-i*F.delay)/a.duration;if(u<0||u>1){d.style.opacity=0;return}const q=a.path.getPointAtLength(a.path.getTotalLength()*F.smooth(u));d.setAttribute('cx',q.x);d.setAttribute('cy',q.y);d.style.opacity=Math.max(0,Math.min(1,u*10,(1-u)*18))*(1-i*.065)}))},()=>{chips.forEach(e=>glow(e,0));rel.forEach(e=>glow(e,0));performanceRoutes.forEach(a=>a.dots.forEach(d=>d.style.opacity=0))});
-
 // Find what you need: the five guides are one journey; a pulse travels card to card on the site's wiring.
 const docsRoot=document.querySelector('#section-2 .dev-docs');
 if(docsRoot){const cards=[...docsRoot.querySelectorAll('article')],layer=svg('svg',{class:'dev-flow-svg dev-docs-wires','aria-hidden':'true'});docsRoot.append(layer);let segs=[];

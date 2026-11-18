@@ -1,0 +1,23 @@
+/* Developers, "What makes ... high performing": two moments side by side, each a vertical chain on the site's wiring,
+   both dropping into the safety net underneath. The same chain on every screen; only the number of columns changes. */
+.dp{position:relative;isolation:isolate;padding:clamp(24px,3vw,40px)!important;min-height:0!important;display:block!important}
+.dp-lanes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,64px)}
+.dp-lane{display:flex;flex-direction:column;align-items:center;gap:0;padding:0;border:0;min-width:0}
+.dp-lane h3{display:flex;align-items:center;gap:16px;align-self:flex-start;margin:0 0 28px;font:300 var(--type-card,26px)/1.2 Chillax,sans-serif;letter-spacing:0;text-transform:none;color:#eee9de}
+.dp-lane h3 .dev-icon{box-sizing:border-box;width:56px;height:56px;padding:14px;flex:none;border:1px solid #f4664980;border-radius:13px;color:#f46649;background:linear-gradient(125deg,#a26e5540,#38262680)}
+.dp-track{display:flex;flex-direction:column;align-items:center;gap:36px;width:100%;min-height:0}
+.dp-img{width:min(100%,360px);height:clamp(120px,15vh,160px);object-fit:cover;border-radius:14px;border:1px solid #f4664966;flex:none}
+.dp-node{white-space:nowrap;min-width:min(100%,260px);justify-content:center;text-align:center;font:500 17px/1.2 Sofia,sans-serif}
+.dp-safety{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:48px;padding:24px 0 0;border-top:1px solid #f4664933}
+.dp-safe{display:flex;align-items:center;justify-content:center;gap:16px;padding:6px 16px;font:500 17px/1.3 Sofia,sans-serif;color:#eee9de;border-left:1px solid #f4664926}
+.dp-safe:first-child{border-left:0}
+.dp-safe .dev-icon{box-sizing:border-box;width:48px;height:48px;padding:12px;flex:none;border:1px solid #f4664980;border-radius:12px;color:#f46649;background:linear-gradient(125deg,#a26e5540,#38262680)}
+.dp .dev-performance-wires{z-index:2}
+@media(max-width:760px){.dp-lanes{grid-template-columns:1fr;gap:40px}.dp-safety{grid-template-columns:1fr;gap:16px}.dp-safe{justify-content:flex-start;border-left:0}}
+@media(max-width:599px){
+ .dp{padding:24px 16px!important}
+ .dp-lane h3{font-size:19px;gap:12px;margin-bottom:24px}.dp-lane h3 .dev-icon{width:44px;height:44px;padding:11px}
+ .dp-track{gap:24px}.dp-img{height:88px}
+ .dp-node{font-size:15px;white-space:normal}
+ .dp-safety{margin-top:40px;padding-top:24px}.dp-safe{padding:0}
+}
