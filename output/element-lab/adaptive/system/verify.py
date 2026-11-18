@@ -17,7 +17,7 @@ import argparse, asyncio, json, os, re, subprocess, sys, time
 from playwright.async_api import async_playwright
 
 HERE = os.path.dirname(os.path.abspath(__file__)); LAYER = os.path.dirname(HERE)
-PAGES = ['index-v2', 'api', 'marketplace', 'personalization', 'otas', 'airlines', 'hotels', 'loyalty-finance', 'travel-technology', 'super-apps']
+PAGES = ['index-v2', 'api', 'marketplace', 'personalization', 'otas', 'airlines', 'hotels', 'loyalty-finance', 'travel-technology', 'super-apps', 'developers']
 DEVICES = [('webkit', 'iPhone SE'), ('webkit', 'iPhone 13'), ('webkit', 'iPhone 15 Pro Max'), ('chromium', 'iPhone 13'), ('chromium', 'Pixel 7')]
 
 # Every rule in MOBILE-RULES.md, with what checks it. Messages from check.py are matched to rules by their wording.
