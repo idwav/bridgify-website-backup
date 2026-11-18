@@ -1,18 +1,18 @@
 /* Job page: same dark language as Careers, reading layout like an article page. */
-.job-page{--ink:#eee9de;--muted:#cdbcb2;--line:#f4664933;--coral:#f46649;max-width:1240px;margin:0 auto;padding:clamp(120px,15vh,168px) clamp(20px,4vw,48px) 96px;color:var(--ink)}
+.job-page{--ink:#eee9de;--muted:#cdbcb2;--line:#f4664933;--coral:#f46649;max-width:none;margin:0;padding:clamp(120px,15vh,168px) max(24px,3.34vw) 96px;color:var(--ink)}
 .job-hero{position:relative;padding:8px 0 40px;border-bottom:1px solid var(--line)}
 .job-back{display:inline-flex;align-items:center;gap:8px;margin-bottom:28px;font:550 14px Sofia,sans-serif;color:var(--muted);text-decoration:none;transition:color .3s}
 .job-back:hover,.job-back:focus-visible{color:#fff}
-.job-hero h1{margin:14px 0 0;max-width:18em;font:300 clamp(36px,4.6vw,60px)/1.1 Chillax,Sofia,sans-serif;letter-spacing:-.02em;color:#fff}
-.job-deck{margin:22px 0 0;max-width:36em;font:400 clamp(17px,1.5vw,21px)/1.55 Sofia,sans-serif;color:var(--ink)}
+.job-hero h1{margin:14px 0 0;max-width:22em;font:300 clamp(36px,4.6vw,60px)/1.1 Chillax,Sofia,sans-serif;letter-spacing:-.02em;color:#fff}
+.job-deck{margin:22px 0 0;max-width:44em;font:400 clamp(17px,1.5vw,21px)/1.55 Sofia,sans-serif;color:var(--ink)}
 .job-meta{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0;padding:0}
 .job-meta li{padding:8px 16px;border:1px solid #f4664966;border-radius:999px;background:#ffffff08;font:550 14px Sofia,sans-serif}
 .job-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:32px}
 .job-share{padding:14px 22px;border:1px solid #f4664966;border-radius:8px;background:transparent;color:var(--ink);font:550 15px Sofia,sans-serif;cursor:pointer;transition:background .3s,border-color .3s}
 .job-share:hover,.job-share:focus-visible{background:#f4664918;border-color:var(--coral)}
 .job-sample{margin:22px 0 0;padding:10px 16px;border:1px dashed #ffba9b88;border-radius:10px;color:#ffba9b;font:500 14px Sofia,sans-serif;max-width:40em}
-.job-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:clamp(32px,5vw,72px);align-items:start;padding-top:48px}
-.job-prose{max-width:46em}
+.job-grid{display:grid;grid-template-columns:minmax(0,1fr) clamp(340px,28vw,420px);gap:clamp(32px,5vw,72px);align-items:start;padding-top:48px}
+.job-prose{max-width:58em}
 .job-prose h2{margin:44px 0 14px;font:300 clamp(24px,2.2vw,30px)/1.2 Chillax,Sofia,sans-serif;color:#fff}
 .job-prose h2:first-child{margin-top:0}
 .job-prose p{margin:0 0 16px;font:400 17px/1.7 Sofia,sans-serif;color:var(--ink)}
