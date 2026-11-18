@@ -68,6 +68,3 @@ body[data-copy-page="login"] .top .connect{background:#eee9de;color:#180f10}
 .login-form h2{position:relative;z-index:2}
 @media(max-width:480px){.login-mascot{width:min(62%,220px);right:-4%}}
 @media(prefers-reduced-motion:reduce){.login-eye{transition:none}}
-
-/* Approved login scenery: retain readable dark form and mascot. */
-body[data-copy-page="login"]{background:linear-gradient(90deg,rgba(20,14,13,.94),rgba(20,14,13,.75)),url("assets/v2/27-login-1536.jpg") center/cover fixed;}
