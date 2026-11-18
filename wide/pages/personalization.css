@@ -69,8 +69,6 @@
   html body #day-itinerary > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; row-gap: 0px !important; }
   html body #day-itinerary > div:nth-child(2) > div:nth-child(1) { margin-top: 48px !important; margin-bottom: 0px !important; }
   html body #day-itinerary > div:nth-child(2) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; }
-  html body #day-itinerary > footer:nth-child(3) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
-  html body #day-itinerary > footer:nth-child(3) > small:nth-child(1) { margin-top: 48px !important; margin-bottom: 0px !important; }
   html body #faq { padding-top: 80px !important; padding-bottom: 80px !important; }
   html body #faq > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; }
   html body #faq > div:nth-child(1) > h2:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
@@ -117,8 +115,6 @@
   html body #day-itinerary > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
   html body #day-itinerary > div:nth-child(2) > div:nth-child(1) { margin-top: 64px !important; }
   html body #day-itinerary > div:nth-child(2) > div:nth-child(3) { margin-top: 64px !important; margin-bottom: 0px !important; }
-  html body #day-itinerary > footer:nth-child(3) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
-  html body #day-itinerary > footer:nth-child(3) > small:nth-child(1) { margin-top: 64px !important; margin-bottom: 0px !important; }
   html body #faq { padding-top: 96px !important; padding-bottom: 96px !important; }
   html body #faq > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; }
   html body #faq > div:nth-child(1) > h2:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
