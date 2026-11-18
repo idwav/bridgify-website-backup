@@ -21,6 +21,9 @@
   if (role.sample || !window.BRIDGIFY_APPLY_ENDPOINT) { A('sample').hidden = false; var acts = document.querySelector('.af-actions'); if (acts) acts.appendChild(A('sample')); }
 
   var form = $('#apply-form'), cv = $('#af-cv'), status = $('#af-status');
+  // Preview mode (template roles, localhost, or ?preview=1): Submit works without filling the fields and sends nothing.
+  var preview = role.sample || /[?&]preview=1/.test(location.search) || /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+  if (preview) { var pb = A('sample'); pb.hidden = false; pb.textContent = 'Preview mode: Submit works without filling the fields and sends nothing.'; document.querySelector('.af-actions').appendChild(pb); }
   var MAX = 5 * 1024 * 1024;
   cv.addEventListener('change', function () { A('cvname').textContent = cv.files[0] ? cv.files[0].name : 'Upload your CV'; $('#af-cv').closest('.af-field').classList.toggle('has-file', !!cv.files[0]); showErr('cv', ''); });
 
@@ -43,6 +46,7 @@
   }
   form.addEventListener('submit', function (e) {
     e.preventDefault(); status.textContent = '';
+    if (preview) { var nm = cv.files[0] ? cv.files[0].name : 'your CV'; done('One more step', 'Your email is ready. Attach your CV (' + nm + ') and send it to complete your application for ' + role.title + '.'); return; }
     var bad = validate();
     if (bad.length) { var first = form.elements[bad[0]]; if (first && first.focus) first.focus(); status.textContent = 'Please check the highlighted fields.'; return; }
     var btn = $('#af-submit'), endpoint = window.BRIDGIFY_APPLY_ENDPOINT;
