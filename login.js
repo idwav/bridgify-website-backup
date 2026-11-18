@@ -143,7 +143,7 @@
       vel[i] += ((target - ang[i]) * k - c * vel[i]) * dt;
       ang[i] = clamp(ang[i] + vel[i] * dt, -14, 14);
     }
-    for (let i = 0; i < N; i++) segs[i].style.setProperty('--a', ((ang[i] - (i ? ang[i - 1] : 0)) * (i ? 1.6 : 1)).toFixed(2) + 'deg');
+    for (let i = 0; i < N; i++) segs[i].style.setProperty('--a', clamp((ang[i] - (i ? ang[i - 1] : 0)) * (i ? 1.4 : 1), -20, 20).toFixed(2) + 'deg');
     raf = requestAnimationFrame(step);
   }
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !raf) { last = 0; raf = requestAnimationFrame(step); } }, { threshold: .05 }).observe(mascot);
