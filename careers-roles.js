@@ -94,6 +94,9 @@ window.BRIDGIFY_ROLES = [
 /* Where "Tell us how" goes. Change this one address to route it somewhere else. */
 window.BRIDGIFY_CAREERS_EMAIL = 'contact@bridgify.io';
 
+/* Where the application form posts (multipart POST). Leave empty until it is connected: the form then opens an email draft instead. */
+window.BRIDGIFY_APPLY_ENDPOINT = '';
+
 /* Careers board: when published roles exist, they replace the "No open role currently" rows and link to the job page. */
 (function () {
   var q = location.search, showSample = /[?&]sample=1/.test(q);

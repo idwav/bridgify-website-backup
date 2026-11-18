@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apply | Careers at Bridgify</title><meta name="description" content="Apply for a role at Bridgify, part of HBX Group.">
+<meta name="robots" content="noindex"><link rel="canonical" href="https://www.bridgify.io/careers">
+<link rel="icon" type="image/svg+xml" href="assets/bridgify-favicon.svg"><link rel="stylesheet" href="bridgify-pages.css?v=copy-v4-final"><link rel="stylesheet" href="bridgify-logo-current.css?v=flat-lockup-5"><link rel="stylesheet" href="bridgify-footer.css"><link rel="stylesheet" href="shared-footer.css?v=2"><link rel="stylesheet" href="careers.css?v=logo-1"><link rel="stylesheet" href="job.css?v=6"><link rel="stylesheet" href="apply.css?v=3"><script src="shared-footer.js?v=2" defer></script><link rel="stylesheet" href="brand-typography.css?v=body16"><link rel="stylesheet" href="brand-section-labels.css?v=2"><link rel="stylesheet" href="brand-consistency.css?v=roles1"><link rel="stylesheet" href="shared-navigation.css?v=sticky2"><link rel="stylesheet" href="page-scroll-motion.css?v=1"><script src="shared-navigation.js?v=3" defer></script></head>
+<body data-copy-page="careers" class="brand-inner-page">
+<header class="top site-header-common"><a class="logo" href="index.html" aria-label="Bridgify home"><img class="brand-logo-full" src="assets/bridgify-logo-full.svg" alt="Bridgify, part of HBX Group" width="1009" height="199"></a><nav aria-label="Main navigation"><details class="site-nav-group"><summary>PRODUCTS</summary><div class="site-nav-menu"><a href="index.html#products">All products</a><a href="api.html">Experiences API</a><a href="marketplace.html">White-Label Marketplace</a><a href="personalization.html">AIyelet</a></div></details><details class="site-nav-group"><summary>SOLUTIONS</summary><div class="site-nav-menu"><a href="otas.html">OTAs and travel platforms</a><a href="airlines.html">Airlines</a><a href="hotels.html">Hotels</a><a href="loyalty-finance.html">Loyalty and financial services</a><a href="travel-technology.html">Travel technology</a><a href="super-apps.html">Super apps</a></div></details><a href="developers.html">DEVELOPERS</a><details class="site-nav-group"><summary>RESOURCES</summary><div class="site-nav-menu"><a href="insights.html">Insights</a><a href="press.html">Press</a></div></details><details class="site-nav-group"><summary>COMPANY</summary><div class="site-nav-menu"><a href="about-us.html">About</a><a href="careers.html">Careers</a></div></details></nav><div class="nav-actions"><a class="nav-login" href="login.html">LOG IN</a><a class="connect" href="contact.html">BOOK A DEMO ↗</a></div></header>
+<main class="job-page apply-page" id="apply-root">
+<header class="job-hero" id="apply-hero">
+<a class="job-back" data-apply="back" href="careers.html#open-roles">← Back to the role</a>
+<div class="eyebrow" data-apply="team"></div>
+<h1>Apply for <span data-apply="title"></span></h1>
+<ul class="job-meta" data-apply="meta"></ul>
+<p class="job-sample" data-apply="sample" hidden>Preview: submissions are not connected yet. Set the endpoint in careers-roles.js before publishing.</p>
+</header>
+<section class="apply-body" id="apply-body">
+<form class="apply-form" id="apply-form" novalidate>
+<input type="hidden" name="role" data-apply="roleField">
+<fieldset><legend>About you</legend>
+<div class="af-grid">
+<div class="af-field"><label for="af-name">Full name <b aria-hidden="true">*</b></label><input id="af-name" name="name" type="text" autocomplete="name" required><span class="af-err" data-err="name"></span></div>
+<div class="af-field"><label for="af-email">Email <b aria-hidden="true">*</b></label><input id="af-email" name="email" type="email" autocomplete="email" required><span class="af-err" data-err="email"></span></div>
+<div class="af-field"><label for="af-phone">Phone</label><input id="af-phone" name="phone" type="tel" autocomplete="tel"><span class="af-err" data-err="phone"></span></div>
+<div class="af-field"><label for="af-location">Where are you based? <b aria-hidden="true">*</b></label><input id="af-location" name="location" type="text" autocomplete="address-level2" placeholder="City, country" required><span class="af-err" data-err="location"></span></div>
+</div>
+</fieldset>
+<fieldset><legend>Your experience</legend>
+<div class="af-grid">
+<div class="af-field"><label for="af-current">Current or most recent role <b aria-hidden="true">*</b></label><input id="af-current" name="current_role" type="text" required><span class="af-err" data-err="current_role"></span></div>
+<div class="af-field"><label for="af-years">Years of experience <b aria-hidden="true">*</b></label><select id="af-years" name="years" required><option value="">Select</option><option>0–2 years</option><option>3–5 years</option><option>6–9 years</option><option>10+ years</option></select><span class="af-err" data-err="years"></span></div>
+<div class="af-field af-wide"><label for="af-link">LinkedIn or portfolio link</label><input id="af-link" name="link" type="url" placeholder="https://" autocomplete="url"><span class="af-err" data-err="link"></span></div>
+</div>
+</fieldset>
+<fieldset><legend>Your CV</legend>
+<div class="af-field af-wide"><label class="af-drop" for="af-cv"><span class="af-drop-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0-4 4m4-4 4 4M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg></span><span class="af-drop-text"><b data-apply="cvname">Upload your CV</b><small>PDF, DOC or DOCX, up to 5 MB <span aria-hidden="true">*</span></small></span></label><input id="af-cv" name="cv" type="file" accept=".pdf,.doc,.docx" required><span class="af-err" data-err="cv"></span></div>
+<div class="af-field af-wide"><label for="af-note">Anything you'd like us to know</label><textarea id="af-note" name="note" rows="5"></textarea></div>
+</fieldset>
+<div class="af-field af-consent"><label><input type="checkbox" name="consent" required> <span>I agree that Bridgify stores my details to process this application. <b aria-hidden="true">*</b></span></label><span class="af-err" data-err="consent"></span></div>
+<div class="af-actions"><button type="submit" class="career-cta" id="af-submit">Submit application <span aria-hidden="true">↗</span></button><a class="af-cancel" data-apply="cancel" href="careers.html#open-roles">Cancel</a></div>
+<p class="af-status" id="af-status" role="status" aria-live="polite"></p>
+</form>
+<div class="apply-done" id="apply-done" hidden><span class="apply-done-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><h2 data-apply="doneTitle">Thank you</h2><p data-apply="doneText"></p><a class="career-cta" data-apply="doneLink" href="careers.html#open-roles">See open roles <span aria-hidden="true">↗</span></a></div>
+</section>
+<section class="job-missing" id="apply-missing" hidden><h1>This role isn't open any more</h1><p>You can see everything that is open on the Careers page.</p><a class="career-cta" href="careers.html#open-roles" data-keep-version>See open roles <span aria-hidden="true">↗</span></a></section>
+</main>
+<!-- SHARED FOOTER START -->
+<div class="bf-footer-shell">
+  <section class="bf-cta-shell" aria-labelledby="bf-cta-title">
+    <div class="bf-recurring-cta bf-cta-card">
+      <h2 id="bf-cta-title">Don't see <span>your role?</span></h2>
+      <p class="bf-cta-body">If you'd make this team better, tell us how.</p>
+      <div class="bf-cta-actions">
+
+      </div>
+    </div>
+  </section>
+<footer class="bf-footer" id="section-5" aria-labelledby="bf-footer-title">
+  <div class="bf-footer-inner">
+    <div class="bf-footer-top">
+      <h2 id="bf-footer-title">Bridgify. <span>The infrastructure behind travel experiences.</span></h2>
+    </div>
+    <nav class="bf-footer-nav" aria-label="Footer navigation">
+      <div class="bf-footer-group"><h3><span aria-hidden="true">01</span><a href="index.html#products">Products</a></h3><ul>
+        <li><a href="index.html#products">All products</a></li>
+        <li><a href="api.html">Experiences API</a></li>
+        <li><a href="marketplace.html">White-Label Marketplace</a></li>
+        <li><a href="personalization.html">AIyelet: AI personalization</a></li>
+      </ul></div>
+      <div class="bf-footer-group"><h3><span aria-hidden="true">02</span><a href="index.html#audiences">Solutions</a></h3><ul>
+        <li><a href="otas.html">OTAs and travel platforms</a></li>
+        <li><a href="airlines.html">Airlines</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        <li><a href="loyalty-finance.html">Loyalty, rewards and financial services</a></li>
+        <li><a href="travel-technology.html">Travel technology companies</a></li>
+        <li><a href="super-apps.html">Super apps and consumer platforms</a></li>
+      </ul></div>
+      <div class="bf-footer-group"><h3><span aria-hidden="true">03</span><a href="developers.html">Developers</a></h3></div>
+      <div class="bf-footer-group"><h3><span aria-hidden="true">04</span>Resources</h3><ul>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="press.html">Press</a></li>
+      </ul></div>
+      <div class="bf-footer-group"><h3><span aria-hidden="true">05</span>Company</h3><ul>
+        <li><a href="about-us.html">About</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+    </nav>
+    <p class="bf-footer-small-print">Bridgify works with businesses. Looking to book an experience for your own trip? You'll find our supply inside the apps, sites and rewards programs of our partners.</p>
+    <div class="bf-footer-bottom"><p>© <span data-footer-year>2026</span> Bridgify</p><a class="bf-footer-top-link" href="#">Back to top <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4m-6 6 6-6 6 6"/></svg></a></div>
+  </div>
+</footer>
+</div>
+<!-- SHARED FOOTER END -->
+<script src="bridgify-pages.js"></script><script src="bridgify-nav-motion.js"></script><script src="homepage-version.js?v=4"></script><script src="brand-section-labels.js?v=2"></script><script src="brand-consistency.js?v=roles1"></script><script src="page-scroll-motion.js?v=1"></script><script src="brand-flow-motion.js"></script><script src="careers-roles.js?v=4"></script><script src="apply.js?v=1"></script></body></html>

@@ -25,7 +25,7 @@
   $('[data-job=meta]').innerHTML = [role.location, role.type, role.teamLabel].map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('');
   if (role.sample) $('[data-job=sample]').hidden = false;
 
-  var applyHref = role.applyUrl || ('contact.html?topic=careers&role=' + encodeURIComponent(role.slug) + (v2 ? '&version=2' : ''));
+  var applyHref = role.applyUrl || ('apply.html?role=' + encodeURIComponent(role.slug) + suffix);
   ['apply', 'apply3'].forEach(function (k) { $('[data-job=' + k + ']').href = applyHref; });
 
   function list(items, ordered) { var tag = ordered ? 'ol' : 'ul'; return '<' + tag + (ordered ? ' class="job-steps"' : '') + '>' + items.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</' + tag + '>'; }
