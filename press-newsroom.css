@@ -73,3 +73,14 @@ html body .nr-filters button{height:44px!important;min-height:44px!important;pad
 @media(max-width:600px){.nr-controls{margin-top:24px}.nr-controls .nr-search{max-width:none}}
 
 @media(max-width:1150px){.nr-controls .nr-search{margin-top:28px}}
+
+/* Cards match the Insights cards: 4 across on desktop, 3 on iPad landscape, 2 on iPad portrait, 1 on phones */
+.nr-grid{gap:24px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:1000px){.nr-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1280px){.nr-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:599px){.nr-grid{grid-template-columns:1fr}}
+.nr-image{aspect-ratio:16/9}
+.nr-image>span{font-size:20px;padding:18px}
+.nr-card-copy{padding:20px}
+.nr-card h3{font-size:clamp(18px,1.35vw,21px);line-height:1.3;margin:10px 0 8px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.nr-card p{font-size:14.5px;line-height:1.5;margin:0 0 10px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
