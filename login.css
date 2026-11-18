@@ -68,3 +68,8 @@ body[data-copy-page="login"] .top .connect{background:#eee9de;color:#180f10}
 .login-form h2{position:relative;z-index:2}
 @media(max-width:480px){.login-mascot{width:min(62%,220px);right:-4%}}
 @media(prefers-reduced-motion:reduce){.login-eye{transition:none}}
+
+/* Octopus: more matte and stable. A solid backing under the translucent body (same silhouette), flatter highlights. */
+.login-mascot::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#e0662b 0%,#bf4a1d 55%,#8f3415 100%);-webkit-mask:url(assets/login-octopus.webp) center/100% 100% no-repeat;mask:url(assets/login-octopus.webp) center/100% 100% no-repeat;opacity:.92}
+.login-mascot img{position:relative;filter:contrast(.88) saturate(1.15) brightness(.97)}
+.login-eye{z-index:1}
