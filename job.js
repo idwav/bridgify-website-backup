@@ -11,7 +11,7 @@
   document.querySelectorAll('[data-keep-version]').forEach(function (a) { a.href = careersHref; });
 
   if (!role) {
-    $('#job-hero').hidden = true; $('#job-body').hidden = true; $('[data-job=bar]').hidden = true;
+    $('#job-split').hidden = true; $('[data-job=bar]').hidden = true;
     $('#job-missing').hidden = false; document.title = 'Role not found | Careers at Bridgify';
     return;
   }
@@ -23,11 +23,10 @@
   $('[data-job=deck]').textContent = role.deck || '';
   $('[data-job=deck]').hidden = !role.deck;
   $('[data-job=meta]').innerHTML = [role.location, role.type, role.teamLabel].map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('');
-  $('[data-job=facts]').innerHTML = [['Team', role.teamLabel], ['Location', role.location], ['Type', role.type]].map(function (f) { return '<div><dt>' + f[0] + '</dt><dd>' + esc(f[1]) + '</dd></div>'; }).join('');
   if (role.sample) $('[data-job=sample]').hidden = false;
 
   var applyHref = role.applyUrl || ('contact.html?topic=careers&role=' + encodeURIComponent(role.slug) + (v2 ? '&version=2' : ''));
-  ['apply', 'apply2', 'apply3'].forEach(function (k) { $('[data-job=' + k + ']').href = applyHref; });
+  ['apply', 'apply3'].forEach(function (k) { $('[data-job=' + k + ']').href = applyHref; });
 
   function list(items, ordered) { var tag = ordered ? 'ol' : 'ul'; return '<' + tag + (ordered ? ' class="job-steps"' : '') + '>' + items.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</' + tag + '>'; }
   var html = '';

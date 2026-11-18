@@ -1,6 +1,7 @@
 /* Job page: same dark language as Careers, reading layout like an article page. */
 .job-page{--ink:#eee9de;--muted:#cdbcb2;--line:#f4664933;--coral:#f46649;max-width:none;margin:0;padding:clamp(120px,15vh,168px) max(24px,3.34vw) 96px;color:var(--ink)}
-.job-hero{position:relative;padding:8px 0 40px;border-bottom:1px solid var(--line)}
+.job-split{display:grid;grid-template-columns:minmax(320px,.78fr) minmax(0,1.22fr);gap:clamp(40px,6vw,104px);align-items:start}
+.job-hero{position:sticky;top:112px;padding:0}
 .job-back{display:inline-flex;align-items:center;gap:8px;margin-bottom:28px;font:550 14px Sofia,sans-serif;color:var(--muted);text-decoration:none;transition:color .3s}
 .job-back:hover,.job-back:focus-visible{color:#fff}
 .job-hero h1{margin:14px 0 0;max-width:22em;font:300 clamp(36px,4.6vw,60px)/1.1 Chillax,Sofia,sans-serif;letter-spacing:-.02em;color:#fff}
@@ -53,3 +54,12 @@
 /* Careers board rows that link to a role */
 .jb-role h3 a{color:inherit;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s}
 .jb-role h3 a:hover,.jb-role h3 a:focus-visible{background-size:100% 1px}
+
+/* Split layout: the role on the left stays in view while the description scrolls on the right. */
+.job-hero h1{font-size:clamp(34px,3.6vw,52px)}
+.job-prose{padding-top:6px;max-width:none}
+.job-prose p,.job-prose ul li{max-width:44em}
+@media(max-width:900px){
+.job-split{grid-template-columns:1fr;gap:36px}
+.job-hero{position:static;padding-bottom:32px;border-bottom:1px solid var(--line)}
+}
