@@ -30,12 +30,13 @@
 
   function list(items, ordered) { var tag = ordered ? 'ol' : 'ul'; return '<' + tag + (ordered ? ' class="job-steps"' : '') + '>' + items.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</' + tag + '>'; }
   var html = '';
-  if (role.about && role.about.length) html += '<h2>About the role</h2>' + role.about.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
-  if (role.doing && role.doing.length) html += '<h2>What you\'ll do</h2>' + list(role.doing);
-  if (role.bring && role.bring.length) html += '<h2>What you bring</h2>' + list(role.bring);
-  if (role.nice && role.nice.length) html += '<h2>Nice to have</h2>' + list(role.nice);
-  if (role.process && role.process.length) html += '<h2>How we hire</h2>' + list(role.process, true);
+  if (role.about && role.about.length) html += '<h2 id="s-about">About the role</h2>' + role.about.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
+  if (role.doing && role.doing.length) html += '<h2 id="s-do">What you\'ll do</h2>' + list(role.doing);
+  if (role.bring && role.bring.length) html += '<h2 id="s-bring">What you bring</h2>' + list(role.bring);
+  if (role.nice && role.nice.length) html += '<h2 id="s-nice">Nice to have</h2>' + list(role.nice);
+  if (role.process && role.process.length) html += '<h2 id="s-hire">How we hire</h2>' + list(role.process, true);
   $('[data-job=prose]').innerHTML = html;
+  $('[data-job=toc]').innerHTML = Array.prototype.map.call($('[data-job=prose]').querySelectorAll('h2'), function (h) { return '<a href="#' + h.id + '">' + esc(h.textContent) + '</a>'; }).join('');
 
   var others = visible.filter(function (r) { return r.slug !== role.slug; });
   if (others.length) {
@@ -43,9 +44,9 @@
     $('[data-job=more]').innerHTML = others.map(function (r) { return '<li><a href="job.html?role=' + encodeURIComponent(r.slug) + suffix + '"><b>' + esc(r.title) + '</b><span>' + esc(r.teamLabel) + ' · ' + esc(r.location) + '</span><i aria-hidden="true">↗</i></a></li>'; }).join('');
   }
 
-  var bar = $('[data-job=bar]'), actions = document.querySelector('.job-actions');
+  var bar = $('[data-job=bar]'), actions = document.querySelector('.job-hero');
   if (bar && actions) {
-    var sync = function () { bar.classList.toggle('show', actions.getBoundingClientRect().bottom < 0); };
+    var sync = function () { bar.classList.toggle('show', actions.getBoundingClientRect().bottom < 80); };
     addEventListener('scroll', sync, { passive: true }); addEventListener('resize', sync); sync();
   }
 

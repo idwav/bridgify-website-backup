@@ -79,3 +79,22 @@
 .job-hero>.job-actions{flex-wrap:wrap}
 .job-prose{padding-top:32px}
 }
+
+/* Blog-article structure: title block on top, then a sticky side column (sections + Apply) and the description. */
+.job-split{display:block}
+.job-hero{position:static;display:block;padding:0 0 36px;border-bottom:1px solid var(--line)}
+.job-hero>.job-meta{margin:26px 0 0}
+.job-reading{display:grid;grid-template-columns:clamp(240px,22vw,300px) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:start;padding-top:48px}
+.job-aside{position:sticky;top:112px;display:grid;gap:26px}
+.job-toc{display:grid;gap:2px;margin-top:14px}
+.job-toc a{padding:10px 0 10px 16px;border-left:2px solid var(--line);color:var(--muted);font:500 15px/1.3 Sofia,sans-serif;text-decoration:none;transition:color .3s,border-color .3s}
+.job-toc a:hover,.job-toc a:focus-visible{color:#fff;border-left-color:var(--coral)}
+.job-aside-cta{display:grid;gap:12px}
+.job-aside-cta .career-cta{justify-content:center;width:100%}
+.job-aside-cta .job-share{width:100%}
+.job-prose{padding-top:0;max-width:52em}
+.job-prose h2{scroll-margin-top:120px}
+@media(max-width:900px){
+.job-reading{grid-template-columns:1fr;gap:0;padding-top:32px}
+.job-aside{display:none}
+}
