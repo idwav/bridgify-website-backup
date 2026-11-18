@@ -1,0 +1,13 @@
+/* Step 6.1 · the shared parts every page has: FAQ and the closing CTA (SPACING-GRID-PLAN.md, step 6.1).
+   FAQ: on the content line, section-y above and below (80 tablet, 96 desktop), title at the section-title size.
+   Closing CTA: title at the section-title size. The CTA and footer keep their 14px frame (approved global footer).
+   Phone (≤599) is not touched. */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) section:is(.copy-faq, .al-faq)#faq {
+    padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important;
+    padding-top: var(--bf-section-y) !important; padding-bottom: var(--bf-section-y) !important;
+  }
+  html body:not(#bf-lab) #faq :is(.copy-inner > h2, h2:first-of-type), html body:not(#bf-lab) #bf-cta-title {
+    font-size: var(--type-section) !important; line-height: 1.2 !important;
+  }
+}

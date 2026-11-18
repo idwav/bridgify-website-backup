@@ -1,0 +1,14 @@
+/* Step 6.1 · one height for every action button on tablet and desktop (approved 17 Nov 2026, SPACING-GRID-PLAN.md 3ד).
+   Measured on ten pages: main buttons were 46–55 tall, 52 the most common. Every page action (the shared
+   .brand-action, primary or secondary, the experience-choice card button and the closing CTA buttons) is 52.
+   The label stays one line where it fits; a label that wraps grows the button instead of overflowing it.
+   Buttons inside demos and diagrams (button elements) keep the demo's own scale. Header buttons have their own sizes
+   (header-compact.css). Phone (≤599) stays 40 (mobile/actions.css). */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) a:is(.brand-action, .xc-cta, .bf-cta-primary, .bf-cta-secondary):not(header.top a) {
+    box-sizing: border-box !important;
+    display: inline-flex !important; align-items: center !important;
+    height: auto !important; min-height: 52px !important;
+    padding-top: 8px !important; padding-bottom: 8px !important;
+  }
+}
