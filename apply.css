@@ -54,3 +54,34 @@
 .apply-form #af-note{min-height:190px}
 }
 .apply-done[hidden],.apply-form[hidden]{display:none!important}
+
+/* One screen: compact title block, balanced columns, submit row beside the consent. */
+.apply-page{padding-top:clamp(104px,13vh,132px);padding-bottom:56px}
+.apply-page .job-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:32px;align-items:end;padding-bottom:22px}
+.apply-page .job-hero>.job-back{grid-column:1/-1;margin-bottom:12px}
+.apply-page .job-hero>.eyebrow{grid-column:1/-1}
+.apply-page .job-hero>h1{grid-column:1;margin:8px 0 0;font-size:clamp(30px,3.2vw,46px);max-width:none}
+.apply-page .job-hero>.job-meta{grid-column:2;margin:0}
+.apply-body{padding-top:26px}
+.apply-form{gap:22px}
+.apply-form fieldset{gap:14px}
+.af-grid{gap:14px 20px}
+.af-field input[type=text],.af-field input[type=email],.af-field input[type=tel],.af-field input[type=url],.af-field select{padding:12px 14px;font-size:15px}
+.af-field label{font-size:14px}
+.af-field{gap:6px}
+.af-consent label{font-size:14px}
+.af-preview,.apply-form .job-sample{margin:0;padding:8px 12px;font-size:13px;max-width:30em}
+@media(min-width:1000px){
+.apply-form{grid-template-areas:"about cv" "exp cv" "consent actions" "status status";row-gap:22px;align-items:stretch}
+.apply-form>fieldset:nth-of-type(3){display:flex;flex-direction:column}
+.apply-form>fieldset:nth-of-type(3) .af-field:last-child{flex:1;display:flex;flex-direction:column}
+.apply-form>fieldset:nth-of-type(3) .af-field:last-child textarea{flex:1;min-height:120px}
+.apply-form .af-drop{min-height:0;padding:20px 22px}
+.apply-form #af-note{min-height:0}
+.apply-form>.af-consent{align-self:center}
+.apply-form>.af-actions{justify-content:space-between;flex-wrap:nowrap;align-self:center}
+}
+@media(max-width:999px){.apply-page .job-hero{grid-template-columns:1fr}.apply-page .job-hero>.job-meta{grid-column:1;margin-top:18px}}
+.af-actions .career-cta{white-space:nowrap;flex:none}
+.af-actions .job-sample{flex:1 1 0;min-width:0}
+@media(min-width:1000px){.af-actions{gap:16px}.af-cancel{flex:none}}

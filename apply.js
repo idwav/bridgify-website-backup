@@ -18,7 +18,7 @@
   A('team').textContent = role.teamLabel; A('title').textContent = role.title;
   A('meta').innerHTML = [role.location, role.type, role.teamLabel].map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('');
   A('roleField').value = role.title;
-  if (role.sample || !window.BRIDGIFY_APPLY_ENDPOINT) A('sample').hidden = !(role.sample || !window.BRIDGIFY_APPLY_ENDPOINT);
+  if (role.sample || !window.BRIDGIFY_APPLY_ENDPOINT) { A('sample').hidden = false; var acts = document.querySelector('.af-actions'); if (acts) acts.appendChild(A('sample')); }
 
   var form = $('#apply-form'), cv = $('#af-cv'), status = $('#af-status');
   var MAX = 5 * 1024 * 1024;
