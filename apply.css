@@ -1,0 +1,134 @@
+/* Application page: same width and language as the job page. */
+.apply-body{padding-top:44px;max-width:900px}
+.apply-form{display:grid;gap:34px}
+.apply-form fieldset{margin:0;padding:0;border:0;display:grid;gap:18px}
+.apply-form legend{padding:0;margin-bottom:6px;font:600 12px Sofia,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#ffba9b}
+.af-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 22px}
+.af-field{display:grid;gap:8px;align-content:start}
+.af-wide{grid-column:1/-1}
+.af-field label{font:500 15px Sofia,sans-serif;color:var(--ink,#eee9de)}
+.af-field label b{color:#f46649}
+.af-field input[type=text],.af-field input[type=email],.af-field input[type=tel],.af-field input[type=url],.af-field select,.af-field textarea{width:100%;box-sizing:border-box;padding:15px 16px;border:1px solid #f4664955;border-radius:12px;background:#1f1517;color:#eee9de;font:400 16px Sofia,sans-serif;transition:border-color .3s,box-shadow .3s}
+.af-field textarea{resize:vertical;min-height:130px;line-height:1.5}
+.af-field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#f46649 50%),linear-gradient(135deg,#f46649 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+.af-field input:focus,.af-field select:focus,.af-field textarea:focus{outline:none;border-color:#f46649;box-shadow:0 0 0 3px #f4664933}
+.af-field [aria-invalid=true]{border-color:#ff8a6b;box-shadow:0 0 0 3px #ff6a4a26}
+.af-err{min-height:0;font:500 13px Sofia,sans-serif;color:#ff9c80}
+.af-err:empty{display:none}
+.af-drop{display:flex;align-items:center;gap:18px;padding:22px 24px;border:1.5px dashed #f4664988;border-radius:16px;background:linear-gradient(135deg,#ffffff0a,#ffffff03);cursor:pointer;transition:border-color .3s,background .3s}
+.af-drop:hover,.af-field input[type=file]:focus-visible+.af-err{border-color:#f46649}
+.af-drop:hover{background:#f4664912}
+.af-drop-ico{display:grid;place-items:center;width:48px;height:48px;flex:none;border-radius:50%;border:1px solid #f4664988;color:#ffba9b}
+.af-drop-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.af-drop-text{display:grid;gap:4px}
+.af-drop-text b{font:600 17px Sofia,sans-serif;color:#fff;word-break:break-all}
+.af-drop-text small{font:400 14px Sofia,sans-serif;color:#cdbcb2}
+.has-file .af-drop{border-style:solid;border-color:#f46649;background:#f4664918}
+.af-field input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
+.af-consent label{display:flex;align-items:flex-start;gap:12px;font:400 15px/1.5 Sofia,sans-serif}
+.af-consent input{width:20px;height:20px;margin-top:2px;accent-color:#f46649;flex:none}
+.af-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.af-actions .career-cta:disabled{opacity:.6;cursor:progress}
+.af-cancel{font:550 15px Sofia,sans-serif;color:#cdbcb2;text-decoration:none}
+.af-cancel:hover,.af-cancel:focus-visible{color:#fff}
+.af-status{margin:0;min-height:1.2em;font:500 15px Sofia,sans-serif;color:#ffba9b}
+.apply-done{display:grid;justify-items:start;gap:14px;padding:44px 0}
+.apply-done-ico{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;border:1.5px solid #f46649;color:#ffba9b;box-shadow:0 0 28px #f4664955}
+.apply-done-ico svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.apply-done h2{margin:6px 0 0;font:300 clamp(28px,3vw,40px)/1.15 Chillax,Sofia,sans-serif;color:#fff}
+.apply-done p{margin:0 0 14px;max-width:34em;font:400 18px/1.6 Sofia,sans-serif}
+.apply-page .job-hero h1{max-width:24em}
+@media(max-width:700px){.af-grid{grid-template-columns:1fr}.af-actions .career-cta{width:100%;justify-content:center}.apply-body{padding-top:30px}.af-drop{padding:18px}}
+
+/* Fill the site width like every other page: About you + Experience on the left, CV + note on the right, submit row underneath. */
+.apply-body{max-width:none}
+@media(min-width:1000px){
+.apply-form{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"about cv" "exp cv" "consent consent" "actions actions" "status status";column-gap:clamp(48px,6vw,96px);row-gap:34px}
+.apply-form>fieldset:nth-of-type(1){grid-area:about}
+.apply-form>fieldset:nth-of-type(2){grid-area:exp}
+.apply-form>fieldset:nth-of-type(3){grid-area:cv;align-content:start}
+.apply-form>.af-consent{grid-area:consent}
+.apply-form>.af-actions{grid-area:actions}
+.apply-form>.af-status{grid-area:status}
+.apply-form .af-drop{min-height:150px;justify-content:flex-start}
+.apply-form #af-note{min-height:190px}
+}
+.apply-done[hidden],.apply-form[hidden]{display:none!important}
+
+/* One screen: compact title block, balanced columns, submit row beside the consent. */
+.apply-page{padding-top:clamp(104px,13vh,132px);padding-bottom:56px}
+.apply-page .job-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:32px;align-items:end;padding-bottom:22px}
+.apply-page .job-hero>.job-back{grid-column:1/-1;margin-bottom:12px}
+.apply-page .job-hero>.eyebrow{grid-column:1/-1}
+.apply-page .job-hero>h1{grid-column:1;margin:8px 0 0;font-size:clamp(30px,3.2vw,46px);max-width:none}
+.apply-page .job-hero>.job-meta{grid-column:2;margin:0}
+.apply-body{padding-top:26px}
+.apply-form{gap:22px}
+.apply-form fieldset{gap:14px}
+.af-grid{gap:14px 20px}
+.af-field input[type=text],.af-field input[type=email],.af-field input[type=tel],.af-field input[type=url],.af-field select{padding:12px 14px;font-size:15px}
+.af-field label{font-size:14px}
+.af-field{gap:6px}
+.af-consent label{font-size:14px}
+.af-preview,.apply-form .job-sample{margin:0;padding:8px 12px;font-size:13px;max-width:30em}
+@media(min-width:1000px){
+.apply-form{grid-template-areas:"about cv" "exp cv" "consent actions" "status status";row-gap:22px;align-items:stretch}
+.apply-form>fieldset:nth-of-type(3){display:flex;flex-direction:column}
+.apply-form>fieldset:nth-of-type(3) .af-field:last-child{flex:1;display:flex;flex-direction:column}
+.apply-form>fieldset:nth-of-type(3) .af-field:last-child textarea{flex:1;min-height:120px}
+.apply-form .af-drop{min-height:0;padding:20px 22px}
+.apply-form #af-note{min-height:0}
+.apply-form>.af-consent{align-self:center}
+.apply-form>.af-actions{justify-content:space-between;flex-wrap:nowrap;align-self:center}
+}
+@media(max-width:999px){.apply-page .job-hero{grid-template-columns:1fr}.apply-page .job-hero>.job-meta{grid-column:1;margin-top:18px}}
+.af-actions .career-cta{white-space:nowrap;flex:none}
+.af-actions .job-sample{flex:1 1 0;min-width:0}
+@media(min-width:1000px){.af-actions{gap:16px}.af-cancel{flex:none}}
+
+/* Breathing room that still fits one screen: spacing scales with the window height. */
+.apply-page{padding-top:clamp(112px,14.5vh,146px)}
+.apply-page .job-hero{padding-bottom:clamp(22px,3.2vh,34px)}
+.apply-page .job-hero>h1{font-size:clamp(34px,3.6vw,52px);margin-top:clamp(8px,1.4vh,14px)}
+.apply-body{padding-top:clamp(26px,4.2vh,48px)}
+.apply-form{gap:clamp(24px,3.6vh,36px)}
+.apply-form fieldset{gap:clamp(14px,2.1vh,22px)}
+.af-grid{gap:clamp(16px,2.3vh,24px) 24px}
+.af-field{gap:8px}
+.af-field label{font-size:15px}
+.af-field input[type=text],.af-field input[type=email],.af-field input[type=tel],.af-field input[type=url],.af-field select{padding:clamp(12px,1.7vh,16px) 16px;font-size:16px}
+.apply-form legend{margin-bottom:clamp(4px,1vh,10px)}
+.af-consent label{font-size:15px}
+@media(min-width:1000px){.apply-form{row-gap:clamp(24px,3.6vh,36px)}.apply-form .af-drop{padding:clamp(20px,3vh,30px) 24px}}
+@media(min-width:1000px) and (max-height:860px){
+.apply-page{padding-top:108px}
+.apply-body{padding-top:24px}
+.apply-form{row-gap:24px}
+.apply-form fieldset{gap:14px}
+.af-grid{gap:14px 24px}
+.af-field input[type=text],.af-field input[type=email],.af-field input[type=tel],.af-field input[type=url],.af-field select{padding:12px 16px}
+.apply-form .af-drop{padding:20px 24px}
+}
+
+/* Confirmation: just the message, centred in the middle of the screen. */
+.apply-page.is-done{min-height:100svh;display:grid;place-items:center;padding-top:clamp(110px,14vh,150px);padding-bottom:clamp(60px,10vh,120px)}
+.apply-page.is-done .job-hero{display:none}
+.apply-page.is-done .apply-body{padding-top:0;max-width:none}
+.apply-page.is-done .apply-done{justify-items:center;text-align:center;padding:0;gap:16px}
+.apply-page.is-done .apply-done p{margin:0 0 18px}
+.apply-page.is-done .apply-done-ico{width:76px;height:76px}
+.apply-page.is-done .apply-done-ico svg{width:34px;height:34px}
+.apply-page.is-done .apply-done h2{font-size:clamp(34px,4vw,56px)}
+
+/* Confirmation: the ring pops in, the check draws itself, then the text rises in. */
+.apply-done:not([hidden]) .apply-done-ico{animation:ad-pop .7s cubic-bezier(.2,1.35,.4,1) both,ad-glow 2.6s ease-in-out .9s 2}
+.apply-done:not([hidden]) .apply-done-ico svg path{stroke-dasharray:1;stroke-dashoffset:1;animation:ad-draw .55s cubic-bezier(.5,0,.2,1) .45s forwards}
+.apply-done:not([hidden]) h2{animation:ad-rise .7s cubic-bezier(.22,1,.36,1) .7s both}
+.apply-done:not([hidden]) p{animation:ad-rise .7s cubic-bezier(.22,1,.36,1) .85s both}
+.apply-done:not([hidden]) p+p{animation-delay:1s}
+.apply-done:not([hidden]) .career-cta{animation:ad-rise .7s cubic-bezier(.22,1,.36,1) 1.15s both}
+@keyframes ad-pop{0%{opacity:0;transform:scale(.5)}100%{opacity:1;transform:none}}
+@keyframes ad-draw{to{stroke-dashoffset:0}}
+@keyframes ad-rise{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
+@keyframes ad-glow{0%,100%{box-shadow:0 0 28px #f4664955}50%{box-shadow:0 0 52px #f46649aa}}
+@media(prefers-reduced-motion:reduce){.apply-done:not([hidden]) *{animation:none!important}.apply-done:not([hidden]) .apply-done-ico svg path{stroke-dashoffset:0}}
