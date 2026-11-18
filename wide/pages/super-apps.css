@@ -42,14 +42,13 @@
   html body:not(#bf-lab) :is(#section-4 header.xc-head) { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; column-gap: 32px !important; align-items: start !important; padding-left: 0 !important; padding-right: 0 !important; }
   html body:not(#bf-lab) :is(#section-4 header.xc-head > p) { align-self: start !important; max-width: 560px !important; }
 }
-/* Pinned scroll scenes on touch tablets (owner, 18 Nov 2026, on an iPad: "the gap is suddenly four times bigger").
-   On an iPad, held either way, this section was a screen-tall sticky frame with its content centred and a 260vh scroll
-   track, so it opened with 160-380px of empty space and then held the page for thousands of pixels. On touch
-   tablets (and an iPad Pro held upright) it is a normal section: as tall as its content plus section-y, the steps
-   change by tapping, as on smaller tablets and with reduced motion. Desktop with a mouse keeps the scroll scene. */
-@media (min-width: 600px) and (hover: none) and (pointer: coarse), (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
-  html body #section-3 .up-story-track { height: auto !important; }
-  html body #section-3 .up-story-sticky { position: static !important; min-height: 0 !important; }
+/* The pinned scroll scene (owner, 18 Nov 2026: keep the scrolling, fix the spacing). Where the page pins it (wider
+   than 900 and taller than its own limit, mouse or touch), the frame used to be a screen tall with its content centred,
+   so the section opened with 160-380px of empty space. The frame is now as tall as its content and sticks 96px under
+   the top of the screen (the compact header is 64): the section opens section-y above its label like every other
+   section, the steps still change as you scroll through the 260vh track, and the next section follows section-y under it. */
+@media (min-width: 901px) {
+  html body #section-3 .up-story-sticky { top: 96px !important; min-height: 0 !important; align-items: start !important; align-content: start !important; padding-top: 0 !important; padding-bottom: 0 !important; }
 }
 
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
@@ -127,7 +126,7 @@
   html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; }
   html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > article:nth-child(4) { margin-top: 32px !important; }
   html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) { margin-bottom: 0px !important; }
-  html body #section-3 > div:nth-child(2) { margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
+  html body #section-3 > div:nth-child(2) { margin-top: 50px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
   html body #section-3 > div:nth-child(2) > p:nth-child(1) { margin-top: 0px !important; }
   html body #section-3 > div:nth-child(2) > a:nth-child(2) { margin-bottom: 0px !important; }
   html body #section-4 { padding-top: 96px !important; padding-bottom: 96px !important; row-gap: 0px !important; }
@@ -151,16 +150,4 @@
   html body #bf-cta-title { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > p:nth-child(2) { margin-top: 32px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
-}
-@media (min-width: 1024px) and (max-width: 1151px) {
-  html body #section-3 > div:nth-child(2) { margin-top: 18px !important; }
-}
-@media (min-width: 1152px) and (max-width: 1359px) {
-  html body #section-3 > div:nth-child(2) { margin-top: -13px !important; }
-}
-@media (min-width: 1360px) and (max-width: 1679px) {
-  html body #section-3 > div:nth-child(2) { margin-top: 50px !important; }
-}
-@media (min-width: 1680px) {
-  html body #section-3 > div:nth-child(2) { margin-top: 50px !important; }
 }
