@@ -4,7 +4,7 @@ import re
 
 
 def strip_layer(html):
-    html = re.sub(r'<!-- Phone layer.*?</head>', '</head>', html, flags=re.S)
+    html = re.sub(r'<!-- Phone layer[^>]*-->|<link[^>]*href="mobile/[^>]*>', '', html)
     return re.sub(r'<script src="mobile/load\.js[^>]*></script>', '', html)
 
 

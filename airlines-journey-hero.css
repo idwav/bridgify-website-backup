@@ -10,3 +10,6 @@ html body .al-hero.aj-hero{display:block;min-height:0;padding:160px 4% 56px;back
 .aj-journey:before{display:none}.aj-journey>.al-motion-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:2}.aj-journey>.al-motion-svg path{fill:none;stroke:#f46649;stroke-width:1.5}.aj-journey>.al-motion-svg circle{pointer-events:none}
 
 @media(min-width:701px){.aj-foot{margin-top:48px}}
+
+/* Book a demo is the page's primary action: the same filled coral as every other page */
+.aj-hero .al-actions .al-button.brand-action-primary{background:linear-gradient(105deg,#ff9862,#f46649)!important;color:#180f10!important}
