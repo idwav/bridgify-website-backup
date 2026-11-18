@@ -1,0 +1,11 @@
+/* About · adaptive layer (phones). Spacing between roles comes from system/tokens.css via the role map;
+   this file only puts the sections on the shared 24px gutter. */
+@media (max-width:599px){
+  html body :is(#top,#our-story,#hbx):not(#ad-x){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important;box-sizing:border-box!important}
+  /* Our mission: the pinned block carries the padding, so the section itself has none */
+  html body #story:not(#ad-x){padding-left:0!important;padding-right:0!important}
+  html body #story .ab-pin:not(#ad-x){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important;box-sizing:border-box!important}
+  /* Read: why multi-source matters is a text link: its arrow loses the filled square */
+  html body #story .ab-btn .ab-arr:not(#ad-x){background:none!important;box-shadow:none!important;color:#FF8F6B!important;width:auto!important;height:auto!important}
+  html body :is(#top .ab-hero-grid,#our-story .ab-story-3,#story .ab-pin-copy,#story .ms,#hbx>div):not(#ad-x){width:auto!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
+}
