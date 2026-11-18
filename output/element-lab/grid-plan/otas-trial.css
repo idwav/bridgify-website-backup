@@ -33,3 +33,10 @@
   html body .ys-hero .ys-actions { order: 3 !important; }
   html body section#section-1.ys-hero { min-height: 100svh !important; padding-bottom: var(--bf-section-y) !important; }
 }
+/* The hero title (owner, 18 Nov 2026): same font and size as every hero (Chillax 300, --type-hero), but it ran 923px
+   wide at 1440 where the other heroes' titles are 520-684. It gets about the same measure as the paragraph under it (13em), centred, each sentence
+   balanced on its own two lines; the copy and its break after the first sentence are unchanged. */
+@media (min-width: 901px) {
+  html body .ys-hero .ys-copy > h1#ys-title { max-width: 13em !important; margin-left: auto !important; margin-right: auto !important; text-wrap: balance !important; }
+  html body .ys-hero .ys-copy > h1#ys-title > span { display: block !important; text-wrap: balance !important; }
+}
