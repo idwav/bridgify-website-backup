@@ -26,3 +26,5 @@
 .demo-page .apply-body{padding-top:20px}
 .demo-steps li{padding:9px 0}
 }
+
+.demo-page.is-done .apply-done .done-lead{margin:0;font:600 17px/1.5 Sofia,sans-serif;color:#ffba9b}
