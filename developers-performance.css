@@ -39,5 +39,23 @@ html body .dp2 .dp2-tabs button[aria-selected=true]{background:linear-gradient(1
 
 /* Scroll-driven: the panel is pinned and the page's scroll switches Search / Checkout. */
 .dp2-pin{position:relative;height:calc(100svh * 1.7)}
-.dp2-sticky{position:sticky;top:clamp(88px,12vh,112px)}
+.dp2-sticky{position:sticky;top:88px;padding-top:24px}
 .dp2-pin.is-flat{height:auto}.dp2-pin.is-flat .dp2-sticky{position:static}
+
+/* compact enough to sit under the header with its heading, on a 900px screen */
+.dp2-view{grid-auto-rows:minmax(clamp(52px,6.4vh,72px),auto)}
+.dp2{padding:clamp(20px,2.4vw,32px)!important}
+.dp2-tabs{margin-bottom:clamp(16px,2vh,28px)}
+.dp2-safety{margin-top:clamp(16px,2vh,28px);padding-top:clamp(14px,2vh,22px)}
+.dp2-sticky .dev-heading{margin-bottom:clamp(20px,3vh,32px)}
+@media(min-width:900px) and (max-height:800px){
+ .dp2-sticky{padding-top:8px}
+ .dp2-sticky .dev-heading{margin-bottom:16px;margin-top:8px}
+ .dp2-sticky .dev-heading p{font-size:15px!important;line-height:1.45!important}
+ .dp2-sticky .dev-heading h2{font-size:clamp(30px,3vw,38px)!important}
+ .dp2{padding:18px 24px!important}
+ .dp2-tabs{margin-bottom:12px}
+ .dp2-view{grid-auto-rows:minmax(48px,auto)}
+ .dp2-safety{margin-top:12px;padding-top:12px}
+ .dp2-safe .dev-icon{width:40px;height:40px;padding:10px}
+}
