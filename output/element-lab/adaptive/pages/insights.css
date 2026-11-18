@@ -1,0 +1,6 @@
+/* Insights · adaptive layer (phones). Spacing between roles comes from system/tokens.css via the role map. */
+/* hero: the page's own top padding goes; the shared header rule puts the label 48 under the bar */
+@media (max-width:599px){ html body :is(.blog-main,.blog-hero):not(#ad-x){padding-top:0!important;margin-top:0!important} }
+
+/* section titles at the one phone title size (28px Chillax 400), like every other page */
+@media (max-width:599px){ html body .blog-about h2:not(#ad-x):not(#ad-y){font-family:Chillax,sans-serif!important;font-size:var(--ad-title)!important;font-weight:400!important;letter-spacing:-.7px!important;line-height:1.15!important} }

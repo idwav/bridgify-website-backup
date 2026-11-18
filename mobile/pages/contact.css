@@ -1,0 +1,11 @@
+/* Contact · adaptive layer (phones). Spacing between roles comes from system/tokens.css via the role map. */
+@media (max-width:599px){
+  html body :is(#section-1,#section-2,#section-3,#section-4,#section-5.block):not(#ad-x){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important;box-sizing:border-box!important}
+  /* the two dropdowns take the text fields' height, so every field reads and taps the same */
+  html body #section-3 select:not(#ad-x){height:52px!important;min-height:52px!important;padding:0 40px 0 16px!important;font-size:16px!important;border-radius:12px!important}
+  /* light page: the menu icon takes the header's dark ink, like the logo */
+  html body header .ad-menu-btn:not(#ad-x){color:inherit!important}
+}
+
+/* section titles at the one phone title size (28px Chillax 400), like every other page */
+@media (max-width:599px){ html body #section-5 h2:not(#ad-x):not(#ad-y){font-family:Chillax,sans-serif!important;font-size:var(--ad-title)!important;font-weight:400!important;letter-spacing:-.7px!important;line-height:1.15!important} }

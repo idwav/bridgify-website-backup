@@ -68,7 +68,7 @@
     root.dataset.bfRhythm = MAP.page;
     MAP.sections.forEach(S => {
       const sec = document.querySelector(S.section); if (!sec) return;
-      const frame = S.frame ? sec.querySelector(S.frame) : sec;
+      const frame = S.frame ? (sec.matches(S.frame) ? sec : sec.querySelector(S.frame)) : sec;  // a section can be its own frame
       // resolve each item to its visible elements (a group such as FAQ rows counts as one block)
       const items = withMore(S.items.filter(([role, sel]) => role !== 'deco' && !(role === 'more' && /ad-more/.test(sel))).map(([role, sel]) => ({role, els: [...frame.querySelectorAll(sel)].filter(shown)})).filter(i => i.els.length));
       if (!items.length) return;
