@@ -66,3 +66,9 @@ body[data-copy-page="insights"]{background:#180f10;color:#eee9de}.blog-main{padd
 .blog-card h3{font-size:clamp(18px,1.35vw,21px);margin:10px 0 8px}
 .blog-card-copy>p{font-size:14.5px;line-height:1.5;margin:0 0 10px}
 }
+
+/* Planned articles: title and author only, no link, no invented excerpt, date or read time. */
+.blog-card.is-soon .blog-card-image.soon-art{background:radial-gradient(ellipse at 30% 20%,#f4664933,transparent 60%),linear-gradient(135deg,#2e211f,#1c1415);position:relative;cursor:default}
+.blog-card.is-soon .blog-card-image.soon-art:after{content:"";position:absolute;inset:0;background:center/72px no-repeat url(assets/bridgify-octopus-line.svg);opacity:.28}
+.blog-card.is-soon h3{color:#eee9de}
+.blog-link.soon{color:#9d8f88;cursor:default;text-decoration:none}
