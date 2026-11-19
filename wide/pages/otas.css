@@ -90,6 +90,13 @@
   html body:not(#bf-lab) :is(#section-3 header.rc-head > div) { align-self: start !important; max-width: 560px !important; }
 }
 
+/* Desktop title (owner, 19 Nov 2026): on desktop the title is two centred lines, one sentence per line (the 13em
+   measure above stays for 901-1023). */
+@media (min-width: 1024px) {
+  html body .ys-hero .ys-copy > h1#ys-title { max-width: none !important; text-wrap: nowrap !important; white-space: nowrap !important; }
+  html body .ys-hero .ys-copy > h1#ys-title > span { text-wrap: nowrap !important; white-space: nowrap !important; }
+}
+
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {
   html body #section-1 { row-gap: 0px !important; }
