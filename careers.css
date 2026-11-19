@@ -239,3 +239,15 @@ body{background:#180f10;color:#eee9de}
 .cm[data-step="2"] .cm-stg i{animation:none!important}
 .cm-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .cm-core,.cm-p{z-index:1}
+
+/* One side gutter for the whole page: the same as the header (4%, 24px on phones), so the hero, every section and the logo share left and right edges. */
+@media(min-width:600px){
+ html body main.careers-page>section{padding-left:4%!important;padding-right:4%!important}
+ html body main.careers-page>section.cw-values{padding-left:0!important;padding-right:0!important}
+ html body .cw-values .cm-wrap{padding-left:4%!important;padding-right:4%!important}
+}
+@media(max-width:599px){
+ html body main.careers-page>section{padding-left:24px!important;padding-right:24px!important}
+ html body main.careers-page>section.cw-values{padding-left:0!important;padding-right:0!important}
+ html body .cw-values .cm-wrap{padding-left:24px!important;padding-right:24px!important}
+}
