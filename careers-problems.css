@@ -39,3 +39,23 @@
 .cpp3-cell{min-height:0!important;justify-content:flex-start}
 @media(max-width:1000px){.cpp3-cell h3{min-height:0}}
 @media(max-width:599px){.cpp3-cell h3{padding-top:20px!important;min-height:0}}
+
+/* Hub and partners: the four problems feed one glass card (the infrastructure partners rely on), which serves Banks, Airlines and Super apps.
+   Wires and pulses are drawn by careers-problems.js with the site's wiring. */
+.cpp3-flow{position:relative;display:flex;flex-direction:column;align-items:center}
+.cpp3-flow .cpp3-grid{width:100%}
+.cpp3-cell{animation:none!important;transition:opacity .6s}.cpp3-cell:before{animation:none!important;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+.cpp3-cell.is-lit{opacity:1}.cpp3-cell.is-lit:before{width:72px}
+.cpp3-flow .cpp3-grid{margin-bottom:clamp(44px,7vh,72px)}
+.cpp3-hub{position:relative;z-index:1;isolation:isolate;display:flex;align-items:center;justify-content:center;gap:clamp(16px,2vw,28px);width:min(100%,640px);box-sizing:border-box;padding:clamp(20px,2.4vw,30px) clamp(24px,3vw,40px);border:1px solid #f6c8b594;border-radius:22px;background:radial-gradient(at 100% 0%,#ff89624a,#0000 22%),radial-gradient(at 0% 100%,#ff785347,#0000 20%),radial-gradient(at 0% 0%,#ffd4bb19,#0000 25%),linear-gradient(115deg,#fff8f10b,#0000 36%,#fff8f106 74%,#fff8f110);box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 15px 36px #00000022,0 0 calc(var(--arrival,0)*48px) #f4664966;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);text-align:left}
+.cpp3-hub:before{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 150px 90px at 100% 0%,#ff775a77,transparent),radial-gradient(ellipse 150px 90px at 0% 100%,#ff775a77,transparent);filter:blur(16px)}
+.cpp3-hub .cpp-logo{height:clamp(26px,3vh,34px);width:auto;flex:none}
+.cpp3-hub b{font:300 clamp(20px,1.9vw,28px)/1.2 Chillax,sans-serif;color:#eee9de}
+.cpp3-partners{display:flex;gap:clamp(12px,2.4vw,40px);justify-content:center;margin-top:clamp(36px,6vh,60px);flex-wrap:wrap}
+.cpp3-partners span{padding:12px 28px;border:1px solid #eee9de30;border-radius:999px;background:#fff8f10a;font:500 clamp(15px,1.15vw,18px) Sofia,sans-serif;color:#eee9de;transition:border-color .5s,box-shadow .5s,background .5s}
+.cpp3-partners span.is-lit{border-color:#f6c8b5aa;background:radial-gradient(ellipse at 50% 100%,#f4664933,transparent 70%),#fff8f10d;box-shadow:0 0 28px #f4664955,inset 0 1px 1px #fff1da55}
+.cpp3-wires{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
+@media(max-width:1000px){.cpp3-wires{display:none}.cpp3-flow .cpp3-grid{margin-bottom:28px}.cpp3-partners{margin-top:20px}.cpp3-hub{flex-wrap:wrap;justify-content:flex-start}}
+@media(prefers-reduced-motion:reduce){.cpp3-cell{opacity:1}.cpp3-cell:before{width:0}}
+.cpp3-hub{width:min(100%,760px)}.cpp3-hub b{white-space:nowrap}
+@media(max-width:1000px){.cpp3-hub b{white-space:normal}}
