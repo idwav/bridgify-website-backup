@@ -94,3 +94,22 @@
   html body .ys-hero .ys-copy > h1#ys-title { max-width: none !important; text-wrap: nowrap !important; white-space: nowrap !important; }
   html body .ys-hero .ys-copy > h1#ys-title > span { text-wrap: nowrap !important; white-space: nowrap !important; }
 }
+/* An iPad Pro held upright (1024-1366, portrait) gets the larger tablet hero title (48-56px); one sentence per line
+   then ran 14px past the screen. There the title wraps on its 13em measure again, centred. */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body .ys-hero .ys-copy > h1#ys-title, html body .ys-hero .ys-copy > h1#ys-title > span { white-space: normal !important; text-wrap: balance !important; }
+  html body .ys-hero .ys-copy > h1#ys-title { max-width: 13em !important; }
+}
+
+/* Tablet hero (owner, 19 Nov 2026): centred like the desktop hero, the title at the tablet hero size (40px) on its 13em
+   measure, and the "Already sold / days in between" card grows to the bottom of the first screen (32px from the edge).
+   It was left-aligned, the title ran 48px over four wide lines and the card stopped 70px short of the screen bottom. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) section#section-1.ys-hero { display: flex !important; flex-direction: column !important; min-height: 100svh !important; padding-bottom: var(--try-margin) !important; box-sizing: border-box !important; }
+  html body:not(#bf-lab) .ys-hero .ys-copy { text-align: center !important; display: flex !important; flex-direction: column !important; align-items: center !important; }
+  html body:not(#bf-lab) .ys-hero .ys-copy > h1#ys-title { font-size: 40px !important; line-height: 1.16 !important; max-width: 13em !important; margin-left: auto !important; margin-right: auto !important; text-align: center !important; text-wrap: balance !important; }
+  html body:not(#bf-lab) .ys-hero .ys-copy > h1#ys-title > span { display: block !important; text-wrap: balance !important; }
+  html body:not(#bf-lab) .ys-hero .ys-copy > p { max-width: 60ch !important; margin-left: auto !important; margin-right: auto !important; text-align: center !important; }
+  html body:not(#bf-lab) .ys-hero :is(.ys-eyebrow, .ys-copy > div:first-child, .ys-actions) { justify-content: center !important; }
+  html body:not(#bf-lab) section#section-1.ys-hero .ys-ticket { flex: 1 1 auto !important; align-content: center !important; }
+}

@@ -54,3 +54,12 @@
   html body #section-3 .ad-jp-pin .al-phone:not(#ad-x){height:clamp(380px,calc(100svh - var(--ad-header-h) - 120px),600px)!important;overflow:hidden!important;width:100%!important;max-width:342px!important}
   html body #section-3 .ad-jp-pin .al-phone-panels{min-height:0!important;flex:1 1 auto;overflow:hidden}
 }
+
+/* Owner, 19 Nov 2026 */
+@media (max-width:599px){
+  /* Coloured part of a title: always its own full line(s) under the white part, never one coloured word left on a
+     white line ("Earn beyond the flight" fits on one line and stays so, rule T4). fit-content keeps the gradient across the words, not across the empty column. */
+  html body :is(#al-journey-title,#xc-title,#bf-cta-title)>span:not(#ad-x){display:block!important;width:fit-content;max-width:100%}
+  /* Passenger journey: the pinned tabs and phone sit on the section colour, not on a darker box. */
+  html body #section-3 .ad-jp-pin .ad-pin-stage:not(#ad-x){background:transparent!important}
+}

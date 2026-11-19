@@ -274,3 +274,8 @@ html body .lr-product.lr-bought { border-color: #f46649; box-shadow: 0 0 28px #f
   html body:not(#bf-lab) #opportunity-study p.pb-bar, html body:not(#bf-lab) #opportunity-study p.pb-bar > span { color: var(--bf-text-on-dark) !important; }
   html body[data-copy-page="contact"]:not(#bf-lab) #enquiry p.form-note { color: var(--bf-text-on-light) !important; }
 }
+/* FAQ answers follow the same two colours (they ran six shades: #EEE9DE, #CEC3B9, #D3C7BF, #D4C4B9, #D9C6BB, #75625C). */
+@media (min-width: 600px) {
+  html body:is([data-copy-page="marketplace"], [data-copy-page="personalization"], [data-copy-page="otas"], [data-copy-page="airlines"], [data-copy-page="hotels"], [data-copy-page="travel-technology"], [data-copy-page="super-apps"], [data-copy-page="developers"]):not(#bf-lab) #faq details :is(p, li) { color: var(--bf-text-on-dark) !important; }
+  html body:is([data-copy-page="index"], [data-copy-page="api"], [data-copy-page="loyalty-finance"]):not(#bf-lab) #faq details :is(p, li) { color: var(--bf-text-on-light) !important; }
+}

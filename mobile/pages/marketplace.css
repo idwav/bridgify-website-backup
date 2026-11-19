@@ -232,6 +232,10 @@
   html body #section-1.page-hero:not(#ad-x){overflow:clip!important}
   html body #section-1 .block-copy{position:sticky!important;top:calc(var(--ad-header-h) + 8px);z-index:0;transform-origin:50% 0}
   html body #section-1 .market-demo:not(#ad-x){position:relative!important;z-index:1;background:#140d0c;border-radius:18px;box-shadow:0 -24px 48px rgba(0,0,0,.5);padding-block:8px}
+  /* Copy first, store under it (owner, 19 Nov 2026): product-skin.css puts the store first up to 900px (order:-1),
+     which hid the sticky copy behind the store and left nothing for it to rise over. Phones only; tablets keep it. */
+  html body #section-1 .block-copy:not(#ad-x){order:0!important}
+  html body #section-1 .market-demo:not(#ad-x){order:1!important}
   /* Live in 3 days: your domain and store lead; the launch timeline comes up over its lower half, layered above it */
   html body #section-5 .launch-workspace:not(#ad-x){display:flex!important;flex-direction:column!important}
   html body #section-5 .launch-store:not(#ad-x){order:0;position:relative;z-index:1}

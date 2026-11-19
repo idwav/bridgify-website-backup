@@ -54,18 +54,25 @@
   const el = hero.querySelector('.bv2-funnel');
 
   // ---- fit: the whole hero on one screen (variation b) ----
+  // Sized once against the small viewport (100svh: Safari's bars showing), so the visual starts at its final size,
+  // is whole on the first screen, and does not grow when Safari's address bar collapses on scroll (owner, 19 Nov 2026).
+  // It is sized again only when the width changes (rotation). Below 70% of the content width the diagram keeps the
+  // full width (too small to read) and its lower part needs a short scroll.
   const vis = el.closest('.bv2-hero-visual');
+  const svh = () => { const p = document.createElement('div'); p.style.cssText = 'position:fixed;top:0;height:100svh;width:0;visibility:hidden';
+    document.body.append(p); const h = p.getBoundingClientRect().height || innerHeight; p.remove(); return h; };
+  let fitW = 0;
   const fit = () => {
     if (V !== 'b' || !vis) return;
+    fitW = innerWidth;
     vis.style.removeProperty('width');
     const cw = vis.getBoundingClientRect().width;
-    const free = innerHeight - (vis.getBoundingClientRect().top + scrollY) - 24;   // to the bottom of the first screen
-    // fit when that keeps the diagram readable (≥ 75% of the content width); on a small iPad, where the copy alone
-    // fills half the screen, the diagram keeps the full width and its lower part needs a short scroll
-    let w = Math.min(cw, free * 800 / g.H); if (w < cw * .75) w = cw;
+    const free = svh() - (vis.getBoundingClientRect().top + scrollY) - 16;   // to the bottom of the first screen
+    let w = Math.min(cw, free * 800 / g.H); if (w < cw * .7) w = cw;
     vis.style.setProperty('width', w + 'px', 'important'); vis.style.setProperty('margin-inline', 'auto', 'important');
   };
-  fit(); addEventListener('resize', fit); if (document.fonts) document.fonts.ready.then(fit);
+  fit(); addEventListener('resize', () => { if (innerWidth !== fitW) fit(); }); if (document.fonts) document.fonts.ready.then(fit);
+  el.classList.add('fn-sized');
 
   // ---- the hero-funnel-v2.js timeline, on the portrait geometry ----
   const NS = 'http://www.w3.org/2000/svg';
