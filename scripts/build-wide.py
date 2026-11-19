@@ -41,7 +41,7 @@ PAGES = {
     'personalization': ('personalization.html?version=2', 'roles-personalization.js', ['personalization-trial.css'], [['#section-2', 'h2', 'div.intent-heading > p'], ['#section-4', 'h2', 'div.embed-heading > p']], 'personalization-hero.js'),
     # step 6.5: the six solution pages
     'otas': ('otas.html?version=2', 'roles-otas.js', ['otas-trial.css'], [['#section-3', 'h2', 'header.rc-head > div']], None),
-    'airlines': ('airlines.html?version=2', 'roles-airlines.js', ['airlines-trial.css'], [['#section-2', 'h2', 'header.ar-heading > p'], ['#section-4', 'h2', 'header.xc-head > p']], None),
+    'airlines': ('airlines.html?version=2', 'roles-airlines.js', ['airlines-trial.css'], [['#section-2', 'h2', 'header.ar-heading > p'], ['#section-4', 'h2', 'header.xc-head > p']], 'airlines-pin.js'),
     'hotels': ('hotels.html?version=2', 'roles-hotels.js', ['hotels-trial.css'], [['#section-1', 'h1', 'div.hm-intro'], ['#section-4', 'h2', 'header.xc-head > p']], None),
     'loyalty-finance': ('loyalty-finance.html?version=2', 'roles-loyalty-finance.js', ['loyalty-finance-trial.css'], [['#section-2', 'h2', 'header > div.lp-copy']], None),
     'super-apps': ('super-apps.html?version=2', 'roles-super-apps.js', ['super-apps-trial.css'], [['#section-4', 'h2', 'header.xc-head > p']], None),
