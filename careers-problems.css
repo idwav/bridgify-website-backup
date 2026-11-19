@@ -1,69 +1,24 @@
-/* "The problems you'd work on": a pinned scene. Scroll moves through the four problems; the glass stage shows each one,
-   and the partners it all serves stay at the bottom. Glass, edge and glow follow the AIyelet stage. */
-#problems.cpp{background:radial-gradient(ellipse at 88% 8%,#f4664914,transparent 55%),#180f10;padding:0 4vw}
-.cpp2-pin{position:relative;height:calc(100svh * 3.1)}
-.cpp2-sticky{position:sticky;top:88px;display:flex;flex-direction:column;justify-content:center;min-height:calc(100svh - 100px);padding:16px 0 24px}
-.cpp2-pin.is-flat{height:auto}.cpp2-pin.is-flat .cpp2-sticky{position:static;min-height:0;padding:64px 0}
-#problems .cpp-head{margin-bottom:clamp(20px,3.4vh,36px)}
-.cpp2-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px);align-items:stretch}
-.cpp2-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;align-content:start}
-.cpp2-list li{display:grid;grid-template-columns:44px minmax(0,1fr) 18px;gap:18px;align-items:start;padding:18px 20px;border:1px solid #eee9de22;border-radius:14px;cursor:pointer;background:none;transition:background .4s,border-color .4s,box-shadow .4s;outline-offset:3px}
-.cpp2-list li:focus-visible{outline:2px solid #f46649}
-.cpp2-ic{display:grid;place-items:center;width:44px;height:44px;border:1px solid #f4664944;border-radius:50%;color:#f48665;transition:border-color .4s,box-shadow .4s,background .4s}
-.cpp2-ic svg{width:22px;height:22px}
-.cpp2-list h3{margin:10px 0 0;font:300 clamp(20px,1.7vw,26px)/1.25 Chillax,sans-serif;color:#bda99c;transition:color .4s}
-.cpp2-list p{margin:0;max-height:0;overflow:hidden;opacity:0;font:400 16px/1.5 Sofia,sans-serif!important;color:#d3c1b8!important;transition:max-height .5s,opacity .4s,margin .4s}
-.cpp2-chev{width:18px;height:18px;margin-top:13px;fill:none;stroke:#bda99c;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s,stroke .35s}
-.cpp2-grid[data-step="1"] li:nth-child(1),.cpp2-grid[data-step="2"] li:nth-child(2),.cpp2-grid[data-step="3"] li:nth-child(3),.cpp2-grid[data-step="4"] li:nth-child(4){border-color:#f6c8b570;background:linear-gradient(105deg,#ffdab917,#f466490d);box-shadow:inset 0 1px 1px #fff1da40,0 0 30px #f4664914}
-.cpp2-grid[data-step="1"] li:nth-child(1) h3,.cpp2-grid[data-step="2"] li:nth-child(2) h3,.cpp2-grid[data-step="3"] li:nth-child(3) h3,.cpp2-grid[data-step="4"] li:nth-child(4) h3{color:#eee9de}
-.cpp2-grid[data-step="1"] li:nth-child(1) p,.cpp2-grid[data-step="2"] li:nth-child(2) p,.cpp2-grid[data-step="3"] li:nth-child(3) p,.cpp2-grid[data-step="4"] li:nth-child(4) p{max-height:80px;opacity:1;margin-top:6px}
-.cpp2-grid[data-step="1"] li:nth-child(1) .cpp2-ic,.cpp2-grid[data-step="2"] li:nth-child(2) .cpp2-ic,.cpp2-grid[data-step="3"] li:nth-child(3) .cpp2-ic,.cpp2-grid[data-step="4"] li:nth-child(4) .cpp2-ic{border-color:#f46649;box-shadow:0 0 18px #f4664966;background:#f4664918}
-.cpp2-grid[data-step="1"] li:nth-child(1) .cpp2-chev,.cpp2-grid[data-step="2"] li:nth-child(2) .cpp2-chev,.cpp2-grid[data-step="3"] li:nth-child(3) .cpp2-chev,.cpp2-grid[data-step="4"] li:nth-child(4) .cpp2-chev{transform:rotate(90deg);stroke:#f48665}
-/* stage: the AIyelet glass */
-.cpp2-stage{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;gap:clamp(20px,3vh,32px);padding:clamp(22px,2.6vw,36px);border:1px solid #f6c8b594;border-radius:22px;background:radial-gradient(at 100% 0%,#ff89624a,#0000 17%),radial-gradient(at 0% 100%,#ff785347,#0000 16%),radial-gradient(at 0% 0%,#ffd4bb19,#0000 25%),linear-gradient(115deg,#fff8f10b,#0000 36%,#fff8f106 74%,#fff8f110);box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 15px 36px #00000022;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
-.cpp2-stage:before{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 150px 96px at 100% 0%,#ff775a77,transparent),radial-gradient(ellipse 150px 96px at 0% 100%,#ff775a77,transparent);filter:blur(16px)}
-.cpp2-stage:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 46% 62% at 30% 72%,#ff7a4d40,transparent 72%),radial-gradient(ellipse 38% 50% at 72% 28%,#ffb08c30,transparent 72%);background-size:150% 150%;background-repeat:no-repeat;animation:cpp2-drift 10s ease-in-out infinite alternate}
-@keyframes cpp2-drift{from{background-position:0% 0%;opacity:.75}50%{opacity:1}to{background-position:100% 100%;opacity:.8}}
-.cpp2-views{position:relative;flex:1;display:grid;place-items:center;min-height:clamp(190px,30vh,280px)}
-.cpp2-view{grid-area:1/1;display:none;width:100%;flex-direction:column;align-items:center;justify-content:center;gap:18px}
-.cpp2-grid[data-step="1"] .v1,.cpp2-grid[data-step="2"] .v2,.cpp2-grid[data-step="3"] .v3,.cpp2-grid[data-step="4"] .v4{display:flex}
-.cpp2-view span,.cpp2-view b,.cpp2-view em{font-style:normal}
-/* 1 unify */
-.cpp2-srcs{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.cpp2-srcs span{padding:12px 18px;border:1px solid #eee9de30;border-radius:12px;background:#fff8f10a;font:500 16px Sofia,sans-serif;color:#eee9de;opacity:0;transform:translateY(-10px);animation:cpp2-in .7s cubic-bezier(.22,1,.36,1) forwards}
-.cpp2-srcs span:nth-child(2){animation-delay:.25s}.cpp2-srcs span:nth-child(3){animation-delay:.5s}
-.cpp2-pill{padding:14px 30px;border:1px solid #f46649;border-radius:999px;background:radial-gradient(ellipse at 50% 100%,#f4664933,transparent 70%);font:500 17px Sofia,sans-serif;color:#eee9de;box-shadow:0 0 0 #f4664900;opacity:0;animation:cpp2-in .8s 1.1s cubic-bezier(.22,1,.36,1) forwards,cpp2-glow 2.6s 1.9s ease-in-out infinite alternate}
-@keyframes cpp2-in{to{opacity:1;transform:none}}
-@keyframes cpp2-glow{to{box-shadow:0 0 28px #f4664966}}
-/* 2 live */
-.cpp2-check{display:flex;justify-content:space-between;align-items:center;width:min(100%,380px);padding:16px 20px;border:1px solid #eee9de30;border-radius:12px;background:#fff8f10a;opacity:0;animation:cpp2-in .7s forwards}
-.cpp2-check:nth-child(2){animation-delay:.5s}
-.cpp2-check b{font:500 17px Sofia,sans-serif;color:#eee9de}.cpp2-check em{font:400 15px Sofia,sans-serif;color:#9fe0b4;display:inline-flex;align-items:center;gap:8px}
-.cpp2-check em:before{content:"";width:8px;height:8px;border-radius:50%;background:#7fd69a;box-shadow:0 0 0 0 #7fd69a88;animation:cpp2-ping 1.8s infinite}
-@keyframes cpp2-ping{70%{box-shadow:0 0 0 9px #7fd69a00}100%{box-shadow:0 0 0 0 #7fd69a00}}
-/* 3 match */
-.cpp2-ask{padding:12px 22px;border:1px solid #f46649;border-radius:999px;font:500 16px Sofia,sans-serif;color:#eee9de;background:#f4664914}
-.cpp2-tiles{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:12px;width:100%}
-.cpp2-tiles figure{position:relative;margin:0;border:1px solid #eee9de30;border-radius:12px;overflow:hidden;aspect-ratio:4/3;opacity:0;transform:translateY(10px);animation:cpp2-in .7s forwards}
-.cpp2-tiles figure:nth-child(2){animation-delay:.3s}.cpp2-tiles figure:nth-child(3){animation-delay:.6s}
-.cpp2-tiles .best{border-color:#f46649;box-shadow:0 0 24px #f4664940}
-.cpp2-tiles img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cpp2-tiles figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 8px;background:linear-gradient(0deg,#180f10ee,transparent);font:600 12px Sofia,sans-serif;color:#fff;display:grid;gap:4px}
-.cpp2-tiles figcaption span{justify-self:start;padding:2px 8px;border-radius:999px;background:#e8654a;color:#180f10;font:700 9px Sofia,sans-serif;letter-spacing:.08em;text-transform:uppercase}
-/* 4 trust */
-.cpp2-flow{display:flex;align-items:center;justify-content:center;gap:0;width:100%;flex-wrap:nowrap}
-.cpp2-flow span{padding:12px 16px;border:1px solid #eee9de30;border-radius:12px;background:#fff8f10a;font:500 15px Sofia,sans-serif;color:#eee9de;white-space:nowrap;opacity:.35;animation:cpp2-lit .6s forwards}
-.cpp2-flow i{flex:1;min-width:12px;height:1px;background:#f4664966}
-.cpp2-flow span:nth-of-type(1){animation-delay:.1s}.cpp2-flow span:nth-of-type(2){animation-delay:.7s}.cpp2-flow span:nth-of-type(3){animation-delay:1.3s}.cpp2-flow span:nth-of-type(4){animation-delay:1.9s}
-.cpp2-flow .ok{border-color:#7fd69a;color:#d6f5df}
-@keyframes cpp2-lit{to{opacity:1;border-color:#f6c8b5aa;box-shadow:0 0 18px #f4664933}}
-.cpp2-flow .ok{animation-name:cpp2-ok}@keyframes cpp2-ok{to{opacity:1;border-color:#7fd69a;box-shadow:0 0 22px #7fd69a55}}
-/* the partners it all serves */
-.cpp2-target{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;align-items:center;padding-top:clamp(18px,2.4vh,26px);border-top:1px solid #eee9de22}
-.cpp2-target .cpp-logo{grid-row:1/3;height:30px;width:auto}
-.cpp2-target b{font:300 clamp(18px,1.6vw,24px)/1.2 Chillax,sans-serif;color:#eee9de}
-.cpp2-chips{grid-column:2;display:flex;gap:8px;flex-wrap:wrap}
-.cpp2-chips span{padding:6px 14px;border:1px solid #eee9de30;border-radius:999px;background:#fff8f10a;font:500 14px Sofia,sans-serif;color:#eee9de}
-@media(max-width:1000px){.cpp2-grid{grid-template-columns:1fr}.cpp2-list li{padding:14px 16px}}
-@media(max-width:599px){#problems.cpp{padding:0 24px}.cpp2-target{grid-template-columns:1fr}.cpp2-target .cpp-logo{grid-row:auto}.cpp2-chips{grid-column:1}.cpp2-flow span{padding:10px 8px;font-size:13px}.cpp2-tiles{grid-template-columns:1fr 1fr 1fr}.cpp2-tiles figcaption{font-size:10px}}
-@media(prefers-reduced-motion:reduce){.cpp2-view *,.cpp2-stage:after{animation:none!important;opacity:1!important;transform:none!important}}
+/* "The problems you'd work on": four problems side by side, divided by hairlines (the pattern of the audience grids, on our dark),
+   and the partners they serve in one glass band underneath (the AIyelet stage glass: peach edge, warm corners, a slow glow inside). */
+#problems.cpp{background:radial-gradient(ellipse at 88% 8%,#f4664914,transparent 55%),#180f10}
+.cpp3-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #eee9de22;border-bottom:1px solid #eee9de22}
+.cpp3-cell{position:relative;display:flex;flex-direction:column;gap:0;padding:clamp(26px,2.6vw,36px) clamp(20px,2.2vw,32px);border-left:1px solid #eee9de22;min-height:clamp(220px,28vh,280px);opacity:.7;animation:cpp3-lit 9.6s ease-in-out infinite;animation-delay:calc(var(--i) * 2.4s)}
+.cpp3-cell:first-child{border-left:0}
+.cpp3-cell:before{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:#f46649;animation:cpp3-line 9.6s ease-in-out infinite;animation-delay:calc(var(--i) * 2.4s)}
+.cpp3-ic{display:grid;place-items:center;width:48px;height:48px;border:1px solid #f4664944;border-radius:50%;color:#f48665}
+.cpp3-ic svg{width:24px;height:24px}
+.cpp3-cell h3{margin:auto 0 0;padding-top:32px;font:300 clamp(22px,1.9vw,28px)/1.2 Chillax,sans-serif;color:#eee9de}
+.cpp3-cell p{margin:10px 0 0!important;font:400 16px/1.5 Sofia,sans-serif!important;color:#bda99c!important}
+@keyframes cpp3-lit{0%,28%,100%{opacity:.7}6%,22%{opacity:1}}
+@keyframes cpp3-line{0%,28%,100%{width:0}8%,22%{width:72px}}
+.cpp3-target{position:relative;isolation:isolate;display:grid;grid-template-columns:auto 1fr auto;gap:clamp(18px,3vw,44px);align-items:center;margin-top:clamp(28px,4vh,48px);padding:clamp(22px,2.4vw,32px) clamp(24px,3vw,44px);border:1px solid #f6c8b594;border-radius:22px;background:radial-gradient(at 100% 0%,#ff89624a,#0000 17%),radial-gradient(at 0% 100%,#ff785347,#0000 16%),radial-gradient(at 0% 0%,#ffd4bb19,#0000 25%),linear-gradient(115deg,#fff8f10b,#0000 36%,#fff8f106 74%,#fff8f110);box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 15px 36px #00000022;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.cpp3-target:before{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 150px 96px at 100% 0%,#ff775a77,transparent),radial-gradient(ellipse 150px 96px at 0% 100%,#ff775a77,transparent);filter:blur(16px)}
+.cpp3-target:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 46% 120% at 30% 72%,#ff7a4d40,transparent 72%),radial-gradient(ellipse 38% 100% at 72% 28%,#ffb08c30,transparent 72%);background-size:150% 150%;background-repeat:no-repeat;animation:cpp3-drift 10s ease-in-out infinite alternate}
+@keyframes cpp3-drift{from{background-position:0% 0%;opacity:.75}50%{opacity:1}to{background-position:100% 100%;opacity:.8}}
+.cpp3-target .cpp-logo{height:30px;width:auto}
+.cpp3-target b{font:300 clamp(22px,2.2vw,32px)/1.2 Chillax,sans-serif;color:#eee9de}
+.cpp3-chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.cpp3-chips span{padding:8px 18px;border:1px solid #eee9de30;border-radius:999px;background:#fff8f10a;font:500 15px Sofia,sans-serif;color:#eee9de}
+@media(max-width:1000px){.cpp3-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cpp3-cell:nth-child(3){border-left:0}.cpp3-cell:nth-child(n+3){border-top:1px solid #eee9de22}.cpp3-cell{min-height:200px}.cpp3-target{grid-template-columns:1fr;justify-items:start}.cpp3-chips{justify-content:flex-start}}
+@media(max-width:599px){.cpp3-grid{grid-template-columns:1fr}.cpp3-cell{border-left:0;border-top:1px solid #eee9de22;min-height:0;padding:24px 4px}.cpp3-cell:first-child{border-top:0}.cpp3-cell h3{margin-top:0}}
+@media(prefers-reduced-motion:reduce){.cpp3-cell{animation:none;opacity:1}.cpp3-cell:before,.cpp3-target:after{animation:none}}
