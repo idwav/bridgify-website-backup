@@ -213,7 +213,7 @@
   html body #opportunity-study { padding-top: 96px !important; padding-bottom: 96px !important; row-gap: 0px !important; }
   html body #opportunity-study > header:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; }
   html body #opx-opportunity-title { margin-top: 0px !important; }
-  html body #opportunity-study > header:nth-child(1) > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
+  html body #opportunity-study > header:nth-child(1) > div:nth-child(2) { margin-bottom: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
   html body #opportunity-study > header:nth-child(1) > div:nth-child(2) > p:nth-child(1) { margin-bottom: 0px !important; }
   html body #opportunity-study > header:nth-child(1) > div:nth-child(2) > button:nth-child(3) { margin-top: 8px !important; margin-bottom: 0px !important; }
   html body #opportunity-study > p:nth-child(2) { margin-top: 16px !important; margin-bottom: 0px !important; }
@@ -250,7 +250,7 @@
   html body #personalization > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; padding-top: 0px !important; row-gap: 0px !important; }
   html body #personalization > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body #home-intent-title { margin-top: 24px !important; }
-  html body #personalization > div:nth-child(1) > div:nth-child(2) { margin-top: 40.7969px !important; margin-bottom: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
+  html body #personalization > div:nth-child(1) > div:nth-child(2) { margin-bottom: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
   html body #personalization > div:nth-child(1) > div:nth-child(2) > p:nth-child(1) { margin-bottom: 0px !important; }
   html body #personalization > div:nth-child(1) > div:nth-child(2) > a:nth-child(2) { margin-top: 48px !important; margin-bottom: 0px !important; }
   html body #personalization > div:nth-child(2) { margin-top: 64px !important; margin-bottom: 0px !important; }
@@ -258,7 +258,7 @@
   html body #products > header:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
   html body #products > header:nth-child(1) > span:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body #v2p-title { margin-top: 24px !important; }
-  html body #products > header:nth-child(1) > p:nth-child(3) { margin-top: 24px !important; margin-bottom: 0px !important; }
+  html body #products > header:nth-child(1) > p:nth-child(3) { margin-bottom: 0px !important; }
   html body #products > div:nth-child(2) { margin-top: 64px !important; margin-bottom: 0px !important; }
   html body #audiences { padding-top: 96px !important; padding-bottom: 96px !important; row-gap: 0px !important; }
   html body #audiences > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; }
@@ -299,4 +299,22 @@
   html body #sources > div:nth-child(4) { margin-top: 64px !important; }
   html body #sources > div:nth-child(5) { margin-top: 64px !important; }
   html body #sources > div:nth-child(6) { margin-top: 64px !important; }
+  html body #opportunity-study > header:nth-child(1) > div:nth-child(2) { margin-top: 2.812px !important; }
+  html body #personalization > div:nth-child(1) > div:nth-child(2) { margin-top: 43.6089px !important; }
+  html body #products > header:nth-child(1) > p:nth-child(3) { margin-top: 26.844px !important; }
+}
+@media (min-width: 1152px) and (max-width: 1359px) {
+  html body #opportunity-study > header:nth-child(1) > div:nth-child(2) { margin-top: 3.1248px !important; }
+  html body #personalization > div:nth-child(1) > div:nth-child(2) { margin-top: 43.9217px !important; }
+  html body #products > header:nth-child(1) > p:nth-child(3) { margin-top: 27.1568px !important; }
+}
+@media (min-width: 1360px) and (max-width: 1679px) {
+  html body #opportunity-study > header:nth-child(1) > div:nth-child(2) { margin-top: 3.7504px !important; }
+  html body #personalization > div:nth-child(1) > div:nth-child(2) { margin-top: 44.5473px !important; }
+  html body #products > header:nth-child(1) > p:nth-child(3) { margin-top: 27.7824px !important; }
+}
+@media (min-width: 1680px) {
+  html body #opportunity-study > header:nth-child(1) > div:nth-child(2) { margin-top: 4.188px !important; }
+  html body #personalization > div:nth-child(1) > div:nth-child(2) { margin-top: 44.9849px !important; }
+  html body #products > header:nth-child(1) > p:nth-child(3) { margin-top: 28.22px !important; }
 }

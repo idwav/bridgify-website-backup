@@ -138,7 +138,7 @@
   html body #section-4 > header:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; padding-top: 0px !important; row-gap: 0px !important; }
   html body #section-4 > header:nth-child(1) > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body #xc-title { margin-top: 24px !important; }
-  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 43px !important; margin-bottom: 0px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-bottom: 0px !important; }
   html body #section-4 > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
   html body #section-4 > div:nth-child(2) > article:nth-child(1) { margin-top: 64px !important; }
   html body #section-4 > div:nth-child(2) > article:nth-child(2) { margin-top: 64px !important; margin-bottom: 0px !important; }
@@ -157,13 +157,17 @@
 }
 @media (min-width: 1024px) and (max-width: 1151px) {
   html body #section-3 > div:nth-child(2) { margin-top: 18px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 45.732px !important; }
 }
 @media (min-width: 1152px) and (max-width: 1359px) {
   html body #section-3 > div:nth-child(2) { margin-top: -13px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 46.0448px !important; }
 }
 @media (min-width: 1360px) and (max-width: 1679px) {
   html body #section-3 > div:nth-child(2) { margin-top: 50px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 46.6704px !important; }
 }
 @media (min-width: 1680px) {
   html body #section-3 > div:nth-child(2) { margin-top: 50px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 47.108px !important; }
 }

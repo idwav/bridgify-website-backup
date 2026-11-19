@@ -181,7 +181,7 @@
   html body #section-4 > header:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; padding-top: 0px !important; row-gap: 0px !important; }
   html body #section-4 > header:nth-child(1) > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body #xc-title { margin-top: 24px !important; }
-  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 43px !important; margin-bottom: 0px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-bottom: 0px !important; }
   html body #section-4 > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
   html body #section-4 > div:nth-child(2) > article:nth-child(1) { margin-top: 64px !important; margin-bottom: 0px !important; }
   html body #faq { padding-top: 96px !important; padding-bottom: 96px !important; }
@@ -197,4 +197,20 @@
   html body #bf-cta-title { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > p:nth-child(2) { margin-top: 32px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
+}
+@media (min-width: 1024px) and (max-width: 1151px) {
+  html body #section-1 > div:nth-child(2) > div:nth-child(2) { margin-top: 26.92px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 45.732px !important; }
+}
+@media (min-width: 1152px) and (max-width: 1359px) {
+  html body #section-1 > div:nth-child(2) > div:nth-child(2) { margin-top: 27.6458px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 46.1248px !important; }
+}
+@media (min-width: 1360px) and (max-width: 1679px) {
+  html body #section-1 > div:nth-child(2) > div:nth-child(2) { margin-top: 29.5965px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 46.7504px !important; }
+}
+@media (min-width: 1680px) {
+  html body #section-1 > div:nth-child(2) > div:nth-child(2) { margin-top: 30.86px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 47.188px !important; }
 }
