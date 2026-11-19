@@ -1,0 +1,74 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>מיפוי טיפוגרפיה בדסקטופ</title>
+<style>
+:root{--bg:#180F10;--panel:#221819;--ink:#EEE9DE;--muted:#bda99c;--line:#f4664933;--coral:#F46649;--ok:#7fc29b;--mid:#e8b25c;--bad:#ff7a5c}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,sans-serif;padding:32px 16px}
+main{max-width:1180px;margin:0 auto} h1{font-weight:300;font-size:34px;margin:0 0 8px} h2{font-weight:400;font-size:22px;margin:40px 0 12px;color:#ffb194}
+p,li{color:var(--ink)} .muted{color:var(--muted)} code{font-size:13px;background:#ffffff10;padding:1px 5px;border-radius:4px;direction:ltr;unicode-bidi:embed}
+.wrap{overflow-x:auto} table{border-collapse:collapse;width:100%;font-size:14px;direction:rtl} th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:right;white-space:nowrap}
+thead th{color:var(--muted);font-weight:500} td.ok{color:var(--ok)} td.mid{color:var(--mid)} td.bad{color:var(--bad)} td.na{color:#6d5c55}
+.scale td,.scale th{white-space:normal} .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:12px 0}
+.card h3{margin:0 0 6px;font-size:17px;font-weight:600} .sw{display:inline-block;width:110px;height:14px;border-radius:3px;vertical-align:middle;margin-left:6px}
+</style></head><body><main>
+<h1>מיפוי טיפוגרפיה בדסקטופ</h1>
+<p class="muted">18 עמודים · 1280 / 1440 / 1920 · נמדד בכרום כפי שהאתר מגיש אותו, 18 בנובמבר 2026. טקסט בתוך מוקאפים ודיאגרמות לא נבדק, לפי TYPOGRAPHY.md. הטבלה לפי 1440.</p>
+
+<h2>הסולם שהגדרנו (TYPOGRAPHY.md, אושר 14.11)</h2>
+<div class="wrap"><table class="scale"><thead><tr><th>תפקיד</th><th>טוקן</th><th>1280</th><th>1440</th><th>1920</th><th>פונט</th></tr></thead><tbody>
+<tr><th>הירו</th><td><code>clamp(40px,3.6vw,60px)</code></td><td>46</td><td>52</td><td>60</td><td>Chillax 300 · 1.16 · ‎-0.025em</td></tr>
+<tr><th>כותרת סקשן</th><td><code>clamp(36px,3vw,44px)</code></td><td>38</td><td>43</td><td>44</td><td>Chillax 300 · 1.2 · ‎-0.025em</td></tr>
+<tr><th>כותרת כרטיס / FAQ</th><td><code>clamp(24px,1.9vw,28px)</code></td><td>24</td><td>27</td><td>28</td><td>Chillax 300 · 1.25</td></tr>
+<tr><th>גוף / פתיח</th><td>16</td><td>16</td><td>16</td><td>16</td><td>Sofia 400 · 1.55</td></tr>
+<tr><th>תווית</th><td>12</td><td>12</td><td>12</td><td>12</td><td>Sofia 550 · UPPERCASE · 0.15–0.16em</td></tr>
+<tr><th>כפתור</th><td>16</td><td>16</td><td>16</td><td>16</td><td>Sofia 550</td></tr>
+<tr><th>דיו קורל בכותרת</th><td colspan="4">על כהה: <span class="sw" style="background:linear-gradient(110deg,#F46649 0%,#FF967B 23%,#FFE2C6 43%,#F88B72 60%,#F46649 78%,#FFB49A 100%)"></span> · על קרם: <span class="sw" style="background:linear-gradient(110deg,#CF3F25,#E5573A 30%,#E8603F 50%,#D9482C 72%,#CF3F25)"></span></td><td>DESIGN.md §5</td></tr>
+</tbody></table></div>
+
+<h2>לוח לפי עמוד (1440)</h2>
+<p class="muted">מספר = תקינים מתוך שנמדדו. ירוק = הכול תקין, כתום = רוב, אדום = פחות מ־60%.</p>
+<div class="wrap"><table><thead><tr><th>עמוד</th><th>הירו (3 רוחבים)</th><th>כותרות סקשן</th><th>תוויות</th><th>פתיחים</th><th>כותרות כרטיס</th><th>כפתורים</th><th>דיו קורל</th><th>פונטים חריגים</th></tr></thead><tbody>
+<tr><th>Home</th><td class="ok">✓</td><td class="mid">8/9</td><td class="ok">6/6</td><td class="bad">3/8</td><td class="ok">21/21</td><td class="ok">3/3</td><td class="ok">11/11</td><td class="ok">✓</td></tr>
+<tr><th>Experiences API</th><td class="ok">✓</td><td class="ok">8/8</td><td class="bad">2/6</td><td class="ok">5/5</td><td class="ok">8/8</td><td class="bad">5/9</td><td class="bad">3/8</td><td class="bad">Chillax 400, Sofia Sans חסר</td></tr>
+<tr><th>White-Label</th><td class="ok">✓</td><td class="mid">6/9</td><td class="bad">2/7</td><td class="ok">6/6</td><td class="mid">13/20</td><td class="bad">3/7</td><td class="bad">4/9</td><td class="bad">Sofia Sans חסר</td></tr>
+<tr><th>AIyelet</th><td class="ok">✓</td><td class="ok">4/4</td><td class="ok">2/2</td><td class="ok">2/2</td><td class="ok">6/6</td><td class="ok">1/1</td><td class="mid">2/3</td><td class="ok">✓</td></tr>
+<tr><th>OTAs</th><td class="ok">✓</td><td class="ok">5/5</td><td class="ok">3/3</td><td class="ok">3/3</td><td class="ok">8/8</td><td class="ok">6/6</td><td class="bad">0/6</td><td class="ok">✓</td></tr>
+<tr><th>Airlines</th><td class="ok">✓</td><td class="ok">5/5</td><td class="ok">3/3</td><td class="mid">3/4</td><td class="mid">11/13</td><td class="ok">4/4</td><td class="bad">0/5</td><td class="bad">Arial 400 MISSING</td></tr>
+<tr><th>Hotels</th><td class="ok">✓</td><td class="ok">5/5</td><td class="ok">4/4</td><td class="ok">3/3</td><td class="ok">8/8</td><td class="ok">5/5</td><td class="bad">1/4</td><td class="ok">✓</td></tr>
+<tr><th>Loyalty & Finance</th><td class="ok">✓</td><td class="bad">3/7</td><td class="ok">6/6</td><td class="ok">7/7</td><td class="bad">8/18</td><td class="mid">4/6</td><td class="bad">0/7</td><td class="bad">LoyaltySofia 400</td></tr>
+<tr><th>Super Apps</th><td class="ok">✓</td><td class="mid">4/5</td><td class="ok">4/4</td><td class="ok">3/3</td><td class="mid">9/10</td><td class="ok">6/6</td><td class="bad">0/6</td><td class="bad">ConsumerSofia 400, InfoChillax 500, ConsumerSofia 700 SYNTH</td></tr>
+<tr><th>Travel Tech</th><td class="ok">✓</td><td class="ok">5/5</td><td class="ok">4/4</td><td class="ok">3/3</td><td class="ok">10/10</td><td class="ok">6/6</td><td class="bad">0/5</td><td class="ok">✓</td></tr>
+<tr><th>Developers</th><td class="ok">✓</td><td class="bad">2/5</td><td class="ok">3/3</td><td class="ok">1/1</td><td class="bad">5/12</td><td class="ok">4/4</td><td class="bad">0/5</td><td class="bad">Sofia Sans חסר</td></tr>
+<tr><th>Insights</th><td class="ok">✓</td><td class="bad">1/3</td><td class="na">—</td><td class="ok">3/3</td><td class="bad">0/4</td><td class="ok">3/3</td><td class="bad">0/2</td><td class="ok">✓</td></tr>
+<tr><th>Press</th><td class="ok">✓</td><td class="bad">0/2</td><td class="na">—</td><td class="bad">0/1</td><td class="bad">0/6</td><td class="ok">4/4</td><td class="bad">0/1</td><td class="ok">✓</td></tr>
+<tr><th>About</th><td class="ok">✓</td><td class="bad">1/4</td><td class="ok">4/4</td><td class="bad">0/5</td><td class="ok">3/3</td><td class="mid">4/5</td><td class="bad">0/5</td><td class="ok">✓</td></tr>
+<tr><th>Careers</th><td class="ok">✓</td><td class="bad">1/6</td><td class="ok">6/6</td><td class="bad">1/3</td><td class="bad">0/14</td><td class="bad">0/2</td><td class="bad">0/7</td><td class="ok">✓</td></tr>
+<tr><th>Contact</th><td class="ok">✓</td><td class="ok">4/4</td><td class="ok">5/5</td><td class="mid">5/6</td><td class="na">—</td><td class="ok">1/1</td><td class="na">—</td><td class="ok">✓</td></tr>
+<tr><th>Demo</th><td class="ok">✓</td><td class="ok">1/1</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="bad">0/1</td><td class="ok">✓</td></tr>
+<tr><th>Article</th><td class="ok">✓</td><td class="bad">1/2</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="ok">1/1</td><td class="bad">0/1</td><td class="ok">✓</td></tr>
+</tbody></table></div>
+
+<h2>מה מצאתי, לפי חומרה</h2>
+<div class="card"><h3>1 · דיו הקורל בכותרות: 21 מתוך 86 תקינים</h3>
+<p>רק דף הבית משתמש בדיו המאושר בכל הכותרות. בשאר העמודים יש כ־25 גרסאות שונות, בשלוש קבוצות:</p><ul>
+<li>גרדיאנט התווית (<code>#FFD8BD → #FFB194 → #F46649</code>, 105°) על כותרות: OTAs, Developers, About, Careers, Experiences API.</li>
+<li>גרדיאנטים של שני צבעים, כל עמוד עם גוון משלו: Airlines, Loyalty, Super Apps, Travel Tech, White-Label. על קרם גוונים חומים־כהים (‎#A64530, ‎#864431) במקום ‎#CF3F25.</li>
+<li>צבע שטוח בלי גרדיאנט: section-4 של כל עמודי הפתרונות (‎#F48B73), Hotels, Insights, Press, Demo, AIyelet ומאמר.</li></ul></div>
+<div class="card"><h3>2 · פונטים: אותו פונט נטען מקבצים שונים, עם עוביים לא נכונים</h3><ul>
+<li><b>Loyalty:</b> הכפתורים והטקסט של ההירו ב־<code>LoyaltySofia</code>, קובץ שיש בו רק Regular, ולכן הם ב־400 במקום 550 (40 רכיבים).</li>
+<li><b>Super Apps:</b> הכותרת "How to add tours and activities to a super app" ושתי כותרות כרטיס ב־Chillax Medium 500 (<code>InfoChillax</code>) במקום Light 300. ב־<code>ConsumerSofia</code> יש טקסט ב־700 שהדפדפן מייצר כבולד מזויף (synthesized). זה נראה עבה ולא חד.</li>
+<li><b>Experiences API, Developers, White-Label:</b> כ־130 רכיבים מבקשים <code>"Sofia Sans"</code>, שם שאין לו קובץ באתר, ולכן הם נופלים לפונט המערכת. בעמוד ה־API גם ארבעה כפתורי קטגוריה ב־Arial 13px.</li>
+<li>Chillax נטען משלושה מקורות (OTF, woff2, וגם Regular 400 בשמות <code>EnterpriseChillax</code> / <code>SolutionsChillax</code>), ו־Sofia משני מקורות (וריאבילי וסטטי). כל עמוד מקבל מעט אחרת.</li></ul></div>
+<div class="card"><h3>3 · כותרות סקשן מחוץ לסולם</h3><ul>
+<li><b>About:</b> ‏47.5, ‏41.8 ו־40.3 במקום 43.2, עם line-height 1.12–1.16 במקום 1.2.</li>
+<li><b>Careers:</b> ‏41.8 (4 כותרות) ו־"Open roles" ב־54.7.</li>
+<li>ריווח אותיות 0 במקום ‎-0.025em: White-Label, Loyalty, Insights, Press, מאמר. ב־Developers ובסקשן אחד ב־White-Label ‏‎-0.035em.</li>
+<li>כותרות בגודל כרטיס שמתפקדות ככותרת סקשן: Insights "About the Bridgify Blog", ‏Press "For press enquiries", ‏Home sources (מכוון, לפי DESIGN).</li></ul></div>
+<div class="card"><h3>4 · כותרות כרטיס</h3><p>במקום 27.4 ב־1440: Careers ‏31.7–33.1, ‏Insights ו־Press ‏19.4, ‏Loyalty ‏24, ‏Developers ‏25.9, ‏White-Label ‏18–20, ‏Super Apps ‏26.</p></div>
+<div class="card"><h3>5 · גוף, תוויות וכפתורים</h3><ul>
+<li>פתיחים: About ‏16.6–17.3, ‏Careers ו־Airlines ‏18 במקום 16. ב־Home ‏5 פסקאות עם ריווח אותיות ‎-0.019em.</li>
+<li>תוויות: White-Label ב־400 במקום 550 (5). ב־API ‏4 תוויות ב־"Sofia Sans", שנופל לפונט המערכת.</li>
+<li>כפתורים: About ו־Careers ‏17 במקום 16; ‏Loyalty ‏400; ‏API ‏Arial.</li>
+<li>צבע כותרת ההירו: Demo בלבן טהור ‎#FFF, ‏White-Label ב־‎#FFF8F1. כל השאר ב־‎#EEE9DE.</li></ul></div>
+<div class="card"><h3>6 · מה תקין</h3><p>כותרת ההירו בכל 18 העמודים בגודל הנכון בשלושת הרוחבים (Chillax 300, ‏1.16). כ־88% מכותרות הסקשן, 86% מהתוויות ו־80% מהפתיחים תואמים את הסולם.</p></div>
+<div class="card"><h3>על ה"פיקסול"</h3><p>בכרום על רטינה לא ראיתי טקסט מפוקסל בכותרות. מה שיכול לגרום לזה אצלך: בולד מזויף (סעיף 2), טקסט שנופל לפונט המערכת, וטקסט בתוך מוקאפים שמוקטנים ב־transform או צבועים ב־filter (בדף הבית 73 ו־24 רכיבים). צריך צילום של מקום אחד כדי לדעת.</p></div>
+<p class="muted">קבצים: <code>output/element-lab/grid-plan/type-audit/</code>: measure.py, heroes.py, accents.py, faces.py ו־JSON לכל מדידה. ניתן להריץ מחדש.</p>
+</main></body></html>
