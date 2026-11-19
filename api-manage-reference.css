@@ -68,3 +68,13 @@
 #integration.am-section :is(.am-browser-bar,.am-checkout,.am-icon-box) svg{fill:none;stroke:#f46649;stroke-width:1.5}
 #integration.am-section :is(.am-browser-bar,.am-checkout,.am-icon-box) svg path,#integration.am-section :is(.am-browser-bar,.am-checkout,.am-icon-box) svg circle:not(.icon-node){vector-effect:non-scaling-stroke}
 #integration.am-section :is(.am-browser-bar,.am-checkout,.am-icon-box) svg .icon-node{fill:#fff1e7;stroke:none}
+
+/* Layout: CTAs top right; service cards start on the heading line and fill to the right edge; icons without extra boxes */
+@media(min-width:901px){
+#integration.am-section .am-heading{grid-template-columns:1.2fr 1fr;align-items:end}
+#integration.am-section .am-heading>.am-actions{display:flex;flex-direction:column;align-items:flex-end;gap:12px;border:0;margin:0;padding:0;justify-content:flex-start}
+#integration.am-section .am-heading>.am-actions a{padding:12px 24px;font-size:16px}
+#integration.am-section .am-services{margin-left:0}
+}
+#integration.am-section .am-service .am-icon-box{background:none;border:0;box-shadow:none;width:auto;flex-basis:auto;height:auto;border-radius:0}
+@media(min-width:901px){#integration.am-section .am-heading>.am-actions{align-items:stretch;justify-self:end;width:max-content}}
