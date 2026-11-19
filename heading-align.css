@@ -1,0 +1,29 @@
+/* Heading + copy pairs (desktop and tablet landscape).
+   Rule: the copy in the parallel column starts on the heading's first baseline, never on the eyebrow and never bottom-aligned;
+   eyebrow to heading 24px; header to content 48px; no vertical rule beside the copy. */
+@media(min-width:901px){
+  /* wrapper pattern: <div><eyebrow/><h2/></div> + copy */
+  html body #personalization#personalization .home-intent-heading,
+  html body #section-2#section-2.intent-section .intent-heading,
+  html body #section-4#section-4 .embed-heading{align-items:start!important;row-gap:0!important;margin-bottom:48px!important}
+  html body #personalization#personalization .home-intent-heading>div:first-child,
+  html body #section-2#section-2.intent-section .intent-heading>div:first-child,
+  html body #section-4#section-4 .embed-heading>div:first-child{display:contents}
+  html body #personalization#personalization .home-intent-heading .v4-kicker,
+  html body #section-2#section-2.intent-section .intent-heading .eyebrow,
+  html body #section-4#section-4 .embed-heading .eyebrow{grid-column:1;grid-row:1;margin-bottom:24px!important}
+  html body #personalization#personalization .home-intent-heading h2,
+  html body #section-2#section-2.intent-section .intent-heading h2,
+  html body #section-4#section-4 .embed-heading h2{grid-column:1;grid-row:2;align-self:first baseline!important;margin:0!important}
+  html body #personalization#personalization .home-intent-copy,
+  html body:not(#bf-lab) #section-2#section-2.intent-section div.intent-heading>p,
+  html body:not(#bf-lab) #section-4#section-4 div.embed-heading>p{grid-column:2;grid-row:2;align-self:first baseline!important;margin:0!important;border:0!important;padding-left:0!important}
+  /* direct-child pattern */
+  html body #products .pr-head,
+  html body #opportunity-study .pb-head{align-items:start!important;row-gap:0!important;margin-bottom:48px!important}
+  html body #products .pr-head>.hm-eyebrow{grid-column:1;grid-row:1;margin-bottom:24px}
+  html body #products .pr-head>h2{grid-column:1;grid-row:2;align-self:first baseline!important;margin:0!important}
+  html body #products .pr-head>.pr-guide{grid-column:2;grid-row:2;align-self:first baseline!important;margin:0}
+  html body #opportunity-study .pb-head>h2{align-self:first baseline!important;margin:0!important}
+  html body #opportunity-study .pb-head>.pb-intro{align-self:first baseline!important}
+}
