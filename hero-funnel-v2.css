@@ -53,9 +53,9 @@
 .fn-dev.is-on .fn-scr{background:#151010}
 .fn-phone{border-radius:calc(var(--u)*22)}
 .fn-phone .fn-scr{border-radius:calc(var(--u)*17);padding:calc(var(--u)*12) calc(var(--u)*9) 0}
-.fn-laptop{border-radius:calc(var(--u)*10) calc(var(--u)*10) 0 0;height:calc(var(--u)*226);--dh:226}
+.fn-laptop{border-radius:calc(var(--u)*10) calc(var(--u)*10) 0 0;height:calc(var(--u)*220);--dh:220}
 .fn-laptop .fn-scr{border-radius:calc(var(--u)*5);padding:calc(var(--u)*8) calc(var(--u)*12) 0}
-.fn-lbase{position:absolute;left:calc(var(--u)*-14);right:calc(var(--u)*-14);top:100%;height:calc(var(--u)*14);border-radius:0 0 calc(var(--u)*10) calc(var(--u)*10);background:linear-gradient(#3b2b25,#1b1210);border:1px solid #5a463c;border-top:0}
+.fn-lbase{position:absolute;left:calc(var(--u)*-22);right:calc(var(--u)*-22);top:100%;height:calc(var(--u)*14);border-radius:0 0 calc(var(--u)*10) calc(var(--u)*10);background:linear-gradient(#3b2b25,#1b1210);border:1px solid #5a463c;border-top:0}
 .fn-tablet{border-radius:calc(var(--u)*14)}
 .fn-tablet .fn-scr{border-radius:calc(var(--u)*10);padding:calc(var(--u)*12) calc(var(--u)*11) 0}
 
@@ -167,6 +167,3 @@
 #home .bv2-demo{background:radial-gradient(ellipse at 100% 0,#f4664930,transparent 65%),linear-gradient(135deg,#513029,#2a1b19);color:#eee9de;border-color:#f4a084;border-radius:12px;box-shadow:var(--fn-bevel),0 0 18px #f4664918}
 #home .bv2-demo:hover{background:linear-gradient(135deg,#654035,#35221d)}
 @media(prefers-reduced-motion:reduce){#home .fn-feat,#home .fn-feat b,#home .fn-hub span{animation:none}}
-
-/* Desktop: the diagram's content (tiles to captions) sits ~1.8% above the scene centre; nudge it so it centres on the copy block */
-@media (min-width:1000px){.bv2-hero-visual{transform:translateY(1.8%)}}
