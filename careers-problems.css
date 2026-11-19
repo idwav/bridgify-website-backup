@@ -59,3 +59,15 @@
 @media(prefers-reduced-motion:reduce){.cpp3-cell{opacity:1}.cpp3-cell:before{width:0}}
 .cpp3-hub{width:min(100%,760px)}.cpp3-hub b{white-space:nowrap}
 @media(max-width:1000px){.cpp3-hub b{white-space:normal}}
+
+/* Top to bottom: what partners rely on (card + three partner pictures) flows down into the problems you'd work on. */
+.cpp3-flow .cpp3-grid{margin-bottom:0;margin-top:clamp(40px,6.5vh,64px)}
+.cpp3-partners{margin-top:clamp(34px,5.5vh,56px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,28px);width:min(100%,900px)}
+.cpp3-partners figure{position:relative;margin:0;border:1px solid #eee9de30;border-radius:16px;overflow:hidden;aspect-ratio:16/9;max-height:clamp(120px,19vh,170px);width:100%;transition:border-color .6s,box-shadow .6s}
+.cpp3-partners figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.82);transition:filter .6s}
+.cpp3-partners figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;background:linear-gradient(0deg,#180f10ee,transparent);font:500 clamp(15px,1.15vw,18px) Sofia,sans-serif;color:#eee9de}
+.cpp3-partners figure.is-lit{border-color:#f6c8b5aa;box-shadow:0 0 28px #f4664955,inset 0 1px 1px #fff1da55}
+.cpp3-partners figure.is-lit img{filter:saturate(1) brightness(1)}
+.cpp3-partners span{all:unset}
+@media(max-width:1000px){.cpp3-partners{grid-template-columns:1fr 1fr 1fr;margin-top:20px}.cpp3-flow .cpp3-grid{margin-top:28px}}
+@media(max-width:599px){.cpp3-partners{gap:8px}.cpp3-partners figure{max-height:96px}.cpp3-partners figcaption{padding:18px 8px 6px;font-size:12px}}
