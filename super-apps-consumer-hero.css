@@ -21,6 +21,10 @@ html body .sc-consumer-hero .sc-service.sc-new span{color:#fff8f1}
 /* Label of the Experiences tile stays light; service icons use the brand icon treatment (glass chip, coral stroke) */
 html body .sc-consumer-hero .sc-service.sc-new span,html body .sc-consumer-hero .sc-service.sc-new.brand-coral-frame span{color:#fff8f1!important}
 html body .sc-consumer-hero .sc-service span{color:#eee9de}
-html body .sc-consumer-hero .sc-service svg{width:26px;height:26px;padding:0;border:0;background:none;box-shadow:none;stroke:#ff9878!important;stroke-width:1.6}
-html body .sc-consumer-hero .sc-service:not(.sc-new) svg{stroke:#ff9878!important}
-html body .sc-consumer-hero .sc-service.sc-new svg{stroke:#fff8f1!important}
+html body .sc-consumer-hero .sc-service svg{width:32px;height:32px;padding:0;border:0;background:none;box-shadow:none;fill:none;stroke:#f46649!important;stroke-width:3.2}
+html body .sc-consumer-hero .sc-service:not(.sc-new) svg,html body .sc-consumer-hero .sc-service.sc-new svg{stroke:#f46649!important}
+html body .sc-consumer-hero .sc-service .icon-node{fill:#fff1e7;stroke:none}
+/* Roomier tile row: only the new Experiences tile is framed */
+html body .sc-consumer-hero .sc-services{gap:10px}
+html body .sc-consumer-hero .sc-service{gap:12px;padding:16px 4px 14px;font-size:12px}
+html body .sc-consumer-hero .sc-service:not(.sc-new),html body .sc-consumer-hero .sc-service:not(.sc-new).brand-coral-frame{background:none;border-color:transparent!important}
