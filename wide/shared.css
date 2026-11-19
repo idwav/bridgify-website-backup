@@ -32,6 +32,8 @@
   html body:not(#bf-lab) #section-4.xc .xc-body > h3:has(+ a.xc-cta) { margin-bottom: 24px !important; }
 }
 
+/* ==== Moved from the published file (owner kept these, 19 Nov): Idan's review rules, added straight to wide/shared.css on 18 Nov. ==== */
+
 /* Idan review: Developers sections (Find what you need / What makes an API high performing / Talk to us) start on the site gutter (4%), like the header and the other pages, not 4.5vw */
 @media (min-width: 600px) {
   html body section#performance.dev-section, html body section#access.dev-section { margin-left: 4% !important; margin-right: 4% !important; }
@@ -92,4 +94,9 @@ html body .lr-product.lr-bought { border-color: #f46649; box-shadow: 0 0 28px #f
   html body #we-started-here .lp-feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   html body #we-started-here .lp-feature { border-left: 1px solid #b95d3833; }
   html body #we-started-here .lp-feature:nth-child(odd) { border-left: 0; }
+}
+
+/* owner fix 19 Nov: the intro keeps a readable line length above the five-across grid */
+@media (min-width: 1101px) {
+  html body #we-started-here header > p { max-width: 60ch !important; }
 }

@@ -65,3 +65,35 @@
 @media (min-width: 600px) and (prefers-reduced-motion: reduce) {
   html body #section-3 .hs-sticky { min-height: 0 !important; }
 }
+
+/* ==== Moved from the published file (owner kept these, 19 Nov): Idan's review rules, added straight to wide/pages/hotels.css on 18 Nov. ==== */
+
+/* Idan review: "Bridgify runs" list - each row shares the column height, label centred in its row and larger */
+@media (min-width: 600px) {
+  html body .hr-managed ul { display: flex; flex-direction: column; }
+  html body .hr-managed li { flex: 1 1 0; align-items: center; padding-top: 0; padding-bottom: 0; }
+  html body .hr-managed li > span { margin-top: 0; display: grid; place-items: center; }
+  html body .hr-managed li p { margin: 0; }
+  html body .hotel-responsibility .hr-managed strong { font-family: Chillax, sans-serif !important; font-weight: 300 !important; font-size: var(--type-card, 28px) !important; line-height: 1.25 !important; letter-spacing: -.01em; }
+}
+
+/* Idan review: the copy column of the pinned email scene is centred against the animation, not stuck to its top */
+@media (min-width: 1000px) {
+  html body #section-3 .hs-sticky { align-items: center !important; }
+}
+@media (min-width: 1000px) and (min-height: 701px) {
+  /* pinned frame centred between the header and the bottom of the screen when it fits (738px = frame height at desktop widths) */
+  html body #section-3 .hs-sticky { top: max(96px, calc((100svh + 88px - 738px) / 2)) !important; }
+}
+
+/* Idan review: hero cards (Your hotel / the London map) grow with the screen height so the hero fills the screen instead of leaving a gap below */
+@media (min-width: 1000px) and (min-height: 760px) {
+  html body .hm-hero .hm-stay, html body .hm-hero .hm-map { min-height: clamp(314px, 44vh, 440px) !important; }
+  html body .hm-hero .hm-map { display: flex; flex-direction: column; }
+  html body .hm-hero .hm-map .hm-map-stage { flex: 1 1 auto; min-height: 0; }
+  html body .hm-hero .hm-stay { display: flex; flex-direction: column; }
+  /* owner fix 19 Nov: the photo takes the extra height, so no empty band opens between the photo and the copy */
+  html body .hm-hero .hm-stay .hm-room { flex: 1 1 auto; height: auto !important; min-height: clamp(109px, 14vh, 150px); }
+  html body .hm-hero .hm-stay .hm-room img { height: 100%; object-fit: cover; }
+  html body .hm-hero .hm-stay .hm-stay-copy { flex: 0 0 auto; }
+}

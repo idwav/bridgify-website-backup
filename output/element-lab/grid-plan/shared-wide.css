@@ -31,3 +31,72 @@
      the card's own 24px before the button (owner, 18 Nov 2026); the button still sits at the card bottom. */
   html body:not(#bf-lab) #section-4.xc .xc-body > h3:has(+ a.xc-cta) { margin-bottom: 24px !important; }
 }
+
+/* ==== Moved from the published file (owner kept these, 19 Nov): Idan's review rules, added straight to wide/shared.css on 18 Nov. ==== */
+
+/* Idan review: Developers sections (Find what you need / What makes an API high performing / Talk to us) start on the site gutter (4%), like the header and the other pages, not 4.5vw */
+@media (min-width: 600px) {
+  html body section#performance.dev-section, html body section#access.dev-section { margin-left: 4% !important; margin-right: 4% !important; }
+  html body section#section-2.dev-section { padding-left: 4% !important; padding-right: 4% !important; }
+}
+
+/* Developers: room under the guides for the wiring that joins them */
+@media (min-width: 1101px) {
+  html body #section-2 .dev-docs { position: relative; padding-bottom: 44px; }
+  html body #section-2 .dev-docs .dev-docs-wires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+}
+@media (max-width: 1100px) { html body #section-2 .dev-docs .dev-docs-wires { display: none; } }
+
+/* Idan review: "We started here" rows and Developers "Find what you need" read like "Who it's for" on White Label:
+   flat, hairline dividers, coral outlined icon box, number at the edge, and no hover effect. */
+@media (min-width: 600px) {
+  html body .lp-feature .lp-feature-photo, html body .lp-feature:after { display: none !important; }
+  html body .lp-feature:is(:hover, :focus-visible) { color: inherit !important; }
+  html body .lp-feature:is(:hover, :focus-visible) .lp-feature-number { color: #998476 !important; }
+  html body .lp-feature:is(:hover, :focus-visible) > svg { stroke: #f46649 !important; }
+  html body .lp-feature > svg { box-sizing: border-box; width: 56px; height: 56px; padding: 14px; border: 1px solid #f4664980; border-radius: 13px; color: #cf5035; }
+  html body .lp-feature { min-height: 112px; }
+  html body .lp-feature:focus-visible { outline: 0 !important; }
+
+  html body #section-2 .dev-docs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 !important; border-top: 1px solid #b95d3833; border-bottom: 1px solid #b95d3833; padding-bottom: 0 !important; }
+  html body #section-2 .dev-docs .dev-docs-wires { display: none !important; }
+  html body #section-2 .dev-docs article { position: relative; display: flex; flex-direction: column; min-height: clamp(220px, 26vh, 280px); padding: 30px 32px !important; border-left: 1px solid #b95d3833 !important; background: none !important; box-shadow: none !important; transform: none !important; transition: none !important; }
+  html body #section-2 .dev-docs article:first-child { border-left: 0 !important; }
+  html body #section-2 .dev-docs article:before, html body #section-2 .dev-docs article:after { display: none !important; }
+  html body #section-2 .dev-docs .dev-doc-icon { display: contents; }
+  html body #section-2 .dev-docs .dev-doc-icon > span { position: absolute; top: 32px; right: 32px; font: 500 12px/1 Sofia, sans-serif; letter-spacing: .15em; color: #998476; }
+  html body #section-2 .dev-docs .dev-doc-icon > svg.dev-icon { box-sizing: border-box; width: 56px; height: 56px; padding: 14px; border: 1px solid #f4664980; border-radius: 13px; color: #cf5035; margin-bottom: 0; }
+  html body #section-2 .dev-docs h3 { margin-top: 44px; }
+}
+@media (min-width: 600px) and (max-width: 1100px) {
+  html body #section-2 .dev-docs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  html body #section-2 .dev-docs article:nth-child(4) { border-left: 0 !important; }
+  html body #section-2 .dev-docs article:nth-child(n+4) { border-top: 1px solid #b95d3833; }
+}
+
+/* Loyalty hero card: Redeem presses, the chosen tour lights up as bought */
+html body #lr-redeem { transition: transform .25s, box-shadow .35s, border-color .3s; }
+html body #lr-redeem.lr-press { transform: scale(.96); border-color: #f46649; box-shadow: 0 0 24px #f4664999; }
+html body .lr-product { transition: box-shadow .5s, border-color .5s; border: 1px solid transparent; border-radius: 16px; }
+html body .lr-product.lr-bought { border-color: #f46649; box-shadow: 0 0 28px #f4664966; }
+
+
+/* "We started here": the same flat grid as "Who it's for" on White Label (icon box, number at the corner, title), five across */
+@media (min-width: 1101px) {
+  html body #we-started-here.lp-origin { display: block !important; }
+  html body #we-started-here .lp-feature-grid { display: grid !important; grid-template-columns: repeat(5, minmax(0, 1fr)) !important; border-top: 1px solid #b95d3833; border-bottom: 1px solid #b95d3833; margin-top: 56px !important; }
+  html body #we-started-here .lp-feature { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 0; min-height: clamp(240px, 28vh, 300px); padding: 30px 32px; border-bottom: 0 !important; border-left: 1px solid #b95d3833; }
+  html body #we-started-here .lp-feature:first-child { border-left: 0; }
+  html body #we-started-here .lp-feature-number { top: 32px; right: 32px; }
+  html body #we-started-here .lp-feature h3 { margin-top: 44px; }
+}
+@media (min-width: 600px) and (max-width: 1100px) {
+  html body #we-started-here .lp-feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  html body #we-started-here .lp-feature { border-left: 1px solid #b95d3833; }
+  html body #we-started-here .lp-feature:nth-child(odd) { border-left: 0; }
+}
+
+/* owner fix 19 Nov: the intro keeps a readable line length above the five-across grid */
+@media (min-width: 1101px) {
+  html body #we-started-here header > p { max-width: 60ch !important; }
+}

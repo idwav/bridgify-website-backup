@@ -194,6 +194,8 @@
   html body .hm-hero .hm-map { display: flex; flex-direction: column; }
   html body .hm-hero .hm-map .hm-map-stage { flex: 1 1 auto; min-height: 0; }
   html body .hm-hero .hm-stay { display: flex; flex-direction: column; }
-  html body .hm-hero .hm-stay .hm-room { flex: 0 0 auto; height: clamp(109px, 14vh, 150px); }
-  html body .hm-hero .hm-stay .hm-stay-copy { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; }
+  /* owner fix 19 Nov: the photo takes the extra height, so no empty band opens between the photo and the copy */
+  html body .hm-hero .hm-stay .hm-room { flex: 1 1 auto; height: auto !important; min-height: clamp(109px, 14vh, 150px); }
+  html body .hm-hero .hm-stay .hm-room img { height: 100%; object-fit: cover; }
+  html body .hm-hero .hm-stay .hm-stay-copy { flex: 0 0 auto; }
 }
