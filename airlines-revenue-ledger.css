@@ -10,10 +10,10 @@ html body:not(#bf-lab) .ar-section#section-2 header.ar-heading>p{max-width:none!
 html body .ar-section{--g-edge:#f6c8b594;--g-edge-soft:#f6c8b566;--g-rim:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55}
 html body .ar-section .ar-trip{background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#120b0aa8!important;border:1px solid var(--g-edge)!important;box-shadow:var(--g-rim),0 0 46px #f466493d,0 24px 60px #0008;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
 html body .ar-section .ar-channels{border-top-color:#f6c8b533}
-html body .ar-section .ar-bookings>ol{display:grid;gap:10px;margin:0;padding:0;list-style:none}
-html body .ar-section .ar-row{padding:10px 18px 10px 10px;border:1px solid var(--g-edge-soft)!important;border-radius:14px;background:radial-gradient(at 100% 0%,#ff896238,#0000 45%),radial-gradient(at 0% 100%,#ff78532e,#0000 40%),linear-gradient(115deg,#fff8f112,#0000 55%),#160e0b99;box-shadow:inset 0 1px 1px #fff1da4d,inset 0 -1px 1px #ff997b33,0 8px 22px #0000002e;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-html body .ar-section .ar-row:hover{border-color:var(--g-edge)!important;box-shadow:inset 0 1px 1px #fff1da66,inset 0 -1px 1px #ff997b55,0 0 20px #f4664933,0 8px 22px #0000002e}
-html body .ar-section .ar-row>img{height:80px;box-shadow:0 0 0 1px #f6c8b552}
+html body .ar-section .ar-bookings>ol{display:block;margin:0;padding:0;list-style:none}
+html body .ar-section .ar-row{padding:14px 0;border:0!important;border-bottom:1px solid #f6c8b552!important;border-radius:0;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;position:relative}
+html body .ar-section .ar-row:hover{background:linear-gradient(90deg,#ff89621f,#0000 70%)}
+html body .ar-section .ar-row>img{height:90px;box-shadow:0 0 0 1px #f6c8b552}
 html body .ar-section .ar-channel{background:linear-gradient(135deg,#fff8f114,#fff8f106);border-color:var(--g-edge)!important;box-shadow:inset 0 1px 1px #fff1da44}
 html body .ar-section .ar-status{border-left-color:#f6c8b533}
 html body .ar-section .ar-summary{border:1px solid var(--g-edge)!important;border-radius:14px;background:radial-gradient(at 100% 0%,#ff896230,#0000 50%),linear-gradient(115deg,#fff8f112,#fff8f106);box-shadow:var(--g-rim),0 0 22px #f4664926;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
