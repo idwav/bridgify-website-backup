@@ -146,3 +146,29 @@ html body .lr-product.lr-bought { border-color: #f46649; box-shadow: 0 0 28px #f
   html body:not(#bf-lab) .careers-page :is(.cw-head > p, .cw-body > p, .cr-copy > p),
   html body:not(#bf-lab) #section-2 .ar-heading > p { font-size: var(--type-body) !important; line-height: 1.55 !important; }
 }
+/* Two buttons only (owner, 19 Nov 2026): primary = filled coral, secondary = transparent with the coral border.
+   A page button with neither modifier still drew the old dark gradient (e.g. Airlines hero "See the Experiences API"). */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) main a.brand-action:not(.brand-action-primary) { --brand-button-start: #f4664900; --brand-button-end: #f4664900; box-shadow: none !important; }
+  html body:not(#bf-lab) main a.brand-action:not(.brand-action-primary):is(:hover, :focus-visible) { --brand-button-start: #f466491f; --brand-button-end: #f4664914; color: #fff8f1 !important; }
+  html body:not(#bf-lab) main a.brand-action.brand-action-on-light:not(.brand-action-primary):is(:hover, :focus-visible) { color: #180f10 !important; }
+}
+/* Split headings on About and Developers (not in the baked build): the intro's first line is level with the title's first
+   line, measured on the letter tops at 1101-1920 (About) and 1024-1920 (Developers), within 0.6px. The offsets are the
+   measured fit: the title wrapper carries its label, so the title starts below the row top. */
+@media (min-width: 1101px) {
+  html body:not(#bf-lab) .about-page #our-story .ab-story-3 { align-items: start !important; }
+  html body:not(#bf-lab) .about-page #our-story .ab-story-3 > p { align-self: start !important; margin-top: clamp(0px, calc(41.6px - 3.07vw), 8px) !important; }
+  html body:not(#bf-lab) .about-page #hbx .ab-hbx-grid { align-items: start !important; }
+  html body:not(#bf-lab) .about-page #hbx .ab-hbx-grid > p.ab-hbx-p { align-self: start !important; margin-top: calc(40.03px + .172 * var(--type-section)) !important; }
+}
+@media (min-width: 1024px) {
+  html body:not(#bf-lab)[data-copy-page="developers"] :is(#performance, #access) .dev-heading { align-items: start !important; }
+  html body:not(#bf-lab)[data-copy-page="developers"] #performance .dev-heading > div { align-self: start !important; margin-top: calc(-3.69px + .1732 * var(--type-section)) !important; }
+  html body:not(#bf-lab)[data-copy-page="developers"] #access .dev-heading > div { align-self: start !important; margin-top: calc(-3.13px + .1611 * var(--type-section)) !important; }
+}
+/* Airlines hero: its own rule forced the dark gradient on both hero buttons (!important); the secondary is transparent. */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) .aj-hero .al-actions a.al-button.brand-action-secondary { background: linear-gradient(135deg, #f4664900, #f4664900) !important; box-shadow: none !important; }
+  html body:not(#bf-lab) .aj-hero .al-actions a.al-button.brand-action-secondary:is(:hover, :focus-visible) { background: linear-gradient(135deg, #f466491f, #f4664914) !important; }
+}

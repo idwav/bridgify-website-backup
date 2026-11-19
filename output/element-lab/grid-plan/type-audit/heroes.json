@@ -1,0 +1,524 @@
+{
+ "index-v2": {
+  "1280": {
+   "t": "One connection. A million+ travel experiences, mat",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 4
+  },
+  "1440": {
+   "t": "One connection. A million+ travel experiences, mat",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 4
+  },
+  "1920": {
+   "t": "One connection. A million+ travel experiences, mat",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 4
+  }
+ },
+ "api": {
+  "1280": null,
+  "1440": null,
+  "1920": null
+ },
+ "marketplace": {
+  "1280": {
+   "t": "White-label travel marketplace for tours, attracti",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(255, 248, 241)",
+   "lines": 4
+  },
+  "1440": {
+   "t": "White-label travel marketplace for tours, attracti",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(255, 248, 241)",
+   "lines": 4
+  },
+  "1920": {
+   "t": "White-label travel marketplace for tours, attracti",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(255, 248, 241)",
+   "lines": 4
+  }
+ },
+ "personalization": {
+  "1280": null,
+  "1440": null,
+  "1920": null
+ },
+ "otas": {
+  "1280": {
+   "t": "You sold them the flight and the room. Now sell th",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 4
+  },
+  "1440": {
+   "t": "You sold them the flight and the room. Now sell th",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 4
+  },
+  "1920": {
+   "t": "You sold them the flight and the room. Now sell th",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 4
+  }
+ },
+ "airlines": {
+  "1280": {
+   "t": "Take your customer experience beyond the flight.",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 3
+  },
+  "1440": {
+   "t": "Take your customer experience beyond the flight.",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 3
+  },
+  "1920": {
+   "t": "Take your customer experience beyond the flight.",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 3
+  }
+ },
+ "hotels": {
+  "1280": {
+   "t": "Your guests didn’ttravel for the room.",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  },
+  "1440": {
+   "t": "Your guests didn’ttravel for the room.",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  },
+  "1920": {
+   "t": "Your guests didn’ttravel for the room.",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  }
+ },
+ "loyalty-finance": {
+  "1280": {
+   "t": "Your members are sitting on points. Give them some",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 4
+  },
+  "1440": {
+   "t": "Your members are sitting on points. Give them some",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 4
+  },
+  "1920": {
+   "t": "Your members are sitting on points. Give them some",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 4
+  }
+ },
+ "super-apps": {
+  "1280": {
+   "t": "Bring travel experiences into the app people alrea",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 3
+  },
+  "1440": {
+   "t": "Bring travel experiences into the app people alrea",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 3
+  },
+  "1920": {
+   "t": "Bring travel experiences into the app people alrea",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 3
+  }
+ },
+ "travel-technology": {
+  "1280": {
+   "t": "Embed global experiences in the platform you're bu",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  },
+  "1440": {
+   "t": "Embed global experiences in the platform you're bu",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  },
+  "1920": {
+   "t": "Embed global experiences in the platform you're bu",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  }
+ },
+ "developers": {
+  "1280": {
+   "t": "Build with Bridgify",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 1
+  },
+  "1440": {
+   "t": "Build with Bridgify",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 1
+  },
+  "1920": {
+   "t": "Build with Bridgify",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 1
+  }
+ },
+ "insights": {
+  "1280": {
+   "t": "Notes from the team building experiences infrastru",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  },
+  "1440": {
+   "t": "Notes from the team building experiences infrastru",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  },
+  "1920": {
+   "t": "Notes from the team building experiences infrastru",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  }
+ },
+ "press": {
+  "1280": {
+   "t": "Recent press, partnershipsand product launches.",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  },
+  "1440": {
+   "t": "Recent press, partnershipsand product launches.",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  },
+  "1920": {
+   "t": "Recent press, partnershipsand product launches.",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  }
+ },
+ "about-us": {
+  "1280": {
+   "t": "Bringing the world’s experiences to the brands peo",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 5
+  },
+  "1440": {
+   "t": "Bringing the world’s experiences to the brands peo",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 5
+  },
+  "1920": {
+   "t": "Bringing the world’s experiences to the brands peo",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 4
+  }
+ },
+ "careers": {
+  "1280": {
+   "t": "Join the team building the future of travel experi",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 3
+  },
+  "1440": {
+   "t": "Join the team building the future of travel experi",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 3
+  },
+  "1920": {
+   "t": "Join the team building the future of travel experi",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  }
+ },
+ "contact": {
+  "1280": {
+   "t": "Let's talk about your experiences offering",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(24, 15, 16)",
+   "lines": 2
+  },
+  "1440": {
+   "t": "Let's talk about your experiences offering",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(24, 15, 16)",
+   "lines": 2
+  },
+  "1920": {
+   "t": "Let's talk about your experiences offering",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(24, 15, 16)",
+   "lines": 2
+  }
+ },
+ "demo": {
+  "1280": {
+   "t": "A demo about your product, not ours",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(255, 255, 255)",
+   "lines": 1
+  },
+  "1440": {
+   "t": "A demo about your product, not ours",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(255, 255, 255)",
+   "lines": 1
+  },
+  "1920": {
+   "t": "A demo about your product, not ours",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(255, 255, 255)",
+   "lines": 1
+  }
+ },
+ "blog-infrastructure": {
+  "1280": {
+   "t": "The Hidden Infrastructure Layer Powering the Globa",
+   "fam": "Chillax",
+   "size": 46.1,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  },
+  "1440": {
+   "t": "The Hidden Infrastructure Layer Powering the Globa",
+   "fam": "Chillax",
+   "size": 51.8,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  },
+  "1920": {
+   "t": "The Hidden Infrastructure Layer Powering the Globa",
+   "fam": "Chillax",
+   "size": 60,
+   "w": "300",
+   "lh": 1.16,
+   "ls": -0.025,
+   "color": "rgb(238, 233, 222)",
+   "lines": 2
+  }
+ }
+}
