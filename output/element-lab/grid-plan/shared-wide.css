@@ -139,3 +139,10 @@ html body .lr-product.lr-bought { border-color: #f46649; box-shadow: 0 0 28px #f
   html body:not(#bf-lab) :is(main.about-page, main.careers-page, body[data-copy-page="contact"] main, main.nr-main, main.blog-main) :is(h1, h2):has(+ p) { margin-bottom: 0 !important; }
   html body:not(#bf-lab) :is(main.about-page, main.careers-page, body[data-copy-page="contact"] main, main.nr-main, main.blog-main) :is(h1, h2) + p { margin-top: var(--bf-gap-title-text) !important; }
 }
+/* Running text and lead paragraphs are 16px on inner pages (TYPOGRAPHY.md, 14 Nov). About ran 16.6-17.3, Careers and
+   the Airlines "Seats and bags" intro 18. */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) .about-page :is(.ab-story-3 > p, p.ab-hbx-p),
+  html body:not(#bf-lab) .careers-page :is(.cw-head > p, .cw-body > p, .cr-copy > p),
+  html body:not(#bf-lab) #section-2 .ar-heading > p { font-size: var(--type-body) !important; line-height: 1.55 !important; }
+}
