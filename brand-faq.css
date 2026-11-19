@@ -28,7 +28,7 @@ html body :is(.copy-faq,.al-faq)#faq details>:not(summary){margin-top:20px}
   html body #faq#faq#faq:is(.copy-faq,.al-faq){padding-top:56px!important;padding-bottom:56px!important}
   html body #faq#faq#faq h2,html body #faq#faq#faq .copy-inner>h2{font-size:32px!important;line-height:1.2!important;margin-bottom:20px!important}
   html body #faq#faq details{padding:18px 0!important}
-  html body #faq#faq summary{font-family:Chillax,sans-serif!important;font-size:20px!important;font-weight:300!important;line-height:1.35!important;min-height:0!important;padding-top:0!important;padding-bottom:0!important;letter-spacing:-.015em!important}
+  html body #faq#faq summary{font-size:20px!important;line-height:1.35!important;min-height:0!important;padding-top:0!important;padding-bottom:0!important}
   html body #faq#faq details>:not(summary){margin-top:12px!important}
   html body #faq#faq :is(details>p,.al-faq-answer p){font-size:16px!important;line-height:1.55!important;padding:0!important}
 }
