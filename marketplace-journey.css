@@ -40,3 +40,14 @@
 @media(max-width:800px){#section-2.market-product-tour .stages button{justify-content:center;padding-top:22px}#section-2.market-product-tour .stages .contact{position:absolute;top:6px;left:calc(50% - 2.2px)}}
 
 #section-2.market-product-tour.tour-paused *{animation-play-state:paused!important}
+
+/* Vertical journey: the same stepper as Why Bridgify (a line per step that fills top to bottom, label), without numbers */
+@media(min-width:801px){
+#section-2#section-2.market-product-tour .stages{gap:2px}
+#section-2#section-2.market-product-tour .stages:before,#section-2#section-2.market-product-tour .stages .tour-flow,#section-2#section-2.market-product-tour .stages .contact{display:none!important}
+#section-2#section-2.market-product-tour .stages button{position:relative;display:grid!important;grid-template-columns:1fr;align-items:center;min-height:48px!important;padding:0 14px!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;color:#A99D94!important;text-align:left;font:550 13px/1.2 Sofia,sans-serif!important;letter-spacing:.12em!important;text-transform:uppercase!important;transition:color .4s}
+#section-2#section-2.market-product-tour .stages button::before,#section-2#section-2.market-product-tour .stages button::after{content:""!important;position:absolute;left:0;top:8px;bottom:8px;width:2px;border-radius:2px;background:rgba(178,138,104,.24)}
+#section-2#section-2.market-product-tour .stages button::after{background:#F46649;transform-origin:top;transform:scaleY(var(--f,0))}
+#section-2#section-2.market-product-tour .stages button[aria-pressed=true]{color:#FFF8F1!important}
+#section-2#section-2.market-product-tour .stages button:hover{color:#ffb485!important}
+}

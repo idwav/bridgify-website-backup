@@ -25,7 +25,7 @@ function show(i){current=i;buttons.forEach((b,n)=>{b.setAttribute('aria-pressed'
 function confirm(done){root.querySelector('.payment').classList.toggle('complete',done);root.querySelector('.success').hidden=!done;}
 function draw(){const t=elapsed%cycle,stage=t<5200?0:t<10000?1:t<15400?2:3,local=t-starts[stage];if(stage!==lastStage){show(stage);lastStage=stage;confirm(false)}
 const end=stage<3?starts[stage+1]:cycle,moveStart=end-transit;
-progress(stage<3?stage+smooth((t-moveStart)/1550):3,stage<3?t-moveStart:null);
+progress(stage<3?stage+smooth((t-moveStart)/1550):3,stage<3?t-moveStart:null);buttons.forEach((b,n)=>b.style.setProperty('--f',n<stage?1:n===stage?Math.max(0,Math.min(1,local/Math.max(1,end-starts[stage]))):0));
 const target=panels[stage].querySelector(stage===3?'.confirm':'[data-forward]');
 const pressAt=stage===3?3000:end-starts[stage]-transit-350;
 root.querySelectorAll('.auto-press').forEach(b=>b.classList.remove('auto-press'));
