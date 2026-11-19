@@ -25,9 +25,38 @@ The repository owner approves everything that reaches `main`; `main` is what the
 3. Before any visual change, read `DESIGN.md`, `TYPOGRAPHY.md`, `WORKFLOW.md` and, for phones, `MOBILE-RULES.md`.
    Copy comes only from Copy v4. Do not change `index.html` (Version 1) unless asked.
 4. Small commits with a clear message. Keep the branch current with `git pull origin main` before opening a PR.
-5. Before opening a PR: check the pages you changed in the browser at 390, 768 and 1440; for phone work run
+5. Before opening a PR: check the pages you changed in the browser at 390, 768, 834, 1024 and 1440 (no horizontal
+   scroll, no cut text, no console errors); run `python3 scripts/sync-footer.py --check` and
+   `python3 scripts/sync-mobile.py --check`; for phone work run
    `python3 output/element-lab/adaptive/system/verify.py --pages <changed pages>` and include the result.
 6. Push the branch and open a Pull Request into `main` that says what changed, which pages, how it was checked and
    what was not checked. Never merge your own PR; the owner reviews and merges.
 7. Never deploy to Vercel or change hosting, domains or settings. The owner deploys.
 8. Commit only your own changes: leave files changed by someone else (or another session) out of your commit.
+
+## The responsive layers: where tablet, desktop and phone styling lives (every person and every AI model)
+
+Added at the owner's request on 19 November 2026, after hand edits to built files undid approved designs.
+
+1. Phones (up to 599px) are styled by the `mobile/` layer; tablets and desktops (600px and up) by the `wide/` layer.
+   Both are **generated**. Never edit `wide/` or `mobile/` by hand: the next build overwrites them and the edit is lost.
+   - Tablet/desktop: edit the sources in `output/element-lab/grid-plan/` (`<page>-trial.css`, `shared-wide.css`,
+     `roles-<page>.js`), then rebuild with `python3 scripts/build-wide.py --only <page>` and bump that page's
+     `wide/pages/<page>.css?v=` link.
+   - Phone: edit `output/element-lab/adaptive/`, then run `python3 scripts/sync-mobile.py`.
+2. Do not fix a tablet or desktop layout in the old page CSS (`otas.css`, `hotels-mail-hero.css`,
+   `experience-choice-v2.css` and the like). That CSS is only the base the layers sit on.
+3. When you change a page's HTML structure (move, add or remove elements, rebuild a section), update that page's role
+   map `output/element-lab/grid-plan/roles-<page>.js` and rebuild. The baked spacing finds elements by position, so a
+   stale map puts spacing on the wrong elements (this broke Loyalty's Market signal on tablets).
+4. The content line and its cap (approved 17 November 2026, `SPACING-GRID-PLAN.md`): every section's content starts and
+   ends on one line, `--try-margin` from `wide/grid.css`. Tablet 600-1023: 32px. Desktop: `max(clamp(40px, 4vw, 64px),
+   (100vw - 1560px) / 2)`, so content is at most 1560px wide and centred on large screens (58px margin at 1440,
+   180 at 1920, 500 at 2560). Phone: 24px (mobile layer). Never give a section its own side padding or max width;
+   use `var(--try-margin)`. Check 1920 as well when a change affects width.
+5. Follow the rules that exist; do not invent new ones. Spacing only from the spacing table and tokens; type only from
+   `brand-typography.css`; copy only from Copy v4. On tablets (600-1023px) split headings and heroes stack: title,
+   then intro, then buttons.
+6. Never undo a design the owner approved (for example the centred OTAs hero with its two-line desktop title).
+   If you think it should change, say so in the PR and let the owner decide.
+

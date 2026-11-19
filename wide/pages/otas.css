@@ -90,6 +90,178 @@
   html body:not(#bf-lab) :is(#section-3 header.rc-head > div) { align-self: start !important; max-width: 560px !important; }
 }
 
+/* Desktop title (owner, 19 Nov 2026): on desktop the title is two centred lines, one sentence per line (the 13em
+   measure above stays for 901-1023). */
+@media (min-width: 1024px) {
+  html body .ys-hero .ys-copy > h1#ys-title { max-width: none !important; text-wrap: nowrap !important; white-space: nowrap !important; }
+  html body .ys-hero .ys-copy > h1#ys-title > span { text-wrap: nowrap !important; white-space: nowrap !important; }
+}
+/* An iPad Pro held upright (1024-1366, portrait) gets the larger tablet hero title (48-56px); one sentence per line
+   then ran 14px past the screen. There the title wraps on its 13em measure again, centred. */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body .ys-hero .ys-copy > h1#ys-title, html body .ys-hero .ys-copy > h1#ys-title > span { white-space: normal !important; text-wrap: balance !important; }
+  html body .ys-hero .ys-copy > h1#ys-title { max-width: 13em !important; }
+}
+
+/* Tablet hero (owner, 19 Nov 2026): centred like the desktop hero, the title at the tablet hero size (40px) on its 13em
+   measure, and the "Already sold / days in between" card grows to the bottom of the first screen (32px from the edge).
+   It was left-aligned, the title ran 48px over four wide lines and the card stopped 70px short of the screen bottom. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) section#section-1.ys-hero { display: flex !important; flex-direction: column !important; min-height: 100svh !important; padding-bottom: var(--try-margin) !important; box-sizing: border-box !important; }
+  html body:not(#bf-lab) .ys-hero .ys-copy { text-align: center !important; display: flex !important; flex-direction: column !important; align-items: center !important; }
+  html body:not(#bf-lab) .ys-hero .ys-copy > h1#ys-title { font-size: 40px !important; line-height: 1.16 !important; max-width: 13em !important; margin-left: auto !important; margin-right: auto !important; text-align: center !important; text-wrap: balance !important; }
+  html body:not(#bf-lab) .ys-hero .ys-copy > h1#ys-title > span { display: block !important; text-wrap: balance !important; }
+  html body:not(#bf-lab) .ys-hero .ys-copy > p { max-width: 60ch !important; margin-left: auto !important; margin-right: auto !important; text-align: center !important; }
+  html body:not(#bf-lab) .ys-hero :is(.ys-eyebrow, .ys-copy > div:first-child, .ys-actions) { justify-content: center !important; }
+  html body:not(#bf-lab) section#section-1.ys-hero .ys-ticket { flex: 1 1 auto !important; align-content: center !important; }
+}
+
+/* ---- ink-fonts.css ---- */
+/* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
+   and the weight"). Measured in type-audit/ (accents.py, faces.py) at 1440: only 21 of 86 emphasised title words used
+   the approved coral ink; the rest had two-stop page gradients or flat coral. Every emphasised word in a hero or section
+   title now carries the one ink of DESIGN.md §5 (.v2-ink): the light coral on dark sections, the deep coral on cream,
+   moving 5s, still under reduced motion. Each selector names its page (body[data-copy-page]) and the title's own id, so nothing else is painted.
+   Font faces: "Sofia Sans" was named but never defined (system font on the API and White-Label demos); Loyalty's
+   buttons were Regular 400 (every button is Sofia 550); Super Apps' "How to add…" title and its two card titles were
+   Chillax Medium 500 (titles are Light 300); one Super Apps line asked a Regular-only face for bold, so the browser
+   drew a fake bold; the Airlines booking phone fell back to Arial.
+   Baked into wide/pages/<page>.css for the ten pages of the system only (index-v2, api, marketplace, personalization
+   and the six solution pages); the shared footer CTA title ink applies there too. Phone (≤599) is not touched. */
+@font-face { font-family: "Sofia Sans"; src: url("/Sofia_Sans/SofiaSans-VariableFont_wght.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+@keyframes bf-ink-flow { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+@media (min-width: 600px) {
+  html body[data-copy-page="api"] #top h2 em.api-coral-ink,
+  html body[data-copy-page="api"] #an-title em,
+  html body[data-copy-page="api"] #ak-title em.ex-ink,
+  html body[data-copy-page="api"] #am-title em,
+  html body[data-copy-page="api"] #af-title em.ck-ink,
+  html body[data-copy-page="api"] #ae-title em.en-ink,
+  html body[data-copy-page="api"] #bf-cta-title span,
+  html body[data-copy-page="marketplace"] #section-1 h2 span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #section-2 h2.tour-title em,
+  html body[data-copy-page="marketplace"] #commerce-title span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #launch-title span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #bb-title span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #bf-cta-title span,
+  html body[data-copy-page="personalization"] #section-2 h2 em.product-gradient-ink,
+  html body[data-copy-page="personalization"] #section-3 h2 em.product-gradient-ink,
+  html body[data-copy-page="personalization"] #bf-cta-title span,
+  html body[data-copy-page="otas"] #ys-title span,
+  html body[data-copy-page="otas"] #ms-title span.ota-text-accent,
+  html body[data-copy-page="otas"] #rc-title span.ota-text-accent,
+  html body[data-copy-page="otas"] #xc-title span,
+  html body[data-copy-page="otas"] #faq h2 span.ota-text-accent,
+  html body[data-copy-page="otas"] #bf-cta-title span,
+  html body[data-copy-page="airlines"] #al-title span.al-gradient,
+  html body[data-copy-page="airlines"] #al-earn-title span.al-gradient,
+  html body[data-copy-page="airlines"] #al-journey-title span.al-gradient,
+  html body[data-copy-page="airlines"] #xc-title span,
+  html body[data-copy-page="airlines"] #bf-cta-title span,
+  html body[data-copy-page="hotels"] #hm-title span.brand-coral-ink,
+  html body[data-copy-page="hotels"] #hr-title span.brand-coral-ink,
+  html body[data-copy-page="hotels"] #hs-title span.brand-coral-ink,
+  html body[data-copy-page="hotels"] #xc-title span,
+  html body[data-copy-page="hotels"] #bf-cta-title span,
+  html body[data-copy-page="loyalty-finance"] #section-1 h1 span.lf-emphasis,
+  html body[data-copy-page="loyalty-finance"] #xc-title span,
+  html body[data-copy-page="loyalty-finance"] #bf-cta-title span,
+  html body[data-copy-page="super-apps"] #section-1 h1 span,
+  html body[data-copy-page="super-apps"] #sc-title span,
+  html body[data-copy-page="super-apps"] #xc-title span,
+  html body[data-copy-page="super-apps"] #faq h2 span,
+  html body[data-copy-page="super-apps"] #bf-cta-title span,
+  html body[data-copy-page="travel-technology"] #te-title span.brand-coral-ink,
+  html body[data-copy-page="travel-technology"] #ad-title span.brand-coral-ink,
+  html body[data-copy-page="travel-technology"] #xc-title span,
+  html body[data-copy-page="travel-technology"] #bf-cta-title span,
+  html body[data-copy-page="api"] #cx-title em.cj-ink,
+  html body[data-copy-page="marketplace"] #section-3 h2 span,
+  html body[data-copy-page="marketplace"] #ma-title span,
+  html body[data-copy-page="marketplace"] #results-title span.brand-coral-ink,
+  html body[data-copy-page="loyalty-finance"] #section-2 h2 span,
+  html body[data-copy-page="loyalty-finance"] #section-3 h2 span,
+  html body[data-copy-page="loyalty-finance"] #we-started-here h2 span,
+  html body[data-copy-page="loyalty-finance"] #market-signal h2 span,
+  html body[data-copy-page="super-apps"] #ma-title span,
+  html body[data-copy-page="travel-technology"] #th-title span.th-emphasis {
+    font-style: normal !important; color: #f48b73 !important; -webkit-text-fill-color: transparent !important;
+    background-image: linear-gradient(110deg, #f46649 0%, #ff967b 23%, #ffe2c6 43%, #f88b72 60%, #f46649 78%, #ffb49a 100%) !important;
+    background-size: 240% 100% !important; background-repeat: repeat !important; -webkit-background-clip: text !important; background-clip: text !important;
+    animation: bf-ink-flow 5s ease-in-out infinite alternate !important; }
+  html body[data-copy-page="api"] #cx-title em.cj-ink,
+  html body[data-copy-page="marketplace"] #section-3 h2 span,
+  html body[data-copy-page="marketplace"] #ma-title span,
+  html body[data-copy-page="marketplace"] #results-title span.brand-coral-ink,
+  html body[data-copy-page="loyalty-finance"] #section-2 h2 span,
+  html body[data-copy-page="loyalty-finance"] #section-3 h2 span,
+  html body[data-copy-page="loyalty-finance"] #we-started-here h2 span,
+  html body[data-copy-page="loyalty-finance"] #market-signal h2 span,
+  html body[data-copy-page="super-apps"] #ma-title span,
+  html body[data-copy-page="travel-technology"] #th-title span.th-emphasis {
+    color: #d9482c !important; background-image: linear-gradient(110deg, #cf3f25 0%, #e5573a 30%, #e8603f 50%, #d9482c 72%, #cf3f25 100%) !important; }
+  html body[data-copy-page="loyalty-finance"] a.lf-btn { font-family: Sofia, sans-serif !important; font-weight: 550 !important; }
+  html body[data-copy-page="super-apps"] :is(#ma-title, #ma-title span, .sc-info-item > h3) { font-family: Chillax, sans-serif !important; font-weight: 300 !important; }
+  html body[data-copy-page="super-apps"] #section-3 .sc-foot strong { font-family: Sofia, sans-serif !important; }
+  html body[data-copy-page="airlines"] #al-phone-booking { font-family: Sofia, sans-serif !important; }
+}
+@media (min-width: 600px) and (prefers-reduced-motion: reduce) {
+  html body[data-copy-page="api"] #top h2 em.api-coral-ink,
+  html body[data-copy-page="api"] #an-title em,
+  html body[data-copy-page="api"] #ak-title em.ex-ink,
+  html body[data-copy-page="api"] #am-title em,
+  html body[data-copy-page="api"] #af-title em.ck-ink,
+  html body[data-copy-page="api"] #ae-title em.en-ink,
+  html body[data-copy-page="api"] #bf-cta-title span,
+  html body[data-copy-page="marketplace"] #section-1 h2 span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #section-2 h2.tour-title em,
+  html body[data-copy-page="marketplace"] #commerce-title span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #launch-title span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #bb-title span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #bf-cta-title span,
+  html body[data-copy-page="personalization"] #section-2 h2 em.product-gradient-ink,
+  html body[data-copy-page="personalization"] #section-3 h2 em.product-gradient-ink,
+  html body[data-copy-page="personalization"] #bf-cta-title span,
+  html body[data-copy-page="otas"] #ys-title span,
+  html body[data-copy-page="otas"] #ms-title span.ota-text-accent,
+  html body[data-copy-page="otas"] #rc-title span.ota-text-accent,
+  html body[data-copy-page="otas"] #xc-title span,
+  html body[data-copy-page="otas"] #faq h2 span.ota-text-accent,
+  html body[data-copy-page="otas"] #bf-cta-title span,
+  html body[data-copy-page="airlines"] #al-title span.al-gradient,
+  html body[data-copy-page="airlines"] #al-earn-title span.al-gradient,
+  html body[data-copy-page="airlines"] #al-journey-title span.al-gradient,
+  html body[data-copy-page="airlines"] #xc-title span,
+  html body[data-copy-page="airlines"] #bf-cta-title span,
+  html body[data-copy-page="hotels"] #hm-title span.brand-coral-ink,
+  html body[data-copy-page="hotels"] #hr-title span.brand-coral-ink,
+  html body[data-copy-page="hotels"] #hs-title span.brand-coral-ink,
+  html body[data-copy-page="hotels"] #xc-title span,
+  html body[data-copy-page="hotels"] #bf-cta-title span,
+  html body[data-copy-page="loyalty-finance"] #section-1 h1 span.lf-emphasis,
+  html body[data-copy-page="loyalty-finance"] #xc-title span,
+  html body[data-copy-page="loyalty-finance"] #bf-cta-title span,
+  html body[data-copy-page="super-apps"] #section-1 h1 span,
+  html body[data-copy-page="super-apps"] #sc-title span,
+  html body[data-copy-page="super-apps"] #xc-title span,
+  html body[data-copy-page="super-apps"] #faq h2 span,
+  html body[data-copy-page="super-apps"] #bf-cta-title span,
+  html body[data-copy-page="travel-technology"] #te-title span.brand-coral-ink,
+  html body[data-copy-page="travel-technology"] #ad-title span.brand-coral-ink,
+  html body[data-copy-page="travel-technology"] #xc-title span,
+  html body[data-copy-page="travel-technology"] #bf-cta-title span,
+  html body[data-copy-page="api"] #cx-title em.cj-ink,
+  html body[data-copy-page="marketplace"] #section-3 h2 span,
+  html body[data-copy-page="marketplace"] #ma-title span,
+  html body[data-copy-page="marketplace"] #results-title span.brand-coral-ink,
+  html body[data-copy-page="loyalty-finance"] #section-2 h2 span,
+  html body[data-copy-page="loyalty-finance"] #section-3 h2 span,
+  html body[data-copy-page="loyalty-finance"] #we-started-here h2 span,
+  html body[data-copy-page="loyalty-finance"] #market-signal h2 span,
+  html body[data-copy-page="super-apps"] #ma-title span,
+  html body[data-copy-page="travel-technology"] #th-title span.th-emphasis { animation: none !important; }
+}
+
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {
   html body #section-1 { row-gap: 0px !important; }
@@ -159,7 +331,7 @@
   html body #section-3 > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body #section-3 > header:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
   html body #rc-title { margin-top: 24px !important; }
-  html body #section-3 > header:nth-child(2) > div:nth-child(2) { margin-top: 24px !important; margin-bottom: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
+  html body #section-3 > header:nth-child(2) > div:nth-child(2) { margin-bottom: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
   html body #section-3 > header:nth-child(2) > div:nth-child(2) > p:nth-child(1) { margin-bottom: 0px !important; }
   html body #section-3 > header:nth-child(2) > div:nth-child(2) > a:nth-child(2) { margin-top: 48px !important; margin-bottom: 0px !important; }
   html body #section-3 > div:nth-child(3) { margin-top: 64px !important; margin-bottom: 0px !important; }
@@ -185,23 +357,15 @@
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > p:nth-child(2) { margin-top: 32px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
 }
-
-/* Idan review: the "Already sold / days in between / You keep the traveler" card runs on the site grid (same left and right edge as the text above it) and sits a little higher */
-@media (min-width: 901px) {
-  html body section#section-1.ys-hero .ys-ticket { max-width: none !important; width: 100% !important; margin-top: 40px !important; }
+@media (min-width: 1024px) and (max-width: 1151px) {
+  html body #section-3 > header:nth-child(2) > div:nth-child(2) { margin-top: 26.732px !important; }
 }
-
-/* Idan review: the hero reads from the left like the homepage (no centred copy), and the whole hero including the card fits one screen */
-@media (min-width: 901px) {
-  html body .ys-hero .ys-copy { text-align: left !important; align-items: flex-start !important; }
-  html body .ys-hero .ys-copy > h1#ys-title { max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; text-align: left !important; text-wrap: initial !important; }
-  html body .ys-hero .ys-copy > h1#ys-title > span { display: inline !important; }
-  html body .ys-hero .ys-copy > h1#ys-title > span:first-child:after { content: ""; display: block; }
-  html body .ys-hero .ys-copy > p { max-width: 62ch !important; margin-left: 0 !important; margin-right: 0 !important; text-align: left !important; }
-  html body .ys-hero .ys-actions { justify-content: flex-start !important; }
-  html body .ys-hero .ys-eyebrow, html body .ys-hero .ys-copy > div:first-child { justify-content: flex-start !important; text-align: left !important; }
+@media (min-width: 1152px) and (max-width: 1359px) {
+  html body #section-3 > header:nth-child(2) > div:nth-child(2) { margin-top: 27.0448px !important; }
 }
-@media (min-width: 901px) and (min-height: 760px) {
-  html body section#section-1.ys-hero { padding-top: clamp(112px, 14vh, 158px) !important; }
-  html body section#section-1.ys-hero .ys-actions { margin-top: clamp(28px, 4vh, 48px) !important; }
+@media (min-width: 1360px) and (max-width: 1679px) {
+  html body #section-3 > header:nth-child(2) > div:nth-child(2) { margin-top: 27.6704px !important; }
+}
+@media (min-width: 1680px) {
+  html body #section-3 > header:nth-child(2) > div:nth-child(2) { margin-top: 28.108px !important; }
 }

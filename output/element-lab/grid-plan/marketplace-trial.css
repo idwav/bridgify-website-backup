@@ -85,3 +85,32 @@
   html body:not(#bf-lab) :is(#section-5 div.launch-heading, #build-or-buy header.bc-heading) { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; column-gap: 32px !important; align-items: start !important; padding-left: 0 !important; padding-right: 0 !important; }
   html body:not(#bf-lab) :is(#section-5 div.launch-heading > p, #build-or-buy header.bc-heading > p) { align-self: start !important; max-width: 560px !important; }
 }
+
+/* ==== Moved from the published file (owner kept these, 19 Nov): Idan's review rules, added straight to wide/pages/marketplace.css on 18 Nov. ==== */
+
+/* Idan review: the wire through "Your marketplace" runs the full gap, from the dot under "You bring" to the dot above "Bridgify runs" */
+@media (min-width: 600px) {
+  html body #section-4 .wo-seam::before { top: -64px; bottom: -64px; }
+}
+
+/* Idan review: the wire is the site's wire (1px coral line, ring contacts, pulses travelling the whole way) */
+@media (min-width: 600px) {
+  html body #section-4 .wo-seam::before { width: 1px; opacity: .55; transform: translateX(-.5px); }
+  html body #section-4 .wo-feed-dot { width: 6px; height: 6px; background: #fff8f1; border: 1px solid #f46649; z-index: 0; }
+}
+
+/* Tablet pass (owner, 19 Nov 2026).
+   1. Hero: from 901px the page shows its title ("White-label travel marketplace for tours, attractions and experiences");
+      below 901 that title stayed hidden and the small subtitle read as the heading. Tablets show the title too, at the
+      tablet hero size approved on 17 Nov (48-56px); 901-1023 was 40px. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body #section-1 .block-copy .copy-seo { position: static !important; width: auto !important; height: auto !important; clip: auto !important; clip-path: none !important; overflow: visible !important; white-space: normal !important; margin: 24px 0 !important; }
+  html body #section-1.page-hero .block-copy > h1.copy-seo { font-family: Chillax, sans-serif !important; font-weight: 300 !important; font-size: clamp(48px, 5.5vw, 56px) !important; line-height: 1.16 !important; letter-spacing: -.035em !important; }
+}
+/* 2. "From discovery to checkout": on tablets the intro sat 30px above the title in a 281px column. Split headings
+      stack on tablets: title, then the intro. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) #section-2 header { display: flex !important; flex-direction: column !important; align-items: flex-start !important; justify-content: flex-start !important; column-gap: 0 !important; row-gap: 0 !important; }
+  html body:not(#bf-lab) #section-2 header > * { width: auto !important; max-width: none !important; margin-left: 0 !important; grid-column: auto !important; align-self: stretch !important; }
+  html body:not(#bf-lab) #section-2 header > p { border-left: 0 !important; padding-left: 0 !important; max-width: 60ch !important; }
+}

@@ -28,6 +28,8 @@ BASE = 'http://127.0.0.1:8084/'
 SHARED = {'grid.css': 'grid-vars.css', 'tokens.css': 'tokens-wide.css', 'type.css': 'type-wide.css',
           'header.css': 'header-compact.css', 'split.css': 'split-align.css',
           'interim.css': 'line-interim.css', 'buttons.css': 'buttons-wide.css', 'shared.css': 'shared-wide.css'}
+# title ink and font faces (19 Nov 2026): one lab file, baked after each page's own layers
+INK = 'ink-fonts.css'
 # page: (url, role map, page layers in order, split pairs, page script)
 PAGES = {
     'index-v2': ('index-v2.html?version=2', 'roles-index-v2.js', ['home-trial.css', 'tablet-hero.css', 'hero-portrait.css'],
@@ -39,11 +41,11 @@ PAGES = {
     'personalization': ('personalization.html?version=2', 'roles-personalization.js', ['personalization-trial.css'], [['#section-2', 'h2', 'div.intent-heading > p'], ['#section-4', 'h2', 'div.embed-heading > p']], 'personalization-hero.js'),
     # step 6.5: the six solution pages
     'otas': ('otas.html?version=2', 'roles-otas.js', ['otas-trial.css'], [['#section-3', 'h2', 'header.rc-head > div']], None),
-    'airlines': ('airlines.html?version=2', 'roles-airlines.js', ['airlines-trial.css'], [['#section-2', 'h2', 'header.ar-heading > p'], ['#section-4', 'h2', 'header.xc-head > p']], None),
-    'hotels': ('hotels.html?version=2', 'roles-hotels.js', ['hotels-trial.css'], [['#section-4', 'h2', 'header.xc-head > p']], None),
+    'airlines': ('airlines.html?version=2', 'roles-airlines.js', ['airlines-trial.css'], [['#section-2', 'h2', 'header.ar-heading > p'], ['#section-4', 'h2', 'header.xc-head > p']], 'airlines-pin.js'),
+    'hotels': ('hotels.html?version=2', 'roles-hotels.js', ['hotels-trial.css'], [['#section-1', 'h1', 'div.hm-intro'], ['#section-4', 'h2', 'header.xc-head > p']], None),
     'loyalty-finance': ('loyalty-finance.html?version=2', 'roles-loyalty-finance.js', ['loyalty-finance-trial.css'], [['#section-2', 'h2', 'header > div.lp-copy']], None),
     'super-apps': ('super-apps.html?version=2', 'roles-super-apps.js', ['super-apps-trial.css'], [['#section-4', 'h2', 'header.xc-head > p']], None),
-    'travel-technology': ('travel-technology.html?version=2', 'roles-travel-technology.js', ['travel-technology-trial.css'], [['#section-4', 'h2', 'header.xc-head > p']], None),
+    'travel-technology': ('travel-technology.html?version=2', 'roles-travel-technology.js', ['travel-technology-trial.css'], [['#section-1', 'h1', 'div.te-intro'], ['#section-4', 'h2', 'header.xc-head > p']], None),
 }
 # Each device class is baked at several widths, because a page's own layout changes inside a class (a section that
 # stacks below 800, a grid that gains a column at 1280). A value that is the same at every width of a class is written
@@ -71,7 +73,7 @@ DIFF = r"""(props) => {
 
 def bake(b, page, cfg):
     url, roles, layers, pairs, _ = cfg
-    css = [R('grid-vars.css'), R('header-compact.css'), R('type-wide.css'), R('tokens-wide.css'), R('buttons-wide.css'), R('shared-wide.css'), R('split-align.css')] + [R(l) for l in layers]
+    css = [R('grid-vars.css'), R('header-compact.css'), R('type-wide.css'), R('tokens-wide.css'), R('buttons-wide.css'), R('shared-wide.css'), R('split-align.css')] + [R(l) for l in layers] + [R(INK)]
     js = R(roles) + '\n' + R('rhythm-wide.js')
     sj = (f'window.BridgifySplitPairs = {json.dumps(pairs)};\n' if pairs else '') + R('split-align.js')
     blocks = []
@@ -118,7 +120,7 @@ def build(dest, only=None):
         for page, cfg in PAGES.items():
             if only and page not in only: continue
             head = f'/* Bridgify tablet + desktop layer · {page} · built by scripts/build-wide.py from output/element-lab/grid-plan/. Do not edit; edit the lab and rebuild. */\n'
-            body = '\n'.join(f'/* ---- {l} ---- */\n' + R(l) for l in cfg[2])
+            body = '\n'.join(f'/* ---- {l} ---- */\n' + R(l) for l in cfg[2] + [INK])
             baked = '\n'.join(bake(b, page, cfg))
             open(os.path.join(dest, 'pages', f'{page}.css'), 'w').write(head + body + '\n/* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */\n' + baked + '\n')
             if cfg[4]: shutil.copyfile(os.path.join(LAB, cfg[4]), os.path.join(dest, 'pages', f'{page}.js'))

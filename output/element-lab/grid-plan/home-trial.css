@@ -18,3 +18,39 @@
 @media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
   html body:not(#bf-lab) section#home { padding-top: calc(88px + var(--bf-hero-top)) !important; }
 }
+
+/* "Bridgify does the connecting once" bar (owner, 19 Nov 2026): the same space above it (to the heading) and below it
+   (to the two panels), from the table (--bf-gap-title-text: 24 tablet, 32 desktop). It was 16 above and 48-64 below.
+   The "+" at its end opened nothing; it is gone from tablet and desktop. */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) #opportunity-study p.pb-bar { margin-top: var(--bf-gap-title-text) !important; margin-bottom: 0 !important; }
+  html body:not(#bf-lab) #opportunity-study .pb-panels { margin-top: var(--bf-gap-title-text) !important; }
+  html body:not(#bf-lab) #opportunity-study p.pb-bar > i[aria-hidden="true"] { display: none !important; }
+}
+
+/* Owner, 19 Nov 2026 (iPad review).
+   Hero buttons: the two hero actions use the site's two buttons. "Book a demo" pushed its arrow to the far end
+   (space-between, 34px gap); "See how it works" was a plain text link. */
+@media (min-width: 600px) {
+  html body[data-copy-page="index"]:not(#bf-lab) .bv2-hero-actions > button.bv2-demo { justify-content: center !important; gap: 8px !important; width: auto !important; min-width: 0 !important; min-height: 52px !important; height: 52px !important; padding: 8px 22px !important; }
+  html body[data-copy-page="index"]:not(#bf-lab) .bv2-hero-actions > a[href="#global"] {
+    box-sizing: border-box !important; display: inline-flex !important; align-items: center !important; gap: 8px !important;
+    min-height: 52px !important; padding: 8px 22px !important; border: 1px solid #f46649 !important; border-radius: 11px !important;
+    background: linear-gradient(135deg, #f4664900, #f4664900) !important; color: #fff8f1 !important;
+    font: 550 var(--type-cta, 16px)/20px Sofia, sans-serif !important; text-decoration: none !important;
+    transition: background .48s cubic-bezier(.16, 1, .3, 1) !important;
+  }
+  html body[data-copy-page="index"]:not(#bf-lab) .bv2-hero-actions > a[href="#global"]:is(:hover, :focus-visible) { background: linear-gradient(135deg, #f466491f, #f4664914) !important; }
+}
+/* "Global supply through one integration": the title sat at the card size (24-27px) in a narrow first column next to
+   the five numbers. It now reads like every section: the title at the section size over the full width, then the
+   numbers in one row, the content gap from the table between them. */
+@media (min-width: 600px) {
+  html body[data-copy-page="index"]:not(#bf-lab) #sources div.trust-copy > h2 { font-size: var(--type-section) !important; line-height: 1.2 !important; max-width: none !important; }
+  html body[data-copy-page="index"]:not(#bf-lab) #sources div.trust-copy > p { margin-top: var(--bf-gap-title-sub, 8px) !important; }
+  html body[data-copy-page="index"]:not(#bf-lab) #sources > .trust-stat { align-self: start !important; }
+}
+@media (min-width: 1024px) {
+  html body[data-copy-page="index"]:not(#bf-lab) #sources.trust-strip { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; row-gap: 0 !important; }
+  html body[data-copy-page="index"]:not(#bf-lab) #sources div.trust-copy { grid-column: 1 / -1 !important; width: auto !important; }
+}
