@@ -90,6 +90,13 @@
   html body:not(#bf-lab) :is(#section-3 header.rc-head > div) { align-self: start !important; max-width: 560px !important; }
 }
 
+/* Desktop title (owner, 19 Nov 2026): on desktop the title is two centred lines, one sentence per line (the 13em
+   measure above stays for 901-1023). */
+@media (min-width: 1024px) {
+  html body .ys-hero .ys-copy > h1#ys-title { max-width: none !important; text-wrap: nowrap !important; white-space: nowrap !important; }
+  html body .ys-hero .ys-copy > h1#ys-title > span { text-wrap: nowrap !important; white-space: nowrap !important; }
+}
+
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {
   html body #section-1 { row-gap: 0px !important; }
@@ -184,24 +191,4 @@
   html body #bf-cta-title { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > p:nth-child(2) { margin-top: 32px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
-}
-
-/* Idan review: the "Already sold / days in between / You keep the traveler" card runs on the site grid (same left and right edge as the text above it) and sits a little higher */
-@media (min-width: 901px) {
-  html body section#section-1.ys-hero .ys-ticket { max-width: none !important; width: 100% !important; margin-top: 40px !important; }
-}
-
-/* Idan review: the hero reads from the left like the homepage (no centred copy), and the whole hero including the card fits one screen */
-@media (min-width: 901px) {
-  html body .ys-hero .ys-copy { text-align: left !important; align-items: flex-start !important; }
-  html body .ys-hero .ys-copy > h1#ys-title { max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; text-align: left !important; text-wrap: initial !important; }
-  html body .ys-hero .ys-copy > h1#ys-title > span { display: inline !important; }
-  html body .ys-hero .ys-copy > h1#ys-title > span:first-child:after { content: ""; display: block; }
-  html body .ys-hero .ys-copy > p { max-width: 62ch !important; margin-left: 0 !important; margin-right: 0 !important; text-align: left !important; }
-  html body .ys-hero .ys-actions { justify-content: flex-start !important; }
-  html body .ys-hero .ys-eyebrow, html body .ys-hero .ys-copy > div:first-child { justify-content: flex-start !important; text-align: left !important; }
-}
-@media (min-width: 901px) and (min-height: 760px) {
-  html body section#section-1.ys-hero { padding-top: clamp(112px, 14vh, 158px) !important; }
-  html body section#section-1.ys-hero .ys-actions { margin-top: clamp(28px, 4vh, 48px) !important; }
 }
