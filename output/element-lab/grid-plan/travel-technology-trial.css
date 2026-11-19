@@ -82,3 +82,19 @@
 @media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
   html body:not(#bf-lab) section#section-1 .te-heading > .te-intro { margin-top: var(--bf-gap-title-text) !important; }
 }
+
+/* Tablet pass (owner, 19 Nov 2026).
+   1. "Add experience discovery and booking to your product": on tablets the heading kept a two-column grid with an
+      empty right column, so the title wrapped in a 369-403px half over four lines. Split headings stack on tablets. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) #section-3 header.ad-head { display: block !important; }
+  html body:not(#bf-lab) #section-3 header.ad-head > * { width: auto !important; max-width: none !important; margin-left: 0 !important; }
+}
+/* 2. "Choose how to integrate": the only card is split in two halves from 901px. Its demo kept the 16:8 ratio at the
+      height of the short text beside it, so it filled only 335-393px of a 470-661px half (code at 7px). The demo now
+      takes its half's full width; the text half centres against it. */
+@media (min-width: 901px) {
+  html body #section-4 .xc-grid > .xc-card:only-child > .xc-vis { width: 100% !important; height: auto !important; align-self: start !important; }
+  /* the button keeps its 24px under the title (its auto top margin grew with the taller card) */
+  html body #section-4 .xc-grid > .xc-card:only-child > .xc-body > .xc-cta { margin-top: 24px !important; }
+}
