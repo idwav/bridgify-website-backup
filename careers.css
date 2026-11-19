@@ -259,3 +259,16 @@ body{background:#180f10;color:#eee9de}
 #problems .cpp-target .cw-chips span{border:1px solid #eee9de30;background:#fff8f10a;color:#eee9de;box-shadow:none}
 @media(max-width:1100px){#problems .cpp-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){#problems .cpp-row{opacity:1}#problems .cpp-row:after{transition:none}}
+
+/* "Ship it on Monday...", the same quiet glass: one translucent panel, hairline rows, no heavy cards. */
+#reach.cr{background:radial-gradient(ellipse at 15% 90%,#f4664912,transparent 55%),#180f10}
+#reach .cr-panel{gap:0;padding:clamp(24px,2.8vw,40px);border:1px solid #eee9de35;border-radius:24px;background:linear-gradient(135deg,#fff8f111,transparent 46%,#f4664912);box-shadow:inset 0 1px 1px #fff8f130,0 28px 60px #0003;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+#reach .cr-ex{grid-template-columns:44px minmax(0,1fr);gap:20px;padding:24px 0;border:0;border-top:1px solid #eee9de22;border-radius:0;background:none}
+#reach .cr-ex:first-child{border-top:0;padding-top:4px}
+#reach .cr-exi{width:44px;height:44px;border:1px solid #f4664944;border-radius:50%;background:none}
+#reach .cr-exi svg{width:22px;height:22px}
+#reach .cr-ex b{font-weight:500;color:#eee9de}
+#reach .cr-ex small{color:#bda99c}
+#reach .cr-stats{margin-top:0;padding-top:26px;border-top:1px solid #eee9de22}
+#reach .cr-stats div+div{border-left:1px solid #eee9de22}
+#reach .cr-stats span{color:#bda99c}
