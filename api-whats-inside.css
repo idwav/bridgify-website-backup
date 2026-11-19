@@ -73,3 +73,6 @@
 #whats-inside .ex-card{background:radial-gradient(at 100% 0%,#ff896238,#0000 45%),radial-gradient(at 0% 100%,#ff78532e,#0000 40%),linear-gradient(115deg,#fff8f112,#0000 55%),#160e0b99;border-color:var(--g-edge-soft);box-shadow:inset 0 1px 1px #fff1da4d,inset 0 -1px 1px #ff997b33,0 8px 22px #0000002e;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 #whats-inside .ex-card:hover{border-color:var(--g-edge);box-shadow:inset 0 1px 1px #fff1da66,inset 0 -1px 1px #ff997b55,0 0 20px #f4664933,0 8px 22px #0000002e}
 #whats-inside .ex-card .ex-img,#whats-inside .ex-card img{box-shadow:0 0 0 1px #f6c8b552}
+
+/* One screen tall, content centred (same rhythm as the other full-screen sections) */
+@media(min-width:801px){#whats-inside.ex-section{min-height:100svh;display:flex;flex-direction:column;justify-content:center}}
