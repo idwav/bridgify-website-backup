@@ -22,3 +22,18 @@
 @media(max-width:1000px){.cpp3-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cpp3-cell:nth-child(3){border-left:0}.cpp3-cell:nth-child(n+3){border-top:1px solid #eee9de22}.cpp3-cell{min-height:200px}.cpp3-target{grid-template-columns:1fr;justify-items:start}.cpp3-chips{justify-content:flex-start}}
 @media(max-width:599px){.cpp3-grid{grid-template-columns:1fr}.cpp3-cell{border-left:0;border-top:1px solid #eee9de22;min-height:0;padding:24px 4px}.cpp3-cell:first-child{border-top:0}.cpp3-cell h3{margin-top:0}}
 @media(prefers-reduced-motion:reduce){.cpp3-cell{animation:none;opacity:1}.cpp3-cell:before,.cpp3-target:after{animation:none}}
+
+/* Screen proportion: the section is one screen tall with its content centred, and everything scales with the screen height. */
+@media(min-width:1001px){
+ #problems.cpp3{min-height:100svh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;padding-top:clamp(88px,12vh,120px);padding-bottom:clamp(32px,6vh,72px)}
+ #problems .cpp-head{margin-bottom:clamp(24px,4.5vh,48px)}
+ .cpp3-cell{min-height:clamp(230px,36vh,360px);padding:clamp(28px,4vh,44px) clamp(22px,2.4vw,36px)}
+ .cpp3-ic{width:clamp(48px,6vh,60px);height:clamp(48px,6vh,60px)}
+ .cpp3-ic svg{width:clamp(24px,3vh,30px);height:clamp(24px,3vh,30px)}
+ .cpp3-cell h3{font-size:clamp(24px,2.3vw,34px)}
+ .cpp3-cell p{font-size:clamp(16px,1.15vw,18px)!important}
+ .cpp3-target{margin-top:clamp(28px,5vh,56px);padding:clamp(26px,4.4vh,44px) clamp(28px,3.4vw,56px)}
+ .cpp3-target .cpp-logo{height:clamp(30px,4vh,40px)}
+ .cpp3-target b{font-size:clamp(24px,2.6vw,38px)}
+ .cpp3-chips span{padding:clamp(8px,1.2vh,11px) clamp(18px,1.5vw,24px);font-size:clamp(15px,1.1vw,17px)}
+}
