@@ -37,3 +37,26 @@ html body .sc-section .up-carousel .up-slide[data-position="0"]{opacity:1;visibi
 @media(prefers-reduced-motion:reduce){html body .sc-section .up-carousel .up-slide{transition:none}}
 
 .sc-section .up-story-copy{color:#eee9de}.up-map text{font:400 13px ConsumerSofia,Sofia,sans-serif;fill:#eee9de}.up-map .up-route{stroke-width:1.5;vector-effect:non-scaling-stroke}
+
+/* Connect experiences (#section-3): sized to its content, pinned and vertically centred while the steps scroll */
+html body #section-3.sc-section{padding:clamp(56px,8vh,88px) 4vw}
+html body #section-3 .up-story-track{height:200svh}
+html body #section-3.sc-section .up-story-track .up-story-sticky{min-height:0!important;align-items:center!important;align-content:center!important;padding:0!important}
+
+/* Steps: the Bridgify steps component. Per step: a line (fills while you scroll), then number and text */
+html body #section-3 .up-story-steps{display:grid;gap:6px;margin:30px 0;max-width:380px;counter-reset:story-step}
+html body #section-3 .up-story-steps button{counter-increment:story-step;display:grid;grid-template-columns:44px minmax(0,1fr);grid-template-rows:auto auto;align-items:center;column-gap:0;row-gap:14px;width:100%;padding:0 0 18px;border:0;border-radius:0;background:none;color:#8d7f76;font:400 16px/1.3 Sofia,sans-serif;letter-spacing:0;text-transform:none;text-align:left;cursor:pointer;transition:color .4s}
+html body #section-3 .up-story-steps button::before{content:"";counter-increment:none;grid-column:1/-1;grid-row:1;height:2px;margin:0;border-radius:2px;background:linear-gradient(90deg,#f46649,#ff967b) left center/calc(var(--fill,0)*100%) 100% no-repeat,#eee9de26;box-shadow:0 0 calc(var(--fill,0)*10px) #f4664966}
+html body #section-3 .up-story-steps button::after{content:"0" counter(story-step);grid-column:1;grid-row:2;font:550 12px/1.4 Sofia,sans-serif;letter-spacing:.15em;color:#8d7f76;transition:color .4s}
+html body #section-3 .up-story-steps button[aria-selected=true]{color:#fff8f1}
+html body #section-3 .up-story-steps button[aria-selected=true]::after{color:#ff967b}
+html body #section-3 .up-story-steps button:hover{color:#ffb485}
+html body #section-3 .up-story-steps button:focus-visible{outline:2px solid #ffad70;outline-offset:4px}
+
+/* Glass: phone frame, screen and cards */
+html body #section-3 .up-phone{background:radial-gradient(at 100% 0%,#ff896252,#0000 30%),radial-gradient(at 0% 100%,#ff78534a,#0000 28%),linear-gradient(115deg,#fff8f114,#0000 45%,#fff8f10c),#120b0aa0;border:1px solid #f6c8b594!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 64px #f4664944,0 30px 70px #000b;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+html body #section-3 .up-screen{background:radial-gradient(at 100% 0%,#ff89622a,#0000 34%),radial-gradient(at 0% 100%,#ff785326,#0000 30%),linear-gradient(115deg,#fff8f10a,#0000 50%),#140d0bb3;box-shadow:inset 0 1px 1px #fff1da40}
+html body #section-3 .up-card{background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),radial-gradient(at 0% 100%,#ff78532e,#0000 42%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0002,0 0 16px #f4664926;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html body #section-3 .up-card img{box-shadow:0 0 0 1px #f6c8b552}
+html body #section-3 .up-status,html body #section-3 .up-payment{border-color:#f6c8b533}
+html body #section-3 .up-story-steps{margin-bottom:34px}
