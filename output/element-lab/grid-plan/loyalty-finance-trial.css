@@ -59,3 +59,21 @@
   html body:not(#bf-lab) :is(#section-2 header) { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; column-gap: 32px !important; align-items: start !important; padding-left: 0 !important; padding-right: 0 !important; }
   html body:not(#bf-lab) :is(#section-2 header > div.lp-copy) { align-self: start !important; max-width: 560px !important; }
 }
+
+/* Tablet pass (owner, 19 Nov 2026), after Idan's 18 Nov rebuild of the page.
+   1. "Points aren't a marketing budget": on tablets the split heading put the intro 79px above the title (834px).
+      Split headings stack on tablets, as on every other page: title, then the intro under it. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) :is(#section-2 header) { display: flex !important; flex-direction: column !important; align-items: flex-start !important; justify-content: flex-start !important; column-gap: 0 !important; row-gap: 0 !important; }
+  html body:not(#bf-lab) :is(#section-2 header) > * { width: auto !important; max-width: none !important; margin-left: 0 !important; grid-column: auto !important; align-self: stretch !important; }
+  html body:not(#bf-lab) :is(#section-2 header > div.lp-copy) { border-left: 0 !important; padding-left: 0 !important; max-width: 60ch !important; }
+}
+/* 2. "We started here": from 801px the section stayed split and Idan's two-column grid sat in a 358px half, so the
+      item names were cut ("The travele"). Up to 1100px the section stacks (heading and intro, then the grid);
+      the fifth item takes the whole row instead of sitting alone in half of it. */
+@media (min-width: 600px) and (max-width: 1100px) {
+  html body:not(#bf-lab) section#we-started-here.lp-origin { display: block !important; }
+  html body:not(#bf-lab) #we-started-here header > p { max-width: 60ch !important; }
+  html body:not(#bf-lab) #we-started-here .lp-feature-grid { width: 100% !important; max-width: none !important; }
+  html body:not(#bf-lab) #we-started-here .lp-feature:last-child:nth-child(odd) { grid-column: 1 / -1 !important; border-left: 0 !important; }
+}
