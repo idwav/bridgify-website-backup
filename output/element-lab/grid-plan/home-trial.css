@@ -20,8 +20,10 @@
 }
 
 /* "Bridgify does the connecting once" bar (owner, 19 Nov 2026): the same space above it (to the heading) and below it
-   (to the two panels), from the table (--bf-gap-to-control: 40 tablet, 48 desktop). It was 16 above and 48-64 below. */
+   (to the two panels), from the table (--bf-gap-title-text: 24 tablet, 32 desktop). It was 16 above and 48-64 below.
+   The "+" at its end opened nothing; it is gone from tablet and desktop. */
 @media (min-width: 600px) {
-  html body:not(#bf-lab) #opportunity-study p.pb-bar { margin-top: var(--bf-gap-to-control) !important; margin-bottom: 0 !important; }
-  html body:not(#bf-lab) #opportunity-study .pb-panels { margin-top: var(--bf-gap-to-control) !important; }
+  html body:not(#bf-lab) #opportunity-study p.pb-bar { margin-top: var(--bf-gap-title-text) !important; margin-bottom: 0 !important; }
+  html body:not(#bf-lab) #opportunity-study .pb-panels { margin-top: var(--bf-gap-title-text) !important; }
+  html body:not(#bf-lab) #opportunity-study p.pb-bar > i[aria-hidden="true"] { display: none !important; }
 }
