@@ -1,0 +1,34 @@
+image,decision,references
+01-seine-cruise,Selected original,personalization-ai-hero.html; marketplace.html; airlines.html; hotels.html; personalization.html; marketplace-rows.js; workflow-preview.js; about-photo.css; workflow-preview.css; airlines.css
+02-louvre,Selected original,index-v2.html; travel-technology.html; personalization-ai-hero.html; loyalty-finance.html; marketplace.html; airlines.html; about-us.html; hotels.html; personalization.html; api.html; about-motion.js; home-cta-v2.js; marketplace-journey.js; api-whats-inside.js; workflow-preview.js; travel-technology-hero-polish.js; marketplace-customization.js
+03-montmartre,Replacement explicitly selected in chat,personalization.html
+04-eiffel-night,Selected original,index-v2.html; airlines.html; hotels.html; personalization.html; api.html; about-motion.js; home-cta-v2.js; api-whats-inside.js
+05-paris-food-tour,Replacement explicitly selected in chat,otas.html; index-v2.html; loyalty-finance.html; marketplace.html; super-apps.html; api.html; about-motion.js; home-cta-v2.js; hotels-mail-hero.js; api-whats-inside.js; travel-technology-hero-polish.js; marketplace-customization.js; mobile/pages/index-v2.js
+06-wine-cheese,Selected original,personalization.html
+07-seine-dinner,Selected original,index-v2.html; travel-technology.html; marketplace.html; airlines.html; hotels.html; personalization.html; api.html; about-motion.js; home-cta-v2.js; api-whats-inside.js; travel-technology-hero-polish.js; marketplace-customization.js
+08-colosseum,Selected original,otas.html; index-v2.html; travel-technology.html; loyalty-finance.html; marketplace.html; journey-scroll-v2.html; about-motion.js; marketplace-rows.js; travel-technology-process-preview.js; api-network-slider.js; otas-process-preview.js; products-v2.js; home-cta-v2.js; airlines-process-preview.js; api-whats-inside.js; workflow-preview.js; product-skin.css; mobile/pages/index-v2.js
+09-florence,Selected original,index-v2.html; loyalty-finance.html; journey-scroll-v2.html; about-motion.js; hotels-process-preview.js; home-cta-v2.js; loyalty-finance-process-preview.js; airlines-process-preview.js; super-apps-process-preview.js; api-whats-inside.js; marketplace-process-preview.js; travel-technology-hero-polish.js
+10-alps,Selected original,index-v2.html; about-us.html; api.html; about-motion.js; travel-technology-process-preview.js; otas-process-preview.js; hotels-process-preview.js; home-cta-v2.js; api-whats-inside.js; travel-technology-hero-polish.js
+11-catamaran,Selected original,otas.html; index-v2.html; super-apps.html; about-us.html; about-motion.js; home-cta-v2.js; travel-technology-hero-polish.js; mobile/pages/index-v2.js
+12-london-eye,Selected original,otas.html; index-v2.html; marketplace.html; hotels.html; api.html; home-cta-v2.js; loyalty-finance-process-preview.js; hotels-mail-hero.js; api-whats-inside.js; workflow-preview.js; travel-technology-hero-polish.js
+13-santorini,Selected original,otas.html; index-v2.html; api.html; marketplace-rows.js; home-cta-v2.js; api-whats-inside.js; mobile/pages/index-v2.js
+14-beach-club,Selected original,otas.html; index-v2.html; super-apps.html; home-cta-v2.js
+15-maldives,Selected original,journey-scroll-v2.html; about-motion.js; airlines-process-preview.js; api-process-preview.js; super-apps-process-preview.js
+16-live-music,Replacement explicitly selected in chat,otas.html; index-v2.html; travel-technology.html; loyalty-finance.html; marketplace.html; solution-preview-marketplace.html; super-apps.html; airlines.html; api.html; solution-preview-api.html; solution-preview-ai.html; home-cta-v2.js; loyalty-finance-process-preview.js; super-apps-process-preview.js; hotels-mail-hero.js; api-whats-inside.js; travel-technology-hero-polish.js; marketplace-customization.js; mobile/pages/index-v2.js
+17-hotel-london,Selected original,index-v2.html; marketplace.html; hotels.html; api.html; travel-technology-process-preview.js; otas-process-preview.js; hotels-process-preview.js
+18-trip-planning,Replacement explicitly selected in chat,index-v2.html
+19-airline,Selected original,index-v2.html; marketplace.html
+20-loyalty-payment,Selected original,index-v2.html; marketplace.html
+21-traveltech,Selected original,index-v2.html
+22-super-app,Replacement explicitly selected in chat,index-v2.html; marketplace.html
+23-infrastructure,Selected original,blog-aggregation.html; insights.html; api-process-preview.js; developers-process-preview.js; marketplace-process-preview.js
+24-analytics,Replacement explicitly selected in chat,api-process-preview.js; developers-process-preview.js
+25-support,Replacement explicitly selected in chat,developers-process-preview.js
+26-global-commerce,Selected original,marketplace-process-preview.js
+27-login,Excluded: no login background,
+28-careers,Optional: no new photo section added,
+29-blog-infrastructure,Selected original,insights.html; blog-infrastructure.html
+30-rome-food,Rejected in latest correction; replaced by 05 bakery image,
+31-waterpark,Selected original,index-v2.html
+32-science-museum,Selected original,index-v2.html
+33-old-town,Selected original,super-apps.html
