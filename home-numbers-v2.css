@@ -22,7 +22,7 @@
 .nb2-stats>div:nth-child(2){left:6.3%}
 .nb2-stats>div:nth-child(3){left:53.7%}
 /* Security: a cream card inset on the dark page, as in the lab (10 · Security & compliance) */
-.sec2{box-sizing:border-box;padding:clamp(32px,3.4vw,56px) 3.7%;background:#100c0b}
+.sec2{box-sizing:border-box;padding:48px var(--home-gutter);background:#100c0b}
 .sec2-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:32px 56px;align-items:center;padding:clamp(28px,3vw,64px);border-radius:22px;background:#EEE9DE;color:#180F10}
 .sec2-eyebrow{display:inline-flex;align-items:center;gap:10px;font:550 12px/1.4 Sofia,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#B83A23}
 .sec2-eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:linear-gradient(#FFB194,#F46649);box-shadow:0 0 10px #F46649}
@@ -58,7 +58,7 @@
   .v2e-proof .nb2-main dd{font-size:88px}
   .nb2-stats>div:nth-child(2){left:22px;bottom:22px;width:42%}
   .nb2-stats>div:nth-child(3){left:auto;right:22px;bottom:22px;width:42%}
-  .nb2-stats dt{font-size:10px;letter-spacing:.1em}
+  .nb2-stats dt{font-size:12px;letter-spacing:.08em}
   .nb2-stats dd{font-size:clamp(32px,9vw,40px)}
   .sec2{padding:24px 16px}
   .sec2-in{grid-template-columns:minmax(0,1fr);padding:28px 20px}
@@ -67,6 +67,32 @@
 @media (prefers-reduced-motion:reduce){.sec2-seal svg{transition:none}}
 
 /* FAQ on the same gutter as every section (the shared .copy-inner caps at 1400px and centres) */
-#faq.copy-faq{padding-left:3.7%;padding-right:3.7%}
+#faq.copy-faq{padding-left:var(--home-gutter);padding-right:var(--home-gutter)}
 #faq.copy-faq .copy-inner{max-width:none;margin-left:0;margin-right:0}
-@media (max-width:900px){#faq.copy-faq{padding-left:24px;padding-right:24px}}
+@media (max-width:1199px){.sec2{padding-top:40px;padding-bottom:40px}}
+@media (max-width:700px){#faq.copy-faq{padding-top:56px;padding-bottom:56px}}
+
+/* Type floor (TYPOGRAPHY.md: labels 12px): the diagram-relative stat labels never drop below 12px. */
+.nb2-stats dt{font-size:max(12px,.85cqw)}
+
+/* Grid QA (18 Nov 2026): the Security card's content starts and ends on page column lines.
+   Side padding = one column + one gap; inside, the columns repeat the page grid (10 of 12 on desktop, 6 of 8 on tablet). */
+@media (min-width:1200px){
+  .sec2-in{grid-template-columns:repeat(10,minmax(0,1fr));column-gap:24px;padding-left:calc((100% + 24px)/12);padding-right:calc((100% + 24px)/12)}
+  .sec2-copy{grid-column:1/span 5}
+  .sec2-badges{grid-column:6/-1}
+}
+@media (min-width:768px) and (max-width:1199px){
+  .sec2-in{grid-template-columns:repeat(6,minmax(0,1fr));column-gap:20px;padding-left:calc((100% + 20px)/8);padding-right:calc((100% + 20px)/8)}
+  .sec2-copy{grid-column:1/span 3}
+  .sec2-badges{grid-column:4/-1}
+}
+/* Below 1000px the proof card is too small for 12px labels in the desktop arrangement: a smaller lead number and a lower bottom row keep them apart. */
+@media (min-width:721px) and (max-width:999px){
+  .nb2-stats dt{letter-spacing:.06em}
+  .nb2-main{top:11%}
+  .nb2-main dd{font-size:7.6cqw}
+  .nb2-stats>div:nth-child(2),.nb2-stats>div:nth-child(3){bottom:6%;width:42%;padding-top:1cqw}
+  .nb2-stats>div:nth-child(3){left:auto;right:6.3%}
+}
+@media (min-width:721px) and (max-width:849px){.nb2-stats>div:nth-child(n+2) dt{min-height:2.6em}}

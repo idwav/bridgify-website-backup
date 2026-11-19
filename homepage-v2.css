@@ -84,3 +84,53 @@ html.rv-ready [data-rv]{opacity:0;transition:opacity .9s cubic-bezier(.22,1,.36,
 html.rv-ready [data-rv=rise]{translate:0 40px}
 html.rv-ready .rv-on [data-rv]{opacity:1;translate:none}
 @media(prefers-reduced-motion:reduce){html.rv-ready [data-rv]{opacity:1;translate:none;transition:none}}
+
+/* Grid QA (16 Nov 2026): the header's logo and actions sit on the homepage gutter, like every section below. */
+html body[data-copy-page="index"] header.top.site-header-common{left:calc(var(--home-gutter) - 24px)!important;right:calc(var(--home-gutter) - 24px)!important}
+@media(max-width:1100px){html body[data-copy-page="index"] header.top.site-header-common{left:calc(var(--home-gutter) - 18px)!important;right:calc(var(--home-gutter) - 18px)!important}}
+@media(max-width:950px){html body[data-copy-page="index"] header.top.site-header-common{left:calc(var(--home-gutter) - 14px)!important;right:calc(var(--home-gutter) - 14px)!important}}
+@media(max-width:380px){html body[data-copy-page="index"] header.top.site-header-common{left:calc(var(--home-gutter) - 10px)!important;right:calc(var(--home-gutter) - 10px)!important}}
+/* Keep the coral phrase whole so no word is left alone on the last line. */
+#home .bv2-hero-copy h1 .v2-ink,#sources .trust-copy h2 .v2-ink{white-space:nowrap}
+/* Grid QA (18 Nov 2026): no lone word on the eyebrow's or the Enterprise paragraph's last line; the hero text link gets a 44px tap area without moving anything. */
+#home .bv2-hero-eyebrow{text-wrap:balance}
+#marketplace-results .v2e-copy p{text-wrap:pretty}
+#home .bv2-hero-actions>a{padding-block:11px;margin-block:-11px}
+#personalization .home-intent-heading h2{text-wrap:balance}
+#personalization .home-intent-heading h2 .v2-ink{white-space:nowrap}
+
+/* Grid QA, second pass (18 Nov 2026) */
+/* Audiences: coral phrase whole, no lone word in card titles, no empty band in phone cards (the whole card stays the tap area). */
+#audiences .audiences-head h2{text-wrap:balance}
+#audiences .audiences-head h2 .v2-ink{white-space:nowrap}
+#audiences .audience-card h3{text-wrap:balance}
+#audiences .audience-card p{text-wrap:pretty}
+@media(max-width:650px){#audiences .audience-card{min-height:0}#audiences .audience-card a{margin-top:8px}}
+/* Products and AIyelet headings: title on the left half of the page grid, text on the right half (12 columns on desktop, 8 on tablet). */
+@media(min-width:901px) and (max-width:1199px){
+  #products .pr-head,#personalization .home-intent-heading{grid-template-columns:repeat(8,minmax(0,1fr));column-gap:20px}
+}
+@media(min-width:1200px){
+  #products .pr-head,#personalization .home-intent-heading{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px}
+}
+@media(min-width:901px){
+  #products .pr-head{grid-template-areas:none}
+  #products .pr-head .hm-eyebrow{grid-column:1/span 4;grid-row:1}
+  #products .pr-head h2{grid-column:1/span 4;grid-row:2}
+  #products .pr-head p{grid-column:5/-1;grid-row:1/span 2}
+  #personalization .home-intent-heading>:first-child{grid-column:1/span 4}
+  #personalization .home-intent-heading>.home-intent-copy{grid-column:5/-1}
+}
+@media(min-width:1200px){
+  #products .pr-head .hm-eyebrow,#products .pr-head h2,#personalization .home-intent-heading>:first-child{grid-column:1/span 6}
+  #products .pr-head p,#personalization .home-intent-heading>.home-intent-copy{grid-column:7/-1}
+}
+#products .pr-card p{text-wrap:pretty}
+/* FAQ: coral phrase whole, balanced questions, no lone word in answers. */
+#faq h2 .v2-ink{white-space:nowrap}
+#faq h2,#faq summary{text-wrap:balance}
+#faq details p{text-wrap:pretty}
+/* AIyelet demo label: 12px floor on phones. */
+@media(max-width:650px){#personalization.home-intent .intent-field small{font-size:12px}}
+#products .pr-head h2{text-wrap:balance}
+#products .pr-head h2 .hm-ink{white-space:nowrap}

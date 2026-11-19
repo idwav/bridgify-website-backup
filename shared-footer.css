@@ -76,3 +76,18 @@ html body .bf-cta-card .bf-cta-body{margin:18px auto 0;max-width:600px;font:400 
 }
 @media(max-width:420px){.bf-cta-card .bf-cta-actions{flex-direction:column;align-items:stretch}}
 @media(prefers-reduced-motion:reduce){.bf-cta-card .bf-cta-actions a{transition:none}}
+/* Grid QA (18 Nov 2026): spacing on the 8 scale, homepage footer on the homepage gutter, 12px type floor. (44px tap targets were tried and withdrawn: the user prefers the compact list.) */
+.bf-footer-shell{padding:16px}
+body[data-copy-page="index"] .bf-footer{--bf-gutter:calc(var(--home-gutter, 53px) - 16px)}
+.bf-footer .bf-footer-small-print{text-wrap:pretty}
+.bf-footer-bottom{font-size:12px}
+.bf-footer-top-link{font-size:12px;min-height:44px}
+@media(max-width:760px){
+  .bf-footer-shell{padding:8px}
+  .bf-footer{--bf-gutter:16px}
+  body[data-copy-page="index"] .bf-footer{--bf-gutter:calc(var(--home-gutter, 24px) - 8px)}
+  .bf-footer .bf-footer-group h3{font-size:12px}
+  .bf-footer-brand>span{font-size:12px}
+  .bf-footer-bottom{font-size:12px}
+  .bf-footer-top-link{font-size:12px}
+}

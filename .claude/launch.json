@@ -20,6 +20,26 @@
         "8081"
       ],
       "port": 8081
+    },
+    {
+      "name": "github-main",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "/private/tmp/claude-501/-Users-tomwininger-Documents-brands-or-nor-bridgify-website-backup--claude-worktrees-bridgify-website-backup-9e2b41/d1fb751b-992b-4ef6-b991-0e75960cb79b/scratchpad/github-main/dev.py",
+        "--port",
+        "8085"
+      ],
+      "port": 8085
+    },
+    {
+      "name": "embed-all",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "/private/tmp/claude-501/-Users-tomwininger-Documents-brands-or-nor-bridgify-website-backup--claude-worktrees-bridgify-website-backup-9e2b41/d1fb751b-992b-4ef6-b991-0e75960cb79b/scratchpad/embed-all/dev.py",
+        "--port",
+        "8086"
+      ],
+      "port": 8086
     }
   ]
 }
