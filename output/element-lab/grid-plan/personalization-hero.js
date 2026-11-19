@@ -13,6 +13,7 @@
    (hero type, 16/1.55 text, label 24, text 32, buttons 48 and 52 high); the AIyelet frame alone is scaled to columns 7-12.
    From 600 up the two buttons are the site's own (coral primary, outline secondary, 16px) and the closing words carry
    the moving coral ink (DESIGN.md §5).
+   Desktop copy is centred on the AIyelet frame's visible box (owner, 19 Nov 2026), as on the API hero.
    Runs in the outer page; reaches into the same-origin iframe. Phones are not touched. */
 (() => {
   const frame = document.querySelector('#section-1 iframe'); if (!frame) return;
@@ -65,9 +66,14 @@
         const k = half / 790, sh = 730 * k, copy = d.querySelector('.copy'), ch = copy ? copy.offsetHeight : 0;
         const sy = Math.max(top, top + (ch - sh) / 2);
         main.style.setProperty('--bf-k', k); main.style.setProperty('--bf-sx', (m + half + 32) + 'px'); main.style.setProperty('--bf-sy', sy + 'px');
+        // the copy (label to buttons) is centred on the AIyelet frame's visible box, like the API hero (owner, 19 Nov 2026:
+        // the text is shorter than the frame, and starting at the top it looked high); never above the hero top
+        const af = d.querySelector('.ai-frame'), st = d.documentElement.scrollTop;
+        const ft = af ? af.getBoundingClientRect().top + st : sy, fb = af ? af.getBoundingClientRect().bottom + st : sy + sh;
+        const cy = Math.max(top, (ft + fb) / 2 - ch / 2);
+        main.style.setProperty('--bf-top', cy + 'px');
         // section-y (96) under the lowest thing that shows: the buttons or the AIyelet frame's visible edge (not its box)
-        const af = d.querySelector('.ai-frame'), fb = af ? af.getBoundingClientRect().bottom + d.documentElement.scrollTop : sy + sh;
-        if (sec) sec.style.setProperty('--bf-ai-h', Math.ceil(Math.max(top + ch, fb) + 96) + 'px');
+        if (sec) sec.style.setProperty('--bf-ai-h', Math.ceil(Math.max(cy + ch, fb) + 96) + 'px');
         return;
       }
       if (!on()) return;
