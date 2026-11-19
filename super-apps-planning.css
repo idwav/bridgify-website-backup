@@ -68,3 +68,6 @@ html body #section-3 .up-card{background:radial-gradient(at 100% 0%,#ff896238,#0
 html body #section-3 .up-card img{box-shadow:0 0 0 1px #f6c8b552}
 html body #section-3 .up-status,html body #section-3 .up-payment{border-color:#f6c8b533}
 html body #section-3 .up-story-steps{margin-bottom:34px}
+
+/* Less empty space around the pinned story */
+html body #section-3.sc-section{padding-top:48px!important;padding-bottom:32px!important}
