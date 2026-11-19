@@ -6,6 +6,8 @@ body[data-copy-page="login"] .top .brand-lockup{color:#fff}
 body[data-copy-page="login"] .top .connect{background:#eee9de;color:#180f10}
 
 .login-page{min-height:100svh;box-sizing:border-box;padding:168px 5% 96px;display:flex;align-items:center}
+/* The octopus arm swings a few px past the screen edge on tablets (768-1023: page 3-4px wider than the screen). Clip sideways only; nothing is cut vertically and no scroll box is made. */
+.login-page{overflow-x:clip}
 .login-shell{width:100%;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:clamp(40px,7vw,120px);align-items:center}
 .login-eyebrow{display:flex;align-items:center;gap:12px;font:600 12px/1.5 Sofia,sans-serif;letter-spacing:.16em;color:#ff9a7c;margin-bottom:22px}
 .login-eyebrow span{width:6px;height:6px;border-radius:50%;background:#f46649;box-shadow:0 0 12px #f46649a6}
