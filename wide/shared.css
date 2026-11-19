@@ -146,3 +146,10 @@ html body .lr-product.lr-bought { border-color: #f46649; box-shadow: 0 0 28px #f
   html body:not(#bf-lab) .careers-page :is(.cw-head > p, .cw-body > p, .cr-copy > p),
   html body:not(#bf-lab) #section-2 .ar-heading > p { font-size: var(--type-body) !important; line-height: 1.55 !important; }
 }
+/* Two buttons only (owner, 19 Nov 2026): primary = filled coral, secondary = transparent with the coral border.
+   A page button with neither modifier still drew the old dark gradient (e.g. Airlines hero "See the Experiences API"). */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) main a.brand-action:not(.brand-action-primary) { --brand-button-start: #f4664900; --brand-button-end: #f4664900; box-shadow: none !important; }
+  html body:not(#bf-lab) main a.brand-action:not(.brand-action-primary):is(:hover, :focus-visible) { --brand-button-start: #f466491f; --brand-button-end: #f4664914; color: #fff8f1 !important; }
+  html body:not(#bf-lab) main a.brand-action.brand-action-on-light:not(.brand-action-primary):is(:hover, :focus-visible) { color: #180f10 !important; }
+}

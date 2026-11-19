@@ -28,6 +28,8 @@ BASE = 'http://127.0.0.1:8084/'
 SHARED = {'grid.css': 'grid-vars.css', 'tokens.css': 'tokens-wide.css', 'type.css': 'type-wide.css',
           'header.css': 'header-compact.css', 'split.css': 'split-align.css',
           'interim.css': 'line-interim.css', 'buttons.css': 'buttons-wide.css', 'shared.css': 'shared-wide.css'}
+# title ink and font faces (19 Nov 2026): one lab file, baked after each page's own layers
+INK = 'ink-fonts.css'
 # page: (url, role map, page layers in order, split pairs, page script)
 PAGES = {
     'index-v2': ('index-v2.html?version=2', 'roles-index-v2.js', ['home-trial.css', 'tablet-hero.css', 'hero-portrait.css'],
@@ -71,7 +73,7 @@ DIFF = r"""(props) => {
 
 def bake(b, page, cfg):
     url, roles, layers, pairs, _ = cfg
-    css = [R('grid-vars.css'), R('header-compact.css'), R('type-wide.css'), R('tokens-wide.css'), R('buttons-wide.css'), R('shared-wide.css'), R('split-align.css')] + [R(l) for l in layers]
+    css = [R('grid-vars.css'), R('header-compact.css'), R('type-wide.css'), R('tokens-wide.css'), R('buttons-wide.css'), R('shared-wide.css'), R('split-align.css')] + [R(l) for l in layers] + [R(INK)]
     js = R(roles) + '\n' + R('rhythm-wide.js')
     sj = (f'window.BridgifySplitPairs = {json.dumps(pairs)};\n' if pairs else '') + R('split-align.js')
     blocks = []
@@ -118,7 +120,7 @@ def build(dest, only=None):
         for page, cfg in PAGES.items():
             if only and page not in only: continue
             head = f'/* Bridgify tablet + desktop layer · {page} · built by scripts/build-wide.py from output/element-lab/grid-plan/. Do not edit; edit the lab and rebuild. */\n'
-            body = '\n'.join(f'/* ---- {l} ---- */\n' + R(l) for l in cfg[2])
+            body = '\n'.join(f'/* ---- {l} ---- */\n' + R(l) for l in cfg[2] + [INK])
             baked = '\n'.join(bake(b, page, cfg))
             open(os.path.join(dest, 'pages', f'{page}.css'), 'w').write(head + body + '\n/* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */\n' + baked + '\n')
             if cfg[4]: shutil.copyfile(os.path.join(LAB, cfg[4]), os.path.join(dest, 'pages', f'{page}.js'))
