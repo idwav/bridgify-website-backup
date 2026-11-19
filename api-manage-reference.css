@@ -63,3 +63,8 @@
 
 /* Who does what: the Bridgify column sits opposite the product, wires run straight across (no step column; Copy v4 has none). */
 @media(min-width:901px){#integration.am-section .am-panel{grid-template-columns:38% 34%}}
+
+/* Bridgify icon system: coral outline, one illuminated node; strokes stay 1.5px at any icon size */
+#integration.am-section :is(.am-browser-bar,.am-checkout,.am-icon-box) svg{fill:none;stroke:#f46649;stroke-width:1.5}
+#integration.am-section :is(.am-browser-bar,.am-checkout,.am-icon-box) svg path,#integration.am-section :is(.am-browser-bar,.am-checkout,.am-icon-box) svg circle:not(.icon-node){vector-effect:non-scaling-stroke}
+#integration.am-section :is(.am-browser-bar,.am-checkout,.am-icon-box) svg .icon-node{fill:#fff1e7;stroke:none}
