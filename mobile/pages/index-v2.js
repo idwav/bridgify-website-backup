@@ -122,7 +122,7 @@
 (() => {
   const A = window.BridgifyAdaptive; if (!A || !A.MQ.mobile.matches) return;
   const copy = document.querySelector('#home .bv2-hero-copy'); if (!copy || copy.querySelector('.ad-hero-flow')) return;
-  const src = ['colosseum', 'food-tour', 'catamaran', 'concert'].map(n => `<img src="assets/hero-experiences/${n}.jpg" alt="" width="48" height="48" decoding="async">`).join('');
+  const src = ['assets/v2/08-colosseum-480.jpg', 'assets/v2/05-paris-food-tour-960.jpg', 'assets/v2/11-catamaran-480.jpg', 'assets/v2/16-live-music-960.jpg'].map(n => `<img src="${n}" alt="" width="48" height="48" decoding="async">`).join('');
   const label = document.querySelector('#home .bv2-funnel')?.getAttribute('aria-label') || '';
   const el = document.createElement('div');
   el.className = 'ad-hero-flow'; el.setAttribute('role', 'img'); el.setAttribute('aria-label', label);

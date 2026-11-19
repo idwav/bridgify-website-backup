@@ -5,11 +5,11 @@
   const code = root.querySelector('.nt-code-lines'), tabs = root.querySelector('.nt-tabs');
   const grid = root.querySelector('.nt-experiences'), product = root.querySelector('.nt-product');
   const states = [
-    {name:'Experiences', items:[['louvre','Louvre Museum'],['food-tour','Food experiences'],['concert','Live shows']]},
-    {name:'Tours', items:[['florence','City walks'],['food-tour','Food tours'],['seine-dinner','River cruises']]},
-    {name:'Activities', items:[['catamaran','Sailing'],['alps','Outdoor adventures'],['london-eye','Attractions']]}
+    {name:'Experiences', items:[['assets/v2/02-louvre-480.jpg','Louvre Museum'],['assets/v2/05-paris-food-tour-960.jpg','Food experiences'],['assets/v2/16-live-music-960.jpg','Live shows']]},
+    {name:'Tours', items:[['assets/v2/09-florence-480.jpg','City walks'],['assets/v2/05-paris-food-tour-960.jpg','Food tours'],['assets/v2/07-seine-dinner-480.jpg','River cruises']]},
+    {name:'Activities', items:[['assets/v2/11-catamaran-480.jpg','Sailing'],['assets/v2/10-alps-480.jpg','Outdoor adventures'],['assets/v2/12-london-eye-480.jpg','Attractions']]}
   ];
-  states.flatMap(s => s.items).forEach(([asset]) => { const im = new Image(); im.src = `assets/hero-experiences/${asset}.jpg`; });
+  states.flatMap(s => s.items).forEach(([asset]) => { const im = new Image(); im.src = `${asset}`; });
   const bridge = root.querySelector('.nt-bridge'), hub = document.createElement('div');
   hub.className = 'te-hub';
   [...bridge.querySelectorAll(':scope > svg,:scope > strong')].forEach(el => hub.append(el));
@@ -33,7 +33,7 @@
     grid.setAttribute('aria-labelledby',buttons[active].id);
     grid.replaceChildren(...state.items.map(([asset,title],i)=>{
       const card = document.createElement('div'); card.className = 'nt-experience';
-      card.innerHTML = `<img class="nt-photo" src="assets/hero-experiences/${asset}.jpg" alt=""><div class="nt-caption"><span>${title}</span></div>`;
+      card.innerHTML = `<img class="nt-photo" src="${asset}" alt=""><div class="nt-caption"><span>${title}</span></div>`;
       if (animate && !reduced.matches) card.animate([{opacity:0,transform:'translateY(14px) scale(.97)'},{opacity:1,transform:'translateY(0) scale(1)'}],{duration:650,delay:i*110,easing:'cubic-bezier(.16,1,.3,1)',fill:'backwards'});
       return card;
     }));
