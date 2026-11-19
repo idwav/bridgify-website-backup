@@ -59,7 +59,7 @@ html body #section-3 .up-story-copies>.up-story-copy{grid-area:1/1;min-width:0}
 html body #section-3 .up-story-copies>.up-story-copy[hidden]{display:block!important;visibility:hidden}
 
 /* The Aiyelet line stays inside the pinned section for the whole scroll */
-html body #section-3 .up-story-sticky>.sc-foot{grid-column:1/-1;margin-top:8px;padding-top:20px;border-top:1px solid #eee9de1f}
+html body #section-3 .up-story-sticky>.sc-foot{grid-column:1/-1;margin-top:8px;padding-top:0;border:0}
 
 /* Glass: phone frame, screen and cards */
 html body #section-3 .up-phone{background:radial-gradient(at 100% 0%,#ff896252,#0000 30%),radial-gradient(at 0% 100%,#ff78534a,#0000 28%),linear-gradient(115deg,#fff8f114,#0000 45%,#fff8f10c),#120b0aa0;border:1px solid #f6c8b594!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 64px #f4664944,0 30px 70px #000b;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
