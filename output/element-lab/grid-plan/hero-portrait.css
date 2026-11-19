@@ -43,4 +43,8 @@
   html body #home .fn-band .fn-feat { top: calc(var(--u) * 518); }
   /* the visual is narrowed to fit the first screen (hero-portrait.js); its row centres it */
   html body #home .bv2-hero-layout:has(.fn-band) { justify-items: stretch; }
+  /* the desktop-grid scene that the script replaces is not shown: the visual appears once, at its final size.
+     If the script never runs, it shows after 3s. */
+  html body #home .bv2-funnel:not(.fn-sized) { aspect-ratio: 800 / 540 !important; opacity: 0; animation: fn-reveal 0s 3s forwards; }
 }
+@keyframes fn-reveal { to { opacity: 1; } }
