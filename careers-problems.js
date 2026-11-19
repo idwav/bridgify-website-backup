@@ -23,21 +23,22 @@
       const dots = Array.from({ length: 9 }, (_, i) => mk('circle', { r: F.radius(i), fill: '#fff8f1', stroke: '#f46649', 'stroke-width': .7, opacity: 0 }, svg));
       runs.push({ path, len: path.getTotalLength(), dots, start, dur, to, glowHub });
     };
-    cells.forEach((c, i) => { const b = box(c), x = b.x + b.w / 2; route(x, b.y + b.h, h.x + h.w / 2 + (i - 1.5) * Math.min(60, h.w / 8), h.y, 700 + i * 900, 1300, c, true); });
-    partners.forEach((p, i) => { const b = box(p); route(h.x + h.w / 2 + (i - 1) * Math.min(80, h.w / 8), h.y + h.h, b.x + b.w / 2, b.y, 5200 + i * 450, 1300, p, false); });
+    // hub -> partners, then partners -> the problems
+    const hc = h.x + h.w / 2;
+    partners.forEach((p, i) => { const b = box(p); route(hc + (i - 1) * Math.min(80, h.w / 8), h.y + h.h, b.x + b.w / 2, b.y, 500 + i * 450, 1200, p, false); });
+    cells.forEach((c, i) => { const j = [0, 1, 1, 2][i], pb = box(partners[j]), b = box(c); route(pb.x + pb.w / 2 + (i === 1 ? -18 : i === 2 ? 18 : 0), pb.y + pb.h, b.x + b.w / 2, b.y, 2700 + i * 700, 1300, c, false); });
   }
   const reset = () => { cells.forEach(c => c.classList.remove('is-lit')); partners.forEach(p => p.classList.remove('is-lit')); hub.style.setProperty('--arrival', 0); runs.forEach(a => a.dots.forEach(d => d.setAttribute('opacity', 0))); };
   new ResizeObserver(build).observe(root); document.fonts?.ready.then(build); build();
   if (reduced.matches || !F) { cells.forEach(c => c.classList.add('is-lit')); partners.forEach(p => p.classList.add('is-lit')); return; }
   F.run(root, elapsed => {
     const t = elapsed % CYCLE;
-    cells.forEach((c, i) => c.classList.toggle('is-lit', t >= 500 + i * 900 && t < 8200));
+    cells.forEach((c, i) => c.classList.toggle('is-lit', t >= 2700 + i * 700 + 1100 && t < 8200));
     let arrival = 0;
     runs.forEach(a => {
       a.dots.forEach((d, i) => { const u = (t - a.start - i * F.delay) / a.dur; if (u < 0 || u > 1) { d.setAttribute('opacity', 0); return; } const q = a.path.getPointAtLength(a.len * F.smooth(u)); d.setAttribute('cx', q.x); d.setAttribute('cy', q.y); d.setAttribute('opacity', Math.max(0, Math.min(1, u * 10, (1 - u) * 18)) * (1 - i * .065)); });
-      if (a.glowHub) arrival = Math.max(arrival, F.arrival(t - a.start - a.dur + 150));
     });
-    hub.style.setProperty('--arrival', arrival);
-    partners.forEach((p, i) => p.classList.toggle('is-lit', t >= 5200 + i * 450 + 1100 && t < 8200));
+    hub.style.setProperty('--arrival', F.arrival(t - 100));
+    partners.forEach((p, i) => p.classList.toggle('is-lit', t >= 500 + i * 450 + 1000 && t < 8200));
   }, reset);
 })();
