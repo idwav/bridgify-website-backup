@@ -32,3 +32,10 @@
  .cpp3-target{margin-top:clamp(24px,3.6vh,40px);padding:22px clamp(24px,3vw,40px)}
  .cpp3-target b{font-size:clamp(22px,2.1vw,30px)}
 }
+
+/* Titles share one top line and two-line height, so the descriptions line up across the four columns. */
+.cpp3-cell h3{margin:0!important;padding-top:28px!important;min-height:calc(2.4em + 28px);display:flex;align-items:flex-start}
+.cpp3-cell p{margin-top:12px!important}
+.cpp3-cell{min-height:0!important;justify-content:flex-start}
+@media(max-width:1000px){.cpp3-cell h3{min-height:0}}
+@media(max-width:599px){.cpp3-cell h3{padding-top:20px!important;min-height:0}}
