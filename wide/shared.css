@@ -118,3 +118,31 @@ html body .lr-product.lr-bought { border-color: #f46649; box-shadow: 0 0 28px #f
   /* Loyalty "Experiences for cardholders": .lf-main h2 ran clamp(30px, 2.8vw, 50px). */
   html body:not(#bf-lab) .lf-main #section-3 h2 { font-size: var(--type-section) !important; line-height: 1.2 !important; }
 }
+
+/* ==== Content line on the five inner pages (owner, 19 Nov 2026) ====
+   About, Careers, Press and Insights ran 3.3vw (48 at 1440, 63 at 1920) and Contact 6vw (86 / 115, with a 1400px box);
+   every other page sits on --try-margin (32 tablet; 58 at 1440, 180 at 1920 with the 1560 cap). */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) .about-page :is(section#top, section#our-story, section#hbx, .ab-pin),
+  html body:not(#bf-lab) .careers-page :is(section#top, section#why-now, section#reach, .cm-wrap, section#problems, section#open-roles),
+  html body:not(#bf-lab)[data-copy-page="contact"] main > section,
+  html body:not(#bf-lab) main:is(.nr-main, .blog-main) {
+    padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important;
+  }
+  html body:not(#bf-lab)[data-copy-page="contact"] main > section .block-inner { max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; }
+}
+/* Spacing on the same five pages, from the table: label → title 16 tablet / 24 desktop, title → intro 24 / 32.
+   Measured before: label → title 12-26, title → intro 16-26. */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) :is(main.about-page, main.careers-page, body[data-copy-page="contact"] main, main.nr-main, main.blog-main) :is(.ab-label, .cw-label, .career-label, .eyebrow):has(+ :is(h1, h2)) { margin-bottom: 0 !important; }
+  html body:not(#bf-lab) :is(main.about-page, main.careers-page, body[data-copy-page="contact"] main, main.nr-main, main.blog-main) :is(.ab-label, .cw-label, .career-label, .eyebrow) + :is(h1, h2) { margin-top: var(--bf-gap-label-title) !important; }
+  html body:not(#bf-lab) :is(main.about-page, main.careers-page, body[data-copy-page="contact"] main, main.nr-main, main.blog-main) :is(h1, h2):has(+ p) { margin-bottom: 0 !important; }
+  html body:not(#bf-lab) :is(main.about-page, main.careers-page, body[data-copy-page="contact"] main, main.nr-main, main.blog-main) :is(h1, h2) + p { margin-top: var(--bf-gap-title-text) !important; }
+}
+/* Running text and lead paragraphs are 16px on inner pages (TYPOGRAPHY.md, 14 Nov). About ran 16.6-17.3, Careers and
+   the Airlines "Seats and bags" intro 18. */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) .about-page :is(.ab-story-3 > p, p.ab-hbx-p),
+  html body:not(#bf-lab) .careers-page :is(.cw-head > p, .cw-body > p, .cr-copy > p),
+  html body:not(#bf-lab) #section-2 .ar-heading > p { font-size: var(--type-body) !important; line-height: 1.55 !important; }
+}
