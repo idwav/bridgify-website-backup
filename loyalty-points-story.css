@@ -53,6 +53,14 @@ html body .lp-bill .lp-ledger,html body .lp-bill .lp-reward{border-color:#f46649
 .lp-redemption-slider input:focus-visible{outline:2px solid #f46649;outline-offset:10px}
 .lp-redemption-slider input:hover::-webkit-slider-thumb{box-shadow:0 2px 8px #180f1026,0 0 0 6px #f4664928}
 
-/* Result row sits under the opening text, before the demo cards */
-.lp-bill header{margin-bottom:24px}
-.lp-bill .lp-result{margin:0 0 28px}
+/* Result row lives inside the ledger card, under the big number; slider and footer sit lower; the section is centred on the screen */
+.lp-bill .lp-ledger{display:flex;flex-direction:column}
+.lp-bill .lp-ledger>strong{margin:18px 0 0}
+.lp-bill .lp-ledger .lp-result{margin:22px 0 0;gap:12px 28px;flex-wrap:wrap}
+.lp-bill .lp-ledger .lp-result strong{font-size:20px;min-width:0}
+.lp-bill .lp-ledger .lp-redemption-slider{margin-top:auto;padding-top:28px}
+.lp-bill .lp-ledger .lp-ledger-foot{margin-top:18px}
+.lp-bill .lp-demo{align-items:stretch}
+.lp-bill header{margin-bottom:48px}
+@media(min-width:801px){html body section.lp-bill{min-height:100svh;justify-content:center}}
+@media(max-width:800px){.lp-bill .lp-ledger .lp-result{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;grid-auto-flow:column;gap:2px 16px;align-items:start}.lp-bill .lp-ledger .lp-result span{font-size:14px}.lp-bill .lp-ledger .lp-result strong{font-size:18px}}
