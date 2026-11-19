@@ -78,3 +78,15 @@
 }
 #integration.am-section .am-service .am-icon-box{background:none;border:0;box-shadow:none;width:auto;flex-basis:auto;height:auto;border-radius:0}
 @media(min-width:901px){#integration.am-section .am-heading>.am-actions{align-items:stretch;justify-self:end;width:max-content}}
+
+/* One screen: the section fits the viewport (height-proportional), content centred; no outer panel box or strip box */
+@media(min-width:901px){
+#integration.am-section{min-height:100svh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;padding-top:104px;padding-bottom:36px}
+#integration.am-section .am-heading{margin-bottom:24px}
+#integration.am-section .am-panel{background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important;border-radius:0}
+#integration.am-section .am-brand-strip{background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+}
+@media(min-width:901px){
+#integration#integration.am-section{padding-top:104px!important;padding-bottom:36px!important}
+#integration#integration.am-section .am-panel{margin-top:24px!important}
+}
