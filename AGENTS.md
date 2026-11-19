@@ -60,3 +60,22 @@ Added at the owner's request on 19 November 2026, after hand edits to built file
 6. Never undo a design the owner approved (for example the centred OTAs hero with its two-line desktop title).
    If you think it should change, say so in the PR and let the owner decide.
 
+
+## The PR guard: approved rules are checked on every pull request (every person and every AI model)
+
+Added at the owner's request on 19 November 2026, after a direct push to `main` overrode approved rules. Every pull
+request into `main` runs `.github/workflows/pr-guard.yml`; a red check means the PR is not merged until it is fixed.
+Run the same checks yourself before you open a PR:
+
+    python3 scripts/guard/static_check.py --base origin/main
+    python3 scripts/guard/visual_check.py --base-dir <a checkout of main> --head-dir .
+
+1. G1: never edit `wide/` or `mobile/` by hand; change their lab sources and rebuild (see the section above).
+2. G2: the files in `scripts/guard/locked.txt` hold approved global rules (type scale, buttons, FAQ, header, footer,
+   the wide/ and phone systems, the guidance documents). Changing one needs the owner's label `owner-approved`.
+3. G3: no forced overrides. A selector that repeats an id (`#faq#faq`) to beat an approved rule fails.
+4. G4: `index.html` (Version 1) stays as it is unless the owner asks.
+5. In the browser, at 1440 and 834, a PR may not make worse: split-heading alignment (the intro's letter tops level
+   with the title's, 0px), the two buttons, the two running-text colours, the type scale, the content line, or add
+   sideways scroll. Problems already on `main` do not block an unrelated PR.
+6. Never weaken the guard to pass it. If a rule is wrong, say so in the PR; the owner decides.
