@@ -61,3 +61,4 @@
 #section-2#section-2.market-product-tour .mpt-sticky .tour{align-items:center}
 #section-2#section-2.market-product-tour .stages{align-self:center;justify-content:center!important;gap:2px!important;padding:0!important}
 }
+@media(max-width:800px){#section-2#section-2.market-product-tour .stages button b{display:none}}
