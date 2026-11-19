@@ -90,3 +90,16 @@ html body #section-3.match-section .match-card.is-leaving{transform:translateX(2
 #section-3#section-3 .match-fields:before,#section-3#section-3 .match-control:before{display:none!important}
 #section-3#section-3 .match-fields{padding-left:0!important}
 #section-3#section-3 .match-control{margin-top:30px!important}
+
+/* The three panels share one centre line: engine and deck are centred against the traveler panel (the stray top margins were pushing it down) */
+@media(min-width:761px){
+#section-3#section-3.match-section .match-workspace{align-items:center!important}
+#section-3#section-3 .match-workspace>.match-controls{margin-top:0!important;margin-bottom:0!important;align-self:center!important}
+#section-3#section-3 .match-workspace>.match-engine,#section-3#section-3 .match-workspace>.match-deck{margin-top:0!important;margin-bottom:0!important;align-self:center!important}
+#section-3#section-3 .match-fields{display:block}
+}
+/* Matched panel: slightly lower rows so its height follows the traveler panel */
+@media(min-width:761px){
+#section-3#section-3 .match-queue{gap:6px!important}
+#section-3#section-3 .match-queue>*{height:60px!important;min-height:0!important;box-sizing:border-box}
+}
