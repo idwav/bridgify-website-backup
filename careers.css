@@ -276,3 +276,11 @@ body{background:#180f10;color:#eee9de}
 /* The AIyelet stage glass, copied exactly (personalization .intent-stage): coral light in two corners, a bright rim, a coral hairline. */
 #problems .cpp-target,#reach .cr-panel{border:1px solid #f4664952;border-radius:22px;background:radial-gradient(at 100% 0%,#ff89624a,#0000 17%),radial-gradient(at 0% 100%,#ff785347,#0000 16%),radial-gradient(at 0% 0%,#ffd4bb19,#0000 25%),linear-gradient(115deg,#fff8f10b,#0000 36%,#fff8f106 74%,#fff8f110);box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 15px 36px #00000022;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
 #problems .cpp-target.is-glow{box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 15px 36px #00000022,0 0 70px #f4664933}
+
+/* Same edge and glow as the AIyelet stage: a light peach stroke (the coral-frame rule is overridden), warm light blooming outside the corners,
+   and a slow warm glow drifting inside. */
+html body #problems .cpp-target.brand-coral-frame,html body #reach .cr-panel.brand-coral-frame,#problems .cpp-target,#reach .cr-panel{position:relative;isolation:isolate;border-color:#f6c8b594!important}
+#problems .cpp-target:before,#reach .cr-panel:before{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 150px 96px at 100% 0%,#ff775a77,transparent),radial-gradient(ellipse 150px 96px at 0% 100%,#ff775a77,transparent);filter:blur(16px)}
+#problems .cpp-target:after,#reach .cr-panel:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;background:radial-gradient(ellipse 46% 62% at 30% 72%,#ff7a4d40,transparent 72%),radial-gradient(ellipse 38% 50% at 72% 28%,#ffb08c30,transparent 72%);background-size:150% 150%;background-repeat:no-repeat;background-position:0% 0%;animation:glass-drift 10s ease-in-out infinite alternate}
+@keyframes glass-drift{from{background-position:0% 0%;opacity:.75}50%{opacity:1}to{background-position:100% 100%;opacity:.8}}
+@media(prefers-reduced-motion:reduce){#problems .cpp-target:after,#reach .cr-panel:after{animation:none}}
