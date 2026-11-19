@@ -96,6 +96,12 @@
   html body .ys-hero .ys-copy > h1#ys-title { max-width: none !important; text-wrap: nowrap !important; white-space: nowrap !important; }
   html body .ys-hero .ys-copy > h1#ys-title > span { text-wrap: nowrap !important; white-space: nowrap !important; }
 }
+/* An iPad Pro held upright (1024-1366, portrait) gets the larger tablet hero title (48-56px); one sentence per line
+   then ran 14px past the screen. There the title wraps on its 13em measure again, centred. */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  html body .ys-hero .ys-copy > h1#ys-title, html body .ys-hero .ys-copy > h1#ys-title > span { white-space: normal !important; text-wrap: balance !important; }
+  html body .ys-hero .ys-copy > h1#ys-title { max-width: 13em !important; }
+}
 
 /* Tablet hero (owner, 19 Nov 2026): centred like the desktop hero, the title at the tablet hero size (40px) on its 13em
    measure, and the "Already sold / days in between" card grows to the bottom of the first screen (32px from the edge).
