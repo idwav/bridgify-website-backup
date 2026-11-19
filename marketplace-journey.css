@@ -52,3 +52,12 @@
 #section-2#section-2.market-product-tour .stages button:hover{color:#ffb485!important}
 }
 @media(min-width:801px){#section-2#section-2.market-product-tour .stages button b{font-weight:550;color:#F46649}}
+
+/* Pinned, scroll-driven journey (desktop/tablet): the section is a track, header + tour stick while the steps advance with the scroll */
+@media(min-width:801px){
+#section-2#section-2.market-product-tour{overflow:clip!important;display:block!important;min-height:0!important;padding-top:0!important;padding-bottom:0!important}
+#section-2#section-2.market-product-tour::after{content:"";display:block;height:120svh}
+#section-2#section-2.market-product-tour .mpt-sticky{position:sticky;top:104px;padding:36px 0 24px;background:#180f10;z-index:1}
+#section-2#section-2.market-product-tour .mpt-sticky .tour{align-items:center}
+#section-2#section-2.market-product-tour .stages{align-self:center;justify-content:center!important;gap:2px!important;padding:0!important}
+}
