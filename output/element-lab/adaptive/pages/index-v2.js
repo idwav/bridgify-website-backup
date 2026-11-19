@@ -122,13 +122,13 @@
 (() => {
   const A = window.BridgifyAdaptive; if (!A || !A.MQ.mobile.matches) return;
   const copy = document.querySelector('#home .bv2-hero-copy'); if (!copy || copy.querySelector('.ad-hero-flow')) return;
-  const src = ['colosseum', 'food-tour', 'catamaran', 'concert'].map(n => `<img src="assets/hero-experiences/${n}.jpg" alt="" width="48" height="48" decoding="async">`).join('');
+  const src = ['assets/v2/08-colosseum-480.jpg', 'assets/v2/05-paris-food-tour-960.jpg', 'assets/v2/11-catamaran-480.jpg', 'assets/v2/16-live-music-960.jpg'].map(n => `<img src="${n}" alt="" width="48" height="48" decoding="async">`).join('');
   const label = document.querySelector('#home .bv2-funnel')?.getAttribute('aria-label') || '';
   const el = document.createElement('div');
   el.className = 'ad-hero-flow'; el.setAttribute('role', 'img'); el.setAttribute('aria-label', label);
   el.innerHTML = `<svg class="hf-wires" aria-hidden="true"></svg><div class="hf-src" aria-hidden="true">${src}</div>
     <div class="hf-hub" aria-hidden="true"><i><img src="assets/bridgify-icon.svg" alt=""></i><span>Bridgify</span></div>
-    <div class="hf-app" aria-hidden="true"><b>YourBrand</b><i><img src="assets/api-card-colosseum.jpg" alt=""><u></u></i><i><img src="assets/hero-santorini.jpg" alt=""><u></u></i></div>`;
+    <div class="hf-app" aria-hidden="true"><b>YourBrand</b><i><img src="assets/v2/08-colosseum-960.jpg" alt=""><u></u></i><i><img src="assets/v2/13-santorini-960.jpg" alt=""><u></u></i></div>`;
   copy.appendChild(el);
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const NS = 'http://www.w3.org/2000/svg';
