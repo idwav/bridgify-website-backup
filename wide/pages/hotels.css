@@ -117,6 +117,158 @@
   html body .hm-hero .hm-stay .hm-stay-copy { flex: 0 0 auto !important; }
 }
 
+/* Desktop hero (owner, 19 Nov 2026): the intro's first line is level with the title's first line (split-align, letter
+   tops). The heading grid centred its two halves, so the intro sat 53px above the title at 1440; top-aligned now. */
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) .hm-hero .hm-heading { align-items: start !important; }
+}
+
+/* ---- ink-fonts.css ---- */
+/* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
+   and the weight"). Measured in type-audit/ (accents.py, faces.py) at 1440: only 21 of 86 emphasised title words used
+   the approved coral ink; the rest had two-stop page gradients or flat coral. Every emphasised word in a hero or section
+   title now carries the one ink of DESIGN.md §5 (.v2-ink): the light coral on dark sections, the deep coral on cream,
+   moving 5s, still under reduced motion. Each selector names its page (body[data-copy-page]) and the title's own id, so nothing else is painted.
+   Font faces: "Sofia Sans" was named but never defined (system font on the API and White-Label demos); Loyalty's
+   buttons were Regular 400 (every button is Sofia 550); Super Apps' "How to add…" title and its two card titles were
+   Chillax Medium 500 (titles are Light 300); one Super Apps line asked a Regular-only face for bold, so the browser
+   drew a fake bold; the Airlines booking phone fell back to Arial.
+   Baked into wide/pages/<page>.css for the ten pages of the system only (index-v2, api, marketplace, personalization
+   and the six solution pages); the shared footer CTA title ink applies there too. Phone (≤599) is not touched. */
+@font-face { font-family: "Sofia Sans"; src: url("/Sofia_Sans/SofiaSans-VariableFont_wght.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+@keyframes bf-ink-flow { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+@media (min-width: 600px) {
+  html body[data-copy-page="api"] #top h2 em.api-coral-ink,
+  html body[data-copy-page="api"] #an-title em,
+  html body[data-copy-page="api"] #ak-title em.ex-ink,
+  html body[data-copy-page="api"] #am-title em,
+  html body[data-copy-page="api"] #af-title em.ck-ink,
+  html body[data-copy-page="api"] #ae-title em.en-ink,
+  html body[data-copy-page="api"] #bf-cta-title span,
+  html body[data-copy-page="marketplace"] #section-1 h2 span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #section-2 h2.tour-title em,
+  html body[data-copy-page="marketplace"] #commerce-title span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #launch-title span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #bb-title span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #bf-cta-title span,
+  html body[data-copy-page="personalization"] #section-2 h2 em.product-gradient-ink,
+  html body[data-copy-page="personalization"] #section-3 h2 em.product-gradient-ink,
+  html body[data-copy-page="personalization"] #bf-cta-title span,
+  html body[data-copy-page="otas"] #ys-title span,
+  html body[data-copy-page="otas"] #ms-title span.ota-text-accent,
+  html body[data-copy-page="otas"] #rc-title span.ota-text-accent,
+  html body[data-copy-page="otas"] #xc-title span,
+  html body[data-copy-page="otas"] #faq h2 span.ota-text-accent,
+  html body[data-copy-page="otas"] #bf-cta-title span,
+  html body[data-copy-page="airlines"] #al-title span.al-gradient,
+  html body[data-copy-page="airlines"] #al-earn-title span.al-gradient,
+  html body[data-copy-page="airlines"] #al-journey-title span.al-gradient,
+  html body[data-copy-page="airlines"] #xc-title span,
+  html body[data-copy-page="airlines"] #bf-cta-title span,
+  html body[data-copy-page="hotels"] #hm-title span.brand-coral-ink,
+  html body[data-copy-page="hotels"] #hr-title span.brand-coral-ink,
+  html body[data-copy-page="hotels"] #hs-title span.brand-coral-ink,
+  html body[data-copy-page="hotels"] #xc-title span,
+  html body[data-copy-page="hotels"] #bf-cta-title span,
+  html body[data-copy-page="loyalty-finance"] #section-1 h1 span.lf-emphasis,
+  html body[data-copy-page="loyalty-finance"] #xc-title span,
+  html body[data-copy-page="loyalty-finance"] #bf-cta-title span,
+  html body[data-copy-page="super-apps"] #section-1 h1 span,
+  html body[data-copy-page="super-apps"] #sc-title span,
+  html body[data-copy-page="super-apps"] #xc-title span,
+  html body[data-copy-page="super-apps"] #faq h2 span,
+  html body[data-copy-page="super-apps"] #bf-cta-title span,
+  html body[data-copy-page="travel-technology"] #te-title span.brand-coral-ink,
+  html body[data-copy-page="travel-technology"] #ad-title span.brand-coral-ink,
+  html body[data-copy-page="travel-technology"] #xc-title span,
+  html body[data-copy-page="travel-technology"] #bf-cta-title span,
+  html body[data-copy-page="api"] #cx-title em.cj-ink,
+  html body[data-copy-page="marketplace"] #section-3 h2 span,
+  html body[data-copy-page="marketplace"] #ma-title span,
+  html body[data-copy-page="marketplace"] #results-title span.brand-coral-ink,
+  html body[data-copy-page="loyalty-finance"] #section-2 h2 span,
+  html body[data-copy-page="loyalty-finance"] #section-3 h2 span,
+  html body[data-copy-page="loyalty-finance"] #we-started-here h2 span,
+  html body[data-copy-page="loyalty-finance"] #market-signal h2 span,
+  html body[data-copy-page="super-apps"] #ma-title span,
+  html body[data-copy-page="travel-technology"] #th-title span.th-emphasis {
+    font-style: normal !important; color: #f48b73 !important; -webkit-text-fill-color: transparent !important;
+    background-image: linear-gradient(110deg, #f46649 0%, #ff967b 23%, #ffe2c6 43%, #f88b72 60%, #f46649 78%, #ffb49a 100%) !important;
+    background-size: 240% 100% !important; background-repeat: repeat !important; -webkit-background-clip: text !important; background-clip: text !important;
+    animation: bf-ink-flow 5s ease-in-out infinite alternate !important; }
+  html body[data-copy-page="api"] #cx-title em.cj-ink,
+  html body[data-copy-page="marketplace"] #section-3 h2 span,
+  html body[data-copy-page="marketplace"] #ma-title span,
+  html body[data-copy-page="marketplace"] #results-title span.brand-coral-ink,
+  html body[data-copy-page="loyalty-finance"] #section-2 h2 span,
+  html body[data-copy-page="loyalty-finance"] #section-3 h2 span,
+  html body[data-copy-page="loyalty-finance"] #we-started-here h2 span,
+  html body[data-copy-page="loyalty-finance"] #market-signal h2 span,
+  html body[data-copy-page="super-apps"] #ma-title span,
+  html body[data-copy-page="travel-technology"] #th-title span.th-emphasis {
+    color: #d9482c !important; background-image: linear-gradient(110deg, #cf3f25 0%, #e5573a 30%, #e8603f 50%, #d9482c 72%, #cf3f25 100%) !important; }
+  html body[data-copy-page="loyalty-finance"] a.lf-btn { font-family: Sofia, sans-serif !important; font-weight: 550 !important; }
+  html body[data-copy-page="super-apps"] :is(#ma-title, #ma-title span, .sc-info-item > h3) { font-family: Chillax, sans-serif !important; font-weight: 300 !important; }
+  html body[data-copy-page="super-apps"] #section-3 .sc-foot strong { font-family: Sofia, sans-serif !important; }
+  html body[data-copy-page="airlines"] #al-phone-booking { font-family: Sofia, sans-serif !important; }
+}
+@media (min-width: 600px) and (prefers-reduced-motion: reduce) {
+  html body[data-copy-page="api"] #top h2 em.api-coral-ink,
+  html body[data-copy-page="api"] #an-title em,
+  html body[data-copy-page="api"] #ak-title em.ex-ink,
+  html body[data-copy-page="api"] #am-title em,
+  html body[data-copy-page="api"] #af-title em.ck-ink,
+  html body[data-copy-page="api"] #ae-title em.en-ink,
+  html body[data-copy-page="api"] #bf-cta-title span,
+  html body[data-copy-page="marketplace"] #section-1 h2 span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #section-2 h2.tour-title em,
+  html body[data-copy-page="marketplace"] #commerce-title span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #launch-title span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #bb-title span.brand-coral-ink,
+  html body[data-copy-page="marketplace"] #bf-cta-title span,
+  html body[data-copy-page="personalization"] #section-2 h2 em.product-gradient-ink,
+  html body[data-copy-page="personalization"] #section-3 h2 em.product-gradient-ink,
+  html body[data-copy-page="personalization"] #bf-cta-title span,
+  html body[data-copy-page="otas"] #ys-title span,
+  html body[data-copy-page="otas"] #ms-title span.ota-text-accent,
+  html body[data-copy-page="otas"] #rc-title span.ota-text-accent,
+  html body[data-copy-page="otas"] #xc-title span,
+  html body[data-copy-page="otas"] #faq h2 span.ota-text-accent,
+  html body[data-copy-page="otas"] #bf-cta-title span,
+  html body[data-copy-page="airlines"] #al-title span.al-gradient,
+  html body[data-copy-page="airlines"] #al-earn-title span.al-gradient,
+  html body[data-copy-page="airlines"] #al-journey-title span.al-gradient,
+  html body[data-copy-page="airlines"] #xc-title span,
+  html body[data-copy-page="airlines"] #bf-cta-title span,
+  html body[data-copy-page="hotels"] #hm-title span.brand-coral-ink,
+  html body[data-copy-page="hotels"] #hr-title span.brand-coral-ink,
+  html body[data-copy-page="hotels"] #hs-title span.brand-coral-ink,
+  html body[data-copy-page="hotels"] #xc-title span,
+  html body[data-copy-page="hotels"] #bf-cta-title span,
+  html body[data-copy-page="loyalty-finance"] #section-1 h1 span.lf-emphasis,
+  html body[data-copy-page="loyalty-finance"] #xc-title span,
+  html body[data-copy-page="loyalty-finance"] #bf-cta-title span,
+  html body[data-copy-page="super-apps"] #section-1 h1 span,
+  html body[data-copy-page="super-apps"] #sc-title span,
+  html body[data-copy-page="super-apps"] #xc-title span,
+  html body[data-copy-page="super-apps"] #faq h2 span,
+  html body[data-copy-page="super-apps"] #bf-cta-title span,
+  html body[data-copy-page="travel-technology"] #te-title span.brand-coral-ink,
+  html body[data-copy-page="travel-technology"] #ad-title span.brand-coral-ink,
+  html body[data-copy-page="travel-technology"] #xc-title span,
+  html body[data-copy-page="travel-technology"] #bf-cta-title span,
+  html body[data-copy-page="api"] #cx-title em.cj-ink,
+  html body[data-copy-page="marketplace"] #section-3 h2 span,
+  html body[data-copy-page="marketplace"] #ma-title span,
+  html body[data-copy-page="marketplace"] #results-title span.brand-coral-ink,
+  html body[data-copy-page="loyalty-finance"] #section-2 h2 span,
+  html body[data-copy-page="loyalty-finance"] #section-3 h2 span,
+  html body[data-copy-page="loyalty-finance"] #we-started-here h2 span,
+  html body[data-copy-page="loyalty-finance"] #market-signal h2 span,
+  html body[data-copy-page="super-apps"] #ma-title span,
+  html body[data-copy-page="travel-technology"] #th-title span.th-emphasis { animation: none !important; }
+}
+
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {
   html body #section-1 { row-gap: 0px !important; }
@@ -200,7 +352,7 @@
   html body #section-4 > header:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; padding-top: 0px !important; row-gap: 0px !important; }
   html body #section-4 > header:nth-child(1) > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body #xc-title { margin-top: 24px !important; }
-  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 43px !important; margin-bottom: 0px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-bottom: 0px !important; }
   html body #section-4 > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
   html body #section-4 > div:nth-child(2) > article:nth-child(1) { margin-top: 64px !important; }
   html body #section-4 > div:nth-child(2) > article:nth-child(2) { margin-top: 64px !important; margin-bottom: 0px !important; }
@@ -217,4 +369,20 @@
   html body #bf-cta-title { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > p:nth-child(2) { margin-top: 32px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
+}
+@media (min-width: 1024px) and (max-width: 1151px) {
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) { margin-top: 43.7969px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 46.668px !important; }
+}
+@media (min-width: 1152px) and (max-width: 1359px) {
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) { margin-top: 44.5226px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 47.0432px !important; }
+}
+@media (min-width: 1360px) and (max-width: 1679px) {
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) { margin-top: 46.4734px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 47.7936px !important; }
+}
+@media (min-width: 1680px) {
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) { margin-top: 47.7369px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 48.252px !important; }
 }

@@ -130,6 +130,8 @@ V2 בנוי מסקשנים כהים וקרם לסירוגין. כל סקשן כ�
 | Deep brown | `#180F10` | רקע ההירו; טקסט ראשי על קרם |
 | Coral | `#F46649` | מסגרות, אייקונים, נקודות, קישורים על כהה, פוקוס |
 | Warm white | `#FFF8F1` | טקסט על כפתורים, נקודות דאטה זוהרות |
+| Text on dark | `#D7C9BD` | **טקסט רץ** (פסקאות, מבוא, הערות) על כל משטח כהה, כולל ההירו. טוקן `--bf-text-on-dark`. אושר 19 בנובמבר 2026 (אפשרות B) |
+| Text on cream | `#544440` | **טקסט רץ** על משטחי קרם. טוקן `--bf-text-on-light`. כותרות נשארות `#EEE9DE` על כהה ו־`#180F10` על קרם |
 
 ### משטחים כהים (כולם חומים־חמים, אף פעם לא כחולים)
 
@@ -491,5 +493,5 @@ Latest body-copy direction: all public V2 and inner-page editorial body/lead tex
 - **No outlines** on the header (`shared-navigation.css`) or the footer (`shared-footer.css`). Footer links: Sofia 400, 16px.
 - **Buttons:** the main action is filled (coral gradient, dark text); secondary actions are hollow (coral border, transparent). Header: LOG IN hollow, BOOK A DEMO filled, both the same size. Roles are set by `brand-consistency.js` (first in a group = main; a lone button is main when it is a conversion action or sits in the hero). Product-mockup controls keep their own look.
 - **FAQ:** every FAQ follows the AIyelet layout from `brand-faq.css`: 4% page margin (homepage: its own gutter), full-width dividers, coral +/−, open/close motion in `brand-faq-motion.js`.
-- **Hotels:** hero, section 2 and section 3 run full width with the 4% margin (no centered 1560px cap).
+- **Hotels:** hero, section 2 and section 3 sit on the shared content line like every page (`--try-margin`, content capped at 1560px and centred on wide screens; approved 17 Nov 2026, SPACING-GRID-PLAN.md). The earlier full-width note is superseded.
 - **Sticky header** (`shared-navigation.js`): the header follows the scroll (moved to `<body>`, `position:fixed`). Past 24px it always gets the same dark glass surface (whatever section is underneath) with a fine coral line on its lower edge. Under 950px it tucks away while scrolling down and returns on the way up.

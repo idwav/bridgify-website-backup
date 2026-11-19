@@ -100,3 +100,177 @@ html body .lr-product.lr-bought { border-color: #f46649; box-shadow: 0 0 28px #f
 @media (min-width: 1101px) {
   html body #we-started-here header > p { max-width: 60ch !important; }
 }
+
+/* ==== Pixel audit fixes (owner, 19 Nov 2026): one type scale and one button on every page, tablet and desktop ==== */
+@media (min-width: 600px) {
+  /* Eyebrows are Sofia 550 everywhere; White-Label set its own at 400. */
+  html body[data-copy-page="marketplace"]:not(#bf-lab) .eyebrow { font-weight: 550 !important; }
+  /* Super Apps "How to add tours and activities": a second Chillax face (InfoChillax 500) on the title and its cards. */
+  html body:not(#bf-lab) .sc-how :is(.sc-info-heading h2, h3) { font-family: Chillax, sans-serif !important; font-weight: 300 !important; }
+  html body:not(#bf-lab) .sc-how .sc-info-heading h2 { font-size: var(--type-section) !important; line-height: 1.2 !important; }
+  /* Loyalty hero buttons used LoyaltySofia 400; the site's buttons are Sofia 550. */
+  html body:not(#bf-lab) #section-1 a.lf-btn { font-family: Sofia, sans-serif !important; font-weight: 550 !important; }
+  /* Every page action button: 16px label (About and Careers were 17). */
+  html body:not(#bf-lab) main a.brand-action { font-size: var(--type-cta) !important; }
+  /* About and Careers section titles ran their own clamps (40-55px at 1440); they take the section token. */
+  html body:not(#bf-lab) .about-page :is(.ab-story h2, .ab-pin-copy h2, .ab-hbx h2) { font-size: var(--type-section) !important; line-height: 1.2 !important; }
+  html body:not(#bf-lab) .careers-page section > :is(header, div) h2:not([aria-hidden="true"] *), html body:not(#bf-lab) .career-roles .jb-head h2 { font-size: var(--type-section) !important; line-height: 1.2 !important; }
+  /* Loyalty "Experiences for cardholders": .lf-main h2 ran clamp(30px, 2.8vw, 50px). */
+  html body:not(#bf-lab) .lf-main #section-3 h2 { font-size: var(--type-section) !important; line-height: 1.2 !important; }
+}
+
+/* ==== Content line on the five inner pages (owner, 19 Nov 2026) ====
+   About, Careers, Press and Insights ran 3.3vw (48 at 1440, 63 at 1920) and Contact 6vw (86 / 115, with a 1400px box);
+   every other page sits on --try-margin (32 tablet; 58 at 1440, 180 at 1920 with the 1560 cap). */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) .about-page :is(section#top, section#our-story, section#hbx, .ab-pin),
+  html body:not(#bf-lab) .careers-page :is(section#top, section#why-now, section#reach, .cm-wrap, section#problems, section#open-roles),
+  html body:not(#bf-lab)[data-copy-page="contact"] main > section,
+  html body:not(#bf-lab) main:is(.nr-main, .blog-main) {
+    padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important;
+  }
+  html body:not(#bf-lab)[data-copy-page="contact"] main > section .block-inner { max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; }
+}
+/* Spacing on the same five pages, from the table: label → title 16 tablet / 24 desktop, title → intro 24 / 32.
+   Measured before: label → title 12-26, title → intro 16-26. */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) :is(main.about-page, main.careers-page, body[data-copy-page="contact"] main, main.nr-main, main.blog-main) :is(.ab-label, .cw-label, .career-label, .eyebrow):has(+ :is(h1, h2)) { margin-bottom: 0 !important; }
+  html body:not(#bf-lab) :is(main.about-page, main.careers-page, body[data-copy-page="contact"] main, main.nr-main, main.blog-main) :is(.ab-label, .cw-label, .career-label, .eyebrow) + :is(h1, h2) { margin-top: var(--bf-gap-label-title) !important; }
+  html body:not(#bf-lab) :is(main.about-page, main.careers-page, body[data-copy-page="contact"] main, main.nr-main, main.blog-main) :is(h1, h2):has(+ p) { margin-bottom: 0 !important; }
+  html body:not(#bf-lab) :is(main.about-page, main.careers-page, body[data-copy-page="contact"] main, main.nr-main, main.blog-main) :is(h1, h2) + p { margin-top: var(--bf-gap-title-text) !important; }
+}
+/* Running text and lead paragraphs are 16px on inner pages (TYPOGRAPHY.md, 14 Nov). About ran 16.6-17.3, Careers and
+   the Airlines "Seats and bags" intro 18. */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) .about-page :is(.ab-story-3 > p, p.ab-hbx-p),
+  html body:not(#bf-lab) .careers-page :is(.cw-head > p, .cw-body > p, .cr-copy > p),
+  html body:not(#bf-lab) #section-2 .ar-heading > p { font-size: var(--type-body) !important; line-height: 1.55 !important; }
+}
+/* Two buttons only (owner, 19 Nov 2026): primary = filled coral, secondary = transparent with the coral border.
+   A page button with neither modifier still drew the old dark gradient (e.g. Airlines hero "See the Experiences API"). */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) main a.brand-action:not(.brand-action-primary) { --brand-button-start: #f4664900; --brand-button-end: #f4664900; box-shadow: none !important; }
+  html body:not(#bf-lab) main a.brand-action:not(.brand-action-primary):is(:hover, :focus-visible) { --brand-button-start: #f466491f; --brand-button-end: #f4664914; color: #fff8f1 !important; }
+  html body:not(#bf-lab) main a.brand-action.brand-action-on-light:not(.brand-action-primary):is(:hover, :focus-visible) { color: #180f10 !important; }
+}
+/* Split headings on About and Developers (not in the baked build): the intro's first line is level with the title's first
+   line, measured on the letter tops at 1101-1920 (About) and 1024-1920 (Developers), within 0.6px. The offsets are the
+   measured fit: the title wrapper carries its label, so the title starts below the row top. */
+@media (min-width: 1101px) {
+  html body:not(#bf-lab) .about-page #our-story .ab-story-3 { align-items: start !important; }
+  html body:not(#bf-lab) .about-page #our-story .ab-story-3 > p { align-self: start !important; margin-top: clamp(0px, calc(41.6px - 3.07vw), 8px) !important; }
+  html body:not(#bf-lab) .about-page #hbx .ab-hbx-grid { align-items: start !important; }
+  html body:not(#bf-lab) .about-page #hbx .ab-hbx-grid > p.ab-hbx-p { align-self: start !important; margin-top: calc(40.03px + .172 * var(--type-section)) !important; }
+}
+@media (min-width: 1024px) {
+  html body:not(#bf-lab)[data-copy-page="developers"] :is(#performance, #access) .dev-heading { align-items: start !important; }
+  html body:not(#bf-lab)[data-copy-page="developers"] #performance .dev-heading > div { align-self: start !important; margin-top: calc(-3.69px + .1732 * var(--type-section)) !important; }
+  html body:not(#bf-lab)[data-copy-page="developers"] #access .dev-heading > div { align-self: start !important; margin-top: calc(-3.13px + .1611 * var(--type-section)) !important; }
+}
+/* Airlines hero: its own rule forced the dark gradient on both hero buttons (!important); the secondary is transparent. */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) .aj-hero .al-actions a.al-button.brand-action-secondary { background: linear-gradient(135deg, #f4664900, #f4664900) !important; box-shadow: none !important; }
+  html body:not(#bf-lab) .aj-hero .al-actions a.al-button.brand-action-secondary:is(:hover, :focus-visible) { background: linear-gradient(135deg, #f466491f, #f4664914) !important; }
+}
+
+/* ==== Running text colour (owner, 19 Nov 2026, option B) ====
+   Two text colours, one per background: beige #D7C9BD on dark surfaces, brown #544440 on cream. Titles keep cream
+   #EEE9DE / deep brown #180F10. Measured before: 26 different paragraph colours across 16 pages (hero intros near-white
+   #EEE9DE/#FFF7ED read as bold next to beige sections). Demo and mock-UI text keeps its own colours. */
+:root { --bf-text-on-dark: #D7C9BD; --bf-text-on-light: #544440; }
+@media (min-width: 600px) {
+  html body[data-copy-page="about-us"]:not(#bf-lab) #hbx .ab-hbx-grid > p.ab-hbx-p,
+  html body[data-copy-page="about-us"]:not(#bf-lab) #story .ab-pin-copy > p.ab-line,
+  html body[data-copy-page="about-us"]:not(#bf-lab) #story div > p,
+  html body[data-copy-page="about-us"]:not(#bf-lab) #top .ab-hero-copy > p,
+  html body[data-copy-page="airlines"]:not(#bf-lab) #section-2 .ar-bookings > p.ar-summary,
+  html body[data-copy-page="airlines"]:not(#bf-lab) #section-2 .ar-heading > p,
+  html body[data-copy-page="airlines"]:not(#bf-lab) #section-2 .ar-trip > p.ar-promise,
+  html body[data-copy-page="airlines"]:not(#bf-lab) #section-3 .al-journey-heading > p.al-enter,
+  html body[data-copy-page="airlines"]:not(#bf-lab) #section-3 .al-loyalty > p,
+  html body[data-copy-page="airlines"]:not(#bf-lab) #section-4 .xc-body > p.xc-desc,
+  html body[data-copy-page="airlines"]:not(#bf-lab) #section-4 .xc-head > p,
+  html body[data-copy-page="api"]:not(#bf-lab) #api-features .ck-head > p,
+  html body[data-copy-page="api"]:not(#bf-lab) #enterprise .en-l > p,
+  html body[data-copy-page="api"]:not(#bf-lab) #network .an-heading > p,
+  html body[data-copy-page="api"]:not(#bf-lab) #whats-inside .ex-head > p,
+  html body[data-copy-page="careers"]:not(#bf-lab) #open-roles div > p,
+  html body[data-copy-page="careers"]:not(#bf-lab) #problems .cpp3-cell > p,
+  html body[data-copy-page="careers"]:not(#bf-lab) #reach .cr-copy > p,
+  html body[data-copy-page="careers"]:not(#bf-lab) #top .career-hero-copy > p,
+  html body[data-copy-page="developers"]:not(#bf-lab) #access div > p,
+  html body[data-copy-page="developers"]:not(#bf-lab) #performance div > p,
+  html body[data-copy-page="hotels"]:not(#bf-lab) #section-1 .hm-intro > p,
+  html body[data-copy-page="hotels"]:not(#bf-lab) #section-2 .hr-heading > p,
+  html body[data-copy-page="hotels"]:not(#bf-lab) #section-3 .hs-copy > p,
+  html body[data-copy-page="hotels"]:not(#bf-lab) #section-4 .xc > p.xc-note,
+  html body[data-copy-page="hotels"]:not(#bf-lab) #section-4 .xc-head > p,
+  html body[data-copy-page="index"]:not(#bf-lab) #home .bv2-hero-copy > p,
+  html body[data-copy-page="index"]:not(#bf-lab) #home-cta .hc2-copy > p,
+  html body[data-copy-page="index"]:not(#bf-lab) #opportunity-study .pb-intro > p,
+  html body[data-copy-page="index"]:not(#bf-lab) #opportunity-study .pb2 > p.pb-bar,
+  html body[data-copy-page="index"]:not(#bf-lab) #products .pr-head > p.pr-guide,
+  html body[data-copy-page="index"]:not(#bf-lab) #wy-pers .wy-copy > p,
+  html body[data-copy-page="insights"]:not(#bf-lab) main .blog-card-copy > p,
+  html body[data-copy-page="insights"]:not(#bf-lab) main .blog-feature-copy > p,
+  html body[data-copy-page="insights"]:not(#bf-lab) main .blog-intro > p,
+  html body[data-copy-page="insights"]:not(#bf-lab) main div > p,
+  html body[data-copy-page="loyalty-finance"]:not(#bf-lab) #section-1 div > p,
+  html body[data-copy-page="loyalty-finance"]:not(#bf-lab) #section-4 .xc > p.xc-note,
+  html body[data-copy-page="loyalty-finance"]:not(#bf-lab) #section-4 .xc-body > p.xc-desc,
+  html body[data-copy-page="marketplace"]:not(#bf-lab) #build-or-buy .bc-card > p,
+  html body[data-copy-page="marketplace"]:not(#bf-lab) #build-or-buy .bc-heading > p,
+  html body[data-copy-page="marketplace"]:not(#bf-lab) #section-1 .block-copy > p.lead,
+  html body[data-copy-page="marketplace"]:not(#bf-lab) #section-2 header > p,
+  html body[data-copy-page="marketplace"]:not(#bf-lab) #section-4 .wo-heading > p,
+  html body[data-copy-page="marketplace"]:not(#bf-lab) #section-5 .launch-heading > p.lead,
+  html body[data-copy-page="otas"]:not(#bf-lab) #section-2 .ms-head > p,
+  html body[data-copy-page="otas"]:not(#bf-lab) #section-2 .ms-head > p.sp-sub,
+  html body[data-copy-page="otas"]:not(#bf-lab) #section-3 div > p,
+  html body[data-copy-page="otas"]:not(#bf-lab) #section-4 .xc-body > p.xc-desc,
+  html body[data-copy-page="personalization"]:not(#bf-lab) #section-2 .intent-heading > p,
+  html body[data-copy-page="personalization"]:not(#bf-lab) #section-3 .match-head > p,
+  html body[data-copy-page="press"]:not(#bf-lab) main .nr-about > p,
+  html body[data-copy-page="press"]:not(#bf-lab) main .nr-card-copy > p,
+  html body[data-copy-page="press"]:not(#bf-lab) main .nr-feature-copy > p,
+  html body[data-copy-page="press"]:not(#bf-lab) main .nr-intro > p,
+  html body[data-copy-page="press"]:not(#bf-lab) main .nr-release > p,
+  html body[data-copy-page="super-apps"]:not(#bf-lab) #section-1 .sc-hero-copy > p,
+  html body[data-copy-page="super-apps"]:not(#bf-lab) #section-3 .sc-foot > p,
+  html body[data-copy-page="super-apps"]:not(#bf-lab) #section-3 .up-story-copy > p,
+  html body[data-copy-page="super-apps"]:not(#bf-lab) #section-4 .xc-head > p,
+  html body[data-copy-page="travel-technology"]:not(#bf-lab) #section-1 .te-intro > p,
+  html body[data-copy-page="travel-technology"]:not(#bf-lab) #section-3 .ad-column > p.ad-copy,
+  html body[data-copy-page="travel-technology"]:not(#bf-lab) #section-4 .xc-head > p { color: var(--bf-text-on-dark) !important; }
+  html body[data-copy-page="about-us"]:not(#bf-lab) #our-story .ab-story-3 > p,
+  html body[data-copy-page="api"]:not(#bf-lab) #customer-experience .cj-copy > p,
+  html body[data-copy-page="careers"]:not(#bf-lab) #what-makes-bridgify div > p,
+  html body[data-copy-page="careers"]:not(#bf-lab) #why-now .cw-body > p,
+  html body[data-copy-page="careers"]:not(#bf-lab) #why-now .cw-head > p,
+  html body[data-copy-page="contact"]:not(#bf-lab) #enquiry .form > p.form-note,
+  html body[data-copy-page="contact"]:not(#bf-lab) #section-1 .block-copy > p.lead,
+  html body[data-copy-page="contact"]:not(#bf-lab) #section-2 .block-copy > p.lead,
+  html body[data-copy-page="contact"]:not(#bf-lab) #section-4 .block-copy > p.lead,
+  html body[data-copy-page="contact"]:not(#bf-lab) #section-5 .block-copy > p.lead,
+  html body[data-copy-page="index"]:not(#bf-lab) #airlines .audience-card > p,
+  html body[data-copy-page="index"]:not(#bf-lab) #audiences .audience-card > p,
+  html body[data-copy-page="index"]:not(#bf-lab) #loyalty-finance .audience-card > p,
+  html body[data-copy-page="index"]:not(#bf-lab) #otas .audience-card > p,
+  html body[data-copy-page="index"]:not(#bf-lab) #personalization .home-intent-copy > p,
+  html body[data-copy-page="index"]:not(#bf-lab) #sources .trust-footnote > p,
+  html body[data-copy-page="index"]:not(#bf-lab) #travel-technology .audience-card > p,
+  html body[data-copy-page="loyalty-finance"]:not(#bf-lab) #market-signal .lm2-sticky > p.lm-body,
+  html body[data-copy-page="loyalty-finance"]:not(#bf-lab) #section-2 .lp-copy > p,
+  html body[data-copy-page="loyalty-finance"]:not(#bf-lab) #section-3 .lu-explanation-inner > p,
+  html body[data-copy-page="loyalty-finance"]:not(#bf-lab) #we-started-here header > p,
+  html body[data-copy-page="marketplace"]:not(#bf-lab) #section-3 .wl-heading > p,
+  html body[data-copy-page="super-apps"]:not(#bf-lab) #section-2 .sc-info-heading > p.sc-how-intro,
+  html body[data-copy-page="super-apps"]:not(#bf-lab) #section-2 .sc-info-item > p.sc-step-description,
+  html body[data-copy-page="travel-technology"]:not(#bf-lab) #section-2 .th-intro > p { color: var(--bf-text-on-light) !important; }
+}
+@media (min-width: 600px) {
+  /* the same two colours where the page's own rule was more specific */
+  html body:not(#bf-lab) section#section-4.xc p.xc-note,
+  html body:not(#bf-lab) #opportunity-study p.pb-bar, html body:not(#bf-lab) #opportunity-study p.pb-bar > span { color: var(--bf-text-on-dark) !important; }
+  html body[data-copy-page="contact"]:not(#bf-lab) #enquiry p.form-note { color: var(--bf-text-on-light) !important; }
+}

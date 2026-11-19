@@ -1,0 +1,1240 @@
+{
+ "index-v2": {
+  "Sofia 550": {
+   "n": 110,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 60,
+   "ex": [
+    "h1. “One connection. A million+ t”",
+    "em.v2-ink “every customer.”",
+    "h2. “Global supply through one in”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 92,
+   "ex": [
+    "p. “Bridgify, part of HBX Group,”",
+    "span. “Part of HBX Group”",
+    "span. “1M+ experiences”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 103,
+   "ex": [
+    "a. “See how it works ↘”",
+    "span. “↘”",
+    "b. “Colosseum entry”"
+   ]
+  },
+  "Chillax 500": {
+   "n": 220,
+   "ex": [
+    "span. “Bridgify”",
+    "span.bv2-counter-visual “0123456789012345678901M+”",
+    "span. “0”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 53,
+   "ex": [
+    "div.fn-pill “1 integration”",
+    "b. “YourBrand”",
+    "div.fn-part “For you in Rome”"
+   ]
+  },
+  "Sofia 700": {
+   "n": 3,
+   "ex": [
+    "i. “›”",
+    "i. “›”",
+    "i. “›”"
+   ]
+  },
+  "Sofia Sans 400": {
+   "n": 10,
+   "ex": [
+    "p. “Part of HBX Group.”",
+    "span. “Travel Experiences”",
+    "span. “Countries”"
+   ]
+  },
+  "ui-monospace 500 MISSING": {
+   "n": 10,
+   "ex": [
+    "code. “REST”",
+    "code. “XML”",
+    "code. “SOAP”"
+   ]
+  },
+  "ui-monospace 400 MISSING": {
+   "n": 8,
+   "ex": [
+    "span. “GET /experiences?destination”",
+    "span.c “200 OK · one schema”",
+    "span. “{”"
+   ]
+  },
+  "ui-monospace 700 MISSING": {
+   "n": 7,
+   "ex": [
+    "b.m “GET”",
+    "b.k “\"title\"”",
+    "b.k “\"category\"”"
+   ]
+  }
+ },
+ "api": {
+  "Sofia 550": {
+   "n": 17,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 39,
+   "ex": [
+    "h2. “One API. More than a million”",
+    "em.api-coral-ink “million travel experiences.”",
+    "h2. “Connect to multiple supplier”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 44,
+   "ex": [
+    "p. “The largest experiences cata”",
+    "p. “One API that brings together”",
+    "p. “Each major marketplace has i”"
+   ]
+  },
+  "Sofia Sans 500 MISSING": {
+   "n": 39,
+   "ex": [
+    "button. “cURL”",
+    "button. “Node.js”",
+    "button. “Python”"
+   ]
+  },
+  "Sofia Sans 550 MISSING": {
+   "n": 34,
+   "ex": [
+    "span.ahc-label “Request”",
+    "span.ahc-label “Response”",
+    "small. “Attraction ticket”"
+   ]
+  },
+  "ui-monospace 400 MISSING": {
+   "n": 103,
+   "ex": [
+    "span.is-on “curl \"$BRIDGIFY_API_URL/expe”",
+    "i.s “\"$BRIDGIFY_API_URL/experienc”",
+    "span.is-on “-G -d destination=paris \\”"
+   ]
+  },
+  "ui-monospace 600 MISSING": {
+   "n": 4,
+   "ex": [
+    "b.m “curl”",
+    "b. “search”",
+    "b. “availability”"
+   ]
+  },
+  "ui-monospace 500 MISSING": {
+   "n": 10,
+   "ex": [
+    "span.ahc-ok “200 OK”",
+    "span. “application/json”",
+    "span.ahc-ms “142 ms”"
+   ]
+  },
+  "Sofia Sans 600 MISSING": {
+   "n": 33,
+   "ex": [
+    "span.ahc-card-tag “Rendered in your app”",
+    "em. “€22.00”",
+    "i. “Book”"
+   ]
+  },
+  "Sofia Sans 400 MISSING": {
+   "n": 15,
+   "ex": [
+    "span. “Experiences”",
+    "p. “1 hour · Free cancellation u”",
+    "small. “per person”"
+   ]
+  },
+  "Chillax 500": {
+   "n": 4,
+   "ex": [
+    "strong. “€39 per person”",
+    "strong. “Bridgify”",
+    "b. “1x”"
+   ]
+  },
+  "monospace 400 MISSING": {
+   "n": 1,
+   "ex": [
+    "code.ex-call “GET /experiences?category=to”"
+   ]
+  },
+  "monospace 500 MISSING": {
+   "n": 1,
+   "ex": [
+    "b. “category=tours_activities”"
+   ]
+  },
+  "Sofia Sans 650 MISSING": {
+   "n": 7,
+   "ex": [
+    "span. “YourAir”",
+    "em. “€22”",
+    "em. “€95”"
+   ]
+  },
+  "Sofia Sans 700 MISSING": {
+   "n": 1,
+   "ex": [
+    "b. “€44.00”"
+   ]
+  },
+  "Chillax 400": {
+   "n": 5,
+   "ex": [
+    "span. “01Coverage”",
+    "span. “02Real-time availability and”",
+    "span. “03Content quality”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 5,
+   "ex": [
+    "span. “01”",
+    "span. “02”",
+    "span. “03”"
+   ]
+  },
+  "Sofia 650": {
+   "n": 3,
+   "ex": [
+    "a. “Products”",
+    "a. “Solutions”",
+    "a. “Developers”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 2,
+   "ex": [
+    "h3. “04Resources”",
+    "h3. “05Company”"
+   ]
+  }
+ },
+ "marketplace": {
+  "Sofia 550": {
+   "n": 18,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 159,
+   "ex": [
+    "div.eyebrow “WHITE-LABEL MARKETPLACE”",
+    "p.lead “The Bridgify White-Label Mar”",
+    "span. “● ● ●”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 58,
+   "ex": [
+    "h1.copy-seo “White-label travel marketpla”",
+    "h2. “Your branded experiences sto”",
+    "span.brand-coral-ink “No developers needed.”"
+   ]
+  },
+  "Sofia 700": {
+   "n": 17,
+   "ex": [
+    "span.demo-symbol “✧”",
+    "span. “YOUR BRAND”",
+    "b.search-go “Search”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 35,
+   "ex": [
+    "span. “Museums & culture”",
+    "span. “Food & culture”",
+    "span. “Shows”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 22,
+   "ex": [
+    "span. “✓ Cart”",
+    "span. “✓ Details”",
+    "span. “Confirmation”"
+   ]
+  },
+  "Sofia 800": {
+   "n": 6,
+   "ex": [
+    "b. “YOUR BRAND✦”",
+    "span. “✦”",
+    "strong. “€39.00”"
+   ]
+  },
+  "Sofia Sans 500 MISSING": {
+   "n": 4,
+   "ex": [
+    "span.ma-industry-more “Loyalty programs and banks”",
+    "span.ma-industry-more “Airlines”",
+    "span.ma-industry-more “Hotels”"
+   ]
+  }
+ },
+ "personalization": {
+  "Sofia 550": {
+   "n": 15,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 29,
+   "ex": [
+    "h2. “Start with what thetraveler ”",
+    "em.product-gradient-ink “has in mind”",
+    "h2. “Match experiences to whattra”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 65,
+   "ex": [
+    "p. “No categories, no filters. T”",
+    "small. “INTENT”",
+    "strong. “Romantic”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 16,
+   "ex": [
+    "b. “Matched for this traveler”",
+    "span. “Ranked by AIyelet”",
+    "b. “An evening for two”"
+   ]
+  },
+  "Sofia 700": {
+   "n": 7,
+   "ex": [
+    "strong. “YOUR BRAND”",
+    "h3. “Paris”",
+    "h4. “Louvre Museum”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 8,
+   "ex": [
+    "span.brand-coral-frame “Paris”",
+    "span.brand-coral-frame “Sightseeing”",
+    "span.brand-coral-frame “Evening”"
+   ]
+  }
+ },
+ "otas": {
+  "Sofia 550": {
+   "n": 24,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 26,
+   "ex": [
+    "h1. “You sold them the flight and”",
+    "span. “Now sell them the days in be”",
+    "h2. “Already sold”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 87,
+   "ex": [
+    "p. “Whether you run an OTA or a ”",
+    "span. “Flight · Booked”",
+    "span. “Hotel · Booked”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 21,
+   "ex": [
+    "span. “Your brand”",
+    "span. “Global marketplaces”",
+    "span. “Aggregators”"
+   ]
+  },
+  "Sofia 300": {
+   "n": 2,
+   "ex": [
+    "div.sc-hub “Bridgify1 integration”",
+    "b. “1M+”"
+   ]
+  },
+  "Sofia 700": {
+   "n": 1,
+   "ex": [
+    "b. “AIyelet”"
+   ]
+  },
+  "ui-monospace 400 MISSING": {
+   "n": 7,
+   "ex": [
+    "span. “GET /experiences?city=london”",
+    "span.c “· one schema”",
+    "span. “{”"
+   ]
+  },
+  "ui-monospace 700 MISSING": {
+   "n": 7,
+   "ex": [
+    "b.m “GET”",
+    "b.ok “200 OK”",
+    "b.k “\"title\"”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 12,
+   "ex": [
+    "span. “YourTravel”",
+    "span. “Add to trip”",
+    "em. “Sign in”"
+   ]
+  },
+  "Sofia 900": {
+   "n": 2,
+   "ex": [
+    "b. “€36”",
+    "b. “YourTravel”"
+   ]
+  }
+ },
+ "airlines": {
+  "Sofia 400": {
+   "n": 72,
+   "ex": [
+    "a.al-skip “Skip to content”",
+    "p. “Your passengers know where t”",
+    "div.aj-step “01 Flight confirmed”"
+   ]
+  },
+  "Sofia 550": {
+   "n": 34,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 32,
+   "ex": [
+    "h1. “Take your customer experienc”",
+    "span.al-gradient “beyond the flight.”",
+    "strong. “TLV”"
+   ]
+  },
+  "Sofia 900": {
+   "n": 4,
+   "ex": [
+    "strong. “TLV”",
+    "strong. “CDG”",
+    "b. “€42”"
+   ]
+  },
+  "Sofia 450": {
+   "n": 2,
+   "ex": [
+    "strong. “Earn miles”",
+    "strong. “Redeem miles”"
+   ]
+  },
+  "Arial 400 MISSING": {
+   "n": 5,
+   "ex": [
+    "div.touch-browser “● ● ● yourairline.com/confir”",
+    "span. “yourairline.com/confirmation”",
+    "span. “BOOKING CONFIRMEDReference: ”"
+   ]
+  },
+  "Sofia 700": {
+   "n": 1,
+   "ex": [
+    "b.brand-coral-frame “✓”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 17,
+   "ex": [
+    "strong. “Discover Paris”",
+    "span. “Experiences API”",
+    "em. “My trip”"
+   ]
+  },
+  "ui-monospace 400 MISSING": {
+   "n": 7,
+   "ex": [
+    "span. “GET /experiences?city=paris”",
+    "span.c “· one schema”",
+    "span. “{”"
+   ]
+  },
+  "ui-monospace 700 MISSING": {
+   "n": 7,
+   "ex": [
+    "b.m “GET”",
+    "b.ok “200 OK”",
+    "b.k “\"title\"”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 12,
+   "ex": [
+    "span. “Skyline Air”",
+    "span. “Add”",
+    "em. “Sign in”"
+   ]
+  }
+ },
+ "hotels": {
+  "Sofia 550": {
+   "n": 26,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 26,
+   "ex": [
+    "h1. “Your guests didn’ttravel for”",
+    "span. “travel for the room.”",
+    "h2. “Your hotel”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 84,
+   "ex": [
+    "p. “They came for the city, the ”",
+    "p.hm-location “London”",
+    "li. “Your stay is confirmed”"
+   ]
+  },
+  "Sofia 700": {
+   "n": 1,
+   "ex": [
+    "strong. “Your hotel”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 18,
+   "ex": [
+    "h3. “London Eye”",
+    "strong. “Your hotel · Guest Relations”",
+    "span. “Experiences API”"
+   ]
+  },
+  "ui-monospace 400 MISSING": {
+   "n": 7,
+   "ex": [
+    "span. “GET /experiences?city=paris”",
+    "span.c “· one schema”",
+    "span. “{”"
+   ]
+  },
+  "ui-monospace 700 MISSING": {
+   "n": 7,
+   "ex": [
+    "b.m “GET”",
+    "b.ok “200 OK”",
+    "b.k “\"title\"”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 12,
+   "ex": [
+    "span. “Your Hotel”",
+    "span. “Book”",
+    "em. “Sign in”"
+   ]
+  },
+  "Sofia 900": {
+   "n": 2,
+   "ex": [
+    "b. “€95”",
+    "b. “Your Hotel”"
+   ]
+  }
+ },
+ "loyalty-finance": {
+  "Sofia 550": {
+   "n": 23,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 46,
+   "ex": [
+    "h1. “Your members are sitting on ”",
+    "span.lf-emphasis “Give them something worth sp”",
+    "h3. “Louvre after-hours tour”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 35,
+   "ex": [
+    "p. “Bridgify, part of HBX Group,”",
+    "p. “Full price €120 · or 12,000 ”",
+    "p. “Every point your members hol”"
+   ]
+  },
+  "LoyaltySofia 400": {
+   "n": 40,
+   "ex": [
+    "a.lf-btn “Book a demo ↗”",
+    "a.lf-btn “See the White-Label Marketpl”",
+    "span. “rewards.yourbrand.com”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 16,
+   "ex": [
+    "span. “Experiences API”",
+    "em. “84,000 pts”",
+    "strong. “Louvre after-hours”"
+   ]
+  },
+  "ui-monospace 400 MISSING": {
+   "n": 7,
+   "ex": [
+    "span. “GET /experiences?city=paris”",
+    "span.c “· one schema”",
+    "span. “{”"
+   ]
+  },
+  "ui-monospace 700 MISSING": {
+   "n": 7,
+   "ex": [
+    "b.m “GET”",
+    "b.ok “200 OK”",
+    "b.k “\"title\"”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 12,
+   "ex": [
+    "span. “Your Bank”",
+    "span. “Redeem”",
+    "em. “Sign in”"
+   ]
+  },
+  "Sofia 900": {
+   "n": 2,
+   "ex": [
+    "b. “12,000 pts”",
+    "b. “Your Bank Rewards”"
+   ]
+  }
+ },
+ "super-apps": {
+  "Sofia 550": {
+   "n": 23,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 21,
+   "ex": [
+    "h1. “Bring travel experiences int”",
+    "span. “the app people already use.”",
+    "h2. “Connect experiences to what ”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 29,
+   "ex": [
+    "p. “Your users pay, ride and pla”",
+    "p.sc-how-intro “A new offering, without the ”",
+    "p.sc-step-description “One API that aggregates mult”"
+   ]
+  },
+  "ConsumerSofia 400": {
+   "n": 31,
+   "ex": [
+    "div.sc-greeting “Hi, DanaYourApp”",
+    "span. “YourApp”",
+    "small. “YourApp wallet”"
+   ]
+  },
+  "InfoChillax 500": {
+   "n": 4,
+   "ex": [
+    "h2. “How to add tours and activit”",
+    "span. “to a super app”",
+    "h3. “One travel booking API”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 19,
+   "ex": [
+    "button. “Travel journeys”",
+    "button. “Checkout & payments”",
+    "button. “Mobility”"
+   ]
+  },
+  "ConsumerSofia 700 SYNTH": {
+   "n": 1,
+   "ex": [
+    "strong. “most likely to book.”"
+   ]
+  },
+  "ui-monospace 400 MISSING": {
+   "n": 7,
+   "ex": [
+    "span. “GET /experiences?near=old-to”",
+    "span.c “· one schema”",
+    "span. “{”"
+   ]
+  },
+  "ui-monospace 700 MISSING": {
+   "n": 7,
+   "ex": [
+    "b.m “GET”",
+    "b.ok “200 OK”",
+    "b.k “\"title\"”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 12,
+   "ex": [
+    "span. “YourApp”",
+    "span. “Book”",
+    "em. “Sign in”"
+   ]
+  },
+  "Sofia 900": {
+   "n": 2,
+   "ex": [
+    "b. “€120”",
+    "b. “YourApp”"
+   ]
+  }
+ },
+ "travel-technology": {
+  "Sofia 550": {
+   "n": 27,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 28,
+   "ex": [
+    "h1. “Embed global experiences in ”",
+    "span.brand-coral-ink “global experiences”",
+    "strong. “Bridgify”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 69,
+   "ex": [
+    "p. “Every major experiences netw”",
+    "span. “Louvre Museum”",
+    "span. “Food experiences”"
+   ]
+  },
+  "monospace 400 MISSING": {
+   "n": 2,
+   "ex": [
+    "code. “// Experiences API\n{\n  \"cate”",
+    "span.te-caret “▍”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 27,
+   "ex": [
+    "b. “XML”",
+    "b. “JSON”",
+    "b. “SOAP”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 20,
+   "ex": [
+    "span.ti-pill “12 integrations”",
+    "span.ti-pill “1 integration”",
+    "strong. “Louvre entry”"
+   ]
+  },
+  "ui-monospace 400 MISSING": {
+   "n": 7,
+   "ex": [
+    "span. “GET /experiences?city=rome”",
+    "span.c “· one schema”",
+    "span. “{”"
+   ]
+  },
+  "ui-monospace 700 MISSING": {
+   "n": 7,
+   "ex": [
+    "b.m “GET”",
+    "b.ok “200 OK”",
+    "b.k “\"title\"”"
+   ]
+  },
+  "Sofia 900": {
+   "n": 1,
+   "ex": [
+    "b. “€39”"
+   ]
+  }
+ },
+ "developers": {
+  "Sofia 550": {
+   "n": 21,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 25,
+   "ex": [
+    "h1. “Build with Bridgify”",
+    "span.dev-accent “Bridgify”",
+    "h2. “Find what you need”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 30,
+   "ex": [
+    "p.dev-intro “Everything you need to conne”",
+    "p. “Fast, accurate answers at th”",
+    "span.dev-chip “Cached content”"
+   ]
+  },
+  "Sofia Sans 500 MISSING": {
+   "n": 4,
+   "ex": [
+    "button. “cURL”",
+    "button. “Node.js”",
+    "button. “Python”"
+   ]
+  },
+  "Sofia Sans 550 MISSING": {
+   "n": 2,
+   "ex": [
+    "span.ahc-label “Request”",
+    "span.ahc-label “Response”"
+   ]
+  },
+  "ui-monospace 400 MISSING": {
+   "n": 49,
+   "ex": [
+    "span.is-on “curl \"$BRIDGIFY_API_URL/expe”",
+    "i.s “\"$BRIDGIFY_API_URL/experienc”",
+    "span.is-on “-G -d destination=paris \\”"
+   ]
+  },
+  "ui-monospace 600 MISSING": {
+   "n": 1,
+   "ex": [
+    "b.m “curl”"
+   ]
+  },
+  "ui-monospace 500 MISSING": {
+   "n": 3,
+   "ex": [
+    "span.ahc-ok “200 OK”",
+    "span. “application/json”",
+    "span.ahc-ms “142 ms”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 10,
+   "ex": [
+    "span. “01”",
+    "span. “02”",
+    "span. “03”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 5,
+   "ex": [
+    "span. “01”",
+    "span. “02”",
+    "span. “03”"
+   ]
+  }
+ },
+ "insights": {
+  "Sofia 550": {
+   "n": 21,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 13,
+   "ex": [
+    "h1. “Notes from the team building”",
+    "span. “experiences infrastructure.”",
+    "h2. “Multi-Source Aggregation vs ”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 33,
+   "ex": [
+    "p. “Insights, stories, and persp”",
+    "p. “When a bank launches experie”",
+    "div.blog-meta “Yaniv Green · 8 min read”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 5,
+   "ex": [
+    "span. “01”",
+    "span. “02”",
+    "span. “03”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 5,
+   "ex": [
+    "a. “Products”",
+    "a. “Solutions”",
+    "a. “Developers”"
+   ]
+  }
+ },
+ "press": {
+  "Sofia 550": {
+   "n": 112,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 71,
+   "ex": [
+    "h1. “Recent press, partnershipsan”",
+    "span. “product launches.”",
+    "h2. “Bridgify on C10.”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 90,
+   "ex": [
+    "p. “See what the world is saying”",
+    "span.nr-play “▶”",
+    "span.nr-video-tag “C10 · VIDEO INTERVIEW”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 5,
+   "ex": [
+    "span. “01”",
+    "span. “02”",
+    "span. “03”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 5,
+   "ex": [
+    "a. “Products”",
+    "a. “Solutions”",
+    "a. “Developers”"
+   ]
+  }
+ },
+ "about-us": {
+  "Sofia 550": {
+   "n": 21,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 15,
+   "ex": [
+    "h1. “Bringing the world’s experie”",
+    "em. “and the right ones to every ”",
+    "b. “1M+”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 33,
+   "ex": [
+    "p. “Bridgify is the world’s lead”",
+    "span.wm-count “1M+ tours, attractions, acti”",
+    "small. “We manage the infrastructure”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 24,
+   "ex": [
+    "a.ab-link “Our story ↘”",
+    "span. “↘”",
+    "span. “Part of HBX Group”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 17,
+   "ex": [
+    "b. “Banks”",
+    "b. “Airlines”",
+    "b. “Super apps”"
+   ]
+  },
+  "Sofia 700": {
+   "n": 17,
+   "ex": [
+    "b.ms-fmt “XML feed”",
+    "b.ms-fmt “CSV file”",
+    "b.ms-fmt “REST API”"
+   ]
+  }
+ },
+ "careers": {
+  "Sofia 550": {
+   "n": 22,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 34,
+   "ex": [
+    "h1. “Join the team building the f”",
+    "em.ink “future of travel experiences”",
+    "h2. “Travel experiences are where”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 52,
+   "ex": [
+    "p. “Bridgify, part of HBX Group,”",
+    "li.on “Improve AI matchingMerged”",
+    "li.on “Unify the availability schem”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 47,
+   "ex": [
+    "a.career-link “Why now ↘”",
+    "span. “↘”",
+    "span. “Part of HBX Group”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 20,
+   "ex": [
+    "em. “Merged”",
+    "em. “Tested”",
+    "em. “Live”"
+   ]
+  },
+  "Sofia 900": {
+   "n": 3,
+   "ex": [
+    "b. “Bank app”",
+    "b. “Airline app”",
+    "b. “Super app”"
+   ]
+  },
+  "Sofia 650": {
+   "n": 1,
+   "ex": [
+    "span.brand-coral-frame “You”"
+   ]
+  }
+ },
+ "contact": {
+  "Sofia 550": {
+   "n": 13,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 16,
+   "ex": [
+    "h1. “Let's talk about your experi”",
+    "b. “01”",
+    "b. “02”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 33,
+   "ex": [
+    "p.lead “Tell us what you want to bui”",
+    "p.lead “Share your customers, market”",
+    "label. “Name”"
+   ]
+  },
+  "Chillax 500": {
+   "n": 9,
+   "ex": [
+    "span. “Your customers”",
+    "span. “Your markets”",
+    "span. “Your product”"
+   ]
+  },
+  "Sofia 700": {
+   "n": 2,
+   "ex": [
+    "strong. “Already a partner?”",
+    "strong. “Planning a trip?”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 5,
+   "ex": [
+    "span. “01”",
+    "span. “02”",
+    "span. “03”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 5,
+   "ex": [
+    "a. “Products”",
+    "a. “Solutions”",
+    "a. “Developers”"
+   ]
+  }
+ },
+ "demo": {
+  "Sofia 550": {
+   "n": 10,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 5,
+   "ex": [
+    "h1. “A demo about your product, n”",
+    "h2. “Don't see your role?”",
+    "span. “your role?”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 26,
+   "ex": [
+    "p.job-deck “Share your customers, market”",
+    "span. “and route it to the right pe”",
+    "span. “to set up a call.”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 11,
+   "ex": [
+    "legend. “About you”",
+    "legend. “What you're looking for”",
+    "legend. “Anything else”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 13,
+   "ex": [
+    "label. “Name *”",
+    "label. “Work email *”",
+    "label. “Company *”"
+   ]
+  },
+  "Sofia 700": {
+   "n": 5,
+   "ex": [
+    "b. “*”",
+    "b. “*”",
+    "b. “*”"
+   ]
+  }
+ },
+ "blog-infrastructure": {
+  "Sofia 550": {
+   "n": 12,
+   "ex": [
+    "summary. “PRODUCTS”",
+    "summary. “SOLUTIONS”",
+    "a. “DEVELOPERS”"
+   ]
+  },
+  "Chillax 300": {
+   "n": 20,
+   "ex": [
+    "h1. “The Hidden Infrastructure La”",
+    "h2. “Introduction”",
+    "h2. “1. The Tours & Activities St”"
+   ]
+  },
+  "Sofia 400": {
+   "n": 91,
+   "ex": [
+    "p.blog-deck “How the tours and activities”",
+    "div.blog-meta “By Yaniv Green · 12 min read”",
+    "a. “Introduction”"
+   ]
+  },
+  "Sofia 600": {
+   "n": 13,
+   "ex": [
+    "strong. “eight functional layers”",
+    "strong. “Fragmented supply”",
+    "strong. “Integration overload”"
+   ]
+  },
+  "Sofia 500": {
+   "n": 5,
+   "ex": [
+    "a. “Products”",
+    "a. “Solutions”",
+    "a. “Developers”"
+   ]
+  }
+ }
+}
