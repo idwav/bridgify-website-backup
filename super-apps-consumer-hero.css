@@ -21,6 +21,6 @@ html body .sc-consumer-hero .sc-service.sc-new span{color:#fff8f1}
 /* Label of the Experiences tile stays light; service icons use the brand icon treatment (glass chip, coral stroke) */
 html body .sc-consumer-hero .sc-service.sc-new span,html body .sc-consumer-hero .sc-service.sc-new.brand-coral-frame span{color:#fff8f1!important}
 html body .sc-consumer-hero .sc-service span{color:#eee9de}
-html body .sc-consumer-hero .sc-service svg{box-sizing:border-box;width:40px;height:40px;padding:9px;border:1px solid #f6c8b57a;border-radius:12px;background:radial-gradient(at 100% 0%,#ff896238,#0000 60%),linear-gradient(135deg,#fff8f114,#fff8f106);box-shadow:inset 0 1px 1px #fff1da55,0 0 12px #f4664926;stroke:#ff9878!important;stroke-width:1.6}
+html body .sc-consumer-hero .sc-service svg{width:26px;height:26px;padding:0;border:0;background:none;box-shadow:none;stroke:#ff9878!important;stroke-width:1.6}
 html body .sc-consumer-hero .sc-service:not(.sc-new) svg{stroke:#ff9878!important}
-html body .sc-consumer-hero .sc-service.sc-new svg{background:radial-gradient(at 100% 0%,#ffd4bb66,#0000 60%),linear-gradient(135deg,#ff9878,#f46649);border-color:#ffd4bb;box-shadow:inset 0 1px 1px #ffe4ce99,0 0 16px #f4664966;stroke:#180f10!important}
+html body .sc-consumer-hero .sc-service.sc-new svg{stroke:#fff8f1!important}
