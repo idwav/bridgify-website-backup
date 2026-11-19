@@ -40,10 +40,10 @@ PAGES = {
     # step 6.5: the six solution pages
     'otas': ('otas.html?version=2', 'roles-otas.js', ['otas-trial.css'], [['#section-3', 'h2', 'header.rc-head > div']], None),
     'airlines': ('airlines.html?version=2', 'roles-airlines.js', ['airlines-trial.css'], [['#section-2', 'h2', 'header.ar-heading > p'], ['#section-4', 'h2', 'header.xc-head > p']], None),
-    'hotels': ('hotels.html?version=2', 'roles-hotels.js', ['hotels-trial.css'], [['#section-4', 'h2', 'header.xc-head > p']], None),
+    'hotels': ('hotels.html?version=2', 'roles-hotels.js', ['hotels-trial.css'], [['#section-1', 'h1', 'div.hm-intro'], ['#section-4', 'h2', 'header.xc-head > p']], None),
     'loyalty-finance': ('loyalty-finance.html?version=2', 'roles-loyalty-finance.js', ['loyalty-finance-trial.css'], [['#section-2', 'h2', 'header > div.lp-copy']], None),
     'super-apps': ('super-apps.html?version=2', 'roles-super-apps.js', ['super-apps-trial.css'], [['#section-4', 'h2', 'header.xc-head > p']], None),
-    'travel-technology': ('travel-technology.html?version=2', 'roles-travel-technology.js', ['travel-technology-trial.css'], [['#section-4', 'h2', 'header.xc-head > p']], None),
+    'travel-technology': ('travel-technology.html?version=2', 'roles-travel-technology.js', ['travel-technology-trial.css'], [['#section-1', 'h1', 'div.te-intro'], ['#section-4', 'h2', 'header.xc-head > p']], None),
 }
 # Each device class is baked at several widths, because a page's own layout changes inside a class (a section that
 # stacks below 800, a grid that gains a column at 1280). A value that is the same at every width of a class is written

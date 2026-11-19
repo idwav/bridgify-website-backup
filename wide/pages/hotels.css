@@ -117,6 +117,12 @@
   html body .hm-hero .hm-stay .hm-stay-copy { flex: 0 0 auto !important; }
 }
 
+/* Desktop hero (owner, 19 Nov 2026): the intro's first line is level with the title's first line (split-align, letter
+   tops). The heading grid centred its two halves, so the intro sat 53px above the title at 1440; top-aligned now. */
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) .hm-hero .hm-heading { align-items: start !important; }
+}
+
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {
   html body #section-1 { row-gap: 0px !important; }
@@ -200,7 +206,7 @@
   html body #section-4 > header:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; padding-top: 0px !important; row-gap: 0px !important; }
   html body #section-4 > header:nth-child(1) > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body #xc-title { margin-top: 24px !important; }
-  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 43px !important; margin-bottom: 0px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-bottom: 0px !important; }
   html body #section-4 > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
   html body #section-4 > div:nth-child(2) > article:nth-child(1) { margin-top: 64px !important; }
   html body #section-4 > div:nth-child(2) > article:nth-child(2) { margin-top: 64px !important; margin-bottom: 0px !important; }
@@ -217,4 +223,20 @@
   html body #bf-cta-title { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > p:nth-child(2) { margin-top: 32px !important; margin-bottom: 0px !important; }
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
+}
+@media (min-width: 1024px) and (max-width: 1151px) {
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) { margin-top: 43.7969px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 46.668px !important; }
+}
+@media (min-width: 1152px) and (max-width: 1359px) {
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) { margin-top: 44.5226px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 47.0432px !important; }
+}
+@media (min-width: 1360px) and (max-width: 1679px) {
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) { margin-top: 46.4734px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 47.7936px !important; }
+}
+@media (min-width: 1680px) {
+  html body #section-1 > div:nth-child(1) > div:nth-child(2) { margin-top: 47.7369px !important; }
+  html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 48.252px !important; }
 }

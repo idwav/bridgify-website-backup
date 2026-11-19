@@ -114,3 +114,9 @@
   html body .hm-hero .hm-stay .hm-room img { height: 100%; object-fit: cover; }
   html body .hm-hero .hm-stay .hm-stay-copy { flex: 0 0 auto !important; }
 }
+
+/* Desktop hero (owner, 19 Nov 2026): the intro's first line is level with the title's first line (split-align, letter
+   tops). The heading grid centred its two halves, so the intro sat 53px above the title at 1440; top-aligned now. */
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) .hm-hero .hm-heading { align-items: start !important; }
+}
