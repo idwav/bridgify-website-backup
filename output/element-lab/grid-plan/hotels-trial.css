@@ -97,3 +97,20 @@
   html body .hm-hero .hm-stay .hm-room img { height: 100%; object-fit: cover; }
   html body .hm-hero .hm-stay .hm-stay-copy { flex: 0 0 auto; }
 }
+
+/* Tablet pass (owner, 19 Nov 2026). Hero: on tablets the title and the intro stood side by side, the title wrapped
+   over four lines in a 340-373px half and the intro started 45px above it. Heroes stack on tablets: title, then the
+   intro and buttons under it. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) .hm-hero .hm-heading { display: flex !important; flex-direction: column !important; align-items: flex-start !important; column-gap: 0 !important; row-gap: 0 !important; }
+  html body:not(#bf-lab) .hm-hero .hm-heading > * { width: auto !important; max-width: none !important; grid-column: auto !important; align-self: stretch !important; }
+  html body:not(#bf-lab) .hm-hero .hm-intro { border-left: 0 !important; padding-left: 0 !important; max-width: 60ch !important; }
+}
+/* "Your hotel" card on tablets: it stretches to the map's height and left an empty band under the list; the photo
+   takes the extra height (as from 1000px). */
+@media (min-width: 600px) and (max-width: 999px) {
+  html body .hm-hero .hm-stay { display: flex !important; flex-direction: column !important; }
+  html body .hm-hero .hm-stay .hm-room { flex: 1 1 auto !important; height: auto !important; min-height: 140px; }
+  html body .hm-hero .hm-stay .hm-room img { height: 100%; object-fit: cover; }
+  html body .hm-hero .hm-stay .hm-stay-copy { flex: 0 0 auto !important; }
+}
