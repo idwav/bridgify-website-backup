@@ -80,6 +80,7 @@
 @media (min-width: 901px) and (min-height: 741px) and (prefers-reduced-motion: no-preference) {
   html body #section-3 .jp-sticky { top: 96px !important; min-height: calc(100lvh - 96px - var(--bf-section-y, 96px)) !important; align-items: start !important; align-content: start !important; padding-top: 0 !important; padding-bottom: 0 !important; }
 }
+
 /* ---- ink-fonts.css ---- */
 /* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
    and the weight"). Measured in type-audit/ (accents.py, faces.py) at 1440: only 21 of 86 emphasised title words used
@@ -225,6 +226,7 @@
   html body[data-copy-page="super-apps"] #ma-title span,
   html body[data-copy-page="travel-technology"] #th-title span.th-emphasis { animation: none !important; }
 }
+
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {
   html body #section-1 { row-gap: 0px !important; }
@@ -333,18 +335,18 @@
   html body div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
 }
 @media (min-width: 1024px) and (max-width: 1151px) {
-  html body #section-2 > header:nth-child(1) > p:nth-child(2) { margin-top: 43.2409px !important; }
+  html body #section-2 > header:nth-child(1) > p:nth-child(2) { margin-top: 44.8609px !important; }
   html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 45.516px !important; }
 }
 @media (min-width: 1152px) and (max-width: 1359px) {
-  html body #section-2 > header:nth-child(1) > p:nth-child(2) { margin-top: 43.6425px !important; }
+  html body #section-2 > header:nth-child(1) > p:nth-child(2) { margin-top: 45.2625px !important; }
   html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 45.8144px !important; }
 }
 @media (min-width: 1360px) and (max-width: 1679px) {
-  html body #section-2 > header:nth-child(1) > p:nth-child(2) { margin-top: 44.4457px !important; }
+  html body #section-2 > header:nth-child(1) > p:nth-child(2) { margin-top: 46.0657px !important; }
   html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 46.4112px !important; }
 }
 @media (min-width: 1680px) {
-  html body #section-2 > header:nth-child(1) > p:nth-child(2) { margin-top: 44.9129px !important; }
+  html body #section-2 > header:nth-child(1) > p:nth-child(2) { margin-top: 46.5329px !important; }
   html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 46.844px !important; }
 }

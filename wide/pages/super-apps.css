@@ -54,6 +54,7 @@
 @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
   html body #section-3 .up-story-sticky { top: 96px !important; min-height: calc(100lvh - 96px - var(--bf-section-y, 96px)) !important; align-items: start !important; align-content: start !important; padding-top: 0 !important; padding-bottom: 0 !important; }
 }
+
 /* ---- ink-fonts.css ---- */
 /* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
    and the weight"). Measured in type-audit/ (accents.py, faces.py) at 1440: only 21 of 86 emphasised title words used
@@ -199,6 +200,7 @@
   html body[data-copy-page="super-apps"] #ma-title span,
   html body[data-copy-page="travel-technology"] #th-title span.th-emphasis { animation: none !important; }
 }
+
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {
   html body #section-1 > div:nth-child(1) { row-gap: 0px !important; }

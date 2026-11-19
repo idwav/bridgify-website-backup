@@ -62,6 +62,7 @@
   html body:not(#bf-lab) section.ai-live-hero#section-1[style*="--bf-ai-h"] { height: var(--bf-ai-h) !important; min-height: 0 !important; }
   html body:not(#bf-lab) section.ai-live-hero#section-1[style*="--bf-ai-h"] iframe { height: 100% !important; }
 }
+
 /* ---- ink-fonts.css ---- */
 /* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
    and the weight"). Measured in type-audit/ (accents.py, faces.py) at 1440: only 21 of 86 emphasised title words used
@@ -207,6 +208,7 @@
   html body[data-copy-page="super-apps"] #ma-title span,
   html body[data-copy-page="travel-technology"] #th-title span.th-emphasis { animation: none !important; }
 }
+
 /* ---- spacing and split headings, baked from rhythm-wide.js and split-align.js ---- */
 @media (min-width: 600px) and (max-width: 1023px) {
   html body #section-2 { padding-top: 80px !important; padding-bottom: 80px !important; row-gap: 0px !important; }
