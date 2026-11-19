@@ -80,3 +80,13 @@ html body #section-3.match-section .match-card.is-leaving{transform:translateX(2
 @media(max-width:1000px){#section-3.match-section .match-panel-head span{display:none}html body #section-3.match-section .match-deck{padding:14px;min-width:0;overflow:hidden}#section-3.match-section .match-row b{font-size:14px}}
 @media(max-width:760px){#section-3.match-section .match-queue{display:none}#section-3.match-section .match-stage{min-height:300px}}
 @media(min-width:761px) and (max-width:1250px){#section-3.match-section .match-row.is-active b:after{content:"Best";margin-left:6px}#section-3.match-section .match-row{grid-template-columns:52px 1fr;gap:10px}#section-3.match-section .match-row img{width:52px;height:40px}}
+
+/* Glass language for the matching section: peach edge, corner lights, rim light, blur and glow on the three main panels; lighter glass inside; no new containers */
+#section-3#section-3 :is(.match-controls,.match-engine,.match-deck){background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#120b0aa8!important;border:1px solid #f6c8b594!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 46px #f466493d,0 24px 60px #0008!important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+#section-3#section-3 :is(.match-control strong,.match-card){background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),radial-gradient(at 0% 100%,#ff78532e,#0000 42%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0002!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+#section-3#section-3 .match-photo,#section-3#section-3 .match-card img{box-shadow:0 0 0 1px #f6c8b552}
+
+/* No vertical rail and dots beside the fields; the fields get the freed space and a little more air */
+#section-3#section-3 .match-fields:before,#section-3#section-3 .match-control:before{display:none!important}
+#section-3#section-3 .match-fields{padding-left:0!important}
+#section-3#section-3 .match-control{margin-top:30px!important}
