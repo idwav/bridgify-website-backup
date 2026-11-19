@@ -12,11 +12,11 @@
     store: '<path d="M3 9.5 4.6 4h14.8L21 9.5M4.5 9.5V20h15V9.5M3 9.5h18M9.5 20v-5h5v5"/>'
   };
   const CATS = [
-    ['tours_activities', [['food-tour', 'Rome', 'Rome food tour', '€65'], ['alps', 'Zermatt', 'Alpine day hike', '€54'], ['santorini', 'Santorini', 'Santorini sunset sail', '€48']]],
-    ['attraction_tickets', [['colosseum', 'Rome', 'Colosseum entry', '€39'], ['louvre', 'Paris', 'Louvre timed entry', '€22'], ['london-eye', 'London', 'London Eye', '€36']]],
-    ['live_events', [['concert', 'London', 'Live concert', '€79'], ['#flag', 'Madrid', 'Football match tickets', '€60'], ['#spark', 'Paris', 'Cabaret evening show', '€110']]],
+    ['tours_activities', [['assets/v2/05-paris-food-tour-960.jpg', 'Rome', 'Rome food tour', '€65'], ['assets/v2/10-alps-480.jpg', 'Zermatt', 'Alpine day hike', '€54'], ['assets/v2/13-santorini-480.jpg', 'Santorini', 'Santorini sunset sail', '€48']]],
+    ['attraction_tickets', [['assets/v2/08-colosseum-480.jpg', 'Rome', 'Colosseum entry', '€39'], ['assets/v2/02-louvre-480.jpg', 'Paris', 'Louvre timed entry', '€22'], ['assets/v2/12-london-eye-480.jpg', 'London', 'London Eye', '€36']]],
+    ['live_events', [['assets/v2/16-live-music-960.jpg', 'London', 'Live concert', '€79'], ['#flag', 'Madrid', 'Football match tickets', '€60'], ['#spark', 'Paris', 'Cabaret evening show', '€110']]],
     ['vouchers_gift_cards', [['#card', 'Anywhere', 'Experience gift card', 'from €50'], ['#heart', 'Barcelona', 'Spa day voucher', '€120'], ['#store', 'Lisbon', 'Dining voucher', '€80']]],
-    ['guided_experiences', [['florence', 'From Rome', 'Day trip to Florence', '€29'], ['eiffel', 'Paris', 'Eiffel Tower guided summit', '€42'], ['seine-dinner', 'Paris', 'Seine dinner cruise', '€95']]]
+    ['guided_experiences', [['assets/v2/09-florence-480.jpg', 'From Rome', 'Day trip to Florence', '€29'], ['assets/v2/04-eiffel-night-480.jpg', 'Paris', 'Eiffel Tower guided summit', '€42'], ['assets/v2/07-seine-dinner-480.jpg', 'Paris', 'Seine dinner cruise', '€95']]]
   ];
   const tabs = $$('[data-cat]'), cards = $$('.ex-card'), call = $('.ex-call b');
   let cur = 0, swap = 0, timer = 0, playing = !reduce, visible = false;
@@ -26,7 +26,7 @@
       const c = cards[j];
       $('.ex-img', c).innerHTML = img[0] === '#'
         ? `<svg class="ex-ico" viewBox="0 0 24 24" aria-hidden="true">${ICON[img.slice(1)]}</svg>`
-        : `<img src="assets/hero-experiences/${img}.jpg" alt="">`;
+        : `<img src="${img}" alt="">`;
       $('small', c).textContent = city; $('b', c).textContent = name; $('em', c).textContent = price;
     });
   };
