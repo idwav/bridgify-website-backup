@@ -34,3 +34,13 @@ html body .sc-consumer-hero .sc-services{align-items:start}
 html body .sc-consumer-hero .sc-service.sc-new,html body .sc-consumer-hero .sc-service.sc-new.brand-coral-frame{aspect-ratio:auto;background:none;border-color:transparent!important;box-shadow:none;padding:16px 4px 14px;gap:12px;justify-content:flex-start}
 html body .sc-consumer-hero .sc-service.sc-new svg{width:32px;height:32px}
 html body .sc-consumer-hero .sc-service.sc-new span{font-size:12px;letter-spacing:0;color:#ffb594!important}
+
+/* Experiences: a glow that pulses on and off (no container) */
+html body .sc-consumer-hero .sc-service.sc-new{position:relative}
+html body .sc-consumer-hero .sc-service.sc-new::before{content:"";position:absolute;left:50%;top:30px;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:radial-gradient(circle,#f4664988,#f4664920 55%,#0000 72%);filter:blur(6px);opacity:0;pointer-events:none;animation:scPulseHalo 2.6s ease-in-out infinite}
+html body .sc-consumer-hero .sc-service.sc-new svg{position:relative;animation:scPulseIcon 2.6s ease-in-out infinite}
+html body .sc-consumer-hero .sc-service.sc-new span{position:relative;animation:scPulseLabel 2.6s ease-in-out infinite}
+@keyframes scPulseHalo{0%,100%{opacity:0;transform:scale(.8)}50%{opacity:1;transform:scale(1.08)}}
+@keyframes scPulseIcon{0%,100%{filter:drop-shadow(0 0 0 #f4664900)}50%{filter:drop-shadow(0 0 5px #f46649) drop-shadow(0 0 12px #f4664999)}}
+@keyframes scPulseLabel{0%,100%{text-shadow:0 0 0 #f4664900}50%{text-shadow:0 0 10px #f46649aa}}
+@media(prefers-reduced-motion:reduce){html body .sc-consumer-hero .sc-service.sc-new::before,html body .sc-consumer-hero .sc-service.sc-new svg,html body .sc-consumer-hero .sc-service.sc-new span{animation:none}html body .sc-consumer-hero .sc-service.sc-new::before{opacity:.6}}
