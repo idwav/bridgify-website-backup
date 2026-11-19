@@ -129,23 +129,15 @@ window.BridgifyRoles = {
    "items": [
     [
      "label",
-     "header > div.eyebrow"
+     "div.lm2-sticky > header > div.eyebrow"
     ],
     [
      "title",
-     "header > h2"
+     "div.lm2-sticky > header > h2"
     ],
     [
      "content",
-     "div.lm-flow > div.lm-sources"
-    ],
-    [
-     "content",
-     "div.lm-flow > div.lm-need"
-    ],
-    [
-     "text",
-     "p.lm-body"
+     "div.lm2-sticky > div.lm2-grid"
     ]
    ]
   },
