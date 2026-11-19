@@ -49,9 +49,14 @@ Added at the owner's request on 19 November 2026, after hand edits to built file
 3. When you change a page's HTML structure (move, add or remove elements, rebuild a section), update that page's role
    map `output/element-lab/grid-plan/roles-<page>.js` and rebuild. The baked spacing finds elements by position, so a
    stale map puts spacing on the wrong elements (this broke Loyalty's Market signal on tablets).
-4. Follow the rules that exist; do not invent new ones. Spacing only from the spacing table and tokens; type only from
+4. The content line and its cap (approved 17 November 2026, `SPACING-GRID-PLAN.md`): every section's content starts and
+   ends on one line, `--try-margin` from `wide/grid.css`. Tablet 600-1023: 32px. Desktop: `max(clamp(40px, 4vw, 64px),
+   (100vw - 1560px) / 2)`, so content is at most 1560px wide and centred on large screens (58px margin at 1440,
+   180 at 1920, 500 at 2560). Phone: 24px (mobile layer). Never give a section its own side padding or max width;
+   use `var(--try-margin)`. Check 1920 as well when a change affects width.
+5. Follow the rules that exist; do not invent new ones. Spacing only from the spacing table and tokens; type only from
    `brand-typography.css`; copy only from Copy v4. On tablets (600-1023px) split headings and heroes stack: title,
    then intro, then buttons.
-5. Never undo a design the owner approved (for example the centred OTAs hero with its two-line desktop title).
+6. Never undo a design the owner approved (for example the centred OTAs hero with its two-line desktop title).
    If you think it should change, say so in the PR and let the owner decide.
 
