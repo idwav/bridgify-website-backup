@@ -45,15 +45,15 @@ window.BridgifyRoles = {
     ],
     [
      "content",
+     "div.lp-result"
+    ],
+    [
+     "content",
      "div.lp-demo"
     ],
     [
      "dots",
      "div.ad-dots"
-    ],
-    [
-     "content",
-     "div.lp-result"
     ]
    ]
   },

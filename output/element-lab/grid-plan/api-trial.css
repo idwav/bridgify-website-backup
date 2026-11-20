@@ -49,3 +49,15 @@
 @media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
   html body:not(#bf-lab) section#top { padding-top: calc(88px + var(--bf-hero-top)) !important; }
 }
+/* Who does what (owner, 20 Nov 2026): the two buttons keep the site's normal button size (52px, 16px text, their own
+   width), stacked and set against the right content edge, the first one level with the top of the title. Tablet stacks:
+   title, then the buttons on the content line. */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) #integration.am-section .am-heading > .am-actions > a { flex: none !important; width: auto !important; min-height: 52px !important; padding: 8px 22px !important; }
+}
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) #integration.am-section .am-heading > .am-actions { align-self: start !important; align-items: flex-end !important; justify-content: flex-start !important; gap: 12px !important; margin: 0 !important; }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) #integration.am-section .am-heading > .am-actions { align-items: flex-start !important; gap: 12px !important; }
+}
