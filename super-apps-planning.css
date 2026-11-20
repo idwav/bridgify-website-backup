@@ -75,7 +75,7 @@ html body #section-3.sc-section{padding-top:48px!important;padding-bottom:32px!i
 /* Vertical rhythm of the text column: eyebrow 24 / heading 36 / steps 40 / copy */
 html body #section-3.sc-section .up-story-text .up-story-steps{margin:36px 0 28px!important}
 html body #section-3.sc-section .up-story-text .up-story-copy h3{margin:0 0 14px!important}
-html body #section-3#section-3.sc-section .up-story-text .up-story-steps{margin:36px 0 28px!important}
+html body:not(#bf-lab) #section-3.sc-section .up-story-text .up-story-steps{margin:36px 0 28px!important}
 
 /* The pinned track is sticky height + a spacer, so it never depends on JS (a refresh in the middle of the section keeps working) */
 html body #section-3 .up-story-track{height:auto!important}

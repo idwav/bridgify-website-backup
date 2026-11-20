@@ -82,24 +82,24 @@ html body #section-3.match-section .match-card.is-leaving{transform:translateX(2
 @media(min-width:761px) and (max-width:1250px){#section-3.match-section .match-row.is-active b:after{content:"Best";margin-left:6px}#section-3.match-section .match-row{grid-template-columns:52px 1fr;gap:10px}#section-3.match-section .match-row img{width:52px;height:40px}}
 
 /* Glass language for the matching section: peach edge, corner lights, rim light, blur and glow on the three main panels; lighter glass inside; no new containers */
-#section-3#section-3 :is(.match-controls,.match-engine,.match-deck){background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#120b0aa8!important;border:1px solid #f6c8b594!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 46px #f466493d,0 24px 60px #0008!important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
-#section-3#section-3 :is(.match-control strong,.match-card){background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),radial-gradient(at 0% 100%,#ff78532e,#0000 42%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0002!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-#section-3#section-3 .match-photo,#section-3#section-3 .match-card img{box-shadow:0 0 0 1px #f6c8b552}
+html body:not(#bf-lab) #section-3 :is(.match-controls,.match-engine,.match-deck){background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#120b0aa8!important;border:1px solid #f6c8b594!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 46px #f466493d,0 24px 60px #0008!important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+html body:not(#bf-lab) #section-3 :is(.match-control strong,.match-card){background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),radial-gradient(at 0% 100%,#ff78532e,#0000 42%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0002!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html body:not(#bf-lab) #section-3 .match-photo,html body:not(#bf-lab) #section-3 .match-card img{box-shadow:0 0 0 1px #f6c8b552}
 
 /* No vertical rail and dots beside the fields; the fields get the freed space and a little more air */
-#section-3#section-3 .match-fields:before,#section-3#section-3 .match-control:before{display:none!important}
-#section-3#section-3 .match-fields{padding-left:0!important}
-#section-3#section-3 .match-control{margin-top:30px!important}
+html body:not(#bf-lab) #section-3 .match-fields:before,html body:not(#bf-lab) #section-3 .match-control:before{display:none!important}
+html body:not(#bf-lab) #section-3 .match-fields{padding-left:0!important}
+html body:not(#bf-lab) #section-3 .match-control{margin-top:30px!important}
 
 /* The three panels share one centre line: engine and deck are centred against the traveler panel (the stray top margins were pushing it down) */
 @media(min-width:761px){
-#section-3#section-3.match-section .match-workspace{align-items:center!important}
-#section-3#section-3 .match-workspace>.match-controls{margin-top:0!important;margin-bottom:0!important;align-self:center!important}
-#section-3#section-3 .match-workspace>.match-engine,#section-3#section-3 .match-workspace>.match-deck{margin-top:0!important;margin-bottom:0!important;align-self:center!important}
-#section-3#section-3 .match-fields{display:block}
+html body:not(#bf-lab) #section-3.match-section .match-workspace{align-items:center!important}
+html body:not(#bf-lab) #section-3 .match-workspace>.match-controls{margin-top:0!important;margin-bottom:0!important;align-self:center!important}
+html body:not(#bf-lab) #section-3 .match-workspace>.match-engine,html body:not(#bf-lab) #section-3 .match-workspace>.match-deck{margin-top:0!important;margin-bottom:0!important;align-self:center!important}
+html body:not(#bf-lab) #section-3 .match-fields{display:block}
 }
 /* Matched panel: slightly lower rows so its height follows the traveler panel */
 @media(min-width:761px){
-#section-3#section-3 .match-queue{gap:6px!important}
-#section-3#section-3 .match-queue>*{height:60px!important;min-height:0!important;box-sizing:border-box}
+html body:not(#bf-lab) #section-3 .match-queue{gap:6px!important}
+html body:not(#bf-lab) #section-3 .match-queue>*{height:60px!important;min-height:0!important;box-sizing:border-box}
 }
