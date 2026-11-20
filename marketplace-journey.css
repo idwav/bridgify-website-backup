@@ -61,3 +61,4 @@ html body:not(#bf-lab) #section-2.market-product-tour .mpt-sticky{position:stick
 html body:not(#bf-lab) #section-2.market-product-tour .mpt-sticky .tour{align-items:center}
 html body:not(#bf-lab) #section-2.market-product-tour .stages{align-self:center;justify-content:center!important;gap:2px!important;padding:0!important}
 }
+@media(max-width:800px){html body:not(#bf-lab) #section-2.market-product-tour .stages button b{display:none}}
