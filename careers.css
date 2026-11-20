@@ -239,3 +239,6 @@ body{background:#180f10;color:#eee9de}
 .cm[data-step="2"] .cm-stg i{animation:none!important}
 .cm-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .cm-core,.cm-p{z-index:1}
+
+/* Why now: the rail ends where the last circle begins (the mask in careers-motion.js leaves a gap around each circle) */
+.cw-rail{bottom:auto;height:var(--end,100%)}
