@@ -22,11 +22,11 @@
   html body #integration :is(.am-build, .am-managed) > p { font-size: var(--type-body) !important; line-height: 1.55 !important; }
 }
 @media (min-width: 1024px) {
-  /* split headings: two equal halves, intro from column 7, at most 560px, level with the title (split-align.js) */
+  /* split headings: two equal halves, intro at most 560px, on the right content edge, level with the title (split-align.js) */
   html body :is(#whats-inside header.ex-head, #api-features header.ck-head) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; column-gap: 32px !important; align-items: start !important;
   }
-  html body :is(#whats-inside header.ex-head > p, #api-features header.ck-head > p) { align-self: start !important; max-width: 560px !important; }
+  html body :is(#whats-inside header.ex-head > p, #api-features header.ck-head > p) { align-self: start !important; max-width: 560px !important; width: 100% !important; justify-self: end !important; margin-left: auto !important; }
 }
 /* iPad Pro held upright (1024–1366 wide, portrait): the hero gets the same stacked recipe as the homepage hero on
    tablets: copy on 7/8 of the width, the code demo across the content width, 64 between, the whole hero on one screen */
