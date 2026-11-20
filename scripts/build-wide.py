@@ -44,7 +44,7 @@ PAGES = {
     'airlines': ('airlines.html?version=2', 'roles-airlines.js', ['airlines-trial.css'], [['#section-2', 'h2', 'header.ar-heading > p'], ['#section-4', 'h2', 'header.xc-head > p']], 'airlines-pin.js'),
     'hotels': ('hotels.html?version=2', 'roles-hotels.js', ['hotels-trial.css'], [['#section-1', 'h1', 'div.hm-intro'], ['#section-4', 'h2', 'header.xc-head > p']], None),
     'loyalty-finance': ('loyalty-finance.html?version=2', 'roles-loyalty-finance.js', ['loyalty-finance-trial.css'], [['#section-2', 'h2', 'header > div.lp-copy']], None),
-    'super-apps': ('super-apps.html?version=2', 'roles-super-apps.js', ['super-apps-trial.css'], [['#section-4', 'h2', 'header.xc-head > p']], None),
+    'super-apps': ('super-apps.html?version=2', 'roles-super-apps.js', ['super-apps-trial.css'], [['#section-2', 'h2', 'header.sc-info-heading > p.sc-how-intro'], ['#section-4', 'h2', 'header.xc-head > p']], None),
     'travel-technology': ('travel-technology.html?version=2', 'roles-travel-technology.js', ['travel-technology-trial.css'], [['#section-1', 'h1', 'div.te-intro'], ['#section-4', 'h2', 'header.xc-head > p']], None),
 }
 # Each device class is baked at several widths, because a page's own layout changes inside a class (a section that
