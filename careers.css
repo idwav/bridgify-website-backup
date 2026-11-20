@@ -272,4 +272,6 @@ html body #what-makes-bridgify .cm-head{margin-bottom:32px}
   html body #what-makes-bridgify .cm-head{grid-column:1;grid-row:1;align-self:end}
   html body #what-makes-bridgify .cm-list{grid-column:1;grid-row:2;align-content:start}
   html body #what-makes-bridgify .cm-stage{grid-column:2;grid-row:1/3;align-self:stretch}
+  html body #what-makes-bridgify .cm-list{min-height:480px}
+  html body #what-makes-bridgify .cm-stage{min-height:0}
 }
