@@ -9,3 +9,11 @@
 @keyframes embed-ai-rec{0%{opacity:0;transform:translateY(32px) scale(.975);box-shadow:none}65%{opacity:1;transform:translateY(-3px) scale(1.004)}100%{opacity:1;transform:none;box-shadow:inset 0 1px 2px #ffdcc7,0 0 30px #f4664945}}
 @keyframes embed-ai-label{0%{opacity:0;letter-spacing:5px}100%{opacity:1;letter-spacing:2px}}
 @media(prefers-reduced-motion:reduce){.embed-shell.is-ai-active .embed-plan,.embed-shell.is-ai-active .embed-recommendation,.embed-shell.is-ai-active .embed-rec-label{animation:none}}
+
+/* Owner, 20 Nov 2026: the glass gradient from Idan's version only (shell, inner panels, switch, image edges). Positions,
+   sizes and behaviour stay as they were. */
+html body:not(#bf-lab) #section-4 .embed-shell{background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;border:1px solid #f6c8b594!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 46px #f4664933,0 24px 60px #0006!important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+html body:not(#bf-lab) #section-4 :is(.embed-trip aside,.embed-recommendation){background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),radial-gradient(at 0% 100%,#ff78532e,#0000 42%),linear-gradient(115deg,#fff8f114,#0000 60%),#1a110ecc!important;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0002!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html body:not(#bf-lab) #section-4 .embed-plan{background:linear-gradient(115deg,#fff8f10d,#0000 60%)!important;border:1px solid #f6c8b533!important;box-shadow:none!important}
+html body:not(#bf-lab) #section-4 .embed-switch{border-color:#f6c8b57a!important;background:linear-gradient(115deg,#fff8f10d,#fff8f106)}
+html body:not(#bf-lab) #section-4 .embed-destination img,html body:not(#bf-lab) #section-4 .embed-rec-content img{box-shadow:0 0 0 1px #f6c8b552}
