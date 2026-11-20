@@ -51,6 +51,18 @@
 @media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
   html body:not(#bf-lab) section#top { padding-top: calc(88px + var(--bf-hero-top)) !important; }
 }
+/* Who does what (owner, 20 Nov 2026): the two buttons keep the site's normal button size (52px, 16px text, their own
+   width), stacked and set against the right content edge, the first one level with the top of the title. Tablet stacks:
+   title, then the buttons on the content line. */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) #integration.am-section .am-heading > .am-actions > a { flex: none !important; width: auto !important; min-height: 52px !important; padding: 8px 22px !important; }
+}
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) #integration.am-section .am-heading > .am-actions { align-self: start !important; align-items: flex-end !important; justify-content: flex-start !important; gap: 12px !important; margin: 0 !important; }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) #integration.am-section .am-heading > .am-actions { align-items: flex-start !important; gap: 12px !important; }
+}
 
 /* ---- ink-fonts.css ---- */
 /* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
@@ -236,10 +248,10 @@
   html body #integration > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body #integration > header:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
   html body #am-title { margin-top: 16px !important; margin-bottom: 0px !important; }
-  html body #integration > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; }
-  html body #integration > div:nth-child(4) { margin-top: 40px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; row-gap: 0px !important; }
-  html body #integration > div:nth-child(4) > a:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
-  html body #integration > div:nth-child(4) > a:nth-child(2) { margin-top: 40px !important; margin-bottom: 0px !important; }
+  html body #integration > header:nth-child(2) > div:nth-child(2) { margin-bottom: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
+  html body #integration > header:nth-child(2) > div:nth-child(2) > a:nth-child(1) { margin-bottom: 0px !important; }
+  html body #integration > header:nth-child(2) > div:nth-child(2) > a:nth-child(2) { margin-top: 40px !important; margin-bottom: 0px !important; }
+  html body #integration > div:nth-child(3) { margin-top: -181px !important; }
   html body #api-features { padding-top: 80px !important; padding-bottom: 80px !important; row-gap: 0px !important; }
   html body #api-features > header:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
   html body #api-features > header:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
@@ -309,10 +321,10 @@
   html body #integration > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body #integration > header:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
   html body #am-title { margin-top: 24px !important; margin-bottom: 0px !important; }
-  html body #integration > div:nth-child(3) { margin-top: 64px !important; margin-bottom: 0px !important; }
-  html body #integration > div:nth-child(4) { margin-top: 48px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
-  html body #integration > div:nth-child(4) > a:nth-child(1) { margin-top: 0px !important; }
-  html body #integration > div:nth-child(4) > a:nth-child(2) { margin-bottom: 0px !important; }
+  html body #integration > header:nth-child(2) > div:nth-child(2) { margin-bottom: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
+  html body #integration > header:nth-child(2) > div:nth-child(2) > a:nth-child(1) { margin-bottom: 0px !important; }
+  html body #integration > header:nth-child(2) > div:nth-child(2) > a:nth-child(2) { margin-top: 48px !important; margin-bottom: 0px !important; }
+  html body #integration > div:nth-child(3) { margin-top: 64px !important; }
   html body #api-features { padding-top: 96px !important; padding-bottom: 96px !important; row-gap: 0px !important; }
   html body #api-features > header:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; }
   html body #api-features > header:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; padding-top: 0px !important; row-gap: 0px !important; }

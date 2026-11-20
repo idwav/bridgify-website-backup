@@ -37,3 +37,47 @@ html body .sc-section .up-carousel .up-slide[data-position="0"]{opacity:1;visibi
 @media(prefers-reduced-motion:reduce){html body .sc-section .up-carousel .up-slide{transition:none}}
 
 .sc-section .up-story-copy{color:#eee9de}.up-map text{font:400 13px ConsumerSofia,Sofia,sans-serif;fill:#eee9de}.up-map .up-route{stroke-width:1.5;vector-effect:non-scaling-stroke}
+
+/* Connect experiences (#section-3): sized to its content, pinned and vertically centred while the steps scroll */
+html body #section-3.sc-section{padding:clamp(56px,8vh,88px) 4vw}
+html body #section-3 .up-story-track{height:200svh}
+html body #section-3.sc-section .up-story-track .up-story-sticky{min-height:0!important;align-items:center!important;align-content:center!important;padding:0!important}
+
+/* Steps: the same tabs component as Why Bridgify (.wy-tab): a vertical line that fills while you scroll, number, label */
+html body #section-3 .up-story-steps{display:grid;gap:2px;margin:30px 0 34px;max-width:380px}
+html body #section-3 .up-story-steps button{position:relative;display:grid;grid-template-columns:28px 1fr;grid-template-rows:auto;align-items:center;column-gap:0;row-gap:0;width:100%;min-height:48px;padding:0 14px;border:0;border-radius:0;background:none;color:#A99D94;text-align:left;font:550 13px/1.2 Sofia,sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:color .4s;counter-increment:none}
+html body #section-3 .up-story-steps button::before,html body #section-3 .up-story-steps button::after{content:"";counter-increment:none;position:absolute;left:0;top:8px;bottom:8px;width:2px;height:auto;margin:0;border-radius:2px;grid-column:auto;grid-row:auto;background:rgba(178,138,104,.24);box-shadow:none;min-width:0;font:inherit;letter-spacing:0}
+html body #section-3 .up-story-steps button::after{background:#F46649;transform-origin:top;transform:scaleY(var(--fill,0))}
+html body #section-3 .up-story-steps button b{font-weight:550;color:#F46649}
+html body #section-3 .up-story-steps button[aria-selected=true]{color:#FFF8F1;font-size:13px}
+html body #section-3 .up-story-steps button:hover{color:#ffb485}
+html body #section-3 .up-story-steps button:focus-visible{outline:2px solid #ffad70;outline-offset:4px}
+
+/* The copy blocks share one cell, so switching steps never changes the height (the phone stays still) */
+html body #section-3 .up-story-copies{display:grid}
+html body #section-3 .up-story-copies>.up-story-copy{grid-area:1/1;min-width:0}
+html body #section-3 .up-story-copies>.up-story-copy[hidden]{display:block!important;visibility:hidden}
+
+/* The Aiyelet line stays inside the pinned section for the whole scroll */
+html body #section-3 .up-story-sticky>.sc-foot{grid-column:1/-1;margin-top:8px;padding-top:0;border:0}
+
+/* Glass: phone frame, screen and cards */
+html body #section-3 .up-phone{background:radial-gradient(at 100% 0%,#ff896252,#0000 30%),radial-gradient(at 0% 100%,#ff78534a,#0000 28%),linear-gradient(115deg,#fff8f114,#0000 45%,#fff8f10c),#120b0aa0;border:1px solid #f6c8b594!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 64px #f4664944,0 30px 70px #000b;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+html body #section-3 .up-screen{background:radial-gradient(at 100% 0%,#ff89622a,#0000 34%),radial-gradient(at 0% 100%,#ff785326,#0000 30%),linear-gradient(115deg,#fff8f10a,#0000 50%),#140d0bb3;box-shadow:inset 0 1px 1px #fff1da40}
+html body #section-3 .up-card{background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),radial-gradient(at 0% 100%,#ff78532e,#0000 42%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0002,0 0 16px #f4664926;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html body #section-3 .up-card img{box-shadow:0 0 0 1px #f6c8b552}
+html body #section-3 .up-status,html body #section-3 .up-payment{border-color:#f6c8b533}
+html body #section-3 .up-story-steps{margin-bottom:34px}
+
+/* Less empty space around the pinned story */
+html body #section-3.sc-section{padding-top:48px!important;padding-bottom:32px!important}
+
+/* Vertical rhythm of the text column: eyebrow 24 / heading 36 / steps 40 / copy */
+html body #section-3.sc-section .up-story-text .up-story-steps{margin:36px 0 28px!important}
+html body #section-3.sc-section .up-story-text .up-story-copy h3{margin:0 0 14px!important}
+html body:not(#bf-lab) #section-3.sc-section .up-story-text .up-story-steps{margin:36px 0 28px!important}
+
+/* The pinned track is sticky height + a spacer, so it never depends on JS (a refresh in the middle of the section keeps working) */
+html body #section-3 .up-story-track{height:auto!important}
+html body #section-3 .up-story-track::after{content:"";display:block;height:120svh}
+html body #section-3 .up-story-sticky{top:140px}

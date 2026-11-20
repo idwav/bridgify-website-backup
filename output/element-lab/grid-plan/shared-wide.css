@@ -1,15 +1,20 @@
 /* Step 6.1 · the shared parts every page has: FAQ and the closing CTA (SPACING-GRID-PLAN.md, step 6.1).
-   FAQ: on the content line, section-y above and below (80 tablet, 96 desktop), title at the section-title size.
+   FAQ: on the content line, 56 above and below, title 32 (owner, 20 Nov 2026; was section-y and the section-title size).
    Closing CTA: title at the section-title size. The CTA and footer keep their 14px frame (approved global footer).
    Phone (≤599) is not touched. */
 @media (min-width: 600px) {
   html body:not(#bf-lab) section:is(.copy-faq, .al-faq)#faq {
     padding-left: var(--try-margin) !important; padding-right: var(--try-margin) !important;
-    padding-top: var(--bf-section-y) !important; padding-bottom: var(--bf-section-y) !important;
+    padding-top: 56px !important; padding-bottom: 56px !important;
   }
-  html body:not(#bf-lab) #faq :is(.copy-inner > h2, h2:first-of-type), html body:not(#bf-lab) #bf-cta-title {
-    font-size: var(--type-section) !important; line-height: 1.2 !important;
-  }
+  html body:not(#bf-lab) #bf-cta-title { font-size: var(--type-section) !important; line-height: 1.2 !important; }
+  /* Owner, 20 Nov 2026: one smaller FAQ on every page, tablet and desktop (from Idan's version): 56 above and below,
+     title 32, question 20, answer 16, 18 between rows, 12 from a question to its answer. Sizes only. */
+  html body:not(#bf-lab) #faq :is(.copy-inner > h2, h2:first-of-type) { font-size: 32px !important; line-height: 1.2 !important; margin-bottom: 20px !important; }
+  html body:not(#bf-lab) #faq details { padding: 18px 0 !important; }
+  html body:not(#bf-lab) #faq summary { font-size: 20px !important; line-height: 1.35 !important; min-height: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; }
+  html body:not(#bf-lab) #faq details > :not(summary) { margin-top: 12px !important; }
+  html body:not(#bf-lab) #faq :is(details > p, .al-faq-answer p) { font-size: 16px !important; line-height: 1.55 !important; padding: 0 !important; }
 }
 /* The two buttons in the shared "Choose" section (Experiences API | White-Label Marketplace, #section-4.xc on the six
    solution pages) had their own design: a filled dark gradient, 20/14 padding and a 30px coral square with the arrow.

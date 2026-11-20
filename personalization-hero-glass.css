@@ -12,3 +12,19 @@ body{background:radial-gradient(ellipse at 85% 65%,#f4664909,transparent 55%),#1
 .detected>div.ready{box-shadow:inset 0 1px 1px #ffe4ce55,0 0 15px #f4664920}.detected span{color:#ff987e}.detected small{color:#e6cbbf}.result-grid article>small,.result-grid footer{color:#f6b299}.result-grid p,.thinking small{color:#d5c5bd}.thinking{border-color:#fff0dd20}.loading-ring{color:#ff987e}.loading-ring:before{border-top-color:#ffe2c6;border-right-color:#f46649}.processing-light.active{background:radial-gradient(ellipse at 50% 50%,#f4664926,transparent 65%)}
 @keyframes hero-ink-flow{from{background-position:0% 50%}to{background-position:100% 50%}}
 @media(prefers-reduced-motion:reduce){.copy h1 em{animation:none}}
+
+/* Chat: panel, bubbles, chips and recommendation cards in the same glass language */
+body[data-brand-material="ai-hero"] .ai-chat{background:radial-gradient(at 100% 0%,#ff896226,#0000 30%),radial-gradient(at 0% 100%,#ff785322,#0000 28%),linear-gradient(115deg,#fff8f10a,#0000 50%),#180f1066;border-left:1px solid #f6c8b552}
+body[data-brand-material="ai-hero"] .chat-head{background:linear-gradient(115deg,#fff8f10a,#0000);border-bottom-color:#f6c8b533}
+body[data-brand-material="ai-hero"] .chat-head>span{box-shadow:inset 0 1px 1px #ffe4ce88,0 0 14px #f4664955}
+body[data-brand-material="ai-hero"] .msg.bot{background:radial-gradient(at 0 0,#ffac8b22,#0000 60%),linear-gradient(135deg,#fff8f112,#fff8f106);border:1px solid #f6c8b573;box-shadow:inset 0 1px 1px #ffe4ce4d,inset 0 -1px 1px #ff997b2e,0 5px 16px #0002;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+body[data-brand-material="ai-hero"] .msg.user{background:radial-gradient(at 100% 0%,#ffd4bb55,#0000 60%),linear-gradient(135deg,#ff9878d9,#f46649d9);border:1px solid #ffb69b;box-shadow:inset 0 1px 1px #ffe4ce99,0 0 18px #f4664944,0 5px 16px #0003;color:#180f10}
+body[data-brand-material="ai-hero"] .chat-chips span{background:linear-gradient(135deg,#fff8f114,#fff8f106);border-color:#f6c8b57a;box-shadow:inset 0 1px 1px #ffe4ce44}
+body[data-brand-material="ai-hero"] .chat-cards article{background:radial-gradient(at 100% 0%,#ff896238,#0000 50%),radial-gradient(at 0% 100%,#ff78532c,#0000 45%),linear-gradient(115deg,#fff8f112,#0000 60%);border:1px solid #f6c8b57a;box-shadow:inset 0 1px 1px #ffe4ce55,inset 0 -1px 1px #ff997b33,0 6px 18px #0002,0 0 16px #f4664926;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+body[data-brand-material="ai-hero"] .chat-cards img{box-shadow:0 0 0 1px #f6c8b552}
+
+/* The shared coral-frame rule forces solid coral strokes; here the strokes are the peach glass edge like the other glass pieces */
+html body[data-brand-material="ai-hero"] :is(.ai-frame.panel,.msg,.chat-chips span,.chat-cards article,.chat-composer).brand-coral-frame{border-color:#f6c8b594!important}
+html body[data-brand-material="ai-hero"] .ai-frame.panel{box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 54px #f4664940,0 15px 36px #0003}
+html body[data-brand-material="ai-hero"] .msg.user.brand-coral-frame{border-color:#ffd4bb!important}
+body[data-brand-material="ai-hero"] .chat-composer{background:radial-gradient(at 100% 0%,#ff896230,#0000 50%),linear-gradient(115deg,#fff8f112,#fff8f106);box-shadow:inset 0 1px 1px #fff1da66,inset 0 -1px 1px #ff997b44,0 0 18px #f4664926;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}

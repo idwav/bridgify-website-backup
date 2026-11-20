@@ -52,3 +52,7 @@ html body .lp-bill .lp-ledger,html body .lp-bill .lp-reward{border-color:#f46649
 .lp-redemption-slider input::-moz-range-thumb{box-sizing:border-box;width:24px;height:24px;border:1.5px solid #f46649;border-radius:50%;background:#eee9de;box-shadow:0 2px 8px #180f1026,0 0 0 5px #f4664914}
 .lp-redemption-slider input:focus-visible{outline:2px solid #f46649;outline-offset:10px}
 .lp-redemption-slider input:hover::-webkit-slider-thumb{box-shadow:0 2px 8px #180f1026,0 0 0 6px #f4664928}
+
+/* Result row sits under the opening text, before the demo cards */
+.lp-bill header{margin-bottom:24px}
+.lp-bill .lp-result{margin:0 0 28px}
