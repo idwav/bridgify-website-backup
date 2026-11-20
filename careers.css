@@ -248,3 +248,6 @@ body{background:#180f10;color:#eee9de}
 .cr-exi .cr-dot{fill:#ffe2c6;stroke:#f46649;stroke-width:.5}
 .cr-stats{margin-top:8px;padding-top:24px;border-top:1px solid #f6c8b52e}
 .cr-stats div+div{border-left:1px solid #f6c8b52e}
+/* the site-wide coral frame class must not recolour the glass edges here */
+html body #reach .cr-panel.cr-panel{border-color:#f6c8b594!important}
+html body #reach .cr-panel .cr-ex.cr-ex{border-color:#f6c8b57a!important}
