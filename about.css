@@ -226,3 +226,16 @@ radial-gradient(circle,#eee9de 0 2.2px,#f46649 2.6px 3.6px,transparent 4px) 50% 
 .ms-s3 .ms-few figure.on img,.ms-s3 .ms-few figure.on figcaption{opacity:1;transform:none}
 .ms-s3 .ms-few figure.on:before,.ms-s3 .ms-few figure.on:after{opacity:0}
 .ms-s3 .ms-few figure.on.ms-best{border-color:#f46649;box-shadow:0 0 24px #f4664940}
+
+/* About: the floating "1M+ tours, attractions, activities and events" label over the map is removed on tablet and desktop (1M+ stays in the stats row and in the intro); the hero and mission panels use the glass language. The phone layer is not touched. */
+@media(min-width:600px){
+  .wm-count{display:none}
+  .wm-map{margin-bottom:0}
+}
+@media(min-width:600px){
+  html body.about-page, html body .about-page{--ab-g-edge:#f6c8b594;--ab-g-rim:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55}
+  html body .about-page .wm-hub.brand-coral-frame,html body .about-page .wm-hub{background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#120b0aa8;border:1px solid var(--ab-g-edge)!important;box-shadow:var(--ab-g-rim),0 0 34px #f4664933,0 18px 40px #0006;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+  html body .about-page .wm-brand{background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),radial-gradient(at 0% 100%,#ff78532e,#0000 42%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0002!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  html body .about-page .ms{background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2;border:1px solid var(--ab-g-edge)!important;box-shadow:var(--ab-g-rim),0 0 46px #f4664933,0 24px 60px #0006}
+  html body .about-page .ms-pill,html body .about-page .ms-note{background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;border:1px solid var(--ab-g-edge)!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 0 22px #f4664926!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+}
