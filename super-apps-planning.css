@@ -38,6 +38,7 @@ html body .sc-section .up-carousel .up-slide[data-position="0"]{opacity:1;visibi
 
 .sc-section .up-story-copy{color:#eee9de}.up-map text{font:400 13px ConsumerSofia,Sofia,sans-serif;fill:#eee9de}.up-map .up-route{stroke-width:1.5;vector-effect:non-scaling-stroke}
 
+@media(min-width:901px){
 /* Connect experiences (#section-3): sized to its content, pinned and vertically centred while the steps scroll */
 html body #section-3.sc-section{padding:clamp(56px,8vh,88px) 4vw}
 html body #section-3 .up-story-track{height:200svh}
@@ -60,6 +61,7 @@ html body #section-3 .up-story-copies>.up-story-copy[hidden]{display:block!impor
 
 /* The Aiyelet line stays inside the pinned section for the whole scroll */
 html body #section-3 .up-story-sticky>.sc-foot{grid-column:1/-1;margin-top:8px;padding-top:0;border:0}
+}
 
 /* Glass: phone frame, screen and cards */
 html body #section-3 .up-phone{background:radial-gradient(at 100% 0%,#ff896252,#0000 30%),radial-gradient(at 0% 100%,#ff78534a,#0000 28%),linear-gradient(115deg,#fff8f114,#0000 45%,#fff8f10c),#120b0aa0;border:1px solid #f6c8b594!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 64px #f4664944,0 30px 70px #000b;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
@@ -67,6 +69,7 @@ html body #section-3 .up-screen{background:radial-gradient(at 100% 0%,#ff89622a,
 html body #section-3 .up-card{background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),radial-gradient(at 0% 100%,#ff78532e,#0000 42%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0002,0 0 16px #f4664926;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 html body #section-3 .up-card img{box-shadow:0 0 0 1px #f6c8b552}
 html body #section-3 .up-status,html body #section-3 .up-payment{border-color:#f6c8b533}
+@media(min-width:901px){
 html body #section-3 .up-story-steps{margin-bottom:34px}
 
 /* Less empty space around the pinned story */
@@ -79,5 +82,9 @@ html body:not(#bf-lab) #section-3.sc-section .up-story-text .up-story-steps{marg
 
 /* The pinned track is sticky height + a spacer, so it never depends on JS (a refresh in the middle of the section keeps working) */
 html body #section-3 .up-story-track{height:auto!important}
+@media(min-width:901px){
 html body #section-3 .up-story-track::after{content:"";display:block;height:120svh}
 html body #section-3 .up-story-sticky{top:140px}
+}
+
+}@media(max-width:900px){html body #section-3 .up-story-steps button b{display:none}}

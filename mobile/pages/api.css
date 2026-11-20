@@ -199,3 +199,12 @@
 @media (max-width:599px){
   html body #top .ahc-code>.ahc-bar:not(#ad-x){margin-top:calc(var(--ad-overlap,96px) * -1)!important}
 }
+/* Who does what (owner, 20 Nov 2026): since the two actions moved into the heading, the heading grew to the long link's
+   one-line width (433px on a 375px screen) and the title and buttons were cut off. One column inside the margins: title,
+   then the two buttons stacked at the full content width (heading → buttons 32, button ↔ button 12), text wrapping. */
+@media (max-width:599px){
+  html body #integration .am-heading{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:0!important;margin-left:0!important;margin-right:0!important;max-width:100%!important}
+  html body #integration .am-heading h2{min-width:0!important;overflow-wrap:break-word}
+  html body #integration .am-heading>.am-actions{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:12px!important;width:auto!important;min-width:0!important;max-width:100%!important;margin:32px 0 0!important;padding:0!important;border:0!important}
+  html body #integration .am-heading>.am-actions>a{flex:none!important;min-width:0!important;max-width:100%!important;width:auto!important;white-space:normal!important;text-align:left!important;justify-content:flex-start!important}
+}

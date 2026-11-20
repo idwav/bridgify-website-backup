@@ -111,20 +111,16 @@ window.BridgifyRoles = {
      "#am-title"
     ],
     [
+     "actions",
+     ".am-heading > .am-actions"
+    ],
+    [
      "control",
      ".ad-seg"
     ],
     [
      "content",
      ".am-panel"
-    ],
-    [
-     "actions",
-     ".am-actions > .am-docs"
-    ],
-    [
-     "link",
-     ".am-actions > a:not(.am-docs)"
     ]
    ]
   },
