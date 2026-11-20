@@ -28,7 +28,7 @@
   html body :is(#section-2 header:has(.tour-title), #section-3 header.wl-heading, #section-4 header.wo-heading) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; column-gap: 32px !important; align-items: start !important;
   }
-  html body :is(#section-2 header:has(.tour-title) > p, #section-3 header.wl-heading > p, #section-4 header.wo-heading > p) { align-self: start !important; max-width: 560px !important; }
+  html body :is(#section-2 header:has(.tour-title) > p, #section-3 header.wl-heading > p, #section-4 header.wo-heading > p) { align-self: start !important; max-width: 560px !important; width: 100% !important; justify-self: end !important; margin-left: auto !important; }
 }
 /* Tablets and an iPad Pro held upright: the page's full-screen sections (min-height 100vh, content centred) left
    large empty bands on a tall screen. Here a section is as tall as its content plus section-y; the hero stacks
@@ -81,11 +81,11 @@
   html body:not(#bf-lab) :is(#section-3 header.wl-heading, #section-4 header.wo-heading, #section-5 .launch-heading, #build-or-buy header.bc-heading) > :is(p, div) { border-left: 0 !important; padding-left: 0 !important; }
 }
 /* Split headings on the desktop (owner review, 18 Nov 2026): every split heading the same way: two equal halves,
-   the intro from column 7, at most 560px, its first line level with the title's first line (split-align.js, baked).
+   the intro at most 560px wide and set against the right content edge (owner, 20 Nov 2026), its first line level with the title's first line (split-align.js, baked).
    These were centred or bottom-aligned on each other, so the title sat 12-110px off the intro. */
 @media (min-width: 1024px) {
   html body:not(#bf-lab) :is(#section-5 div.launch-heading, #build-or-buy header.bc-heading) { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; column-gap: 32px !important; align-items: start !important; padding-left: 0 !important; padding-right: 0 !important; }
-  html body:not(#bf-lab) :is(#section-5 div.launch-heading > p, #build-or-buy header.bc-heading > p) { align-self: start !important; max-width: 560px !important; }
+  html body:not(#bf-lab) :is(#section-5 div.launch-heading > p, #build-or-buy header.bc-heading > p) { align-self: start !important; max-width: 560px !important; width: 100% !important; justify-self: end !important; margin-left: auto !important; }
 }
 
 /* ==== Moved from the published file (owner kept these, 19 Nov): Idan's review rules, added straight to wide/pages/marketplace.css on 18 Nov. ==== */

@@ -62,11 +62,11 @@
   html body #section-3 .al-touchpoints { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; row-gap: 16px !important; }
 }
 /* Split headings on the desktop (owner review, 18 Nov 2026): every split heading the same way: two equal halves,
-   the intro from column 7, at most 560px, its first line level with the title's first line (split-align.js, baked).
+   the intro at most 560px wide and set against the right content edge (owner, 20 Nov 2026), its first line level with the title's first line (split-align.js, baked).
    These were centred or bottom-aligned on each other, so the title sat 12-110px off the intro. */
 @media (min-width: 1024px) {
   html body:not(#bf-lab) :is(#section-2 header.ar-heading, #section-4 header.xc-head) { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; column-gap: 32px !important; align-items: start !important; padding-left: 0 !important; padding-right: 0 !important; }
-  html body:not(#bf-lab) :is(#section-2 header.ar-heading > p, #section-4 header.xc-head > p) { align-self: start !important; max-width: 560px !important; }
+  html body:not(#bf-lab) :is(#section-2 header.ar-heading > p, #section-4 header.xc-head > p) { align-self: start !important; max-width: 560px !important; width: 100% !important; justify-self: end !important; margin-left: auto !important; }
 }
 /* The pinned scroll scene (owner, 18 Nov 2026: keep the scrolling, fix the spacing). Where the page pins it (wider
    than 900, taller than its own limit, motion on; mouse or touch), the frame used to be a screen tall with its content centred,

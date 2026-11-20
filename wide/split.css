@@ -1,5 +1,7 @@
 /* Lab only · alignment rule trial (user request 17 Nov 2026): a split heading (title left, intro right) is laid out
    the same way in every section.
+   Owner, 20 Nov 2026: the intro block keeps its width but sits against the right content edge (ends where the content
+   below ends), its text still left-aligned. Was: starts on column 7.
    Horizontal: two equal halves of the 12-column grid with the 32px gap, so the intro always starts on column 7
    (the page centre + 16) and never runs wider than 560px (60ch). Measured on Linear: intro at column 7, every time.
    Vertical: the intro starts level with the title's first line (not with the label above it); split-align.js sets
@@ -15,5 +17,6 @@
   html body :is(#opportunity-study div.pb-intro, #products p.pr-guide, #personalization div.home-intent-copy) {
     align-self: start !important;
     max-width: 560px !important;
+    width: 100% !important; justify-self: end !important; margin-left: auto !important;
   }
 }
