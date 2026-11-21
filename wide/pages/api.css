@@ -68,10 +68,21 @@
    the heading to panel gap (24) and the card padding (16) with :not(#bf-lab) !important rules, so the table's values never arrived. */
 @media (min-width: 600px) {
   html body:not(#bf-lab) #integration.am-section { min-height: 0 !important; padding-top: var(--bf-section-y) !important; padding-bottom: var(--bf-section-y) !important; }
-  html body:not(#bf-lab) #integration.am-section .am-panel { margin-top: var(--bf-gap-to-content) !important; padding: var(--bf-card-pad) !important; }
+  html body:not(#bf-lab) #integration.am-section .am-panel { margin-top: var(--bf-gap-to-content) !important; padding-top: 0 !important; padding-bottom: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
   html body:not(#bf-lab) #integration.am-section :is(.am-build, .am-managed) { padding: var(--bf-card-pad) !important; }
   html body:not(#bf-lab) #integration.am-section :is(.am-build, .am-managed) > h3 { margin-bottom: var(--bf-gap-text-text) !important; }
 }
+@media (min-width: 1024px) {
+  /* the services fill the card to its bottom edge (equal rows), so no empty band opens under the last one */
+  html body:not(#bf-lab) #integration.am-section .am-managed { display: flex !important; flex-direction: column !important; }
+  html body:not(#bf-lab) #integration.am-section .am-managed .am-services { flex: 1 1 auto !important; display: grid !important; grid-auto-rows: 1fr !important; gap: 12px !important; margin-top: var(--bf-gap-text-text) !important; }
+}
+@media (min-width: 1024px) {
+  /* inside "You build": the browser and the strip sit on the same edges as the text (they bled 3% outside it), 24 between the blocks, the strip at the card's bottom */
+  html body:not(#bf-lab) #integration.am-section .am-build { display: flex !important; flex-direction: column !important; }
+  html body:not(#bf-lab) #integration.am-section .am-build .am-browser { margin: var(--bf-gap-to-link) 0 var(--bf-gap-to-link) !important; }
+  html body:not(#bf-lab) #integration.am-section .am-build .am-brand-strip { margin: auto 0 0 !important; }
+  }
 
 /* ---- ink-fonts.css ---- */
 /* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
