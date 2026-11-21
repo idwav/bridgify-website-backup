@@ -1,0 +1,5 @@
+/* Careers · adaptive layer (phones). Spacing between roles comes from system/tokens.css via the role map;
+   this file only puts the sections on the shared 24px gutter. */
+@media (max-width:599px){
+  html body .careers-page :is(#top,#why-now,#reach,#what-makes-bridgify,#problems,#open-roles):not(#ad-x){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important;box-sizing:border-box!important}
+}
