@@ -1,0 +1,3 @@
+/* Home, "Built for enterprise security": the whole section is light, edge to edge, not a light box on a dark band. The content sits on the content line (the box's own padding and rounded corners are gone). */
+html body #security.sec2:not(#x){background:#EEE9DE!important}
+html body #security .sec2-in:not(#x){border-radius:0!important;background:transparent!important;padding-left:0!important;padding-right:0!important;padding-top:0!important;padding-bottom:0!important}
