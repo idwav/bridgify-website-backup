@@ -6,3 +6,19 @@ html body #opportunity-study .pb-app:not(#x){background:radial-gradient(at 100% 
 html body #opportunity-study :is(.pb-facts,.pb-app-bar):not(#x){border-color:#f6c8b52e!important}
 @media(min-width:1024px){html body #opportunity-study .pb-panels:not(#x){gap:var(--bf-card-gap,32px)!important;column-gap:var(--bf-card-gap,32px)!important}}
 @media(min-width:601px) and (max-width:1023px){html body #opportunity-study .pb-panels:not(#x){gap:var(--bf-card-gap,24px)!important}}
+
+/* Inside the two panels: padding from the card token, supplier row flush with the content edges (it was inset 12px), the facts rows the same height in both panels, breathing room under the last line of the app card */
+@media(min-width:1024px){
+html body #opportunity-study .pb-panel:not(#x){padding:var(--bf-card-pad,32px)!important}
+html body #opportunity-study .pb-sup:not(#x){width:18.4cqw!important}
+html body #opportunity-study .pb-sup[style*="--i:0"]{--x:0cqw!important}
+html body #opportunity-study .pb-sup[style*="--i:1"]{--x:20.4cqw!important}
+html body #opportunity-study .pb-sup[style*="--i:2"]{--x:40.8cqw!important}
+html body #opportunity-study .pb-sup[style*="--i:3"]{--x:61.2cqw!important}
+html body #opportunity-study .pb-sup[style*="--i:4"]{--x:81.6cqw!important}
+html body #opportunity-study .pb-facts:not(#x){min-height:70px;margin-top:24px!important}
+html body #opportunity-study .pb-order .pb-app:not(#x){padding-bottom:12px}
+}
+@media(min-width:1024px){html body #opportunity-study .pb-merged:not(#x){margin:0!important;padding:4px 16px 12px!important}
+html body #opportunity-study .pb-app-order:not(#x){top:27.5cqw!important}}
+html body #opportunity-study .pb-app-order:not(#x){border-color:#f6c8b5aa!important}
