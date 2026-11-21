@@ -32,7 +32,7 @@
     button.classList.toggle('lr-press', pressed);
     const done = !reset && t >= 5800 && t < 10300;
     if (done && !redeemed) { redeemed = true; synthetic = true; button.textContent = 'Demo redeemed'; synthetic = false; }
-    product.classList.toggle('lr-bought', done);
+    if (product.classList.contains('lr-bought') !== done) { product.classList.toggle('lr-bought', done); if (window.__lrUpdate) window.__lrUpdate(); }
     win.classList.toggle('lr-fade', t >= 10000 && t < 10300);
     setBalance(done ? 84000 - 12000 * ease(clamp((t - 5800) / 1800)) : 84000);
     win.classList.add('lr-live');
