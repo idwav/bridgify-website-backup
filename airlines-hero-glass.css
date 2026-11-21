@@ -6,3 +6,7 @@ html body #section-1 .aj-action:not(#x){border:1px solid #f6c8b57a!important}
 /* Wires between the surfaces: same coral cable as the rest of the site, with the soft glow the glass panels carry; contacts sit exactly on the card edge */
 html body #section-1 .al-motion-svg path:not(#x){stroke:#f46649;stroke-width:1.5;filter:drop-shadow(0 0 4px #f4664966)}
 html body #section-1 .al-motion-svg circle:not(#x){filter:drop-shadow(0 0 5px #f4664999)}
+/* Gap between the three surfaces from the table (card gap: 32 desktop, 24 tablet); the animation is a picture, nothing in it reacts to the pointer */
+@media(min-width:1024px){html body #section-1 .aj-journey:not(#x){gap:var(--bf-card-gap,32px)}}
+@media(min-width:701px) and (max-width:1023px){html body #section-1 .aj-journey:not(#x){gap:var(--bf-card-gap,24px)}}
+html body #section-1 .aj-journey :is(button,a):not(#x){pointer-events:none!important;cursor:default!important}
