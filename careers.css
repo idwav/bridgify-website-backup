@@ -217,7 +217,7 @@ body{background:#180f10;color:#eee9de}
 @media(max-width:1100px){
  .career-hero{grid-template-columns:1fr;min-height:0;padding-top:130px}.cv{justify-self:stretch;max-width:none}
  .cw-grid,.cr-grid,.cm{grid-template-columns:1fr}.cw-head{position:static}
- .cm-stage{min-height:400px}
+ .cm-stage{min-height:296px}
  .cpp-grid{grid-template-columns:1fr;gap:28px}.cx-wires{display:none}
  .jb{grid-template-columns:1fr;gap:20px}.jb .cx-wires{display:none}
 }
@@ -264,3 +264,43 @@ body{background:#180f10;color:#eee9de}
 /* the site-wide coral frame class must not recolour the glass edges here */
 html body #reach .cr-panel.cr-panel{border-color:#f6c8b594!important}
 html body #reach .cr-panel .cr-ex.cr-ex{border-color:#f6c8b57a!important}
+
+/* What makes Bridgify Bridgify: site numbering, glass stage and cards, one layout rhythm */
+/* What makes Bridgify Bridgify: stepper circles like Why now, stage and cards in the glass language */
+html body #what-makes-bridgify .cm-stage{min-height:440px;border:1px solid #f6c8b594!important;border-radius:24px;background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),linear-gradient(115deg,#fff8f114,#0000 60%),linear-gradient(160deg,#2e2022,#180f10);box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 18px 40px #0006,0 0 32px #f4664926}
+html body #what-makes-bridgify .cm-view{padding:32px}
+html body #what-makes-bridgify .cm-check,html body #what-makes-bridgify .cm-p{border:1px solid #f6c8b57a!important;border-radius:16px;background:linear-gradient(115deg,#fff8f114,#0000 60%),#1a110ecc;box-shadow:inset 0 1px 1px #fff1da40,0 8px 20px #0004}
+html body #what-makes-bridgify .cm-check{margin-bottom:16px;padding:16px 24px}
+html body #what-makes-bridgify .cm-core{border:1px solid #f6c8b594!important;border-radius:16px;background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 0 22px #f4664926;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html body #what-makes-bridgify .cm-owner span{border:1px solid #ffb69b;border-radius:10px;background:linear-gradient(105deg,#ff9862,#f46649);box-shadow:inset 0 1px 1px #ffe4ce88,0 4px 12px #f4664933}
+/* wires are drawn by careers-motion.js (BridgifyFlow: coral path, ring contacts, pulses): no static duplicates, no recolouring */
+html body #what-makes-bridgify .cm-owner i,html body #what-makes-bridgify .cm-pipe:before{display:none}
+html body #what-makes-bridgify .cm-p{background:linear-gradient(115deg,#fff8f114,#0000 60%),#1a110e}
+/* positions: one rhythm (32px under the header), the block centred in the visible area below the 64px nav, stage content centred */
+@media(min-width:1101px){html body #what-makes-bridgify .cm-wrap{padding-top:calc(clamp(48px,6.5svh,96px) + 64px)}}
+html body #what-makes-bridgify .cm-cap+.cm-check{margin-top:auto}
+html body #what-makes-bridgify .cm-v2 .cm-owner{margin-top:auto}
+html body #what-makes-bridgify .cm-v2 .cm-note,html body #what-makes-bridgify .cm-v1 .cm-note{margin-top:auto!important}
+
+/* numbering as everywhere on the site (Why Bridgify stepper): 2px track that fills coral for the active step, coral 01-03, no circle */
+html body #what-makes-bridgify .cm-list li{position:relative;grid-template-columns:40px minmax(0,1fr);gap:0;padding:16px 16px;border:0;color:#9b8b80}
+html body #what-makes-bridgify .cm-list li::before,html body #what-makes-bridgify .cm-list li::after{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;border-radius:2px}
+html body #what-makes-bridgify .cm-list li::before{background:rgba(178,138,104,.24)}
+html body #what-makes-bridgify .cm-list li::after{background:#F46649;transform:scaleY(0);transform-origin:top;transition:transform .6s var(--ce)}
+html body #what-makes-bridgify .cm[data-step="1"] li:nth-child(1)::after,html body #what-makes-bridgify .cm[data-step="2"] li:nth-child(2)::after,html body #what-makes-bridgify .cm[data-step="3"] li:nth-child(3)::after{transform:none}
+html body #what-makes-bridgify .cm-list li>i{display:block;width:auto;height:auto;margin:0;border:0!important;border-radius:0;background:none!important;box-shadow:none!important;font:550 13px/1.4 Sofia,sans-serif;letter-spacing:.12em;color:#F46649!important;padding-top:9px}
+html body #what-makes-bridgify .cm-list h3{font:300 clamp(24px,2.1vw,28px)/1.25 Chillax,sans-serif;letter-spacing:-.025em;text-transform:none;color:inherit}
+html body #what-makes-bridgify .cm-list p{font:400 16px/1.55 Sofia,sans-serif}
+html body #what-makes-bridgify .cm[data-step="1"] li:nth-child(1) p,html body #what-makes-bridgify .cm[data-step="2"] li:nth-child(2) p,html body #what-makes-bridgify .cm[data-step="3"] li:nth-child(3) p{margin-top:8px}
+html body #what-makes-bridgify .cm[data-step="1"] li:nth-child(1),html body #what-makes-bridgify .cm[data-step="2"] li:nth-child(2),html body #what-makes-bridgify .cm[data-step="3"] li:nth-child(3){color:#180f10}
+/* position: the heading sits in the left column above the list; the stage fills the right column at the same height */
+html body #what-makes-bridgify .cm-head{margin-bottom:32px}
+@media(min-width:1101px){
+  html body #what-makes-bridgify .cm-wrap{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);column-gap:clamp(28px,4vw,64px);align-content:center}
+  html body #what-makes-bridgify .cm{display:contents}
+  html body #what-makes-bridgify .cm-head{grid-column:1;grid-row:1;align-self:end}
+  html body #what-makes-bridgify .cm-list{grid-column:1;grid-row:2;align-content:start}
+  html body #what-makes-bridgify .cm-stage{grid-column:2;grid-row:1/3;align-self:stretch}
+  html body #what-makes-bridgify .cm-list{min-height:296px}
+  html body #what-makes-bridgify .cm-stage{min-height:0}
+}
