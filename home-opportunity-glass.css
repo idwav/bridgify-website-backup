@@ -60,7 +60,7 @@ html body #opportunity-study .pb-order .pb-app-order:not(#x){bottom:auto!importa
 
 /* ---- Opened from the start and fitted to one screen (approved concept): both paragraphs visible and white, one slim bar, 24 gaps, facts in one row ---- */
 @media(min-width:1024px){
-html body #opportunity-study:not(#x){min-height:100svh;height:100svh;box-sizing:border-box;padding:96px var(--try-margin,58px) 32px!important;display:flex;flex-direction:column;justify-content:flex-start;gap:24px;overflow:hidden}
+html body #opportunity-study:not(#x){min-height:100svh;height:auto;box-sizing:border-box;padding:96px var(--try-margin,58px) 32px!important;display:flex;flex-direction:column;justify-content:flex-start;gap:24px;overflow:hidden}
 html body #opportunity-study .pb-head:not(#x){display:grid!important;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);column-gap:48px;align-items:start;margin:0!important}
 html body #opportunity-study h2:not(#x){font-size:clamp(30px,2.7vw,40px)!important;line-height:1.15!important;margin:0!important}
 html body #opportunity-study .pb-intro:not(#x){display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:0!important;width:100%!important;max-width:none!important;justify-self:stretch!important;padding:0!important;border:0!important}
@@ -94,3 +94,16 @@ html body #opportunity-study .pb-facts:not(#x){margin-top:8px!important;padding-
 html body #opportunity-study .pb-chaos .pb-app li:not(#x){padding-top:3px!important;padding-bottom:3px!important;min-height:0!important}
 html body #opportunity-study .pb-chaos .pb-app ul:not(#x){gap:5px!important}
 }
+/* the diagram is centred between the title and the facts; the YourBrand cards are only as tall as their rows */
+@media(min-width:1024px){
+html body #opportunity-study .pb-panel .hm-wrap:not(#x){display:flex;flex-direction:column;justify-content:center}
+html body #opportunity-study .pb-chaos .pb-app-chaos:not(#x){bottom:auto!important;height:auto!important}
+html body #opportunity-study .pb-stage:not(#x){min-height:0!important}
+}
+
+@media(min-width:1024px){html body #opportunity-study:not(#x){height:auto!important;min-height:100svh!important;overflow:visible!important}}
+
+/* both panels have the same facts height (three lines), so the two diagrams sit on the same line */
+@media(min-width:1024px){html body #opportunity-study .pb-facts:not(#x){min-height:76px!important;align-items:start}}
+/* the card must not animate its position when the diagram is fitted */
+html body #opportunity-study .pb-app:not(#x){transition-property:opacity,box-shadow,border-color!important}
