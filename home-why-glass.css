@@ -24,3 +24,12 @@ html body #why-bridgify .wy-copy:not(#x){margin-bottom:18px;min-height:0!importa
 html body #why-bridgify .nm-final:not(#x){left:calc(50% - 15.5cqw)!important;transform:scale(.9)!important}
 html body #why-bridgify .nm.p-lock .nm-final:not(#x){transform:scale(1)!important}
 @media (max-width:620px){html body #why-bridgify .nm-final:not(#x){left:calc(50% - 39cqw)!important}}
+/* Normalize: the source cards and the final card in the glass language, and the folded card sits on the vertical centre of the stage (its top was a fixed 9cqw, 20px below the centre) */
+html body #why-bridgify .nm-card:not(#x){border:1px solid #f6c8b57a!important;background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0bf0!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 1.2cqw 3cqw #000a!important}
+html body #why-bridgify .nm.p-flag .nm-card:not(#x){border-color:#f6c8b5!important}
+html body #why-bridgify .nm-src:not(#x){border-bottom-color:#f6c8b52e!important}
+html body #why-bridgify .nm-final:not(#x){border:1px solid #f6c8b5!important;box-shadow:inset 0 1px 1px #fff,0 2cqw 5cqw #000b,0 0 6cqw #f4664940!important}
+html body #why-bridgify .nm-lockbar:not(#x){background:linear-gradient(115deg,#fff8f114,#0000 60%),#1a110e!important}
+@container (min-width:621px){html body #why-bridgify .nm-final:not(#x){top:calc(50% - 18cqw)!important}}
+/* the text block reserves a height close to its common step (two lines), so its ink sits near the diagram's centre line */
+@media(min-width:1024px){html body #why-bridgify .wy-copy:not(#x){min-height:11em!important}}
