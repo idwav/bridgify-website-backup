@@ -34,3 +34,34 @@ html body #why-bridgify .wy-copy:not(#x){margin-top:clamp(14px,2.2vh,26px)!impor
 }
 /* tablets and phones: the stacked steps keep the text and the diagram apart (the gap was 0px, the copy touched the frame) */
 @media(max-width:900px){html body #why-bridgify .wy-copy:not(#x){margin-bottom:20px!important}}
+
+/* ===== Aggregate step: glass, one centre line, our icon language, readable sizes ===== */
+/* icons: 1.5 stroke (already) plus the light dot sitting on the stroke */
+html body #why-bridgify .hm-ico .icon-node:not(#x){fill:#fff1e7;stroke:none}
+@container (min-width:541px){
+/* one centre line: sources, funnel, engine and catalog share the stage's vertical centre (37cqw); the catalog was 9cqw above it and the wire hooked into its side at 30% */
+html body #why-bridgify .ag-src:nth-of-type(1):not(#x){--x:3cqw!important;--y:7.2cqw!important}
+html body #why-bridgify .ag-src:nth-of-type(2):not(#x){--x:6cqw!important;--y:20.7cqw!important}
+html body #why-bridgify .ag-src:nth-of-type(3):not(#x){--x:3cqw!important;--y:34.2cqw!important}
+html body #why-bridgify .ag-src:nth-of-type(4):not(#x){--x:6cqw!important;--y:47.7cqw!important}
+html body #why-bridgify .ag-src:nth-of-type(5):not(#x){--x:3cqw!important;--y:61.2cqw!important}
+html body #why-bridgify .ag-src:not(#x){width:21.5cqw!important}
+html body #why-bridgify .ag-src svg:not(#x){width:2.8cqw!important;height:2.8cqw!important}
+html body #why-bridgify .ag-src b:not(#x){font-size:1.45cqw!important}
+html body #why-bridgify .ag-src small:not(#x){font-size:1.15cqw!important}
+html body #why-bridgify .ag-funnel:not(#x){left:30.5cqw!important;width:26.5cqw!important}
+html body #why-bridgify .ag-engine:not(#x){left:60.5cqw!important;top:28cqw!important;width:13.5cqw!important}
+html body #why-bridgify .ag-engine b:not(#x){font-size:1.9cqw!important}
+html body #why-bridgify .ag-engine small:not(#x){font-size:1.05cqw!important}
+html body #why-bridgify .ag-out:not(#x){left:77.5cqw!important;top:21.9cqw!important;width:19.5cqw!important;padding:1.8cqw!important}
+html body #why-bridgify .ag-out small:not(#x){font-size:1.1cqw!important}
+html body #why-bridgify .ag-out strong:not(#x){font-size:4.2cqw!important}
+html body #why-bridgify .ag-out span:not(#x){font-size:1.25cqw!important}
+html body #why-bridgify .ag-out ul:not(#x){font-size:1.2cqw!important}
+}
+/* glass on every card of the step: peach edge, corner lights, rim light, glow */
+html body #why-bridgify .ag-src-body:not(#x){border:1px solid #f6c8b57a!important;border-radius:1.4cqw!important;background:radial-gradient(at 100% 0%,#ff896230,#0000 52%),linear-gradient(115deg,#fff8f112,#0000 60%),#160e0bf0!important;box-shadow:inset 0 1px 1px #fff1da66,inset 0 -1px 1px #ff997b40,0 1.2cqw 3cqw #000a!important}
+html body #why-bridgify .ag-engine:not(#x){border:1px solid #f6c8b5!important;background:radial-gradient(at 100% 0%,#ff89623a,#0000 50%),radial-gradient(at 0% 100%,#ff785326,#0000 50%),linear-gradient(115deg,#fff8f114,#0000 60%),#1a110ef2!important;box-shadow:inset 0 1px 1px #fff1da99,inset 0 -1px 1px #ff997b66,0 0 4cqw #f4664938,0 1.6cqw 4cqw #000a!important}
+html body #why-bridgify .ag-out:not(#x){border:1px solid #f6c8b5a0!important;border-radius:1.8cqw!important;background:radial-gradient(at 100% 0%,#ff896234,#0000 50%),radial-gradient(at 0% 100%,#ff78531f,#0000 46%),linear-gradient(115deg,#fff8f112,#0000 60%),#160e0bf2!important;box-shadow:inset 0 1px 1px #fff1da88,inset 0 -1px 1px #ff997b55,0 0 3cqw #f4664926,0 1.8cqw 4cqw #000a!important}
+html body #why-bridgify .ag-thumbs img:not(#x){border-radius:.8cqw!important;border:1px solid #f6c8b533}
+html body #why-bridgify .ag-fn-shell:not(#x){stroke:#f6a58c!important;stroke-opacity:.85!important}

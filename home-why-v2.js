@@ -133,7 +133,7 @@
          {from: {el: engine, side: 'b'}, to: {el: out, side: 't'}, at: 3.4, main: true, dots: 2, dur: 1.4}]
       : [...srcs.map((s, i) => ({from: {el: s, side: 'r'}, to: {el: funnel, side: 'l', match: 'y', contact: false}, at: .8 + i * .1, dots: 1, dur: 2})),
          {from: {el: funnel, side: 'r', contact: false}, to: {el: engine, side: 'l'}, at: 1.6, main: true, dots: 2, dur: 1.4},
-         {from: {el: engine, side: 'r'}, to: {el: out, side: 'l', fy: .3}, at: 3.4, main: true, dots: 2, dur: 1.4}],
+         {from: {el: engine, side: 'r'}, to: {el: out, side: 'l'}, at: 3.4, main: true, dots: 2, dur: 1.4}],
       () => { aim(stage, bodies, engine); d && d.refresh(); });
     const fmt = n => n.toLocaleString('en-US');
     d = demo(stage, {dur: 10, loop: true,
