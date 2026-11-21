@@ -67,3 +67,19 @@ html body .hotel-stay-scroll .hs-panel .hj-phone>*:not(#x){margin-top:0;margin-b
 html body .hotel-stay-scroll .hs-panel .hj-phone .hj-tabs:not(#x){margin:0}
 html body .hotel-stay-scroll .hs-panel .hj-app-nav:not(#x){margin-top:auto;padding:10px 12px}
 html body .hotel-stay-scroll .hs-panel :is(.hj-app-stay,.hj-app-experience,.hj-app-nav,.hj-checkin):not(#x){border-radius:14px}
+
+/* Stay cards: spacing from the table (card padding token, 16px between the inner cards), content fills the card now that the action links are gone */
+html body .hotel-stay-scroll .hs-steps>button:focus:not(#x),html body .hotel-stay-scroll .hs-steps>button:focus-visible:not(#x){outline:none}
+html body .hotel-stay-scroll .hs-panel .hj-device:not(#x){display:flex!important;flex-direction:column;gap:16px;padding:var(--bf-card-pad,24px)!important;box-sizing:border-box}
+html body .hotel-stay-scroll .hs-panel .hj-device>*:not(#x){margin-top:0!important;margin-bottom:0!important}
+html body .hotel-stay-scroll .hs-panel .hj-device>.hj-tabs:not(#x),html body .hotel-stay-scroll .hs-panel .hj-device .hj-tabs:not(#x){margin:0!important}
+html body .hotel-stay-scroll .hs-panel .hj-hotel-nav:not(#x){padding:0!important}
+html body .hotel-stay-scroll .hs-panel .hj-checkin:not(#x){padding:24px!important}
+html body .hotel-stay-scroll .hs-panel .hj-options:not(#x){flex:1 1 auto;min-height:0;margin:0!important;gap:16px}
+html body .hotel-stay-scroll .hs-panel .hj-options>div:not(#x){display:flex;flex-direction:column;gap:8px;min-height:0}
+html body .hotel-stay-scroll .hs-panel .hj-options img:not(#x){flex:1 1 auto;height:auto!important;min-height:0}
+html body .hotel-stay-scroll .hs-panel .hj-options p:not(#x){margin:0!important}
+html body .hotel-stay-scroll .hs-panel .hj-phone:not(#x){gap:16px}
+html body .hotel-stay-scroll .hs-panel .hj-app-experience:not(#x){padding:16px!important;display:flex;flex-direction:column;gap:12px}
+html body .hotel-stay-scroll .hs-panel .hj-phone-photo:not(#x){flex:1 1 auto!important;height:auto!important;min-height:0}
+html body .hotel-stay-scroll .hs-panel .hj-app-nav:not(#x){margin-top:auto!important;padding:12px 16px!important}
