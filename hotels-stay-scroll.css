@@ -13,3 +13,73 @@
 
 /* Shared 4% page margin on every width. */
 .hs-sticky{max-width:none}
+
+/* Stay stepper: the site's numbering (2px track that fills coral for the active step, coral 01-03, no circles) and the glass window */
+@media(min-width:600px){
+html body .hotel-stay-scroll .hs-steps{gap:0;margin:32px 0}
+html body .hotel-stay-scroll .hs-steps:before{content:none}
+html body .hotel-stay-scroll .hs-steps>button{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);gap:0;align-items:start;min-height:0;padding:16px 16px 16px 26px!important;color:#a99d94!important}
+html body .hotel-stay-scroll .hs-steps>button::before,html body .hotel-stay-scroll .hs-steps>button:not(:last-child)::after,html body .hotel-stay-scroll .hs-steps>button:last-child::after{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;height:auto;border-radius:2px;background:rgba(178,138,104,.24)}
+html body .hotel-stay-scroll .hs-steps>button::after{background:#F46649!important;transform:scaleY(0);transform-origin:top;transition:transform .6s ease}
+html body .hotel-stay-scroll .hs-steps>button[aria-selected=true]::after{transform:none}
+html body .hotel-stay-scroll .hs-number{width:auto;height:auto;display:block;border:0!important;border-radius:0;background:none!important;padding-top:9px;font:550 13px/1.4 Sofia,sans-serif;letter-spacing:.12em;color:#F46649!important;z-index:auto}
+html body .hotel-stay-scroll .hs-steps button[aria-selected=true] .hs-number{background:none!important;color:#F46649!important}
+html body .hotel-stay-scroll .hs-steps>button>span:last-child{padding-top:0}
+html body .hotel-stay-scroll .hs-steps>button>span:last-child::after,html body .hotel-stay-scroll .hs-steps button[aria-selected=true]>span:last-child:after{content:none!important}
+html body .hotel-stay-scroll .hs-steps strong{font:300 clamp(24px,2.1vw,28px)/1.25 Chillax,sans-serif;letter-spacing:-.025em}
+html body .hotel-stay-scroll .hs-steps>button[aria-selected=true]{color:#eee9de!important}
+}
+html body .hotel-stay-scroll .hs-mail-window{border:1px solid #f6c8b594;border-radius:24px;background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),linear-gradient(115deg,#fff8f114,#0000 60%),linear-gradient(125deg,#332321,#211719);box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 18px 40px #0006,0 0 32px #f4664926}
+html body .hotel-stay-scroll .hs-email-letter{border-color:#f6c8b57a!important}
+/* the headline keeps a space where the line break is hidden on narrow screens ("experiences for your stay") */
+@media(max-width:1100px){html body .hotel-stay-scroll .hs-email-letter h3 br{display:inline!important;content:" "}}
+/* the site-wide coral frame class would repaint the window edge coral: keep the glass edge */
+html body .hotel-stay-scroll .hs-mail-window.hs-mail-window:not(#x){border-color:#f6c8b594!important}
+
+/* Same glass as the About panels: corner lights, translucent body, peach edge, rim light, outer glow */
+html body .hotel-stay-scroll .hs-mail-window.hs-mail-window:not(#x){background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;border:1px solid #f6c8b594!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 46px #f4664933,0 24px 60px #0006!important}
+html body .hotel-stay-scroll .hs-email-letter.hs-email-letter:not(#x){background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),radial-gradient(at 0% 100%,#ff78532e,#0000 42%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0002!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html body .hotel-stay-scroll .hs-mail-folders:not(#x){background:none!important;border-color:#f6c8b529!important}
+html body .hotel-stay-scroll .hs-mail-toolbar:not(#x){border-bottom-color:#f6c8b529!important}
+
+/* Steps 2 and 3 in the same glass as step 1, and no buttons inside these animations: they are pictures of a product, not controls */
+html body .hotel-stay-scroll .hs-panel .hj-device:not(#x){background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;border:1px solid #f6c8b594!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 46px #f4664933,0 24px 60px #0006!important;border-radius:24px}
+html body .hotel-stay-scroll .hs-panel .hj-phone:not(#x){border-radius:24px}
+html body .hotel-stay-scroll .hs-panel :is(.hj-checkin,.hj-app-stay,.hj-app-experience,.hj-app-nav):not(#x){background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0002!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html body .hotel-stay-scroll .hs-panel .hj-options img:not(#x),html body .hotel-stay-scroll .hs-panel .hj-phone-photo img:not(#x){box-shadow:0 0 0 1px #f6c8b533}
+/* tabs: plain labels, the current one marked by a coral underline */
+html body .hotel-stay-scroll .hs-panel .hj-tabs:not(#x){border:0!important;background:none!important;box-shadow:none!important;border-radius:0;gap:4px}
+html body .hotel-stay-scroll .hs-panel .hj-tabs>span:not(#x),html body .hotel-stay-scroll .hs-panel .hj-tabs>button:not(#x){background:none!important;border:0!important;border-radius:0;box-shadow:inset 0 -1px #f6c8b52e;color:#a99d94!important;-webkit-text-fill-color:currentColor!important}
+html body .hotel-stay-scroll .hs-panel .hj-tabs .selected:not(#x),html body .hotel-stay-scroll .hs-panel .hj-tabs button[aria-selected=true]:not(#x){color:#eee9de!important;-webkit-text-fill-color:#eee9de!important;box-shadow:inset 0 -2px #f46649;background:none!important}
+html body .hotel-stay-scroll .hs-panel .hj-tabs button[aria-selected=true] *:not(#x){color:#eee9de!important;-webkit-text-fill-color:#eee9de!important}
+/* actions: coral text with an arrow, not a pill */
+html body .hotel-stay-scroll :is(.hj-action,.hs-cta):not(#x){border:0!important;background:none!important;box-shadow:none!important;padding:0!important;color:#F46649!important;-webkit-text-fill-color:#F46649!important;font:550 15px/1.4 Sofia,sans-serif!important;border-radius:0}
+html body .hotel-stay-scroll :is(.hj-action,.hs-cta) *:not(#x){color:#F46649!important;-webkit-text-fill-color:#F46649!important}
+/* nothing in the animation reacts to the pointer */
+html body .hotel-stay-scroll .hs-panel button:not(#x),html body .hotel-stay-scroll .hs-mail-window :is(a,button):not(#x){pointer-events:none!important;cursor:default!important}
+
+/* Stepper focus: no browser default box after a click; keyboard focus gets a quiet peach ring */
+html body .hotel-stay-scroll .hs-steps>button:focus:not(:focus-visible):not(#x){outline:none}
+html body .hotel-stay-scroll .hs-steps>button:focus-visible:not(#x){outline:1px solid #f6c8b594;outline-offset:2px;border-radius:8px}
+/* step 3: the cards in the phone breathe (16px between them) instead of touching */
+html body .hotel-stay-scroll .hs-panel .hj-phone:not(#x){display:flex;flex-direction:column;gap:12px}
+html body .hotel-stay-scroll .hs-panel .hj-phone>*:not(#x){margin-top:0;margin-bottom:0}
+html body .hotel-stay-scroll .hs-panel .hj-phone .hj-tabs:not(#x){margin:0}
+html body .hotel-stay-scroll .hs-panel .hj-app-nav:not(#x){margin-top:auto;padding:10px 12px}
+html body .hotel-stay-scroll .hs-panel :is(.hj-app-stay,.hj-app-experience,.hj-app-nav,.hj-checkin):not(#x){border-radius:14px}
+
+/* Stay cards: spacing from the table (card padding token, 16px between the inner cards), content fills the card now that the action links are gone */
+html body .hotel-stay-scroll .hs-steps>button:focus:not(#x),html body .hotel-stay-scroll .hs-steps>button:focus-visible:not(#x){outline:none}
+html body .hotel-stay-scroll .hs-panel .hj-device:not(#x){display:flex!important;flex-direction:column;gap:16px;padding:var(--bf-card-pad,24px)!important;box-sizing:border-box}
+html body .hotel-stay-scroll .hs-panel .hj-device>*:not(#x){margin-top:0!important;margin-bottom:0!important}
+html body .hotel-stay-scroll .hs-panel .hj-device>.hj-tabs:not(#x),html body .hotel-stay-scroll .hs-panel .hj-device .hj-tabs:not(#x){margin:0!important}
+html body .hotel-stay-scroll .hs-panel .hj-hotel-nav:not(#x){padding:0!important}
+html body .hotel-stay-scroll .hs-panel .hj-checkin:not(#x){padding:24px!important}
+html body .hotel-stay-scroll .hs-panel .hj-options:not(#x){flex:1 1 auto;min-height:0;margin:0!important;gap:16px}
+html body .hotel-stay-scroll .hs-panel .hj-options>div:not(#x){display:flex;flex-direction:column;gap:8px;min-height:0}
+html body .hotel-stay-scroll .hs-panel .hj-options img:not(#x){flex:1 1 auto;height:auto!important;min-height:0}
+html body .hotel-stay-scroll .hs-panel .hj-options p:not(#x){margin:0!important}
+html body .hotel-stay-scroll .hs-panel .hj-phone:not(#x){gap:16px}
+html body .hotel-stay-scroll .hs-panel .hj-app-experience:not(#x){padding:16px!important;display:flex;flex-direction:column;gap:12px}
+html body .hotel-stay-scroll .hs-panel .hj-phone-photo:not(#x){flex:1 1 auto!important;height:auto!important;min-height:0}
+html body .hotel-stay-scroll .hs-panel .hj-app-nav:not(#x){margin-top:auto!important;padding:12px 16px!important}
