@@ -86,3 +86,10 @@
  html body #problems.cpp3{padding:64px 24px}
  html body #problems .cpp-head{margin-bottom:32px}
 }
+/* Phone partner photos (owner, 21 Nov 2026): the 16:9 row was about 60px tall with 12px captions. Same row of three,
+   now portrait tiles (about 133px tall at 390) with 14px captions, the phone minimum. */
+@media(max-width:599px){
+ html body #problems .cpp3-partners{gap:8px}
+ html body #problems .cpp3-partners figure,html body #problems .cpp3-partners figure.is-lit{aspect-ratio:4/5;max-height:160px;border-radius:12px;border:0;box-shadow:none}
+ html body #problems .cpp3-partners figcaption{padding:32px 10px 10px;font-size:14px;line-height:1.2}
+}
