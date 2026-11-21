@@ -237,7 +237,13 @@ if __name__ == "__main__":
     parser.add_argument("--port", type=int, default=8130)
     args = parser.parse_args()
     handler = partial(EditorHandler, directory=str(ROOT))
-    with ThreadingHTTPServer(("127.0.0.1", args.port), handler) as server:
+    try:
+        server = ThreadingHTTPServer(("127.0.0.1", args.port), handler)
+    except OSError:
+        print(f"Port {args.port} is already in use: the editor (or another server) is probably already running.\n"
+              f"Open http://localhost:{args.port}/?version=2, or start on another port: --port {args.port + 1}")
+        sys.exit(1)
+    with server:
         print(f"Heading editor: http://localhost:{args.port}/?version=2  (files in {ROOT})", flush=True)
         try:
             server.serve_forever()
