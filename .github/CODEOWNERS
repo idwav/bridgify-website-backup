@@ -1,0 +1,37 @@
+# The owner reviews every change to the approved global rules (19 Nov 2026). Takes effect when the repository admin
+# turns on "Require review from Code Owners" for main (Settings → Branches). Keep in step with scripts/guard/locked.txt.
+
+/DESIGN.md                @tomwininger
+/TYPOGRAPHY.md            @tomwininger
+/WORKFLOW.md              @tomwininger
+/MOBILE-RULES.md          @tomwininger
+/AGENTS.md                @tomwininger
+/CLAUDE.md                @tomwininger
+/brand-typography.css     @tomwininger
+/brand-consistency.css    @tomwininger
+/brand-consistency.js     @tomwininger
+/brand-section-labels.css @tomwininger
+/brand-faq.css            @tomwininger
+/heading-align.css        @tomwininger
+/shared-navigation.css    @tomwininger
+/shared-navigation.js     @tomwininger
+/shared-footer.css        @tomwininger
+/shared-footer.js         @tomwininger
+/partials/                @tomwininger
+/index.html               @tomwininger
+/wide/                    @tomwininger
+/mobile/                  @tomwininger
+/output/element-lab/grid-plan/shared-wide.css   @tomwininger
+/output/element-lab/grid-plan/buttons-wide.css  @tomwininger
+/output/element-lab/grid-plan/type-wide.css     @tomwininger
+/output/element-lab/grid-plan/tokens-wide.css   @tomwininger
+/output/element-lab/grid-plan/grid-vars.css     @tomwininger
+/output/element-lab/grid-plan/split-align.*     @tomwininger
+/output/element-lab/grid-plan/ink-fonts.css     @tomwininger
+/output/element-lab/grid-plan/header-compact.css @tomwininger
+/output/element-lab/grid-plan/line-interim.css  @tomwininger
+/output/element-lab/adaptive/system/            @tomwininger
+/scripts/                 @tomwininger
+/vercel.json              @tomwininger
+/.vercelignore            @tomwininger
+/.github/                 @tomwininger

@@ -1,0 +1,70 @@
+# PR guard (owner, 19 Nov 2026): every pull request into main is checked against the approved rules before it can be
+# merged. The rules are read from main's copy of scripts/guard/, so a pull request cannot loosen them for itself.
+# Make "PR guard / static" and "PR guard / visual" required checks in Settings → Branches (repository admin).
+name: PR guard
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-guard-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: head
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          path: base
+          ref: ${{ github.base_ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generated layers, locked files, forced overrides, Version 1
+        env:
+          APPROVED: ${{ contains(github.event.pull_request.labels.*.name, 'owner-approved') && '--approved' || '' }}
+        run: |
+          GUARD=base/scripts/guard; [ -f "$GUARD/static_check.py" ] || GUARD=head/scripts/guard   # first run, before main has the guard
+          set +e
+          python3 "$GUARD/static_check.py" --repo head --base "origin/${{ github.base_ref }}" $APPROVED > report.md
+          code=$?
+          cat report.md; cat report.md >> "$GITHUB_STEP_SUMMARY"
+          exit $code
+
+  visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: head
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          path: base
+          ref: ${{ github.base_ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the browser
+        run: |
+          pip install playwright==1.49.1
+          python3 -m playwright install --with-deps chromium
+      - name: Approved rules in the browser (alignment, buttons, colours, type, content line, sideways scroll)
+        run: |
+          GUARD=base/scripts/guard; [ -f "$GUARD/visual_check.py" ] || GUARD=head/scripts/guard
+          set +e
+          python3 "$GUARD/visual_check.py" --base-dir base --head-dir head --base-ref "origin/${{ github.base_ref }}" > report.md
+          code=$?
+          cat report.md; cat report.md >> "$GITHUB_STEP_SUMMARY"
+          exit $code
