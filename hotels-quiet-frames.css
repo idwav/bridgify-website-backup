@@ -1,6 +1,11 @@
 /* Hotels (owner note, 21 Nov 2026): no orange frames around the hero cards and the "Make experiences part of the stay"
    previews. Panels keep a quiet warm hairline so they still read as surfaces; the stage around the previews has no
    frame at all. Buttons and the small map markers keep their own coral. */
-html body:not(#bf-lab) #section-1 :is(.hm-stay,.hm-map,.hm-map-preview),
 html body:not(#bf-lab) #section-3 :is(.hs-mail-window,.hs-email-letter,.hj-device,.hj-checkin,.hj-app-experience,.hj-options>div,.hj-app-stay){border-color:#eee9de1f!important;box-shadow:none!important}
 html body:not(#bf-lab) #section-3 .hs-preview{border:0!important;box-shadow:none!important}
+/* Hero cards (owner note, 21 Nov 2026): Idan's soft glass glow from Careers ("Your work reaches millions"):
+   a light peach edge, an inner highlight, a deep shadow and a faint coral glow. */
+html body:not(#bf-lab) #section-1 :is(.hm-stay,.hm-map){border:1px solid rgba(246,200,181,.58)!important;background-image:radial-gradient(at 100% 0%,rgba(255,137,98,.22),transparent 48%),linear-gradient(115deg,rgba(255,248,241,.08),transparent 60%)!important;box-shadow:inset 0 1px 1px rgba(255,241,218,.333),inset 0 -1px 1px rgba(255,153,123,.2),0 18px 40px rgba(0,0,0,.4),0 0 32px rgba(244,102,73,.15)!important}
+html body:not(#bf-lab) #section-1 .hm-map-preview{border-color:rgba(246,200,181,.48)!important;box-shadow:inset 0 1px 1px rgba(255,241,218,.25),0 8px 20px rgba(0,0,0,.267)!important}
+/* Offer local experiences (owner note): Supply, Content and Payments in plain white, not coral ink. */
+html body:not(#bf-lab) #section-2 strong.brand-coral-ink{background:none!important;color:#EEE9DE!important;-webkit-text-fill-color:#EEE9DE!important}
