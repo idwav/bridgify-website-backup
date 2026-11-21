@@ -58,9 +58,10 @@
   if (pin) {
     const section = pin.closest('section'), items = [...pin.querySelectorAll('.ab-chapters li')], wide = matchMedia('(min-width:1101px)');
     let step = 1;
-    const set = n => { step = n; pin.dataset.step = n; };
+    const fills = p => items.forEach((li, i) => { const t = [0, .2, .55, 1]; li.style.setProperty('--f', Math.max(0, Math.min(1, (p - t[i]) / (t[i + 1] - t[i])))); });
+    const set = n => { step = n; pin.dataset.step = n; if (!wide.matches) items.forEach((li, i) => li.style.setProperty('--f', i < n - 1 ? 1 : i === n - 1 ? .6 : 0)); };
     const span = () => Math.max(1, section.offsetHeight - innerHeight);
-    const fromScroll = () => { if (!wide.matches) return; const p = Math.max(0, Math.min(.999, -section.getBoundingClientRect().top / span())); const n = p < .2 ? 1 : p < .55 ? 2 : 3; if (n !== step) set(n); };
+    const fromScroll = () => { if (!wide.matches) return; const p = Math.max(0, Math.min(.999, -section.getBoundingClientRect().top / span())); fills(p); const n = p < .2 ? 1 : p < .55 ? 2 : 3; if (n !== step) set(n); };
     items.forEach((li, i) => {
       const pick = () => { set(i + 1); if (wide.matches) scrollTo({ top: scrollY + section.getBoundingClientRect().top + span() * (i + .5) / items.length, behavior: reduced.matches ? 'auto' : 'smooth' }); };
       li.addEventListener('click', pick);

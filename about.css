@@ -226,3 +226,44 @@ radial-gradient(circle,#eee9de 0 2.2px,#f46649 2.6px 3.6px,transparent 4px) 50% 
 .ms-s3 .ms-few figure.on img,.ms-s3 .ms-few figure.on figcaption{opacity:1;transform:none}
 .ms-s3 .ms-few figure.on:before,.ms-s3 .ms-few figure.on:after{opacity:0}
 .ms-s3 .ms-few figure.on.ms-best{border-color:#f46649;box-shadow:0 0 24px #f4664940}
+
+/* About: the floating "1M+ tours, attractions, activities and events" label over the map is removed on tablet and desktop (1M+ stays in the stats row and in the intro); the hero and mission panels use the glass language. The phone layer is not touched. */
+@media(min-width:600px){
+  .wm-count{display:none}
+  .wm-map{margin-bottom:0}
+}
+@media(min-width:600px){
+  html body.about-page, html body .about-page{--ab-g-edge:#f6c8b594;--ab-g-rim:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55}
+  html body .about-page .wm-hub.brand-coral-frame,html body .about-page .wm-hub{background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#120b0aa8;border:1px solid var(--ab-g-edge)!important;box-shadow:var(--ab-g-rim),0 0 34px #f4664933,0 18px 40px #0006;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+  html body .about-page .wm-brand{background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),radial-gradient(at 0% 100%,#ff78532e,#0000 42%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0002!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  html body .about-page .ms{background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2;border:1px solid var(--ab-g-edge)!important;box-shadow:var(--ab-g-rim),0 0 46px #f4664933,0 24px 60px #0006}
+  html body .about-page .ms-pill,html body .about-page .ms-note{background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;border:1px solid var(--ab-g-edge)!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 0 22px #f4664926!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+}
+
+/* Mission chapters: the fixed stepper of the site (a line per step that fills top to bottom, coral number, label) */
+@media(min-width:600px){
+  html body .about-page .ab-chapters{border-top:0;margin-top:clamp(20px,3svh,32px)}
+  html body .about-page .ab-chapters li{position:relative;grid-template-columns:28px minmax(0,1fr);gap:0;padding:10px 14px;border:0;color:#A99D94}
+  html body .about-page .ab-chapters li::before,html body .about-page .ab-chapters li::after{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;border-radius:2px;background:rgba(178,138,104,.24)}
+  html body .about-page .ab-chapters li::after{background:#F46649;transform-origin:top;transform:scaleY(var(--f,0))}
+  html body .about-page .ab-chapters li>span{padding-top:0;font:550 13px/1.4 Sofia,sans-serif;letter-spacing:.12em;color:#F46649}
+  html body .about-page .ab-chapters h3{font:550 13px/1.4 Sofia,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:inherit}
+  html body .about-page .ab-chapters p{font:400 16px/1.55 Sofia,sans-serif}
+}
+
+/* Mission visual, one stroke and spacing system (tablet/desktop; the phone layer is separate).
+   Strokes: 1px everywhere. Cards and mock screens #f6c8b57a, pills and notes #f6c8b594 (glass), chips #f6c8b552; no dashed, no solid coral outlines.
+   Spacing from the 8px scale: scene padding 32, gaps between cards 16, caption to first block 16. Book is the site's primary button. */
+@media(min-width:600px){
+  html body .about-page .ms-s{padding:32px}
+  html body .about-page .ms-srcs,html body .about-page .ms-chans,html body .about-page .ms-few{gap:16px}
+  html body .about-page .ms-srcs{margin-top:16px}
+  html body .about-page .ms-all{margin-top:16px}
+  html body .about-page :is(.ms-srcs figure,.ms-few figure,.ms-app,.ms-site,.ms-co,.ms-chan){border:1px solid #f6c8b57a!important}
+  html body .about-page :is(.ms-srcs figure,.ms-few figure){background:linear-gradient(115deg,#fff8f114,#0000 60%),#1a110ecc;box-shadow:inset 0 1px 1px #fff1da40,0 8px 20px #0004}
+  html body .about-page .ms-fmt{border:1px solid #f6c8b552!important;border-style:solid!important;background:#fff8f10a}
+  html body .about-page :is(.ms-fields span,.ms-match span){border:1px solid #f6c8b552!important;background:linear-gradient(115deg,#fff8f10d,#fff8f106)}
+  html body .about-page .ms-ok{border:1px solid #63d99a66;background:#63d99a1c}
+  html body .about-page .ms-book,html body .about-page .ms-ai{border:1px solid #ffb69b;border-radius:10px;background:linear-gradient(105deg,#ff9862,#f46649)!important;color:#180f10;font:600 12px/1.2 Sofia,sans-serif;padding:7px 14px;box-shadow:inset 0 1px 1px #ffe4ce88,0 4px 12px #f4664933}
+  html body .about-page .ms-ai{font-size:13px;padding:8px 16px}
+}
