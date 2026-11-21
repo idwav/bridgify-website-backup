@@ -87,3 +87,14 @@ body[data-copy-page="login"] .top .connect{background:#eee9de;color:#180f10}
 .login-mascot .login-seg{position:absolute;inset:0;width:100%;height:100%;-webkit-mask-composite:source-in;mask-composite:intersect}
 .login-eye{translate:var(--ex,0px) var(--ey,0px);scale:1 var(--blink,1)}
 @media(prefers-reduced-motion:reduce){.login-mascot .login-arm{transform:none}.login-eye{translate:none;scale:none}}
+
+/* Shy octopus (login.js): while the password is typed, the hanging right arm lifts, curls round the side of the head and lies
+   across the eyes. The moving arm is drawn on a canvas; while it is out, the picture's own hanging arm is hidden. */
+.login-mascot .login-cover{position:absolute;inset:0;z-index:2;pointer-events:none;visibility:hidden}
+.login-cover canvas{position:absolute;inset:0;width:100%;height:100%}
+.login-mascot:is([data-arm=up],[data-arm=returning]) .login-cover{visibility:visible}
+.login-mascot:is([data-arm=up],[data-arm=returning]) .login-arms{visibility:hidden}
+.login-mascot:is([data-arm=up],[data-arm=returning]) .login-body{-webkit-mask-image:linear-gradient(to bottom,#000 52.6%,transparent 52.6%),linear-gradient(to right,#000 58%,transparent 58%);mask-image:linear-gradient(to bottom,#000 52.6%,transparent 52.6%),linear-gradient(to right,#000 58%,transparent 58%);-webkit-mask-composite:source-over;mask-composite:add}
+/* The closed eyes sit under the arm; they fade once the arm is over them so no edge of an eye shows through. */
+.login-mascot[data-arm=up] .login-eye{opacity:0;transition:transform .16s ease,opacity .2s linear .35s}
+@media(prefers-reduced-motion:reduce){.login-mascot[data-arm=up] .login-eye{transition:none}}
