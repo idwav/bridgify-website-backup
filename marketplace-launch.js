@@ -67,7 +67,7 @@
  };
  const tick=now=>{
   raf=0;if(!visible||document.hidden||reduced.matches){last=0;return}
-  if(last)elapsed+=Math.min(now-last,64);
+  if(last)elapsed+=Math.min(now-last,64)*1.35; // owner, 21 Nov 2026: a little faster
   last=now;render();raf=requestAnimationFrame(tick);
  };
  const resume=()=>{

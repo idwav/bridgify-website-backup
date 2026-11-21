@@ -101,6 +101,11 @@
   html body #section-4 .xc-grid > .xc-card:only-child > .xc-body > .xc-cta { margin-top: 24px !important; }
 }
 
+/* Hero (owner task, 21 Nov 2026): no vertical separator between the title and the intro. */
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) #section-1 .te-heading > .te-intro { border-left: 0 !important; padding-left: 0 !important; }
+}
+
 /* ---- ink-fonts.css ---- */
 /* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
    and the weight"). Measured in type-audit/ (accents.py, faces.py) at 1440: only 21 of 86 emphasised title words used
@@ -357,6 +362,6 @@
   html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 46.7504px !important; }
 }
 @media (min-width: 1680px) {
-  html body #section-1 > div:nth-child(2) > div:nth-child(2) { margin-top: 30.86px !important; }
+  html body #section-1 > div:nth-child(2) > div:nth-child(2) { margin-top: 30.94px !important; }
   html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 47.188px !important; }
 }
