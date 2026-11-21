@@ -18,8 +18,11 @@ esc = html.escape
 
 
 def luminance(hex_):
-    h = hex_.lstrip('#')[:6]
-    c = [int(h[i:i + 2], 16) / 255 for i in (0, 2, 4)]
+    if hex_.startswith('rgb'):
+        c = [float(x) / 255 for x in re.findall(r'[\d.]+', hex_)[:3]]
+    else:
+        h = hex_.lstrip('#')[:6]
+        c = [int(h[i:i + 2], 16) / 255 for i in (0, 2, 4)]
     c = [x / 12.92 if x <= 0.03928 else ((x + 0.055) / 1.055) ** 2.4 for x in c]
     return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
 
@@ -40,6 +43,13 @@ def build_css():
     for name, tok in fam.items():
         vals = ', '.join(f'"{v}"' if ' ' in v else v for v in tok['$value'])
         out.append(f'  --font-{name}: {vals};')
+    for k in ('radius', 'shadow'):
+        for name, tok in T[k].items():
+            if not name.startswith('$'):
+                out.append(f"  --{k}-{name}: {tok['$value']};")
+    for name, tok in T['glass'].items():
+        if not name.startswith('$') and not str(tok['$value']).startswith('shadow.'):
+            out.append(f"  --glass-{name}: {tok['$value']};")
     out.append(f"  --content-max: {T['grid']['content-max']['$value']};")
     out.append(f"  --illustration-text-min: {T['rule']['illustration-text-min']['$value']};")
 
@@ -175,18 +185,82 @@ def grid_rows():
 
 
 def color_sections():
-    names = {'bg': 'Backgrounds', 'text': 'Text', 'coral': 'Coral', 'state': 'States'}
+    names = {'bg': 'Backgrounds', 'text': 'Text', 'coral': 'Coral', 'state': 'States', 'line': 'Lines'}
     intro = {
         'bg': 'Two backgrounds only. Every dark section and the footer use one dark; every light section uses cream.',
         'text': 'Text colours by role. Ratios are measured against both backgrounds.',
         'coral': 'Brand coral and its two companions. The ink gradients colour the second part of a two-part heading.',
         'state': 'System states only. Green is never a brand colour.',
+        'line': 'Hairlines and edges. Shown here over the dark background.',
     }
     out = []
     for g, items in T['color'].items():
         cards = ''.join(swatch_card(g, n, t) for n, t in items.items())
         out.append(f'<h3 id="color-{g}">{names[g]}</h3><p class="lead">{intro[g]}</p><div class="swatches">{cards}</div>')
     return '\n'.join(out)
+
+
+def human(k):
+    return re.sub(r'([a-z])([A-Z])', r'\1 \2', k).lower()
+
+
+def spec_table(c):
+    def fmt(v):
+        if isinstance(v, dict):
+            if set(v) <= set(BPS):
+                return ' · '.join(f'{BP_LABEL[b]} {esc(v[b])}' for b in BPS if b in v)
+            return '<br>'.join(f'<b>{esc(human(k))}</b> {fmt(x)}' for k, x in v.items())
+        return esc(str(v))
+    rows = []
+    for k, v in c.items():
+        if k == 'use':
+            continue
+        if k == 'states' and isinstance(v, dict) and all(isinstance(x, dict) for x in v.values() if not isinstance(x, str)):
+            for var, st in v.items():
+                if isinstance(st, str):
+                    rows.append(f'<tr><th scope="row">{esc(var)}</th><td>{esc(st)}</td></tr>')
+                else:
+                    rows.append(f'<tr><th scope="row">{esc(var)} states</th><td>{fmt(st)}</td></tr>')
+            continue
+        rows.append(f'<tr><th scope="row">{esc(human(k))}</th><td>{fmt(v)}</td></tr>')
+    return f'<div class="tw"><table class="spec-t"><tbody>{"".join(rows)}</tbody></table></div>'
+
+
+COMP_DEMO = {
+ 'button': """<div class="demo dark"><div class="row"><a class="ds-btn p" href="#components">Book a demo <span aria-hidden="true">↗</span></a><a class="ds-btn s" href="#components">See the Experiences API <span aria-hidden="true">↗</span></a><span class="ds-btn p is-disabled" aria-disabled="true">Disabled <span aria-hidden="true">↗</span></span></div>
+  <p class="hint">Hover and Tab to see the states.</p></div>
+  <div class="demo cream"><div class="row"><a class="ds-btn p" href="#components">Book a demo <span aria-hidden="true">↗</span></a><a class="ds-btn s on-light" href="#components">How the Experiences API works <span aria-hidden="true">↗</span></a></div></div>
+  <div class="demo dark phone"><span class="tag">Phone · 40px, 44px tap area, one width per group</span><div class="col"><a class="ds-btn p ph" href="#components">Book a demo <span aria-hidden="true">↗</span></a><a class="ds-btn s ph" href="#components">See the Experiences API <span aria-hidden="true">↗</span></a></div></div>""",
+ 'header-button': """<div class="demo dark"><div class="row"><a class="ds-btn s hd" href="#components">Log in</a><a class="ds-btn p hd" href="#components">Book a demo <span aria-hidden="true">↗</span></a></div></div>""",
+ 'link': """<div class="demo dark"><a class="ds-link" href="#components">See the White-Label Marketplace <span aria-hidden="true">↗</span></a></div><div class="demo cream"><a class="ds-link on-light" href="#components">Meet AIyelet <span aria-hidden="true">↗</span></a></div>""",
+ 'chip': """<div class="demo dark"><div class="row" role="group" aria-label="Filter example"><button type="button" class="ds-chip" aria-pressed="true">All posts</button><button type="button" class="ds-chip" aria-pressed="false">Industry insights</button><button type="button" class="ds-chip" aria-pressed="false">Partnerships</button></div></div>""",
+ 'card-quiet': """<div class="demo dark"><div class="cards"><div class="ds-quiet"><span class="ds-card-t">Experiences API</span><span class="ds-card-d">One schema for every supplier.</span></div><div class="ds-quiet"><span class="ds-card-t">White-Label Marketplace</span><span class="ds-card-d">A branded store, live in 3 days.</span></div></div></div>""",
+ 'card-glass': """<div class="demo dark"><div class="cards"><div class="ds-glass"><span class="ds-card-t">Your hotel</span><span class="ds-card-d">Your stay is confirmed · 18–21 November</span></div></div></div>""",
+ 'stepper': """<div class="demo dark"><div class="ds-steps">""" + ''.join(f'<div class="ds-step{" on" if i == 1 else ""}" style="--f:{[1,0.55,0,0][i]}"><span class="n">0{i+1}</span><span class="l">{t}</span></div>' for i, t in enumerate(['Aggregate', 'Normalize', 'Distribute', 'Personalize'])) + """</div></div>""",
+ 'tabs': """<div class="demo dark"><div class="ds-seg" role="group" aria-label="Tabs example"><button type="button" aria-pressed="true">Guest app</button><button type="button" aria-pressed="false">Concierge</button><button type="button" aria-pressed="false">Screens</button></div></div>""",
+ 'faq': """<div class="demo dark"><div class="ds-faq"><details open><summary>How can hotels sell tours and activities to guests?<span aria-hidden="true"></span></summary><p>Add a branded experiences store or connect the Experiences API to your guest app.</p></details><details><summary>Can Bridgify integrate with our PMS or guest app?<span aria-hidden="true"></span></summary><p>Yes. The API plugs into guest apps and digital concierges.</p></details></div></div>""",
+ 'icon': """<div class="demo dark"><div class="row" style="align-items:center;gap:28px"><svg width="24" height="24" viewBox="0 0 24 24" class="ds-ico" aria-hidden="true"><path d="M4 7h16v12H4zM8 3v4M16 3v4M4 11h16"/><circle cx="16" cy="15" r="1.6" class="dot"/></svg><svg width="32" height="32" viewBox="0 0 24 24" class="ds-ico" aria-hidden="true"><path d="M4 7h16v12H4zM8 3v4M16 3v4M4 11h16"/><circle cx="16" cy="15" r="1.6" class="dot"/></svg><span class="tag">24 · 32</span></div></div>""",
+}
+COMP_NAME = {'button': 'Button', 'header-button': 'Header button', 'link': 'Text link', 'chip': 'Chip', 'card-quiet': 'Quiet card',
+             'card-glass': 'Glass card', 'stepper': 'Stepper', 'tabs': 'Tabs', 'faq': 'FAQ', 'icon': 'Icon'}
+
+
+def components_section():
+    out = []
+    for k, c in T['component'].items():
+        out.append(f'<article class="comp" id="c-{k}"><h3>{COMP_NAME.get(k, k)}</h3><p class="lead">{esc(c["use"])}</p>{COMP_DEMO.get(k, "")}{spec_table(c)}</article>')
+    return '\n'.join(out)
+
+
+def scale_rows(group, unit_note=''):
+    rows = []
+    for name, tok in T[group].items():
+        if name.startswith('$'):
+            continue
+        v = tok['$value']
+        vis = f'<div class="rad" style="border-radius:{v}"></div>' if group == 'radius' else f'<div class="shd" style="box-shadow:{v}"></div>'
+        rows.append(f'<tr><th scope="row"><code>{group}-{name}</code><div class="dim">{esc(tok.get("$description", ""))}</div></th><td class="mono">{esc(v)}</td><td>{vis}</td></tr>')
+    return '\n'.join(rows)
 
 
 def page():
@@ -279,6 +353,64 @@ td.num{{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--fg)}}
 .note{{border:1px solid #5C4A28;border-radius:12px;padding:16px 20px;color:#EBD9B4;font-size:14px;max-width:80ch}}
 .note b{{color:#F3E4C4;font-weight:600}}
 ul.plain{{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;gap:6px;max-width:75ch}}
+article.comp{{border-top:1px solid var(--line);padding-top:8px;margin-top:32px;display:flex;flex-direction:column;gap:14px}}
+article.comp h3{{margin-top:16px}}
+.demo{{border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}}
+.demo.dark{{background:#180F10;border:1px solid var(--line)}}
+.demo.cream{{background:#EEE9DE}}
+.demo.phone{{max-width:390px}}
+.demo .row{{display:flex;flex-wrap:wrap;gap:12px;align-items:center}}
+.demo .col{{display:flex;flex-direction:column;gap:12px}}
+.demo .tag,.tag{{font-size:12px;color:var(--muted)}}
+.hint{{margin:0;font-size:13px;color:var(--muted)}}
+.ds-btn{{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 24px;border-radius:10px;border:1px solid #F46649;font:550 16px/1.25 var(--text);text-decoration:none;white-space:nowrap;transition:background .3s,box-shadow .3s,transform .15s}}
+.ds-btn.p{{background:linear-gradient(105deg,#FF9862,#F46649);color:#180F10;box-shadow:inset 0 1px 1px #FFD9C288}}
+.ds-btn.p:hover,.ds-btn.p:focus-visible{{background:linear-gradient(105deg,#FFAD80,#F7704F);box-shadow:inset 0 1px 1px #FFE3CC99,0 12px 28px #F4664940}}
+.ds-btn.s{{background:transparent;color:#FFF8F1}}
+.ds-btn.s:hover,.ds-btn.s:focus-visible{{background:#F466491A}}
+.ds-btn.s.on-light{{color:#180F10}}
+.ds-btn:active{{transform:translateY(1px)}}
+.ds-btn:focus-visible{{outline:2px solid #F46649;outline-offset:4px}}
+.ds-btn.is-disabled{{opacity:.4;pointer-events:none}}
+.ds-btn.ph{{height:40px;padding:0 18px;width:100%}}
+.ds-btn.ph::after{{content:"";position:absolute;inset:-2px 0}}
+.ds-btn.hd{{height:36px;padding:0 16px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}}
+.ds-link{{font:550 16px/1.25 var(--text);color:#FFB194;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}}
+.ds-link.on-light{{color:#F46649}}
+.ds-link span{{display:inline-block;transition:transform .2s}}
+.ds-link:hover,.ds-link:focus-visible{{color:#FFE2C6}} .ds-link.on-light:hover{{color:#D9482C}}
+.ds-link:hover span,.ds-link:focus-visible span{{transform:translate(3px,-3px)}}
+.ds-chip{{height:40px;padding:0 16px;border-radius:999px;font:550 14px/1 var(--text);color:#EEE9DE;background:transparent;border:1px solid #F6C8B594;cursor:pointer}}
+.ds-chip:hover{{border-color:#F46649}}
+.ds-chip[aria-pressed=true]{{background:linear-gradient(105deg,#FF9862,#F46649);color:#180F10;border-color:#F46649}}
+.cards{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}}
+.ds-quiet,.ds-glass{{border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:8px}}
+.ds-quiet{{border:1px solid #EEE9DE2E;background:linear-gradient(125deg,#EEE9DE04,#211A181C)}}
+.ds-glass{{border:1px solid #F6C8B594;background:radial-gradient(at 100% 0%,#FF89622E,#0000 30%),radial-gradient(at 0% 100%,#FF78532B,#0000 26%),linear-gradient(115deg,#FFF8F10C,#0000 40%,#FFF8F108),#140D0BF2;box-shadow:inset 0 1px 1px #FFF1DA94,inset 0 -1px 1px #FF997B75,0 24px 60px #0006}}
+.ds-card-t{{font:300 24px/1.25 var(--display);letter-spacing:-.02em;color:#EEE9DE}}
+.ds-card-d{{font-size:14px;color:#D7C9BD}}
+.ds-steps{{display:grid;gap:2px;max-width:420px}}
+.ds-step{{position:relative;display:grid;grid-template-columns:32px 1fr;align-items:center;min-height:48px;padding:0 14px;font:550 13px/1.2 var(--text);letter-spacing:.12em;text-transform:uppercase;color:#A99D94}}
+.ds-step::before,.ds-step::after{{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;border-radius:2px;background:#B28A683D}}
+.ds-step::after{{background:#F46649;transform-origin:top;transform:scaleY(var(--f,0))}}
+.ds-step .n{{color:#FFB194;font-weight:600;letter-spacing:.04em;font-variant-numeric:tabular-nums}}
+.ds-step.on{{color:#FFF8F1}}
+.ds-seg{{display:inline-flex;gap:4px;padding:4px;border:1px solid #EEE9DE2E;border-radius:12px}}
+.ds-seg button{{height:40px;padding:0 16px;border-radius:9px;border:0;background:transparent;color:#D7C9BD;font:550 15px/1 var(--text);cursor:pointer}}
+.ds-seg button:hover{{color:#EEE9DE}}
+.ds-seg button[aria-pressed=true]{{background:linear-gradient(105deg,#FF9862,#F46649);color:#180F10}}
+.ds-faq details{{border-top:1px solid #EEE9DE2E}}
+.ds-faq summary{{list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:20px 0;cursor:pointer;font:300 20px/1.35 var(--display);color:#EEE9DE}}
+.ds-faq summary::-webkit-details-marker{{display:none}}
+.ds-faq summary span::before{{content:"+";color:#F46649;font:400 22px/1 var(--text)}}
+.ds-faq details[open] summary span::before{{content:"−"}}
+.ds-faq p{{margin:0 0 20px;max-width:68ch;color:#D7C9BD}}
+.ds-ico{{fill:none;stroke:#F46649;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}}
+.ds-ico .dot{{fill:#FFE2C6;stroke:#F46649;stroke-width:.5}}
+.spec-t th{{width:200px;color:var(--fg)}} .spec-t td{{color:var(--body)}} .spec-t td b{{color:var(--fg);font-weight:500}}
+.rad{{width:96px;height:56px;border:1px solid #F6C8B594;background:var(--panel)}}
+.shd{{width:120px;height:56px;border-radius:18px;background:var(--panel);border:1px solid var(--line)}}
+@media (max-width:560px){{.ds-btn:not(.ph):not(.hd){{height:40px;padding:0 18px}}}}
 @media (prefers-reduced-motion:reduce){{html{{scroll-behavior:auto}}}}
 </style>
 </head>
@@ -290,9 +422,10 @@ ul.plain{{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;
   <a href="#color">Color</a>
   <a href="#type">Typography</a>
   <a href="#space">Spacing</a>
+  <a href="#surfaces">Radius, shadow, glass</a>
+  <a href="#components">Components</a>
   <a href="#files">Files</a>
-  <span class="soon">Components · next</span>
-  <span class="soon">Patterns</span>
+  <span class="soon">Patterns · next</span>
   <span class="soon">Pages</span>
   <span class="soon">Motion</span>
   <span class="soon">Assets</span>
@@ -307,8 +440,8 @@ ul.plain{{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;
   <div class="meta"><span class="pill">Version {T['meta']['version']}</span><span class="pill">{T['meta']['date']}</span><span class="pill">Values marked <span class="prov">provisional</span> are decided in a later chapter</span></div>
   <div class="status-grid">
     <div class="st done"><b>Foundations</b><span>Ready: grid, color, type, spacing</span></div>
-    <div class="st"><b>Components</b><span>Next: buttons, cards, tabs, header, footer</span></div>
-    <div class="st"><b>Patterns</b><span>Section layouts and their phone behaviour</span></div>
+    <div class="st done"><b>Components</b><span>Ready: buttons, links, chips, cards, stepper, tabs, FAQ, icons</span></div>
+    <div class="st"><b>Patterns</b><span>Next: section layouts and their phone behaviour</span></div>
     <div class="st"><b>Pages</b><span>16 pages, section by section</span></div>
     <div class="st"><b>Motion, assets, acceptance</b><span>After pages</span></div>
   </div>
@@ -361,6 +494,26 @@ ul.plain{{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;
   </table></div>
 </section>
 
+<section class="ch" id="surfaces">
+  <div class="eyebrow">Foundations</div>
+  <h2>Radius, shadow and glass</h2>
+  <p class="lead">Four radii replace the 14 measured on cards and panels. Buttons keep their own 10px.</p>
+  <div class="tw"><table><thead><tr><th>Token</th><th>Value</th><th>Shape</th></tr></thead><tbody>{scale_rows('radius')}</tbody></table></div>
+  <h3>Shadows</h3>
+  <div class="tw"><table><thead><tr><th>Token</th><th>Value</th><th>Example</th></tr></thead><tbody>{scale_rows('shadow')}</tbody></table></div>
+  <h3>Glass</h3>
+  <p class="lead">{esc(T['glass']['$description'])} One recipe for every glass surface.</p>
+  <div class="demo dark"><div class="cards"><div class="ds-glass"><span class="ds-card-t">Glass</span><span class="ds-card-d">Corner lights, translucent body, peach edge, rim light, soft shadow.</span></div></div></div>
+  <div class="tw"><table class="spec-t"><tbody>{''.join(f"<tr><th scope=row>{esc(k)}</th><td class=mono>{esc(str(v['$value']))}{('<div class=dim>' + esc(v['$description']) + '</div>') if v.get('$description') else ''}</td></tr>" for k, v in T['glass'].items() if not k.startswith('$'))}</tbody></table></div>
+</section>
+
+<section class="ch" id="components">
+  <div class="eyebrow">Components</div>
+  <h2>Components</h2>
+  <p class="lead">Each component: what it is for, a live example (hover and Tab work), and its measurements on every device. Build these once and reuse them; a section never restyles a component.</p>
+  {components_section()}
+</section>
+
 <section class="ch" id="files">
   <div class="eyebrow">Handoff</div>
   <h2>Files</h2>
@@ -373,6 +526,7 @@ ul.plain{{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;
 </main>
 </div>
 <script>
+document.querySelectorAll('.ds-chip,.ds-seg button').forEach(b=>b.addEventListener('click',()=>{{b.parentElement.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)))}}));
 document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{{
   document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
   document.querySelector('.scale').dataset.bp=b.dataset.bp;

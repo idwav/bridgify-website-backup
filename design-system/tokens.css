@@ -1,5 +1,5 @@
 /* Bridgify design tokens. Generated from tokens.json by build.py; do not edit by hand. */
-/* version 0.1.0 · 2026-11-21 */
+/* version 0.2.0 · 2026-11-21 */
 :root {
   --color-bg-base: #180F10;
   --color-bg-cream: #EEE9DE;
@@ -18,9 +18,24 @@
   --color-state-success: #63D99A;
   --color-state-warning: #E3B25C;
   --color-state-error: #E07A6A;
+  --color-line-quiet: rgba(238,233,222,0.18);
+  --color-line-glass: rgba(246,200,181,0.58);
+  --color-line-on-light: rgba(24,15,16,0.15);
   --font-display: Chillax, sans-serif;
   --font-text: "Sofia Sans", sans-serif;
   --font-code: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 30px;
+  --radius-pill: 999px;
+  --radius-button: 10px;
+  --shadow-none: none;
+  --shadow-soft: 0 24px 60px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 46px rgba(244,102,73,0.2), 0 24px 60px rgba(0,0,0,0.4);
+  --glass-background: radial-gradient(at 100% 0%, rgba(255,137,98,0.18), transparent 30%), radial-gradient(at 0% 100%, rgba(255,120,83,0.17), transparent 26%), linear-gradient(115deg, rgba(255,248,241,0.05), transparent 40%, rgba(255,248,241,0.03)), rgba(20,13,11,0.95);
+  --glass-border: 1px solid rgba(246,200,181,0.58);
+  --glass-inner: inset 0 1px 1px rgba(255,241,218,0.58), inset 0 -1px 1px rgba(255,153,123,0.46);
+  --glass-blur: blur(12px);
   --content-max: 1560px;
   --illustration-text-min: 10px;
   --margin: max(clamp(40px, 4vw, 64px), (100vw - 1560px) / 2);
