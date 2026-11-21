@@ -1,3 +1,9 @@
-/* Home, "Built for enterprise security": the whole section is light, edge to edge, not a light box on a dark band. The content sits on the content line (the box's own padding and rounded corners are gone). */
+/* Home, "Built for enterprise security": the section is light edge to edge, and the content sits in our dark glass container (peach edge, corner lights, rim light) with light text. */
 html body #security.sec2:not(#x){background:#EEE9DE!important}
-html body #security .sec2-in:not(#x){border-radius:0!important;background:transparent!important;padding-left:0!important;padding-right:0!important;padding-top:0!important;padding-bottom:0!important}
+html body #security .sec2-in:not(#x){border:1px solid #f6c8b58c!important;border-radius:24px!important;color:#EEE9DE!important;background:radial-gradient(at 100% 0%,#ff896230,#0000 34%),radial-gradient(at 0% 100%,#ff785326,#0000 32%),linear-gradient(115deg,#fff8f10e,#0000 50%),#160e0bf2!important;box-shadow:inset 0 1px 1px #fff1da88,inset 0 -1px 1px #ff997b55,0 0 3cqw #f4664920,0 20px 50px #0004!important}
+html body #security h2:not(#x){color:#EEE9DE!important}
+html body #security .sec2-eyebrow:not(#x){color:#FFB194!important}
+html body #security .v2-ink:not(#x){color:#F48B73!important;background-image:linear-gradient(110deg,#F46649 0%,#FF967B 30%,#FFE2C6 50%,#F88B72 70%,#F46649 100%)!important}
+html body #security .sec2-badges li:not(#x){border:1px solid #f6c8b559!important;background:linear-gradient(115deg,#fff8f10c,#0000 60%),#00000030!important}
+html body #security .sec2-seal b:not(#x),html body #security .sec2-seal text:not(#x){color:#EEE9DE!important;fill:#EEE9DE!important}
+html body #security .sec2-seal:not(#x){color:#F46649!important}
