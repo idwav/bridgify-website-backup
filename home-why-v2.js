@@ -165,8 +165,8 @@
          {from: {el: split, side: 'b', contact: false}, to: {el: web, side: 't'}, at: 2.1, dots: 2, dur: 1.8, k: .2}]
       : [{from: {el: engine, side: 'r'}, to: {el: split, side: 'l', contact: false}, at: .5, main: true, dots: 2, dur: 1.2},
          {from: {el: split, side: 'r', contact: false}, to: {el: web, side: 'l'}, at: 1.5, dots: 2, dur: 1.6},
-         {from: {el: split, side: 'r', contact: false}, to: {el: phone, side: 'l', fy: .4}, at: 1.8, dots: 2, dur: 1.6},
-         {from: {el: split, side: 'r', contact: false}, to: {el: kiosk, side: 't', fx: .3}, at: 2.1, dots: 2, dur: 1.8, k: .03}],
+         {from: {el: split, side: 'r', contact: false}, to: {el: phone, side: 'l'}, at: 1.8, dots: 2, dur: 1.6},
+         {from: {el: split, side: 'r', contact: false}, to: {el: kiosk, side: 't'}, at: 2.1, dots: 2, dur: 1.8, k: .07}],
       () => d && d.refresh());
     d = demo(stage, {dur: 4.6});
     return d;
