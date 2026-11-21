@@ -11,3 +11,13 @@ html body :is(#section-4 .wo-chip,#section-4 .wo-op,#section-5 .launch-days butt
 html body :is(#section-4 .wo-chip.is-on,#section-5 .launch-days button.active,#section-5 .launch-days button.complete):not(#x){border-color:#f6c8b5!important}
 html body :is(#section-1 .market-window,#section-1 .brand-settings):not(#x){border-color:#f6c8b594!important}
 html body :is(#section-1 .settings-name,#section-1 .settings-apply,#section-1 .market-window .brand-coral-frame:not(.search-go):not(.market-search)):not(#x){border-color:#f6c8b57a!important}
+
+/* Inside the containers: padding from the card-pad token (32 desktop, 24 tablet), 16 between a title and its text, 24 between blocks */
+@media(min-width:600px){
+html body :is(#section-4 .wo-you,#section-4 .wo-us,#build-or-buy article,#marketplace-audiences li,#marketplace-audiences article):not(#x){padding:var(--bf-card-pad,24px)!important}
+html body :is(#section-4 .wo-you,#section-4 .wo-us):not(#x){gap:var(--bf-gap-text-text,16px)!important;row-gap:var(--bf-gap-text-text,16px)!important}
+html body #section-4 .wo-op:not(#x){padding:24px!important;gap:16px!important}
+html body #section-5 .launch-timeline:not(#x){padding:var(--bf-card-pad,24px)!important}
+html body #build-or-buy article h3:not(#x){margin-bottom:var(--bf-gap-text-text,16px)!important}
+}
+@media(min-width:600px){html body #section-4 .wo-op>*:not(#x){margin-top:0!important;margin-bottom:0!important}html body #section-4 .wo-op:not(#x){display:flex!important;flex-direction:column!important;justify-content:flex-start}}
