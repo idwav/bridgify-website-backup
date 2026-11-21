@@ -24,4 +24,6 @@ html body #section-1 .te-actions:not(#x){margin:0!important}
 html body #section-1 .te-visual :is(button,[role=tab],a):not(#x){pointer-events:none!important;cursor:default!important}
 @media(min-width:761px){html body #section-1 .te-visual.nt-embed:not(#x){padding:var(--bf-card-pad,32px)!important}}
 @media(min-width:761px){html body #section-1 .te-visual.nt-embed:not(#x){height:auto!important;min-height:0!important;max-height:none!important;flex:none!important;overflow:hidden}}
-@media(min-width:761px){html body #section-1.te-hero:not(#x){height:auto!important;min-height:0!important;justify-content:flex-start!important;padding-bottom:var(--bf-section-y,96px)!important}}
+/* Screen ratio: the hero is one screen tall (at least the window) with the heading and the animation centred between the header and the bottom; it grows only when the content does */
+@media(min-width:1024px){html body #section-1.te-hero:not(#x){height:auto!important;min-height:100svh!important;box-sizing:border-box;display:flex!important;flex-direction:column;justify-content:center!important;padding-top:calc(64px + var(--bf-section-y,96px)) !important;padding-bottom:var(--bf-section-y,96px)!important}}
+@media(min-width:761px) and (max-width:1023px){html body #section-1.te-hero:not(#x){height:auto!important;min-height:0!important;padding-bottom:var(--bf-section-y,80px)!important}}
