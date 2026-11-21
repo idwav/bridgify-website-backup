@@ -169,3 +169,63 @@
   document.addEventListener('visibilitychange', () => { if (!document.hidden && !raf && visible) { last = 0; raf = requestAnimationFrame(step); } });
   raf = requestAnimationFrame(step);
 })();
+
+// Shy octopus: while the password is being typed (hidden), the right arm curls up over one eye and the other eye closes.
+// When typing pauses, that eye peeks open for a moment and closes again. Back down on blur or when the password is shown.
+// The motion is one sheet of 48 frames (assets/login-octopus-shy.webp): 45 frames of the arm, made from a Higgsfield clip
+// between the page's own picture and the covering pose and colour-matched to the picture, then 3 frames of the eye closing.
+// The frames only cover the arm and the eyes; the page's own picture stays visible under them, so nothing else changes.
+// Reduced motion: jumps between poses without playing the frames.
+(() => {
+  const mascot = document.querySelector('.login-mascot');
+  const password = document.getElementById('login-password');
+  if (!mascot || !password) return;
+  const COLS = 9, ROWS = 6, OPEN = 44, SHUT = 47;            // OPEN: arm over one eye, other eye open. SHUT: that eye closed.
+  const stepFor = (from, to) => (from > OPEN || (from === OPEN && to > OPEN) ? 45 : to > from ? 25 : 16);   // ms per frame: eye frames slower
+  const flip = document.createElement('div'); flip.className = 'login-flip'; flip.setAttribute('aria-hidden', 'true'); mascot.append(flip);
+  const sheet = new Image(); let ready = false; sheet.onload = () => { ready = true; update(); }; sheet.src = 'assets/login-octopus-shy.webp?v=4';
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  let f = 0, target = 0, last = 0, raf = 0, hold = 0, peekTimer = 0, closeTimer = 0;
+  const show = n => {
+    flip.style.backgroundPosition = `${(n % COLS) / (COLS - 1) * 100}% ${Math.floor(n / COLS) / (ROWS - 1) * 100}%`;
+    mascot.dataset.arm = n || target ? 'up' : 'down';
+  };
+  // Timed by the clock, not by screen refreshes: on a slow screen frames are skipped, the duration stays the same.
+  function tick(now) {
+    if (!last) last = now;
+    if (f === OPEN && target === SHUT && hold) { if (now - last < hold) { raf = requestAnimationFrame(tick); return; } hold = 0; last = now; }
+    const step = stepFor(f, target), n = Math.floor((now - last) / step);
+    if (n > 0) {
+      const d = target - f; let move = Math.sign(d) * Math.min(n, Math.abs(d));
+      if (target === SHUT && f < OPEN && f + move > OPEN) move = OPEN - f;   // stop at OPEN for a beat before the eye closes
+      f += move; last += n * step; show(f);
+      if (f === OPEN && target === SHUT) { hold = 160; last = now; }
+    }
+    raf = f !== target ? requestAnimationFrame(tick) : 0;
+  }
+  function go(t) {
+    if (t === target) return;
+    target = t; show(f);
+    if (reduce.matches) { cancelAnimationFrame(raf); raf = 0; f = target; show(f); return; }
+    if (!raf) { last = 0; raf = requestAnimationFrame(tick); }
+  }
+  const hiding = () => document.activeElement === password && password.type === 'password';
+  function update() {
+    clearTimeout(peekTimer); clearTimeout(closeTimer);
+    if (password.type !== 'password') mascot.dataset.eyes = 'open';
+    if (!ready) return;
+    if (hiding()) mascot.dataset.eyes = 'open';                  // the live eyes stay as they are under the crossfade
+    go(hiding() ? SHUT : 0);
+  }
+  // A pause in typing: the closed eye peeks open for a moment, then closes again.
+  password.addEventListener('input', () => {
+    update();
+    if (!ready || !hiding() || reduce.matches) return;
+    peekTimer = setTimeout(() => { go(OPEN); closeTimer = setTimeout(() => { if (hiding()) go(SHUT); }, 650); }, 900);
+  });
+  password.addEventListener('focus', update);
+  password.addEventListener('blur', update);
+  // The Show/Hide button changes the field type and puts focus back in the field.
+  new MutationObserver(update).observe(password, { attributes: true, attributeFilter: ['type'] });
+  mascot.dataset.arm = 'down';
+})();
