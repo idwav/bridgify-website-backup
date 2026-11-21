@@ -3,3 +3,6 @@ html body #section-1 :is(.aj-pass,.aj-offer,.aj-ticket):not(#x){background:radia
 html body #section-1 .aj-offer:not(#x){overflow:hidden}
 html body #section-1 :is(.aj-flight,.aj-ticket-bottom):not(#x){border:0!important;border-top:1px solid #f6c8b52e!important}
 html body #section-1 .aj-action:not(#x){border:1px solid #f6c8b57a!important}
+/* Wires between the surfaces: same coral cable as the rest of the site, with the soft glow the glass panels carry; contacts sit exactly on the card edge */
+html body #section-1 .al-motion-svg path:not(#x){stroke:#f46649;stroke-width:1.5;filter:drop-shadow(0 0 4px #f4664966)}
+html body #section-1 .al-motion-svg circle:not(#x){filter:drop-shadow(0 0 5px #f4664999)}
