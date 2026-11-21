@@ -12,3 +12,5 @@ html body #section-1 .al-motion-svg circle:not(#x){filter:drop-shadow(0 0 5px #f
 html body #section-1 .aj-journey :is(button,a):not(#x){pointer-events:none!important;cursor:default!important}
 /* Hero text: the intro paragraph starts at the height of the title (it was centred against the whole left column, so it began above the title) */
 @media(min-width:1024px){html body #section-1 .aj-heading:not(#x){align-items:start!important}html body #section-1 .aj-intro:not(#x){align-self:start!important;margin-top:calc(16.8px + var(--bf-gap-label-title,24px))!important}}
+html body #section-2 svg .al-dot:not(#x){fill:#ffe2c6;stroke:currentColor;stroke-width:1.5}
+html body #section-2 :is(.ar-airline,.ar-channels,.ar-channel) svg:not(#x){overflow:visible;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
