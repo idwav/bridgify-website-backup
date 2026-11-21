@@ -1,21 +1,19 @@
-/* Travel technology: the hero API demo and the three "In your product" mockups (owner task list, 21 Nov 2026).
-   Glass as on the homepage hero (home-glass.css): warm translucent panels with a light edge, inner highlights and a
-   soft blur; the code window in the brand cream. The demos are illustrations only: nothing in them can be clicked
-   or focused (the windows are inert in the HTML, and pointer events are off here). */
+/* Travel technology (owner task list, 21 Nov 2026). The three "In your product" mockups take the homepage glass
+   (home-glass.css): warm translucent panels with a light edge, inner highlights and a soft blur. The demos are
+   illustrations only: nothing in them can be clicked or focused (inert windows in the HTML, pointer events off). */
 :root{--tt-glass:radial-gradient(at 100% 0%,#ff896252,#0000 38%),radial-gradient(at 0% 100%,#ff78534a,#0000 34%),linear-gradient(115deg,#fff8f114,#0000 45%,#fff8f10c),#180f10a6;
  --tt-edge:#f6c8b594;--tt-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 15px 36px #00000033}
 html body:not(#bf-lab) :is(.te-visual,#section-3 .ad-window,#section-3 .ad-phone,#section-3 .ad-api) *{pointer-events:none!important}
 @media (min-width:600px){
- html body:not(#bf-lab) #section-1 .te-visual.nt-stage{background:radial-gradient(at 100% 0%,#ff89622e,#0000 30%),radial-gradient(at 0% 100%,#ff785326,#0000 28%),linear-gradient(115deg,#fff8f10b,#0000 36%,#fff8f106 74%,#fff8f10e)!important;border:1px solid #f6c8b55e!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b40,0 15px 36px #00000022!important}
- html body:not(#bf-lab) :is(#section-1 .nt-product.nt-window,#section-1 .te-hub,#section-3 .ad-window,#section-3 .ad-phone,#section-3 .ad-api){background:var(--tt-glass)!important;border:1px solid var(--tt-edge)!important;box-shadow:var(--tt-shadow)!important;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
- html body:not(#bf-lab) #section-1 .nt-product .nt-windowbar{background:#fff8f10a!important;border-bottom-color:#f6c8b533!important}
- html body:not(#bf-lab) :is(#section-1 .nt-experience,#section-1 .nt-search,#section-3 .ad-window .ad-listing,#section-3 .ad-phone .ad-listing){border-color:#f6c8b566!important;box-shadow:inset 0 1px 1px #fff1da40!important}
- /* Code window in cream: the editor reads as a light surface, the code in dark ink with a coral caret. */
- html body:not(#bf-lab) #section-1 .nt-code.nt-window{background:linear-gradient(160deg,#FFF8F1,#EEE9DE)!important;border:1px solid var(--tt-edge)!important;box-shadow:inset 0 1px 1px #ffffff,inset 0 -1px 1px #e9b9a2,0 15px 36px #00000033!important;color:#180F10}
- html body:not(#bf-lab) #section-1 .nt-code .nt-windowbar{background:#E6DFD2!important;border-bottom:1px solid #180f101a!important}
- html body:not(#bf-lab) #section-1 .nt-code .nt-windowbar i{background:#D9482C!important}
- html body:not(#bf-lab) #section-1 .nt-code .nt-sidebar{background:#E6DFD2!important;border-right:1px solid #180f101a!important}
- html body:not(#bf-lab) #section-1 .nt-code .nt-sidebar svg{color:#B83A23!important;stroke:#B83A23!important}
- html body:not(#bf-lab) #section-1 .nt-code :is(pre,code){color:#3a2a26!important;background:none!important}
- html body:not(#bf-lab) #section-1 .nt-code .te-caret{color:#D9482C!important}
+ html body:not(#bf-lab) :is(#section-3 .ad-window,#section-3 .ad-phone,#section-3 .ad-api){background:var(--tt-glass)!important;border:1px solid var(--tt-edge)!important;box-shadow:var(--tt-shadow)!important;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+ html body:not(#bf-lab) :is(#section-3 .ad-window .ad-listing,#section-3 .ad-phone .ad-listing){border-color:#f6c8b566!important;box-shadow:inset 0 1px 1px #fff1da40!important}
+}
+/* Hero API demo (owner note, 21 Nov 2026): the windows keep their look; only the code turns white. The Bridgify hub
+   and its line sit under the two windows (the line leaves the bottom of each window), instead of running across them:
+   the stage gets a fixed window row and its bottom padding holds the hub. */
+html body:not(#bf-lab) #section-1 .te-code-content code{color:#FFF8F1!important}
+@media (min-width:761px){
+ html body:not(#bf-lab) #section-1 .te-visual.nt-embed{flex:none!important;grid-template-rows:300px!important;align-items:start!important}
+ html body:not(#bf-lab) #section-1 .te-visual .nt-window{height:300px!important}
+ html body:not(#bf-lab) #section-1.te-hero{height:auto!important;min-height:100svh}
 }
