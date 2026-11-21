@@ -57,3 +57,40 @@ html body #opportunity-study .pb-order .pb-app-order:not(#x){bottom:auto!importa
 @media(min-width:1024px){html body #opportunity-study:not(#x){min-height:100svh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center}}
 /* the diagram never gets shorter than its own content (the app card has a fixed text size) */
 @media(min-width:1024px){html body #opportunity-study .pb-stage:not(#x){min-height:350px}html body #opportunity-study .pb-order .pb-app-order:not(#x){top:max(32cqw,170px)!important}}
+
+/* ---- Opened from the start and fitted to one screen (approved concept): both paragraphs visible and white, one slim bar, 24 gaps, facts in one row ---- */
+@media(min-width:1024px){
+html body #opportunity-study:not(#x){min-height:100svh;height:100svh;box-sizing:border-box;padding:96px var(--try-margin,58px) 32px!important;display:flex;flex-direction:column;justify-content:flex-start;gap:24px;overflow:hidden}
+html body #opportunity-study .pb-head:not(#x){display:grid!important;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);column-gap:48px;align-items:start;margin:0!important}
+html body #opportunity-study h2:not(#x){font-size:clamp(30px,2.7vw,40px)!important;line-height:1.15!important;margin:0!important}
+html body #opportunity-study .pb-intro:not(#x){display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:0!important;width:100%!important;max-width:none!important;justify-self:stretch!important;padding:0!important;border:0!important}
+html body #opportunity-study .pb-intro p:not(#x){margin:0!important;font-size:15px!important;max-width:none!important;line-height:1.5!important;max-height:none!important;-webkit-line-clamp:unset!important;display:block!important;overflow:visible!important}
+html body #opportunity-study .pb-more[hidden]:not(#x){display:block!important}
+html body #opportunity-study .pb-toggle{display:none!important}
+html body #opportunity-study .pb-bar:not(#x){margin:24px 0 0!important;padding:14px 32px!important;display:flex;align-items:baseline;gap:16px;flex-wrap:nowrap}
+html body #opportunity-study .pb-bar b{font-size:20px!important;white-space:nowrap}
+html body #opportunity-study .pb-bar span{font-size:15px!important}
+html body #opportunity-study .pb-bar i{display:none}
+html body #opportunity-study .pb-panels:not(#x){gap:24px!important;margin:24px 0 0!important;flex:1 1 auto;min-height:0}
+html body #opportunity-study .pb-panel:not(#x){padding:24px 32px!important;display:flex;flex-direction:column;min-height:0}
+html body #opportunity-study .pb-panel h4:not(#x){font-size:24px!important;margin:0 0 12px!important}
+html body #opportunity-study .pb-panel .hm-wrap{flex:1 1 auto;min-height:0}
+html body #opportunity-study .pb-stage:not(#x){height:100%!important;min-height:0!important}
+html body #opportunity-study .pb-facts:not(#x){display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:12px 0 0!important;padding-top:12px!important;min-height:0!important}
+html body #opportunity-study .pb-facts li:not(#x){font-size:14px!important;line-height:1.35!important}
+}
+
+html body #opportunity-study .pb-intro p:not(#x){color:#fff!important;opacity:1!important}
+html body #opportunity-study .pb-more[hidden]:not(#x){display:block!important}
+html body #opportunity-study .pb-toggle{display:none!important}
+/* final tightening on the live page */
+html body #opportunity-study.pb2 .pb-intro p:not(#x):not(#y),html body #opportunity-study.pb2 .pb-intro .pb-more:not(#x):not(#y){color:#fff!important;opacity:1!important}
+@media(min-width:1024px){
+html body #opportunity-study .pb-bar:not(#x){padding:12px 28px!important;align-items:center!important}
+html body #opportunity-study .pb-bar span:not(#x){font-size:14px!important;line-height:1.35!important}
+html body #opportunity-study .pb-bar b:not(#x){font-size:18px!important}
+html body #opportunity-study .pb-panel h4:not(#x){margin:0 0 8px!important}
+html body #opportunity-study .pb-facts:not(#x){margin-top:8px!important;padding-top:10px!important}
+html body #opportunity-study .pb-chaos .pb-app li:not(#x){padding-top:3px!important;padding-bottom:3px!important;min-height:0!important}
+html body #opportunity-study .pb-chaos .pb-app ul:not(#x){gap:5px!important}
+}
