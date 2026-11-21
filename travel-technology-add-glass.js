@@ -10,3 +10,6 @@
     var c=document.createElementNS(NS,'circle');c.setAttribute('class','ad-dot');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r','1.4');s.appendChild(c);
   });
 })();
+
+/* illustration buttons are not focusable */
+document.querySelectorAll('#section-3 .ad-window button, #section-3 .ad-phone button').forEach(function(b){b.setAttribute('tabindex','-1');b.setAttribute('aria-hidden','true')});
