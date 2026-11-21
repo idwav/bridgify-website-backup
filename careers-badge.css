@@ -21,6 +21,8 @@
 @keyframes cbSwing{0%,100%{transform:rotate(-2deg) rotateY(-6deg)}50%{transform:rotate(2deg) rotateY(6deg)}}
 @keyframes cbSheen{0%,55%{transform:translateX(-60%)}85%,100%{transform:translateX(60%)}}
 @keyframes cbTeam{0%,30%{background:linear-gradient(105deg,#ff9862,#f46649);border-color:#f46649}34%,100%{background:#0000;border-color:#f6c8b555}}
-@media (max-width:1100px){.cb{max-width:none;padding-top:8px}.cb-swing{width:min(300px,60vw)}.cb-strap{height:110px}}
-@media (max-width:599px){.cb-swing{width:min(250px,66vw)}.cb-strap{height:84px}}
+/* Tablet (600-1100, where the hero used to stack): text on the left, badge on the right (owner, 21 Nov 2026). */
+@media (min-width:600px) and (max-width:1100px){html body .career-hero:has(.cb){grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-items:center}.cb{max-width:none;padding-bottom:16px}.cb-swing{width:min(250px,100%)}.cb-strap{height:clamp(70px,10vh,110px)}}
+/* Phone: the badge hangs straight from the line of small facts above it (owner, 21 Nov 2026). */
+@media (max-width:599px){.cb{margin-top:calc(-1 * clamp(32px,4vw,72px));padding-bottom:8px}.cb-swing{width:min(250px,66vw)}.cb-strap{height:56px;border-radius:0 0 6px 6px}}
 @media (prefers-reduced-motion:reduce){.cb-swing,.cb-card::before,.cb-team span{animation:none}.cb-team span:first-child{background:linear-gradient(105deg,#ff9862,#f46649);border-color:#f46649}}
