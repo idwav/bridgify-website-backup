@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bridgify motion viewer</title>
+<style>
+:root{--bg:#180F10;--line:#3A2B2C;--fg:#EEE9DE;--muted:#B9A99F;--coral:#F46649;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:#100B0B;color:var(--fg);font:400 14px/1.5 "Sofia Sans",system-ui,sans-serif}
+header{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:12px 16px;background:var(--bg);border-bottom:1px solid var(--line)}
+header b{font-weight:600}header .sp{flex:1}
+select,button,a.b{font:inherit;color:var(--fg);background:#21171A;border:1px solid var(--line);border-radius:8px;padding:6px 10px;text-decoration:none}
+button[aria-pressed=true]{border-color:var(--coral);color:#FFB194}
+main{display:flex;justify-content:center;padding:24px 16px}
+iframe{border:1px solid var(--line);border-radius:10px;background:#180F10;height:calc(100vh - 120px);max-width:100%}
+p.note{color:var(--muted);margin:0 16px 12px;text-align:center}
+</style></head><body>
+<header><b id="t">Motion</b><span class="sp"></span>
+<select id="pick" aria-label="Animation"></select>
+<span role="group" aria-label="Width"><button data-w="1440">Desktop 1440</button> <button data-w="768">Tablet 768</button> <button data-w="390">Phone 390</button></span>
+<a class="b" id="live" target="_blank" rel="noopener">Live page ↗</a></header>
+<p class="note">The section runs alone with the site's own HTML, CSS and JavaScript. Pinned sections need scrolling inside the frame. Changing the width reloads the frame, because the phone layer loads only on narrow screens.</p>
+<main><iframe id="f" title="Animation"></iframe></main>
+<script>
+fetch('../motion.json').then(r=>r.json()).then(cat=>{
+  const q=new URLSearchParams(location.search), pick=document.getElementById('pick'), f=document.getElementById('f');
+  cat.items.forEach(it=>{const o=document.createElement('option');o.value=it.id;o.textContent=`${it.page_name} · ${it.title.slice(0,60)}`;pick.append(o)});
+  let cur=cat.items.find(it=>it.page===q.get('page')&&String(it.index)===q.get('i'))||cat.items[0], w=+(q.get('w')||1440);
+  const load=()=>{pick.value=cur.id;document.getElementById('t').textContent=cur.page_name;document.getElementById('live').href=cur.live;
+    document.querySelectorAll('[data-w]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.w===w)));
+    f.style.width=w+'px';f.src=`../../${cur.page==='index-v2'?'index-v2':cur.page}.html?version=2&motion=${Date.now()}`;
+    history.replaceState(null,'',`?page=${cur.page}&i=${cur.index}&w=${w}`)};
+  f.addEventListener('load',()=>{try{const d=f.contentDocument;
+    const secs=[...d.querySelectorAll('section')].filter((s,i,a)=>!a.some(o=>o!==s&&o.contains(s))&&!s.closest('footer,header,dialog')).filter(s=>s.getBoundingClientRect().height>40);
+    const keep=secs[cur.index];const st=d.createElement('style');
+    st.textContent='header.top,footer,.bf-footer,.site-footer,[class*="cta-shell"]:not(.keep-motion){display:none!important}body{padding-top:0!important}';
+    d.head.append(st);secs.forEach(s=>{if(s!==keep)s.style.setProperty('display','none','important')});
+    if(keep){keep.classList.add('keep-motion');setTimeout(()=>{f.contentWindow.scrollTo(0,0);f.contentWindow.dispatchEvent(new Event('scroll'));f.contentWindow.dispatchEvent(new Event('resize'))},300)}
+  }catch(e){}});
+  pick.onchange=()=>{cur=cat.items.find(it=>it.id===pick.value);load()};
+  document.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>{w=+b.dataset.w;load()});
+  load();
+});
+</script></body></html>
