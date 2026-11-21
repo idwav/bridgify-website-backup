@@ -43,6 +43,10 @@
   .ad-menu-links{display:grid;padding:0 0 14px}
   .ad-menu-links a{display:flex;align-items:center;min-height:48px;font:400 17px/1.35 Sofia,sans-serif;color:#EEE9DEcc;text-decoration:none}
   .ad-menu-links a:active,.ad-menu-links a:hover{color:#FFF8F1}
+  /* Current page (owner task, 21 Nov 2026): its group opens with the menu; the page and its group stay lit. */
+  .ad-menu-group.has-current>summary,.ad-menu-row[aria-current="page"]{color:#FFB194}
+  .ad-menu-links a[aria-current="page"]{color:#FFB194;gap:10px}
+  .ad-menu-links a[aria-current="page"]:before{content:"";width:5px;height:5px;border-radius:50%;background:#F46649;box-shadow:0 0 6px #F4664999}
   .ad-menu-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;padding-top:28px}
   .ad-menu-actions a{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:11px;
     font:550 14px/1 Sofia,sans-serif;letter-spacing:.08em;text-decoration:none}

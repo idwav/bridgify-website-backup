@@ -26,13 +26,13 @@
     sheet.setAttribute('aria-modal', 'true'); sheet.setAttribute('aria-label', 'Menu');
     [...(nav ? nav.children : [])].forEach(item => {
       if (item.matches('details')) {
-        const d = document.createElement('details'); d.className = 'ad-menu-group';
+        const d = document.createElement('details'); d.className = 'ad-menu-group'; if (item.classList.contains('has-current')) { d.classList.add('has-current'); d.open = true; }
         const s = document.createElement('summary'); s.textContent = $('summary', item).textContent.trim(); d.append(s);
         const box = document.createElement('div'); box.className = 'ad-menu-links';
-        $$('a', item).forEach(a => { const c = document.createElement('a'); c.href = a.getAttribute('href'); c.textContent = a.textContent.trim(); box.append(c); });
+        $$('a', item).forEach(a => { const c = document.createElement('a'); c.href = a.getAttribute('href'); c.textContent = a.textContent.trim(); if (a.getAttribute('aria-current')) c.setAttribute('aria-current', 'page'); box.append(c); });
         d.append(box); sheet.append(d);
       } else if (item.matches('a')) {
-        const c = document.createElement('a'); c.className = 'ad-menu-row'; c.href = item.getAttribute('href'); c.textContent = item.textContent.trim(); sheet.append(c);
+        const c = document.createElement('a'); c.className = 'ad-menu-row'; c.href = item.getAttribute('href'); c.textContent = item.textContent.trim(); if (item.getAttribute('aria-current')) c.setAttribute('aria-current', 'page'); sheet.append(c);
       }
     });
     if (actions) {

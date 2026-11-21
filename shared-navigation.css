@@ -53,3 +53,12 @@ html body header.site-header-common.is-stuck.nav-tone-dark img.brand-logo-full{f
 html body header.site-header-common.is-stuck.nav-tone-dark .nav-actions>a:not(:last-child){color:#fff8f1!important}
 html body header.top.site-header-common.is-tucked{transform:translateY(calc(-100% - 24px))!important}
 @media(prefers-reduced-motion:reduce){html body header.top.site-header-common.is-sticky{transition:none!important}}
+/* Current page (owner task, 21 Nov 2026): the group or link of the page you are on stays lit, with a coral dot under it;
+   inside the open menu the current page keeps a soft fill and a coral edge. */
+html body .site-header-common nav>.site-nav-group.has-current>summary,html body .site-header-common nav>a[aria-current="page"],
+html body header.site-header-common.is-stuck.nav-tone-dark nav>.site-nav-group.has-current>summary,html body header.site-header-common.is-stuck.nav-tone-dark nav>a[aria-current="page"]{color:#FFB194!important;position:relative}
+html body .site-header-common nav>.site-nav-group.has-current>summary::before,html body .site-header-common nav>a[aria-current="page"]::before{content:"";position:absolute;left:50%;bottom:3px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#F46649;box-shadow:0 0 6px #F4664999}
+html body .site-header-common .site-nav-menu a[aria-current="page"]{color:#FFB194!important;background:#f4664914!important;box-shadow:inset 2px 0 0 #F46649!important}
+html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common:not(.nav-tone-dark) nav>.site-nav-group.has-current>summary,
+html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common:not(.nav-tone-dark) nav>a[aria-current="page"],
+html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common .site-nav-menu a[aria-current="page"]{color:#A63D29!important}
