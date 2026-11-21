@@ -61,3 +61,12 @@
 @media (min-width: 600px) and (max-width: 1023px) {
   html body:not(#bf-lab) #integration.am-section .am-heading > .am-actions { flex-direction: column !important; justify-content: flex-start !important; align-items: flex-start !important; gap: 12px !important; margin-left: 0 !important; margin-right: 0 !important; padding: 0 !important; border: 0 !important; }
 }
+
+/* "Your team builds the interface. We manage the supply layer." (#integration): the page's own CSS sets the section padding (104/36),
+   the heading to panel gap (24) and the card padding (16) with :not(#bf-lab) !important rules, so the table's values never arrived. */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) #integration.am-section { min-height: 0 !important; padding-top: var(--bf-section-y) !important; padding-bottom: var(--bf-section-y) !important; }
+  html body:not(#bf-lab) #integration.am-section .am-panel { margin-top: var(--bf-gap-to-content) !important; padding: var(--bf-card-pad) !important; }
+  html body:not(#bf-lab) #integration.am-section :is(.am-build, .am-managed) { padding: var(--bf-card-pad) !important; }
+  html body:not(#bf-lab) #integration.am-section :is(.am-build, .am-managed) > h3 { margin-bottom: var(--bf-gap-text-text) !important; }
+}
