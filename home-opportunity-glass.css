@@ -26,3 +26,34 @@ html body #opportunity-study .pb-app-order:not(#x){border-color:#f6c8b5aa!import
 html body #opportunity-study .hm-wire:not(#x){stroke-width:1.5;opacity:.85}
 html body #opportunity-study .hm-chaos-wire,html body #opportunity-study .pb-chaos .hm-wire:not(#x){stroke:#c9a698;opacity:.7}
 html body #opportunity-study .hm-contact:not(#x){r:3;fill:#eee9de;stroke:#f46649;stroke-width:1.5}
+
+/* Even margins: every container has the same space on all four sides (32), measured to the text, not to the line box. The freed height opens the diagram. */
+@media(min-width:1024px){
+html body #opportunity-study .pb-panel h4:not(#x){line-height:1!important;margin:0 0 20px!important}
+html body #opportunity-study .pb-panel:not(#x){padding:32px!important}
+html body #opportunity-study .pb-facts:not(#x){margin-top:20px!important;min-height:0!important}
+html body #opportunity-study .pb-facts li:not(#x){line-height:1.35;padding-bottom:0!important}
+html body #opportunity-study .pb-bar:not(#x){padding:20px 64px 20px 32px!important}
+html body #opportunity-study .pb-stage:not(#x){height:58cqw!important}
+}
+/* Bridgify, easier to read: a bigger box, a clearer label, and the one-line result under it in full size */
+@media(min-width:1024px){
+html body #opportunity-study .pb-order .pb-node:not(#x){left:35cqw!important;width:30cqw!important;top:15cqw!important;height:14cqw!important;border-width:1px;box-shadow:inset 0 1px 1px #fff1da55,0 0 28px #f4664955!important}
+html body #opportunity-study .pb-node b:not(#x){font-size:3.4cqw!important}
+html body #opportunity-study .pb-node small:not(#x){font-size:1.7cqw!important;letter-spacing:.14em;color:#ffd8bd!important}
+html body #opportunity-study .pb-order .pb-app-order:not(#x){top:32cqw!important}
+html body #opportunity-study .pb-merged:not(#x){font-size:1.8cqw!important}
+html body #opportunity-study .pb-chaos .pb-app-chaos:not(#x){top:25cqw!important;bottom:0!important}
+}
+/* facts stay on the same line at the bottom of both panels (same 32 under the last line), and the app card is only as tall as its content */
+@media(min-width:1024px){
+html body #opportunity-study .pb-panel:not(#x){display:flex;flex-direction:column}
+html body #opportunity-study .pb-panel .hm-wrap{flex:1 1 auto}
+html body #opportunity-study .pb-facts:not(#x){margin-top:auto!important;padding-top:20px}
+html body #opportunity-study .pb-order .pb-app-order:not(#x){bottom:auto!important;height:auto!important;min-height:0!important}
+}
+
+/* Screen ratio: the section is one screen tall (at least the window) and its content is centred in it; it grows only when the content is taller */
+@media(min-width:1024px){html body #opportunity-study:not(#x){min-height:100svh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center}}
+/* the diagram never gets shorter than its own content (the app card has a fixed text size) */
+@media(min-width:1024px){html body #opportunity-study .pb-stage:not(#x){min-height:350px}html body #opportunity-study .pb-order .pb-app-order:not(#x){top:max(32cqw,170px)!important}}
