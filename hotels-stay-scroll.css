@@ -57,3 +57,13 @@ html body .hotel-stay-scroll :is(.hj-action,.hs-cta):not(#x){border:0!important;
 html body .hotel-stay-scroll :is(.hj-action,.hs-cta) *:not(#x){color:#F46649!important;-webkit-text-fill-color:#F46649!important}
 /* nothing in the animation reacts to the pointer */
 html body .hotel-stay-scroll .hs-panel button:not(#x),html body .hotel-stay-scroll .hs-mail-window :is(a,button):not(#x){pointer-events:none!important;cursor:default!important}
+
+/* Stepper focus: no browser default box after a click; keyboard focus gets a quiet peach ring */
+html body .hotel-stay-scroll .hs-steps>button:focus:not(:focus-visible):not(#x){outline:none}
+html body .hotel-stay-scroll .hs-steps>button:focus-visible:not(#x){outline:1px solid #f6c8b594;outline-offset:2px;border-radius:8px}
+/* step 3: the cards in the phone breathe (16px between them) instead of touching */
+html body .hotel-stay-scroll .hs-panel .hj-phone:not(#x){display:flex;flex-direction:column;gap:12px}
+html body .hotel-stay-scroll .hs-panel .hj-phone>*:not(#x){margin-top:0;margin-bottom:0}
+html body .hotel-stay-scroll .hs-panel .hj-phone .hj-tabs:not(#x){margin:0}
+html body .hotel-stay-scroll .hs-panel .hj-app-nav:not(#x){margin-top:auto;padding:10px 12px}
+html body .hotel-stay-scroll .hs-panel :is(.hj-app-stay,.hj-app-experience,.hj-app-nav,.hj-checkin):not(#x){border-radius:14px}
