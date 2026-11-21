@@ -131,3 +131,16 @@
 @media (min-width: 1024px) and (max-height: 800px) {
   html body:not(#bf-lab) #section-2.market-product-tour .presentation { transform: scale(.8); }
 }
+
+/* "You bring the brand" (#section-4), option B (owner, 21 Nov 2026): on desktop the short list and the operations log
+   sit side by side under a hairline, divided by a hairline (0.8 : 1.6). Tablets keep them stacked, divided by a rule. */
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) #section-4.brand-light-section > .wo-stack { grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr) !important; border-top: 1px solid rgba(24, 15, 16, .15) !important; }
+  html body:not(#bf-lab) #section-4.brand-light-section > .wo-stack > .wo-you { padding: 40px 48px 40px 0 !important; margin-top: 0 !important; border-right: 1px solid rgba(24, 15, 16, .15) !important; }
+  html body:not(#bf-lab) #section-4.brand-light-section > .wo-stack > .wo-us { padding: 40px 0 40px 48px !important; margin-top: 0 !important; }
+  html body:not(#bf-lab) #section-4.brand-light-section > .wo-stack { margin-top: var(--bf-gap-to-content, 64px) !important; }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) #section-4.brand-light-section > .wo-stack > .wo-us { margin-top: 0 !important; padding-top: 40px !important; border-top: 1px solid rgba(24, 15, 16, .15) !important; }
+  html body:not(#bf-lab) #section-4.brand-light-section > .wo-stack > .wo-you { padding-bottom: 40px !important; }
+}

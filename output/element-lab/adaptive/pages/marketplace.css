@@ -368,3 +368,15 @@
   html body #section-2 .checkout-layout .payment label span:not(#ad-x){min-height:36px!important;height:auto!important;font-size:12px!important;width:auto!important}
   html body #section-2 .checkout-layout .payment .confirm:not(#ad-x){width:100%!important;min-height:40px!important;height:40px!important;margin:0!important}
 }
+
+/* "You bring the brand", option B on phones (owner, 21 Nov 2026): list, then the log; each log row is
+   icon · name · Running, with the latest event underneath. */
+@media (max-width:599px){
+  html body[data-copy-page] #section-4.brand-light-section .wo-stack>.wo-us{margin-top:0!important;padding-top:32px!important;border-top:1px solid rgba(24,15,16,.15)!important}
+  html body[data-copy-page] #section-4.brand-light-section .wo-stack>.wo-you{padding-bottom:32px!important}
+  html body[data-copy-page] #section-4.brand-light-section .wo-chip{font-size:24px!important;padding:16px 0!important}
+  html body[data-copy-page] #section-4.brand-light-section .wo-ops{padding:4px 18px!important}
+  html body[data-copy-page] #section-4.brand-light-section .wo-op{grid-template-columns:26px minmax(0,1fr) auto!important;row-gap:4px!important;column-gap:14px!important;padding:16px 0!important}
+  html body[data-copy-page] #section-4.brand-light-section .wo-op .wo-stat{grid-column:2/4}
+  html body[data-copy-page] #section-4.brand-light-section .wo-op h3{font-size:22px!important}
+}
