@@ -98,3 +98,8 @@
   /* the button keeps its 24px under the title (its auto top margin grew with the taller card) */
   html body #section-4 .xc-grid > .xc-card:only-child > .xc-body > .xc-cta { margin-top: 24px !important; }
 }
+
+/* Hero (owner task, 21 Nov 2026): no vertical separator between the title and the intro. */
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) #section-1 .te-heading > .te-intro { border-left: 0 !important; padding-left: 0 !important; }
+}

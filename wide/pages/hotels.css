@@ -123,6 +123,11 @@
   html body:not(#bf-lab) .hm-hero .hm-heading { align-items: start !important; }
 }
 
+/* Hero (owner task, 21 Nov 2026): no vertical divider between the title and the intro. */
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) #section-1 .hm-heading > .hm-intro { border-left: 0 !important; padding-left: 0 !important; }
+}
+
 /* ---- ink-fonts.css ---- */
 /* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
    and the weight"). Measured in type-audit/ (accents.py, faces.py) at 1440: only 21 of 86 emphasised title words used
