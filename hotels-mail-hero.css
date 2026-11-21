@@ -57,3 +57,18 @@ html body .hm-hero{max-width:1560px;padding:128px 4% 36px}.hm-heading{margin-bot
 
 /* Full width with the shared 4% page margin (no centered cap), so the hero lines up with the header and the rest of the page. */
 html body .hm-hero{max-width:none}
+
+/* Hero cards in the site's glass language (same recipe as the About panels): corner lights, translucent body, peach edge, rim light, glow */
+html body .hm-hero :is(.hm-stay,.hm-map):not(#x){background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;border:1px solid #f6c8b594!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 46px #f4664933,0 24px 60px #0006!important;border-radius:24px}
+html body .hm-hero .hm-stay .hm-stay-copy:not(#x){background:none!important}
+html body .hm-hero .hm-stay ul li:not(#x),html body .hm-hero .hm-stay .hm-stay-copy>*:not(#x){border-color:#f6c8b52e!important}
+html body .hm-hero .hm-map-heading:not(#x),html body .hm-hero .hm-map-filters:not(#x){border-color:#f6c8b52e!important}
+/* chips: quiet peach edge, selected one in the brand gradient */
+html body .hm-hero .hm-map-filters button:not(#x){background:linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da40!important;color:#eee9de!important}
+html body .hm-hero .hm-map-filters button[aria-pressed=true]:not(#x){background:linear-gradient(105deg,#ff9862,#f46649)!important;border-color:#ffb69b!important;color:#180f10!important;box-shadow:inset 0 1px 1px #ffe4ce88,0 4px 12px #f4664933!important}
+/* map pins, hotel pin and preview card: glass */
+html body .hm-hero :is(.hm-pin,.hm-hotel-pin,.hm-map-preview):not(#x){background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0004!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html body .hm-hero .hm-pin.is-active:not(#x){background:linear-gradient(105deg,#ff9862,#f46649)!important;border-color:#ffb69b!important;color:#180f10!important}
+html body .hm-hero .hm-pin>span:not(#x){background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none;backdrop-filter:none}
+html body .hm-hero .hm-map-stage:not(#x){border-top:1px solid #f6c8b52e}
+html body .hm-hero .hm-intro:not(#x){border-left-color:#f6c8b552!important}
