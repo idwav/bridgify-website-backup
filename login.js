@@ -170,119 +170,42 @@
   raf = requestAnimationFrame(step);
 })();
 
-// Shy octopus: while the password is being typed (hidden), the hanging right arm swings up from its base in front of the
-// face and covers part of the eyes, its tip curling up. It goes back down when the field loses focus or the
-// password is shown. The moving arm is drawn on a canvas in picture coordinates (1536 x 1024) and passes through the same
-// matte filter as the picture, so it takes the same colours. At rest the picture's own arm is shown.
-// Reduced motion: the arm changes pose without the swing.
+// Shy octopus: while the password is being typed (hidden), the right arm curls up and covers one eye, the other peeks.
+// The motion is 45 frames in one sheet (assets/login-octopus-shy.webp, made from a Higgsfield clip between the page's own
+// picture and the covering pose). It plays forward on focus and backward on blur or when the password is shown; at rest
+// the live picture (with its moving eyes) is shown. Reduced motion: jumps to the end pose without playing the frames.
 (() => {
   const mascot = document.querySelector('.login-mascot');
   const password = document.getElementById('login-password');
-  if (!mascot || !password || !mascot.querySelector('.login-body')) return;
-  const W = 1536, H = 1024, N = 40;
-  // Centre lines (picture px) and half-widths along the arm (0 = base, 1 = tip).
-  const REST = [[1036, 510], [1040, 535], [1075, 573], [1124, 679], [1127, 770], [1095, 835], [1074, 901], [1107, 999], [1112, 1022]];
-  const COVER = [[1036, 510], [1016, 470], [960, 432], [880, 408], [790, 398], [705, 394], [645, 380], [612, 350], [616, 316], [644, 300]];
-  const R_REST = [[0, 66], [.08, 68], [.3, 50], [.48, 36], [.62, 28], [.77, 20], [.94, 8], [1, 3]];
-  const R_COVER = [[0, 64], [.12, 62], [.4, 52], [.65, 40], [.85, 24], [1, 6]];
-  const table = (tb, t) => { for (let i = 1; i < tb.length; i++) if (t <= tb[i][0]) { const [a, va] = tb[i - 1], [b, vb] = tb[i]; return va + (vb - va) * (t - a) / (b - a); } return tb[tb.length - 1][1]; };
-  // Resample a polyline to N equal segments: total length and the direction of each segment (unwrapped, so it is continuous).
-  function pose(pts) {
-    const cum = [0]; for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
-    const L = cum[cum.length - 1], at = d => { let i = 1; while (i < cum.length - 1 && cum[i] < d) i++; const f = (d - cum[i - 1]) / (cum[i] - cum[i - 1]); return [pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * f, pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * f]; };
-    const p = Array.from({ length: N + 1 }, (_, i) => at(L * i / N)), ang = [];
-    for (let i = 0; i < N; i++) { let a = Math.atan2(p[i + 1][1] - p[i][1], p[i + 1][0] - p[i][0]); if (i) { while (a - ang[i - 1] > Math.PI) a -= 2 * Math.PI; while (a - ang[i - 1] < -Math.PI) a += 2 * Math.PI; } ang.push(a); }
-    return { root: p[0], L, ang };
-  }
-  const rest = pose(REST), cover = pose(COVER);
-  // The arm swings clockwise (in front of the face, the short way round): every lifted direction is clockwise of the resting one.
-  const shift = Math.floor((cover.ang[0] - rest.ang[0]) / (2 * Math.PI)); cover.ang = cover.ang.map(a => a - shift * 2 * Math.PI);
-
-  const wrap = document.createElement('div'); wrap.className = 'login-fig login-cover'; wrap.setAttribute('aria-hidden', 'true');
-  const canvas = document.createElement('canvas'); wrap.append(canvas); mascot.append(wrap);
-  const ctx = canvas.getContext('2d');
-  const grey = v => { const c = Math.round(v * 255); return `rgb(${c},${c},${c})`; };
-
-  function draw(u) {   // u: 0 = resting, 1 = covering the eyes; each segment follows the one before it with a small delay
-    const box = canvas.getBoundingClientRect(); if (!box.width) return;
-    const dpr = Math.min(devicePixelRatio || 1, 2), cw = Math.round(box.width * dpr), ch = Math.round(box.height * dpr);
-    if (canvas.width !== cw || canvas.height !== ch) { canvas.width = cw; canvas.height = ch; }
-    ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cw, ch);
-    const k = cw / W; ctx.setTransform(k, 0, 0, k, 0, 0);
-    const P = [[rest.root[0] + (cover.root[0] - rest.root[0]) * u, rest.root[1] + (cover.root[1] - rest.root[1]) * u]], R = [], Nm = [];
-    const seg = (rest.L + (cover.L - rest.L) * u) / N;
-    for (let i = 0; i < N; i++) {
-      const lag = i / N * .35, v = Math.max(0, Math.min(1, (u - lag * (1 - u)) / (1 - lag * (1 - u) || 1)));
-      const a = rest.ang[i] + (cover.ang[i] - rest.ang[i]) * v;
-      P.push([P[i][0] + Math.cos(a) * seg, P[i][1] + Math.sin(a) * seg]);
-    }
-    for (let i = 0; i <= N; i++) {
-      const t = i / N; R.push(table(R_REST, t) + (table(R_COVER, t) - table(R_REST, t)) * u);
-      const a = P[Math.min(i + 1, N)], b = P[Math.max(i - 1, 0)], dx = a[0] - b[0], dy = a[1] - b[1], l = Math.hypot(dx, dy) || 1;
-      Nm.push([-dy / l, dx / l]);
-    }
-    // Outline of the tapered arm.
-    const outline = new Path2D();
-    for (let i = 0; i <= N; i++) outline[i ? 'lineTo' : 'moveTo'](P[i][0] + Nm[i][0] * R[i], P[i][1] + Nm[i][1] * R[i]);
-    const tip = P[N], tn = Nm[N]; outline.arc(tip[0], tip[1], R[N], Math.atan2(tn[1], tn[0]), Math.atan2(-tn[1], -tn[0]));
-    for (let i = N; i >= 0; i--) outline.lineTo(P[i][0] - Nm[i][0] * R[i], P[i][1] - Nm[i][1] * R[i]);
-    outline.closePath();
-    // Round base, tucked into the shoulder (drawn in the same winding as the outline so the two add up).
-    outline.moveTo(P[0][0] + R[0], P[0][1]); outline.arc(P[0][0], P[0][1], R[0], 0, 2 * Math.PI, true);
-    ctx.save();
-    ctx.fillStyle = grey(.56); ctx.fill(outline);
-    ctx.save(); ctx.clip(outline);
-    // Shade: darker on the underside, a soft light band on the top side, lit from above.
-    const band = (side, width, shade, blur) => {
-      ctx.filter = `blur(${blur * k * dpr / dpr}px)`; ctx.strokeStyle = grey(shade); ctx.lineCap = 'round';
-      for (let i = 0; i < N; i++) {
-        const s = Nm[i][1] > 0 ? side : -side;   // side > 0: towards the bottom of the screen
-        ctx.lineWidth = R[i] * width; ctx.beginPath();
-        ctx.moveTo(P[i][0] + Nm[i][0] * s * R[i] * .62, P[i][1] + Nm[i][1] * s * R[i] * .62);
-        ctx.lineTo(P[i + 1][0] + Nm[i + 1][0] * s * R[i + 1] * .62, P[i + 1][1] + Nm[i + 1][1] * s * R[i + 1] * .62); ctx.stroke();
-      }
-      ctx.filter = 'none';
-    };
-    band(1, .9, .36, 14); band(-1, .5, .8, 10);
-    // Suckers along the underside: they turn from the body side (resting) to the bottom edge (lifted).
-    let next = R[0] * .5;
-    const cum = [0]; for (let i = 1; i <= N; i++) cum.push(cum[i - 1] + Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]));
-    for (let i = 1; i < N; i++) {
-      if (cum[i] < next) continue;
-      const rs = R[i] * .27; if (rs < 3) break;
-      const s = 1;   // the suckers stay on the side that faces the body
-      const x = P[i][0] + Nm[i][0] * s * R[i] * .66, y = P[i][1] + Nm[i][1] * s * R[i] * .66;
-      ctx.fillStyle = grey(.78); ctx.beginPath(); ctx.arc(x, y, rs, 0, 7); ctx.fill();
-      ctx.fillStyle = grey(.5); ctx.beginPath(); ctx.arc(x, y, rs * .5, 0, 7); ctx.fill();
-      next = cum[i] + rs * 2.5;
-    }
-    ctx.restore(); ctx.restore();
-  }
-
+  if (!mascot || !password) return;
+  const FRAMES = 45, COLS = 9, ROWS = 5, FWD = 1000 / 40, BACK = 1000 / 60;
+  const flip = document.createElement('div'); flip.className = 'login-flip'; flip.setAttribute('aria-hidden', 'true'); mascot.append(flip);
+  const sheet = new Image(); let ready = false; sheet.onload = () => { ready = true; update(); }; sheet.src = 'assets/login-octopus-shy.webp?v=1';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-  const easeUp = x => 1 - Math.pow(1 - x, 4), easeDown = x => 1 - Math.pow(1 - x, 3);
-  let u = 0, from = 0, to = 0, start = 0, dur = 1, raf = 0;
-  function frame(now) {
-    const x = Math.min(1, (now - start) / dur); u = from + (to - from) * (to > from ? easeUp(x) : easeDown(x)); draw(u);
-    if (x < 1) raf = requestAnimationFrame(frame); else { raf = 0; if (!to) mascot.dataset.arm = 'down'; }
-  }
-  function go(target) {
-    if (target === to && (raf || u === target)) return;
-    if (target) mascot.dataset.arm = 'up'; else if (mascot.dataset.arm === 'up') mascot.dataset.arm = 'returning';
-    from = u; to = target;
-    if (reduce.matches) { u = target; draw(u); if (!target) mascot.dataset.arm = 'down'; return; }
-    start = performance.now(); dur = target ? 900 : 650; cancelAnimationFrame(raf); raf = requestAnimationFrame(frame);
-  }
-  const update = () => {
-    if (password.type !== 'password') mascot.dataset.eyes = 'open';
-    go(document.activeElement === password && password.type === 'password' ? 1 : 0);
+  let f = 0, target = 0, last = 0, raf = 0;
+  const show = n => {
+    flip.style.backgroundPosition = `${(n % COLS) / (COLS - 1) * 100}% ${Math.floor(n / COLS) / (ROWS - 1) * 100}%`;
+    mascot.dataset.arm = n ? 'up' : 'down';
   };
+  // Timed by the clock, not by screen refreshes: on a slow screen frames are skipped, the duration stays the same.
+  function tick(now) {
+    if (!last) last = now;
+    const step = target > f ? FWD : BACK, n = Math.floor((now - last) / step);
+    if (n > 0) { const d = target - f; f += Math.sign(d) * Math.min(n, Math.abs(d)); last += n * step; show(f); }
+    raf = f !== target ? requestAnimationFrame(tick) : 0;
+  }
+  function update() {
+    const want = document.activeElement === password && password.type === 'password' ? FRAMES - 1 : 0;
+    if (password.type !== 'password') mascot.dataset.eyes = 'open';
+    if (!ready || want === target) return;
+    target = want;
+    if (reduce.matches) { cancelAnimationFrame(raf); raf = 0; f = target; show(f); return; }
+    if (!raf) { last = 0; raf = requestAnimationFrame(tick); } else last = performance.now();
+  }
   password.addEventListener('focus', update);
   password.addEventListener('blur', update);
   password.addEventListener('input', update);
   // The Show/Hide button changes the field type and puts focus back in the field.
   new MutationObserver(update).observe(password, { attributes: true, attributeFilter: ['type'] });
-  addEventListener('resize', () => { if (mascot.dataset.arm !== 'down') draw(u); });
   mascot.dataset.arm = 'down';
-  update();
 })();

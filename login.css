@@ -88,10 +88,8 @@ body[data-copy-page="login"] .top .connect{background:#eee9de;color:#180f10}
 .login-eye{translate:var(--ex,0px) var(--ey,0px);scale:1 var(--blink,1)}
 @media(prefers-reduced-motion:reduce){.login-mascot .login-arm{transform:none}.login-eye{translate:none;scale:none}}
 
-/* Shy octopus (login.js): while the password is typed, the hanging right arm swings up in front of the face
-   and covers part of the eyes. The moving arm is drawn on a canvas; while it is out, the picture's own hanging arm is hidden. */
-.login-mascot .login-cover{position:absolute;inset:0;z-index:2;pointer-events:none;visibility:hidden}
-.login-cover canvas{position:absolute;inset:0;width:100%;height:100%}
-.login-mascot:is([data-arm=up],[data-arm=returning]) .login-cover{visibility:visible}
-.login-mascot:is([data-arm=up],[data-arm=returning]) .login-arms{visibility:hidden}
-.login-mascot:is([data-arm=up],[data-arm=returning]) .login-body{clip-path:polygon(0 0,100% 0,100% 45.5%,72% 45.5%,72% 52.6%,58% 52.6%,58% 100%,0 100%)}
+/* Shy octopus (login.js): while the password is typed, a frame sheet shows the right arm curling up over one eye.
+   The frames carry the matte colours already, so they sit outside .login-fig (no second tone filter). */
+.login-flip{position:absolute;inset:0;z-index:2;pointer-events:none;visibility:hidden;background:url("assets/login-octopus-shy.webp?v=1") 0 0/900% 500% no-repeat}
+.login-mascot[data-arm=up] .login-flip{visibility:visible}
+.login-mascot[data-arm=up] :is(.login-fig,.login-eye){visibility:hidden}
