@@ -77,3 +77,6 @@ html body #section-2.market-product-tour .payment label:not(#x){background:#fff8
 html body #section-2.market-product-tour .order-line:not(#x){border-color:#f6c8b52e!important}
 /* a pinned stage shorter than the window on small laptops: tighter heading to tour gap only below 800px of height */
 @media(min-width:801px) and (max-height:800px){html body:not(#bf-lab) #section-2.market-product-tour .mpt-sticky>header{margin-bottom:40px!important}html body:not(#bf-lab) #section-2.market-product-tour .tour-title{font-size:34px!important}}
+
+/* the pinned journey holds its first and last step for a moment (the story uses the middle 80% of the scroll) */
+@media(min-width:801px){html body:not(#bf-lab) #section-2.market-product-tour::after{height:150svh!important}}
