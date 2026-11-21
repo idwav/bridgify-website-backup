@@ -26,3 +26,8 @@
 /* Phone: the badge hangs straight from the line of small facts above it (owner, 21 Nov 2026). */
 @media (max-width:599px){.cb{margin-top:calc(-1 * clamp(32px,4vw,72px));padding-bottom:8px}.cb-swing{width:min(250px,66vw)}.cb-strap{height:56px;border-radius:0 0 6px 6px}}
 @media (prefers-reduced-motion:reduce){.cb-swing,.cb-card::before,.cb-team span{animation:none}.cb-team span:first-child{background:linear-gradient(105deg,#ff9862,#f46649);border-color:#f46649}}
+/* Hero facts row: when it wraps, a line never starts with a separator dot. Each dot sits in the gap before its item,
+   and the row clips the dot of whichever item starts a line (owner, 21 Nov 2026). */
+html body .career-hero .career-proof{overflow:hidden;column-gap:40px}
+html body .career-hero .career-proof span{position:relative}
+html body .career-hero .career-proof span::before{content:"·";position:absolute;left:-23px;margin:0;color:#f46649}
