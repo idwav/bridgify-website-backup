@@ -77,6 +77,12 @@
   html body:not(#bf-lab) #marketplace-results .nb2-stats > div:is(:nth-child(2), :nth-child(3)) { bottom: 5.5% !important; }
 }
 
+/* Audiences title, owner's desktop break "Built for brands that already / have the traveler" (21 Nov 2026):
+   on small desktops (1024-1279) the title column is too narrow for the first line, so the break waits for 1280. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  html body:not(#bf-lab) #audiences-title br.bf-br-desk { display: none !important; }
+}
+
 /* ---- tablet-hero.css ---- */
 /* Lab only · tablet portrait composition, homepage hero (user request 17 Nov 2026).
    Today on a tablet held upright the hero is a stretched phone: copy and visual are capped at 640 / 660px, the
