@@ -6,3 +6,10 @@ html body #section-1 .nt-window:not(#x){border:1px solid #f6c8b594!important;bor
 html body #section-1 :is(.nt-windowbar,.nt-sidebar,.nt-product-head):not(#x){border-color:#f6c8b52e!important;background:none!important}
 html body #section-1 :is(.nt-search,.nt-experience):not(#x){border-color:#f6c8b57a!important}
 html body #section-1 .nt-tabs span:not(.is-on):not(#x){border-color:#f6c8b57a!important}
+
+/* The Bridgify hub sits in the gap between the two windows at their vertical centre (it hung off the bottom and overlapped both windows and the photo captions); straight wires run window edge to hub to window edge */
+@media(min-width:761px){
+html body #section-1 .te-visual.nt-embed:not(#x){grid-template-columns:1fr 22% 1.03fr!important;align-items:center}
+html body #section-1 .nt-bridge:not(#x){position:relative!important;left:auto!important;bottom:auto!important;transform:none!important;width:100%!important;height:auto!important;align-self:center;display:flex;justify-content:center}
+html body #section-1 .nt-bridge .te-hub:not(#x){margin:0 auto}
+}
