@@ -72,3 +72,13 @@ html body .hm-hero .hm-pin.is-active:not(#x){background:linear-gradient(105deg,#
 html body .hm-hero .hm-pin>span:not(#x){background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none;backdrop-filter:none}
 html body .hm-hero .hm-map-stage:not(#x){border-top:1px solid #f6c8b52e}
 html body .hm-hero .hm-intro:not(#x){border-left-color:#f6c8b552!important}
+
+/* The wire between the two cards is the site's wire: a coral line with a cream ring contact on each card edge, on the cards' vertical centre */
+@media(min-width:701px){
+  html body .hm-hero .hm-connection:not(#x){position:relative;align-self:stretch!important;display:block!important;min-width:0;overflow:visible;margin-top:64px!important}
+  html body .hm-hero .hm-connection:not(#x)::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;transform:translateY(-.5px);background:#f46649;opacity:.7}
+  html body .hm-hero .hm-connection>i:not(#x){position:absolute;top:50%;width:7px;height:7px;margin-top:-3.5px;border:1.2px solid #f46649;border-radius:50%;background:#eee9de;z-index:2}
+  html body .hm-hero .hm-connection>i:first-of-type:not(#x){left:-3.5px}
+  html body .hm-hero .hm-connection>i:last-of-type:not(#x){right:-3.5px}
+}
+@media(max-width:700px){html body .hm-hero .hm-connection:not(#x){display:none!important}}
