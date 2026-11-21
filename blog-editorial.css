@@ -96,3 +96,7 @@ html body .blog-filters button[aria-pressed=true]:hover{color:#180f10!important;
 
 /* Same side gutter as the rest of the site (3.34vw, min 24px) */
 @media(min-width:600px){.blog-main{padding-left:max(24px,3.34vw);padding-right:max(24px,3.34vw)}}
+
+/* Article page (owner task, 21 Nov 2026): the reading area (contents + text) is capped at the header's width and
+   starts on its line, instead of pushing the text to the far right on wide screens. */
+@media(min-width:951px){.blog-reading{max-width:1150px;justify-content:start;column-gap:clamp(64px,8vw,130px)}}
