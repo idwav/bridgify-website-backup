@@ -1,0 +1,10 @@
+/* Hotels hero map (owner note, 21 Nov 2026): the map in the site's language. Dark warm surface with a dot grid and a
+   coral glow (in the SVG), glass markers with a light edge, the active place in the coral gradient with a halo, and
+   the hotel as a glass pill. Positions, labels and behaviour are unchanged. */
+html body .hm-hero .hm-map-stage{border-top-color:rgba(246,200,181,.18)!important;background:#150e0d}
+html body .hm-hero .hm-pin{width:36px!important;height:36px!important;border-radius:50%!important;border:1px solid rgba(246,200,181,.55)!important;background:radial-gradient(at 30% 20%,rgba(255,241,218,.18),transparent 55%),rgba(36,24,22,.72)!important;color:#ffb194!important;box-shadow:inset 0 1px 1px rgba(255,241,218,.3),0 6px 16px rgba(0,0,0,.45)!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s}
+html body .hm-hero .hm-pin:hover{transform:translate(-50%,-100%) scale(1.08)}
+html body .hm-hero .hm-pin.is-active{background:linear-gradient(135deg,#ffb194,#f46649)!important;color:#180f10!important;border-color:#ffd8bd!important;box-shadow:0 0 0 6px rgba(244,102,73,.18),0 0 24px rgba(244,102,73,.55)!important}
+html body .hm-hero .hm-pin small{background:rgba(24,15,16,.86)!important;border:1px solid rgba(246,200,181,.4)!important;border-radius:8px!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+html body .hm-hero .hm-hotel-pin{border-radius:999px!important;padding:8px 14px!important;border:1px solid rgba(246,200,181,.6)!important;background:radial-gradient(at 100% 0%,rgba(255,137,98,.28),transparent 55%),rgba(36,24,22,.78)!important;color:#fff8f1!important;box-shadow:inset 0 1px 1px rgba(255,241,218,.35),0 0 0 6px rgba(244,102,73,.1),0 10px 24px rgba(0,0,0,.45)!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+html body .hm-hero .hm-hotel-pin span{color:#ffb194!important}
