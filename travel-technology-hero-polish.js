@@ -29,7 +29,7 @@
   });
   function render(animate) {
     const state = states[active];
-    buttons.forEach((b,i)=>{b.setAttribute('aria-selected',String(i===active));b.tabIndex=i===active?0:-1;});
+    buttons.forEach((b,i)=>{b.setAttribute('aria-selected',String(i===active));b.tabIndex=-1;});
     grid.setAttribute('aria-labelledby',buttons[active].id);
     grid.replaceChildren(...state.items.map(([asset,title],i)=>{
       const card = document.createElement('div'); card.className = 'nt-experience';

@@ -20,3 +20,8 @@ html body #section-1 .te-intro:not(#x){align-self:start!important;margin-top:var
 html body #section-1 .te-intro p:not(#x){margin:0!important}
 html body #section-1 .te-actions:not(#x){margin:0!important}
 }
+/* The animation is a picture: nothing in it reacts to the pointer. Its padding is the same on all four sides (card-pad token: 32 desktop, 24 tablet). */
+html body #section-1 .te-visual :is(button,[role=tab],a):not(#x){pointer-events:none!important;cursor:default!important}
+@media(min-width:761px){html body #section-1 .te-visual.nt-embed:not(#x){padding:var(--bf-card-pad,32px)!important}}
+@media(min-width:761px){html body #section-1 .te-visual.nt-embed:not(#x){height:auto!important;min-height:0!important;max-height:none!important;flex:none!important;overflow:hidden}}
+@media(min-width:761px){html body #section-1.te-hero:not(#x){height:auto!important;min-height:0!important;justify-content:flex-start!important;padding-bottom:var(--bf-section-y,96px)!important}}
