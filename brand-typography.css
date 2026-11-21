@@ -48,3 +48,6 @@ html body .sc-how .sc-info-eyebrow{font-family:Sofia,sans-serif!important;font-s
 html body .sc-how .sc-info-heading h2{font-family:Chillax,sans-serif!important;font-size:var(--type-section)!important;font-weight:300!important;line-height:1.2!important;letter-spacing:-.025em!important}
 html body .sc-how .sc-info-item h3{font-family:Chillax,sans-serif!important;font-size:var(--type-card)!important;font-weight:300!important;line-height:1.25!important;letter-spacing:-.02em!important}
 html body .sc-how :is(.sc-how-intro,.sc-step-description){font-family:Sofia,sans-serif!important;font-size:var(--type-body)!important;font-weight:400!important;line-height:1.55!important;letter-spacing:normal!important}
+/* Heading line breaks set with scripts/heading-editor.py: <br class="bf-br-desk"> breaks from 1024px, <br class="bf-br-wide"> from 600px; a plain <br> breaks everywhere. */
+@media (max-width:1023px){br.bf-br-desk{display:none}}
+@media (max-width:599px){br.bf-br-wide{display:none}}
