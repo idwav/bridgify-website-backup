@@ -1,0 +1,5 @@
+/* Home, "Don't give travelers a library.": the section fills one screen under the header (the header is 64px) on desktops and tall windows, with the content block centred between the same top and bottom space; the look, the type and the Tom spacing inside are unchanged. */
+@media (min-width:1024px) and (min-height:700px){
+html body #personalization.v4-personal:not(#x){box-sizing:border-box!important;min-height:calc(100vh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+html body #personalization.v4-personal > *:not(#x){width:100%!important;max-width:none!important;box-sizing:border-box}
+}
