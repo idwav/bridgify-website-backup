@@ -120,7 +120,7 @@
     const t = centre(target, stage);
     items.forEach(i => { const c = centre(i, stage); i.style.setProperty(px, `${t.x - c.x}px`); i.style.setProperty(py, `${t.y - c.y}px`); });
   };
-  const narrow = w => w < 620;
+  const narrow = w => w < 540;
 
   /* ---------- 4.1 Aggregate ---------- */
   function aggregate(stage) {

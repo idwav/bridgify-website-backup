@@ -86,7 +86,7 @@
 .ag-out li{display:flex;justify-content:space-between}.ag-out li b{font-weight:600;color:#F46649}
 .ag-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:.5cqw}
 .ag-thumbs img{width:100%;aspect-ratio:1;border-radius:.6cqw;object-fit:cover;opacity:.92}
-@container (max-width:620px){
+@container (max-width:540px){
   .ag{height:158cqw}
   .ag-src{width:44cqw}
   .ag-src-body{gap:2cqw;padding:2cqw 2.4cqw;border-radius:2.4cqw}
@@ -144,7 +144,7 @@
 .nm.p-lock .nm-status .after{opacity:1;transform:none}
 .nm-status .before{opacity:0}.nm.p-flag .nm-status .before{opacity:1}
 .nm.p-lock .nm-status .before{opacity:0}
-@container (max-width:620px){
+@container (max-width:540px){
   .nm{height:150cqw}
   .nm-card{width:52cqw;border-radius:2.6cqw}
   .nm-card:nth-of-type(1){--x:4cqw!important;--y:5cqw!important}.nm-card:nth-of-type(2){--x:44cqw!important;--y:30cqw!important}.nm-card:nth-of-type(3){--x:8cqw!important;--y:68cqw!important}
@@ -198,7 +198,7 @@
 .ds-handled li{display:flex;align-items:center;gap:.7cqw;font:500 1.05cqw/1.2 Sofia,sans-serif;color:#D7C9BD;opacity:0;transform:translateX(-1cqw);transition:opacity .5s calc(var(--i)*120ms),transform .8s var(--ease) calc(var(--i)*120ms)}
 .ds-handled.is-on li{opacity:1;transform:none}
 .ds-handled svg{width:1.3cqw;height:1.3cqw;color:#F46649}
-@container (max-width:620px){
+@container (max-width:540px){
   .ds{height:160cqw}
   .ds-engine{left:30cqw;top:3cqw;width:40cqw;height:18cqw}
   .ds-engine b{font-size:3.6cqw}.ds-engine small{font-size:2cqw}.ds-engine .hm-mark{width:20%}
@@ -249,7 +249,7 @@
 .ps-body small em{font-style:normal;color:#FFB194}
 .ps-match{display:block;height:1.1cqw;margin-top:.8cqw;font:550 .95cqw/1.1 Sofia,sans-serif;letter-spacing:.06em;color:#F46649;opacity:0;transition:opacity .5s .3s}
 .ps-card.is-top .ps-match{opacity:1}
-@container (max-width:620px){
+@container (max-width:540px){
   .ps{min-height:0;padding:4.4cqw}
   .ps-head{gap:2.4cqw;margin-bottom:2.4cqw}.ps-head>span{font-size:2.2cqw;width:100%}
   .ps-profiles{gap:1.6cqw;width:100%}
