@@ -52,16 +52,21 @@
   new IntersectionObserver(es => { visible = es[0].isIntersecting; sync(); }, {threshold: .2}).observe(root);
   document.addEventListener('visibilitychange', sync);
   setBrand(0); apply();
-  // Pinned: scrolling drives the timeline (t). The stage is centred in the window and the section pads it with the same space above and below (one screen of room, at least 96).
-  const padFor = () => Math.max(96, (innerHeight - root.offsetHeight) / 2);
+  // Pinned: scrolling drives the timeline (t). The stage is centred in the visible area under the site header, with equal room above and below.
+  const headerH = () => 64; // the site header is 64px tall once the page is scrolled (88px at the very top)
+  const GAP = 64;
+  const padFor = () => headerH() + Math.max(GAP, (innerHeight - headerH() - root.offsetHeight) / 2);
   const place = () => {
-    if (pinned()) { const pad = padFor(); root.style.top = pad + 'px'; sec.style.setProperty('padding-top', pad + 'px', 'important'); sec.style.setProperty('padding-bottom', pad + 'px', 'important'); }
+    if (pinned()) { const pad = padFor(), below = pad - headerH(); root.style.top = pad + 'px'; sec.style.setProperty('padding-top', below + 'px', 'important'); sec.style.setProperty('padding-bottom', below + 'px', 'important'); }
     else { root.style.top = ''; sec.style.removeProperty('padding-top'); sec.style.removeProperty('padding-bottom'); }
   };
+  let maxP = 0;
   const onScroll = () => {
     if (!pinned()) return;
-    const r = sec.getBoundingClientRect(), pad = padFor(), range = sec.offsetHeight - innerHeight - pad; if (range <= 0) return;
-    const p = Math.min(.999, Math.max(0, -r.top / range));
+    const r = sec.getBoundingClientRect(), below = padFor() - headerH(), range = sec.offsetHeight - innerHeight + headerH() - below; if (range <= 0) return;
+    const p = Math.min(.999, Math.max(0, (-r.top + headerH() - 0) / range));
+    // the brand changes on every pass (as in the self-playing loop): when the story is scrolled back to its start after being played
+    if (p > .9) maxP = 1; if (p < .12 && maxP) { maxP = 0; setBrand(brand + 1); snap(); }
     const nt = p * DUR; if (Math.abs(nt - t) > .001) { t = nt; apply(); }
   };
   addEventListener('scroll', onScroll, {passive: true});
