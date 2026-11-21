@@ -28,3 +28,22 @@
 }
 
 .demo-page.is-done .apply-done .done-lead{margin:0;font:600 17px/1.5 Sofia,sans-serif;color:#ffba9b}
+
+/* Book a demo form: one continuous column, fewer strokes and frames, and the confirmation that was hidden by job.css */
+.demo-page .apply-form{display:block;max-width:640px}
+.demo-page .apply-form>*{grid-area:auto}
+.demo-page .apply-form>fieldset+fieldset,.demo-page .apply-form>.af-actions{margin-top:clamp(28px,4vh,40px)}
+.demo-page .af-grid{grid-template-columns:minmax(0,1fr)}
+html body .demo-page .af-field :is(input[type=text],input[type=email],select,textarea):not(#x){border:1px solid #f6c8b529!important;background-color:#1f1512;box-shadow:none!important;transition:border-color .2s}
+html body .demo-page .af-field :is(input,select,textarea):not(#x):hover{border-color:#f6c8b552!important}
+html body .demo-page .af-field :is(input,select,textarea):not(#x):focus{border-color:#f46649!important;box-shadow:none!important}
+html body .demo-page .af-field [aria-invalid=true]:not(#x){border-color:#ff8a6b!important}
+.demo-page .apply-form>fieldset:nth-of-type(3) .af-field:last-of-type{display:grid}
+.demo-page .apply-form>fieldset:nth-of-type(3) .af-field:last-of-type textarea{min-height:130px}
+/* what happens next: site numbering (coral number, one hairline), no circles */
+.demo-steps{margin-top:clamp(20px,3vh,28px)}
+.demo-steps li{border-top:1px solid #f6c8b524}
+.demo-steps li:before{content:"0" counter(s);width:auto;height:auto;border:0;border-radius:0;display:block;color:#f46649;font:550 13px/1.5 Sofia,sans-serif;letter-spacing:.12em}
+@media(min-width:1000px){.demo-page .apply-form>.af-actions{margin-top:clamp(28px,4vh,40px)}}
+/* job.css hides every direct child of a finished page except #apply-done, but on this page #apply-done sits inside .apply-body */
+html body main.job-page.demo-page.is-done>.apply-body:not(#x){display:block!important}
