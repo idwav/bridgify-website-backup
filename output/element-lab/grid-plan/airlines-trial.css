@@ -78,3 +78,9 @@
 @media (min-width: 901px) and (min-height: 741px) and (prefers-reduced-motion: no-preference) {
   html body #section-3 .jp-sticky { top: 96px !important; min-height: calc(100lvh - 96px - var(--bf-section-y, 96px)) !important; align-items: start !important; align-content: start !important; padding-top: 0 !important; padding-bottom: 0 !important; }
 }
+
+/* Passenger journey (owner task, 21 Nov 2026): the "Your airline" demo sits in the middle of the text column beside it,
+   with equal space above and below, instead of hanging from the top. */
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) #section-3 .jp-sticky > .jp-preview { align-self: center !important; }
+}
