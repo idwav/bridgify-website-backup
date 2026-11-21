@@ -1,0 +1,23 @@
+/* CONCEPT (separate page, not on the site): the opportunity section opened from the start and fitted to one screen.
+   Both paragraphs are visible (no Read more), the title and the text share one row, the bar is one slim line,
+   the panels use 24 inside and 24 between, the facts are one row. Top 96 = header 64 + 32, bottom 32. */
+@media(min-width:1024px){
+html body #opportunity-study:not(#x){min-height:100svh;height:100svh;box-sizing:border-box;padding:96px var(--try-margin,58px) 32px!important;display:flex;flex-direction:column;justify-content:flex-start;gap:24px;overflow:hidden}
+html body #opportunity-study .pb-head:not(#x){display:grid!important;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);column-gap:48px;align-items:start;margin:0!important}
+html body #opportunity-study h2:not(#x){font-size:clamp(30px,2.7vw,40px)!important;line-height:1.15!important;margin:0!important}
+html body #opportunity-study .pb-intro:not(#x){display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:0!important;width:100%!important;max-width:none!important;justify-self:stretch!important;padding:0!important;border:0!important}
+html body #opportunity-study .pb-intro p:not(#x){margin:0!important;font-size:15px!important;max-width:none!important;line-height:1.5!important;max-height:none!important;-webkit-line-clamp:unset!important;display:block!important;overflow:visible!important}
+html body #opportunity-study .pb-more[hidden]:not(#x){display:block!important}
+html body #opportunity-study .pb-toggle{display:none!important}
+html body #opportunity-study .pb-bar:not(#x){margin:24px 0 0!important;padding:14px 32px!important;display:flex;align-items:baseline;gap:16px;flex-wrap:nowrap}
+html body #opportunity-study .pb-bar b{font-size:20px!important;white-space:nowrap}
+html body #opportunity-study .pb-bar span{font-size:15px!important}
+html body #opportunity-study .pb-bar i{display:none}
+html body #opportunity-study .pb-panels:not(#x){gap:24px!important;margin:24px 0 0!important;flex:1 1 auto;min-height:0}
+html body #opportunity-study .pb-panel:not(#x){padding:24px 32px!important;display:flex;flex-direction:column;min-height:0}
+html body #opportunity-study .pb-panel h4:not(#x){font-size:24px!important;margin:0 0 12px!important}
+html body #opportunity-study .pb-panel .hm-wrap{flex:1 1 auto;min-height:0}
+html body #opportunity-study .pb-stage:not(#x){height:100%!important;min-height:0!important}
+html body #opportunity-study .pb-facts:not(#x){display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:12px 0 0!important;padding-top:12px!important;min-height:0!important}
+html body #opportunity-study .pb-facts li:not(#x){font-size:14px!important;line-height:1.35!important}
+}
