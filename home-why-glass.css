@@ -1,8 +1,22 @@
-/* Home, "Everything between global supply and your customer": the pinned stage is centred in the space under the 64px header (it was centred in the whole window, 32px too high), the four animation stages are glass (peach edge, corner lights, rim light, glow), and the demos inside are pictures (nothing reacts). Texts, numbering and colours stay. */
-@media(min-width:1024px){
-html body #why-bridgify .wy-sticky:not(#x){top:64px!important;height:calc(100vh - 64px)!important}
-}
+/* Home, "Everything between global supply and your customer": the four animation stages are glass (peach edge, corner lights, rim light, glow), and the demos inside are pictures (nothing reacts). Texts, numbering and colours stay. */
+
 html body #why-bridgify .hm-stage:not(#x){border:1px solid #f6c8b594!important;border-radius:24px!important;background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 40px #f4664926,0 20px 50px #0006!important}
 html body #why-bridgify :is(.ag-src-body,.ag-out,.hm-node):not(#x){border-color:#f6c8b57a!important}
 html body #why-bridgify .ag-engine:not(#x){border-color:#f6c8b5!important}
 html body #why-bridgify .wy-visual :is(button,a,.ps-prof):not(#x){pointer-events:none!important;cursor:default!important}
+
+/* no frame around the steps when they are clicked or focused (the site-wide action outline drew a coral box around the whole row) */
+html body #why-bridgify .wy-tab:focus,html body #why-bridgify .wy-tab:focus-visible,html body #why-bridgify .wy-tab.brand-action:focus-visible:not(#x){outline:none!important;box-shadow:none!important}
+/* 901-1023px: the pinned story does not fit (the visual ran 112px above and 112px below the window), so the four steps stack like on phones */
+@media(min-width:901px) and (max-width:1023px){
+html body #why-bridgify .wy-track:not(#x){height:auto!important}
+html body #why-bridgify .wy-sticky:not(#x){position:static!important;height:auto!important;display:block!important;padding-top:0!important}
+html body #why-bridgify .wy-head:not(#x){display:block!important}
+html body #why-bridgify .wy-body:not(#x){display:block!important}
+html body #why-bridgify .wy-tabs:not(#x){display:none!important}
+html body #why-bridgify .wy-step:not(#x){display:block!important;margin-top:44px}
+html body #why-bridgify .wy-copy:not(#x),html body #why-bridgify .wy-visual:not(#x){opacity:1!important;transform:none!important;pointer-events:auto;width:100%!important}
+html body #why-bridgify .wy-copy:not(#x){margin-bottom:18px;min-height:0!important}
+}
+/* the text block reserves the height of its tallest step (Aggregate, with the link), so it does not jump between steps and sits on the same centre line as the diagram */
+@media(min-width:1024px){html body #why-bridgify .wy-copy:not(#x){min-height:14em!important}}
