@@ -27,3 +27,16 @@ html body .brand-action.brand-action-primary:hover,html body .brand-action.brand
 html body .brand-action.brand-action-secondary{--brand-button-start:#f4664900;--brand-button-end:#f4664900;color:#fff8f1!important;border-color:#f46649!important;box-shadow:none!important}
 html body .brand-action.brand-action-secondary:hover,html body .brand-action.brand-action-secondary:focus-visible{--brand-button-start:#f466491f;--brand-button-end:#f4664914;color:#fff8f1!important;box-shadow:none!important}
 html body .brand-action.brand-action-secondary.brand-action-on-light,html body .brand-action.brand-action-secondary.brand-action-on-light:hover,html body .brand-action.brand-action-secondary.brand-action-on-light:focus-visible{color:#180f10!important;border-color:#e0573b!important}
+
+/* Text links and card titles (owner task, 21 Nov 2026): one hover for the whole site and no underline on hover.
+   The link warms to light coral and its arrow steps forward; buttons keep the primary / secondary hovers above. */
+html body :is(.blog-link,.nr-link,.blog-card h3 a,.bv2-hero-actions>a,.bf-footer-group a,.blog-reading aside a):is(:hover,:focus-visible),
+html body .brand-action:is(:hover,:focus-visible){text-decoration:none!important}
+html body :is(.blog-link,.nr-link,.blog-card h3 a,.bf-footer-group a){transition:color .25s ease}
+html body :is(.blog-link,.nr-link):is(:hover,:focus-visible),html body .blog-card h3 a:is(:hover,:focus-visible),
+html body .bf-footer-group a:is(:hover,:focus-visible){color:#FFE2C6!important}
+html body :is(.blog-link,.nr-link)>span[aria-hidden="true"]{display:inline-block;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+html body :is(.blog-link,.nr-link):is(:hover,:focus-visible)>span[aria-hidden="true"]{transform:translate(3px,-3px)}
+/* Press cards: "Read article" runs the full width of the card, its arrow on the right edge. */
+html body .nr-card .nr-link{display:flex!important;align-items:center;justify-content:space-between;gap:12px;width:100%}
+@media(prefers-reduced-motion:reduce){html body :is(.blog-link,.nr-link)>span[aria-hidden="true"]{transition:none}}
