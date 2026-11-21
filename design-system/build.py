@@ -13,6 +13,10 @@ import html, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 T = json.load(open(os.path.join(HERE, 'tokens.json')))
 PAGES = json.load(open(os.path.join(HERE, 'pages.json')))
+MOTION = json.load(open(os.path.join(HERE, 'motion.json')))
+ASSETS = json.load(open(os.path.join(HERE, 'assets.json')))
+HANDOFF = json.load(open(os.path.join(HERE, 'handoff.json')))
+ACCEPT = json.load(open(os.path.join(HERE, 'acceptance.json')))
 BPS = ['desktop', 'tablet', 'phone']
 BP_LABEL = {'desktop': 'Desktop', 'tablet': 'Tablet', 'phone': 'Phone'}
 esc = html.escape
@@ -307,6 +311,58 @@ def pages_section():
     return '\n'.join(out)
 
 
+def motion_section():
+    g = ''.join(f'<tr><th scope="row">{esc(m["name"])}</th><td>{esc(m["what"])}</td><td class="mono">{esc(m["timing"])}</td><td>{esc(", ".join(m["files"]))}</td><td>{esc(m["reduced_motion"])}</td></tr>' for m in MOTION['global'])
+    rows = []
+    for it in MOTION['items']:
+        files = ''.join(f'<code>{esc(f)}</code><br>' for f in it['files'])
+        anims = ''.join(f'<div class="dim">{esc(a)}</div>' for a in it['css_animations'][:4])
+        rows.append(f'<tr><td><b class="st-t">{esc(it["page_name"])}</b><div class="dim">{esc(it["title"][:70])}</div></td>'
+                    f'<td>{esc(it["desktop"])}</td><td>{esc(it["phone"])}</td><td>{esc("; ".join(it["behaviour"]))}{anims}</td><td>{files}</td>'
+                    f'<td class="nowrap"><a href="{esc(it["view"])}">Run alone</a><br><a href="{esc(it["live"])}">Live ↗</a></td></tr>')
+    return (f'<h3>Across the site</h3><div class="tw"><table><thead><tr><th>Effect</th><th>What happens</th><th>Timing</th><th>Code</th><th>Reduced motion</th></tr></thead><tbody>{g}</tbody></table></div>'
+            f'<h3>Every animation ({len(MOTION["items"])})</h3><p class="lead">"Run alone" opens the viewer: the section runs by itself with the site\'s own HTML, CSS and JavaScript, at desktop, tablet or phone width (serve the repo root, for example <code>python3 -m http.server</code>). Phone behaviour comes from the phone layer (<code>output/element-lab/adaptive/pages/&lt;page&gt;.js</code>).</p>'
+            f'<div class="tw"><table class="mo-t"><thead><tr><th>Section</th><th>Desktop</th><th>Phone</th><th>Behaviour and measured CSS animations</th><th>Source files</th><th>Open</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
+            f'<p class="note"><b>Rule:</b> {esc(MOTION["rule"])}</p>')
+
+
+def assets_section():
+    sm = ASSETS['summary']
+    rows = ''.join(f'<tr><td><code>{esc(f["path"][:80])}</code></td><td>{esc(f["kind"])}</td><td class="num">{esc(f.get("size", ""))}</td><td class="num">{f.get("kb", "")}</td><td class="dim">{esc(", ".join(f["pages"][:6]))}</td></tr>'
+                   for f in ASSETS['files'] if f['kind'] != 'external')
+    icons = ''.join(f'<figure class="ic"><img src="{esc(i["file"].replace("design-system/", ""))}" alt="" width="28" height="28"><figcaption>{esc(i["id"])}</figcaption></figure>' for i in ASSETS['icons'])
+    rules = ''.join(f'<li>{esc(r)}</li>' for r in ASSETS['rules'])
+    fonts = ''.join(f'<li><b>{esc(k)}:</b> {esc(v)}</li>' for k, v in ASSETS['fonts'].items())
+    return (f'<p class="lead">{sm["images"]} photos and images, {sm["vectors"]} vector files, {sm["fonts"]} font files and {sm["icons"]} icons, '
+            f'taken from what the pages actually load. {sm["external"]} files come from outside services (press and blog images).</p>'
+            f'<h3>Rules</h3><ul class="plain">{rules}</ul><h3>Fonts</h3><ul class="plain">{fonts}</ul>'
+            f'<h3>Icons ({sm["icons"]})</h3><p class="lead">Each one is a separate SVG in <code>design-system/assets/icons/</code>.</p><div class="icons">{icons}</div>'
+            f'<h3>Files</h3><div class="tw"><table><thead><tr><th>Path</th><th>Kind</th><th>Size</th><th>KB</th><th>Pages</th></tr></thead><tbody>{rows}</tbody></table></div>')
+
+
+def handoff_section():
+    seo = ''.join(f'<tr><th scope="row">{esc(k)}</th><td>{esc(v["title"] or "")}<div class="dim">{esc((v["description"] or "")[:160])}</div></td><td><code>{esc(v["canonical"] or "")}</code></td><td>{esc(", ".join(v["structured_data"]) or "—")}</td><td>{"yes" if v["open_graph"] else "missing"}</td></tr>' for k, v in HANDOFF['seo'].items())
+    routes = ''.join(f'<tr><td><code>{esc(r["source"])}</code></td><td><code>{esc(r["destination"])}</code></td><td>{"redirect" if "permanent" in r else "rewrite"}</td></tr>' for r in HANDOFF['routes']['redirects'] + HANDOFF['routes']['rewrites'])
+    forms = ''.join(f'<tr><th scope="row">{esc(k)}</th><td>{esc(", ".join(v["fields"]))}</td><td>{esc(v["submits_to"])}</td></tr>' for k, v in HANDOFF['forms'].items())
+    qs = ''.join(f'<li><b>{esc(q["topic"])}:</b> {esc(q["question"])}</li>' for q in HANDOFF['open_questions'])
+    lst = lambda k: ''.join(f'<li>{esc(x)}</li>' for x in HANDOFF[k])
+    return (f'<p class="lead">{esc(HANDOFF["copy"])}</p>'
+            f'<h3>Open questions for the team</h3><ul class="plain qs">{qs}</ul>'
+            f'<h3>SEO per page</h3><div class="tw"><table><thead><tr><th>Page</th><th>Title and description</th><th>Canonical</th><th>Structured data</th><th>Open Graph</th></tr></thead><tbody>{seo}</tbody></table></div>'
+            f'<h3>Routes (from vercel.json)</h3><div class="tw"><table><thead><tr><th>From</th><th>To</th><th>Type</th></tr></thead><tbody>{routes}</tbody></table></div>'
+            f'<h3>Forms</h3><div class="tw"><table><thead><tr><th>Page</th><th>Fields</th><th>Submits to</th></tr></thead><tbody>{forms}</tbody></table></div>'
+            f'<h3>Analytics</h3><p class="lead">{esc(HANDOFF["analytics"]["today"])}</p>'
+            f'<h3>Accessibility</h3><ul class="plain">{lst("accessibility")}</ul><h3>Performance</h3><ul class="plain">{lst("performance")}</ul><h3>Browsers</h3><ul class="plain">{lst("browsers")}</ul>')
+
+
+def acceptance_section():
+    rows = ''.join(f'<tr><td class="num">{esc(c["id"])}</td><th scope="row">{esc(c["area"])}</th><td>{esc(c["check"])}</td></tr>' for c in ACCEPT['checks'])
+    proc = ''.join(f'<li>{esc(x)}</li>' for x in ACCEPT['process'])
+    return (f'<p class="lead">{esc(ACCEPT["$description"])} Check every page at {", ".join(ACCEPT["widths"])}.</p>'
+            f'<div class="tw"><table><thead><tr><th>#</th><th>Area</th><th>Check</th></tr></thead><tbody>{rows}</tbody></table></div>'
+            f'<h3>How we work through it</h3><ol class="plain">{proc}</ol>')
+
+
 def page():
     css_types = type_css()
     return f'''<!doctype html>
@@ -466,6 +522,11 @@ article.comp h3{{margin-top:16px}}
 .st-t{{color:var(--fg);font-weight:500}}
 .flag{{display:inline-block;margin-top:8px;margin-inline-end:6px;font-size:11px;letter-spacing:.04em;border-radius:999px;padding:2px 8px}}
 .flag.diff{{color:#EBD9B4;border:1px solid #5C4A28}} .flag.chk{{color:#9BC7DD;border:1px solid #2E4A5C}}
+.mo-t td{{vertical-align:top}} .nowrap{{white-space:nowrap}}
+.icons{{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}}
+.ic{{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}}
+.ic figcaption{{font-size:11px;color:var(--muted);text-align:center;word-break:break-all}}
+ul.qs li{{margin-bottom:4px}}
 .rad{{width:96px;height:56px;border:1px solid #F6C8B594;background:var(--panel)}}
 .shd{{width:120px;height:56px;border-radius:18px;background:var(--panel);border:1px solid var(--line)}}
 @media (max-width:560px){{.ds-btn:not(.ph):not(.hd){{height:40px;padding:0 18px}}}}
@@ -485,10 +546,11 @@ article.comp h3{{margin-top:16px}}
   <a href="#patterns">Patterns</a>
   <a href="#rules">Site rules</a>
   <a href="#pages">Pages</a>
+  <a href="#motion">Motion</a>
+  <a href="#assets">Assets</a>
+  <a href="#build">Build notes</a>
+  <a href="#acceptance">Acceptance</a>
   <a href="#files">Files</a>
-  <span class="soon">Motion · next</span>
-  <span class="soon">Assets</span>
-  <span class="soon">Acceptance</span>
 </nav>
 <main>
 <section id="overview">
@@ -502,7 +564,9 @@ article.comp h3{{margin-top:16px}}
     <div class="st done"><b>Components</b><span>Ready: buttons, links, chips, cards, stepper, tabs, FAQ, icons</span></div>
     <div class="st done"><b>Patterns</b><span>Ready: 15 section types on desktop, tablet and phone</span></div>
     <div class="st done"><b>Pages</b><span>Ready: 16 pages, 107 sections mapped to patterns</span></div>
-    <div class="st"><b>Motion, assets, acceptance</b><span>After pages</span></div>
+    <div class="st done"><b>Motion</b><span>Ready: 57 animations with their code and a viewer</span></div>
+    <div class="st done"><b>Assets</b><span>Ready: images, icons, logos, fonts</span></div>
+    <div class="st done"><b>Build notes and acceptance</b><span>Ready: SEO, routes, forms, checks; 7 open questions</span></div>
   </div>
 </section>
 
@@ -593,12 +657,40 @@ article.comp h3{{margin-top:16px}}
   {pages_section()}
 </section>
 
+<section class="ch" id="motion">
+  <div class="eyebrow">Motion</div>
+  <h2>Motion</h2>
+  {motion_section()}
+</section>
+
+<section class="ch" id="assets">
+  <div class="eyebrow">Assets</div>
+  <h2>Assets</h2>
+  {assets_section()}
+</section>
+
+<section class="ch" id="build">
+  <div class="eyebrow">Build notes</div>
+  <h2>Beyond the look</h2>
+  {handoff_section()}
+</section>
+
+<section class="ch" id="acceptance">
+  <div class="eyebrow">Acceptance</div>
+  <h2>Acceptance</h2>
+  {acceptance_section()}
+</section>
+
 <section class="ch" id="files">
   <div class="eyebrow">Handoff</div>
   <h2>Files</h2>
   <ul class="plain">
     <li><code>design-system/tokens.json</code>: every value in this chapter (W3C design tokens format). The single source.</li>
     <li><code>design-system/tokens.css</code>: the same values as CSS custom properties, switching at 600 and 1024.</li>
+    <li><code>design-system/motion.json</code> and <code>design-system/motion/view.html</code>: every animation, its files and timings, and the viewer.</li>
+    <li><code>design-system/assets.json</code> and <code>design-system/assets/icons/</code>: every file the pages load, and the 52 icons as SVG.</li>
+    <li><code>design-system/handoff.json</code>: SEO, routes, forms, analytics, accessibility, performance and open questions.</li>
+    <li><code>design-system/acceptance.json</code>: the checks every page passes.</li>
     <li><code>design-system/pages.json</code>: every page's sections and their patterns.</li>
     <li><code>design-system/img/pages/</code>: today's screenshot of every section at 1440 and 390.</li>
     <li><code>design-system/img/patterns/</code>: today's screenshots of each pattern's example at 1440, 768 and 390.</li>
