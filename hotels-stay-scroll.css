@@ -35,3 +35,9 @@ html body .hotel-stay-scroll .hs-email-letter{border-color:#f6c8b57a!important}
 @media(max-width:1100px){html body .hotel-stay-scroll .hs-email-letter h3 br{display:inline!important;content:" "}}
 /* the site-wide coral frame class would repaint the window edge coral: keep the glass edge */
 html body .hotel-stay-scroll .hs-mail-window.hs-mail-window:not(#x){border-color:#f6c8b594!important}
+
+/* Same glass as the About panels: corner lights, translucent body, peach edge, rim light, outer glow */
+html body .hotel-stay-scroll .hs-mail-window.hs-mail-window:not(#x){background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;border:1px solid #f6c8b594!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 46px #f4664933,0 24px 60px #0006!important}
+html body .hotel-stay-scroll .hs-email-letter.hs-email-letter:not(#x){background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),radial-gradient(at 0% 100%,#ff78532e,#0000 42%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;border:1px solid #f6c8b57a!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0002!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html body .hotel-stay-scroll .hs-mail-folders:not(#x){background:none!important;border-color:#f6c8b529!important}
+html body .hotel-stay-scroll .hs-mail-toolbar:not(#x){border-bottom-color:#f6c8b529!important}
