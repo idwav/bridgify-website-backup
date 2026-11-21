@@ -10,3 +10,6 @@ html body #section-2 .ti-opt[aria-pressed=true]:not(#x){border-color:#f6c8b594!i
 html body #section-2 .ti-app:not(#x){border:1px solid #f6c8b57a!important;background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0004!important}
 html body #section-2 :is(.ti-row,.ti-pill,.ti-hub):not(#x){border:1px solid #f6c8b57a!important}
 html body #section-2 .ti-app-top:not(#x){border-bottom:1px solid #f6c8b52e!important}
+html body #section-2 .ti-src svg:not(#x){overflow:visible;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+html body #section-2 .ti-src svg *:not(.ti-dot):not(#x){stroke-width:1.5}
+html body #section-2 .ti-src svg .ti-dot:not(#x){fill:#ffe2c6;stroke:currentColor;stroke-width:1.5}
