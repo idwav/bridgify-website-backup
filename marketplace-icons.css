@@ -4,3 +4,10 @@
 #section-4 svg .mp-dot{fill:#ffe5c9;stroke:#ff9871;stroke-width:1.5;filter:none}
 #marketplace-audiences svg .mp-dot{fill:#fff8f1;stroke:currentColor;stroke-width:1.5}
 html body #section-4 svg:not(#x){width:28px;height:28px;flex:0 0 28px}
+
+/* Glass strokes: the frames of these panels were the solid coral of the site-wide frame class; they use the peach edge of the glass language (outer panels slightly stronger than the cards inside them). Colours of text and fills stay. */
+html body :is(#section-4 .wo-you,#section-4 .wo-us,#section-5 .launch-timeline,#section-5 .launch-store,#marketplace-results .results-panel):not(#x){border-color:#f6c8b594!important}
+html body :is(#section-4 .wo-chip,#section-4 .wo-op,#section-5 .launch-days button,#section-5 .launch-address,#section-5 .launch-live,#section-4 .wo-us .brand-coral-frame):not(#x){border-color:#f6c8b57a!important}
+html body :is(#section-4 .wo-chip.is-on,#section-5 .launch-days button.active,#section-5 .launch-days button.complete):not(#x){border-color:#f6c8b5!important}
+html body :is(#section-1 .market-window,#section-1 .brand-settings):not(#x){border-color:#f6c8b594!important}
+html body :is(#section-1 .settings-name,#section-1 .settings-apply,#section-1 .market-window .brand-coral-frame:not(.search-go):not(.market-search)):not(#x){border-color:#f6c8b57a!important}
