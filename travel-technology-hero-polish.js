@@ -29,7 +29,7 @@
   });
   function render(animate) {
     const state = states[active];
-    buttons.forEach((b,i)=>{b.setAttribute('aria-selected',String(i===active));b.tabIndex=i===active?0:-1;});
+    buttons.forEach((b,i)=>{b.setAttribute('aria-selected',String(i===active));b.tabIndex=-1;});
     grid.setAttribute('aria-labelledby',buttons[active].id);
     grid.replaceChildren(...state.items.map(([asset,title],i)=>{
       const card = document.createElement('div'); card.className = 'nt-experience';
@@ -62,13 +62,13 @@
         X=B.left+B.width/2-r.left;Y=B.top-r.top;
         d=`M${x} ${y} L${X} ${Y}`;
       }else if(i===0){
-        x=A.left+A.width/2-r.left;y=A.bottom-r.top;
+        x=A.right-r.left;y=A.top+A.height/2-r.top;
         X=B.left-r.left;Y=B.top+B.height/2-r.top;
-        d=`M${x} ${y} V${Y-22} Q${x} ${Y} ${x+22} ${Y} H${X}`;
+        d=`M${x} ${y} H${X}`;
       }else{
         x=A.right-r.left;y=A.top+A.height/2-r.top;
-        X=B.left+B.width/2-r.left;Y=B.bottom-r.top;
-        d=`M${x} ${y} H${X-22} Q${X} ${y} ${X} ${y-22} V${Y}`;
+        X=B.left-r.left;Y=B.top+B.height/2-r.top;
+        d=`M${x} ${y} H${X}`;
       }
       const make=(tag,attrs)=>{const el=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));svg.append(el);return el;};
       const path=make('path',{d,fill:'none',stroke:'#f46649','stroke-width':2.2,opacity:.8});
