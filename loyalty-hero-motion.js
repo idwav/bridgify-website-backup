@@ -10,8 +10,8 @@
   const numNode = [...bal.childNodes].find(n => n.nodeType === 3);
   let visible = false, stopped = false, raf = 0, start = 0, shown = -1, synthetic = false, redeemed = false;
   const fmt = n => Math.round(n).toLocaleString('en-US');
-  const setSlider = v => { v = Math.round(v / 5) * 5; if (v === shown) return; shown = v; slider.value = v; slider.dispatchEvent(new Event('input', { bubbles: true })); redeemed = false; };
-  const setBalance = n => { if (numNode) numNode.textContent = fmt(n) + ' '; };
+  const setSlider = v => { v = Math.round(v * 1.2); if (v === shown) return; shown = v; slider.value = v; slider.dispatchEvent(new Event('input', { bubbles: true })); redeemed = false; };
+  const setBalance = n => { if (numNode) numNode.textContent = fmt(Math.round(n / 100) * 100) + ' '; };
   const stop = () => { if (synthetic) return; stopped = true; cancelAnimationFrame(raf); win.classList.remove('lr-live'); button.classList.remove('lr-press'); product.classList.remove('lr-bought'); };
   ['pointerdown', 'keydown', 'touchstart'].forEach(e => slider.addEventListener(e, stop, { passive: true }));
   button.addEventListener('click', stop);
@@ -32,7 +32,8 @@
     const done = t >= 5300 && t < 9200;
     if (done && !redeemed) { redeemed = true; synthetic = true; button.textContent = 'Demo redeemed'; synthetic = false; }
     product.classList.toggle('lr-bought', done);
-    setBalance(done ? 84000 - 12000 * ease(clamp((t - 5300) / 1100)) : 84000);
+    // after Redeem the balance counts down to 72,000; while the slider returns it counts back up to 84,000
+    setBalance(done ? 84000 - 12000 * ease(clamp((t - 5300) / 1100)) : t >= 9200 ? 72000 + 12000 * ease(clamp((t - 9200) / 1200)) : 84000);
     win.classList.add('lr-live');
     raf = requestAnimationFrame(frame);
   }
