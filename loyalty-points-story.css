@@ -56,3 +56,25 @@ html body .lp-bill .lp-ledger,html body .lp-bill .lp-reward{border-color:#f46649
 /* Result row sits under the opening text, before the demo cards */
 .lp-bill header{margin-bottom:24px}
 .lp-bill .lp-result{margin:0 0 28px}
+
+@media(min-width:801px){
+/* ---- Points aren't a marketing budget (#section-2): glass edges, the two totals sit under the big number, the demo is a picture (nothing reacts), fade reset ---- */
+html body .lp-bill .lp-ledger:not(#x){border:1px solid #f6c8b594!important;border-radius:24px!important;background:radial-gradient(at 100% 0%,#ff89622e,#0000 30%),radial-gradient(at 0% 100%,#ff78532b,#0000 26%),linear-gradient(115deg,#fffaf3,#f3eadd)!important;box-shadow:inset 0 1px 1px #fff,0 0 2px #ffb09b55,0 14px 34px #50342c1c!important;padding:var(--bf-card-pad,32px)!important}
+html body .lp-bill .lp-reward:not(#x){border:1px solid #f6c8b594!important;border-radius:24px!important;overflow:hidden;box-shadow:inset 0 1px 1px #fff,0 0 2px #ffb09b55,0 14px 34px #50342c1c,0 0 calc(var(--arrival,0)*22px) #f4664940!important}
+html body .lp-bill .lp-ledger .lp-result:not(#x){display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 0!important;padding:16px 0 0;border-top:1px solid #f6c8b57a;min-height:0}
+html body .lp-bill .lp-ledger .lp-result>span:not(#x){display:block;font:550 12px/1.4 Sofia,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6a5a52}
+html body .lp-bill .lp-ledger .lp-result>strong:not(#x){display:block;min-width:0;margin:4px 0 0;font:300 clamp(28px,2.4vw,34px)/1.1 Chillax,sans-serif;letter-spacing:-.02em;color:#b83a23}
+html body .lp-bill .lp-ledger .lp-result>span:nth-of-type(1),html body .lp-bill .lp-ledger .lp-result>strong:nth-of-type(1){grid-column:1}
+html body .lp-bill .lp-ledger .lp-result>span:nth-of-type(2),html body .lp-bill .lp-ledger .lp-result>strong:nth-of-type(2){grid-column:2}
+html body .lp-bill .lp-ledger .lp-result>span:nth-of-type(1){grid-row:1}html body .lp-bill .lp-ledger .lp-result>strong:nth-of-type(1){grid-row:2}
+html body .lp-bill .lp-ledger .lp-result>span:nth-of-type(2){grid-row:1}html body .lp-bill .lp-ledger .lp-result>strong:nth-of-type(2){grid-row:2}
+html body .lp-bill>.lp-result:not(#x){display:none}
+html body .lp-bill .lp-demo:not(#x){align-items:stretch!important}
+html body .lp-bill .lp-reward:not(#x){height:auto!important}
+html body .lp-bill .lp-reward>img:not(#x){height:100%;object-fit:cover}
+}
+/* the demo is a picture: the slider and the button do not react */
+html body .lp-bill :is(#lp-progress,#lp-redeem,.lp-redemption-slider):not(#x){pointer-events:none!important;cursor:default!important}
+/* reset: fade instead of snapping the numbers back */
+.lp-bill .lp-demo{transition:opacity .5s ease}
+.lp-bill.lp-fade .lp-demo{opacity:0;transition:opacity .4s ease}
