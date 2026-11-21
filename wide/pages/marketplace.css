@@ -122,6 +122,31 @@
   html body:not(#bf-lab) #section-2.market-product-tour header > p { font-size: 16px !important; line-height: 1.55 !important; }
 }
 
+/* Product tour (#section-2), owner note 21 Nov 2026: the mockup was too large and sat right under the heading (0px).
+   Desktop: the heading-to-visual gap from the spacing tokens, and the browser frame drawn smaller (lower and narrower)
+   as a whole, so every step keeps its own layout; its right edge stays on the content line. Shorter screens scale a
+   little more so the pinned tour still fits. */
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) #section-2.market-product-tour .tour { margin-top: var(--bf-gap-to-visual, 64px) !important; }
+  html body:not(#bf-lab) #section-2.market-product-tour .presentation { transform: scale(.86); transform-origin: top right; }
+}
+@media (min-width: 1024px) and (max-height: 800px) {
+  html body:not(#bf-lab) #section-2.market-product-tour .presentation { transform: scale(.8); }
+}
+
+/* "You bring the brand" (#section-4), option B (owner, 21 Nov 2026): on desktop the short list and the operations log
+   sit side by side under a hairline, divided by a hairline (0.8 : 1.6). Tablets keep them stacked, divided by a rule. */
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) #section-4.brand-light-section > .wo-stack { grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr) !important; border-top: 1px solid rgba(24, 15, 16, .15) !important; }
+  html body:not(#bf-lab) #section-4.brand-light-section > .wo-stack > .wo-you { padding: 40px 48px 40px 0 !important; margin-top: 0 !important; border-right: 1px solid rgba(24, 15, 16, .15) !important; }
+  html body:not(#bf-lab) #section-4.brand-light-section > .wo-stack > .wo-us { padding: 40px 0 40px 48px !important; margin-top: 0 !important; }
+  html body:not(#bf-lab) #section-4.brand-light-section > .wo-stack { margin-top: var(--bf-gap-to-content, 64px) !important; }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  html body:not(#bf-lab) #section-4.brand-light-section > .wo-stack > .wo-us { margin-top: 0 !important; padding-top: 40px !important; border-top: 1px solid rgba(24, 15, 16, .15) !important; }
+  html body:not(#bf-lab) #section-4.brand-light-section > .wo-stack > .wo-you { padding-bottom: 40px !important; }
+}
+
 /* ---- ink-fonts.css ---- */
 /* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
    and the weight"). Measured in type-audit/ (accents.py, faces.py) at 1440: only 21 of 86 emphasised title words used
@@ -304,7 +329,6 @@
   html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 24px !important; margin-bottom: 0px !important; }
   html body #section-4 > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; row-gap: 0px !important; }
   html body #section-4 > div:nth-child(2) > div:nth-child(1) { margin-top: 48px !important; margin-bottom: 0px !important; }
-  html body #section-4 > div:nth-child(2) > div:nth-child(2) { margin-top: 48px !important; margin-bottom: 0px !important; }
   html body #section-4 > div:nth-child(2) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; }
   html body #section-5 { padding-top: 80px !important; padding-bottom: 80px !important; row-gap: 0px !important; }
   html body #section-5 > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
@@ -389,9 +413,8 @@
   html body #section-4 > header:nth-child(1) > div:nth-child(1) > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; }
   html body #commerce-title { margin-top: 24px !important; }
   html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-bottom: 0px !important; }
-  html body #section-4 > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; row-gap: 0px !important; }
-  html body #section-4 > div:nth-child(2) > div:nth-child(1) { margin-top: 64px !important; margin-bottom: 0px !important; }
-  html body #section-4 > div:nth-child(2) > div:nth-child(2) { margin-top: 64px !important; margin-bottom: 0px !important; }
+  html body #section-4 > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
+  html body #section-4 > div:nth-child(2) > div:nth-child(1) { margin-top: 64px !important; }
   html body #section-4 > div:nth-child(2) > div:nth-child(3) { margin-top: 64px !important; margin-bottom: 0px !important; }
   html body #section-5 { padding-top: 96px !important; padding-bottom: 96px !important; row-gap: 0px !important; }
   html body #section-5 > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; }
