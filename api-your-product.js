@@ -34,7 +34,9 @@
     slot.classList.toggle('is-on', t >= 5.1);
   };
   const snap = () => { root.classList.add('cj-snap'); apply(); void root.offsetWidth; requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove('cj-snap'))); };
-  const live = () => playing && visible && !reduce && !document.hidden;
+  const pinMQ = matchMedia('(min-width:1024px) and (min-height:640px) and (prefers-reduced-motion: no-preference)'), sec = root.closest('section');
+  const pinned = () => pinMQ.matches && !reduce;
+  const live = () => playing && visible && !reduce && !document.hidden && !pinned();
   const frame = now => {
     raf = 0; if (!live()) return;
     t += Math.min((now - last) / 1000, .1); last = now;
@@ -42,7 +44,7 @@
     apply(); raf = requestAnimationFrame(frame);
   };
   const sync = () => {
-    root.classList.toggle('is-paused', !live() && !reduce);
+    root.classList.toggle('is-paused', !live() && !reduce && !pinned());
     if (live() && !raf) { last = performance.now(); raf = requestAnimationFrame(frame); }
   };
 
@@ -50,4 +52,20 @@
   new IntersectionObserver(es => { visible = es[0].isIntersecting; sync(); }, {threshold: .2}).observe(root);
   document.addEventListener('visibilitychange', sync);
   setBrand(0); apply();
+  // Pinned: scrolling drives the timeline (t). The stage is centred in the window and the section pads it with the same space above and below (one screen of room, at least 96).
+  const padFor = () => Math.max(96, (innerHeight - root.offsetHeight) / 2);
+  const place = () => {
+    if (pinned()) { const pad = padFor(); root.style.top = pad + 'px'; sec.style.setProperty('padding-top', pad + 'px', 'important'); sec.style.setProperty('padding-bottom', pad + 'px', 'important'); }
+    else { root.style.top = ''; sec.style.removeProperty('padding-top'); sec.style.removeProperty('padding-bottom'); }
+  };
+  const onScroll = () => {
+    if (!pinned()) return;
+    const r = sec.getBoundingClientRect(), pad = padFor(), range = sec.offsetHeight - innerHeight - pad; if (range <= 0) return;
+    const p = Math.min(.999, Math.max(0, -r.top / range));
+    const nt = p * DUR; if (Math.abs(nt - t) > .001) { t = nt; apply(); }
+  };
+  addEventListener('scroll', onScroll, {passive: true});
+  addEventListener('resize', () => { place(); onScroll(); sync(); });
+  pinMQ.addEventListener('change', () => { place(); onScroll(); sync(); });
+  place(); onScroll(); sync();
 })();

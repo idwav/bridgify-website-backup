@@ -146,3 +146,31 @@
 @media (prefers-reduced-motion:reduce){.cj-ink{animation:none}}
 .cj.is-paused :is(.cj-rail i,.cj-port,.cj-ink),.cj.is-paused~* .cj-ink{animation-play-state:paused}
 @media (max-width:480px){.cj-controls span{flex-basis:100%}}
+
+/* Spacing from the table: where the copy and the step list share the left column (desktop), at least 48 between them */
+@media(min-width:1024px){html body #customer-experience .cj-side:not(#x){padding-top:var(--bf-gap-to-control,48px)}}
+
+/* ---- Customer experience: our numbering, pinned scroll story, one screen, content centred ---- */
+/* Numbering: coral 01-04 and a 2px track that is coral for the steps already shown. No dividers, no circles. Sizes: 13px label, rows 44px (About stepper). */
+@media(min-width:600px){
+  html body #customer-experience .cj-steps:not(#x){border-top:0}
+  html body #customer-experience .cj-steps li:not(#x){position:relative;grid-template-columns:28px minmax(0,1fr) auto;gap:0;align-items:center;padding:10px 0 10px 14px;min-height:44px;box-sizing:border-box;border-bottom:0;color:#9b8b80}
+  html body #customer-experience .cj-steps li::before,html body #customer-experience .cj-steps li::after{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;border-radius:2px;background:rgba(178,138,104,.24)}
+  html body #customer-experience .cj-steps li::after{background:#F46649;transform:scaleY(0);transform-origin:top;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+  html body #customer-experience .cj-steps li.is-done::after,html body #customer-experience .cj-steps li.is-now::after{transform:none}
+  html body #customer-experience .cj-steps li>i:not(#x){display:block;width:auto;height:auto;border:0!important;border-radius:0;background:none!important;box-shadow:none!important;font:550 13px/1.4 "Sofia Sans",Sofia,sans-serif;letter-spacing:.12em;color:#F46649!important}
+  html body #customer-experience .cj-steps b:not(#x){font:550 13px/1.4 "Sofia Sans",Sofia,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+  html body #customer-experience .cj-steps li.is-done:not(#x),html body #customer-experience .cj-steps li.is-now:not(#x){color:#180F10}
+}
+/* Left column: the copy and the steps sit together (48 apart) and the pair is centred against the stage */
+@media(min-width:1024px){
+  html body #customer-experience .cj:not(#x){grid-template-rows:1fr auto auto 1fr;grid-template-areas:". stage" "copy stage" "side stage" ". stage"}
+  html body #customer-experience .cj-copy:not(#x){margin-bottom:0}
+  html body #customer-experience .cj-side:not(#x){align-self:start;padding-top:var(--bf-gap-to-control,48px)}
+}
+/* Scroll story (desktop): the section is a pinned stage; the booking plays by scrolling. The section is as tall as a window plus the scroll distance, the stage is centred with equal room above and below. Below 1024px or without room, it plays by itself. */
+@media(min-width:1024px) and (min-height:640px) and (prefers-reduced-motion:no-preference){
+  html body section#customer-experience:not(#x){height:340svh;min-height:0;display:block;box-sizing:border-box}
+  html body section#customer-experience>.cj:not(#x){position:sticky;top:96px;width:100%}
+  html body main.shell:not(#x){overflow:clip!important}
+}
