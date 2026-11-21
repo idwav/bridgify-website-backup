@@ -247,7 +247,7 @@ radial-gradient(circle,#eee9de 0 2.2px,#f46649 2.6px 3.6px,transparent 4px) 50% 
   html body .about-page .ab-chapters li::before,html body .about-page .ab-chapters li::after{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;border-radius:2px;background:rgba(178,138,104,.24)}
   html body .about-page .ab-chapters li::after{background:#F46649;transform-origin:top;transform:scaleY(var(--f,0))}
   html body .about-page .ab-chapters li>span{padding-top:0;font:550 13px/1.4 Sofia,sans-serif;letter-spacing:.12em;color:#F46649}
-  html body .about-page .ab-chapters h3{font:550 13px/1.4 Sofia,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:inherit}
+  /* owner, 21 Nov 2026: the chapter headings keep their own size, weight and case; only the stepper line and numbers change */
   html body .about-page .ab-chapters p{font:400 16px/1.55 Sofia,sans-serif}
 }
 
