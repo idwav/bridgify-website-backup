@@ -1,0 +1,7 @@
+/* Contact: "A few details so the right person replies": fewer strokes and frames. No frame around the form,
+   one quiet stroke per field (coral only on focus), no dotted backdrop. */
+html body[data-copy-page="contact"]:not(#bf-lab):not(#ad-x) #section-3 .block-art.art{border:0!important;background:none!important;box-shadow:none!important;padding:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+html body[data-copy-page="contact"]:not(#bf-lab):not(#ad-x) #section-3 .block-art.art::before,html body[data-copy-page="contact"]:not(#bf-lab):not(#ad-x) #section-3 .block-art.art::after{content:none!important}
+html body[data-copy-page="contact"]:not(#bf-lab):not(#ad-x) #enquiry input,html body[data-copy-page="contact"]:not(#bf-lab):not(#ad-x) #enquiry select,html body[data-copy-page="contact"]:not(#bf-lab):not(#ad-x) #enquiry textarea{border:1px solid #1810102e!important;box-shadow:none!important;transition:border-color .2s}
+html body[data-copy-page="contact"]:not(#bf-lab):not(#ad-x) #enquiry input:hover,html body[data-copy-page="contact"]:not(#bf-lab):not(#ad-x) #enquiry select:hover,html body[data-copy-page="contact"]:not(#bf-lab):not(#ad-x) #enquiry textarea:hover{border-color:#18101055!important}
+html body[data-copy-page="contact"]:not(#bf-lab):not(#ad-x) #enquiry input:focus,html body[data-copy-page="contact"]:not(#bf-lab):not(#ad-x) #enquiry select:focus,html body[data-copy-page="contact"]:not(#bf-lab):not(#ad-x) #enquiry textarea:focus{border-color:#f46649!important;outline:0}
