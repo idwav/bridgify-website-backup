@@ -55,6 +55,13 @@
   html body #section-3 .up-story-sticky { top: 96px !important; min-height: calc(100lvh - 96px - var(--bf-section-y, 96px)) !important; align-items: start !important; align-content: start !important; padding-top: 0 !important; padding-bottom: 0 !important; }
 }
 
+/* How to add it (desktop): the divider between the heading row and the two points stays, as on the owner-approved
+   board (Idan's cbb6927). The baked spacing zeroes the points' container border and padding; this restores them. */
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) #section-2.sc-how .sc-info-inner > .sc-info-grid { margin-top: 56px !important; padding-top: 40px !important; border-top-width: 1px !important; }
+  html body:not(#bf-lab) #section-2.sc-how .sc-info-inner > .sc-info-grid > .sc-info-item { margin-top: 0 !important; }
+}
+
 /* ---- ink-fonts.css ---- */
 /* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
    and the weight"). Measured in type-audit/ (accents.py, faces.py) at 1440: only 21 of 86 emphasised title words used
@@ -228,7 +235,7 @@
   html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) { margin-top: 0px !important; padding-top: 0px !important; border-top-width: 0px !important; }
   html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > article:nth-child(1) { margin-top: 24px !important; }
   html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) { margin-bottom: 0px !important; }
-  html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 46px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
+  html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
   html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > p:nth-child(1) { margin-top: 0px !important; }
   html body #section-3 > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > a:nth-child(2) { margin-bottom: 0px !important; }
   html body #section-4 { padding-top: 80px !important; padding-bottom: 80px !important; row-gap: 0px !important; }
