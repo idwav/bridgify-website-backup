@@ -83,6 +83,12 @@
   html body:not(#bf-lab) #audiences-title br.bf-br-desk { display: none !important; }
 }
 
+/* Why Bridgify (owner task, 21 Nov 2026): the pinned scene centres in the space under the fixed 64px header, so the
+   visual on the right has equal room above and below (it was centred on the whole screen, header included). */
+@media (min-width: 1024px) {
+  html body:not(#bf-lab) #why-bridgify .wy-sticky { box-sizing: border-box !important; padding-top: 64px !important; }
+}
+
 /* ---- tablet-hero.css ---- */
 /* Lab only · tablet portrait composition, homepage hero (user request 17 Nov 2026).
    Today on a tablet held upright the hero is a stretched phone: copy and visual are capped at 640 / 660px, the

@@ -286,3 +286,9 @@
 #why-bridgify .ps-prof{min-width:0;width:auto;margin:0;text-transform:none;letter-spacing:normal}
 @media (max-width:900px){#why-bridgify.wy2{padding:64px 24px}}
 @media (prefers-reduced-motion:reduce){#why-bridgify .hm-ink{animation:none}}
+/* Normalize (owner note, 21 Nov 2026): the three source cards and the merged product sit in the middle of the block,
+   not at its top (the stage keeps the shared 74cqw height of the four steps). Source B now has its own, weaker
+   image of the same tour, like the other sources, instead of an empty "No image" tile. */
+.nm{--nm-dy:12.5cqw}
+.nm-card{top:calc(var(--y) + var(--nm-dy))}
+.nm-final{top:calc(9cqw + var(--nm-dy))}

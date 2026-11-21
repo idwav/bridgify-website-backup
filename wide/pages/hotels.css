@@ -128,6 +128,29 @@
   html body:not(#bf-lab) #section-1 .hm-heading > .hm-intro { border-left: 0 !important; padding-left: 0 !important; }
 }
 
+
+/* Make experiences part of the stay (#section-3), owner task 21 Nov 2026: the same steps and stage as Why Bridgify on
+   the homepage. Each step is a number and an uppercase label with a 2px track on its left that fills with the scroll
+   (--f from hotels-stay-scroll.js); the previews sit in the framed stage of the Why Bridgify demos. Desktop, where the
+   section pins (from 901px wide and 701px tall). */
+@media (min-width: 901px) and (min-height: 701px) {
+  html body:not(#bf-lab) #section-3 .hs-steps { display: grid !important; gap: 2px !important; margin: clamp(36px, 5.6vh, 56px) 0 0 !important; }
+  html body:not(#bf-lab) #section-3 .hs-steps > button { position: relative !important; display: grid !important; grid-template-columns: 28px 1fr; align-items: center !important; gap: 0 !important; min-height: 48px !important; padding: 0 14px !important; color: #A99D94 !important; font: 550 13px/1.2 Sofia, sans-serif !important; letter-spacing: .12em !important; text-transform: uppercase !important; transition: color .4s; }
+  html body:not(#bf-lab) #section-3 .hs-steps > button::before,
+  html body:not(#bf-lab) #section-3 .hs-steps > button::after { content: "" !important; position: absolute !important; left: 0 !important; top: 8px !important; bottom: 8px !important; width: 2px !important; height: auto !important; border-radius: 2px; background: rgba(178, 138, 104, .24) !important; }
+  html body:not(#bf-lab) #section-3 .hs-steps > button::after { background: #F46649 !important; transform-origin: top; transform: scaleY(var(--f, 0)); }
+  html body:not(#bf-lab) #section-3 .hs-steps > button[aria-selected="true"] { color: #FFF8F1 !important; }
+  html body:not(#bf-lab) #section-3 .hs-number { width: auto !important; height: auto !important; border: 0 !important; border-radius: 0 !important; background: none !important; color: #F46649 !important; font: inherit !important; display: block !important; }
+  html body:not(#bf-lab) #section-3 .hs-steps strong { font: inherit !important; letter-spacing: inherit !important; }
+  html body:not(#bf-lab) #section-3 .hs-steps > button > span:last-child { padding: 0 !important; }
+  html body:not(#bf-lab) #section-3 .hs-steps > button > span:last-child::after { content: none !important; }
+  html body:not(#bf-lab) #section-3 .hs-sticky { top: 64px !important; min-height: calc(100svh - 64px) !important; align-items: center !important; align-content: center !important; }
+  html body:not(#bf-lab) #section-3 .hs-panel { height: auto !important; min-height: 0 !important; }
+  html body:not(#bf-lab) #section-3 .hs-panel { width: 100% !important; }
+  html body:not(#bf-lab) #section-3 .hs-panel > * { width: 100% !important; max-width: none !important; height: calc(100svh - 64px - 96px - 2 * clamp(24px, 2.6vw, 40px)) !important; max-height: 760px !important; }
+  html body:not(#bf-lab) #section-3 .hs-preview { box-sizing: border-box; display: grid; place-items: center; width: 100%; align-self: center !important; height: auto !important; min-height: 0 !important; padding: clamp(24px, 2.6vw, 40px); border: 1px solid #F4664960; border-radius: 14px; background: radial-gradient(90% 80% at 62% 42%, #5a24152e, transparent 62%), linear-gradient(125deg, #3C0C052B, #21080555), #120c0a; }
+}
+
 /* ---- ink-fonts.css ---- */
 /* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
    and the weight"). Measured in type-audit/ (accents.py, faces.py) at 1440: only 21 of 86 emphasised title words used
