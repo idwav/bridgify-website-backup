@@ -22,3 +22,23 @@ html body #marketplace-results .v2e-stage:not(#x){overflow:visible!important}
 html body #marketplace-results .v2e-art:not(#x){overflow:visible!important}
 html body #marketplace-results.v2e-scroll-ready:not(#x){overflow-clip-margin:120px}
 }
+
+/* ===== more light, one piece: the card, the beam under it, the planes and the wire share the same glow ===== */
+/* the section's own light: a warm pool under the planes and a halo behind the card */
+html body #marketplace-results.v2e-enterprise:not(#x){background:radial-gradient(ellipse 60% 38% at 52% 88%,#f4664933,transparent 70%),radial-gradient(ellipse 34% 40% at 76% 34%,#f4664926,transparent 70%),radial-gradient(ellipse at 89% 63%,#35150d66,transparent 57%),#120c0a!important}
+/* the card: a stronger halo that breathes, lit numerals, glowing lit dots */
+html body #marketplace-results .v2e-proof:not(#x){box-shadow:inset 0 1px 1px #fff1daaa,inset 0 -1px 1px #ff997b77,0 0 2px #ffb09b66,0 0 5cqw #f4664940,0 2cqw 5cqw #000a!important;animation:v2e-halo 6s ease-in-out infinite}
+@keyframes v2e-halo{50%{box-shadow:inset 0 1px 1px #fff1daaa,inset 0 -1px 1px #ff997b77,0 0 2px #ffb09b99,0 0 7cqw #f4664960,0 2cqw 5cqw #000a}}
+html body #marketplace-results .nb2-stats dd:not(#x){text-shadow:0 0 2cqw #f4664933}
+html body #marketplace-results .v2e-proof-dots i.is-lit:not(#x){box-shadow:0 0 .8cqw #f46649,0 0 1.6cqw #f4664980!important}
+/* a beam of light from the card down onto the planes, so the card and the scene read as one */
+html body #marketplace-results .v2e-stage:not(#x)::after{content:"";position:absolute;z-index:1;left:66%;top:56%;width:14%;height:24%;background:linear-gradient(to bottom,#f4664966,#f4664922 55%,transparent);filter:blur(14px);pointer-events:none;animation:v2e-beam 6s ease-in-out infinite}
+@keyframes v2e-beam{50%{opacity:.55}}
+/* planes: lit rims, glowing edges, visible grid of light dots */
+html body #marketplace-results .v2e-plane-unit > path:first-child:not(#x){filter:drop-shadow(0 0 6px #f4664966);stroke-opacity:.95}
+html body #marketplace-results .v2e-plane-unit[data-plane=front]:not(#x){filter:drop-shadow(0 0 18px #f4664966)}
+html body #marketplace-results .v2e-plane-unit[data-plane=front] > path:first-child:not(#x){stroke-width:2!important}
+html body #marketplace-results #v2e-plane-data circle:not(#x){opacity:.3!important}
+/* wire: brighter, glowing, with a halo on every node */
+html body #marketplace-results .v2e-open-wires:not(#x){stroke-width:2!important;opacity:1!important;filter:drop-shadow(0 0 4px #F46649) drop-shadow(0 0 10px #f4664966)}
+html body #marketplace-results .v2e-wire-nodes circle:not(#x){r:5.5px;filter:drop-shadow(0 0 5px #F46649) drop-shadow(0 0 12px #F46649)}
