@@ -46,3 +46,25 @@ body[data-copy-page="marketplace"] #section-4.wo-section{min-height:100svh;scrol
 #section-4 .wo-feed-dot{position:absolute;left:50%;top:0;width:5px;height:5px;transform:translate(-50%,-50%);border-radius:50%;background:#ffe2c6;border:1px solid #f46649;opacity:0;pointer-events:none}
 #section-4 .wo-heading h2{text-wrap:balance}
 #section-4 .wo-us{box-shadow:inset 0 1px #ffd6b921,0 12px 30px #0000001f,0 0 calc(var(--wo-arrival,0)*16px) #f4664928}
+
+/* Light section (owner note 21 Nov 2026): "You bring the brand" continues the cream language of
+   "Your brand, your markets" above it, using the same surfaces: cream page, warm-white panels with a coral
+   hairline, the soft cream chips of the settings panel, dark ink and the coral ink gradient. */
+body[data-copy-page] #section-4.wo-section.brand-light-section{background:#EEE9DE!important;color:#180F10}
+body[data-copy-page] #section-4.brand-light-section .wo-heading h2{color:#180F10}
+body[data-copy-page] #section-4.brand-light-section .wo-heading h2 .brand-coral-ink{color:#D9482C;background-image:linear-gradient(110deg,#CF3F25 0%,#E5573A 30%,#E8603F 50%,#D9482C 72%,#CF3F25 100%)!important;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+body[data-copy-page] #section-4.brand-light-section .wo-heading p{color:#544440!important}
+body[data-copy-page] #section-4.brand-light-section .eyebrow{color:#B83A23;background-image:linear-gradient(105deg,#A63D29,#CF5035 45%,#B7412D)!important;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+body[data-copy-page] #section-4.brand-light-section :is(.wo-you,.wo-us){background:#FFFAF4!important;border:1px solid #F46649!important;border-radius:22px;box-shadow:0 20px 44px rgba(93,52,35,.1)!important}
+body[data-copy-page] #section-4.brand-light-section .wo-label{color:#8A3A22}
+body[data-copy-page] #section-4.brand-light-section :is(.wo-chip,.wo-op){color:#180F10;background:linear-gradient(135deg,rgba(255,248,241,.69),#EEE9DE)!important;border:1px solid rgba(244,102,73,.33)!important;box-shadow:inset 0 1px 0 #FFF8F1!important}
+body[data-copy-page] #section-4.brand-light-section .wo-op h3{color:#180F10}
+body[data-copy-page] #section-4.brand-light-section svg{stroke:#D9482C}
+body[data-copy-page] #section-4.brand-light-section svg circle{fill:#F46649;filter:none}
+body[data-copy-page] #section-4.brand-light-section .wo-live{color:#1F7A3D}
+body[data-copy-page] #section-4.brand-light-section .wo-live i{background:#2E9A55;box-shadow:0 0 6px rgba(46,154,85,.35)}
+body[data-copy-page] #section-4.brand-light-section .wo-stat{color:#544440}
+body[data-copy-page] #section-4.brand-light-section .wo-seam span{color:#180F10;background:#FFFAF4;border:1px solid #F46649;box-shadow:0 8px 20px rgba(93,52,35,.1)}
+body[data-copy-page] #section-4.brand-light-section .wo-feed-dot{background:#FFFAF4}
+body[data-copy-page] #section-4.brand-light-section.is-running .wo-op{animation-name:wo-arrive-light}
+@keyframes wo-arrive-light{0%{opacity:.45;transform:translateY(7px)}25%{opacity:1;transform:none;box-shadow:inset 0 1px 0 #FFF8F1,0 0 22px rgba(244,102,73,.22)}100%{opacity:1;transform:none;box-shadow:inset 0 1px 0 #FFF8F1}}
