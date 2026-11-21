@@ -83,3 +83,9 @@
   .en-specs{grid-template-columns:minmax(0,1fr)}
 }
 @media (prefers-reduced-motion:reduce){.ck-ink,.en-ink{animation:none}.en-bars i:after{transition:none;transform:none}}
+
+/* Enterprise: icons in the Bridgify icon system (40px, 1.5 stroke, coral, a light dot, no container) and the card in the glass language */
+html body #enterprise .en-specs svg:not(#x){width:40px;height:40px;color:#f48665}
+html body #enterprise .en-specs .ck-dot:not(#x){fill:#ffe2c6;stroke:#f46649;stroke-width:.5}
+html body #enterprise .en-specs li:not(#x){gap:16px;padding:12px 0;border-top:1px solid #f6c8b52e}
+html body #enterprise .en-card:not(#x){border:1px solid #f6c8b594!important;border-radius:24px;background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 46px #f4664933,0 24px 60px #0006!important}
