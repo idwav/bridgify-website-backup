@@ -1,0 +1,5 @@
+/* Airlines hero journey in the glass language: the three surfaces get the peach edge, corner lights, translucent body and rim light; dashed rules become a quiet peach line; the step circles become our numbering. Colours of text and buttons stay. */
+html body #section-1 :is(.aj-pass,.aj-offer,.aj-ticket):not(#x){background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;border:1px solid #f6c8b594!important;border-radius:24px!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 40px #f4664926,0 20px 50px #0006!important}
+html body #section-1 .aj-offer:not(#x){overflow:hidden}
+html body #section-1 :is(.aj-flight,.aj-ticket-bottom):not(#x){border:0!important;border-top:1px solid #f6c8b52e!important}
+html body #section-1 .aj-action:not(#x){border:1px solid #f6c8b57a!important}
