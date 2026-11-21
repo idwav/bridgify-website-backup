@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bridgify Design System</title>
+<style>
+/* The guide in the brand's own language: dark base, Chillax for headings, Sofia Sans for text, coral used sparingly.
+   Layout: a sticky contents column on desktop, one reading column of tables and swatches. */
+@font-face{font-family:Chillax;src:url("fonts/Chillax-Light.otf") format("opentype");font-weight:300}
+@font-face{font-family:Chillax;src:url("fonts/Chillax-Regular.otf") format("opentype");font-weight:400}
+@font-face{font-family:Chillax;src:url("fonts/Chillax-Medium.otf") format("opentype");font-weight:500 600}
+@font-face{font-family:"Sofia Sans";src:url("fonts/SofiaSans-VariableFont_wght.ttf") format("truetype");font-weight:100 900}
+:root{--bg:#180F10;--panel:#21171A;--line:#3A2B2C;--fg:#EEE9DE;--body:#D7C9BD;--muted:#B9A99F;--coral:#F46649;--coral3:#FFB194;
+  --display:Chillax,"Sofia Sans",system-ui,sans-serif;--text:"Sofia Sans",system-ui,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--body);font:400 16px/1.55 var(--text);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 96px}
+.layout{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px}
+@media (max-width:900px){.layout{grid-template-columns:minmax(0,1fr);gap:24px}}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:48px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+@media (max-width:900px){nav.toc{position:static;flex-direction:row;flex-wrap:wrap;padding-top:24px}}
+nav.toc a{color:var(--muted);text-decoration:none;padding:6px 0;min-height:32px}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--fg)}
+nav.toc .soon{color:#6F625B;padding:6px 0}
+@media (max-width:900px){nav.toc a,nav.toc .soon{border:1px solid var(--line);border-radius:999px;padding:6px 12px}}
+main{min-width:0;padding-top:48px}
+a{color:var(--coral3)}
+:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+.eyebrow{font:550 12px/1.4 var(--text);letter-spacing:.15em;text-transform:uppercase;color:var(--coral3);display:flex;gap:10px;align-items:center}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:linear-gradient(#FFB194,#F46649)}
+h1{font:300 clamp(40px,5vw,60px)/1.1 var(--display);letter-spacing:-.025em;color:var(--fg);margin:16px 0 16px;text-wrap:balance}
+h2{font:300 clamp(30px,3vw,40px)/1.2 var(--display);letter-spacing:-.02em;color:var(--fg);margin:0 0 12px;text-wrap:balance}
+h3{font:300 24px/1.25 var(--display);color:var(--fg);margin:40px 0 8px}
+section.ch{border-top:1px solid var(--line);padding-top:48px;margin-top:64px;scroll-margin-top:16px}
+.lead{max-width:68ch;margin:0 0 20px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 0}
+.pill{border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;color:var(--muted)}
+.status-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;margin-top:32px}
+.st{border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.st b{font:300 20px/1.3 var(--display);color:var(--fg)}
+.st span{font-size:13px;color:var(--muted)}
+.st.done{border-color:#F4664966} .st.done span{color:var(--coral3)}
+code,.mono{font-family:var(--mono);font-size:13px}
+code{color:var(--fg)}
+.dim{color:var(--muted);font-size:13px;font-weight:400;line-height:1.45;margin-top:4px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:start;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}
+thead th{font:550 12px/1.4 var(--text);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--panel);white-space:nowrap}
+tbody tr:last-child>*{border-bottom:0}
+tbody th{font-weight:400;min-width:200px}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--fg)}
+.bar{height:6px;border-radius:3px;background:var(--coral);margin-top:8px;max-width:100%}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px}
+.swatch{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);display:flex;flex-direction:column}
+.chipc{height:96px;display:flex;align-items:flex-end;padding:12px;font:550 12px/1 var(--text);letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+.sw-body{padding:14px 16px;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.sw-body p{margin:0;color:var(--body);font-size:13px;line-height:1.5}
+.sw-top{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.val{color:var(--fg);word-break:break-all}
+.ratios{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.ratio{font-size:12px;border-radius:999px;padding:2px 8px;border:1px solid var(--line)}
+.ratio.aa{color:#9BDDB5;border-color:#3D5B48} .ratio.large{color:#E3B25C;border-color:#5C4A28} .ratio.fail{color:#E89A8C;border-color:#5C2F28}
+.prov{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#E3B25C;border:1px solid #5C4A28;border-radius:999px;padding:1px 8px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px;margin:0 0 16px}
+.seg button{font:550 14px/1 var(--text);color:var(--muted);background:none;border:0;border-radius:7px;padding:10px 16px;cursor:pointer;min-height:40px}
+.seg button[aria-pressed=true]{background:var(--coral);color:#180F10}
+.scale{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.role{display:flex;flex-direction:column;gap:16px;padding:20px;border-bottom:1px solid var(--line)}
+.role:last-child{border-bottom:0}
+.role-meta{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:16px 32px}
+@media (max-width:700px){.role-meta{grid-template-columns:minmax(0,1fr)}}
+.specs{display:flex;flex-wrap:wrap;gap:8px 24px}
+.spec{display:flex;flex-direction:column;gap:2px;font-size:13px;font-variant-numeric:tabular-nums}
+.spec span{color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.spec b{color:var(--fg);font-weight:500} .spec i{font-style:normal;color:var(--muted)}
+.scale[data-bp=desktop] .bp-desktop,.scale[data-bp=tablet] .bp-tablet,.scale[data-bp=phone] .bp-phone{border-inline-start:2px solid var(--coral);padding-inline-start:8px}
+.sample{color:var(--fg);overflow-wrap:anywhere}
+.t-eyebrow,.t-index{color:var(--coral3)} .t-caption,.t-small{color:var(--body)} .t-cta{color:var(--coral3)}
+.t-hero{font-family:var(--display);line-height:1.16;letter-spacing:-0.025em;}
+.scale[data-bp=desktop] .t-hero{font-size:52px;font-weight:300}
+.scale[data-bp=tablet] .t-hero{font-size:40px;font-weight:300}
+.scale[data-bp=phone] .t-hero{font-size:28px;font-weight:400}
+.t-section{font-family:var(--display);line-height:1.2;letter-spacing:-0.025em;}
+.scale[data-bp=desktop] .t-section{font-size:43px;font-weight:300}
+.scale[data-bp=tablet] .t-section{font-size:36px;font-weight:300}
+.scale[data-bp=phone] .t-section{font-size:28px;font-weight:400}
+.t-section-sm{font-family:var(--display);line-height:1.2;letter-spacing:-0.02em;}
+.scale[data-bp=desktop] .t-section-sm{font-size:32px;font-weight:300}
+.scale[data-bp=tablet] .t-section-sm{font-size:28px;font-weight:300}
+.scale[data-bp=phone] .t-section-sm{font-size:28px;font-weight:400}
+.t-card{font-family:var(--display);line-height:1.25;letter-spacing:-0.02em;}
+.scale[data-bp=desktop] .t-card{font-size:27px;font-weight:300}
+.scale[data-bp=tablet] .t-card{font-size:24px;font-weight:300}
+.scale[data-bp=phone] .t-card{font-size:24px;font-weight:300}
+.t-small-head{font-family:var(--display);line-height:1.35;letter-spacing:-0.01em;}
+.scale[data-bp=desktop] .t-small-head{font-size:20px;font-weight:300}
+.scale[data-bp=tablet] .t-small-head{font-size:20px;font-weight:300}
+.scale[data-bp=phone] .t-small-head{font-size:18px;font-weight:300}
+.t-stat{font-family:var(--display);line-height:1;letter-spacing:-0.02em;}
+.scale[data-bp=desktop] .t-stat{font-size:43px;font-weight:500}
+.scale[data-bp=tablet] .t-stat{font-size:40px;font-weight:500}
+.scale[data-bp=phone] .t-stat{font-size:36px;font-weight:500}
+.t-body{font-family:var(--text);line-height:1.55;letter-spacing:0;}
+.scale[data-bp=desktop] .t-body{font-size:16px;font-weight:400}
+.scale[data-bp=tablet] .t-body{font-size:16px;font-weight:400}
+.scale[data-bp=phone] .t-body{font-size:16px;font-weight:400}
+.t-small{font-family:var(--text);line-height:1.5;letter-spacing:0;}
+.scale[data-bp=desktop] .t-small{font-size:14px;font-weight:400}
+.scale[data-bp=tablet] .t-small{font-size:14px;font-weight:400}
+.scale[data-bp=phone] .t-small{font-size:14px;font-weight:400}
+.t-cta{font-family:var(--text);line-height:1.25;letter-spacing:0;}
+.scale[data-bp=desktop] .t-cta{font-size:16px;font-weight:550}
+.scale[data-bp=tablet] .t-cta{font-size:16px;font-weight:550}
+.scale[data-bp=phone] .t-cta{font-size:16px;font-weight:550}
+.t-eyebrow{font-family:var(--text);line-height:1.4;letter-spacing:0.15em;text-transform:uppercase;}
+.scale[data-bp=desktop] .t-eyebrow{font-size:12px;font-weight:550}
+.scale[data-bp=tablet] .t-eyebrow{font-size:12px;font-weight:550}
+.scale[data-bp=phone] .t-eyebrow{font-size:12px;font-weight:550}
+.t-nav{font-family:var(--text);line-height:1.3;letter-spacing:0.08em;text-transform:uppercase;}
+.scale[data-bp=desktop] .t-nav{font-size:12px;font-weight:550}
+.scale[data-bp=tablet] .t-nav{font-size:12px;font-weight:550}
+.scale[data-bp=phone] .t-nav{font-size:12px;font-weight:550}
+.t-index{font-family:var(--text);line-height:1.3;letter-spacing:0.04em;font-variant-numeric:tabular-nums;}
+.scale[data-bp=desktop] .t-index{font-size:13px;font-weight:600}
+.scale[data-bp=tablet] .t-index{font-size:13px;font-weight:600}
+.scale[data-bp=phone] .t-index{font-size:13px;font-weight:600}
+.t-caption{font-family:var(--text);line-height:1.4;letter-spacing:0;}
+.scale[data-bp=desktop] .t-caption{font-size:12px;font-weight:400}
+.scale[data-bp=tablet] .t-caption{font-size:12px;font-weight:400}
+.scale[data-bp=phone] .t-caption{font-size:12px;font-weight:400}
+.families{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px}
+.fam{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--panel);display:flex;flex-direction:column;gap:8px}
+.fam .big{font-size:44px;line-height:1.1;color:var(--fg)}
+.note{border:1px solid #5C4A28;border-radius:12px;padding:16px 20px;color:#EBD9B4;font-size:14px;max-width:80ch}
+.note b{color:#F3E4C4;font-weight:600}
+ul.plain{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;gap:6px;max-width:75ch}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <a href="#overview">Overview</a>
+  <a href="#grid">Breakpoints and grid</a>
+  <a href="#color">Color</a>
+  <a href="#type">Typography</a>
+  <a href="#space">Spacing</a>
+  <a href="#files">Files</a>
+  <span class="soon">Components · next</span>
+  <span class="soon">Patterns</span>
+  <span class="soon">Pages</span>
+  <span class="soon">Motion</span>
+  <span class="soon">Assets</span>
+  <span class="soon">Acceptance</span>
+</nav>
+<main>
+<section id="overview">
+  <div class="eyebrow">Bridgify · Design system</div>
+  <h1>Bridgify Design System</h1>
+  <p class="lead">The reference for building bridgify.io. Every colour, type style and spacing value the site uses is named here once, with its value on desktop, tablet and phone. The live site is the reference for behaviour and motion; where the site and this guide differ, this guide wins.</p>
+  <p class="lead">Every value comes from <code>tokens.json</code>. Import it, or use <code>tokens.css</code>, instead of copying values from the pages.</p>
+  <div class="meta"><span class="pill">Version 0.1.0</span><span class="pill">2026-11-21</span><span class="pill">Values marked <span class="prov">provisional</span> are decided in a later chapter</span></div>
+  <div class="status-grid">
+    <div class="st done"><b>Foundations</b><span>Ready: grid, color, type, spacing</span></div>
+    <div class="st"><b>Components</b><span>Next: buttons, cards, tabs, header, footer</span></div>
+    <div class="st"><b>Patterns</b><span>Section layouts and their phone behaviour</span></div>
+    <div class="st"><b>Pages</b><span>16 pages, section by section</span></div>
+    <div class="st"><b>Motion, assets, acceptance</b><span>After pages</span></div>
+  </div>
+</section>
+
+<section class="ch" id="grid">
+  <div class="eyebrow">Foundations</div>
+  <h2>Breakpoints and grid</h2>
+  <p class="lead">Three layouts. Every section's content starts and ends on one line, the page margin; no section has its own side padding or max width. On large screens the content stops at 1560px and is centred.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Device</th><th>Width</th><th>Page margin</th><th>Columns</th><th>Check at</th></tr></thead>
+    <tbody><tr><th scope=row>Desktop</th><td class=num>1024px – ∞</td><td class=mono>max(clamp(40px, 4vw, 64px), (100vw - 1560px) / 2)</td><td class=num>12</td><td>Desktop. Reference 1440, check 1024, 1280 and 1920.</td></tr>
+<tr><th scope=row>Tablet</th><td class=num>600px – 1023px</td><td class=mono>32px</td><td class=num>8</td><td>Tablets. Reference 768, check 834 and 1023.</td></tr>
+<tr><th scope=row>Phone</th><td class=num>0px – 599px</td><td class=mono>24px</td><td class=num>4</td><td>Phones. Reference width 390, check 360 and 430.</td></tr></tbody>
+  </table></div>
+</section>
+
+<section class="ch" id="color">
+  <div class="eyebrow">Foundations</div>
+  <h2>Color</h2>
+  <p class="lead">17 colours replace the 83 text colours and 11 backgrounds measured on the live site. Use the token name, never the hex value.</p>
+  <h3 id="color-bg">Backgrounds</h3><p class="lead">Two backgrounds only. Every dark section and the footer use one dark; every light section uses cream.</p><div class="swatches"><article class="swatch"><div class="chipc" style="background:#180F10;color:#EEE9DE"><span>base</span></div><div class="sw-body"><div class="sw-top"><code>--color-bg-base</code></div><div class="mono val">#180F10</div><p>Every dark section and the footer. One dark background; sections are separated by spacing and glass, not by a second shade.</p></div></article><article class="swatch"><div class="chipc" style="background:#EEE9DE;color:#180F10"><span>cream</span></div><div class="sw-body"><div class="sw-top"><code>--color-bg-cream</code></div><div class="mono val">#EEE9DE</div><p>Every light section. Cards on cream are separated by a hairline only.</p></div></article></div>
+<h3 id="color-text">Text</h3><p class="lead">Text colours by role. Ratios are measured against both backgrounds.</p><div class="swatches"><article class="swatch"><div class="chipc" style="background:#EEE9DE;color:#180F10"><span>primary</span></div><div class="sw-body"><div class="sw-top"><code>--color-text-primary</code></div><div class="mono val">#EEE9DE</div><p>Headings and primary text on dark. 15.6:1 on bg.base.</p><div class="ratios"><span class="ratio aa">on dark 15.6:1 · AA</span></div></div></article><article class="swatch"><div class="chipc" style="background:#FFF8F1;color:#180F10"><span>strong</span></div><div class="sw-body"><div class="sw-top"><code>--color-text-strong</code></div><div class="mono val">#FFF8F1</div><p>Emphasised UI labels and numbers on dark, and text on a filled coral button. 17.9:1.</p><div class="ratios"><span class="ratio aa">on dark 17.9:1 · AA</span></div></div></article><article class="swatch"><div class="chipc" style="background:#D7C9BD;color:#180F10"><span>body</span></div><div class="sw-body"><div class="sw-top"><code>--color-text-body</code></div><div class="mono val">#D7C9BD</div><p>Running text on dark, including the footer. 11.6:1.</p><div class="ratios"><span class="ratio aa">on dark 11.6:1 · AA</span></div></div></article><article class="swatch"><div class="chipc" style="background:#B9A99F;color:#180F10"><span>muted</span></div><div class="sw-body"><div class="sw-top"><code>--color-text-muted</code></div><div class="mono val">#B9A99F</div><p>Dates, meta and quiet labels on dark. 8.3:1.</p><div class="ratios"><span class="ratio aa">on dark 8.3:1 · AA</span></div></div></article><article class="swatch"><div class="chipc" style="background:#180F10;color:#EEE9DE"><span>on-light-head</span></div><div class="sw-body"><div class="sw-top"><code>--color-text-on-light-head</code></div><div class="mono val">#180F10</div><p>Headings on cream. 15.6:1.</p><div class="ratios"><span class="ratio aa">on cream 15.6:1 · AA</span></div></div></article><article class="swatch"><div class="chipc" style="background:#544440;color:#EEE9DE"><span>on-light</span></div><div class="sw-body"><div class="sw-top"><code>--color-text-on-light</code></div><div class="mono val">#544440</div><p>Running text on cream. 7.6:1.</p><div class="ratios"><span class="ratio aa">on cream 7.6:1 · AA</span></div></div></article><article class="swatch"><div class="chipc" style="background:#6F625B;color:#EEE9DE"><span>on-light-muted</span></div><div class="sw-body"><div class="sw-top"><code>--color-text-on-light-muted</code></div><div class="mono val">#6F625B</div><p>Meta on cream. 4.85:1 (replaces #786B64, which failed AA).</p><div class="ratios"><span class="ratio aa">on cream 4.9:1 · AA</span></div></div></article></div>
+<h3 id="color-coral">Coral</h3><p class="lead">Brand coral and its two companions. The ink gradients colour the second part of a two-part heading.</p><div class="swatches"><article class="swatch"><div class="chipc" style="background:#F46649;color:#EEE9DE"><span>500</span></div><div class="sw-body"><div class="sw-top"><code>--color-coral-500</code></div><div class="mono val">#F46649</div><p>Brand coral. Frames, icons, dots, focus; on cream also links and coral text (owner decision: kept as today, 2.53:1 on cream, below AA for small text).</p><div class="ratios"><span class="ratio aa">on dark 6.1:1 · AA</span><span class="ratio fail">on cream 2.5:1 · below AA</span></div></div></article><article class="swatch"><div class="chipc" style="background:#FFB194;color:#180F10"><span>300</span></div><div class="sw-body"><div class="sw-top"><code>--color-coral-300</code></div><div class="mono val">#FFB194</div><p>Links, Read more and step numbers on dark. 10.7:1.</p><div class="ratios"><span class="ratio aa">on dark 10.7:1 · AA</span><span class="ratio fail">on cream 1.4:1 · below AA</span></div></div></article><article class="swatch"><div class="chipc" style="background:linear-gradient(90deg, #F46649 0%, #FF967B 23%, #FFE2C6 43%, #F88B72 60%, #F46649 78%, #FFB49A 100%);color:#EEE9DE"><span>ink-dark</span></div><div class="sw-body"><div class="sw-top"><code>--color-coral-ink-dark</code></div><div class="mono val">linear-gradient(90deg, #F46649 0%, #FF967B 23%, #FFE2C6 43%, #F88B72 60%, #F46649 78%, #FFB49A 100%)</div><span class="mono">fallback #F48B73</span><p>The second part of a two-part heading on dark.</p></div></article><article class="swatch"><div class="chipc" style="background:linear-gradient(90deg, #CF3F25 0%, #E5573A 30%, #E8603F 50%, #D9482C 72%, #CF3F25 100%);color:#EEE9DE"><span>ink-light</span></div><div class="sw-body"><div class="sw-top"><code>--color-coral-ink-light</code></div><div class="mono val">linear-gradient(90deg, #CF3F25 0%, #E5573A 30%, #E8603F 50%, #D9482C 72%, #CF3F25 100%)</div><span class="mono">fallback #D9482C</span><p>The second part of a two-part heading on cream (unchanged from DESIGN.md).</p></div></article><article class="swatch"><div class="chipc" style="background:linear-gradient(105deg, #FF9862, #F46649);color:#EEE9DE"><span>button</span></div><div class="sw-body"><div class="sw-top"><code>--color-coral-button</code><span class="prov">provisional</span></div><div class="mono val">linear-gradient(105deg, #FF9862, #F46649)</div><p>Filled primary button. Component tokens follow on the Components board.</p></div></article></div>
+<h3 id="color-state">States</h3><p class="lead">System states only. Green is never a brand colour.</p><div class="swatches"><article class="swatch"><div class="chipc" style="background:#63D99A;color:#180F10"><span>success</span></div><div class="sw-body"><div class="sw-top"><code>--color-state-success</code></div><div class="mono val">#63D99A</div><p>System states only (live, done). Never a brand colour.</p><div class="ratios"><span class="ratio aa">on dark 10.7:1 · AA</span></div></div></article><article class="swatch"><div class="chipc" style="background:#E3B25C;color:#180F10"><span>warning</span></div><div class="sw-body"><div class="sw-top"><code>--color-state-warning</code></div><div class="mono val">#E3B25C</div><p></p><div class="ratios"><span class="ratio aa">on dark 9.7:1 · AA</span></div></div></article><article class="swatch"><div class="chipc" style="background:#E07A6A;color:#EEE9DE"><span>error</span></div><div class="sw-body"><div class="sw-top"><code>--color-state-error</code></div><div class="mono val">#E07A6A</div><p></p><div class="ratios"><span class="ratio aa">on dark 6.4:1 · AA</span></div></div></article></div>
+  <p class="note"><b>Owner decision, kept as an exception:</b> links and coral text on cream use coral 500 (#F46649), 2.5:1 on cream. That is below WCAG AA for small text; use it at 16px weight 550 or larger, and never for running text.</p>
+</section>
+
+<section class="ch" id="type">
+  <div class="eyebrow">Foundations</div>
+  <h2>Typography</h2>
+  <p class="lead">Two families and 13 roles. Pick the role by what the text does, not by its HTML tag: a title inside a phone mock-up is part of the illustration, not a section heading.</p>
+  <div class="families">
+    <div class="fam"><span class="dim">Display · headings and numbers</span><span class="big" style="font-family:var(--display);font-weight:300">Chillax</span><span class="dim">Light 300 for headings. Regular 400 for titles on phones. Medium 500 for large numbers only.</span></div>
+    <div class="fam"><span class="dim">Text · everything else</span><span class="big" style="font-family:var(--text);font-weight:400">Sofia Sans</span><span class="dim">Variable. 400 text, 550 buttons and labels, 600 step numbers.</span></div>
+    <div class="fam"><span class="dim">Code windows only</span><span class="big" style="font-family:var(--mono);font-size:30px">ui-monospace</span><span class="dim">The system monospace. No Arial, no Georgia anywhere.</span></div>
+  </div>
+  <h3>Type scale</h3>
+  <p class="lead">Samples are drawn at the selected device's size. Desktop sizes are fluid between the tablet value and the desktop maximum; the samples show the 1440 value.</p>
+  <div class="seg" role="group" aria-label="Show sizes for">
+    <button type="button" data-bp="desktop" aria-pressed="true">Desktop 1440</button><button type="button" data-bp="tablet" aria-pressed="false">Tablet 768</button><button type="button" data-bp="phone" aria-pressed="false">Phone 390</button>
+  </div>
+  <div class="scale" data-bp="desktop"><article class="role"><div class="role-meta"><div><code>type-hero</code><div class="dim">The page title (h1).</div></div><div class="specs"><div class="spec"><span>Family</span><b>Chillax</b></div><div class="spec bp-desktop"><span>Desktop</span><b>clamp(40px, 3.6vw, 60px)</b><i>300</i></div><div class="spec bp-tablet"><span>Tablet</span><b>40px</b><i>300</i></div><div class="spec bp-phone"><span>Phone</span><b>28px</b><i>400</i></div><div class="spec"><span>Line height</span><b>1.16</b></div><div class="spec"><span>Tracking</span><b>-0.025em</b></div></div></div><div class="sample t-hero">Your guests didn’t travel for the room.</div></article>
+<article class="role"><div class="role-meta"><div><code>type-section</code><div class="dim">Section titles.</div></div><div class="specs"><div class="spec"><span>Family</span><b>Chillax</b></div><div class="spec bp-desktop"><span>Desktop</span><b>clamp(36px, 3vw, 44px)</b><i>300</i></div><div class="spec bp-tablet"><span>Tablet</span><b>36px</b><i>300</i></div><div class="spec bp-phone"><span>Phone</span><b>28px</b><i>400</i></div><div class="spec"><span>Line height</span><b>1.2</b></div><div class="spec"><span>Tracking</span><b>-0.025em</b></div></div></div><div class="sample t-section">Choose how to integrate and distribute experiences</div></article>
+<article class="role"><div class="role-meta"><div><code>type-section-sm</code><div class="dim">Frequently asked questions and the closing CTA at the end of every page.</div></div><div class="specs"><div class="spec"><span>Family</span><b>Chillax</b></div><div class="spec bp-desktop"><span>Desktop</span><b>clamp(28px, 2.2vw, 32px)</b><i>300</i></div><div class="spec bp-tablet"><span>Tablet</span><b>28px</b><i>300</i></div><div class="spec bp-phone"><span>Phone</span><b>28px</b><i>400</i></div><div class="spec"><span>Line height</span><b>1.2</b></div><div class="spec"><span>Tracking</span><b>-0.02em</b></div></div></div><div class="sample t-section-sm">Frequently asked questions</div></article>
+<article class="role"><div class="role-meta"><div><code>type-card</code><div class="dim">Card, panel and step titles.</div></div><div class="specs"><div class="spec"><span>Family</span><b>Chillax</b></div><div class="spec bp-desktop"><span>Desktop</span><b>clamp(24px, 1.9vw, 28px)</b><i>300</i></div><div class="spec bp-tablet"><span>Tablet</span><b>24px</b><i>300</i></div><div class="spec bp-phone"><span>Phone</span><b>24px</b><i>300</i></div><div class="spec"><span>Line height</span><b>1.25</b></div><div class="spec"><span>Tracking</span><b>-0.02em</b></div></div></div><div class="sample t-card">Activities for tour operators and packages</div></article>
+<article class="role"><div class="role-meta"><div><code>type-small-head</code><div class="dim">FAQ questions, article titles, list item titles.</div></div><div class="specs"><div class="spec"><span>Family</span><b>Chillax</b></div><div class="spec bp-desktop"><span>Desktop</span><b>20px</b><i>300</i></div><div class="spec bp-tablet"><span>Tablet</span><b>20px</b><i>300</i></div><div class="spec bp-phone"><span>Phone</span><b>18px</b><i>300</i></div><div class="spec"><span>Line height</span><b>1.35</b></div><div class="spec"><span>Tracking</span><b>-0.01em</b></div></div></div><div class="sample t-small-head">How can hotels sell tours and activities to guests?</div></article>
+<article class="role"><div class="role-meta"><div><code>type-stat</code> <span class="prov">provisional</span><div class="dim">Large numbers (1M+, 3x). Weight 500 is reserved for numbers.</div></div><div class="specs"><div class="spec"><span>Family</span><b>Chillax</b></div><div class="spec bp-desktop"><span>Desktop</span><b>43px</b><i>500</i></div><div class="spec bp-tablet"><span>Tablet</span><b>40px</b><i>500</i></div><div class="spec bp-phone"><span>Phone</span><b>36px</b><i>500</i></div><div class="spec"><span>Line height</span><b>1</b></div><div class="spec"><span>Tracking</span><b>-0.02em</b></div></div></div><div class="sample t-stat">1M+</div></article>
+<article class="role"><div class="role-meta"><div><code>type-body</code><div class="dim">Running text and intros. Never below 16.</div></div><div class="specs"><div class="spec"><span>Family</span><b>Sofia Sans</b></div><div class="spec bp-desktop"><span>Desktop</span><b>16px</b><i>400</i></div><div class="spec bp-tablet"><span>Tablet</span><b>16px</b><i>400</i></div><div class="spec bp-phone"><span>Phone</span><b>16px</b><i>400</i></div><div class="spec"><span>Line height</span><b>1.55</b></div><div class="spec"><span>Tracking</span><b>0</b></div></div></div><div class="sample t-body">They came for the city, the beach, the show. Sell the stay and everything around it under your hotel brand.</div></article>
+<article class="role"><div class="role-meta"><div><code>type-small</code><div class="dim">Card descriptions, notes.</div></div><div class="specs"><div class="spec"><span>Family</span><b>Sofia Sans</b></div><div class="spec bp-desktop"><span>Desktop</span><b>14px</b><i>400</i></div><div class="spec bp-tablet"><span>Tablet</span><b>14px</b><i>400</i></div><div class="spec bp-phone"><span>Phone</span><b>14px</b><i>400</i></div><div class="spec"><span>Line height</span><b>1.5</b></div><div class="spec"><span>Tracking</span><b>0</b></div></div></div><div class="sample t-small">Bridgify configures your brand, domain and catalog.</div></article>
+<article class="role"><div class="role-meta"><div><code>type-cta</code><div class="dim">Buttons and text links.</div></div><div class="specs"><div class="spec"><span>Family</span><b>Sofia Sans</b></div><div class="spec bp-desktop"><span>Desktop</span><b>16px</b><i>550</i></div><div class="spec bp-tablet"><span>Tablet</span><b>16px</b><i>550</i></div><div class="spec bp-phone"><span>Phone</span><b>16px</b><i>550</i></div><div class="spec"><span>Line height</span><b>1.25</b></div><div class="spec"><span>Tracking</span><b>0</b></div></div></div><div class="sample t-cta">See the Experiences API →</div></article>
+<article class="role"><div class="role-meta"><div><code>type-eyebrow</code><div class="dim">Section label above a title, with the 7px coral dot.</div></div><div class="specs"><div class="spec"><span>Family</span><b>Sofia Sans</b></div><div class="spec bp-desktop"><span>Desktop</span><b>12px</b><i>550</i></div><div class="spec bp-tablet"><span>Tablet</span><b>12px</b><i>550</i></div><div class="spec bp-phone"><span>Phone</span><b>12px</b><i>550</i></div><div class="spec"><span>Line height</span><b>1.4</b></div><div class="spec"><span>Tracking</span><b>0.15em</b><i>uppercase</i></div></div></div><div class="sample t-eyebrow">Travel technology companies</div></article>
+<article class="role"><div class="role-meta"><div><code>type-nav</code><div class="dim">Header menu, footer column titles and footer links.</div></div><div class="specs"><div class="spec"><span>Family</span><b>Sofia Sans</b></div><div class="spec bp-desktop"><span>Desktop</span><b>12px</b><i>550</i></div><div class="spec bp-tablet"><span>Tablet</span><b>12px</b><i>550</i></div><div class="spec bp-phone"><span>Phone</span><b>12px</b><i>550</i></div><div class="spec"><span>Line height</span><b>1.3</b></div><div class="spec"><span>Tracking</span><b>0.08em</b><i>uppercase</i></div></div></div><div class="sample t-nav">Products · Solutions · Developers</div></article>
+<article class="role"><div class="role-meta"><div><code>type-index</code><div class="dim">Step numbers 01, 02, 03.</div></div><div class="specs"><div class="spec"><span>Family</span><b>Sofia Sans</b></div><div class="spec bp-desktop"><span>Desktop</span><b>13px</b><i>600</i></div><div class="spec bp-tablet"><span>Tablet</span><b>13px</b><i>600</i></div><div class="spec bp-phone"><span>Phone</span><b>13px</b><i>600</i></div><div class="spec"><span>Line height</span><b>1.3</b></div><div class="spec"><span>Tracking</span><b>0.04em</b><i>tabular-nums</i></div></div></div><div class="sample t-index">01   02   03   04</div></article>
+<article class="role"><div class="role-meta"><div><code>type-caption</code><div class="dim">Dates, copyright, Back to top. Nothing outside illustrations is smaller than 12.</div></div><div class="specs"><div class="spec"><span>Family</span><b>Sofia Sans</b></div><div class="spec bp-desktop"><span>Desktop</span><b>12px</b><i>400</i></div><div class="spec bp-tablet"><span>Tablet</span><b>12px</b><i>400</i></div><div class="spec bp-phone"><span>Phone</span><b>12px</b><i>400</i></div><div class="spec"><span>Line height</span><b>1.4</b></div><div class="spec"><span>Tracking</span><b>0</b></div></div></div><div class="sample t-caption">© Bridgify 2026 · 21 Nov 2026</div></article></div>
+  <h3>Text inside illustrations</h3>
+  <p class="lead">Text inside illustrations (phone screens, diagrams, windows) scales with the art but is never smaller than 10px as seen. If it does not fit, shorten the illustration or show part of it.</p>
+</section>
+
+<section class="ch" id="space">
+  <div class="eyebrow">Foundations</div>
+  <h2>Spacing</h2>
+  <p class="lead">Space between elements comes only from this table. Each token is named by the two things it separates. Bars are drawn to scale.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Token</th><th>Desktop</th><th>Tablet</th><th>Phone</th></tr></thead>
+    <tbody><tr><th scope="row"><code>space-section-y</code><div class="dim">Top and bottom of every section.</div></th><td class="num">96px<div class="bar" style="width:96px"></div></td><td class="num">80px<div class="bar" style="width:80px"></div></td><td class="num">64px<div class="bar" style="width:64px"></div></td></tr>
+<tr><th scope="row"><code>space-hero-top</code><div class="dim">Header bar to the hero label.</div></th><td class="num">80px<div class="bar" style="width:80px"></div></td><td class="num">64px<div class="bar" style="width:64px"></div></td><td class="num">48px<div class="bar" style="width:48px"></div></td></tr>
+<tr><th scope="row"><code>space-gap-label-title</code><div class="dim">Eyebrow to title.</div></th><td class="num">24px<div class="bar" style="width:24px"></div></td><td class="num">16px<div class="bar" style="width:16px"></div></td><td class="num">16px<div class="bar" style="width:16px"></div></td></tr>
+<tr><th scope="row"><code>space-gap-title-text</code><div class="dim">Title to intro.</div></th><td class="num">32px<div class="bar" style="width:32px"></div></td><td class="num">24px<div class="bar" style="width:24px"></div></td><td class="num">24px<div class="bar" style="width:24px"></div></td></tr>
+<tr><th scope="row"><code>space-gap-title-sub</code><div class="dim">Title to its subtitle.</div></th><td class="num">8px<div class="bar" style="width:8px"></div></td><td class="num">8px<div class="bar" style="width:8px"></div></td><td class="num">8px<div class="bar" style="width:8px"></div></td></tr>
+<tr><th scope="row"><code>space-gap-text-text</code><div class="dim">Paragraph to paragraph.</div></th><td class="num">16px<div class="bar" style="width:16px"></div></td><td class="num">16px<div class="bar" style="width:16px"></div></td><td class="num">16px<div class="bar" style="width:16px"></div></td></tr>
+<tr><th scope="row"><code>space-gap-text-more</code><div class="dim">Text to Read more.</div></th><td class="num">8px<div class="bar" style="width:8px"></div></td><td class="num">8px<div class="bar" style="width:8px"></div></td><td class="num">8px<div class="bar" style="width:8px"></div></td></tr>
+<tr><th scope="row"><code>space-gap-to-actions</code><div class="dim">Text to buttons.</div></th><td class="num">48px<div class="bar" style="width:48px"></div></td><td class="num">40px<div class="bar" style="width:40px"></div></td><td class="num">32px<div class="bar" style="width:32px"></div></td></tr>
+<tr><th scope="row"><code>space-gap-actions-inner</code><div class="dim">Button to button.</div></th><td class="num">16px<div class="bar" style="width:16px"></div></td><td class="num">12px<div class="bar" style="width:12px"></div></td><td class="num">12px<div class="bar" style="width:12px"></div></td></tr>
+<tr><th scope="row"><code>space-gap-to-link</code><div class="dim">Text or buttons to a text link.</div></th><td class="num">24px<div class="bar" style="width:24px"></div></td><td class="num">16px<div class="bar" style="width:16px"></div></td><td class="num">16px<div class="bar" style="width:16px"></div></td></tr>
+<tr><th scope="row"><code>space-gap-to-control</code><div class="dim">Heading to tabs or a stepper.</div></th><td class="num">48px<div class="bar" style="width:48px"></div></td><td class="num">40px<div class="bar" style="width:40px"></div></td><td class="num">32px<div class="bar" style="width:32px"></div></td></tr>
+<tr><th scope="row"><code>space-gap-control-content</code><div class="dim">Tabs to their content.</div></th><td class="num">32px<div class="bar" style="width:32px"></div></td><td class="num">24px<div class="bar" style="width:24px"></div></td><td class="num">16px<div class="bar" style="width:16px"></div></td></tr>
+<tr><th scope="row"><code>space-gap-to-content</code><div class="dim">Heading to the section content.</div></th><td class="num">64px<div class="bar" style="width:64px"></div></td><td class="num">48px<div class="bar" style="width:48px"></div></td><td class="num">32px<div class="bar" style="width:32px"></div></td></tr>
+<tr><th scope="row"><code>space-gap-to-visual</code><div class="dim">Hero heading to the hero visual.</div></th><td class="num">64px<div class="bar" style="width:64px"></div></td><td class="num">64px<div class="bar" style="width:64px"></div></td><td class="num">48px<div class="bar" style="width:48px"></div></td></tr>
+<tr><th scope="row"><code>space-gap-to-foot</code><div class="dim">Content to a section&#x27;s closing line.</div></th><td class="num">32px<div class="bar" style="width:32px"></div></td><td class="num">32px<div class="bar" style="width:32px"></div></td><td class="num">24px<div class="bar" style="width:24px"></div></td></tr>
+<tr><th scope="row"><code>space-card-gap</code><div class="dim">Between cards.</div></th><td class="num">32px<div class="bar" style="width:32px"></div></td><td class="num">24px<div class="bar" style="width:24px"></div></td><td class="num">16px<div class="bar" style="width:16px"></div></td></tr>
+<tr><th scope="row"><code>space-card-pad</code><div class="dim">Inside a card.</div></th><td class="num">32px<div class="bar" style="width:32px"></div></td><td class="num">24px<div class="bar" style="width:24px"></div></td><td class="num">20px<div class="bar" style="width:20px"></div></td></tr></tbody>
+  </table></div>
+</section>
+
+<section class="ch" id="files">
+  <div class="eyebrow">Handoff</div>
+  <h2>Files</h2>
+  <ul class="plain">
+    <li><code>design-system/tokens.json</code>: every value in this chapter (W3C design tokens format). The single source.</li>
+    <li><code>design-system/tokens.css</code>: the same values as CSS custom properties, switching at 600 and 1024.</li>
+    <li><code>design-system/fonts/</code>: Chillax Light, Regular, Medium and Sofia Sans variable.</li>
+  </ul>
+</section>
+</main>
+</div>
+<script>
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+  document.querySelector('.scale').dataset.bp=b.dataset.bp;
+  document.querySelector('.scale').style.maxWidth=b.dataset.bp==='phone'?'390px':(b.dataset.bp==='tablet'?'768px':'');
+}));
+</script>
+</body>
+</html>
