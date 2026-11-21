@@ -33,3 +33,5 @@ html body .hotel-stay-scroll .hs-mail-window{border:1px solid #f6c8b594;border-r
 html body .hotel-stay-scroll .hs-email-letter{border-color:#f6c8b57a!important}
 /* the headline keeps a space where the line break is hidden on narrow screens ("experiences for your stay") */
 @media(max-width:1100px){html body .hotel-stay-scroll .hs-email-letter h3 br{display:inline!important;content:" "}}
+/* the site-wide coral frame class would repaint the window edge coral: keep the glass edge */
+html body .hotel-stay-scroll .hs-mail-window.hs-mail-window:not(#x){border-color:#f6c8b594!important}
