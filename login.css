@@ -88,8 +88,10 @@ body[data-copy-page="login"] .top .connect{background:#eee9de;color:#180f10}
 .login-eye{translate:var(--ex,0px) var(--ey,0px);scale:1 var(--blink,1)}
 @media(prefers-reduced-motion:reduce){.login-mascot .login-arm{transform:none}.login-eye{translate:none;scale:none}}
 
-/* Shy octopus (login.js): while the password is typed, a frame sheet shows the right arm curling up over one eye.
-   The frames carry the matte colours already, so they sit outside .login-fig (no second tone filter). */
-.login-flip{position:absolute;inset:0;z-index:2;pointer-events:none;visibility:hidden;background:url("assets/login-octopus-shy.webp?v=1") 0 0/900% 500% no-repeat}
-.login-mascot[data-arm=up] .login-flip{visibility:visible}
-.login-mascot[data-arm=up] :is(.login-fig,.login-eye){visibility:hidden}
+/* Shy octopus (login.js): while the password is typed, a frame sheet shows the right arm curling up over one eye and the
+   other eye closing. The frames carry the matte colours already, so they sit outside .login-fig (no second tone filter).
+   Switching between the live picture and the frames is a short crossfade. */
+.login-flip{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;visibility:hidden;background:url("assets/login-octopus-shy.webp?v=3") 0 0/900% 600% no-repeat;transition:opacity .14s linear,visibility 0s linear .14s}
+.login-mascot[data-arm=up] .login-flip{opacity:1;visibility:visible;transition:opacity .14s linear}
+.login-mascot[data-arm=up] :is(.login-fig,.login-eye){visibility:hidden;transition:visibility 0s linear .14s}
+@media(prefers-reduced-motion:reduce){.login-flip,.login-mascot[data-arm=up] .login-flip{transition:none}}
