@@ -13,3 +13,10 @@ html body #section-1 .te-visual.nt-embed:not(#x){grid-template-columns:1fr 22% 1
 html body #section-1 .nt-bridge:not(#x){position:relative!important;left:auto!important;bottom:auto!important;transform:none!important;width:100%!important;height:auto!important;align-self:center;display:flex;justify-content:center}
 html body #section-1 .nt-bridge .te-hub:not(#x){margin:0 auto}
 }
+/* Heading row: the intro starts at the title's top (first line level with 'Embed'), 24 between the text and the buttons */
+@media(min-width:1024px){
+html body #section-1 .te-heading:not(#x){align-items:start!important}
+html body #section-1 .te-intro:not(#x){align-self:start!important;margin-top:var(--bf-gap-label-title,24px)!important;display:flex!important;flex-direction:column;row-gap:24px!important;gap:24px!important}
+html body #section-1 .te-intro p:not(#x){margin:0!important}
+html body #section-1 .te-actions:not(#x){margin:0!important}
+}
