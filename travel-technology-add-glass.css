@@ -1,0 +1,20 @@
+/* "Add experience discovery and booking to your product": screen ratio (one screen tall, content centred), columns on the content line with the card gap between them (no side padding of their own), glass windows, equal gaps from the table. Text, colours and the animation stay. */
+@media(min-width:1024px){
+html body #section-3:not(#x){min-height:100svh!important;box-sizing:border-box;display:flex!important;flex-direction:column;justify-content:center}
+html body #section-3 .ad-columns:not(#x){column-gap:var(--bf-card-gap,32px)}
+html body #section-3 .ad-column:not(#x),html body #section-3 .ad-column:first-child:not(#x),html body #section-3 .ad-column:last-child:not(#x){padding:0!important;border:0!important}
+html body #section-3 .ad-network:not(#x){margin-top:var(--bf-gap-to-content,64px)}
+html body #section-3 .ad-foot:not(#x){margin-top:var(--bf-gap-to-content,64px)!important}
+}
+@media(min-width:601px) and (max-width:1023px){
+html body #section-3 .ad-column:not(#x){padding:0!important}
+html body #section-3 .ad-columns:not(#x){column-gap:var(--bf-card-gap,24px)}
+}
+html body #section-3 :is(.ad-window,.ad-phone):not(#x){border:1px solid #f6c8b594!important;border-radius:20px!important;background:radial-gradient(at 100% 0%,#ff89622e,#0000 28%),radial-gradient(at 0% 100%,#ff78532b,#0000 24%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 32px #f4664926,0 18px 40px #0006!important}
+html body #section-3 :is(.ad-listing,.ad-package>div,.ad-api):not(#x){border-color:#f6c8b57a!important}
+html body #section-3 .ad-bar:not(#x),html body #section-3 .ad-brand:not(#x){border-color:#f6c8b52e!important}
+html body #section-3 .ad-label span:not(#x){background:#f6c8b52e!important}
+html body #section-3 .ad-foot:not(#x){align-items:center}
+/* icons: 1.5 stroke, round caps, the light dot is added by the script */
+html body #section-3 :is(.ad-column h3,.ad-tabs span,.ad-package>div) svg:not(#x){overflow:visible;stroke-linecap:round;stroke-linejoin:round}
+html body #section-3 svg .ad-dot:not(#x){fill:#ffe2c6;stroke:currentColor;stroke-width:1.5}
