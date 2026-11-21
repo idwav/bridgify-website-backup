@@ -22,3 +22,7 @@ html body #opportunity-study .pb-order .pb-app:not(#x){padding-bottom:12px}
 @media(min-width:1024px){html body #opportunity-study .pb-merged:not(#x){margin:0!important;padding:4px 16px 12px!important}
 html body #opportunity-study .pb-app-order:not(#x){top:27.5cqw!important}}
 html body #opportunity-study .pb-app-order:not(#x){border-color:#f6c8b5aa!important}
+
+html body #opportunity-study .hm-wire:not(#x){stroke-width:1.5;opacity:.85}
+html body #opportunity-study .hm-chaos-wire,html body #opportunity-study .pb-chaos .hm-wire:not(#x){stroke:#c9a698;opacity:.7}
+html body #opportunity-study .hm-contact:not(#x){r:3;fill:#eee9de;stroke:#f46649;stroke-width:1.5}
