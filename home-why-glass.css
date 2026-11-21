@@ -20,3 +20,7 @@ html body #why-bridgify .wy-copy:not(#x){margin-bottom:18px;min-height:0!importa
 }
 /* the text block reserves the height of its tallest step (Aggregate, with the link), so it does not jump between steps and sits on the same centre line as the diagram */
 @media(min-width:1024px){html body #why-bridgify .wy-copy:not(#x){min-height:14em!important}}
+/* Normalize: the three cards fold into the exact middle of the stage. The script aims them at the layout centre of the final card, which ignored its translateX(-50%), so they landed 127px to the right; the final card is now centred by its own left offset. */
+html body #why-bridgify .nm-final:not(#x){left:calc(50% - 15.5cqw)!important;transform:scale(.9)!important}
+html body #why-bridgify .nm.p-lock .nm-final:not(#x){transform:scale(1)!important}
+@media (max-width:620px){html body #why-bridgify .nm-final:not(#x){left:calc(50% - 39cqw)!important}}
