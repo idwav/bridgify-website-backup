@@ -52,6 +52,9 @@
     font:550 14px/1 Sofia,sans-serif;letter-spacing:.08em;text-decoration:none}
   .ad-menu-actions a:first-child{border:1px solid #F46649;color:#EEE9DE}
   .ad-menu-actions a:last-child{background:linear-gradient(135deg,#FF967B,#F46649);color:#180F10}
+  /* Owner note, 21 Nov 2026: in the menu LOG IN is the secondary action (transparent, coral border) and BOOK A DEMO
+     the primary. The shared button roles make the first of a pair primary, so the menu sets LOG IN back here. */
+  html body .ad-menu-actions a.brand-action:first-child{--brand-button-start:#f4664900;--brand-button-end:#f4664900;color:#FFF8F1!important;border-color:#F46649!important;box-shadow:none!important}
   .ad-menu :focus-visible{outline:2px solid #F46649;outline-offset:2px}
   .ad-menu:focus{outline:none}
 }
