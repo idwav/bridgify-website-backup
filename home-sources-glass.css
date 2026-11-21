@@ -1,8 +1,0 @@
-/* Home, "Global supply through one integration.": stays light, shorter (80px section padding, 32px under the title block), and the five numbers are glass tiles (light glass: white sheen, peach edge, soft coral glow). Texts, type and the content line are unchanged. */
-@media(min-width:600px){
-html body #sources.trust-strip:not(#x){padding-top:80px!important;padding-bottom:64px!important;column-gap:16px!important}
-html body #sources > div:nth-child(n+2):nth-child(-n+6):not(#x){margin-top:32px!important}
-html body #sources .trust-stat:not(#x){border:1px solid #f4664944!important;border-radius:20px!important;min-height:0!important;align-self:stretch!important;padding:20px 24px!important;background:radial-gradient(at 100% 0%,#ff896226,#0000 55%),linear-gradient(160deg,#ffffffd9,#fff4ea99)!important;box-shadow:inset 0 1px 1px #fff,inset 0 -1px 1px #f4664926,0 12px 32px #f466491c!important}
-html body #sources > div:nth-child(7):not(#x){margin-top:24px!important}
-}
-html body[data-copy-page="index"]:not(#bf-lab) #sources > .trust-stat:not(#x){align-self:stretch!important}
