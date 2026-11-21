@@ -71,7 +71,6 @@ html body .hm-hero :is(.hm-pin,.hm-hotel-pin,.hm-map-preview):not(#x){background
 html body .hm-hero .hm-pin.is-active:not(#x){background:linear-gradient(105deg,#ff9862,#f46649)!important;border-color:#ffb69b!important;color:#180f10!important}
 html body .hm-hero .hm-pin>span:not(#x){background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none;backdrop-filter:none}
 html body .hm-hero .hm-map-stage:not(#x){border-top:1px solid #f6c8b52e}
-html body .hm-hero .hm-intro:not(#x){border-left-color:#f6c8b552!important}
 
 /* The wire between the two cards is the site's wire: a coral line with a cream ring contact on each card edge, on the cards' vertical centre */
 @media(min-width:701px){
@@ -82,3 +81,15 @@ html body .hm-hero .hm-intro:not(#x){border-left-color:#f6c8b552!important}
   html body .hm-hero .hm-connection>i:last-of-type:not(#x){right:-3.5px}
 }
 @media(max-width:700px){html body .hm-hero .hm-connection:not(#x){display:none!important}}
+
+/* The map is a picture of the product: nothing reacts to the pointer; it moves between experiences by itself */
+html body .hm-hero .hm-map :is(button,.hm-map-filters,.hm-map-preview,.hm-pin):not(#x){pointer-events:none!important;cursor:default!important}
+html body .hm-hero .hm-map-preview:not(#x){transition:opacity .22s ease,transform .22s ease}
+html body .hm-hero .hm-map-preview.is-swap:not(#x){opacity:0;transform:translateY(6px)}
+html body .hm-hero .hm-pin:not(#x){transition:background .35s ease,border-color .35s ease,transform .35s ease}
+html body .hm-hero .hm-pin.is-active:not(#x){transform:scale(1.08)}
+html body .hm-hero .hm-map-filters button:not(#x){transition:background .35s ease,color .35s ease,border-color .35s ease}
+/* no vertical separator beside the intro text */
+html body .hm-hero .hm-intro:not(#x){border-left:0!important;padding-left:0!important}
+/* the cards row is as tall as its cards (it was a fixed height that the cards overflowed, eating the section's bottom spacing) */
+@media(min-width:701px){html body .hm-hero .hm-layout:not(#x){height:auto!important;min-height:0!important}}
