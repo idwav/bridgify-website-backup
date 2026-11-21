@@ -84,9 +84,9 @@ html body .hm-hero .hm-map-stage:not(#x){border-top:1px solid #f6c8b52e}
 
 /* The map is a picture of the product: nothing reacts to the pointer; it moves between experiences by itself */
 html body .hm-hero .hm-map :is(button,.hm-map-filters,.hm-map-preview,.hm-pin):not(#x){pointer-events:none!important;cursor:default!important}
-html body .hm-hero .hm-map-preview:not(#x){transition:opacity .22s ease,transform .22s ease}
-html body .hm-hero .hm-map-preview.is-swap:not(#x){opacity:0;transform:translateY(6px)}
-html body .hm-hero .hm-pin:not(#x){transition:background .35s ease,border-color .35s ease}
+html body .hm-hero .hm-map-preview:not(#x){transition:opacity .4s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
+html body .hm-hero .hm-map-preview.is-swap:not(#x){opacity:0;transform:translateY(8px)}
+html body .hm-hero .hm-pin:not(#x){transition:background .6s cubic-bezier(.22,1,.36,1),border-color .6s cubic-bezier(.22,1,.36,1)}
 html body .hm-hero .hm-pin.is-active:not(#x){z-index:4}
 html body .hm-hero .hm-map-filters button:not(#x){transition:background .35s ease,color .35s ease,border-color .35s ease}
 /* no vertical separator beside the intro text */
@@ -100,3 +100,6 @@ html body .hm-hero .hm-pin .hm-dot:not(#x){fill:#ffe2c6;stroke:#f46649;stroke-wi
 html body .hm-hero .hm-pin.is-active>span svg:not(#x){color:#180f10}
 html body .hm-hero .hm-pin.is-active .hm-dot:not(#x){fill:#fff8f1;stroke:#180f10}
 html body .hm-hero .hm-wire:not(#x){position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:1}
+
+/* the old hand-drawn dashed web is replaced by routes along the streets (drawn by hotels-mail-hero.js) */
+html body .hm-hero .hm-city-map g[stroke-dasharray]:not(#x){display:none}
