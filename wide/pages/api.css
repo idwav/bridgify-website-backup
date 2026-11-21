@@ -79,6 +79,21 @@
   html body:not(#bf-lab) #integration.am-section .am-build .am-brand-strip { margin: auto 0 0 !important; }
   }
 
+/* Who does what (owner, 21 Nov 2026): the two buttons always share one width (the longer one's), never wider than the
+   content line. From 1024 to 1279 the actions column was narrower than the long button, which ran past the right edge
+   and was cut, so there the buttons sit under the title on the content line, as on tablets. */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) #integration.am-section .am-heading > .am-actions { display: flex !important; flex-direction: column !important; align-items: stretch !important; width: max-content !important; max-width: 100% !important; }
+  html body:not(#bf-lab) #integration.am-section .am-heading > .am-actions > a { width: 100% !important; justify-content: center !important; box-sizing: border-box !important; }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  html body:not(#bf-lab) #integration.am-section .am-heading { grid-template-columns: minmax(0, 1fr) !important; row-gap: var(--bf-gap-to-actions) !important; }
+  html body:not(#bf-lab) #integration.am-section .am-heading > .am-actions { justify-self: start !important; align-self: start !important; }
+}
+@media (min-width: 1280px) {
+  html body:not(#bf-lab) #integration.am-section .am-heading > .am-actions { justify-self: end !important; }
+}
+
 /* ---- ink-fonts.css ---- */
 /* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
    and the weight"). Measured in type-audit/ (accents.py, faces.py) at 1440: only 21 of 86 emphasised title words used
@@ -373,6 +388,9 @@
 }
 @media (min-width: 1024px) and (max-width: 1151px) {
   html body #whats-inside > header:nth-child(1) > p:nth-child(2) { margin-top: 45.732px !important; }
+  html body #integration > header:nth-child(2) { row-gap: 0px !important; }
+  html body #am-title { margin-bottom: 0px !important; }
+  html body #integration > header:nth-child(2) > div:nth-child(2) { margin-top: 48px !important; }
   html body #api-features > header:nth-child(1) > p:nth-child(2) { margin-top: 45.516px !important; }
 }
 @media (min-width: 1152px) and (max-width: 1359px) {

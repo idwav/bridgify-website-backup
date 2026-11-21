@@ -33,6 +33,8 @@
     /* (17 Nov) one primary action, as on every other hero: "Try it" filled in the brand coral, "Talk to us" outlined */
     .copy button:not(.alt):not(#ad-x){background:linear-gradient(110deg,#ff9862,#f46649)!important;color:#180f10!important;border-color:transparent!important;box-shadow:0 6px 18px #f4664940!important;font-weight:600!important}
     .scene{margin-top:48px!important;position:relative;z-index:1;transform-origin:50% 100%;will-change:transform}
+    /* (21 Nov 2026, owner) the hero page's own phone rule puts the chat first (order:-1); on phones the title comes first */
+    main:not(#ad-x){padding-top:0!important}.copy:not(#ad-x){order:0!important}.scene:not(#ad-x){order:1!important;margin-bottom:0!important}
     /* Round 19 (17 Nov 2026): the hero is now a chat (product-skin-ai.css). Built for a fixed desktop panel, it was
        381px wide in a 323px frame with desktop type. On phones it fits the frame, reads at 14px and grows with its
        messages (no box that scrolls inside); the two matches stack as rows of photo and words. */
