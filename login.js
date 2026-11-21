@@ -174,7 +174,7 @@
 // When typing pauses, that eye peeks open for a moment and closes again. Back down on blur or when the password is shown.
 // The motion is one sheet of 48 frames (assets/login-octopus-shy.webp): 45 frames of the arm, made from a Higgsfield clip
 // between the page's own picture and the covering pose and colour-matched to the picture, then 3 frames of the eye closing.
-// At rest the live picture (with its moving eyes) is shown; the switch is a short crossfade.
+// The frames only cover the arm and the eyes; the page's own picture stays visible under them, so nothing else changes.
 // Reduced motion: jumps between poses without playing the frames.
 (() => {
   const mascot = document.querySelector('.login-mascot');
@@ -183,7 +183,7 @@
   const COLS = 9, ROWS = 6, OPEN = 44, SHUT = 47;            // OPEN: arm over one eye, other eye open. SHUT: that eye closed.
   const stepFor = (from, to) => (from > OPEN || (from === OPEN && to > OPEN) ? 45 : to > from ? 25 : 16);   // ms per frame: eye frames slower
   const flip = document.createElement('div'); flip.className = 'login-flip'; flip.setAttribute('aria-hidden', 'true'); mascot.append(flip);
-  const sheet = new Image(); let ready = false; sheet.onload = () => { ready = true; update(); }; sheet.src = 'assets/login-octopus-shy.webp?v=3';
+  const sheet = new Image(); let ready = false; sheet.onload = () => { ready = true; update(); }; sheet.src = 'assets/login-octopus-shy.webp?v=4';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   let f = 0, target = 0, last = 0, raf = 0, hold = 0, peekTimer = 0, closeTimer = 0;
   const show = n => {
