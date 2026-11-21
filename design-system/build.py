@@ -263,6 +263,27 @@ def scale_rows(group, unit_note=''):
     return '\n'.join(rows)
 
 
+def patterns_section():
+    out = []
+    for k, pt in T['pattern'].items():
+        if k.startswith('$'):
+            continue
+        img = pt['img']
+        shots = ''.join(f'<figure><img src="img/patterns/{img}-{w}.jpg" alt="{esc(pt["name"])}, {lab} today" loading="lazy"><figcaption>{lab} today</figcaption></figure>'
+                        for w, lab in (('1440', 'Desktop 1440'), ('768', 'Tablet 768'), ('390', 'Phone 390')))
+        rows = ''.join(f'<tr><th scope="row">{BP_LABEL[bp]}</th><td>{esc(pt[bp])}</td></tr>' for bp in BPS)
+        change = f'<p class="change"><b>Differs from the site today:</b> {esc(pt["change"])}</p>' if pt.get('change') else ''
+        note = f'<p class="dim">{esc(pt["note"])}</p>' if pt.get('note') else ''
+        out.append(f'<article class="comp" id="p-{k}"><h3>{esc(pt["name"])}</h3><p class="lead">Used in: {esc(pt["example"])}</p>{change}'
+                   f'<div class="tw"><table class="spec-t"><tbody>{rows}</tbody></table></div><div class="pshots">{shots}</div>{note}</article>')
+    return '\n'.join(out)
+
+
+def rules_rows():
+    return ''.join(f'<tr><th scope="row"><code>rule-{k}</code></th><td class="mono">{esc(str(v["$value"]))}</td><td>{esc(v["$description"])}</td></tr>'
+                   for k, v in T['rule'].items() if not k.startswith('$'))
+
+
 def page():
     css_types = type_css()
     return f'''<!doctype html>
@@ -408,6 +429,13 @@ article.comp h3{{margin-top:16px}}
 .ds-ico{{fill:none;stroke:#F46649;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}}
 .ds-ico .dot{{fill:#FFE2C6;stroke:#F46649;stroke-width:.5}}
 .spec-t th{{width:200px;color:var(--fg)}} .spec-t td{{color:var(--body)}} .spec-t td b{{color:var(--fg);font-weight:500}}
+.pshots{{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1.8fr) minmax(0,1.1fr);gap:10px;align-items:start}}
+@media (max-width:700px){{.pshots{{grid-template-columns:1fr 1fr}}.pshots figure:first-child{{grid-column:1/-1}}}}
+.pshots figure{{margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}}
+.pshots figcaption{{font-size:12px;color:var(--muted)}}
+.pshots img{{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px}}
+.change{{margin:0;border:1px solid #5C4A28;border-radius:10px;padding:10px 14px;color:#EBD9B4;font-size:14px;max-width:85ch}}
+.change b{{color:#F3E4C4}}
 .rad{{width:96px;height:56px;border:1px solid #F6C8B594;background:var(--panel)}}
 .shd{{width:120px;height:56px;border-radius:18px;background:var(--panel);border:1px solid var(--line)}}
 @media (max-width:560px){{.ds-btn:not(.ph):not(.hd){{height:40px;padding:0 18px}}}}
@@ -424,9 +452,10 @@ article.comp h3{{margin-top:16px}}
   <a href="#space">Spacing</a>
   <a href="#surfaces">Radius, shadow, glass</a>
   <a href="#components">Components</a>
+  <a href="#patterns">Patterns</a>
+  <a href="#rules">Site rules</a>
   <a href="#files">Files</a>
-  <span class="soon">Patterns · next</span>
-  <span class="soon">Pages</span>
+  <span class="soon">Pages · next</span>
   <span class="soon">Motion</span>
   <span class="soon">Assets</span>
   <span class="soon">Acceptance</span>
@@ -441,8 +470,8 @@ article.comp h3{{margin-top:16px}}
   <div class="status-grid">
     <div class="st done"><b>Foundations</b><span>Ready: grid, color, type, spacing</span></div>
     <div class="st done"><b>Components</b><span>Ready: buttons, links, chips, cards, stepper, tabs, FAQ, icons</span></div>
-    <div class="st"><b>Patterns</b><span>Next: section layouts and their phone behaviour</span></div>
-    <div class="st"><b>Pages</b><span>16 pages, section by section</span></div>
+    <div class="st done"><b>Patterns</b><span>Ready: 15 section types on desktop, tablet and phone</span></div>
+    <div class="st"><b>Pages</b><span>Next: 16 pages, section by section</span></div>
     <div class="st"><b>Motion, assets, acceptance</b><span>After pages</span></div>
   </div>
 </section>
@@ -514,12 +543,26 @@ article.comp h3{{margin-top:16px}}
   {components_section()}
 </section>
 
+<section class="ch" id="patterns">
+  <div class="eyebrow">Patterns</div>
+  <h2>Section patterns</h2>
+  <p class="lead">Every section on the site is one of these types. Each type behaves the same way on every page: build the pattern once, then fill it with each page's content. The screenshots show the example as it looks on the site today; where the spec differs, it says so.</p>
+  {patterns_section()}
+</section>
+
+<section class="ch" id="rules">
+  <div class="eyebrow">Patterns</div>
+  <h2>Site rules</h2>
+  <div class="tw"><table><thead><tr><th>Rule</th><th>Value</th><th>What it means</th></tr></thead><tbody>{rules_rows()}</tbody></table></div>
+</section>
+
 <section class="ch" id="files">
   <div class="eyebrow">Handoff</div>
   <h2>Files</h2>
   <ul class="plain">
     <li><code>design-system/tokens.json</code>: every value in this chapter (W3C design tokens format). The single source.</li>
     <li><code>design-system/tokens.css</code>: the same values as CSS custom properties, switching at 600 and 1024.</li>
+    <li><code>design-system/img/patterns/</code>: today's screenshots of each pattern's example at 1440, 768 and 390.</li>
     <li><code>design-system/fonts/</code>: Chillax Light, Regular, Medium and Sofia Sans variable.</li>
   </ul>
 </section>
