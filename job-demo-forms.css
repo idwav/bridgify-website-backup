@@ -1,10 +1,9 @@
 /* One form for "Book a demo" and "Apply for this role": same layout (title on the left, form on the right), same quiet fields,
    same content line as the rest of the site. Loaded after job.css / apply.css / demo.css. */
 
-/* content line (SPACING-GRID-PLAN: tablet 32, desktop clamp(40,4vw,64) capped at 1560 wide, phone 24) */
-html body main.job-page:not(#x){padding-left:24px;padding-right:24px}
-@media(min-width:600px){html body main.job-page:not(#x){padding-left:32px;padding-right:32px}}
-@media(min-width:1024px){html body main.job-page:not(#x){padding-left:max(clamp(40px,4vw,64px),calc((100vw - 1560px)/2));padding-right:max(clamp(40px,4vw,64px),calc((100vw - 1560px)/2))}}
+/* content line: phone 24, tablet and desktop use --try-margin from wide/grid.css (SPACING-GRID-PLAN) */
+html body:not(#bf-lab) main.job-page{padding-left:24px;padding-right:24px}
+@media(min-width:600px){html body:not(#bf-lab) main.job-page{padding-left:var(--try-margin);padding-right:var(--try-margin)}}
 
 /* quiet fields, shared */
 html body :is(.demo-page,.jl-apply) .af-field :is(input[type=text],input[type=email],input[type=tel],input[type=url],select,textarea):not(#x){border:1px solid #f6c8b529!important;background-color:#1f1512;box-shadow:none!important;transition:border-color .2s}
