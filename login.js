@@ -170,8 +170,8 @@
   raf = requestAnimationFrame(step);
 })();
 
-// Shy octopus: while the password is being typed (hidden), the hanging right arm lifts from its base, curls up round the
-// side of the head and lies across the eyes, its tip curling up. It goes back down when the field loses focus or the
+// Shy octopus: while the password is being typed (hidden), the hanging right arm swings up from its base in front of the
+// face and covers part of the eyes, its tip curling up. It goes back down when the field loses focus or the
 // password is shown. The moving arm is drawn on a canvas in picture coordinates (1536 x 1024) and passes through the same
 // matte filter as the picture, so it takes the same colours. At rest the picture's own arm is shown.
 // Reduced motion: the arm changes pose without the swing.
@@ -181,10 +181,10 @@
   if (!mascot || !password || !mascot.querySelector('.login-body')) return;
   const W = 1536, H = 1024, N = 40;
   // Centre lines (picture px) and half-widths along the arm (0 = base, 1 = tip).
-  const REST = [[1040, 535], [1075, 573], [1124, 679], [1127, 770], [1095, 835], [1074, 901], [1107, 999], [1112, 1022]];
-  const COVER = [[1046, 566], [1112, 508], [1132, 448], [1108, 409], [1031, 399], [933, 399], [834, 404], [735, 409], [636, 409], [560, 399], [530, 360], [548, 322], [580, 312]];
-  const R_REST = [[0, 70], [.25, 52], [.45, 36], [.6, 28], [.75, 20], [.93, 8], [1, 3]];
-  const R_COVER = [[0, 66], [.18, 62], [.5, 56], [.72, 46], [.86, 28], [1, 7]];
+  const REST = [[1036, 510], [1040, 535], [1075, 573], [1124, 679], [1127, 770], [1095, 835], [1074, 901], [1107, 999], [1112, 1022]];
+  const COVER = [[1036, 510], [1016, 470], [960, 432], [880, 408], [790, 398], [705, 394], [645, 380], [612, 350], [616, 316], [644, 300]];
+  const R_REST = [[0, 66], [.08, 68], [.3, 50], [.48, 36], [.62, 28], [.77, 20], [.94, 8], [1, 3]];
+  const R_COVER = [[0, 64], [.12, 62], [.4, 52], [.65, 40], [.85, 24], [1, 6]];
   const table = (tb, t) => { for (let i = 1; i < tb.length; i++) if (t <= tb[i][0]) { const [a, va] = tb[i - 1], [b, vb] = tb[i]; return va + (vb - va) * (t - a) / (b - a); } return tb[tb.length - 1][1]; };
   // Resample a polyline to N equal segments: total length and the direction of each segment (unwrapped, so it is continuous).
   function pose(pts) {
@@ -195,8 +195,8 @@
     return { root: p[0], L, ang };
   }
   const rest = pose(REST), cover = pose(COVER);
-  // The arm lifts outwards (anticlockwise), never through the head: keep every lifted direction anticlockwise of the resting one.
-  const shift = Math.ceil((cover.ang[0] - rest.ang[0]) / (2 * Math.PI)); cover.ang = cover.ang.map(a => a - shift * 2 * Math.PI);
+  // The arm swings clockwise (in front of the face, the short way round): every lifted direction is clockwise of the resting one.
+  const shift = Math.floor((cover.ang[0] - rest.ang[0]) / (2 * Math.PI)); cover.ang = cover.ang.map(a => a - shift * 2 * Math.PI);
 
   const wrap = document.createElement('div'); wrap.className = 'login-fig login-cover'; wrap.setAttribute('aria-hidden', 'true');
   const canvas = document.createElement('canvas'); wrap.append(canvas); mascot.append(wrap);
@@ -227,9 +227,9 @@
     const tip = P[N], tn = Nm[N]; outline.arc(tip[0], tip[1], R[N], Math.atan2(tn[1], tn[0]), Math.atan2(-tn[1], -tn[0]));
     for (let i = N; i >= 0; i--) outline.lineTo(P[i][0] - Nm[i][0] * R[i], P[i][1] - Nm[i][1] * R[i]);
     outline.closePath();
-    // Once lifted, the arm stands on the card edge like the body (flat at the line the picture is cut at).
-    const cut = 539 + 560 * (1 - Math.min(1, Math.max(0, (u - .3) / .5)));
-    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, cut); ctx.clip();
+    // Round base, tucked into the shoulder (drawn in the same winding as the outline so the two add up).
+    outline.moveTo(P[0][0] + R[0], P[0][1]); outline.arc(P[0][0], P[0][1], R[0], 0, 2 * Math.PI, true);
+    ctx.save();
     ctx.fillStyle = grey(.56); ctx.fill(outline);
     ctx.save(); ctx.clip(outline);
     // Shade: darker on the underside, a soft light band on the top side, lit from above.
@@ -250,7 +250,7 @@
     for (let i = 1; i < N; i++) {
       if (cum[i] < next) continue;
       const rs = R[i] * .27; if (rs < 3) break;
-      const restSide = -1, coverSide = Nm[i][1] > 0 ? 1 : -1, s = restSide + (coverSide - restSide) * u;
+      const s = 1;   // the suckers stay on the side that faces the body
       const x = P[i][0] + Nm[i][0] * s * R[i] * .66, y = P[i][1] + Nm[i][1] * s * R[i] * .66;
       ctx.fillStyle = grey(.78); ctx.beginPath(); ctx.arc(x, y, rs, 0, 7); ctx.fill();
       ctx.fillStyle = grey(.5); ctx.beginPath(); ctx.arc(x, y, rs * .5, 0, 7); ctx.fill();
