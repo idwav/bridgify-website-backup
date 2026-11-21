@@ -6,6 +6,8 @@ document.querySelectorAll('#section-1 .aj-journey button, #section-1 .aj-journey
   var spots={plane:[21,4],monitor:[2,10],phone:[12,1],mail:[3,6]};
   document.querySelectorAll('#section-2 svg').forEach(function(s){
     if(s.querySelector('.al-dot'))return;
+    var u=s.querySelector('use');
+    if(u){var src=document.querySelector(u.getAttribute('href'));if(src){if(!s.getAttribute('viewBox'))s.setAttribute('viewBox',src.getAttribute('viewBox')||'0 0 24 24');[].slice.call(src.children).forEach(function(e){s.appendChild(e.cloneNode(true))});u.remove();}}
     var kind=s.querySelector('rect[width="20"][height="14"]')?'monitor':s.querySelector('rect[width="12"][height="22"]')?'phone':s.querySelector('rect[width="20"][height="16"]')?'mail':s.querySelector('path[d^="m3 11"]')?'plane':null;
     if(!kind)return;
     var c=document.createElementNS(NS,'circle');c.setAttribute('class','al-dot');c.setAttribute('cx',spots[kind][0]);c.setAttribute('cy',spots[kind][1]);c.setAttribute('r','1.4');
