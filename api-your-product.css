@@ -162,15 +162,14 @@
   html body #customer-experience .cj-steps b:not(#x){font:550 13px/1.4 "Sofia Sans",Sofia,sans-serif;letter-spacing:.12em;text-transform:uppercase}
   html body #customer-experience .cj-steps li.is-done:not(#x),html body #customer-experience .cj-steps li.is-now:not(#x){color:#180F10}
 }
-/* Left column: the copy and the steps sit together (48 apart) and the pair is centred against the stage */
+/* Left column: the copy at the top of the stage's height, the steps list at its bottom (spread out, 52px rows); at least 48 between them */
 @media(min-width:1024px){
-  html body #customer-experience .cj:not(#x){grid-template-rows:1fr auto auto 1fr;grid-template-areas:". stage" "copy stage" "side stage" ". stage"}
-  html body #customer-experience .cj-copy:not(#x){margin-bottom:0}
-  html body #customer-experience .cj-side:not(#x){align-self:start;padding-top:var(--bf-gap-to-control,48px)}
+  html body #customer-experience .cj-side:not(#x){align-self:end;padding-top:var(--bf-gap-to-control,48px)}
+  html body #customer-experience .cj-steps li:not(#x){min-height:52px}
 }
 /* Scroll story (desktop): the section is a pinned stage; the booking plays by scrolling. The section is as tall as a window plus the scroll distance, the stage is centred with equal room above and below. Below 1024px or without room, it plays by itself. */
 @media(min-width:1024px) and (min-height:640px) and (prefers-reduced-motion:no-preference){
   html body section#customer-experience:not(#x){height:340svh;min-height:0;display:block;box-sizing:border-box}
-  html body section#customer-experience>.cj:not(#x){position:sticky;top:96px;width:100%}
+  html body section#customer-experience>.cj:not(#x){position:sticky;top:96px;width:100%;--stage:clamp(520px,calc(100svh - 192px),760px)}
   html body main.shell:not(#x){overflow:clip!important}
 }
