@@ -95,3 +95,12 @@ html body #why-bridgify .ds-bar:not(#x){border-bottom:1px solid #f6c8b52e!import
 html body #why-bridgify .ds-tile:not(#x){border:1px solid #f6c8b540!important}
 html body #why-bridgify .ds-kiosk:after:not(#x),html body #why-bridgify .ds-kiosk:before:not(#x){border-color:#f6c8b566!important}
 html body #why-bridgify .ds-split:not(#x){border-color:#f6c8b5!important}
+
+/* Distribute: the black circle at the fork is now a small light dot (the wires' junction, same dot as every wire contact), and the kiosk is a plain tablet: no stand, no foot, sitting on the same base line as the phone */
+html body #why-bridgify .ds-split:not(#x){left:31.85cqw!important;top:36.45cqw!important;width:1.1cqw!important;height:1.1cqw!important;border:1.2px solid #F46649!important;background:#fff1e7!important;box-shadow:0 0 1.6cqw #F46649!important}
+html body #why-bridgify .ds-kiosk:not(#x):before,html body #why-bridgify .ds-kiosk:not(#x):after{display:none!important}
+@container (min-width:541px){
+html body #why-bridgify .ds-kiosk:not(#x){top:49cqw!important;height:20cqw!important;border-radius:2cqw!important;padding:.9cqw!important}
+html body #why-bridgify .ds-kiosk .ds-screen:not(#x){border-radius:1.2cqw!important}
+html body #why-bridgify .ds-kiosk .ds-label:not(#x){top:calc(100% + 1.1cqw)!important}
+}
