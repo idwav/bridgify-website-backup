@@ -1,5 +1,12 @@
 # Bridgify typography hierarchy
 
+> **Developer handoff (21 Nov 2026):** the design system in `design-system/` (tokens.json, the guide) is the source of
+> truth for the rebuild. Where this file differs, the design system wins. Changed by the owner's decisions: on phones,
+> hero and section titles are 28px Chillax 400 (not 34–42 / 30–34); body text is 16px everywhere; card titles are
+> Chillax 300 (24 on phones); FAQ questions and article titles are Chillax 300 (20 desktop, 18 phones); the eyebrow
+> tracking is 0.15em; nothing outside illustrations is under 12px; illustration text is at least 10px.
+
+
 Scale approved by the user on 14 November 2026: headings in Chillax at the approved light weight (300), running text in Sofia Sans regular; section 36–44px, inner headings 24–28px, body 16px, secondary 14–16px, buttons 16px, labels 12–14px.
 
 Single source: `brand-typography.css`. Applies to V2 and public inner pages; V1 remains unchanged.

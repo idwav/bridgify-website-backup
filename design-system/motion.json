@@ -1,0 +1,1811 @@
+{
+ "$description": "Every animation on the live site (21 Nov 2026), found by scanning all 16 pages at 1440 and 390. Each entry: what moves and when, the CSS animations measured in the browser, the source files that build it, and a viewer that runs it alone with the site's own code (serve the repo root, then open design-system/motion/view.html).",
+ "global": [
+  {
+   "name": "Coral ink in headings",
+   "what": "The coral second part of a two-part heading carries a slow moving gradient.",
+   "timing": "5s, loops, linear",
+   "files": [
+    "brand-typography.css (bf-ink-flow)",
+    "homepage-v2.css (v2-ink-flow)"
+   ],
+   "reduced_motion": "static gradient"
+  },
+  {
+   "name": "Entrance",
+   "what": "Sections and their blocks fade and rise into place once, when they come into view.",
+   "timing": "opacity 0.9s + translate 0.9s, cubic-bezier(.22,1,.36,1); blocks may stagger",
+   "files": [
+    "brand-flow-motion.js",
+    "brand-consistency.css"
+   ],
+   "reduced_motion": "no movement, shown at once"
+  },
+  {
+   "name": "Button and link hover",
+   "what": "Primary brightens with a coral glow; secondary fills lightly; link warms and its arrow steps up and right.",
+   "timing": "0.3–0.48s, cubic-bezier(.16,1,.3,1)",
+   "files": [
+    "brand-consistency.css"
+   ],
+   "reduced_motion": "colour only"
+  },
+  {
+   "name": "Pinned steps",
+   "what": "The section holds; scroll moves the stepper and the preview (desktop: from 901×701; phone: the mobile layer).",
+   "timing": "scroll-linked, 2px track fills with the scroll",
+   "files": [
+    "per section, see below",
+    "mobile/patterns.js (pin)"
+   ],
+   "reduced_motion": "no pinning; steps by tap"
+  }
+ ],
+ "items": [
+  {
+   "id": "about-us-00",
+   "page": "about-us",
+   "page_name": "About",
+   "index": 0,
+   "section_id": "top",
+   "title": "Bringing the world’s experiences to the brands people use, and the right ones to",
+   "pattern": "hero-demo",
+   "desktop": "moves",
+   "phone": "still",
+   "behaviour": [
+    "JavaScript-driven loop"
+   ],
+   "css_animations": [],
+   "files": [
+    "about.css",
+    "about-motion.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/about-us.js",
+    "output/element-lab/adaptive/pages/about-us.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/about-us.html?version=2#top",
+   "view": "motion/view.html?page=about-us&i=0"
+  },
+  {
+   "id": "about-us-02",
+   "page": "about-us",
+   "page_name": "About",
+   "index": 2,
+   "section_id": "story",
+   "title": "From fragmented supply to the right experience for every customer.",
+   "pattern": "pinned-steps",
+   "desktop": "moves",
+   "phone": "still",
+   "behaviour": [
+    "scroll-driven (pinned) on desktop"
+   ],
+   "css_animations": [],
+   "files": [
+    "about.css",
+    "about-motion.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/about-us.js",
+    "output/element-lab/adaptive/pages/about-us.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/about-us.html?version=2#story",
+   "view": "motion/view.html?page=about-us&i=2"
+  },
+  {
+   "id": "airlines-00",
+   "page": "airlines",
+   "page_name": "Airlines",
+   "index": 0,
+   "section_id": "section-1",
+   "title": "Take your customer experience beyond the flight.",
+   "pattern": "hero-demo",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone"
+   ],
+   "css_animations": [],
+   "files": [
+    "airlines-journey-hero.css",
+    "airlines-hero-glass.css",
+    "airlines-polish.js",
+    "airlines-polish.css",
+    "airlines.css",
+    "airlines-journey-hero.js",
+    "airlines.js",
+    "airlines-hero-glass.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/airlines.js",
+    "output/element-lab/adaptive/pages/airlines.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/airlines.html?version=2#section-1",
+   "view": "motion/view.html?page=airlines&i=0"
+  },
+  {
+   "id": "airlines-02",
+   "page": "airlines",
+   "page_name": "Airlines",
+   "index": 2,
+   "section_id": "section-3",
+   "title": "Help passengers plan what to do when they land.",
+   "pattern": "pinned-steps",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on desktop",
+    "scroll-driven (pinned) on phone"
+   ],
+   "css_animations": [],
+   "files": [
+    "airlines-touchpoint-surfaces.css",
+    "airlines-polish.css",
+    "airlines.css",
+    "airlines-passenger-scroll.css",
+    "airlines-hero-glass.css",
+    "airlines.js",
+    "airlines-polish.js",
+    "airlines-passenger-scroll.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/airlines.js",
+    "output/element-lab/adaptive/pages/airlines.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/airlines.html?version=2#section-3",
+   "view": "motion/view.html?page=airlines&i=2"
+  },
+  {
+   "id": "airlines-03",
+   "page": "airlines",
+   "page_name": "Airlines",
+   "index": 3,
+   "section_id": "section-4",
+   "title": "Offer experiences through your own channels",
+   "pattern": "card-grid",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "transform · 0.5s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "opacity · 0.3s · once · ease"
+   ],
+   "files": [
+    "experience-choice-v2.css",
+    "experience-choice-v2.js",
+    "airlines.js",
+    "airlines-polish.js",
+    "airlines-phone-hero.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/airlines.js",
+    "output/element-lab/adaptive/pages/airlines.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/airlines.html?version=2#section-4",
+   "view": "motion/view.html?page=airlines&i=3"
+  },
+  {
+   "id": "api-00",
+   "page": "api",
+   "page_name": "Experiences API",
+   "index": 0,
+   "section_id": "top",
+   "title": "Experiences API: one travel API for tours, attractions, activities and events",
+   "pattern": "hero-demo",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "CSS loop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "transform · 0.5s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "opacity · 0.3s · once · ease",
+    "ahcGlow · 7s · loops · linear"
+   ],
+   "files": [
+    "api-hero-code.css",
+    "api-material.css",
+    "api-hero-code.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/api.js",
+    "output/element-lab/adaptive/pages/api.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/api.html?version=2#top",
+   "view": "motion/view.html?page=api&i=0"
+  },
+  {
+   "id": "api-01",
+   "page": "api",
+   "page_name": "Experiences API",
+   "index": 1,
+   "section_id": "network",
+   "title": "Connect to multiple supplier networks through one API",
+   "pattern": "text-visual",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "subtle motion"
+   ],
+   "css_animations": [],
+   "files": [
+    "api-network-slider.css",
+    "api-network-slider.js",
+    "api-network.css",
+    "api-refresh.css",
+    "api-refresh.js",
+    "api-hero-code.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/api.js",
+    "output/element-lab/adaptive/pages/api.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/api.html?version=2#network",
+   "view": "motion/view.html?page=api&i=1"
+  },
+  {
+   "id": "api-03",
+   "page": "api",
+   "page_name": "Experiences API",
+   "index": 3,
+   "section_id": "customer-experience",
+   "title": "Keep the customer experience in your product",
+   "pattern": "pinned-steps",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on desktop",
+    "CSS loop"
+   ],
+   "css_animations": [
+    "cj-in-l · 3.2s · loops · linear",
+    "cj-in-r · 3.2s · loops · linear",
+    "cj-port · 0.9s · loops · linear"
+   ],
+   "files": [
+    "api-your-product.css",
+    "api-your-product.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/api.js",
+    "output/element-lab/adaptive/pages/api.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/api.html?version=2#customer-experience",
+   "view": "motion/view.html?page=api&i=3"
+  },
+  {
+   "id": "careers-00",
+   "page": "careers",
+   "page_name": "Careers",
+   "index": 0,
+   "section_id": "top",
+   "title": "Join the team building the future of travel experiences",
+   "pattern": "hero-demo",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "JavaScript-driven loop"
+   ],
+   "css_animations": [],
+   "files": [
+    "careers.css",
+    "careers-motion.js",
+    "job.css",
+    "careers-roles.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/careers.js",
+    "output/element-lab/adaptive/pages/careers.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/careers.html?version=2#top",
+   "view": "motion/view.html?page=careers&i=0"
+  },
+  {
+   "id": "careers-01",
+   "page": "careers",
+   "page_name": "Careers",
+   "index": 1,
+   "section_id": "why-now",
+   "title": "Travel experiences are where traveltech gets decided next",
+   "pattern": "timeline",
+   "desktop": "moves",
+   "phone": "still",
+   "behaviour": [
+    "scroll-driven (pinned) on desktop"
+   ],
+   "css_animations": [],
+   "files": [
+    "careers.css",
+    "careers-motion.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/careers.js",
+    "output/element-lab/adaptive/pages/careers.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/careers.html?version=2#why-now",
+   "view": "motion/view.html?page=careers&i=1"
+  },
+  {
+   "id": "careers-02",
+   "page": "careers",
+   "page_name": "Careers",
+   "index": 2,
+   "section_id": "reach",
+   "title": "Ship it on Monday. Millions can book it on Tuesday.",
+   "pattern": "text-visual",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "JavaScript-driven loop"
+   ],
+   "css_animations": [],
+   "files": [
+    "careers.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/careers.js",
+    "output/element-lab/adaptive/pages/careers.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/careers.html?version=2#reach",
+   "view": "motion/view.html?page=careers&i=2"
+  },
+  {
+   "id": "careers-03",
+   "page": "careers",
+   "page_name": "Careers",
+   "index": 3,
+   "section_id": "what-makes-bridgify",
+   "title": "What makes Bridgify Bridgify",
+   "pattern": "pinned-steps",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on desktop",
+    "CSS loop"
+   ],
+   "css_animations": [
+    "cm-flag · 4.4s · loops · linear",
+    "cm-fdot · 4.4s · loops · linear",
+    "cm-bad · 4.4s · loops · linear",
+    "cm-fix · 4.4s · loops · linear"
+   ],
+   "files": [
+    "careers.css",
+    "careers-motion.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/careers.js",
+    "output/element-lab/adaptive/pages/careers.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/careers.html?version=2#what-makes-bridgify",
+   "view": "motion/view.html?page=careers&i=3"
+  },
+  {
+   "id": "careers-04",
+   "page": "careers",
+   "page_name": "Careers",
+   "index": 4,
+   "section_id": "problems",
+   "title": "The problems you'd work on",
+   "pattern": "feature-list",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "JavaScript-driven loop"
+   ],
+   "css_animations": [],
+   "files": [
+    "careers-problems.css",
+    "careers.css",
+    "careers-problems.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/careers.js",
+    "output/element-lab/adaptive/pages/careers.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/careers.html?version=2#problems",
+   "view": "motion/view.html?page=careers&i=4"
+  },
+  {
+   "id": "developers-00",
+   "page": "developers",
+   "page_name": "Developers",
+   "index": 0,
+   "section_id": "section-1",
+   "title": "Build with Bridgify",
+   "pattern": "hero-demo",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "CSS loop"
+   ],
+   "css_animations": [
+    "ahcGlow · 7s · loops · linear"
+   ],
+   "files": [
+    "api-hero-code.css",
+    "developers-code-hero.css",
+    "developers-build.css",
+    "developers-refresh.css",
+    "developers-polish.css",
+    "api-hero-code.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/developers.js",
+    "output/element-lab/adaptive/pages/developers.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/developers.html?version=2#section-1",
+   "view": "motion/view.html?page=developers&i=0"
+  },
+  {
+   "id": "developers-02",
+   "page": "developers",
+   "page_name": "Developers",
+   "index": 2,
+   "section_id": "performance",
+   "title": "What makes a tours and activities API high performing?",
+   "pattern": "text-visual",
+   "desktop": "moves",
+   "phone": "still",
+   "behaviour": [
+    "scroll-driven (pinned) on desktop"
+   ],
+   "css_animations": [],
+   "files": [
+    "developers-performance.css",
+    "developers-polish.css",
+    "developers-build.css",
+    "developers-motion.js",
+    "developers-refresh.css",
+    "api-hero-code.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/developers.js",
+    "output/element-lab/adaptive/pages/developers.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/developers.html?version=2#performance",
+   "view": "motion/view.html?page=developers&i=2"
+  },
+  {
+   "id": "hotels-00",
+   "page": "hotels",
+   "page_name": "Hotels",
+   "index": 0,
+   "section_id": "section-1",
+   "title": "Your guests didn’t travel for the room.",
+   "pattern": "hero-demo",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "CSS loop"
+   ],
+   "css_animations": [
+    "brand-coral-flow · 5s · loops · linear",
+    "hm-travel · 3.8s · loops · linear"
+   ],
+   "files": [
+    "hotels-mail-hero.css",
+    "hotels-mail-hero.js",
+    "hotels-quiet-frames.css",
+    "hotels-map-glass.css",
+    "hotels-polish.css",
+    "hotels-polish.js",
+    "hotels-responsibility.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/hotels.js",
+    "output/element-lab/adaptive/pages/hotels.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/hotels.html?version=2#section-1",
+   "view": "motion/view.html?page=hotels&i=0"
+  },
+  {
+   "id": "hotels-01",
+   "page": "hotels",
+   "page_name": "Hotels",
+   "index": 1,
+   "section_id": "section-2",
+   "title": "Offer local experiences without managing each supplier.",
+   "pattern": "tabs-preview",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "CSS loop"
+   ],
+   "css_animations": [
+    "brand-coral-flow · 5s · loops · linear"
+   ],
+   "files": [
+    "hotels-responsibility.css",
+    "hotels-responsibility.js",
+    "hotels-polish.css",
+    "hotels-mail-hero.css",
+    "hotels-polish.js",
+    "hotels-mail-hero.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/hotels.js",
+    "output/element-lab/adaptive/pages/hotels.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/hotels.html?version=2#section-2",
+   "view": "motion/view.html?page=hotels&i=1"
+  },
+  {
+   "id": "hotels-02",
+   "page": "hotels",
+   "page_name": "Hotels",
+   "index": 2,
+   "section_id": "section-3",
+   "title": "Make experiences part of the stay",
+   "pattern": "pinned-steps",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on desktop",
+    "scroll-driven (pinned) on phone",
+    "CSS loop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "brand-coral-flow · 5s · loops · linear",
+    "hs-reveal · 0.5s · once · linear"
+   ],
+   "files": [
+    "hotels-stay-scroll.css",
+    "hotels-journey.css",
+    "hotels-polish.css",
+    "hotels-material.css",
+    "hotels-quiet-frames.css",
+    "hotels-stay-scroll.js",
+    "hotels-journey.js",
+    "hotels-polish.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/hotels.js",
+    "output/element-lab/adaptive/pages/hotels.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/hotels.html?version=2#section-3",
+   "view": "motion/view.html?page=hotels&i=2"
+  },
+  {
+   "id": "hotels-03",
+   "page": "hotels",
+   "page_name": "Hotels",
+   "index": 3,
+   "section_id": "section-4",
+   "title": "Fit experiences into your guest journey",
+   "pattern": "card-grid",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "transform · 0.5s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "opacity · 0.3s · once · ease"
+   ],
+   "files": [
+    "experience-choice-v2.css",
+    "experience-choice-v2.js",
+    "hotels-polish.js",
+    "hotels-journey.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/hotels.js",
+    "output/element-lab/adaptive/pages/hotels.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/hotels.html?version=2#section-4",
+   "view": "motion/view.html?page=hotels&i=3"
+  },
+  {
+   "id": "index-v2-00",
+   "page": "index-v2",
+   "page_name": "Home",
+   "index": 0,
+   "section_id": "home",
+   "title": "One connection. A million+ travel experiences, matched to every customer.",
+   "pattern": "hero-demo",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "subtle motion"
+   ],
+   "css_animations": [],
+   "files": [
+    "hero-funnel-v2.css",
+    "hero-stack-v3.css",
+    "hero-funnel-v2.js",
+    "hero-v2.css",
+    "home-glass.css",
+    "hero-v2.js",
+    "hero-stack-v3.js",
+    "homepage-v2.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/index-v2.js",
+    "output/element-lab/adaptive/pages/index-v2.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/?version=2#home",
+   "view": "motion/view.html?page=index-v2&i=0"
+  },
+  {
+   "id": "index-v2-01",
+   "page": "index-v2",
+   "page_name": "Home",
+   "index": 1,
+   "section_id": "sources",
+   "title": "Global supply through one integration.",
+   "pattern": "stats",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "opacity · 0.9s · once · cubic-bezier(0.22, 1, 0.36, 1)",
+    "translate · 0.9s · once · cubic-bezier(0.22, 1, 0.36, 1)",
+    "web-animation · 1.55s · once · cubic-bezier(0.16, 0.7, 0.2, 1)"
+   ],
+   "files": [
+    "homepage-v4.css",
+    "hero-v2.css",
+    "supply-count-v2.js",
+    "homepage-v2.js",
+    "homepage-v2.css",
+    "bridgify-trust-strip.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/index-v2.js",
+    "output/element-lab/adaptive/pages/index-v2.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/?version=2#sources",
+   "view": "motion/view.html?page=index-v2&i=1"
+  },
+  {
+   "id": "index-v2-02",
+   "page": "index-v2",
+   "page_name": "Home",
+   "index": 2,
+   "section_id": "opportunity-study",
+   "title": "Your customers already book experiences. Just not with you.",
+   "pattern": "compare",
+   "desktop": "moves",
+   "phone": "still",
+   "behaviour": [
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "transform · 0.9s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "stroke-dashoffset · 1.1s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "opacity · 0.4s · once · ease"
+   ],
+   "files": [
+    "home-problem-v2.css",
+    "home-problem-v2.js",
+    "home-why-v2.css",
+    "home-why-v2.js",
+    "homepage-v2.js",
+    "home-products-v2.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/index-v2.js",
+    "output/element-lab/adaptive/pages/index-v2.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/?version=2#opportunity-study",
+   "view": "motion/view.html?page=index-v2&i=2"
+  },
+  {
+   "id": "index-v2-03",
+   "page": "index-v2",
+   "page_name": "Home",
+   "index": 3,
+   "section_id": "why-bridgify",
+   "title": "Everything between global supply and your customer",
+   "pattern": "pinned-steps",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on desktop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "transform · 0.9s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "stroke-dashoffset · 1.1s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "opacity · 0.4s · once · ease"
+   ],
+   "files": [
+    "home-why-v2.css",
+    "home-why-v2.js",
+    "home-problem-v2.css",
+    "home-products-v2.css",
+    "home-problem-v2.js",
+    "bridgify-aggregation-material.css",
+    "bridgify-solutions-material.css",
+    "api-porcelain.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/index-v2.js",
+    "output/element-lab/adaptive/pages/index-v2.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/?version=2#why-bridgify",
+   "view": "motion/view.html?page=index-v2&i=3"
+  },
+  {
+   "id": "index-v2-04",
+   "page": "index-v2",
+   "page_name": "Home",
+   "index": 4,
+   "section_id": "personalization",
+   "title": "Don't give travelers a library. Give them the right book.",
+   "pattern": "text-visual",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "CSS loop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "opacity · 0.9s · once · cubic-bezier(0.22, 1, 0.36, 1)",
+    "translate · 0.9s · once · cubic-bezier(0.22, 1, 0.36, 1)",
+    "intent-cursor · 1s · loops · linear"
+   ],
+   "files": [
+    "home-intent-v2.css",
+    "personalization-intent.css",
+    "personalization-intent.js",
+    "homepage-v4.css",
+    "homepage-v2.css",
+    "homepage-v2.js",
+    "opportunity-v2.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/index-v2.js",
+    "output/element-lab/adaptive/pages/index-v2.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/?version=2#personalization",
+   "view": "motion/view.html?page=index-v2&i=4"
+  },
+  {
+   "id": "index-v2-05",
+   "page": "index-v2",
+   "page_name": "Home",
+   "index": 5,
+   "section_id": "products",
+   "title": "Three products. One connected layer.",
+   "pattern": "card-grid",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "CSS loop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "transform · 0.5s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "opacity · 0.3s · once · ease",
+    "opacity · 0.9s · once · cubic-bezier(0.22, 1, 0.36, 1)",
+    "pr-ring · 2.8s · loops · linear"
+   ],
+   "files": [
+    "home-products-v2.css",
+    "home-why-v2.css",
+    "home-products-v2.js",
+    "homepage-v2.js",
+    "home-problem-v2.css",
+    "hero-funnel-v2.js",
+    "home-why-v2.js",
+    "home-cta-v2.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/index-v2.js",
+    "output/element-lab/adaptive/pages/index-v2.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/?version=2#products",
+   "view": "motion/view.html?page=index-v2&i=5"
+  },
+  {
+   "id": "index-v2-07",
+   "page": "index-v2",
+   "page_name": "Home",
+   "index": 7,
+   "section_id": "marketplace-results",
+   "title": "What White-Label partners see",
+   "pattern": "text-visual",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on desktop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "web-animation · 1s · once · linear",
+    "web-animation · 2.2s · once · linear"
+   ],
+   "files": [
+    "enterprise-v2.css",
+    "enterprise-v2.js",
+    "home-numbers-v2.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/index-v2.js",
+    "output/element-lab/adaptive/pages/index-v2.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/?version=2#marketplace-results",
+   "view": "motion/view.html?page=index-v2&i=7"
+  },
+  {
+   "id": "index-v2-08",
+   "page": "index-v2",
+   "page_name": "Home",
+   "index": 8,
+   "section_id": "security",
+   "title": "Built for enterprise security",
+   "pattern": "feature-list",
+   "desktop": "moves",
+   "phone": "still",
+   "behaviour": [
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "opacity · 0.9s · once · cubic-bezier(0.22, 1, 0.36, 1)"
+   ],
+   "files": [
+    "home-numbers-v2.css",
+    "homepage-v2.js",
+    "homepage-v2.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/index-v2.js",
+    "output/element-lab/adaptive/pages/index-v2.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/?version=2#security",
+   "view": "motion/view.html?page=index-v2&i=8"
+  },
+  {
+   "id": "index-v2-10",
+   "page": "index-v2",
+   "page_name": "Home",
+   "index": 10,
+   "section_id": "home-cta",
+   "title": "Tell us who your customers are. We'll show you what they'd book.",
+   "pattern": "closing-cta",
+   "desktop": "still",
+   "phone": "moves",
+   "behaviour": [
+    "subtle motion"
+   ],
+   "css_animations": [],
+   "files": [
+    "home-cta-v2.css",
+    "homepage-v2.js",
+    "home-cta-v2.js",
+    "homepage-v2.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/index-v2.js",
+    "output/element-lab/adaptive/pages/index-v2.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/?version=2#home-cta",
+   "view": "motion/view.html?page=index-v2&i=10"
+  },
+  {
+   "id": "loyalty-finance-00",
+   "page": "loyalty-finance",
+   "page_name": "Loyalty, rewards and financial services",
+   "index": 0,
+   "section_id": "section-1",
+   "title": "Your members are sitting on points. Give them something worth spending them on.",
+   "pattern": "hero-demo",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone"
+   ],
+   "css_animations": [],
+   "files": [
+    "loyalty-redemption-hero.css",
+    "loyalty-refresh.css",
+    "loyalty-hero-polish.css",
+    "loyalty-hero-motion.js",
+    "loyalty-redemption-hero.js",
+    "loyalty-hero-polish.js",
+    "scroll-entrances.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/loyalty-finance.js",
+    "output/element-lab/adaptive/pages/loyalty-finance.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/loyalty-finance.html?version=2#section-1",
+   "view": "motion/view.html?page=loyalty-finance&i=0"
+  },
+  {
+   "id": "loyalty-finance-01",
+   "page": "loyalty-finance",
+   "page_name": "Loyalty, rewards and financial services",
+   "index": 1,
+   "section_id": "section-2",
+   "title": "Points aren't a marketing budget. They're a bill.",
+   "pattern": "text-visual",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "filter · 0.7s · once · ease-out",
+    "--brand-button-angle · 0.48s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "box-shadow · 0.48s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "color · 0.48s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "--brand-button-start · 0.48s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "--brand-button-end · 0.48s · once · cubic-bezier(0.16, 1, 0.3, 1)"
+   ],
+   "files": [
+    "loyalty-points-story.css",
+    "loyalty-points-story.js",
+    "loyalty-refresh.css",
+    "loyalty-redemption-hero.css",
+    "scroll-entrances.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/loyalty-finance.js",
+    "output/element-lab/adaptive/pages/loyalty-finance.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/loyalty-finance.html?version=2#section-2",
+   "view": "motion/view.html?page=loyalty-finance&i=1"
+  },
+  {
+   "id": "loyalty-finance-02",
+   "page": "loyalty-finance",
+   "page_name": "Loyalty, rewards and financial services",
+   "index": 2,
+   "section_id": "section-3",
+   "title": "Experiences for cardholders, wallet users and members",
+   "pattern": "tabs-preview",
+   "desktop": "moves",
+   "phone": "still",
+   "behaviour": [
+    "scroll-driven (pinned) on desktop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "lu-reveal · 0.65s · once · linear"
+   ],
+   "files": [
+    "loyalty-usecase-tabs.css",
+    "loyalty-usecase-tabs.js",
+    "loyalty-refresh.css",
+    "scroll-entrances.js",
+    "loyalty-redemption-hero.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/loyalty-finance.js",
+    "output/element-lab/adaptive/pages/loyalty-finance.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/loyalty-finance.html?version=2#section-3",
+   "view": "motion/view.html?page=loyalty-finance&i=2"
+  },
+  {
+   "id": "loyalty-finance-03",
+   "page": "loyalty-finance",
+   "page_name": "Loyalty, rewards and financial services",
+   "index": 3,
+   "section_id": "section-4",
+   "title": "Choose a marketplace or integrate into your product",
+   "pattern": "card-grid",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "transform · 0.5s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "opacity · 0.3s · once · ease"
+   ],
+   "files": [
+    "experience-choice-v2.css",
+    "experience-choice-v2.js",
+    "loyalty-redemption-hero.js",
+    "loyalty-points-story.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/loyalty-finance.js",
+    "output/element-lab/adaptive/pages/loyalty-finance.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/loyalty-finance.html?version=2#section-4",
+   "view": "motion/view.html?page=loyalty-finance&i=3"
+  },
+  {
+   "id": "loyalty-finance-05",
+   "page": "loyalty-finance",
+   "page_name": "Loyalty, rewards and financial services",
+   "index": 5,
+   "section_id": "market-signal",
+   "title": "Banks are building travel brands. Every one of them needs redemption options.",
+   "pattern": "tabs-preview",
+   "desktop": "moves",
+   "phone": "still",
+   "behaviour": [
+    "scroll-driven (pinned) on desktop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "box-shadow · 0.4s · once · ease"
+   ],
+   "files": [
+    "loyalty-market-signal.css",
+    "loyalty-market-signal.js",
+    "scroll-entrances.js",
+    "loyalty-refresh.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/loyalty-finance.js",
+    "output/element-lab/adaptive/pages/loyalty-finance.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/loyalty-finance.html?version=2#market-signal",
+   "view": "motion/view.html?page=loyalty-finance&i=5"
+  },
+  {
+   "id": "marketplace-00",
+   "page": "marketplace",
+   "page_name": "White-Label Marketplace",
+   "index": 0,
+   "section_id": "section-1",
+   "title": "White-label travel marketplace for tours, attractions and experiences",
+   "pattern": "hero-demo",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "CSS loop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "opacity · 0.25s · once · ease",
+    "brand-coral-flow · 5s · loops · linear",
+    "market-ambient-breathe · 11s · loops · linear",
+    "market-space-drift · 11s · loops · linear",
+    "hero-caret · 1s · loops · linear",
+    "market-panel-drift · 9s · loops · linear"
+   ],
+   "files": [
+    "product-skin.css",
+    "marketplace-customization.css",
+    "marketplace-material.css",
+    "marketplace-customization.js",
+    "marketplace-entrance.js",
+    "marketplace-type.css",
+    "airlines-process.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/marketplace.js",
+    "output/element-lab/adaptive/pages/marketplace.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/marketplace.html?version=2#section-1",
+   "view": "motion/view.html?page=marketplace&i=0"
+  },
+  {
+   "id": "marketplace-01",
+   "page": "marketplace",
+   "page_name": "White-Label Marketplace",
+   "index": 1,
+   "section_id": "section-2",
+   "title": "From discovery to checkout, under your brand",
+   "pattern": "pinned-steps",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on desktop",
+    "CSS loop"
+   ],
+   "css_animations": [
+    "brand-coral-flow · 5s · loops · linear"
+   ],
+   "files": [
+    "marketplace-journey.css",
+    "marketplace-journey.js",
+    "product-skin.css",
+    "marketplace-customization.css",
+    "marketplace-launch.css",
+    "marketplace-localization.js",
+    "scroll-entrances.js",
+    "marketplace-commerce.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/marketplace.js",
+    "output/element-lab/adaptive/pages/marketplace.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/marketplace.html?version=2#section-2",
+   "view": "motion/view.html?page=marketplace&i=1"
+  },
+  {
+   "id": "marketplace-02",
+   "page": "marketplace",
+   "page_name": "White-Label Marketplace",
+   "index": 2,
+   "section_id": "section-3",
+   "title": "Your brand, your markets, your currencies",
+   "pattern": "text-visual",
+   "desktop": "still",
+   "phone": "moves",
+   "behaviour": [
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "web-animation · 1s · once · linear"
+   ],
+   "files": [
+    "product-skin.css",
+    "marketplace-localization.css",
+    "marketplace-localization.js",
+    "scroll-entrances.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/marketplace.js",
+    "output/element-lab/adaptive/pages/marketplace.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/marketplace.html?version=2#section-3",
+   "view": "motion/view.html?page=marketplace&i=2"
+  },
+  {
+   "id": "marketplace-03",
+   "page": "marketplace",
+   "page_name": "White-Label Marketplace",
+   "index": 3,
+   "section_id": "section-4",
+   "title": "You bring the brand. We run everything behind it.",
+   "pattern": "text-visual",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "CSS loop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "opacity · 0.5s · once · ease",
+    "opacity · 0.4s · once · ease",
+    "transform · 0.5s · once · cubic-bezier(0.2, 1.6, 0.4, 1)",
+    "brand-coral-flow · 5s · loops · linear",
+    "wo-row · 7.5s · loops · linear",
+    "web-animation · 1s · once · linear"
+   ],
+   "files": [
+    "marketplace-operations.css",
+    "marketplace-operations.js",
+    "product-skin.css",
+    "scroll-entrances.js",
+    "marketplace-customization.css",
+    "marketplace-material.css",
+    "marketplace-journey.css",
+    "airlines-process.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/marketplace.js",
+    "output/element-lab/adaptive/pages/marketplace.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/marketplace.html?version=2#section-4",
+   "view": "motion/view.html?page=marketplace&i=3"
+  },
+  {
+   "id": "marketplace-04",
+   "page": "marketplace",
+   "page_name": "White-Label Marketplace",
+   "index": 4,
+   "section_id": "section-5",
+   "title": "Live in 3 days",
+   "pattern": "timeline",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "CSS loop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "brand-coral-flow · 5s · loops · linear",
+    "web-animation · 1s · once · linear"
+   ],
+   "files": [
+    "marketplace-launch.css",
+    "product-skin.css",
+    "marketplace-type.css",
+    "marketplace-launch.js",
+    "marketplace-customization.css",
+    "marketplace-material.css",
+    "marketplace-journey.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/marketplace.js",
+    "output/element-lab/adaptive/pages/marketplace.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/marketplace.html?version=2#section-5",
+   "view": "motion/view.html?page=marketplace&i=4"
+  },
+  {
+   "id": "marketplace-05",
+   "page": "marketplace",
+   "page_name": "White-Label Marketplace",
+   "index": 5,
+   "section_id": "build-or-buy",
+   "title": "Is it better to build or buy a travel experiences marketplace?",
+   "pattern": "compare",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "CSS loop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "brand-coral-flow · 5s · loops · linear",
+    "bc-fill · 1.6s · once · linear",
+    "web-animation · 1s · once · linear"
+   ],
+   "files": [
+    "marketplace-build-compare.css",
+    "scroll-entrances.js",
+    "marketplace-build-compare.js",
+    "marketplace-entrance.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/marketplace.js",
+    "output/element-lab/adaptive/pages/marketplace.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/marketplace.html?version=2#build-or-buy",
+   "view": "motion/view.html?page=marketplace&i=5"
+  },
+  {
+   "id": "marketplace-07",
+   "page": "marketplace",
+   "page_name": "White-Label Marketplace",
+   "index": 7,
+   "section_id": "marketplace-results",
+   "title": "What White-Label Marketplace partners see",
+   "pattern": "stats",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "CSS loop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "brand-coral-flow · 5s · loops · linear",
+    "proof-marker-in · 1.4s · once · linear",
+    "web-animation · 1s · once · linear"
+   ],
+   "files": [
+    "marketplace-proof-polish.css",
+    "marketplace-results.css",
+    "marketplace-proof-polish.js",
+    "section-light.css",
+    "product-material-polish.css",
+    "page-scroll-motion.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/marketplace.js",
+    "output/element-lab/adaptive/pages/marketplace.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/marketplace.html?version=2#marketplace-results",
+   "view": "motion/view.html?page=marketplace&i=7"
+  },
+  {
+   "id": "otas-00",
+   "page": "otas",
+   "page_name": "OTAs and travel platforms",
+   "index": 0,
+   "section_id": "section-1",
+   "title": "You sold them the flight and the room. Now sell them the days in between.",
+   "pattern": "hero-center",
+   "desktop": "still",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "web-animation · 1s · once · linear"
+   ],
+   "files": [
+    "otas-polish.css",
+    "otas-sold.css",
+    "otas-glass.css",
+    "otas-polish.js",
+    "otas-hero.css",
+    "scroll-entrances.js",
+    "otas-sold.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/otas.js",
+    "output/element-lab/adaptive/pages/otas.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/otas.html?version=2#section-1",
+   "view": "motion/view.html?page=otas&i=0"
+  },
+  {
+   "id": "otas-01",
+   "page": "otas",
+   "page_name": "OTAs and travel platforms",
+   "index": 1,
+   "section_id": "section-2",
+   "title": "Enterprise multi-source experiences aggregation for OTAs",
+   "pattern": "text-visual",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "subtle motion"
+   ],
+   "css_animations": [],
+   "files": [
+    "otas-supply.css",
+    "otas-supply.js",
+    "otas-polish.css",
+    "otas-multisource.css",
+    "otas-glass.css",
+    "otas-polish.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/otas.js",
+    "output/element-lab/adaptive/pages/otas.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/otas.html?version=2#section-2",
+   "view": "motion/view.html?page=otas&i=1"
+  },
+  {
+   "id": "otas-02",
+   "page": "otas",
+   "page_name": "OTAs and travel platforms",
+   "index": 2,
+   "section_id": "section-3",
+   "title": "Recommend experiences throughout the trip",
+   "pattern": "demo-columns",
+   "desktop": "still",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone"
+   ],
+   "css_animations": [],
+   "files": [
+    "otas-recommend.css",
+    "otas-polish.css",
+    "otas-glass.css",
+    "otas-polish.js",
+    "otas-recommend.js",
+    "otas-process-preview.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/otas.js",
+    "output/element-lab/adaptive/pages/otas.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/otas.html?version=2#section-3",
+   "view": "motion/view.html?page=otas&i=2"
+  },
+  {
+   "id": "otas-03",
+   "page": "otas",
+   "page_name": "OTAs and travel platforms",
+   "index": 3,
+   "section_id": "section-4",
+   "title": "Embed it in your platform or launch a branded store",
+   "pattern": "card-grid",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "opacity · 0.3s · once · ease",
+    "transform · 0.5s · once · cubic-bezier(0.16, 1, 0.3, 1)"
+   ],
+   "files": [
+    "experience-choice-v2.css",
+    "experience-choice-v2.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/otas.js",
+    "output/element-lab/adaptive/pages/otas.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/otas.html?version=2#section-4",
+   "view": "motion/view.html?page=otas&i=3"
+  },
+  {
+   "id": "personalization-00",
+   "page": "personalization",
+   "page_name": "AIyelet",
+   "index": 0,
+   "section_id": "section-1",
+   "title": "(hero)",
+   "pattern": "hero-demo",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "runs in its own page (iframe)",
+    "JavaScript-driven loop"
+   ],
+   "css_animations": [],
+   "files": [],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/personalization.js",
+    "output/element-lab/adaptive/pages/personalization.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/personalization.html?version=2#section-1",
+   "view": "motion/view.html?page=personalization&i=0"
+  },
+  {
+   "id": "personalization-01",
+   "page": "personalization",
+   "page_name": "AIyelet",
+   "index": 1,
+   "section_id": "section-2",
+   "title": "Start with what the traveler has in mind",
+   "pattern": "text-visual",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "CSS loop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "brand-coral-flow · 5s · loops · linear",
+    "intent-cursor · 1s · loops · linear",
+    "web-animation · 1s · once · linear"
+   ],
+   "files": [
+    "personalization-intent.css",
+    "product-material-polish.css",
+    "personalization-intent.js",
+    "personalization-type.css",
+    "section-light.css",
+    "personalization-section-studies.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/personalization.js",
+    "output/element-lab/adaptive/pages/personalization.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/personalization.html?version=2#section-2",
+   "view": "motion/view.html?page=personalization&i=1"
+  },
+  {
+   "id": "personalization-02",
+   "page": "personalization",
+   "page_name": "AIyelet",
+   "index": 2,
+   "section_id": "section-3",
+   "title": "Match experiences to what travelers are looking for",
+   "pattern": "two-sides",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "CSS loop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "opacity · 0.5s · once · ease",
+    "brand-coral-flow · 5s · loops · linear",
+    "web-animation · 1s · once · linear"
+   ],
+   "files": [
+    "personalization-match-polish.css",
+    "personalization-match.js",
+    "personalization-match.css",
+    "product-material-polish.css",
+    "page-scroll-motion.js",
+    "personalization-type.css",
+    "section-light.css",
+    "personalization-match-icons.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/personalization.js",
+    "output/element-lab/adaptive/pages/personalization.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/personalization.html?version=2#section-3",
+   "view": "motion/view.html?page=personalization&i=2"
+  },
+  {
+   "id": "personalization-03",
+   "page": "personalization",
+   "page_name": "AIyelet",
+   "index": 3,
+   "section_id": "section-4",
+   "title": "AI-powered personalization for tours and activities, inside your product",
+   "pattern": "text-visual",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "CSS loop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "brand-coral-flow · 5s · loops · linear",
+    "embed-ai-plan · 0.52s · once · linear",
+    "embed-ai-rec · 0.72s · once · linear",
+    "web-animation · 1s · once · linear"
+   ],
+   "files": [
+    "personalization-embedded.css",
+    "product-skin-embedded.css",
+    "personalization-type.css",
+    "personalization-embedded.js",
+    "section-light.css",
+    "page-scroll-motion.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/personalization.js",
+    "output/element-lab/adaptive/pages/personalization.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/personalization.html?version=2#section-4",
+   "view": "motion/view.html?page=personalization&i=3"
+  },
+  {
+   "id": "personalization-04",
+   "page": "personalization",
+   "page_name": "AIyelet",
+   "index": 4,
+   "section_id": "day-itinerary",
+   "title": "From one good suggestion to a full day",
+   "pattern": "text-visual",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "CSS loop",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "stroke-dashoffset · 1.4s · once · ease",
+    "brand-coral-flow · 5s · loops · linear",
+    "web-animation · 1s · once · linear"
+   ],
+   "files": [
+    "personalization-day.css",
+    "personalization-day.js",
+    "page-scroll-motion.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/personalization.js",
+    "output/element-lab/adaptive/pages/personalization.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/personalization.html?version=2#day-itinerary",
+   "view": "motion/view.html?page=personalization&i=4"
+  },
+  {
+   "id": "press-04",
+   "page": "press",
+   "page_name": "Press",
+   "index": 4,
+   "section_id": "",
+   "title": "For press enquiries.",
+   "pattern": "text",
+   "desktop": "still",
+   "phone": "moves",
+   "behaviour": [
+    "subtle motion"
+   ],
+   "css_animations": [],
+   "files": [
+    "press-newsroom.css"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/press.js",
+    "output/element-lab/adaptive/pages/press.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/press.html?version=2",
+   "view": "motion/view.html?page=press&i=4"
+  },
+  {
+   "id": "super-apps-00",
+   "page": "super-apps",
+   "page_name": "Super apps and consumer platforms",
+   "index": 0,
+   "section_id": "section-1",
+   "title": "Bring travel experiences into the app people already use.",
+   "pattern": "hero-demo",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "CSS loop"
+   ],
+   "css_animations": [
+    "scPulseHalo · 2.6s · loops · linear",
+    "scPulseIcon · 2.6s · loops · linear",
+    "scPulseLabel · 2.6s · loops · linear"
+   ],
+   "files": [
+    "super-apps-consumer-hero.css",
+    "super-apps-consumer-hero.js",
+    "scroll-entrances.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/super-apps.js",
+    "output/element-lab/adaptive/pages/super-apps.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/super-apps.html?version=2#section-1",
+   "view": "motion/view.html?page=super-apps&i=0"
+  },
+  {
+   "id": "super-apps-02",
+   "page": "super-apps",
+   "page_name": "Super apps and consumer platforms",
+   "index": 2,
+   "section_id": "section-3",
+   "title": "Connect experiences to what users are planning",
+   "pattern": "pinned-steps",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on desktop",
+    "scroll-driven (pinned) on phone"
+   ],
+   "css_animations": [],
+   "files": [
+    "super-apps-planning.css",
+    "super-apps-planning.js",
+    "super-apps-connect.css",
+    "scroll-entrances.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/super-apps.js",
+    "output/element-lab/adaptive/pages/super-apps.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/super-apps.html?version=2#section-3",
+   "view": "motion/view.html?page=super-apps&i=2"
+  },
+  {
+   "id": "super-apps-03",
+   "page": "super-apps",
+   "page_name": "Super apps and consumer platforms",
+   "index": 3,
+   "section_id": "section-4",
+   "title": "Choose how experiences fit your platform",
+   "pattern": "card-grid",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "transform · 0.5s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "opacity · 0.3s · once · ease"
+   ],
+   "files": [
+    "experience-choice-v2.css",
+    "experience-choice-v2.js",
+    "super-apps-bring.js",
+    "super-apps-consumer-hero.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/super-apps.js",
+    "output/element-lab/adaptive/pages/super-apps.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/super-apps.html?version=2#section-4",
+   "view": "motion/view.html?page=super-apps&i=3"
+  },
+  {
+   "id": "travel-technology-00",
+   "page": "travel-technology",
+   "page_name": "Travel technology companies",
+   "index": 0,
+   "section_id": "section-1",
+   "title": "Embed global experiences in the platform you're building",
+   "pattern": "hero-demo",
+   "desktop": "still",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone"
+   ],
+   "css_animations": [],
+   "files": [
+    "travel-technology-hero-polish.css",
+    "travel-technology-native.css",
+    "travel-technology-hero-glass.css",
+    "travel-technology-hero-polish.js",
+    "travel-technology-embed.css",
+    "travel-technology-glass.css",
+    "travel-technology-how-polish.css",
+    "travel-technology-native.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/travel-technology.js",
+    "output/element-lab/adaptive/pages/travel-technology.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/travel-technology.html?version=2#section-1",
+   "view": "motion/view.html?page=travel-technology&i=0"
+  },
+  {
+   "id": "travel-technology-01",
+   "page": "travel-technology",
+   "page_name": "Travel technology companies",
+   "index": 1,
+   "section_id": "section-2",
+   "title": "How do I avoid integrating dozens of travel suppliers?",
+   "pattern": "compare",
+   "desktop": "still",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone"
+   ],
+   "css_animations": [],
+   "files": [
+    "travel-technology-integrate.css",
+    "travel-technology-how-glass.css",
+    "travel-technology-integrate.js",
+    "travel-technology-how-polish.css",
+    "travel-technology-how.css",
+    "travel-technology-how-glass.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/travel-technology.js",
+    "output/element-lab/adaptive/pages/travel-technology.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/travel-technology.html?version=2#section-2",
+   "view": "motion/view.html?page=travel-technology&i=1"
+  },
+  {
+   "id": "travel-technology-02",
+   "page": "travel-technology",
+   "page_name": "Travel technology companies",
+   "index": 2,
+   "section_id": "section-3",
+   "title": "Add experience discovery and booking to your product",
+   "pattern": "demo-columns",
+   "desktop": "still",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "CSS loop"
+   ],
+   "css_animations": [
+    "ad-flow · 5s · loops · linear"
+   ],
+   "files": [
+    "travel-technology-process-preview.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/travel-technology.js",
+    "output/element-lab/adaptive/pages/travel-technology.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/travel-technology.html?version=2#section-3",
+   "view": "motion/view.html?page=travel-technology&i=2"
+  },
+  {
+   "id": "travel-technology-03",
+   "page": "travel-technology",
+   "page_name": "Travel technology companies",
+   "index": 3,
+   "section_id": "section-4",
+   "title": "Choose how to integrate and distribute experiences",
+   "pattern": "card-grid",
+   "desktop": "moves",
+   "phone": "moves",
+   "behaviour": [
+    "scroll-driven (pinned) on phone",
+    "entrance when it comes into view"
+   ],
+   "css_animations": [
+    "transform · 0.5s · once · cubic-bezier(0.16, 1, 0.3, 1)",
+    "opacity · 0.3s · once · ease"
+   ],
+   "files": [
+    "experience-choice-v2.css",
+    "experience-choice-v2.js"
+   ],
+   "phone_files": [
+    "output/element-lab/adaptive/pages/travel-technology.js",
+    "output/element-lab/adaptive/pages/travel-technology.css"
+   ],
+   "live": "https://bridgify-website.vercel.app/travel-technology.html?version=2#section-4",
+   "view": "motion/view.html?page=travel-technology&i=3"
+  }
+ ],
+ "rule": "Every animation stops or shows its final frame under prefers-reduced-motion: reduce."
+}
