@@ -32,3 +32,5 @@ html body #why-bridgify .wy-tab:not(#x){min-height:clamp(30px,5vh,40px)!importan
 html body #why-bridgify .wy-copy h4:not(#x){margin-bottom:8px!important}
 html body #why-bridgify .wy-copy:not(#x){margin-top:clamp(14px,2.2vh,26px)!important;min-height:0!important}
 }
+/* tablets and phones: the stacked steps keep the text and the diagram apart (the gap was 0px, the copy touched the frame) */
+@media(max-width:900px){html body #why-bridgify .wy-copy:not(#x){margin-bottom:20px!important}}
