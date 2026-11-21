@@ -10,3 +10,5 @@ html body #section-1 .al-motion-svg circle:not(#x){filter:drop-shadow(0 0 5px #f
 @media(min-width:1024px){html body #section-1 .aj-journey:not(#x){gap:var(--bf-card-gap,32px)}}
 @media(min-width:701px) and (max-width:1023px){html body #section-1 .aj-journey:not(#x){gap:var(--bf-card-gap,24px)}}
 html body #section-1 .aj-journey :is(button,a):not(#x){pointer-events:none!important;cursor:default!important}
+/* Hero text: the intro paragraph starts at the height of the title (it was centred against the whole left column, so it began above the title) */
+@media(min-width:1024px){html body #section-1 .aj-heading:not(#x){align-items:start!important}html body #section-1 .aj-intro:not(#x){align-self:start!important;margin-top:calc(16.8px + var(--bf-gap-label-title,24px))!important}}
