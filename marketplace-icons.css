@@ -1,0 +1,6 @@
+/* Marketplace icons in the Bridgify icon system: 1.5 stroke, one size per row, round caps, and a light dot that sits on the stroke with the same 1.5 weight. Colours stay as they were. */
+#section-4 svg{width:28px;height:28px;stroke-width:1.5}
+#section-4 svg path{stroke-width:1.5}
+#section-4 svg .mp-dot{fill:#ffe5c9;stroke:#ff9871;stroke-width:1.5;filter:none}
+#marketplace-audiences svg .mp-dot{fill:#fff8f1;stroke:currentColor;stroke-width:1.5}
+html body #section-4 svg:not(#x){width:28px;height:28px;flex:0 0 28px}
