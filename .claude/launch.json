@@ -30,6 +30,16 @@
         "8084"
       ],
       "port": 8084
+    },
+    {
+      "name": "heading-editor",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "scripts/heading-editor.py",
+        "--port",
+        "8130"
+      ],
+      "port": 8130
     }
   ]
 }
