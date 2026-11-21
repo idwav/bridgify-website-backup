@@ -1,0 +1,6 @@
+/* Hotels (owner note, 21 Nov 2026): no orange frames around the hero cards and the "Make experiences part of the stay"
+   previews. Panels keep a quiet warm hairline so they still read as surfaces; the stage around the previews has no
+   frame at all. Buttons and the small map markers keep their own coral. */
+html body:not(#bf-lab) #section-1 :is(.hm-stay,.hm-map,.hm-map-preview),
+html body:not(#bf-lab) #section-3 :is(.hs-mail-window,.hs-email-letter,.hj-device,.hj-checkin,.hj-app-experience,.hj-options>div,.hj-app-stay){border-color:#eee9de1f!important;box-shadow:none!important}
+html body:not(#bf-lab) #section-3 .hs-preview{border:0!important;box-shadow:none!important}
