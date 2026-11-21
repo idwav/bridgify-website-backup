@@ -17,3 +17,5 @@ html body:not(#bf-lab) #section-1 .te-code-content code{color:#FFF8F1!important}
  html body:not(#bf-lab) #section-1 .te-visual .nt-window{height:300px!important}
  html body:not(#bf-lab) #section-1.te-hero{height:auto!important;min-height:100svh}
 }
+/* Hero (owner note, 21 Nov 2026): no frame around the API demo; the windows sit straight on the page. */
+html body:not(#bf-lab) #section-1 .te-visual.nt-stage{border:0!important;box-shadow:none!important;background:none!important;padding-left:0!important;padding-right:0!important}
