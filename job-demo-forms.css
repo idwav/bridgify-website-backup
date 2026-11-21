@@ -1,0 +1,28 @@
+/* One form for "Book a demo" and "Apply for this role": same layout (title on the left, form on the right), same quiet fields,
+   same content line as the rest of the site. Loaded after job.css / apply.css / demo.css. */
+
+/* content line: phone 24, tablet and desktop use --try-margin from wide/grid.css (SPACING-GRID-PLAN) */
+html body:not(#bf-lab) main.job-page{padding-left:24px;padding-right:24px}
+@media(min-width:600px){html body:not(#bf-lab) main.job-page{padding-left:var(--try-margin);padding-right:var(--try-margin)}}
+
+/* quiet fields, shared */
+html body :is(.demo-page,.jl-apply) .af-field :is(input[type=text],input[type=email],input[type=tel],input[type=url],select,textarea):not(#x){border:1px solid #f6c8b529!important;background-color:#1f1512;box-shadow:none!important;transition:border-color .2s}
+html body :is(.demo-page,.jl-apply) .af-field :is(input,select,textarea):not(#x):hover{border-color:#f6c8b552!important}
+html body :is(.demo-page,.jl-apply) .af-field :is(input,select,textarea):not(#x):focus{border-color:#f46649!important;box-shadow:none!important}
+html body :is(.demo-page,.jl-apply) .af-field [aria-invalid=true]:not(#x){border-color:#ff8a6b!important}
+html body :is(.demo-page,.jl-apply) .af-drop:not(#x){border:1px dashed #f6c8b552!important;background:none}
+html body :is(.demo-page,.jl-apply) .af-drop:not(#x):hover{border-color:#f6c8b58a!important;background:#f6c8b50d}
+html body :is(.demo-page,.jl-apply) .af-drop-ico:not(#x){border-color:#f6c8b552;color:#f46649}
+html body :is(.demo-page,.jl-apply) .af-drop-text b:not(#x){color:#eee9de}
+html body :is(.demo-page,.jl-apply) .has-file .af-drop:not(#x){border-style:solid!important;border-color:#f46649!important;background:#f466490f}
+html body :is(.demo-page,.jl-apply,.jl-side) .job-sample:not(#x),html body :is(.demo-page,.jl-apply) .af-preview:not(#x){border:1px dashed #f6c8b52e!important;color:#cdbcb2;background:none}
+html body .jl-apply>h2:not(#x){color:#eee9de}
+
+/* Book a demo: the same split as the role page (title and deck on the left, sticky; the form on the right) */
+@media(min-width:1000px){
+  html body main.demo-page:not(.is-done):not(#x){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(40px,8vw,140px);align-items:start;padding-top:clamp(120px,15vh,160px)}
+  html body main.demo-page:not(.is-done)>.job-hero{position:sticky;top:112px;grid-column:1;border-bottom:0;padding:0}
+  html body main.demo-page:not(.is-done)>.job-hero>h1{max-width:11em;font-size:clamp(38px,4.4vw,66px);line-height:1.06}
+  html body main.demo-page:not(.is-done)>.apply-body{grid-column:2;max-width:41em;padding-top:6px}
+  html body main.demo-page:not(.is-done) .apply-form{max-width:none}
+}

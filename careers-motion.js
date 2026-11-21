@@ -72,8 +72,20 @@
       const first = shifts[0].getBoundingClientRect().top + 28, last = shifts[shifts.length - 1].getBoundingClientRect().top + 28;
       fill.style.setProperty('--p', Math.max(0, Math.min(100, (line - first) / (last - first) * 100)) + '%');
     }
+    // The rail stops 12px before each numbered circle and starts again 12px after it (mask built from the real circle positions).
+    function cut() {
+      const rail = spine.querySelector('.cw-rail'), r = rail.getBoundingClientRect(), gap = 12, stops = [];
+      shifts.forEach(s => { const n = s.querySelector('.cw-node i').getBoundingClientRect(); stops.push([n.top - r.top - gap, n.bottom - r.top + gap]); });
+      const parts = ['#000 0']; stops.forEach(([a, b]) => parts.push(`#000 ${Math.max(0, a)}px`, `transparent ${Math.max(0, a)}px`, `transparent ${b}px`, `#000 ${b}px`));
+      const last = stops[stops.length - 1]; parts.push(`#000 ${last[1]}px`);
+      const m = `linear-gradient(to bottom,${parts.join(',')})`;
+      // after the last circle there is nothing to connect to
+      const g = `${m}`; rail.style.webkitMaskImage = g; rail.style.maskImage = g;
+      rail.style.setProperty('--end', (last[0]) + 'px');
+    }
     const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
-    addEventListener('scroll', req, { passive: true }); addEventListener('resize', req); reduced.addEventListener('change', update);
+    addEventListener('scroll', req, { passive: true }); addEventListener('resize', () => { cut(); req(); }); reduced.addEventListener('change', update);
+    cut(); addEventListener('load', cut); document.fonts && document.fonts.ready.then(cut);
     update();
   }
 
