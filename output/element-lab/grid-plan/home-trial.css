@@ -54,3 +54,23 @@
   html body[data-copy-page="index"]:not(#bf-lab) #sources.trust-strip { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; row-gap: 0 !important; }
   html body[data-copy-page="index"]:not(#bf-lab) #sources div.trust-copy { grid-column: 1 / -1 !important; width: auto !important; }
 }
+
+/* The numbers (#marketplace-results), owner note 21 Nov 2026: the lowest plane was cut flat by the stage edge.
+   The planes reach up to 167 scene units below the 941-unit stage while they converge (the bottom plane starts 140
+   lower and ends 27 past the edge). The stage gets 100 units (5.98cqw) more room under the art, and is sized so the
+   taller stage still fits the screen (1672/1041 instead of 1672/941), keeping the card clear of the header while it
+   sticks. What is left of the opening offset fades out at the bottom and the sides instead of stopping on a hard edge.
+   The proof card was sized in % of the old stage height; the same box is restated in cqw (14.13% / 44.31% of 56.28cqw). */
+@media (min-width: 600px) {
+  html body:not(#bf-lab) #marketplace-results .v2e-stage { width: min(100%, calc(100svh * 1672 / 1041)) !important; aspect-ratio: 1672 / 1041 !important; }
+  html body:not(#bf-lab) #marketplace-results .v2e-copy { padding-left: max(0px, calc(var(--try-margin) - (100vw - min(100vw, 100svh * 1672 / 1041)) / 2)) !important; }
+  html body:not(#bf-lab) #marketplace-results .v2e-proof { top: 7.95cqw !important; height: 24.94cqw !important; }
+  html body:not(#bf-lab) #marketplace-results .v2e-art { height: 39.75cqw !important;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 4%, #000 90%, transparent), linear-gradient(to right, transparent, #000 7%, #000 93%, transparent) !important;
+    mask-image: linear-gradient(to bottom, transparent, #000 4%, #000 90%, transparent), linear-gradient(to right, transparent, #000 7%, #000 93%, transparent) !important;
+    -webkit-mask-composite: source-in !important; mask-composite: intersect !important; }
+  html body:not(#bf-lab) #marketplace-results .v2e-layer-scene { bottom: 5.98cqw !important; }
+  /* Bottom-row numbers a step larger ($280, 3); the row sits a little lower so its rule keeps clear of the dot grid. */
+  html body:not(#bf-lab) #marketplace-results .nb2-stats > div:not(.nb2-main) dd { font-size: 4.3cqw !important; }
+  html body:not(#bf-lab) #marketplace-results .nb2-stats > div:is(:nth-child(2), :nth-child(3)) { bottom: 5.5% !important; }
+}

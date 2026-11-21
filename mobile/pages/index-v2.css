@@ -617,3 +617,10 @@
   /* Round 5: "One connection." ends its own line (the first desktop break stays); "A million+" gets its own line. */
   html body #home #hero-title .v2-hero-br:first-of-type{display:inline!important}
 }
+
+/* The numbers on phones (owner note 21 Nov 2026): $280 and 3 a step larger, and both on one line
+   (the two-line "Average order value" label used to lift $280 above the 3). */
+@media (max-width:599px){
+  html body #marketplace-results .nb2-stats>div:not(.nb2-main) dd{font-size:46px!important}
+  html body #marketplace-results .nb2-stats>div:not(.nb2-main) dt{min-height:2.6em}
+}
