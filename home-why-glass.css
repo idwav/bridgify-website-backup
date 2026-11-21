@@ -65,3 +65,5 @@ html body #why-bridgify .ag-engine:not(#x){border:1px solid #f6c8b5!important;ba
 html body #why-bridgify .ag-out:not(#x){border:1px solid #f6c8b5a0!important;border-radius:1.8cqw!important;background:radial-gradient(at 100% 0%,#ff896234,#0000 50%),radial-gradient(at 0% 100%,#ff78531f,#0000 46%),linear-gradient(115deg,#fff8f112,#0000 60%),#160e0bf2!important;box-shadow:inset 0 1px 1px #fff1da88,inset 0 -1px 1px #ff997b55,0 0 3cqw #f4664926,0 1.8cqw 4cqw #000a!important}
 html body #why-bridgify .ag-thumbs img:not(#x){border-radius:.8cqw!important;border:1px solid #f6c8b533}
 html body #why-bridgify .ag-fn-shell:not(#x){stroke:#f6a58c!important;stroke-opacity:.85!important}
+/* the stray dots: an undrawn wire (dash 1, gap 1, offset 1) still painted its round line cap as a dot at the wire's start, e.g. beside the engine before the catalog wire runs; the gap is now longer than the dash, so nothing shows until the wire draws */
+html body #why-bridgify .hm-wire:not(#x){stroke-dasharray:1 2!important}
