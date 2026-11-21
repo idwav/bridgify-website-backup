@@ -13,3 +13,7 @@
 @media(max-width:480px){.lr-product{gap:12px}.lr-checkout{gap:10px}.lr-checkout button{width:150px;padding-inline:10px}.lr-payment>div{font-size:16px}.lr-balance strong{font-size:28px}}
 
 @media(max-width:850px),(max-height:700px){#section-1.lf-hero{min-height:0}}
+
+/* demo reset: the card fades out and back in instead of the numbers running backwards */
+.lr-window>*:not(.lr-bar){transition:opacity .5s ease}
+.lr-window.lr-fade>*:not(.lr-bar){opacity:0;transition:opacity .3s ease}
