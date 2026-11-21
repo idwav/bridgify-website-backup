@@ -104,3 +104,23 @@ html body #why-bridgify .ds-kiosk:not(#x){top:49cqw!important;height:20cqw!impor
 html body #why-bridgify .ds-kiosk .ds-screen:not(#x){border-radius:1.2cqw!important}
 html body #why-bridgify .ds-kiosk .ds-label:not(#x){top:calc(100% + 1.1cqw)!important}
 }
+
+/* ===== Personalize step: glass cards and chips, one centre line, readable sizes ===== */
+@container (min-width:541px){
+html body #why-bridgify .ps:not(#x){display:flex!important;flex-direction:column!important;justify-content:center!important}
+html body #why-bridgify .ps-head>span:not(#x){font-size:1.1cqw!important}
+html body #why-bridgify .ps-prof:not(#x){font-size:1.4cqw!important;min-height:4cqw!important}
+html body #why-bridgify .ps-prof svg:not(#x){width:2cqw!important;height:2cqw!important}
+html body #why-bridgify .ps-ai:not(#x){font-size:1.2cqw!important}
+html body #why-bridgify .ps-ai svg:not(#x){width:1.8cqw!important;height:1.8cqw!important}
+html body #why-bridgify .ps-caption:not(#x){font-size:1.5cqw!important}
+html body #why-bridgify .ps-body b:not(#x){font-size:1.5cqw!important}
+html body #why-bridgify .ps-body small:not(#x){font-size:1.2cqw!important}
+html body #why-bridgify .ps-match:not(#x){font-size:1.05cqw!important;height:1.3cqw!important}
+html body #why-bridgify .ps-rank:not(#x){font-size:1.05cqw!important}
+}
+html body #why-bridgify .ps-prof:not(#x){border:1px solid #f6c8b566!important;background:radial-gradient(at 100% 0%,#ff89622a,#0000 60%),linear-gradient(115deg,#fff8f10f,#0000 60%),#160e0bf0!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33!important}
+html body #why-bridgify .ps-prof[aria-pressed=true]:not(#x){border-color:#f6c8b5!important;background:radial-gradient(at 100% 0%,#ff896250,#0000 60%),linear-gradient(115deg,#fff8f11c,#0000 60%),#2a1914f2!important;box-shadow:inset 0 1px 1px #fff1da99,inset 0 -1px 1px #ff997b66,0 0 2cqw #f4664938!important}
+html body #why-bridgify .ps-card:not(#x){border:1px solid #f6c8b559!important;border-radius:1.6cqw!important;background:radial-gradient(at 100% 0%,#ff89622a,#0000 46%),radial-gradient(at 0% 100%,#ff78531c,#0000 42%),linear-gradient(115deg,#fff8f10e,#0000 55%),#150d0bf2!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b40,0 1.2cqw 3cqw #0008!important}
+html body #why-bridgify .ps-card.is-top:not(#x){border-color:#f6c8b5!important;box-shadow:inset 0 1px 1px #fff1daaa,inset 0 -1px 1px #ff997b77,0 0 3cqw #f4664930,0 1.2cqw 3cqw #0008!important}
+html body #why-bridgify .ps-thumb:not(#x){border-bottom:1px solid #f6c8b533}
