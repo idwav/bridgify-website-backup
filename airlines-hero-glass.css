@@ -38,3 +38,7 @@ html body #section-3 .al-phone-experience:not(#x){pointer-events:none}
 html body #section-3 .al-touchpoints button span:not(.jp-number):not(#x){-webkit-text-fill-color:currentColor!important;color:#A99D94!important}
 html body #section-3 .al-touchpoints button[aria-selected=true] span:not(.jp-number):not(#x){color:#FFF8F1!important}
 html body #section-3 .al-touchpoints button .jp-number:not(#x){-webkit-text-fill-color:#F46649!important}
+/* the phone's top bar had its own lighter rectangle that ignored the rounded glass behind it: it is transparent now, with only the hairline under it; the logo gets room from the edge */
+html body #section-3 .jp-preview .al-phone-top:not(#x){background:none!important;box-shadow:none!important;padding:0 0 14px!important;margin-bottom:16px!important;border-bottom:1px solid #f6c8b52e!important;border-radius:0!important}
+html body #section-3 .jp-preview .al-airline-brand:not(#x){gap:10px;padding-left:4px}
+html body #section-3 .jp-preview .al-airline-brand svg:not(#x){overflow:visible}
