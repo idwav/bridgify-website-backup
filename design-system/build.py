@@ -12,6 +12,7 @@ import html, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 T = json.load(open(os.path.join(HERE, 'tokens.json')))
+PAGES = json.load(open(os.path.join(HERE, 'pages.json')))
 BPS = ['desktop', 'tablet', 'phone']
 BP_LABEL = {'desktop': 'Desktop', 'tablet': 'Tablet', 'phone': 'Phone'}
 esc = html.escape
@@ -269,19 +270,41 @@ def patterns_section():
         if k.startswith('$'):
             continue
         img = pt['img']
-        shots = ''.join(f'<figure><img src="img/patterns/{img}-{w}.jpg" alt="{esc(pt["name"])}, {lab} today" loading="lazy"><figcaption>{lab} today</figcaption></figure>'
+        shots = '' if not img else ''.join(f'<figure><img src="img/patterns/{img}-{w}.jpg" alt="{esc(pt["name"])}, {lab} today" loading="lazy"><figcaption>{lab} today</figcaption></figure>'
                         for w, lab in (('1440', 'Desktop 1440'), ('768', 'Tablet 768'), ('390', 'Phone 390')))
         rows = ''.join(f'<tr><th scope="row">{BP_LABEL[bp]}</th><td>{esc(pt[bp])}</td></tr>' for bp in BPS)
         change = f'<p class="change"><b>Differs from the site today:</b> {esc(pt["change"])}</p>' if pt.get('change') else ''
         note = f'<p class="dim">{esc(pt["note"])}</p>' if pt.get('note') else ''
-        out.append(f'<article class="comp" id="p-{k}"><h3>{esc(pt["name"])}</h3><p class="lead">Used in: {esc(pt["example"])}</p>{change}'
-                   f'<div class="tw"><table class="spec-t"><tbody>{rows}</tbody></table></div><div class="pshots">{shots}</div>{note}</article>')
+        prov = ' <span class="prov">provisional</span>' if pt.get('status') == 'provisional' else ''
+        out.append(f'<article class="comp" id="p-{k}"><h3>{esc(pt["name"])}{prov}</h3><p class="lead">Used in: {esc(pt["example"])}</p>{change}'
+                   f'<div class="tw"><table class="spec-t"><tbody>{rows}</tbody></table></div>{("<div class=pshots>" + shots + "</div>") if shots else ""}{note}</article>')
     return '\n'.join(out)
 
 
 def rules_rows():
     return ''.join(f'<tr><th scope="row"><code>rule-{k}</code></th><td class="mono">{esc(str(v["$value"]))}</td><td>{esc(v["$description"])}</td></tr>'
                    for k, v in T['rule'].items() if not k.startswith('$'))
+
+
+def pages_section():
+    out = []
+    pats = T['pattern']
+    for key, pg in PAGES['pages'].items():
+        rows = []
+        for i, sec in enumerate(pg['sections']):
+            pt = pats[sec['pattern']]
+            flags = []
+            if pt.get('change'):
+                flags.append('<span class="flag diff">differs from today on phone</span>')
+            if sec.get('check'):
+                flags.append('<span class="flag chk">pattern to confirm</span>')
+            rows.append(f'<tr><td class="num">{i + 1:02d}</td><td><b class="st-t">{esc(sec["title"])}</b>{"<div class=dim>#" + esc(sec["id"]) + "</div>" if sec["id"] else ""}{"".join(flags)}</td>'
+                        f'<td><a href="#p-{sec["pattern"]}">{esc(pt["name"])}</a></td>'
+                        f'<td class="th"><img src="img/pages/{key}-{i:02d}-1440.jpg" alt="Desktop" loading="lazy" width="320"></td>'
+                        f'<td class="th ph"><img src="img/pages/{key}-{i:02d}-390.jpg" alt="Phone" loading="lazy" width="100"></td></tr>')
+        out.append(f'<article class="comp" id="pg-{key}"><h3>{esc(pg["name"])}</h3><p class="lead"><a href="{esc(pg["url"])}">{esc(pg["url"])}</a> · {len(pg["sections"])} sections, then the shared footer.</p>'
+                   f'<div class="tw"><table class="pg-t"><thead><tr><th>#</th><th>Section</th><th>Pattern</th><th>Desktop today</th><th>Phone today</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div></article>')
+    return '\n'.join(out)
 
 
 def page():
@@ -436,6 +459,13 @@ article.comp h3{{margin-top:16px}}
 .pshots img{{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px}}
 .change{{margin:0;border:1px solid #5C4A28;border-radius:10px;padding:10px 14px;color:#EBD9B4;font-size:14px;max-width:85ch}}
 .change b{{color:#F3E4C4}}
+.pg-t td{{vertical-align:top}}
+.pg-t .th img{{display:block;width:320px;max-width:none;height:auto;border:1px solid var(--line);border-radius:6px}}
+.pg-t .th.ph img{{width:100px}}
+.pg-t a{{color:var(--coral3)}}
+.st-t{{color:var(--fg);font-weight:500}}
+.flag{{display:inline-block;margin-top:8px;margin-inline-end:6px;font-size:11px;letter-spacing:.04em;border-radius:999px;padding:2px 8px}}
+.flag.diff{{color:#EBD9B4;border:1px solid #5C4A28}} .flag.chk{{color:#9BC7DD;border:1px solid #2E4A5C}}
 .rad{{width:96px;height:56px;border:1px solid #F6C8B594;background:var(--panel)}}
 .shd{{width:120px;height:56px;border-radius:18px;background:var(--panel);border:1px solid var(--line)}}
 @media (max-width:560px){{.ds-btn:not(.ph):not(.hd){{height:40px;padding:0 18px}}}}
@@ -454,9 +484,9 @@ article.comp h3{{margin-top:16px}}
   <a href="#components">Components</a>
   <a href="#patterns">Patterns</a>
   <a href="#rules">Site rules</a>
+  <a href="#pages">Pages</a>
   <a href="#files">Files</a>
-  <span class="soon">Pages · next</span>
-  <span class="soon">Motion</span>
+  <span class="soon">Motion · next</span>
   <span class="soon">Assets</span>
   <span class="soon">Acceptance</span>
 </nav>
@@ -471,7 +501,7 @@ article.comp h3{{margin-top:16px}}
     <div class="st done"><b>Foundations</b><span>Ready: grid, color, type, spacing</span></div>
     <div class="st done"><b>Components</b><span>Ready: buttons, links, chips, cards, stepper, tabs, FAQ, icons</span></div>
     <div class="st done"><b>Patterns</b><span>Ready: 15 section types on desktop, tablet and phone</span></div>
-    <div class="st"><b>Pages</b><span>Next: 16 pages, section by section</span></div>
+    <div class="st done"><b>Pages</b><span>Ready: 16 pages, 107 sections mapped to patterns</span></div>
     <div class="st"><b>Motion, assets, acceptance</b><span>After pages</span></div>
   </div>
 </section>
@@ -556,12 +586,21 @@ article.comp h3{{margin-top:16px}}
   <div class="tw"><table><thead><tr><th>Rule</th><th>Value</th><th>What it means</th></tr></thead><tbody>{rules_rows()}</tbody></table></div>
 </section>
 
+<section class="ch" id="pages">
+  <div class="eyebrow">Pages</div>
+  <h2>Pages</h2>
+  <p class="lead">Every page, section by section, with the pattern each section uses. Build the page by stacking its patterns in this order and filling them with the page's copy (the live page follows Copy v4). The screenshots show the site today; a flag marks where the spec differs or where the pattern should be confirmed.</p>
+  {pages_section()}
+</section>
+
 <section class="ch" id="files">
   <div class="eyebrow">Handoff</div>
   <h2>Files</h2>
   <ul class="plain">
     <li><code>design-system/tokens.json</code>: every value in this chapter (W3C design tokens format). The single source.</li>
     <li><code>design-system/tokens.css</code>: the same values as CSS custom properties, switching at 600 and 1024.</li>
+    <li><code>design-system/pages.json</code>: every page's sections and their patterns.</li>
+    <li><code>design-system/img/pages/</code>: today's screenshot of every section at 1440 and 390.</li>
     <li><code>design-system/img/patterns/</code>: today's screenshots of each pattern's example at 1440, 768 and 390.</li>
     <li><code>design-system/fonts/</code>: Chillax Light, Regular, Medium and Sofia Sans variable.</li>
   </ul>
