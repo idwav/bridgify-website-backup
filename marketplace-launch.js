@@ -23,10 +23,10 @@
   paths.forEach((path,i)=>path.setAttribute('d',`M ${anchors[i].x} ${anchors[i].y} L ${anchors[i+1].x} ${anchors[i+1].y}`));
  };
  // One animation clock controls particles, completion marks and storefront states.
- const travelDuration=1550,tailDuration=8*F.delay;
- const firstDeparture=1400,configurationArrival=firstDeparture+travelDuration;
- const secondDeparture=5600,launchArrival=secondDeparture+travelDuration;
- const liveAt=launchArrival+tailDuration+850,cycle=liveAt+3600;
+ const travelDuration=1100,tailDuration=0;
+ const firstDeparture=1000,configurationArrival=firstDeparture+travelDuration;
+ const secondDeparture=3700,launchArrival=secondDeparture+travelDuration;
+ const liveAt=launchArrival+tailDuration+600,cycle=liveAt+3000;
  let elapsed=0,last=0,raf=0,visible=false;
  const hideMotion=()=>{
   pulses.forEach(pulse=>pulse.setAttribute('opacity',0));
@@ -35,12 +35,12 @@
  };
  const render=()=>{
   const t=elapsed%cycle,day=t<configurationArrival?0:t<launchArrival?1:2;
-  const step=t>=liveAt?4:t>=configurationArrival+2400?3:t>=configurationArrival+1200?2:t>=configurationArrival?1:0;
+  const step=t>=liveAt?4:t>=configurationArrival+1700?3:t>=configurationArrival+850?2:t>=configurationArrival?1:0;
   if(work.dataset.launchStep!==String(step))work.dataset.launchStep=step;
   // Day 1: the domain is typed in and the logo arrives. Day 2: the whole store takes the brand's colours.
-  const dom='trips.horizon.com',typedN=step>=1?dom.length:t<300?0:Math.min(dom.length,Math.floor((t-300)/55));
+  const dom='trips.horizon.com',typedN=step>=1?dom.length:t<200?0:Math.min(dom.length,Math.floor((t-200)/40));
   if(addr.dataset.n!==String(typedN)){addr.dataset.n=typedN;addr.innerHTML=typedN===0?'experiences.<strong>yourbrand.com</strong>':typedN<=6?dom.slice(0,typedN):'trips.<strong>'+dom.slice(6,typedN)+'</strong>'}
-  const logoOn=step>=1||t>=1300;if(brandMark.dataset.on!==String(logoOn)){brandMark.dataset.on=logoOn;brandMark.innerHTML=logoOn?'<i class="hz-mark"></i>HORIZON':'YOUR LOGO'}
+  const logoOn=step>=1||t>=900;if(brandMark.dataset.on!==String(logoOn)){brandMark.dataset.on=logoOn;brandMark.innerHTML=logoOn?'<i class="hz-mark"></i>HORIZON':'YOUR LOGO'}
   const theme=step>=1?'horizon':'';if((work.dataset.brand||'')!==theme){if(theme)work.dataset.brand=theme;else delete work.dataset.brand}
   buttons.forEach((button,i)=>{
    const complete=i===0?t>=firstDeparture:i===1?t>=secondDeparture:t>=liveAt;
@@ -58,7 +58,7 @@
   const index=t>=secondDeparture?1:0,age=t-(index?secondDeparture:firstDeparture),path=paths[index];
   pulses.forEach((pulse,i)=>{
    const q=(age-i*F.delay)/travelDuration;
-   if(reduced.matches||q<=0||q>=1){pulse.setAttribute('opacity',0);return}
+   if(reduced.matches||q<=0||q>=1||!path.getAttribute('d')){pulse.setAttribute('opacity',0);return}
    const point=path.getPointAtLength(path.getTotalLength()*F.smooth(q));
    pulse.setAttribute('cx',point.x);pulse.setAttribute('cy',point.y);
    pulse.setAttribute('r',F.radius(i)*(.8+.3*Math.sin(Math.PI*q)));

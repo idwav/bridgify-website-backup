@@ -1,0 +1,44 @@
+/* Airlines hero journey in the glass language: the three surfaces get the peach edge, corner lights, translucent body and rim light; dashed rules become a quiet peach line; the step circles become our numbering. Colours of text and buttons stay. */
+html body #section-1 :is(.aj-pass,.aj-offer,.aj-ticket):not(#x){background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;border:1px solid #f6c8b594!important;border-radius:24px!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 40px #f4664926,0 20px 50px #0006!important}
+html body #section-1 .aj-offer:not(#x){overflow:hidden}
+html body #section-1 :is(.aj-flight,.aj-ticket-bottom):not(#x){border:0!important;border-top:1px solid #f6c8b52e!important}
+html body #section-1 .aj-action:not(#x){border:1px solid #f6c8b57a!important}
+/* Wires between the surfaces: same coral cable as the rest of the site, with the soft glow the glass panels carry; contacts sit exactly on the card edge */
+html body #section-1 .al-motion-svg path:not(#x){stroke:#f46649;stroke-width:1.5;filter:drop-shadow(0 0 4px #f4664966)}
+html body #section-1 .al-motion-svg circle:not(#x){filter:drop-shadow(0 0 5px #f4664999)}
+/* Gap between the three surfaces from the table (card gap: 32 desktop, 24 tablet); the animation is a picture, nothing in it reacts to the pointer */
+@media(min-width:1024px){html body #section-1 .aj-journey:not(#x){gap:var(--bf-card-gap,32px)}}
+@media(min-width:701px) and (max-width:1023px){html body #section-1 .aj-journey:not(#x){gap:var(--bf-card-gap,24px)}}
+html body #section-1 .aj-journey :is(button,a):not(#x){pointer-events:none!important;cursor:default!important}
+/* Hero text: the intro paragraph starts at the height of the title (it was centred against the whole left column, so it began above the title) */
+@media(min-width:1024px){html body #section-1 .aj-heading:not(#x){align-items:start!important}html body #section-1 .aj-intro:not(#x){align-self:start!important;margin-top:calc(16.8px + var(--bf-gap-label-title,24px))!important}}
+html body #section-2 svg .al-dot:not(#x){fill:#ffe2c6;stroke:currentColor;stroke-width:1.5}
+html body #section-2 :is(.ar-airline,.ar-channels,.ar-channel) svg:not(#x){overflow:visible;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---- Help passengers plan (#section-3) ---- */
+/* Our numbering (Why Bridgify stepper): 01-04 coral 13px/550, uppercase 13px/550 labels with .12em tracking, grey until active; 2px track that is coral for the active step */
+html body #section-3 .al-touchpoints button:not(#x){position:relative;display:grid;grid-template-columns:40px minmax(0,1fr);gap:0;align-items:center;min-height:48px;padding:10px 14px 10px 14px;border:0!important;background:none!important;font:550 13px/1.4 Sofia,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#A99D94}
+html body #section-3 .al-touchpoints button::before:not(#x){content:none}
+html body #section-3 .al-touchpoints button::before,html body #section-3 .al-touchpoints button::after{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;border-radius:2px;background:rgba(178,138,104,.24)}
+html body #section-3 .al-touchpoints button::after{background:#F46649;transform:scaleY(0);transform-origin:top;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+html body #section-3 .al-touchpoints button[aria-selected=true]::after{transform:none}
+html body #section-3 .al-touchpoints button .jp-number:not(#x){font:550 13px/1.4 Sofia,sans-serif;letter-spacing:.12em;color:#F46649!important}
+html body #section-3 .al-touchpoints button span:not(.jp-number):not(#x){font:550 13px/1.4 Sofia,sans-serif;letter-spacing:.12em;color:inherit!important}
+html body #section-3 .al-touchpoints button[aria-selected=true]:not(#x){color:#FFF8F1}
+/* the phone: glass, centred against the left column */
+@media(min-width:1024px) and (min-height:801px){
+html body #section-3 .jp-sticky:not(#x){top:64px;min-height:calc(100svh - 64px);padding:32px 0;align-items:center}
+html body #section-3 .jp-preview:not(#x){align-self:center}
+}
+html body #section-3 .jp-preview .al-phone:not(#x){border:1px solid #f6c8b594!important;border-radius:24px;background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 40px #f4664926,0 20px 50px #0006!important}
+html body #section-3 .al-phone-top:not(#x){border-color:#f6c8b52e!important}
+html body #section-3 .al-loyalty:not(#x){border-color:#f6c8b52e!important}
+html body #section-3 .al-text-link:not(#x){border-color:#f6c8b57a!important}
+html body #section-3 .al-phone-experience:not(#x){pointer-events:none}
+html body #section-3 .al-touchpoints button span:not(.jp-number):not(#x){-webkit-text-fill-color:currentColor!important;color:#A99D94!important}
+html body #section-3 .al-touchpoints button[aria-selected=true] span:not(.jp-number):not(#x){color:#FFF8F1!important}
+html body #section-3 .al-touchpoints button .jp-number:not(#x){-webkit-text-fill-color:#F46649!important}
+/* the phone's top bar had its own lighter rectangle that ignored the rounded glass behind it: it is transparent now, with only the hairline under it; the logo gets room from the edge */
+html body #section-3 .jp-preview .al-phone-top:not(#x){background:none!important;box-shadow:none!important;padding:0 0 14px!important;margin-bottom:16px!important;border-bottom:1px solid #f6c8b52e!important;border-radius:0!important}
+html body #section-3 .jp-preview .al-airline-brand:not(#x){gap:10px;padding-left:4px}
+html body #section-3 .jp-preview .al-airline-brand svg:not(#x){overflow:visible}

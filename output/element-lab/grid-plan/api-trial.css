@@ -61,3 +61,18 @@
 @media (min-width: 600px) and (max-width: 1023px) {
   html body:not(#bf-lab) #integration.am-section .am-heading > .am-actions { flex-direction: column !important; justify-content: flex-start !important; align-items: flex-start !important; gap: 12px !important; margin-left: 0 !important; margin-right: 0 !important; padding: 0 !important; border: 0 !important; }
 }
+
+/* "Your team builds the interface. We manage the supply layer." (#integration), Idan review 21 Nov 2026: the owner kept
+   the section's size (one screen, the same section padding, heading gap and card padding as before) and took Idan's
+   alignment inside the cards. */
+@media (min-width: 1024px) {
+  /* the services fill the card to its bottom edge (equal rows), so no empty band opens under the last one */
+  html body:not(#bf-lab) #integration.am-section .am-managed { display: flex !important; flex-direction: column !important; }
+  html body:not(#bf-lab) #integration.am-section .am-managed .am-services { flex: 1 1 auto !important; display: grid !important; grid-auto-rows: 1fr !important; gap: 12px !important; margin-top: var(--bf-gap-text-text) !important; }
+}
+@media (min-width: 1024px) {
+  /* inside "You build": the browser and the strip sit on the same edges as the text (they bled 3% outside it), 24 between the blocks, the strip at the card's bottom */
+  html body:not(#bf-lab) #integration.am-section .am-build { display: flex !important; flex-direction: column !important; }
+  html body:not(#bf-lab) #integration.am-section .am-build .am-browser { margin: var(--bf-gap-to-link) 0 var(--bf-gap-to-link) !important; }
+  html body:not(#bf-lab) #integration.am-section .am-build .am-brand-strip { margin: auto 0 0 !important; }
+  }

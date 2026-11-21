@@ -9,3 +9,13 @@ html:not(.lu-enhanced) .lu-explanation{grid-template-rows:1fr;opacity:1}
 .lu-pin.is-flat{height:auto}.lu-pin.is-flat .lu-sticky{position:static;padding-top:0}
 
 .lu-sticky{display:flex;flex-direction:column;justify-content:center;min-height:calc(100svh - 100px);padding-top:0}
+
+/* Use cases in the glass language: the preview is a glass panel (corner lights, translucent body, peach edge, rim light, glow), the tabs and cards carry the quiet peach edge, the stage sits centred under the 64px header. Texts and colours stay. */
+html body #section-3 .lu-preview:not(#x){border:1px solid #f6c8b594!important;border-radius:24px!important;background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 40px #f4664926,0 20px 50px #0006!important}
+html body #section-3 .lu-bankcard:not(#x){border:1px solid #f6c8b57a!important;border-radius:16px!important;background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0004!important}
+html body #section-3 .lu-preview :is(.lu-bar,.lu-head,header):not(#x){border-color:#f6c8b52e!important}
+html body #section-3 .lu-preview [class*=product] :not(img),html body #section-3 .lu-preview figure:not(#x){border-color:#f6c8b57a!important}
+html body #section-3 .lu-tabs button:not(#x){border:1px solid #f6c8b57a!important;border-radius:16px!important;box-shadow:inset 0 1px 1px #fff,0 4px 12px #50342c10!important}
+html body #section-3 .lu-tabs button[aria-selected=true]:not(#x){border-color:#f6c8b5!important;background:radial-gradient(at 100% 0%,#ff89622e,#0000 40%),linear-gradient(135deg,#fff8f1,#f6e4d6)!important;box-shadow:inset 0 1px 1px #fff,0 0 2px #ffb09b55,0 8px 20px #f4664922!important}
+html body #section-3 .lu-explanation-inner .lf-btn:not(#x){border:1px solid #f6c8b5!important}
+html body #section-3 .lu-choice:not(#x){border-color:#f6c8b52e!important}
