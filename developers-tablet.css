@@ -7,6 +7,19 @@
   html body:not(#bf-lab) section#section-1.dev-hero:not(#x):not(#y){padding-left:32px!important;padding-right:32px!important}
   html body:not(#bf-lab) section#section-1 .dev-code-copy:not(#x):not(#y){margin-left:0!important;margin-right:0!important;width:100%!important;max-width:none!important;align-self:stretch!important}
   html body:not(#bf-lab) section#section-1 .dev-code-copy>*:not(#x):not(#y){margin-left:0!important}
-  /* 2 · Find what you need */
-  html body:not(#bf-lab) section#section-2:not(#x):not(#y){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  /* 3 · Performance: redesigned for the iPad: title, text and button stacked; the animation screen full width; the active group of steps under it, switching softly at one size */
+  html body:not(#bf-lab) section#performance:not(#x):not(#y){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body:not(#bf-lab) #performance .dev-heading:not(#x):not(#y){display:block!important;margin-bottom:0!important}
+  html body:not(#bf-lab) #performance .dev-heading>*:not(#x):not(#y){width:auto!important;max-width:none!important;padding-left:0!important;margin-left:0!important;border-left:0!important}
+  html body:not(#bf-lab) #performance .dev-heading p:not(#x):not(#y),html body:not(#bf-lab) #performance .dev-heading div:not(#x):not(#y){padding-left:0!important;margin-left:0!important;border-left:0!important}
+  html body:not(#bf-lab) #performance .dev-heading h2:not(#x):not(#y){margin-bottom:24px!important}
+  html body:not(#bf-lab) #performance .dev-heading p:not(#x):not(#y){margin-bottom:24px!important;height:auto!important}
+  html body:not(#bf-lab) #performance .dp6-grid:not(#x):not(#y){display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:24px!important;margin-top:48px!important;height:auto!important}
+  html body:not(#bf-lab) #performance .dp6-grid:not(#x):not(#y){grid-template-areas:'stage' 'beats'!important}
+  html body:not(#bf-lab) #performance .dp6-beats:not(#x):not(#y)::before,html body:not(#bf-lab) #performance .dp6-beats:not(#x):not(#y)::after,html body:not(#bf-lab) #performance .dp6-grid:not(#x):not(#y)::before,html body:not(#bf-lab) #performance .dp6-grid:not(#x):not(#y)::after,html body:not(#bf-lab) #performance .dp6-box:not(#x):not(#y)>i:not(.dp6-caret),html body:not(#bf-lab) #performance .dp6-beats>svg,html body:not(#bf-lab) #performance .dp6-grid>svg{display:none!important;content:none!important}
+  html body:not(#bf-lab) #performance .dp6-stage:not(#x):not(#y){grid-area:stage!important}
+  html body:not(#bf-lab) #performance .dp6-beats:not(#x):not(#y){grid-area:beats!important;display:grid!important;grid-template-columns:minmax(0,1fr)!important;height:auto!important;gap:0!important}
+  html body:not(#bf-lab) #performance .dp6-box:not(#x):not(#y){grid-area:1/1!important;height:auto!important;align-self:stretch!important;min-width:0!important;transition:opacity .6s cubic-bezier(.45,0,.2,1)!important}
+  html body:not(#bf-lab) #performance .dp6-box:not(.is-lit):not(#x):not(#y){opacity:0!important;visibility:hidden!important}
+  html body:not(#bf-lab) #performance .dp6-stage:not(#x):not(#y){height:400px!important;zoom:.8}
 }
