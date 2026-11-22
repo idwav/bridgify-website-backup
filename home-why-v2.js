@@ -123,7 +123,7 @@
     const t = centre(target, stage);
     items.forEach(i => { const c = centre(i, stage); i.style.setProperty(px, `${t.x - c.x}px`); i.style.setProperty(py, `${t.y - c.y}px`); });
   };
-  const narrow = w => w < 540;
+  const narrow = w => w < (matchMedia('(orientation: portrait)').matches ? 620 : 540);   // upright screens keep the tall diagram up to 620 (owner, 22 Nov 2026)
 
   /* ---------- 4.1 Aggregate ---------- */
   function aggregate(stage) {
