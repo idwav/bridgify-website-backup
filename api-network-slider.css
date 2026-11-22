@@ -108,9 +108,7 @@
 @media (max-width:900px){
   #network .an-split{grid-template-columns:minmax(0,1fr);gap:36px}
 }
-/* iPad on its side and small laptops (901-1179px): two columns left the animation only ~540px wide, which switches it to its tall phone layout (771px, taller than the screen). The copy goes above it here, like on upright iPads, and the animation is 760px wide in its wide layout (about 500px tall), so the whole section fits and nothing is taller than the screen. */
+/* iPad on its side and small laptops (901-1179px): the two columns stay as they were; only the animation on the right is smaller (410px wide, about 590px tall). It was 538 x 771px, taller than the screen. */
 @media (min-width:901px) and (max-width:1179px){
-  #network .an-split{grid-template-columns:minmax(0,1fr);gap:40px}
-  #network .an-left .an-heading p{max-width:62ch}
-  #network .an-split .nz-wrap{width:min(100%,760px)}
+  #network .an-split .nz-wrap{width:min(100%,410px);justify-self:end}
 }
