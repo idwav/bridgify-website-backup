@@ -17,7 +17,7 @@
   const wy = $('#why-bridgify');
   if (wy) {
     const steps = $$('.wy-step', wy), tabs = $$('.wy-tab', wy);
-    const wyTabs = A.tabs(wy, steps, {existing: tabs, when: matchMedia('(max-width:900px)')});
+    A.tabs(wy, steps, {existing: tabs, when: matchMedia('(max-width:900px)')});
     /* Phones: the step boxes sit in one sideways row; keep the active one centred. */
     const row = $('.wy-tabs', wy);
     if (row) new MutationObserver(() => {
@@ -25,32 +25,44 @@
       if (c && row.scrollWidth > row.clientWidth) row.scrollTo({left: c.offsetLeft - row.offsetLeft - (row.clientWidth - c.offsetWidth) / 2, behavior: 'smooth'});
     }).observe(row, {subtree: true, attributes: true, attributeFilter: ['aria-selected']});
 
-    /* Phones only (owner, 22 Nov 2026): while the step buttons are on screen the steps move on by themselves every
-       2 seconds (Aggregate, Normalize, Distribute, Personalize, then again). Tapping a step still works and restarts the
-       2 seconds. When the reader scrolls on and the buttons leave the screen (to look at a diagram, or past the section),
-       the current step stays, so nothing changes under the reader. Off with reduced motion and in a background tab. */
-    const phone = matchMedia('(max-width:599px)'), still = matchMedia('(prefers-reduced-motion: reduce)');
-    if (wyTabs && steps.length > 1) {
-      let timer = 0, on = false;
-      const current = () => Math.max(0, tabs.findIndex(t => t.getAttribute('aria-selected') === 'true'));
-      const bar = tabs[0] && tabs[0].parentElement;
-      const live = () => {
-        if (!phone.matches || still.matches || document.hidden || !bar) return false;
-        const t = bar.getBoundingClientRect();
-        return t.top > -t.height / 2 && t.bottom < innerHeight * 0.85;
+    /* Phones: scroll-driven (owner decisions 21 and 22 Nov 2026, design system pattern.pinned-steps; replaces the
+       automatic 2s steps of PR #107). The step row and the active step hold on screen and the page's scroll moves
+       through the four steps; after the last the page goes on. A tap on a step scrolls to it. */
+    const body = $('.wy-body', wy);
+    if (body && row && A.MQ.mobile.matches) {
+      /* One stage height for all four steps (the screen under the header), so nothing jumps between steps; a step's
+         diagram is zoomed down only when it would not fit under its copy. */
+      const head = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ad-header-h')) || 64;
+      const H = () => innerHeight - head() - 24;
+      const fitStep = () => {
+        const s = steps.find(e => e.offsetHeight > 0), v = s && $('.wy-visual', s);
+        if (!v) return;
+        const on = p && p.wrap.classList.contains('is-on');
+        /* scale (not zoom): the diagrams size parts of themselves from their own width, so zoom does not shrink them evenly */
+        v.style.scale = ''; v.style.transformOrigin = ''; v.style.marginBottom = '';
+        const room = body.getBoundingClientRect().bottom - 8 - v.getBoundingClientRect().top, nat = v.offsetHeight;
+        if (on && nat > room) {
+          const k = room / nat;
+          v.style.scale = k.toFixed(3); v.style.transformOrigin = 'top center';
+          v.style.setProperty('margin-bottom', -Math.ceil(nat * (1 - k)) + 'px', 'important');
+        }
       };
-      const restart = () => {
-        clearInterval(timer); timer = 0; on = live();
-        if (on) timer = setInterval(() => { if (live()) wyTabs.show((current() + 1) % steps.length); else check(); }, 2000);
-      };
-      const check = () => { if (live() !== on) restart(); };
-      let raf = 0; const onScroll = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; check(); }); };
-      addEventListener('scroll', onScroll, {passive: true}); addEventListener('resize', onScroll);
-      if (bar) bar.addEventListener('click', () => setTimeout(restart, 0), true);
-      steps.forEach(st => st.addEventListener('touchend', () => setTimeout(restart, 0), {passive: true}));
-      document.addEventListener('visibilitychange', check);
-      phone.addEventListener('change', check); still.addEventListener('change', check);
-      check();
+      let scrollStep = 0, p = null;
+      body.style.setProperty('--wy-stage-h', H() + 'px');
+      p = A.pin([body], {steps: tabs.length, per: .5, className: 'ad-wy-pin', onStep: i => {
+        scrollStep = i; tabs[i].click(); fitStep();
+      }});
+      if (p) {
+        /* A tap is handled before it reaches the buttons (capture listener elsewhere), so follow the selection: a step
+           chosen by tap, not by scroll, scrolls the page to that step. */
+        new MutationObserver(() => {
+          const i = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
+          if (i > -1 && i !== scrollStep && p.wrap.classList.contains('is-on')) p.go(i);
+          requestAnimationFrame(fitStep);
+        }).observe(row, {subtree: true, attributes: true, attributeFilter: ['aria-selected']});
+        addEventListener('resize', () => { body.style.setProperty('--wy-stage-h', H() + 'px'); fitStep(); });
+        addEventListener('load', fitStep); fitStep();
+      }
     }
 
     /* Phones: each supply source in the Aggregate step shows a small photo instead of its icon, frameless and without

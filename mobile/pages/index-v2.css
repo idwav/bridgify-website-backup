@@ -633,3 +633,10 @@
   html body #marketplace-results .nb2-stats>div:not(.nb2-main) dd{font-size:46px!important}
   html body #marketplace-results .nb2-stats>div:not(.nb2-main) dt{min-height:2.6em}
 }
+
+/* Why Bridgify, scroll-driven on phones: every step's text sits the same distance under the step row as the first
+   step's (rhythm gives only the first paragraph its 16px), so the text does not jump between steps. */
+@media (max-width:599px){
+  html body #why-bridgify .ad-wy-pin .wy-step .wy-copy > p{margin-top:16px!important}
+  html body #why-bridgify .ad-wy-pin.is-on .wy-body{height:var(--wy-stage-h)!important}
+}
