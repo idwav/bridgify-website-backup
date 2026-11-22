@@ -81,8 +81,9 @@ html body #opportunity-study .pb-facts li:not(#x){font-size:14px!important;line-
 }
 
 html body #opportunity-study .pb-intro p:not(#x){color:#fff!important;opacity:1!important}
-html body #opportunity-study .pb-more[hidden]:not(#x){display:block!important}
-html body #opportunity-study .pb-toggle{display:none!important}
+/* opened from the start on desktop only; phones and tablets keep Read more (round 4, 22 Nov 2026) */
+@media(min-width:1024px){html body #opportunity-study .pb-more[hidden]:not(#x){display:block!important}
+html body #opportunity-study .pb-toggle{display:none!important}}
 /* final tightening on the live page */
 html body #opportunity-study.pb2 .pb-intro p:not(#x):not(#y),html body #opportunity-study.pb2 .pb-intro .pb-more:not(#x):not(#y){color:#fff!important;opacity:1!important}
 @media(min-width:1024px){

@@ -339,9 +339,10 @@
   html body #opportunity-study { padding-top: 80px !important; padding-bottom: 80px !important; row-gap: 0px !important; }
   html body #opportunity-study > header:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
   html body #opx-opportunity-title { margin-top: 0px !important; margin-bottom: 0px !important; }
-  html body #opportunity-study > header:nth-child(1) > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
+  html body #opportunity-study > header:nth-child(1) > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; row-gap: 0px !important; }
   html body #opportunity-study > header:nth-child(1) > div:nth-child(2) > p:nth-child(1) { margin-top: 24px !important; margin-bottom: 0px !important; }
-  html body #opportunity-study > p:nth-child(2) { margin-top: -46px !important; margin-bottom: 0px !important; }
+  html body #opportunity-study > header:nth-child(1) > div:nth-child(2) > button:nth-child(3) { margin-top: 8px !important; margin-bottom: 0px !important; }
+  html body #opportunity-study > p:nth-child(2) { margin-top: 16px !important; margin-bottom: 0px !important; }
   html body #opportunity-study > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; }
   html body #why-bridgify { padding-top: 80px !important; padding-bottom: 80px !important; }
   html body #why-bridgify > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; }
