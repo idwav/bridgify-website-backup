@@ -1,2 +1,4 @@
-/* Opportunity: our icon language, the light dot sits on the 1.5 stroke */
-html body #opportunity-study .pb-facts .hm-ico .icon-node{fill:#fff1e7;stroke:none}
+/* Opportunity list icons in our icon language: coral 1.5 stroke, the light dot on the stroke, inside a peach-edged round chip (the same chip as the other sections' icons) */
+html body #opportunity-study .pb-facts li svg.hm-ico:not(#x){box-sizing:border-box!important;flex:none!important;width:36px!important;height:36px!important;padding:8px!important;color:#F46649!important;stroke:#F46649!important;stroke-width:1.5!important;border:1px solid #f6c8b566!important;border-radius:50%!important;background:#160e0b!important;box-shadow:inset 0 1px 1px #fff1da33!important}
+html body #opportunity-study .pb-facts .hm-ico .icon-node:not(#x){fill:#fff1e7!important;stroke:none!important}
+html body #opportunity-study .pb-facts li:not(#x){align-items:center!important}
