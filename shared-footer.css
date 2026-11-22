@@ -34,9 +34,9 @@
 @media(max-width:1100px){.bf-footer-nav{gap:32px;grid-template-columns:1.1fr 1.4fr 1fr}.bf-footer-brand{width:100%}}
 @media(max-width:760px){
 .bf-footer-shell{padding:10px}.bf-footer{--bf-gutter:24px;border-radius:22px;padding-top:32px}
-.bf-footer-nav{grid-template-columns:1fr 1fr;gap:30px 24px;margin-top:32px}.bf-footer .bf-footer-group h3{font-size:10px;gap:12px;margin-bottom:14px}.bf-footer-group h3>span{font-size:13px}.bf-footer-group ul{gap:10px}
+.bf-footer-nav{grid-template-columns:1fr 1fr;gap:30px 24px;margin-top:32px}.bf-footer .bf-footer-group h3{font-size:11px;gap:12px;margin-bottom:14px}.bf-footer-group h3>span{font-size:13px}.bf-footer-group ul{gap:10px}
 .bf-footer-brand{width:100%;max-width:none;margin:32px 0 24px}.bf-footer-brand>span{font-size:10px;margin-top:8px}.bf-footer .bf-footer-small-print{font-size:13px;margin-bottom:24px}
-.bf-footer-bottom{gap:16px;font-size:11px;padding:20px 0}.bf-footer-top-link{font-size:10px;gap:5px}.bf-footer-top-link svg{width:17px;height:17px}}
+.bf-footer-bottom{gap:16px;font-size:11px;padding:20px 0}.bf-footer-top-link{font-size:11px;gap:5px}.bf-footer-top-link svg{width:17px;height:17px}}
 @media(max-width:420px){.bf-footer-nav{gap:30px 18px}}
 @media(prefers-reduced-motion:reduce){.bf-footer *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 /* Closing line: one step below the section headline (brand-typography.css sets section size with !important) */

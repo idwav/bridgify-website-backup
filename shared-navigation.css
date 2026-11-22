@@ -62,3 +62,5 @@ html body .site-header-common .site-nav-menu a[aria-current="page"]{color:#FFB19
 html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common:not(.nav-tone-dark) nav>.site-nav-group.has-current>summary,
 html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common:not(.nav-tone-dark) nav>a[aria-current="page"],
 html body:is([data-copy-page="press"],[data-copy-page="contact"]) .site-header-common .site-nav-menu a[aria-current="page"]{color:#A63D29!important}
+/* phone: header actions at 11px (WORKFLOW.md: header action 11px; MOBILE-RULES T5), the tablet range keeps its 10px */
+@media(max-width:599px){html body .site-header-common .nav-actions>a{font-size:11px!important;padding-inline:12px!important;min-width:112px!important}}
