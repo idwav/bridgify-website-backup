@@ -103,3 +103,11 @@
   .tm-links a{min-height:48px;border-top:0;font:400 17px/1.35 Sofia,sans-serif}
   .tm-group.is-open .tm-links{padding-bottom:16px}
 }
+@media (min-width:600px) and (max-width:1023px){
+  /* separators only: the site's shared button style frames every button, so the group titles are set back to plain thin rows here */
+  html body .tm-sheet .tm-title:not(#x),html body .tm-sheet .tm-title.brand-action:not(#x),html body .tm-sheet .tm-title.brand-coral-frame:not(#x){
+    --brand-button-start:#0000;--brand-button-end:#0000;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;outline-color:#F46649;
+    min-height:68px!important;padding:0!important;color:#EEE9DE!important;font:300 26px/1.2 Chillax,sans-serif!important;letter-spacing:-.02em!important;text-transform:uppercase;transform:none!important}
+  html body .tm-sheet .tm-group.is-open>.tm-title:not(#x),html body .tm-sheet .tm-group.has-current>.tm-title:not(#x){color:#FFB194!important}
+  html body .tm-sheet .tm-title:hover:not(#x){background:none!important;transform:none!important;box-shadow:none!important}
+}
