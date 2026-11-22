@@ -1,10 +1,12 @@
 /* Home on a standard tablet (600-900px): tabs for Why Bridgify and Products (one part at a time, switching every 6 seconds until touched),
    and Security + FAQ wrapped to share one screen. Outside that width the tab bars are hidden by CSS and the wrapper is taken apart. */
 (() => {
+  if (window.__htTablet) return; window.__htTablet = true;
   const MQ = matchMedia('(min-width:600px) and (max-width:900px)'), reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   function tabs(rootSel, itemSel, hostSel, labels) {
     const root = $(rootSel), items = $$(itemSel, root), host = $(hostSel, root); if (!root || !items.length || !host) return;
+    if (host.querySelector('.ht-tabs')) return;  // the tab bar is built only once
     const bar = document.createElement('div'); bar.className = 'ht-tabs'; bar.setAttribute('role', 'tablist');
     let cur = 0, timer = 0, visible = false, touched = false;
     const show = i => { cur = i; items.forEach((e, j) => e.classList.toggle('ht-on', j === i)); $$('button', bar).forEach((b, j) => b.setAttribute('aria-selected', String(j === i))); };
