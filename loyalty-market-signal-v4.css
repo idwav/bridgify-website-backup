@@ -84,3 +84,54 @@ html body #market-signal .lm4-stage:not(#x){height:auto}
 .lm4-strip{grid-template-columns:auto minmax(0,1fr);padding:20px 24px}.lm4-strip p{grid-column:1/-1}
 }
 @media(max-width:599px){html body #market-signal.lm4:not(#x){padding-top:64px!important;padding-bottom:64px!important}}
+
+/* ===== v4: living devices ===== */
+/* laptop reads as a laptop: camera, thick lid, hinge and a slice of the base */
+.lm4-lscreen{position:relative;border-width:9px 9px 0 9px!important;border-radius:16px 16px 0 0!important;overflow:hidden}
+.lm4-cam{position:absolute;left:50%;top:-6px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#3a2a24;z-index:3}
+.lm4-hinge{position:absolute;left:-6%;right:-6%;bottom:0;height:12px;border-radius:0 0 14px 14px;background:linear-gradient(#d9cfc7,#a79a90);box-shadow:0 -1px 0 #fff8 inset,0 6px 14px #6a2a1a44}
+.lm4-hinge::before{content:"";position:absolute;left:50%;top:0;width:18%;height:5px;margin-left:-9%;border-radius:0 0 8px 8px;background:#8d8076}
+.lm4-laptop{position:relative}
+.lm4-lscreen{height:clamp(240px,23cqw,320px)!important}
+.lm4-more{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 14px 0}
+.lm4-more img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:8px;border:1px solid #18101018}
+/* cursor */
+.lm4-cursor{position:absolute;z-index:4;width:18px;height:18px;left:12%;top:70%;opacity:0;transition:left 1s cubic-bezier(.45,0,.2,1),top 1s cubic-bezier(.45,0,.2,1),opacity .3s}
+/* phone reads as a phone */
+.lm4-phone{box-shadow:0 0 0 3px #26191a,0 0 0 4px #f4664955,0 -1px 0 4px #f4664933,0 22px 44px #6a2a1a55!important}
+.lm4-side{position:absolute;width:3px;border-radius:2px 0 0 2px;background:#26191a;z-index:3}
+.lm4-side.s1{left:-7px;top:90px;height:30px}.lm4-side.s2{right:-7px;top:110px;height:54px;border-radius:0 2px 2px 0}
+.lm4-tap{position:absolute!important;z-index:5;width:34px;height:34px;margin:-17px 0 0 -17px;left:70%;top:230px;border-radius:50%;background:#f4664966;opacity:0;transform:scale(.3);pointer-events:none}
+.lm4-phone{height:clamp(320px,29cqw,400px)!important}
+/* the Redeem button inside each tile */
+.lm4-btn{display:grid;position:relative;margin-top:8px;margin-left:8px;vertical-align:middle;padding:0!important;background:none!important;border-radius:9px}
+.lm4-tile div{display:flex;flex-wrap:wrap;align-items:center}
+.lm4-tile div small,.lm4-tile div b{flex:0 0 100%}
+.lm4-btn{display:inline-grid}
+.lm4-btn em{grid-area:1/1;display:flex;align-items:center;justify-content:center;height:28px;padding:0 14px;border-radius:9px;font:550 12px/1 Sofia,sans-serif;font-style:normal;transition:opacity .25s cubic-bezier(.45,0,.2,1),transform .25s cubic-bezier(.45,0,.2,1)}
+.lm4-btn em:first-child{background:#180F10;color:#FFF8F1}
+.lm4-btn em:last-child{background:#9fd0a6;color:#0f2a14;opacity:0;transform:scale(.9)}
+.lm4-tile span{margin-top:8px}
+/* sequence states, set by the script */
+.lm4-stage[data-s~="site-move"] .lm4-cursor{opacity:1;left:30%;top:56%}
+.lm4-stage[data-s~="site-click"] .lm4-cursor{transform:scale(.85)}
+.lm4-stage[data-s~="site-done"] .lm4-lscreen .lm4-btn em:first-child,.lm4-stage[data-s~="app-done"] .lm4-phone .lm4-btn em:first-child{opacity:0;transform:scale(.9)}
+.lm4-stage[data-s~="site-done"] .lm4-lscreen .lm4-btn em:last-child,.lm4-stage[data-s~="app-done"] .lm4-phone .lm4-btn em:last-child{opacity:1;transform:none}
+.lm4-stage[data-s~="app-tap"] .lm4-tap{animation:lm4-tap .7s cubic-bezier(.45,0,.2,1)}
+@keyframes lm4-tap{0%{opacity:0;transform:scale(.3)}40%{opacity:1}100%{opacity:0;transform:scale(1.6)}}
+.lm4-toast{transform:translateY(-14px);opacity:0;transition:transform .5s cubic-bezier(.45,0,.2,1),opacity .4s cubic-bezier(.45,0,.2,1)}
+.lm4-stage[data-s~="card-toast"] .lm4-toast{transform:none;opacity:1}
+.lm4-credit{transition:box-shadow .5s cubic-bezier(.45,0,.2,1)}
+.lm4-stage[data-s~="card-pay"] .lm4-credit{box-shadow:inset 0 1px 1px #fff1daaa,0 -1px 0 #f4664955,0 0 40px #f466499a,0 20px 40px #6a2a1a44}
+/* each device gently breathes while it waits, so it never sits dead */
+@media(prefers-reduced-motion:no-preference){
+.lm4-laptop{animation:lm4-float 7s cubic-bezier(.45,0,.55,1) infinite}
+.lm4-phone{animation:lm4-float 6s cubic-bezier(.45,0,.55,1) infinite .8s}
+.lm4-cardwrap{animation:lm4-float 6.5s cubic-bezier(.45,0,.55,1) infinite 1.6s}
+}
+@keyframes lm4-float{50%{transform:translateY(-6px)}}
+/* the page inside the laptop scrolls a little */
+.lm4-lscreen .lm4-tile{transition:transform .9s cubic-bezier(.45,0,.2,1)}
+.lm4-stage[data-s~="site-done"] .lm4-more{transform:translateY(-6px)}
+html body #market-signal .lm4-more img:not(#x),html body #market-signal .lm4-tile:not(#x){border-color:#18101018!important}
+html body #market-signal .lm4-toast:not(#x){border-color:#f6c8b5!important}
