@@ -17,7 +17,71 @@
   const wy = $('#why-bridgify');
   if (wy) {
     const steps = $$('.wy-step', wy), tabs = $$('.wy-tab', wy);
-    A.tabs(wy, steps, {existing: tabs, when: matchMedia('(max-width:900px)')});
+    const wyTabs = A.tabs(wy, steps, {existing: tabs, when: matchMedia('(max-width:900px)')});
+
+    /* Phones only (owner, 22 Nov 2026): once the section is on screen the steps move on by themselves every 2 seconds
+       (Aggregate, Normalize, Distribute, Personalize, then again). Tapping a step still works and restarts the 2 seconds.
+       Off with reduced motion, in a background tab and when the section is off screen. */
+    const phone = matchMedia('(max-width:599px)'), still = matchMedia('(prefers-reduced-motion: reduce)');
+    if (wyTabs && steps.length > 1) {
+      let timer = 0, inView = false;
+      const current = () => Math.max(0, tabs.findIndex(t => t.getAttribute('aria-selected') === 'true'));
+      const stop = () => { clearInterval(timer); timer = 0; };
+      const start = () => {
+        stop();
+        if (!inView || !phone.matches || still.matches || document.hidden) return;
+        timer = setInterval(() => wyTabs.show((current() + 1) % steps.length), 2000);
+      };
+      new IntersectionObserver(es => { inView = es[0].isIntersecting; start(); }, {rootMargin: '-30% 0px -30% 0px'}).observe(wy);
+      const bar = tabs[0] && tabs[0].parentElement;
+      if (bar) bar.addEventListener('click', () => setTimeout(start, 0), true);
+      steps.forEach(st => st.addEventListener('touchend', () => setTimeout(start, 0), {passive: true}));
+      document.addEventListener('visibilitychange', start);
+      phone.addEventListener('change', start); still.addEventListener('change', start);
+
+      /* The page must not jump while the steps change: the steps area keeps the height of the tallest step. */
+      const box = steps[0].parentElement;
+      let lastW = 0;
+      const fit = () => {
+        if (!phone.matches) { box.style.minHeight = ''; lastW = 0; return; }
+        if (innerWidth === lastW && box.style.minHeight) return;
+        lastW = innerWidth;
+        // the area also holds more than the step itself: measure what it adds, then size for the tallest step
+        box.style.minHeight = '';
+        const act = steps.find(st => st.classList.contains('ad-on')) || steps[0];
+        const extra = box.offsetHeight - act.offsetHeight;
+        let max = 0;
+        steps.forEach(st => {
+          const on = st.classList.contains('ad-on');
+          if (!on) { st.style.setProperty('display', 'block', 'important'); st.style.visibility = 'hidden'; }
+          max = Math.max(max, st.offsetHeight);
+          if (!on) { st.style.display = ''; st.style.visibility = ''; }
+        });
+        if (max) box.style.minHeight = (max + extra) + 'px';
+      };
+      // photos in hidden steps would load only when shown and make that step taller: load them now, re-measure as they arrive
+      if (phone.matches) $$('img', box).forEach(im => { im.loading = 'eager'; if (!im.complete) im.addEventListener('load', () => { lastW = 0; fit(); }, {once: true}); });
+      // and never let a step that turns out taller push the page: the height only grows
+      const grow = () => { if (phone.matches && box.offsetHeight > (parseFloat(box.style.minHeight) || 0)) box.style.minHeight = box.offsetHeight + 'px'; };
+      const show0 = wyTabs.show; wyTabs.show = i => { show0(i); requestAnimationFrame(grow); setTimeout(grow, 500); };
+      if (bar) bar.addEventListener('click', () => { requestAnimationFrame(grow); setTimeout(grow, 500); }, true);
+      // a demo can also grow while it plays (Personalize switches traveller profiles): catch that too
+      if ('ResizeObserver' in window) new ResizeObserver(() => requestAnimationFrame(grow)).observe(box);
+      fit(); addEventListener('load', () => { lastW = 0; fit(); });
+      let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(fit, 200); });
+    }
+
+    /* Phones: each supply source in the Aggregate step shows a small photo instead of its icon, frameless and without
+       a background behind it (owner, 22 Nov 2026). Photos are decorative; the words stay as they are. */
+    const SRC_IMG = {marketplaces: 'assets/v2/02-louvre-480.jpg', aggregators: 'assets/v2/08-colosseum-480.jpg',
+      'ticketing systems': 'assets/v2/16-live-music-960.jpg', 'direct suppliers': 'assets/v2/06-wine-cheese-480.jpg',
+      'your suppliers': 'assets/v2/07-seine-dinner-480.jpg'};
+    $$('.ag-src-body', wy).forEach(b => {
+      if ($('.ad-src-photo', b)) return;
+      const name = (($('b', b) || {}).textContent || '').trim().toLowerCase(), src = SRC_IMG[name]; if (!src) return;
+      const i = document.createElement('i'); i.className = 'ad-src-photo'; i.setAttribute('aria-hidden', 'true');
+      i.style.backgroundImage = `url(${src})`; b.prepend(i);
+    });
   }
 
   /* 6 · Products: three cards in a horizontal scroller with a peek of the next one. */
