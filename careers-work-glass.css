@@ -18,3 +18,11 @@ html body #problems .cpp3-flow .cpp3-grid:not(#x){margin-top:44px!important;marg
 html body #problems .cpp3-cell:not(#x){padding:22px clamp(18px,1.8vw,26px)!important}
 html body #problems .cpp3-cell h3:not(#x){padding-top:20px!important}
 }
+
+/* The four problems light up like glass: border, glow and a soft wash rise together on one ease-in-out and fade out the same way, one after another. */
+html body #problems .cpp3-cell:not(#x){position:relative;overflow:hidden;transition:opacity 1.3s cubic-bezier(.45,0,.2,1),border-color 1.3s cubic-bezier(.45,0,.2,1),box-shadow 1.3s cubic-bezier(.45,0,.2,1)!important}
+html body #problems .cpp3-cell:not(#x)::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;background:radial-gradient(ellipse 80% 70% at 50% 0%,#ff89624a,#0000 70%),radial-gradient(ellipse 60% 50% at 50% 100%,#ff785326,#0000 70%);transition:opacity 1.3s cubic-bezier(.45,0,.2,1)}
+html body #problems .cpp3-cell.is-lit:not(#x)::after{opacity:1}
+html body #problems .cpp3-ic:not(#x){transition:border-color 1.3s cubic-bezier(.45,0,.2,1),box-shadow 1.3s cubic-bezier(.45,0,.2,1)}
+html body #problems .cpp3-cell.is-lit .cpp3-ic:not(#x){border-color:#f6c8b5!important;box-shadow:0 0 18px #f4664955}
+html body #problems .cpp3-cell > *:not(#x){position:relative;z-index:1}

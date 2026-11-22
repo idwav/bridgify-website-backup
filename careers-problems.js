@@ -33,7 +33,7 @@
   if (reduced.matches || !F) { cells.forEach(c => c.classList.add('is-lit')); partners.forEach(p => p.classList.add('is-lit')); return; }
   F.run(root, elapsed => {
     const t = elapsed % CYCLE;
-    cells.forEach((c, i) => c.classList.toggle('is-lit', t >= 2700 + i * 700 + 1100 && t < 8200));
+    cells.forEach((c, i) => c.classList.toggle('is-lit', t >= 2700 + i * 700 + 1100 && t < 7600 + i * 450));
     let arrival = 0;
     runs.forEach(a => {
       a.dots.forEach((d, i) => { const u = (t - a.start - i * F.delay) / a.dur; if (u < 0 || u > 1) { d.setAttribute('opacity', 0); return; } const q = a.path.getPointAtLength(a.len * F.smooth(u)); d.setAttribute('cx', q.x); d.setAttribute('cy', q.y); d.setAttribute('opacity', Math.max(0, Math.min(1, u * 10, (1 - u) * 18)) * (1 - i * .065)); });
