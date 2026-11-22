@@ -18,6 +18,7 @@
   html body section#section-2.sc-how .sc-info-grid:not(#x):not(#y){margin-top:48px!important;padding:0!important;translate:none!important}
   html body section#section-2.sc-how .sc-info-inner:not(#x):not(#y){row-gap:0!important}
   html body section#section-2.sc-how .sc-info-heading h2 span:not(#x):not(#y){display:block!important}
+  html body section#section-2.sc-how:not(#x):not(#y){overflow-x:clip!important}
   /* 3 · Connect experiences: three numbered tabs, text left, phone right (the steps advance by themselves, see super-apps-tablet.js) */
   html body #section-3:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
   html body section#section-3.sc-section .up-story-track:not(#x),html body section#section-3.sc-section .up-story-sticky:not(#x):not(#y){height:auto!important;position:static!important;min-height:0!important}
