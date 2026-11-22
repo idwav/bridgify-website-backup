@@ -67,7 +67,7 @@
   }
 
   const start = () => { if (MQ.matches && !api) api = menu(); };
-  if (!document.querySelector('link[href*="tablet-menu.css"]')) { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = (document.currentScript && document.currentScript.src || 'tablet-menu.js').replace(/tablet-menu\.js.*$/, 'tablet-menu.css'); document.head.append(l); }
+  if (!document.querySelector('link[href*="tablet-menu.css"]')) { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = (document.currentScript && document.currentScript.src || 'tablet-menu.js').replace(/tablet-menu\.js/, 'tablet-menu.css'); document.head.append(l); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
   MQ.addEventListener('change', start);
 })();
