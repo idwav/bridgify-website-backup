@@ -211,3 +211,17 @@
   html body #day-itinerary .day-museum:not(#ad-x){overflow:hidden!important;align-self:stretch}
   html body #day-itinerary .day-museum img:not(#ad-x){width:100%!important;height:100%!important;object-fit:cover!important;margin:0!important;border-radius:inherit}
 }
+
+/* Phones (owner, 22 Nov 2026): two demos fit the screen.
+   - Match experiences: the traveler filters sit straight on the page, without their big box (no frame, fill or inner
+     padding, no line under "Traveler context"), so they take less height and the matched experiences fit under them.
+   - Where it runs: the browser mock loses its top bar (the three dots and the address), so the first matched
+     experience with its photo fits the screen. */
+@media (max-width:599px){
+  html body #section-3 .match-controls:not(#ad-x):not(#ad-y):not(#nf1):not(#nf2):not(#nf3):not(#nf4){padding:0!important;border:0!important;background:none!important;box-shadow:none!important;border-radius:0!important}
+  html body #section-3 .match-controls>small:not(#ad-x):not(#ad-y){padding-bottom:0!important;margin-bottom:8px!important;border:0!important}
+  html body #section-3 .match-controls::before,html body #section-3 .match-controls::after{display:none!important}
+  html body #section-3 .match-fields:not(#ad-x):not(#ad-y){row-gap:12px!important}
+  html body #section-3 .match-fields>.match-control:not(#ad-x):not(#ad-y){margin:0!important}
+  html body #section-4 .embed-chrome:not(#ad-x):not(#ad-y){display:none!important}
+}
