@@ -71,3 +71,25 @@
 .cpp3-partners span{all:unset}
 @media(max-width:1000px){.cpp3-partners{grid-template-columns:1fr 1fr 1fr;margin-top:20px}.cpp3-flow .cpp3-grid{margin-top:28px}}
 @media(max-width:599px){.cpp3-partners{gap:8px}.cpp3-partners figure{max-height:96px}.cpp3-partners figcaption{padding:18px 8px 6px;font-size:12px}}
+/* The work: heading spacing and composition (owner, 21 Nov 2026). Values from the spacing table (wide/tokens.css,
+   MOBILE-RULES S7/S9). Where the tree is drawn (1001px and up) the heading sits on the tree's centre axis, so the
+   section reads top-down: heading, Bridgify, partners, the four problems. Below that the tree is a plain stack and
+   the heading stays on the left content line. */
+@media(min-width:600px){
+ html body #problems.cpp3{padding-top:var(--bf-section-y);padding-bottom:var(--bf-section-y)}
+ html body #problems .cpp-head{margin-bottom:var(--bf-gap-to-content)}
+}
+@media(min-width:1001px){
+ html body #problems .cpp-head{text-align:center;display:flex;flex-direction:column;align-items:center}
+}
+@media(max-width:599px){
+ html body #problems.cpp3{padding:64px 24px}
+ html body #problems .cpp-head{margin-bottom:32px}
+}
+/* Phone partner photos (owner, 21 Nov 2026): the 16:9 row was about 60px tall with 12px captions. Same row of three,
+   now portrait tiles (about 133px tall at 390) with 14px captions, the phone minimum. */
+@media(max-width:599px){
+ html body #problems .cpp3-partners{gap:8px}
+ html body #problems .cpp3-partners figure,html body #problems .cpp3-partners figure.is-lit{aspect-ratio:4/5;max-height:160px;border-radius:12px;border:0;box-shadow:none}
+ html body #problems .cpp3-partners figcaption{padding:32px 10px 10px;font-size:14px;line-height:1.2}
+}

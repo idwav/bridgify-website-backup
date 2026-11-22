@@ -29,3 +29,40 @@
   html body .blog-card h3:not(#ad-x){grid-column:2;grid-row:2}
   html body .blog-card .blog-card-copy>:not(.blog-category):not(h3):not(#ad-x){grid-column:1 / -1}
 }
+
+/* Phone fixes (owner, 22 Nov 2026). The hero is the intro and the Latest article card (48 between them, S8); the
+   sections meet only through their own 64px padding (S9); the About card keeps a 24px inner padding like the other
+   cards; Latest insights shows one card per row, so the photo sits beside the category and the full title. */
+@media (max-width:599px){
+  html body .blog-main:not(#ad-x):not(#ad-y){display:block!important;row-gap:0!important}
+  html body .blog-main>:is(.blog-hero,section):not(#ad-x):not(#ad-y){margin-top:0!important;margin-bottom:0!important}
+  html body .blog-hero:not(#ad-x):not(#ad-y){display:block!important;min-height:0!important}
+  html body .blog-hero>header.blog-intro:not(#ad-x):not(#ad-y){padding:0!important;min-height:0!important}
+  html body .blog-feature .blog-feature-copy:not(#ad-x):not(#ad-y){padding:24px!important}
+  html body .blog-about:not(#ad-x):not(#ad-y){padding:24px!important}
+  html body .blog-grid:not(#ad-x):not(#ad-y){display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
+  html body .blog-card:not(#ad-x):not(#ad-y){width:auto!important;min-height:0!important;height:auto!important}
+  html body .blog-card h3:not(#ad-x):not(#ad-y),html body .blog-card h3 a:not(#ad-x){overflow:visible!important;display:block!important;-webkit-line-clamp:unset!important;white-space:normal!important}
+  html body .blog-card .blog-category:not(#ad-x){overflow:visible!important;white-space:normal!important}
+}
+
+/* Owner, 22 Nov 2026 (phones):
+   - the hero (intro and the Latest article card) fits the first screen: a shorter photo and a 20px card padding;
+   - About the Bridgify Blog is a plain section on the content line, no frame, fill or glow; the
+     spacing system gives it the 64px from the hero. */
+@media (max-width:599px){
+  html body .blog-feature .blog-feature-image:not(#ad-x):not(#ad-y),html body .blog-feature .blog-feature-image img:not(#ad-x):not(#ad-y){height:104px!important}
+  html body .blog-feature .blog-feature-copy:not(#ad-x):not(#ad-y):not(#ad-z){padding:20px!important}
+  html body .blog-about:not(#ad-x):not(#ad-y):not(#ad-z){padding-left:0!important;padding-right:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  html body .blog-about:not(#ad-x)::before,html body .blog-about:not(#ad-x)::after{content:none!important;display:none!important}
+  html body .blog-about>.brand-section-fade:not(#ad-x){display:none!important}
+}
+/* (cont.) the author and "Read article" share one row, so the hero also fits with Safari's toolbar in view */
+@media (max-width:599px){
+  html body .blog-feature .blog-feature-image:not(#ad-x):not(#ad-y):not(#ad-z),html body .blog-feature .blog-feature-image img:not(#ad-x):not(#ad-y):not(#ad-z){height:56px!important}
+  html body .blog-feature .blog-feature-copy:not(#ad-x):not(#ad-y):not(#ad-w){padding:12px 20px 8px!important}
+}
+@media (max-width:599px){
+  html body .blog-feature .ad-feature-foot .blog-link:not(#ad-x):not(#ad-y):not(#ad-z){align-items:center!important;padding:10px 0!important}
+  html body .blog-feature .ad-feature-foot:not(#ad-x){align-items:center!important}
+}

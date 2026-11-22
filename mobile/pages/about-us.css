@@ -43,3 +43,93 @@
 @media (max-width:359px){
   html body #top .ab-proof>span:not(#ad-x):not(#ad-y){white-space:normal!important;flex:1 1 0!important;min-width:0!important}
 }
+
+/* Our mission on phones, option A (owner, 22 Nov 2026): each chapter sits with its own diagram as one card that fits
+   the screen (number, title and text on top, the diagram under them), and the next card rises over it as the reader
+   scrolls. Same markup as desktop: the copy column, the chapter list and the diagram box open up (display:contents)
+   and their pieces are put in order with `order`; the chapter (top of the card) and its diagram (bottom) are two
+   sticky pieces that move together, the diagram held just under its chapter (--ab-lih from about-us.js). A card that
+   the next one covers steps back and fades. Reduced motion: the cards simply follow one another. */
+@media (max-width:599px){
+  html body #story .ab-pin:not(#ad-x):not(#ad-y){display:flex!important;flex-direction:column!important;height:auto!important;align-items:stretch!important;gap:0!important;row-gap:0!important}
+  html body #story :is(.ab-label,.ab-btn):not(#ad-x):not(#ad-y){align-self:flex-start!important}
+  html body #story :is(.ab-pin-copy,.ab-chapters,.ms):not(#ad-x):not(#ad-y){display:contents!important}
+  html body #story .ab-label{order:0} html body #story #story-title{order:1}
+  /* the one-line mission and its link come right under the title, then the three cards */
+  html body #story .ab-line{order:2} html body #story .ab-btn{order:3}
+  html body #story .ab-chapters>li:nth-child(1){order:4} html body #story .ms-s1{order:5}
+  html body #story .ab-chapters>li:nth-child(2){order:6} html body #story .ms-s2{order:7}
+  html body #story .ab-chapters>li:nth-child(3){order:8} html body #story .ms-s3{order:9}
+  /* the card: chapter on top, diagram under it, one frame around both (30%, as every display box) */
+  html body #story .ab-chapters>li:not(#ad-x):not(#ad-y){opacity:1!important;--f:1!important;margin:0!important;padding:20px 16px 12px!important;
+    background:#160e0c!important;border:1px solid rgba(246,200,181,.127)!important;border-bottom:0!important;border-radius:20px 20px 0 0!important}
+  html body #story .ab-chapters>li *{opacity:1!important}
+  html body #story .ms>.ms-s:not(#ad-x):not(#ad-y){width:auto!important;margin:0!important;padding:4px 16px 16px!important;box-sizing:border-box!important;
+    background:#160e0c!important;border:1px solid rgba(246,200,181,.127)!important;border-top:0!important;border-radius:0 0 20px 20px!important;
+    opacity:1!important;visibility:visible!important;transform:none!important;inset:auto!important}
+  html body #story .ms>.ms-s>.ms-cap{display:none!important}
+}
+@media (max-width:599px) and (prefers-reduced-motion:no-preference){
+  /* each card is held in the middle of the screen under the header (--ab-ctop per card, from about-us.js) */
+  html body #story{--ab-top:calc(var(--ad-header-h) + 16px)}
+  html body #story .ab-chapters>li:not(#ad-x):not(#ad-y){position:sticky!important;top:var(--ab-ctop,var(--ab-top))!important}
+  html body #story .ms>.ms-s:not(#ad-x):not(#ad-y){position:sticky!important;top:calc(var(--ab-ctop,var(--ab-top)) + var(--ab-lih,140px))!important;box-shadow:0 18px 40px #0009!important}
+  html body #story .ab-chapters>li:nth-child(1),html body #story .ms-s1{z-index:1} html body #story .ab-chapters>li:nth-child(2),html body #story .ms-s2{z-index:2}
+  html body #story .ab-chapters>li:nth-child(3),html body #story .ms-s3{z-index:3}
+  html body #story .ab-chapters>li:not(:first-child):not(#ad-x):not(#ad-y){margin-top:46vh!important;box-shadow:0 -18px 40px #000c!important}
+  /* a chapter and its diagram leave together: the chapter's margin box reaches down over its diagram (--ab-sh, the
+     diagram's height; cards 2 and 3, card 1 is covered before it leaves), so the chapter stops holding exactly when its diagram does; the diagram's negative margin keeps the layout */
+  html body #story .ab-chapters>li:not(:first-child):not(#ad-x):not(#ad-y){margin-bottom:var(--ab-sh,0px)!important}
+  html body #story .ms>.ms-s:not(.ms-s1):not(#ad-x):not(#ad-y){margin-top:calc(-1 * var(--ab-sh,0px))!important}
+  html body #story :is(.ab-chapters>li,.ms>.ms-s){transition:scale .4s cubic-bezier(.45,0,.2,1),opacity .4s cubic-bezier(.45,0,.2,1)}
+  html body #story :is(.ab-chapters>li,.ms>.ms-s).ad-covered:not(#ad-x):not(#ad-y){scale:.94;opacity:0!important}
+}
+
+/* About hero on phones (owner, 22 Nov 2026): the "1M+ tours, attractions, activities and events" line comes first,
+   under the small facts and above the map; the map, Bridgify and the three partner tiles are tighter, so the whole
+   scene fits one screen; and the scene comes in last (about-us.js): the line, then the map with its pins one by one,
+   then Bridgify, then the tiles one by one, then the caption. Reduced motion: shown at once. */
+@media (max-width:599px){
+  html body #top .wm:not(#ad-x):not(#ad-y){row-gap:0!important;grid-template-rows:none!important}
+  html body #top .wm-map:not(#ad-x):not(#ad-y){display:flex!important;flex-direction:column!important;margin-top:0!important;margin-bottom:0!important;position:relative}
+  html body #top .wm-map>img:not(#ad-x){order:1;width:100%!important;height:auto!important;max-height:120px;object-fit:contain}
+  html body #top .wm-count:not(#ad-x):not(#ad-y){order:0;position:static!important;transform:none!important;margin:0 0 4px!important;width:auto!important}
+  html body #top .wm-pin{margin-top:var(--wm-pin-dy,0px)}
+  html body #top .wm-hub:not(#ad-x):not(#ad-y){margin-top:16px!important;padding:10px 16px!important;min-height:0!important;height:auto!important}
+  html body #top .wm-hub .ab-mark{width:26px!important;height:24px!important}
+  html body #top .wm-brands:not(#ad-x):not(#ad-y){margin-top:32px!important}
+  html body #top .wm-brand:not(#ad-x):not(#ad-y){min-height:64px!important;padding:10px 6px!important;gap:6px!important}
+  html body #top .wm-cap:not(#ad-x):not(#ad-y){margin-top:12px!important}
+}
+@media (max-width:599px) and (prefers-reduced-motion:no-preference){
+  html.ad-wm-seq #top .wm :is(.wm-count,.wm-map>img,.wm-pin,.wm-hub,.wm-brand,.wm-cap){transition:opacity .6s cubic-bezier(.45,0,.2,1),translate .6s cubic-bezier(.45,0,.2,1),scale .5s cubic-bezier(.45,0,.2,1)}
+  html.ad-wm-seq #top .wm:not(.wm-s1) .wm-count{opacity:0;translate:0 12px}
+  html.ad-wm-seq #top .wm:not(.wm-s2) .wm-map>img{opacity:0}
+  html.ad-wm-seq #top .wm .wm-pin:not(.wm-in){opacity:0;scale:.2}
+  html.ad-wm-seq #top .wm:not(.wm-s3) .wm-hub,html.ad-wm-seq #top .wm:not(.wm-s3) .wm-hub::after{opacity:0;translate:0 10px}
+  html.ad-wm-seq #top .wm:not(.wm-s4) .wm-brands::before{opacity:0}
+  html.ad-wm-seq #top .wm .wm-brand:not(.wm-in){opacity:0;translate:0 12px}
+  html.ad-wm-seq #top .wm:not(.wm-s5) .wm-cap{opacity:0}
+  html.ad-wm-seq #top .wm .wm-brands::before{transition:opacity .5s}
+}
+
+/* About hero on phones, the three partner tiles (owner, 22 Nov 2026): in the site's glass language instead of a
+   solid box with a full coral frame: translucent fill with the soft coral glow, the 30% frame (line and edge highlights
+   x 0.22, as every display box), no icons, a smaller tile, and short connector lines so they sit close under Bridgify.
+   The site's glow script sets a full-strength border colour inline on the tiles, so the frame is set here with !important. */
+@media (max-width:599px){
+  html body #top .wm-brand:not(#ad-x):not(#ad-y):not(#nf1):not(#nf2):not(#nf3):not(#nf4){
+    min-height:40px!important;padding:9px 6px!important;gap:0!important;border-radius:12px!important;
+    border:1px solid rgba(246,200,181,.127)!important;border-color:rgba(246,200,181,.127)!important;
+    background:linear-gradient(145deg,rgba(94,52,40,.42),rgba(30,20,20,.34) 70%)!important;
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+    box-shadow:rgba(255,241,218,.117) 0 1px 1px 0 inset,rgba(255,153,123,.073) 0 -1px 1px 0 inset,rgba(244,102,73,.2) 0 0 18px 0!important}
+  html body #top .wm-brand>svg:not(#ad-x){display:none!important}
+  html body #top .wm-brand>b:not(#ad-x){font-size:14px!important;line-height:18px!important}
+  /* closer to Bridgify: 20px from the hub to the tiles, the joining lines 10px */
+  html body #top .wm-brands:not(#ad-x):not(#ad-y){margin-top:20px!important;gap:8px!important}
+  html body #top .wm-hub::after{height:10px!important}
+  html body #top .wm-brands::before{top:-10px!important}
+  html body #top .wm-brand::before{height:10px!important}
+  html body #top .wm-cap:not(#ad-x):not(#ad-y){margin-top:10px!important}
+}

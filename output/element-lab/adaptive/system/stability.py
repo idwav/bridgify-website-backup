@@ -34,6 +34,9 @@ async def main():
         br = await p.chromium.launch(); d = dict(p.devices['iPhone 13']); d.pop('default_browser_type', None)
         ctx = await br.new_context(**d); pg = await ctx.new_page()
         page_url = f'{a.base}/{"" if n == "index-v2" else n + ".html"}?version=2'
+        try: import check as _c; q = _c.load_map(n).get('query', '')   # job.html needs ?role=… to show a role
+        except Exception: q = ''
+        if q: page_url += '&' + q
         if a.mode == 'site':
             css, js = files(n)
             async def h(route):

@@ -27,3 +27,24 @@
   const ask = () => { if (!raf) raf = requestAnimationFrame(paint); };
   addEventListener('scroll', ask, {passive: true}); addEventListener('resize', ask); A.MQ.mobile.addEventListener('change', ask); ask();
 })();
+
+/* What good looks like on phones: the box in front is the one the screen plays (developers.css). */
+(() => {
+  const A = window.BridgifyAdaptive; if (!A) return;
+  const root = document.querySelector('#performance.dp6'); if (!root) return;
+  const boxes = [...root.querySelectorAll('.dp6-box')]; if (!boxes.length) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let active = -1, raf = 0;
+  const paint = () => {
+    raf = 0;
+    if (!A.MQ.mobile.matches || reduced.matches) { if (active !== -1) { delete root.dataset.lockBox; active = -1; boxes.forEach(b => b.classList.remove('is-covered')); } return; }
+    boxes.forEach(b => b.style.setProperty('--dp6m-h', b.offsetHeight + 'px'));   // each box rests on the phone's bottom edge
+    let n = 0; boxes.forEach((b, i) => { if (b.getBoundingClientRect().top <= (parseFloat(getComputedStyle(b).top) || 0) + 48) n = i; });
+    if (n === active) return;
+    active = n; root.dataset.lockBox = n; boxes.forEach((b, i) => b.classList.toggle('is-covered', i < n));
+    root.dispatchEvent(new CustomEvent('dp6:box', {detail: n}));
+  };
+  const ask = () => { if (!raf) raf = requestAnimationFrame(paint); };
+  addEventListener('scroll', ask, {passive: true}); addEventListener('resize', ask); A.MQ.mobile.addEventListener('change', ask);
+  setTimeout(ask, 0);
+})();

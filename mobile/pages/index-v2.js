@@ -18,6 +18,166 @@
   if (wy) {
     const steps = $$('.wy-step', wy), tabs = $$('.wy-tab', wy);
     A.tabs(wy, steps, {existing: tabs, when: matchMedia('(max-width:900px)')});
+    /* Phones: the step boxes sit in one sideways row; keep the active one centred. */
+    const row = $('.wy-tabs', wy);
+    if (row) new MutationObserver(() => {
+      const c = tabs.find(t => t.getAttribute('aria-selected') === 'true');
+      if (c && row.scrollWidth > row.clientWidth) row.scrollTo({left: c.offsetLeft - row.offsetLeft - (row.clientWidth - c.offsetWidth) / 2, behavior: 'smooth'});
+    }).observe(row, {subtree: true, attributes: true, attributeFilter: ['aria-selected']});
+
+    /* Phones: scroll-driven (owner decisions 21 and 22 Nov 2026, design system pattern.pinned-steps; replaces the
+       automatic 2s steps of PR #107). The step row and the active step hold on screen and the page's scroll moves
+       through the four steps; after the last the page goes on. A tap on a step scrolls to it. */
+    const body = $('.wy-body', wy);
+    if (body && row && A.MQ.mobile.matches) {
+      /* One stage height for all four steps (the screen under the header), so nothing jumps between steps. One frame for
+         all four diagrams (owner, 22 Nov 2026): the frame starts and ends on the same lines in every step, edge to edge;
+         it is drawn on the diagram's holder (.wy-visual) in the diagram's own frame style, and only the diagram inside
+         is scaled, when it would not fit. */
+      const head = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ad-header-h')) || 64;
+      /* The stage height comes from the small viewport (100svh): on an iPhone the visible height changes whenever
+         Safari's toolbar shrinks or grows during the scroll, and a stage sized from innerHeight changed size between
+         steps (owner, 22 Nov 2026). */
+      const probe = document.createElement('div');
+      probe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:100svh;visibility:hidden;pointer-events:none';
+      document.body.append(probe);
+      const H = () => (probe.offsetHeight || innerHeight) - head() - 24;
+      const FRAME = ['border', 'border-radius', 'background-image', 'background-color', 'box-shadow'];
+      const visuals = steps.map(s => $('.wy-visual', s)), stages = visuals.map(v => v && $('.hm-stage', v));
+      const copies = steps.map(s => $('.wy-copy', s));
+      let lines = [], measured = false;
+      const unframe = () => visuals.forEach((v, i) => {
+        if (!v) return; const st = stages[i];
+        FRAME.concat(['height', 'display', 'align-items', 'justify-content']).forEach(k => v.style.removeProperty(k));
+        if (copies[i]) copies[i].style.removeProperty('padding-bottom');
+        if (st) {
+          st.classList.remove('ad-wy-bare'); ['scale', 'translate', 'flex'].forEach(k => st.style.removeProperty(k));
+          if ('adMt' in st.dataset) { st.style.removeProperty('margin-top'); if (st.dataset.adMt) st.style.setProperty('margin-top', st.dataset.adMt, 'important'); delete st.dataset.adMt; }
+        }
+        delete v.dataset.adFramed;
+      });
+      /* Each frame starts 24px under its own step's text, as in Aggregate (owner, 22 Nov 2026; before, every frame
+         started under the longest text, which left a gap under the shorter ones), and ends on the stage's bottom line. */
+      const GAP = 24, PAD = 8;
+      /* layout positions (offsetTop chain), not getBoundingClientRect: the step's fade-in moves it with a transform
+         while it is being measured */
+      const Y = el => { let t = 0; for (let e = el; e; e = e.offsetParent) t += e.offsetTop; return t; };
+      /* 24px between the step row and every step's text (owner, 22 Nov 2026); the spacing script writes the first
+         step's gap on the element itself, so it is set here too */
+      const textGap = () => copies.forEach(c => { const t = c && c.querySelector(':scope > p'); if (t) t.style.setProperty('margin-top', '24px', 'important'); });
+      const measure = () => {
+        unframe(); textGap(); const off = [];
+        /* each step in turn, in its real place (synchronous, so nothing is painted in between) */
+        steps.forEach((s, i) => {
+          steps.forEach((t, j) => t.style.setProperty('display', j === i ? 'block' : 'none', 'important'));
+          const kids = copies[i] ? [...copies[i].children].filter(e => e.offsetHeight) : [];
+          off[i] = kids.length ? Math.max(...kids.map(e => Y(e) + e.offsetHeight)) - Y(body) : 0;
+        });
+        steps.forEach(t => t.style.removeProperty('display'));
+        lines = off.map(o => o + GAP); measured = true;
+      };
+      const fitStep = () => {
+        const on = p && p.wrap.classList.contains('is-on');
+        if (!on) { if (measured) { unframe(); measured = false; } return; }
+        if (!measured) measure();
+        soften();
+        visuals.forEach((v, i) => {
+          const st = stages[i]; if (!v || !st || v.dataset.adFramed) return;
+          const g = getComputedStyle(st);
+          FRAME.forEach(k => v.style.setProperty(k, g.getPropertyValue(k), 'important'));
+          /* the spacing script puts the gap under the text on the diagram (inline): the frame holds that gap now */
+          st.dataset.adMt = st.style.getPropertyValue('margin-top'); st.style.setProperty('margin-top', '0px', 'important');
+          st.classList.add('ad-wy-bare'); v.dataset.adFramed = '1';
+        });
+        const i = steps.findIndex(e => e.offsetHeight > 0), s = steps[i], v = visuals[i], st = stages[i], c = copies[i];
+        if (!v || !st) return;
+        /* the spacing script re-applies its own inline gaps on every resize (Safari's toolbar sends one while it moves):
+           put the text gap and the diagram's zero margin back first */
+        textGap(); stages.forEach(x => x && x.classList.contains('ad-wy-bare') && x.style.setProperty('margin-top', '0px', 'important'));
+        if (c) for (let n = 0; n < 3; n++) { /* move the frame to the shared line (margins may stop collapsing: repeat) */
+          const cur = parseFloat(c.style.paddingBottom) || 0, gap = lines[i] - (Y(v) - Y(body));
+          if (Math.abs(gap) <= .5) break;
+          c.style.setProperty('padding-bottom', Math.max(0, cur + gap) + 'px', 'important');
+        }
+        const h = Math.floor(Y(body) + body.offsetHeight - 8 - Y(v));
+        v.style.setProperty('height', h + 'px', 'important');
+        v.style.setProperty('display', 'flex', 'important'); v.style.setProperty('align-items', 'flex-start', 'important');
+        v.style.setProperty('justify-content', 'center', 'important');
+        st.style.setProperty('flex', 'none', 'important');
+        /* the diagram's visible extent, both ways (labels that hang below its box included), read through its current
+           scale and offset; it is then scaled to fill the frame's width (owner, 22 Nov 2026: Distribute and
+           Personalize were drawn small in the middle) as far as the frame's height allows, and centred */
+        const k0 = parseFloat(st.style.scale) || 1, sr = st.getBoundingClientRect(); let hi = Infinity, lo = -Infinity, le = Infinity, ri = -Infinity;
+        st.querySelectorAll('*').forEach(e => { const r = e.getBoundingClientRect(); if (r.height && r.width && getComputedStyle(e).visibility !== 'hidden' && getComputedStyle(e).opacity !== '0') {
+          hi = Math.min(hi, r.top); lo = Math.max(lo, r.bottom); le = Math.min(le, r.left); ri = Math.max(ri, r.right); } });
+        if (!isFinite(hi)) { hi = sr.top; lo = sr.top + st.offsetHeight * k0; le = sr.left; ri = sr.left + st.offsetWidth * k0; }
+        hi = (hi - sr.top) / k0; lo = (lo - sr.top) / k0; le = (le - sr.left) / k0; ri = (ri - sr.left) / k0;
+        const natH = lo - hi, natW = ri - le, room = h - 2 - PAD * 2, wroom = v.clientWidth - PAD * 4;
+        const k = Math.min(1.6, room / natH, wroom / natW);
+        st.style.setProperty('scale', k.toFixed(3), 'important');
+        /* the stage scales from its top centre; move it so the content's box lands centred in the frame */
+        const dy = (h - 2 - natH * k) / 2 - hi * k;
+        const cx = (le + ri) / 2, sw = st.offsetWidth, dx = (v.clientWidth / 2 - sw / 2) - (cx - sw / 2) * k;
+        st.style.setProperty('translate', dx.toFixed(1) + 'px ' + dy.toFixed(1) + 'px', 'important');
+        /* diagrams finish their entrance and fill in (Personalize adds lines to its cards): fit again as they settle */
+        if (!fitStep.again) {
+          (fitStep.t || []).forEach(clearTimeout);
+          fitStep.t = [700, 1800, 3600].map(ms => setTimeout(() => { fitStep.again = 1; fitStep(); fitStep.again = 0; }, ms));
+        }
+      };
+      /* The frames inside the four diagrams take the site's 30% frame too (owner, 22 Nov 2026): the light line and the
+         edge highlights × 0.22, worked out from each element's own frame; coral accents, fills and drop shadows stay. */
+      const SOFT = '.nm-card,.nm-final,.ag-engine,.ag-out,.ds-engine,.ds-dev,.ds-tile,.ps-prof,.ps-card';
+      const alpha = (c, k) => c.replace(/rgba?\(([^)]+)\)/g, (m, v) => { const p = v.split(',').map(x => parseFloat(x));
+        return `rgba(${p[0]}, ${p[1]}, ${p[2]}, ${((p.length > 3 ? p[3] : 1) * k).toFixed(3)})`; });
+      const light = c => { const m = c.match(/rgba?\(([^)]+)\)/); if (!m) return false; const p = m[1].split(',').map(parseFloat); return p[0] > 200 && p[1] > 150; };
+      const parts = s => { const out = []; let d = 0, cur = ''; for (const ch of s) { if (ch === '(') d++; if (ch === ')') d--; if (ch === ',' && !d) { out.push(cur.trim()); cur = ''; } else cur += ch; } if (cur.trim()) out.push(cur.trim()); return out; };
+      const soften = () => wy.querySelectorAll(SOFT).forEach(e => {
+        if (e.dataset.adSoft) return; const g = getComputedStyle(e); let done = false;
+        ['top', 'right', 'bottom', 'left'].forEach(side => { const c = g.getPropertyValue(`border-${side}-color`);
+          if (parseFloat(g.getPropertyValue(`border-${side}-width`)) && light(c)) { e.style.setProperty(`border-${side}-color`, alpha(c, .22), 'important'); done = true; } });
+        /* a frame that is not drawn yet (it comes in with the diagram's animation) is tried again on the next fit */
+        if (!done) return;
+        if (g.boxShadow && g.boxShadow !== 'none') e.style.setProperty('box-shadow', parts(g.boxShadow).map(x => {
+          const m = x.match(/^(rgba?\([^)]+\))\s+(.*)$/); if (!m) return x; const n = (m[2].match(/-?[\d.]+px/g) || []).map(parseFloat);
+          return (/inset/.test(m[2]) || (n[2] || 0) <= 2) && light(m[1]) ? `${alpha(m[1], .22)} ${m[2]}` : x; }).join(', '), 'important');
+        e.dataset.adSoft = '1';
+      });
+      let scrollStep = 0, p = null;
+      body.style.setProperty('--wy-stage-h', H() + 'px');
+      p = A.pin([body], {steps: tabs.length, per: .5, className: 'ad-wy-pin', vh: () => probe.offsetHeight || innerHeight, onStep: i => {
+        scrollStep = i; tabs[i].click(); fitStep();
+      }});
+      if (p) {
+        /* A tap is handled before it reaches the buttons (capture listener elsewhere), so follow the selection: a step
+           chosen by tap, not by scroll, scrolls the page to that step. */
+        new MutationObserver(() => {
+          const i = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
+          if (i > -1 && i !== scrollStep && p.wrap.classList.contains('is-on')) p.go(i);
+          requestAnimationFrame(fitStep);
+        }).observe(row, {subtree: true, attributes: true, attributeFilter: ['aria-selected']});
+        let lastH = H(), lastW = innerWidth;
+        addEventListener('resize', () => {
+          /* Safari's toolbar moving fires resize without changing the small viewport: keep everything as it is then */
+          const h = H(); if (h === lastH && innerWidth === lastW) { setTimeout(() => { fitStep.again = 1; fitStep(); fitStep.again = 0; }, 80); return; }
+          lastH = h; lastW = innerWidth;
+          body.style.setProperty('--wy-stage-h', h + 'px'); measured = false; unframe(); fitStep();
+        });
+        addEventListener('load', fitStep); fitStep();
+      }
+    }
+
+    /* Phones: each supply source in the Aggregate step shows a small photo instead of its icon, frameless and without
+       a background behind it (owner, 22 Nov 2026). Photos are decorative; the words stay as they are. */
+    const SRC_IMG = {marketplaces: 'assets/v2/02-louvre-480.jpg', aggregators: 'assets/v2/08-colosseum-480.jpg',
+      'ticketing systems': 'assets/v2/16-live-music-960.jpg', 'direct suppliers': 'assets/v2/06-wine-cheese-480.jpg',
+      'your suppliers': 'assets/v2/07-seine-dinner-480.jpg'};
+    $$('.ag-src-body', wy).forEach(b => {
+      if ($('.ad-src-photo', b)) return;
+      const name = (($('b', b) || {}).textContent || '').trim().toLowerCase(), src = SRC_IMG[name]; if (!src) return;
+      const i = document.createElement('i'); i.className = 'ad-src-photo'; i.setAttribute('aria-hidden', 'true');
+      i.style.backgroundImage = `url(${src})`; b.prepend(i);
+    });
   }
 
   /* 6 · Products: three cards in a horizontal scroller with a peek of the next one. */
@@ -116,41 +276,118 @@
   addEventListener('scroll', ask, {passive: true}); addEventListener('resize', ask); A.MQ.mobile.addEventListener('change', ask); ask();
 })();
 
-/* Hero visual on phones: experiences → Bridgify → your app (see index-v2.css "Hero visual on phones").
-   Only words already in the desktop hero: "Bridgify", "YourBrand". Wires are drawn from the boxes' real
-   positions; dots travel along them. Still with reduced motion. */
+/* Hero visual on phones: Hub (index-v2.css "Hero visual on phones: Hub"). The cards are the desktop tangle's own
+   (.fn-tile: photo, name, type · price), so no words are added; "Bridgify", "1 integration" and "YourBrand" are the
+   desktop hero's too. One scene turns into the next with the same pieces (owner, 22 Nov 2026): the tangle's cards
+   become the 2x2 of photos and the rows inside YourBrand, the last card leaves; the tangle's own lines straighten
+   into the four wires (several lines merge into one, the rest fade out); only Bridgify, "1 integration" and the
+   YourBrand frame come in. The element keeps one size from the first paint, so nothing below it moves. Dots then
+   run along the wires. Reduced motion: ordered at once, no dots. */
 (() => {
   const A = window.BridgifyAdaptive; if (!A || !A.MQ.mobile.matches) return;
   const copy = document.querySelector('#home .bv2-hero-copy'); if (!copy || copy.querySelector('.ad-hero-flow')) return;
-  const src = ['assets/v2/08-colosseum-480.jpg', 'assets/v2/05-paris-food-tour-960.jpg', 'assets/v2/11-catamaran-480.jpg', 'assets/v2/16-live-music-960.jpg'].map(n => `<img src="${n}" alt="" width="48" height="48" decoding="async">`).join('');
+  const tiles = [...document.querySelectorAll('#home .fn-tile')].slice(0, 8); if (tiles.length < 8) return;
   const label = document.querySelector('#home .bv2-funnel')?.getAttribute('aria-label') || '';
   const el = document.createElement('div');
   el.className = 'ad-hero-flow'; el.setAttribute('role', 'img'); el.setAttribute('aria-label', label);
-  el.innerHTML = `<svg class="hf-wires" aria-hidden="true"></svg><div class="hf-src" aria-hidden="true">${src}</div>
-    <div class="hf-hub" aria-hidden="true"><i><img src="assets/bridgify-icon.svg" alt=""></i><span>Bridgify</span></div>
-    <div class="hf-app" aria-hidden="true"><b>YourBrand</b><i><img src="assets/v2/08-colosseum-960.jpg" alt=""><u></u></i><i><img src="assets/v2/13-santorini-960.jpg" alt=""><u></u></i></div>`;
-  copy.appendChild(el);
+  const cards = tiles.map(t => `<div class="hf-card" aria-hidden="true"><img src="${t.querySelector('img').getAttribute('src')}" alt="" decoding="async"><span>${t.querySelector('span').innerHTML}</span></div>`).join('');
+  el.innerHTML = `<svg class="hf-wires" aria-hidden="true" data-managed-contacts></svg>
+    <div class="hf-hub" aria-hidden="true"><img src="assets/bridgify-icon.svg" alt=""><span>Bridgify</span></div>
+    <div class="hf-chip" aria-hidden="true">1 integration</div>
+    <div class="hf-app" aria-hidden="true"><b>YourBrand</b></div>${cards}`;
+  const p = copy.querySelector(':scope > p'); (p ? p.after(el) : copy.appendChild(el));
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const NS = 'http://www.w3.org/2000/svg';
-  const draw = () => {
-    const svg = el.querySelector('svg'), o = el.getBoundingClientRect(); if (!o.width) return;
-    const R = e => { const r = e.getBoundingClientRect(); return {l: r.left - o.left, r: r.right - o.left, t: r.top - o.top, b: r.bottom - o.top, cx: (r.left + r.right) / 2 - o.left, cy: (r.top + r.bottom) / 2 - o.top}; };
-    const imgs = [...el.querySelectorAll('.hf-src img')].map(R), hub = R(el.querySelector('.hf-hub i')), app = R(el.querySelector('.hf-app'));
-    const sx = imgs[1].r, hx = hub.l - 2, hy = hub.cy;
-    const ys = [imgs[1].t + 12, imgs[1].b - 12, imgs[3].t + 12, imgs[3].b - 12];
-    const paths = ys.map(y => `M${sx} ${y}C${(sx + hx) / 2} ${y} ${(sx + hx) / 2} ${hy} ${hx} ${hy}`);
-    paths.push(`M${hub.r + 2} ${hy}L${app.l} ${hy}`);
-    svg.setAttribute('viewBox', `0 0 ${o.width} ${o.height}`); svg.innerHTML = '';
-    paths.forEach((d, i) => {
-      const p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); p.id = 'hf-p' + i; svg.appendChild(p);
-      if (reduced) return;
-      const c = document.createElementNS(NS, 'circle'); c.setAttribute('r', i === 4 ? '2.6' : '2');
-      c.innerHTML = `<animateMotion dur="${i === 4 ? 1.4 : 2.2}s" begin="${i === 4 ? 2.0 : i * 0.55}s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#hf-p${i}"/></animateMotion>`;
-      svg.appendChild(c);
-    });
+  const NS = 'http://www.w3.org/2000/svg', H = 176, cs = [...el.querySelectorAll('.hf-card')];
+  const hub = el.querySelector('.hf-hub'), chip = el.querySelector('.hf-chip'), app = el.querySelector('.hf-app'), svg = el.querySelector('svg');
+  const ROLE = ['tile', 'tile', 'tile', 'tile', 'row', 'row', 'row', 'out'];
+  let org = false, geo = null, paths = [], anim = 0;
+  const layout = () => {
+    const w = el.clientWidth; if (!w) return;
+    const t = Math.min(64, Math.floor((w * .42 - 8) / 2)), aw = Math.round(w * .25), tx = 2 * t + 8, mid = (tx + (w - aw)) / 2;
+    geo = {w, t, tiles: [[0, 4], [t + 8, 4], [0, t + 12], [t + 8, t + 12]], hub: {x: mid - 36, y: (2 * t + 16) / 2 + 4 - 44, w: 72, h: 88}, app: {x: w - aw, y: 0, w: aw, h: 150}};
+    geo.rows = [0, 1, 2].map(i => [geo.app.x + 6, 30 + i * 38, aw - 12, 32]);
+    const r = (i, a, b) => { const x = Math.sin(i * 12.9898 + a) * 43758.5453; return b * (x - Math.floor(x)); };
+    geo.chaos = cs.map((c, i) => ({x: (i % 3) * (w - 128) / 2 + r(i, 1, 24) - 12, y: i * (H - 40) / (cs.length - 1) + r(i, 2, 14) - 7, rot: r(i, 3, 22) - 11}));
+    Object.assign(hub.style, {left: geo.hub.x + 'px', top: geo.hub.y + 'px', width: geo.hub.w + 'px', height: geo.hub.h + 'px'});
+    Object.assign(app.style, {left: geo.app.x + 'px', top: geo.app.y + 'px', width: geo.app.w + 'px', height: geo.app.h + 'px'});
+    geo.chip = {x: Math.round(mid - 46), y: geo.hub.y + geo.hub.h + 16};
+    chip.style.left = geo.chip.x + 'px'; chip.style.top = geo.chip.y + 'px';
+    build(); place(true);
   };
-  requestAnimationFrame(draw); addEventListener('resize', () => requestAnimationFrame(draw));
-  el.querySelectorAll('img').forEach(i => i.complete || i.addEventListener('load', draw, {once: true}));
+  /* the lines: the tangle's 16 curves (each card wired to two others and to a knot under the middle) */
+  const tangle = () => { const ch = geo.chaos, kx = geo.w / 2, ky = H * .82, out = [];
+    ch.forEach((c, i) => { const a = ch[(i * 3 + 2) % ch.length], b = ch[(i + 5) % ch.length];
+      out.push([c.x + 60, c.y + 18, c.x + 150, c.y + 90, a.x - 30, a.y + 110, kx + (i - 4) * 5, ky]);
+      out.push([c.x + 60, c.y + 18, c.x - 40, c.y + 70, b.x + 120, b.y - 30, b.x + 60, b.y + 18]); });
+    return out; };
+  /* ...and the four wires they become: the two photo rows into Bridgify, Bridgify into YourBrand, Bridgify down to "1 integration" */
+  const tidy = () => { const t = geo.t, hx = geo.hub.x, hy = geo.hub.y + geo.hub.h / 2, hr = hx + geo.hub.w, ax = geo.app.x, ay = geo.app.y + 75, hc = hx + geo.hub.w / 2, hb = geo.hub.y + geo.hub.h;
+    const C = (x1, y1, x2, y2) => [x1, y1, (x1 + x2) / 2, y1, (x1 + x2) / 2, y2, x2, y2];
+    return [C(2 * t + 8, 4 + t / 2, hx, hy), C(2 * t + 8, t + 12 + t / 2, hx, hy), C(hr, hy, ax, ay), [hc, hb, hc, hb + 6, hc, geo.chip.y - 6, hc, geo.chip.y]]; };
+  const D = v => `M${v[0]} ${v[1]}C${v[2]} ${v[3]} ${v[4]} ${v[5]} ${v[6]} ${v[7]}`;
+  const build = () => {
+    svg.replaceChildren(); svg.setAttribute('viewBox', `0 0 ${geo.w} ${H}`);
+    paths = tangle().map((v, i) => { const e = document.createElementNS(NS, 'path'); e.setAttribute('d', D(v)); svg.append(e); return {e, from: v}; });
+  };
+  const place = instant => {
+    el.classList.toggle('hf-org', org);
+    cs.forEach((c, i) => {
+      const role = org ? ROLE[i] : null, ch = geo.chaos[i], k = role === 'tile' ? geo.tiles[i] : role === 'row' ? geo.rows[i - 4] : null;
+      c.classList.toggle('hf-tile', role === 'tile'); c.classList.toggle('hf-row', role === 'row'); c.classList.toggle('hf-out', role === 'out');
+      if (instant) c.style.transition = 'none';
+      c.style.transform = k ? `translate(${k[0]}px,${k[1]}px)` : `translate(${ch.x}px,${ch.y}px) rotate(${ch.rot}deg)${role === 'out' ? ' scale(.85)' : ''}`;
+      c.style.width = role === 'tile' ? geo.t + 'px' : role === 'row' ? k[2] + 'px' : '';
+      c.style.height = role === 'tile' ? geo.t + 'px' : role === 'row' ? k[3] + 'px' : '';
+      if (instant) { void c.offsetWidth; c.style.transition = ''; }
+    });
+    if (org) morph(instant);
+  };
+  /* every tangle line glides into the wire it belongs to (line i -> wire i % 4); lines 8 and on fade out on the way */
+  const morph = instant => {
+    const to = tidy(); cancelAnimationFrame(anim);
+    const t0 = performance.now(), dur = instant ? 0 : 1100, ease = u => u < .5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+    const step = now => {
+      const u = dur ? Math.min(1, (now - t0) / dur) : 1, k = ease(u);
+      paths.forEach((pa, i) => { const target = to[i % 4], v = pa.from.map((a, j) => a + (target[j] - a) * k);
+        pa.e.setAttribute('d', D(v)); pa.e.classList.toggle('hf-o', k > .55 && i < 4); pa.e.style.opacity = i < 4 ? '1' : String(1 - k); });
+      if (u < 1) anim = requestAnimationFrame(step); else dots(to);
+    };
+    anim = requestAnimationFrame(step);
+  };
+  const dots = to => {
+    paths.slice(4).forEach(pa => pa.e.remove()); paths = paths.slice(0, 4);
+    paths.forEach((pa, i) => { pa.e.id = 'hf-p' + i; pa.e.classList.add('hf-o'); pa.from = to[i]; });
+    /* the site's wire contacts (brand-consistency.js), drawn here once the wires are still: a light dot at each end */
+    svg.querySelectorAll('.hf-end').forEach(c => c.remove());
+    const ends = new Map(); to.forEach(v => [[v[0], v[1]], [v[6], v[7]]].forEach(([x, y]) => ends.set(Math.round(x) + ',' + Math.round(y), [x, y])));
+    ends.forEach(([x, y]) => { const c = document.createElementNS(NS, 'circle'); c.setAttribute('class', 'hf-end'); c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', '3'); svg.append(c); });
+    if (reduced) return;
+    paths.forEach((pa, i) => { const c = document.createElementNS(NS, 'circle'); c.setAttribute('r', i === 2 ? '2.6' : '2');
+      c.innerHTML = `<animateMotion dur="${i === 2 ? 1.4 : i === 3 ? 1 : 2.2}s" begin="${i === 2 ? 1.2 : i * .6}s" repeatCount="indefinite"><mpath href="#hf-p${i}"/></animateMotion>`; svg.append(c); });
+  };
+  if (reduced) org = true;
+  requestAnimationFrame(layout); addEventListener('resize', () => requestAnimationFrame(layout));
+  if (reduced) return;
+  /* order of appearance (owner, 22 Nov 2026): the hero copy arrives first (label, title, paragraph); once the
+     paragraph is in, the tangle fades in, sorts itself, and only then do the buttons come up. The hidden states are
+     set before the first paint (html.ad-hf-seq), so nothing flashes; a fallback timer shows everything if the
+     paragraph's entrance never reports. */
+  const root = document.documentElement, acts = document.querySelector('#home .bv2-hero-actions');
+  root.classList.add('ad-hf-seq');
+  /* the hero's own entrance (hero-v2.js) animates the button row in with the copy; an animation overrides CSS, so
+     on phones that one is cancelled and the row comes in last, after the visual has sorted itself */
+  const stopRowEntrance = () => acts && acts.getAnimations().forEach(a => { if (!(a instanceof CSSTransition)) a.cancel(); });
+  stopRowEntrance(); [60, 200, 500, 1000].forEach(ms => setTimeout(stopRowEntrance, ms));
+  let started = false;
+  const go = () => {
+    if (started) return; started = true;
+    el.classList.add('hf-in');
+    setTimeout(() => { org = true; place(false); }, 1100);
+    setTimeout(() => acts && acts.classList.add('hf-acts-in'), 1100 + 1400);
+  };
+  const para = p, settled = () => { if (!para) return true; const c = getComputedStyle(para); return parseFloat(c.opacity) > .97 && (c.transform === 'none' || /1, 0, 0, 1, 0, 0\)$/.test(c.transform) || Math.abs(parseFloat((c.transform.match(/,\s*([-\d.]+)\)$/) || [0, 0])[1])) < 1); };
+  const t0 = performance.now(), wait = () => { if (settled() || performance.now() - t0 > 4000) go(); else requestAnimationFrame(wait); };
+  requestAnimationFrame(wait);
 })();
 
 /* Round 4: option 2 of the Global supply strip is on unless the link asks for the previous one (&src1).

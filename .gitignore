@@ -4,3 +4,6 @@
 __pycache__/
 *.py[cod]
 .vercel
+
+# before/after + QA reports (scripts/qa/review.py)
+output/qa-review/

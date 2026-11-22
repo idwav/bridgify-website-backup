@@ -40,7 +40,7 @@ MEASURE = r"""(MAP) => {
   const out = {sections: [], issues: []};
   // a section that is not in the map is not checked at all: say so
   const mappedSecs = MAP.sections.map(S => document.querySelector(S.section)).filter(Boolean);
-  [...document.querySelectorAll('section')].filter(s => !s.parentElement.closest('section') && !s.closest('header,footer,.ad-menu') && vis(s) && s.offsetHeight > 120 && !mappedSecs.includes(s))
+  [...document.querySelectorAll('section')].filter(s => !s.parentElement.closest('section') && !s.closest('header,footer,.ad-menu') && !mappedSecs.some(m => m !== s && m.contains(s)) && vis(s) && s.offsetHeight > 120 && !mappedSecs.includes(s))
     .forEach(s => out.issues.push(`${s.id ? '#' + s.id : '.' + s.classList[0]}: section not in the role map (nothing in it is checked)`));
   MAP.sections.forEach(S => {
     const sec = document.querySelector(S.section); if (!sec) { out.issues.push(`${S.section}: section not found`); return; }
@@ -105,7 +105,8 @@ MEASURE = r"""(MAP) => {
       if (kinds.includes('?')) out.issues.push(`${S.section}: a button has no kind (primary / secondary)`);
       bs.forEach(b => { const c = getComputedStyle(b); const w = ['Top', 'Right', 'Bottom', 'Left'].map(s => parseFloat(c['border' + s + 'Width'])); if (b.dataset.bfKind === 'secondary' && new Set(w).size > 1) out.issues.push(`${S.section}: button "${b.textContent.trim().slice(0, 24)}" has an uneven frame (${w.join('/')})`); });
       rs.forEach((r, j) => { if (Math.abs(r.height - 40) > 0.5) out.issues.push(`${S.section}: button "${bs[j].textContent.trim().slice(0, 24)}" is ${Math.round(r.height)}px tall (want 40)`); });
-      if (rs.length > 1 && Math.max(...rs.map(r => r.width)) - Math.min(...rs.map(r => r.width)) > 1) out.issues.push(`${S.section}: buttons in one row differ in width (${rs.map(r => Math.round(r.width)).join(' / ')})`);
+      /* hero buttons are as wide as their labels (owner, 22 Nov 2026): no equal-width rule there */
+      if (!row.closest('[data-bf-hero]') && !row.matches('[data-bf-hero]') && rs.length > 1 && Math.max(...rs.map(r => r.width)) - Math.min(...rs.map(r => r.width)) > 1) out.issues.push(`${S.section}: buttons in one row differ in width (${rs.map(r => Math.round(r.width)).join(' / ')})`);
     }));
     live.filter(i => i.role === 'link').forEach(i => i.els.forEach(a => { const c = getComputedStyle(a);
       if (parseFloat(c.borderTopWidth) + parseFloat(c.borderLeftWidth) > 0 || c.backgroundImage !== 'none' || !/rgba\(0, 0, 0, 0\)|transparent/.test(c.backgroundColor)) out.issues.push(`${S.section}: link "${a.textContent.trim().slice(0, 24)}" is drawn as a button`); }));
@@ -113,7 +114,7 @@ MEASURE = r"""(MAP) => {
     live.filter(i => i.role === 'actions').forEach(i => i.els.forEach(row => {
       const bs = [...row.querySelectorAll(':scope > a, :scope > button')].filter(vis);
       for (let j = 1; j < bs.length; j++) { const p = bs[j - 1].getBoundingClientRect(), q = bs[j].getBoundingClientRect();
-        const got = Math.round(q.top >= p.bottom - 1 ? q.top - p.bottom : q.left - p.right), want = px('gap-actions-inner');
+        const got = Math.round(q.top >= p.bottom - 1 ? q.top - p.bottom : q.left - p.right), want = px(row.matches('[data-bf-hero]') ? 'gap-actions-hero' : 'gap-actions-inner');
         rec.buttons.push({got, want, ok: Math.abs(got - want) <= 1}); if (Math.abs(got - want) > 1) out.issues.push(`${S.section}: button ↔ button ${got}px (want ${want})`); }
     }));
     out.sections.push(rec);
@@ -141,10 +142,11 @@ def load_map(page):
     return json.loads(re.sub(r'^\s*window\.BridgifyRoles\s*=\s*', '', src).rstrip().rstrip(';'))
 
 
-async def open_page(pg, base, page):
+async def open_page(pg, base, page, query=''):
     from published import route_stripped  # a published page's own layer tags out first (MOBILE-RULES.md)
     await route_stripped(pg, f'**/{"" if page == "index-v2" else page + ".html"}?*')
-    await pg.goto(f'{base}/{"" if page == "index-v2" else page + ".html"}?version=2', wait_until='networkidle')
+    # a page that shows nothing without a parameter (job.html?role=…) names one in its role map ("query")
+    await pg.goto(f'{base}/{"" if page == "index-v2" else page + ".html"}?version=2' + (f'&{query}' if query else ''), wait_until='networkidle')
     for f in ['system/tokens.css', 'layout.css', 'patterns.css', f'pages/{page}.css', 'system/actions.css']:
         p = os.path.join(LAYER, f)
         if os.path.exists(p): await pg.add_style_tag(path=p)
@@ -181,7 +183,7 @@ async def main():
     async with async_playwright() as p:
         br = await getattr(p, a.engine).launch(); d = dict(p.devices[a.device]); d.pop('default_browser_type', None)
         pg = await (await br.new_context(**d)).new_page()
-        await open_page(pg, a.base, a.page)
+        await open_page(pg, a.base, a.page, MAP.get('query', ''))
         res = await pg.evaluate(MEASURE, MAP)
         if a.shots:
             os.makedirs(a.shots, exist_ok=True)

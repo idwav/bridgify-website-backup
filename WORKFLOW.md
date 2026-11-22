@@ -135,3 +135,28 @@ its findings before acting on them.
   still found a problem (cut demo, figures too small, uneven icon gaps).
 - Report to the user with the screenshot, the measured numbers and a link they can open on the phone
   (`output/element-lab/qr.html` lists one per page). Say what was not checked (for example: not on a real phone).
+
+## 5b · Before/after and a full QA report for every change (owner, 22 Nov 2026)
+
+Every change, by any person or model, ends with a before/after review of every screen it can affect, and the
+owner sees it before anything is merged.
+
+0. While you work, keep `scripts/qa/preview.html?page=<page>` open: the page on phone, iPad upright, iPad Pro upright,
+   iPad on its side and desktop at once (START-HERE.md §2). `review.py --audit --all` lists every problem on the site.
+1. Run `python3 scripts/qa/review.py` from your branch. It finds the pages your change affects (against
+   `origin/main`), opens each one before and after at 390, 768, 1024 and 1440, and photographs every section.
+   Add `--full` for 360, 834, 1280 and 1920 as well, `--webkit` for Safari's engine, and `--phone-rules` for the
+   MOBILE-RULES.md check. Use `--pages a,b` to name pages, or `--all` for the whole site.
+2. Open `output/qa-review/<date-time>/index.html`:
+   - Sections that changed are outlined in magenta; unchanged sections are folded away.
+   - Each problem is boxed on the screenshot, red for an error and amber for a warning, and marked NEW (your
+     change caused it) or "already on main".
+   - The checks: sideways scroll, text past the screen edge, text cut by its box or its parent, overlapping text,
+     images that fail, tiny text, fonts outside the brand, phone tap targets, headings off the content line,
+     duplicate ids, console errors, failed requests and broken internal links.
+3. Fix every NEW error. The command exits with 1 while one is left. For a NEW warning, fix it or say in the PR why it
+   stays: for example, labels inside a scaled diagram that the owner approved.
+4. Look at the before/after pictures yourself, section by section. The checks cannot judge design. A section that
+   changed where you did not mean to change anything is a bug.
+5. Paste `summary.md` into the PR and send the owner the before/after pictures of what changed, on phone, tablet and
+   desktop. Say what was not checked.

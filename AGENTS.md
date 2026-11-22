@@ -1,5 +1,8 @@
 # Bridgify project guidance
 
+New here, or starting a session: read `START-HERE.md` first (setup, the every-screen preview page, the checks, the
+prompt). Phone, tablet and desktop are one job: see all of them while you work (`scripts/qa/preview.html`).
+
 The active homepage is Version 2: edit `index-v2.html` and its V2 assets for future homepage work. Preview it at `http://localhost:8080/?version=2`. The user requested that `index.html` remain the Version 1 reference; only change V1 when explicitly requested. Routing maintenance shared by both versions is allowed. `/?version=2` is the canonical local review URL; `?v=2` and direct V2 document links are aliases. Preserve `version=2` through internal pages and return-home links using `homepage-version.js`. Do not create another homepage copy for routine edits.
 
 Before designing or changing any visual section, read `DESIGN.md` in this directory. It records the user's brand decisions and the Stōkt / EnduroSat reference standard. Apply it to layout, typography, illustration and motion; do not interpret “at their level” as merely changing a background or adding glow.
@@ -25,7 +28,9 @@ The repository owner approves everything that reaches `main`; `main` is what the
 3. Before any visual change, read `DESIGN.md`, `TYPOGRAPHY.md`, `WORKFLOW.md` and, for phones, `MOBILE-RULES.md`.
    Copy comes only from Copy v4. Do not change `index.html` (Version 1) unless asked.
 4. Small commits with a clear message. Keep the branch current with `git pull origin main` before opening a PR.
-5. Before opening a PR: check the pages you changed in the browser at 390, 768, 834, 1024 and 1440 (no horizontal
+5. Before opening a PR: run `python3 scripts/qa/review.py` (before/after of every affected section at 390, 768, 1024 and
+   1440, plus the full QA checks; see WORKFLOW.md §5b), fix every NEW error, paste its `summary.md` into the PR and
+   show the owner the before/after pictures. Also check the pages you changed in the browser at 390, 768, 834, 1024 and 1440 (no horizontal
    scroll, no cut text, no console errors); run `python3 scripts/sync-footer.py --check` and
    `python3 scripts/sync-mobile.py --check`; for phone work run
    `python3 output/element-lab/adaptive/system/verify.py --pages <changed pages>` and include the result.

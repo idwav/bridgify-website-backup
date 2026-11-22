@@ -29,3 +29,5 @@
 /* Expand the native link hit area; keyboard focus stays visibly accessible. */
 #audiences .audience-card a{position:static!important}
 #audiences .audience-card a::after{content:"";position:absolute;inset:0;z-index:6;cursor:pointer}
+/* hover over a card with a photo: the description is white, like the title (another rule kept it dark grey on the picture) */
+html body #audiences .audience-card:is(:hover,:has(a:focus-visible)) > p:not(#x){color:#fff8f1!important}

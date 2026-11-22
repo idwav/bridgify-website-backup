@@ -86,6 +86,7 @@ keeps its content at the top; the extra height goes below it.
 | B2 | At most one primary (filled) and one secondary (outlined) button per group. |
 | B3 | Buttons are 40px tall with 15px text and a full frame. Tabs and switches stay 44px. |
 | B4 | Buttons in one group share one width: side by side when both labels fit half the row, otherwise stacked at full width. |
+| B4h | Hero buttons (owner, 22 Nov 2026): short, as wide as their label (12px side padding, 14px arrow, 15px text, 40px tall), side by side 8px apart when the pair fits the content line; a pair that does not fit stacks, still short. |
 
 ## 6 · Layout and motion
 

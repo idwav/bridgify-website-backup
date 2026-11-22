@@ -39,12 +39,12 @@ const arrival=F.arrival(local);
 buttons.forEach((button,i)=>button.style.setProperty('--tour-arrival',i===stage?arrival:0));
 panels.forEach((panel,i)=>panel.style.setProperty('--tour-arrival',i===stage?arrival:0));
 }
-const wide=matchMedia('(min-width:801px)');
+const wide=matchMedia('(min-width:801px) and (min-aspect-ratio:1/1)');   // upright iPads play by themselves like the phone: no scroll story
 
 function span(){return Math.max(1,track.offsetHeight-sticky.offsetHeight)}
 function timeAt(p){const s=Math.min(3,Math.floor(p*4)),f=p*4-s,end=s<3?starts[s+1]:cycle;return starts[s]+f*(end-starts[s])}
-function place(){if(!wide.matches||!sticky){return}stuckTop=Math.max(88,Math.round(88+(innerHeight-88-sticky.offsetHeight)/2));sticky.style.setProperty('top',stuckTop+'px','important')}
-function fromScroll(){if(!sticky||!wide.matches){return}const r=track.getBoundingClientRect(),p=Math.max(0,Math.min(.999,(-r.top+stuckTop)/span()));elapsed=timeAt(p);draw()}
+function place(){if(!wide.matches||!sticky){return}stuckTop=Math.round(64+Math.max(24,(innerHeight-64-sticky.offsetHeight)/2));sticky.style.setProperty('top',stuckTop+'px','important')}
+function fromScroll(){if(!sticky||!wide.matches){return}const r=track.getBoundingClientRect(),raw=Math.max(0,Math.min(1,(-r.top+stuckTop)/span())),p=Math.max(0,Math.min(.999,(raw-.05)/.8));elapsed=timeAt(p);draw()}
 let sraf=0;addEventListener('scroll',()=>{if(!sraf)sraf=requestAnimationFrame(()=>{sraf=0;fromScroll()})},{passive:true});
 function tick(now){raf=0;if(!visible||document.hidden||motion.matches||(sticky&&wide.matches)){last=0;return}if(last)elapsed+=Math.min(64,now-last);last=now;draw();raf=requestAnimationFrame(tick)}
 function resume(){cancelAnimationFrame(raf);raf=0;last=0;root.classList.toggle('tour-paused',!visible||document.hidden||motion.matches);if(visible&&!document.hidden&&!motion.matches)raf=requestAnimationFrame(tick);else if(motion.matches){trail.forEach(dot=>dot.style.opacity=0);cursor.style.opacity=0;[...panels,...buttons].forEach(el=>el.style.setProperty('--tour-arrival',0))}}

@@ -1,0 +1,25 @@
+/* Home on a landscape iPad or a small laptop (1024-1279px): the two diagrams were shrunk into half-width panels and their text came out 5-9px.
+   Here each diagram sits under its text at the full content width, so the text scales with it and is readable (MOBILE-RULES T5, 11px minimum).
+   Only this width range changes; 1280 and up and everything under 1024 stay as they are. */
+@media (min-width:1024px) and (max-width:1279px){
+  /* Opportunity ("Your customers already book experiences"): the two panels stack, full width */
+  html body #opportunity-study .pb-panels:not(#x){grid-template-columns:minmax(0,1fr)!important}
+
+  /* Why Bridgify ("Everything between global supply and your customer"): no pin, the four steps stack like on the tablet; text first, diagram below at full width */
+  html body #why-bridgify .wy-track:not(#x){height:auto!important}
+  html body #why-bridgify .wy-sticky:not(#x){position:static!important;height:auto!important;display:block!important;padding-top:0!important}
+  html body #why-bridgify .wy-head:not(#x){display:block!important}
+  html body #why-bridgify .wy-body:not(#x){display:block!important}
+  html body #why-bridgify .wy-tabs:not(#x){display:none!important}
+  html body #why-bridgify .wy-step:not(#x){display:block!important;margin-top:56px}
+  html body #why-bridgify .wy-copy:not(#x),html body #why-bridgify .wy-visual:not(#x){opacity:1!important;transform:none!important;pointer-events:auto;width:100%!important;min-height:0!important}
+  html body #why-bridgify .wy-copy:not(#x){margin-bottom:24px}
+
+  /* the text inside the diagrams: never under 11px (T5). Their own sizes were 0.8-1.1% of the diagram width; 11px is the floor */
+  html body #why-bridgify :is(.ag-src small,.ag-engine small,.ag-out small,.nm-src,.nm-flag,.nm-meta span,.nm-meta em,.nm-status span,.ds-engine small,.ds-chrome span,.ds-bar span,.ds-tile small,.ds-tile span,.ds-label,.ps-head>span,.ps-ai,.ps-rank,.ps-match):not(#x){font-size:max(11px,1.1cqw)!important}
+  /* the merged card of the Normalize step is shown at 90%, so its text gets the floor before that scale */
+  html body #why-bridgify :is(.nm-lockbar,.nm-lockbar span,.nm-fbody small,.nm-tags li,.nm-buy em):not(#x){font-size:max(12.3px,1.1cqw)!important}
+  /* the kiosk tiles and the source cards (shown at 94% once merged) get their floor with enough weight to beat the earlier size rules */
+  html body #why-bridgify :is(.ds-kiosk .ds-tile span,.ds-kiosk .ds-tile small):not(#x){font-size:max(11px,1.1cqw)!important}
+  html body #why-bridgify :is(.nm-card .nm-src,.nm-card .nm-flag,.nm-card .nm-meta span,.nm-card .nm-meta em):not(#x){font-size:max(11.8px,1.1cqw)!important}
+}

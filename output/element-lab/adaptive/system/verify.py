@@ -37,7 +37,7 @@ RULES = [
  ('B1', 'Button = action, link = go and read; a link is never drawn as a button', 'check.py', r'drawn as a button'),
  ('B2', 'At most one primary button per group; every button has a kind', 'check.py', r'primary button|has no kind'),
  ('B3', 'Buttons 40px tall, full frame', 'check.py', r'tall \(want 40\)|uneven frame'),
- ('B4', 'Buttons of one group share one width', 'check.py', r'differ in width'),
+ ('B4', 'Buttons of one group share one width (heroes: as wide as the label, B4h)', 'check.py', r'differ in width'),
  ('T1', 'Hero, section and closing titles 28px Chillax 400', 'fit.py titleRoles', None),
  ('T2', 'Section label → title measured on every page (16 ±2)', 'fit.py labelGaps', None),
  ('T3', 'Key figures at least 28px', 'fit.py smallFigures', None),
@@ -84,7 +84,7 @@ async def load(pg, page, layer, system=True):
 GEO = """()=>{const o=[];const top=e=>{let y=0,x=0;for(let n=e;n;n=n.offsetParent){y+=n.offsetTop;x+=n.offsetLeft}return [x,y]};
  document.querySelectorAll('body *').forEach(e=>{if(!(e instanceof HTMLElement))return;const [x,y]=top(e);const moving=!!(e.getAnimations&&e.getAnimations().length)||!!e.closest('[aria-hidden=true]');o.push([e.tagName,String(e.className).slice(0,30),Math.round(x),Math.round(y),e.offsetWidth,e.offsetHeight,moving])});return o}"""
 # every word in the page (hidden or not), minus the labels the layer itself adds to its controls
-TEXT = """()=>{const t=[];const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);for(let n=w.nextNode();n;n=w.nextNode()){if(n.parentElement.closest('script,style,.ad-more,.ad-seg,.ad-dots,.ad-menu-btn,.ad-menu,.bf-overlay'))continue;const s=n.textContent.replace(/\\s+/g,' ').trim();if(s)t.push(s)}return t.join(' ').split(' ')}"""
+TEXT = """()=>{const t=[];const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);for(let n=w.nextNode();n;n=w.nextNode()){if(n.parentElement.closest('script,style,.ad-more,.ad-show-more,.ad-seg,.ad-dots,.ad-menu-btn,.ad-menu,.bf-overlay'))continue;const s=n.textContent.replace(/\\s+/g,' ').trim();if(s)t.push(s)}return t.join(' ').split(' ')}"""
 CONTROLS = """()=>[...document.querySelectorAll('button,a,[role=button]')].filter(e=>{const r=e.getBoundingClientRect();if(r.width<2||r.height<2)return false;for(let a=e;a&&a!==document.body;a=a.parentElement){const c=getComputedStyle(a);if(c.display==='none'||c.visibility==='hidden')return false}return /\\b(replay|pause|start again|restart)\\b/i.test(e.textContent+' '+(e.getAttribute('aria-label')||''))}).map(e=>(e.textContent.trim()||e.getAttribute('aria-label')).slice(0,40))"""
 
 

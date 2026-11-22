@@ -7,3 +7,67 @@
   document.querySelectorAll('#our-story .ab-story-3 > p').forEach(p => A.fold(p, 3));
   A.fold($('#hbx .ab-hbx-p'), 3);
 })();
+
+/* Our mission on phones, option A (about-us.css): each diagram is held just under its chapter (--ab-lih = that
+   chapter's height), and a card the next one covers steps back. */
+(() => {
+  const A = window.BridgifyAdaptive; if (!A) return;
+  const s = document.querySelector('#story'); if (!s) return;
+  const lis = [...s.querySelectorAll('.ab-chapters > li')], st = [...s.querySelectorAll('.ms > .ms-s')]; if (lis.length !== st.length) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let raf = 0;
+  const paint = () => {
+    raf = 0;
+    const on = A.MQ.mobile.matches && !reduced.matches;
+    /* the header hides while scrolling down and comes back on the way up: centre in the whole screen, but never above
+       where the header ends when it shows (its height + its 8px offset), so a card never moves when the header does */
+    const hd = document.querySelector('header.top'), head = (hd ? hd.offsetHeight : 52) + 8 + 8;
+    lis.forEach((li, i) => {
+      if (on) {
+        st[i].style.setProperty('--ab-lih', li.offsetHeight + 'px'); const sh = st[i].offsetHeight + 'px'; li.style.setProperty('--ab-sh', sh); st[i].style.setProperty('--ab-sh', sh);
+        /* centred in the screen: the card (chapter + diagram) gets equal space above and below */
+        const card = li.offsetHeight + st[i].offsetHeight, ctop = Math.round(Math.max(head, (innerHeight - card) / 2)) + 'px';
+        li.style.setProperty('--ab-ctop', ctop); st[i].style.setProperty('--ab-ctop', ctop);
+      }
+      else ['--ab-lih', '--ab-sh', '--ab-ctop'].forEach(k => { st[i].style.removeProperty(k); li.style.removeProperty(k); });
+    });
+    let n = 0;
+    if (on) lis.forEach((li, i) => { if (li.getBoundingClientRect().top <= (parseFloat(getComputedStyle(li).top) || 0) + 40) n = i; });
+    lis.forEach((li, i) => { const c = on && i < n; li.classList.toggle('ad-covered', c); st[i].classList.toggle('ad-covered', c); });
+  };
+  const ask = () => { if (!raf) raf = requestAnimationFrame(paint); };
+  addEventListener('scroll', ask, {passive: true}); addEventListener('resize', ask); A.MQ.mobile.addEventListener('change', ask);
+  ask();
+})();
+
+/* About hero on phones: the scene comes in last (about-us.css). It waits until the hero copy has come in and the scene
+   is on screen, then: the 1M+ line, the map, its pins one by one, Bridgify, the three tiles one by one, the caption. */
+(() => {
+  const A = window.BridgifyAdaptive; if (!A || !A.MQ.mobile.matches) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const wm = document.querySelector('#top .wm'); if (!wm) return;
+  document.documentElement.classList.add('ad-wm-seq');
+  const pins = [...wm.querySelectorAll('.wm-pin')], brands = [...wm.querySelectorAll('.wm-brand')];
+  let done = false;
+  const play = () => {
+    if (done) return; done = true;
+    const at = (ms, f) => setTimeout(f, ms);
+    at(0, () => wm.classList.add('wm-s1'));
+    at(450, () => wm.classList.add('wm-s2'));
+    pins.forEach((p, i) => at(750 + i * 120, () => p.classList.add('wm-in')));
+    const t3 = 750 + pins.length * 120 + 150;
+    at(t3, () => wm.classList.add('wm-s3'));
+    at(t3 + 450, () => wm.classList.add('wm-s4'));
+    brands.forEach((b, i) => at(t3 + 550 + i * 160, () => b.classList.add('wm-in')));
+    at(t3 + 550 + brands.length * 160 + 200, () => wm.classList.add('wm-s5'));
+  };
+  /* after the hero copy's own entrance (about 1.4s), and once the scene's top is on screen */
+  const t0 = performance.now();
+  const check = () => {
+    if (done) return;
+    const r = wm.getBoundingClientRect();
+    if (performance.now() - t0 > 1400 && r.top < innerHeight * .9) play();
+  };
+  addEventListener('scroll', check, {passive: true}); setTimeout(check, 1450);
+  setTimeout(() => { if (!done && wm.getBoundingClientRect().top < innerHeight) play(); }, 4000);
+})();

@@ -1,0 +1,24 @@
+/* Marketplace icons in the Bridgify icon system: 1.5 stroke, one size per row, round caps, and a light dot that sits on the stroke with the same 1.5 weight. Colours stay as they were. */
+#section-4 svg{width:28px;height:28px;stroke-width:1.5}
+#section-4 svg path{stroke-width:1.5}
+#section-4 svg .mp-dot{fill:#ffe5c9;stroke:#ff9871;stroke-width:1.5;filter:none}
+#marketplace-audiences svg .mp-dot{fill:#fff8f1;stroke:currentColor;stroke-width:1.5}
+html body #section-4 svg:not(#x){width:28px;height:28px;flex:0 0 28px}
+
+/* Glass strokes: the frames of these panels were the solid coral of the site-wide frame class; they use the peach edge of the glass language (outer panels slightly stronger than the cards inside them). Colours of text and fills stay. */
+html body :is(#section-4 .wo-you,#section-4 .wo-us,#section-5 .launch-timeline,#section-5 .launch-store,#marketplace-results .results-panel):not(#x){border-color:#f6c8b594!important}
+html body :is(#section-4 .wo-chip,#section-4 .wo-op,#section-5 .launch-days button,#section-5 .launch-address,#section-5 .launch-live,#section-4 .wo-us .brand-coral-frame):not(#x){border-color:#f6c8b57a!important}
+html body :is(#section-4 .wo-chip.is-on,#section-5 .launch-days button.active,#section-5 .launch-days button.complete):not(#x){border-color:#f6c8b5!important}
+html body :is(#section-1 .market-window,#section-1 .brand-settings):not(#x){border-color:#f6c8b594!important}
+html body :is(#section-1 .settings-name,#section-1 .settings-apply,#section-1 .market-window .brand-coral-frame:not(.search-go):not(.market-search)):not(#x){border-color:#f6c8b57a!important}
+
+/* Inside the containers: padding from the card-pad token (32 desktop, 24 tablet), 16 between a title and its text, 24 between blocks */
+@media(min-width:600px){
+html body :is(#section-4 .wo-you,#section-4 .wo-us,#build-or-buy article,#marketplace-audiences li,#marketplace-audiences article):not(#x){padding:var(--bf-card-pad,24px)!important}
+html body :is(#section-4 .wo-you,#section-4 .wo-us):not(#x){gap:var(--bf-gap-text-text,16px)!important;row-gap:var(--bf-gap-text-text,16px)!important}
+html body #section-4 .wo-op:not(#x){padding:24px!important;gap:16px!important}
+html body #section-5 .launch-timeline:not(#x){padding:var(--bf-card-pad,24px)!important}
+html body #build-or-buy article h3:not(#x){margin-bottom:var(--bf-gap-text-text,16px)!important}
+}
+/* tablets and the upright iPad Pro only (owner, 22 Nov 2026): on desktop this column layout made Bridgify runs five tall centred blocks */
+@media(min-width:600px) and (max-width:1024px){html body #section-4 .wo-op>*:not(#x){margin-top:0!important;margin-bottom:0!important}html body #section-4 .wo-op:not(#x){display:flex!important;flex-direction:column!important;justify-content:flex-start}}

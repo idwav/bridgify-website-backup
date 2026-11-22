@@ -86,7 +86,7 @@
 .ag-out li{display:flex;justify-content:space-between}.ag-out li b{font-weight:600;color:#F46649}
 .ag-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:.5cqw}
 .ag-thumbs img{width:100%;aspect-ratio:1;border-radius:.6cqw;object-fit:cover;opacity:.92}
-@container (max-width:620px){
+@container (max-width:540px){
   .ag{height:158cqw}
   .ag-src{width:44cqw}
   .ag-src-body{gap:2cqw;padding:2cqw 2.4cqw;border-radius:2.4cqw}
@@ -102,6 +102,23 @@
   .ag-out small{font-size:2.2cqw}.ag-out strong{font-size:8cqw}.ag-out span,.ag-out ul{font-size:2.6cqw}
   .ag-thumbs{grid-template-columns:repeat(6,1fr);gap:1cqw}
 }
+/* upright screens (iPad Pro held upright, owner 22 Nov 2026): the tall diagram up to a 620px stage */
+@media (orientation:portrait){@container (max-width:620px){
+  .ag{height:158cqw}
+  .ag-src{width:44cqw}
+  .ag-src-body{gap:2cqw;padding:2cqw 2.4cqw;border-radius:2.4cqw}
+  .ag-src svg{width:5cqw;height:5cqw}.ag-src b{font-size:2.8cqw}.ag-src small{font-size:2.3cqw}
+  .ag-src:nth-of-type(1){--x:3cqw!important;--y:3cqw!important}.ag-src:nth-of-type(2){--x:53cqw!important;--y:3cqw!important}
+  .ag-src:nth-of-type(3){--x:3cqw!important;--y:17cqw!important}.ag-src:nth-of-type(4){--x:53cqw!important;--y:17cqw!important}
+  .ag-src:nth-of-type(5){--x:28cqw!important;--y:31cqw!important}
+  .ag-funnel{left:10cqw;top:47cqw;width:80cqw;height:34cqw}
+  .ag-funnel .h{display:none}.ag-funnel .v{display:inline}
+  .ag-engine{left:32cqw;top:86cqw;width:36cqw;height:20cqw}
+  .ag-engine b{font-size:3.6cqw}.ag-engine small{font-size:2cqw}
+  .ag-out{left:12cqw;top:112cqw;width:76cqw;padding:3.6cqw;border-radius:3cqw}
+  .ag-out small{font-size:2.2cqw}.ag-out strong{font-size:8cqw}.ag-out span,.ag-out ul{font-size:2.6cqw}
+  .ag-thumbs{grid-template-columns:repeat(6,1fr);gap:1cqw}
+}}
 
 /* 4.2 Normalize */
 .nm{height:74cqw}
@@ -144,7 +161,7 @@
 .nm.p-lock .nm-status .after{opacity:1;transform:none}
 .nm-status .before{opacity:0}.nm.p-flag .nm-status .before{opacity:1}
 .nm.p-lock .nm-status .before{opacity:0}
-@container (max-width:620px){
+@container (max-width:540px){
   .nm{height:150cqw}
   .nm-card{width:52cqw;border-radius:2.6cqw}
   .nm-card:nth-of-type(1){--x:4cqw!important;--y:5cqw!important}.nm-card:nth-of-type(2){--x:44cqw!important;--y:30cqw!important}.nm-card:nth-of-type(3){--x:8cqw!important;--y:68cqw!important}
@@ -158,6 +175,21 @@
   .nm-buy{font-size:3.2cqw}.nm-buy em{font-size:2.6cqw;padding:1.8cqw 3cqw;border-radius:1.6cqw}
   .nm-status{bottom:5cqw}.nm-status span{font-size:2.5cqw;padding:2cqw 3.4cqw;gap:2cqw}.nm-status i{width:1.8cqw;height:1.8cqw}
 }
+/* upright screens (iPad Pro held upright, owner 22 Nov 2026): the tall diagram up to a 620px stage */
+@media (orientation:portrait){@container (max-width:620px){
+  .nm{height:150cqw}
+  .nm-card{width:52cqw;border-radius:2.6cqw}
+  .nm-card:nth-of-type(1){--x:4cqw!important;--y:5cqw!important}.nm-card:nth-of-type(2){--x:44cqw!important;--y:30cqw!important}.nm-card:nth-of-type(3){--x:8cqw!important;--y:68cqw!important}
+  .nm-src{font-size:2cqw;padding:1.8cqw 2.4cqw}.nm-flag{padding:.8cqw 1.4cqw;border-radius:1.2cqw}
+  .nm-body{padding:2.2cqw 2.4cqw 2.6cqw}.nm-body b{font-size:2.8cqw;min-height:7.6cqw}.nm-meta{font-size:2.3cqw;margin-top:1.4cqw}
+  .nm-noimg{font-size:2.2cqw}
+  .nm-final{top:16cqw;width:78cqw;border-radius:3cqw}
+  .nm-lockbar{font-size:2.1cqw;padding:2cqw 3cqw;gap:1.4cqw}.nm-lockbar svg{width:3cqw;height:3cqw}
+  .nm-fbody{padding:3cqw 3.4cqw 3.4cqw}.nm-fbody small{font-size:2.2cqw}.nm-fbody h5{font-size:5cqw;margin:1.6cqw 0 2cqw}
+  .nm-tags{gap:1.4cqw;margin-bottom:2.6cqw}.nm-tags li{font-size:2.2cqw;padding:1.1cqw 1.6cqw;border-radius:1.4cqw}.nm-tags svg{width:2.6cqw;height:2.6cqw}
+  .nm-buy{font-size:3.2cqw}.nm-buy em{font-size:2.6cqw;padding:1.8cqw 3cqw;border-radius:1.6cqw}
+  .nm-status{bottom:5cqw}.nm-status span{font-size:2.5cqw;padding:2cqw 3.4cqw;gap:2cqw}.nm-status i{width:1.8cqw;height:1.8cqw}
+}}
 
 /* 4.3 Distribute */
 .ds{height:74cqw}
@@ -198,7 +230,7 @@
 .ds-handled li{display:flex;align-items:center;gap:.7cqw;font:500 1.05cqw/1.2 Sofia,sans-serif;color:#D7C9BD;opacity:0;transform:translateX(-1cqw);transition:opacity .5s calc(var(--i)*120ms),transform .8s var(--ease) calc(var(--i)*120ms)}
 .ds-handled.is-on li{opacity:1;transform:none}
 .ds-handled svg{width:1.3cqw;height:1.3cqw;color:#F46649}
-@container (max-width:620px){
+@container (max-width:540px){
   .ds{height:160cqw}
   .ds-engine{left:30cqw;top:3cqw;width:40cqw;height:18cqw}
   .ds-engine b{font-size:3.6cqw}.ds-engine small{font-size:2cqw}.ds-engine .hm-mark{width:20%}
@@ -221,6 +253,30 @@
   .ds-label{font-size:2cqw;top:calc(100% + 2.2cqw)}
   .ds-handled{display:none}
 }
+/* upright screens (iPad Pro held upright, owner 22 Nov 2026): the tall diagram up to a 620px stage */
+@media (orientation:portrait){@container (max-width:620px){
+  .ds{height:160cqw}
+  .ds-engine{left:30cqw;top:3cqw;width:40cqw;height:18cqw}
+  .ds-engine b{font-size:3.6cqw}.ds-engine small{font-size:2cqw}.ds-engine .hm-mark{width:20%}
+  .ds-split{left:47.5cqw;top:28cqw;width:5cqw;height:5cqw}
+  .ds-phone{left:5cqw;top:42cqw;width:34cqw;height:58cqw;padding:1.4cqw;border-radius:5cqw}
+  .ds-phone .ds-screen{border-radius:4cqw}
+  .ds-kiosk{left:53cqw;top:46cqw;width:42cqw;height:28cqw;padding:1.6cqw;border-radius:2.4cqw}
+  .ds-kiosk:after{width:4cqw;height:9cqw}.ds-kiosk:before{top:calc(100% + 9cqw);width:20cqw;height:2cqw}
+  .ds-kiosk .ds-label{top:calc(100% + 13cqw)}
+  .ds-kiosk .ds-row{grid-template-columns:repeat(2,1fr)}
+  .ds-kiosk .ds-row .ds-tile:nth-child(n+3){display:none}
+  .ds-web{left:5cqw;top:110cqw;width:90cqw;height:44cqw;border-radius:2.4cqw}
+  .ds-bar{font-size:2.2cqw;padding:1.6cqw 2cqw;gap:1.2cqw}.ds-bar i{width:2.8cqw;height:2.8cqw}.ds-bar span{font-size:1.9cqw}
+  .ds-chrome{padding:1.4cqw 2cqw;gap:1cqw}.ds-chrome i{width:1.6cqw;height:1.6cqw}.ds-chrome span{font-size:1.9cqw;padding:.8cqw 2.6cqw}
+  .ds-web h5{font-size:3.8cqw;margin:2.4cqw 2.6cqw 2cqw}.ds-kiosk h5{font-size:2.8cqw;margin:1.6cqw 1.8cqw 1.2cqw}
+  .ds-row{gap:2cqw;padding:0 2.6cqw}.ds-kiosk .ds-row{gap:1.4cqw;padding:0 1.8cqw}
+  .ds-tile span{font-size:2cqw;padding:1.2cqw 1.4cqw .4cqw}.ds-tile small{font-size:1.8cqw;padding:0 1.4cqw 1.4cqw}
+  .ds-kiosk .ds-tile span{font-size:1.8cqw}.ds-kiosk .ds-tile small{font-size:1.6cqw}
+  .ds-phone .ds-tile{margin:1.6cqw 1.6cqw 0}
+  .ds-label{font-size:2cqw;top:calc(100% + 2.2cqw)}
+  .ds-handled{display:none}
+}}
 
 /* 4.4 Personalize */
 .ps{min-height:74cqw;padding:2.6cqw}
@@ -249,7 +305,7 @@
 .ps-body small em{font-style:normal;color:#FFB194}
 .ps-match{display:block;height:1.1cqw;margin-top:.8cqw;font:550 .95cqw/1.1 Sofia,sans-serif;letter-spacing:.06em;color:#F46649;opacity:0;transition:opacity .5s .3s}
 .ps-card.is-top .ps-match{opacity:1}
-@container (max-width:620px){
+@container (max-width:540px){
   .ps{min-height:0;padding:4.4cqw}
   .ps-head{gap:2.4cqw;margin-bottom:2.4cqw}.ps-head>span{font-size:2.2cqw;width:100%}
   .ps-profiles{gap:1.6cqw;width:100%}
@@ -263,6 +319,21 @@
   .ps-body{padding:2.2cqw 2.4cqw 2.6cqw}.ps-body b{font-size:2.8cqw}.ps-body small{font-size:2.3cqw;margin-top:1.2cqw}
   .ps-match{font-size:2.1cqw;height:2.4cqw;margin-top:1.4cqw}
 }
+/* upright screens (iPad Pro held upright, owner 22 Nov 2026): the tall diagram up to a 620px stage */
+@media (orientation:portrait){@container (max-width:620px){
+  .ps{min-height:0;padding:4.4cqw}
+  .ps-head{gap:2.4cqw;margin-bottom:2.4cqw}.ps-head>span{font-size:2.2cqw;width:100%}
+  .ps-profiles{gap:1.6cqw;width:100%}
+  .ps-prof{flex:1;justify-content:center;min-height:11cqw;font-size:3cqw;gap:1.4cqw;padding:0 2cqw;border-radius:8cqw}.ps-prof svg{width:4cqw;height:4cqw}
+  .ps-ai{margin-left:0;font-size:2.4cqw;gap:1.2cqw}.ps-ai svg{width:3.4cqw;height:3.4cqw}
+  .ps-caption{font-size:2.8cqw;margin-bottom:3cqw;min-height:3.6cqw}
+  .ps-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:3cqw}
+  .ps-card{border-radius:2.6cqw}
+  .ps-thumb svg{width:13cqw;height:13cqw}
+  .ps-rank{font-size:2.2cqw;padding:1cqw 1.4cqw;border-radius:1.2cqw;left:2cqw;top:2cqw}
+  .ps-body{padding:2.2cqw 2.4cqw 2.6cqw}.ps-body b{font-size:2.8cqw}.ps-body small{font-size:2.3cqw;margin-top:1.2cqw}
+  .ps-match{font-size:2.1cqw;height:2.4cqw;margin-top:1.4cqw}
+}}
 .wy-more,.ai-more{display:inline-flex;gap:8px;margin-top:14px;color:#FFB194;font:550 15px/1.3 Sofia,sans-serif;text-decoration:none}
 #why-bridgify .hm-controls{display:none}
 @media (min-width:901px){

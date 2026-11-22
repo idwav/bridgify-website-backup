@@ -380,3 +380,26 @@
   html body[data-copy-page] #section-4.brand-light-section .wo-op .wo-stat{grid-column:2/4}
   html body[data-copy-page] #section-4.brand-light-section .wo-op h3{font-size:22px!important}
 }
+
+/* Owner, 22 Nov 2026 (phones) */
+@media (max-width:599px){
+  /* From discovery to checkout: the store window is as tall as its tallest screen (marketplace.js sets --ad-tour-h)
+     instead of a fixed 600px with empty space under every screen, and it takes the site's 30% frame. */
+  html body #section-2.market-product-tour .screens:not(#ad-x):not(#ad-y){height:var(--ad-tour-h,600px)!important}
+  html body #section-2 article.screen:not(#ad-x):not(#ad-y):not(#ad-z){border-color:rgba(246,200,181,.127)!important;box-shadow:rgba(255,241,218,.127) 0 1px 1px 0 inset,rgba(255,153,123,.101) 0 -1px 1px 0 inset,rgba(255,176,155,.073) 0 0 2px 0,rgba(244,102,73,.15) 0 0 40px 0,rgba(0,0,0,.4) 0 20px 50px 0!important}
+
+  /* Your brand, your markets, your currencies: the phone sits closer to the settings card; its apricot background
+     runs the full width of the card above (marketplace.js sizes it through the stage's zoom), with no frame. */
+  html body #section-3 .wl-preview-stage:not(#ad-x):not(#ad-y){width:var(--ad-stage-w,auto)!important;max-width:none!important;margin-top:var(--ad-stage-mt,24px)!important;margin-inline:0!important;border-color:transparent!important;box-shadow:none!important;border-radius:var(--ad-stage-r,34px)!important;display:flex!important;flex-direction:column!important;align-items:center!important}
+
+  /* You bring the brand. We run everything behind it: both lists fit one screen together, so "Bridgify runs" is in
+     view with "You bring" instead of being cut in two by the screen's edge. Same type, smaller steps. */
+  html body[data-copy-page] #section-4.brand-light-section .wo-stack>.wo-you:not(#ad-z){padding-bottom:0!important;margin-top:24px!important}
+  html body[data-copy-page] #section-4.brand-light-section .wo-chips:not(#ad-z){margin-top:4px!important}
+  html body[data-copy-page] #section-4.brand-light-section .wo-chip:not(#ad-z){font-size:20px!important;line-height:1.25!important;padding:11px 0!important;min-height:44px!important}
+  html body[data-copy-page] #section-4.brand-light-section .wo-stack>.wo-us:not(#ad-z){padding-top:24px!important}
+  html body[data-copy-page] #section-4.brand-light-section .wo-ops:not(#ad-z){margin-top:12px!important;padding:2px 16px!important}
+  html body[data-copy-page] #section-4.brand-light-section .wo-op:not(#ad-z){padding:10px 0!important;row-gap:2px!important}
+  html body[data-copy-page] #section-4.brand-light-section .wo-op h3:not(#ad-z){font-size:18px!important;line-height:1.2!important;white-space:nowrap}
+  html body[data-copy-page] #section-4.brand-light-section .wo-op .wo-stat:not(#ad-z){margin-top:0!important}
+}

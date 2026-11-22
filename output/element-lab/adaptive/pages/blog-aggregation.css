@@ -1,0 +1,6 @@
+/* Blog post · adaptive layer (phones). Spacing between roles comes from system/tokens.css via the role map;
+   this file only lets the hero end at its cover image (blog-editorial.css gave it a screen-height minimum,
+   which left a gap under the cover on tall phones). */
+@media (max-width:599px){
+  html body .blog-post .blog-post-hero:not(#ad-x){min-height:0!important}
+}

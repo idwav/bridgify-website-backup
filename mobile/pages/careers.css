@@ -1,0 +1,46 @@
+/* Careers · adaptive layer (phones). Spacing between roles comes from system/tokens.css via the role map;
+   this file only puts the sections on the shared 24px gutter. */
+@media (max-width:599px){
+  html body .careers-page :is(#top,#why-now,#reach,#what-makes-bridgify,#problems,#open-roles):not(#ad-x){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important;box-sizing:border-box!important}
+}
+
+/* Owner, 22 Nov 2026 (phones) */
+@media (max-width:599px){
+  /* Hero: "Why now" is the group's secondary button (outlined coral), beside "See open roles" (role map: one actions
+     group). The proof line sits on one row and closer to the buttons, so more of the badge is in the first screen. */
+  html body #top .career-actions>a.career-link[data-bf-kind=secondary]:not(#ad-x):not(#ad-y){border:1px solid #F46649!important;border-radius:10px!important;background:linear-gradient(135deg,rgba(244,102,73,0),rgba(244,102,73,0))!important;color:#FFF8F1!important;font:550 15px/20px Sofia,sans-serif!important;text-decoration:none!important;justify-content:center!important;padding:0 16px!important}
+  html body #top .career-proof:not(#ad-x):not(#ad-y){flex-wrap:nowrap!important;justify-content:flex-start!important;column-gap:16px!important;margin-top:32px!important}
+  html body #top .career-proof>span:not(#ad-x){white-space:nowrap!important}
+  html body #top .career-proof>span:not(#ad-x)::before{left:-10px!important}
+  @media (max-width:374px){html body #top .career-proof:not(#ad-x):not(#ad-y){column-gap:12px!important;letter-spacing:.01em!important;font-size:12px!important} html body #top .career-proof>span:not(#ad-x)::before{left:-8px!important}}
+
+  /* Your work reaches millions: the two examples and the two figures fit one screen with the copy. */
+  html body #reach .cr-panel:not(#ad-x):not(#ad-y){padding:16px!important}
+  html body #reach .cr-ex:not(#ad-x):not(#ad-y){padding:14px 16px!important;gap:14px!important;min-height:0!important}
+  html body #reach .cr-ex+.cr-ex:not(#ad-x){margin-top:10px!important}
+  html body #reach .cr-ex svg:not(#ad-x){width:28px!important;height:28px!important}
+  html body #reach .cr-ex b:not(#ad-x){font-size:17px!important;line-height:1.25!important}
+  html body #reach .cr-ex small:not(#ad-x){font-size:14px!important;line-height:1.45!important}
+  html body #reach .cr-stats:not(#ad-x):not(#ad-y){display:grid!important;grid-template-columns:1fr 1fr!important;gap:16px!important;margin-top:16px!important;padding-top:16px!important}
+  html body #reach .cr-stats>div:not(#ad-x):not(#ad-y){border:0!important;padding:0!important;margin:0!important}
+  html body #reach .cr-stats strong:not(#ad-x){font-size:44px!important;line-height:1.05!important}
+  html body #reach .cr-stats span:not(#ad-x){font-size:14px!important;margin-top:4px!important}
+
+  /* What makes Bridgify Bridgify: the three statements are step buttons in one sideways row (the site's stepper,
+     light version); the chosen statement's text sits under the row and the picture under it changes with it.
+     They still move on by themselves every few seconds until a tap (careers-motion.js). */
+  html body #what-makes-bridgify .cm-list:not(#ad-x):not(#ad-y){display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:8px!important;overflow-x:auto!important;scrollbar-width:none;margin:0 -24px!important;padding:0 24px!important;scroll-padding-inline:24px;height:auto!important}
+  html body #what-makes-bridgify .cm-list::-webkit-scrollbar{display:none}
+  html body #what-makes-bridgify .cm-list>li:not(#ad-x):not(#ad-y){flex:none!important;display:inline-flex!important;align-items:center!important;gap:8px!important;height:40px!important;min-height:40px!important;padding:0 14px!important;margin:0!important;border:1px solid rgba(24,15,16,.16)!important;border-radius:10px!important;background:rgba(255,250,244,.7)!important;cursor:pointer;opacity:1!important;transition:border-color .3s,background .3s}
+  html body #what-makes-bridgify .cm-list>li:not(#ad-x)::before,html body #what-makes-bridgify .cm-list>li:not(#ad-x)::after{display:none!important}
+  html body #what-makes-bridgify .cm-list>li>i:not(#ad-x){font:600 13px/1 Sofia,sans-serif!important;letter-spacing:.04em!important;color:#C2462E!important;margin:0!important;padding:0!important;position:static!important;top:auto!important;transform:none!important;align-self:center!important}
+  html body #what-makes-bridgify .cm-list>li>div:not(#ad-x){display:contents!important}
+  html body #what-makes-bridgify .cm-list>li h3:not(#ad-x){font:550 14px/1 Sofia,sans-serif!important;letter-spacing:0!important;white-space:nowrap!important;color:#5c4f4a!important;margin:0!important;opacity:1!important}
+  html body #what-makes-bridgify .cm-list>li p:not(#ad-x){display:none!important}
+  html body #what-makes-bridgify .cm-list>li.ad-cm-on:not(#ad-x):not(#ad-y){border-color:#F46649!important;background:linear-gradient(125deg,rgba(244,102,73,.16),rgba(244,102,73,.06))!important}
+  html body #what-makes-bridgify .cm-list>li.ad-cm-on h3:not(#ad-x){color:#180F10!important}
+  html body #what-makes-bridgify .cm-list>li:focus-visible{outline:2px solid #F46649;outline-offset:2px}
+  html body #what-makes-bridgify .ad-cm-text:not(#ad-x){margin:12px 0 0!important;font:400 16px/1.55 Sofia,sans-serif;color:#4a3f3b;min-height:calc(3 * 1.55em);transition:opacity .25s}
+  html body #what-makes-bridgify .ad-cm-text.is-swap{opacity:0}
+  html body #what-makes-bridgify .cm-stage:not(#ad-x):not(#ad-y){margin-top:16px!important}
+}
