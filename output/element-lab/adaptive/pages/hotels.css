@@ -62,3 +62,11 @@
   html body #section-3 .ad-hs-pin .hs-panel>*:not(#ad-x){height:100%!important;max-height:100%!important;overflow:hidden!important}
 }
 @media (max-width:599px) and (prefers-reduced-motion:reduce){ html body #section-1 .hm-heading{position:static!important} }
+
+/* Owner, 22 Nov 2026 (phones): the hero map looked zoomed in. The city drawing is wide (1000×440) and was cropped into
+   a tall 380px stage, so only ~40% of its width showed. A 320px stage shows ~50% of it; the pins keep their places
+   (the route to the hotel is drawn from them) and the preview card sits 12px from the bottom, clear of the pins. */
+@media (max-width:599px){
+  html body #section-1 .hm-map-stage:not(#ad-x):not(#ad-y){height:320px!important;min-height:0!important;flex:none!important}
+  html body #section-1 .hm-map-preview:not(#ad-x):not(#ad-y){bottom:12px!important}
+}
