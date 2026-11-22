@@ -1,0 +1,47 @@
+/* Loyalty, "Banks are building travel brands": three channels side by side (site, app, card), each showing the same reward, all feeding one point: every points program needs rewards worth redeeming. Peach glass, our wire, 1.5 icons with a light dot. */
+html body #market-signal.lm3:not(#x){position:relative;height:auto!important;min-height:0!important;padding-top:96px!important;padding-bottom:96px!important;background:#160f0d}
+.lm3 header{max-width:none;margin:0}
+.lm3-flow{position:relative;margin-top:48px}
+.lm3-channels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+html body #market-signal .lm3-card:not(#x),html body #market-signal .lm3-hub:not(#x){position:relative;border:1px solid #f6c8b58c!important;border-radius:24px;background:radial-gradient(at 100% 0%,#ff89622e,#0000 34%),radial-gradient(at 0% 100%,#ff785324,#0000 30%),linear-gradient(115deg,#fff8f10e,#0000 50%),#150d0bf2!important;box-shadow:inset 0 1px 1px #fff1da88,inset 0 -1px 1px #ff997b55,0 0 3vw #f4664920,0 1.6vw 3.6vw #0006!important}
+.lm3-card{display:flex;flex-direction:column;padding:32px}
+.lm3-head{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.lm3-ico{flex:none;width:40px;height:40px;padding:9px;box-sizing:border-box;border:1px solid #f6c8b566;border-radius:50%;color:#F46649;background:#160e0bf0}
+.lm3 .icon-node{fill:#fff1e7;stroke:none}
+.lm3-card h3{margin:0;font:300 var(--type-card,clamp(24px,2.2vw,28px))/1.25 Chillax,sans-serif;letter-spacing:-.02em;color:#EEE9DE}
+.lm3-art{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px;min-height:300px;padding:20px;border:1px solid #f6c8b533;border-radius:16px;background:radial-gradient(70% 60% at 50% 40%,#ff896218,#0000 70%),#0f0908}
+.lm3-browser,.lm3-phone{width:100%;max-width:300px;border:1px solid #f6c8b559;border-radius:14px;background:#130b09;overflow:hidden}
+.lm3-phone{max-width:190px;border-radius:26px;padding:14px 10px 10px}
+.lm3-notch{width:46px;height:5px;margin:0 auto 10px;border-radius:3px;background:#3a2a24}
+.lm3-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid #f6c8b52e;background:#0b0706}
+.lm3-bar i{width:7px;height:7px;border-radius:50%;background:#3a2a24}.lm3-bar span{margin-left:8px;font:500 12px/1 Sofia,sans-serif;color:#C7B5A5}
+.lm3-tile{position:relative;overflow:hidden;border-radius:12px;background:#130b09}
+.lm3-browser .lm3-tile{border-radius:0}
+.lm3-tile img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.lm3-tile div{padding:10px 12px 12px}
+.lm3-tile small{display:block;font:550 11px/1.3 Sofia,sans-serif;letter-spacing:.14em;color:#F46649}
+.lm3-tile b{display:block;margin-top:2px;font:550 14px/1.3 Sofia,sans-serif;color:#FFF8F1}
+.lm3-tile span{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;background:linear-gradient(105deg,#ff9862,#f46649);font:550 12px/1 Sofia,sans-serif;color:#180F10}
+.lm3-card:nth-child(3) .lm3-tile{width:100%;max-width:260px;border:1px solid #f6c8b559}
+.lm3-pts{width:100%;max-width:260px;padding:16px 18px;border:1px solid #f6c8b5aa;border-radius:14px;background:radial-gradient(at 100% 0%,#ff896230,#0000 60%),#1a110e}
+.lm3-pts small{display:block;font:550 11px/1.3 Sofia,sans-serif;letter-spacing:.14em;color:#FFB194}
+.lm3-pts strong{display:block;margin-top:6px;font:300 32px/1 Chillax,sans-serif;color:#FFF8F1}.lm3-pts strong span{font-size:16px;color:#F46649}
+/* the point they all feed */
+.lm3-hub{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:20px;width:min(100%,760px);margin:64px auto 0;padding:24px 32px}
+.lm3-hub-ic{display:grid;place-items:center;width:56px;height:56px;border:1px solid #f6c8b5;border-radius:50%;background:#160e0bf0;color:#F46649;box-shadow:0 0 22px #f4664955}
+.lm3-hub-ic svg{width:28px;height:28px}
+.lm3-hub small{display:block;font:550 12px/1.4 Sofia,sans-serif;letter-spacing:.15em;color:#F46649}
+.lm3-hub h3{margin:4px 0 0;font:300 var(--type-card,clamp(24px,2.2vw,28px))/1.25 Chillax,sans-serif;letter-spacing:-.02em;color:#EEE9DE}
+.lm3-hub p{margin:0;font:400 16px/1.5 Sofia,sans-serif;color:#D7C9BD}
+.lm3-body{max-width:760px;margin:32px auto 0;text-align:center;font:400 16px/1.55 Sofia,sans-serif;color:#D7C9BD}
+.lm3-wires{position:absolute;left:0;top:0;pointer-events:none;overflow:visible;z-index:2}
+@media(max-width:1023px){.lm3-channels{grid-template-columns:minmax(0,1fr)}html body #market-signal.lm3:not(#x){padding-top:80px!important;padding-bottom:80px!important}.lm3-card{padding:24px}.lm3-art{min-height:260px}.lm3-hub{grid-template-columns:auto minmax(0,1fr);margin-top:40px}.lm3-hub p{grid-column:1/-1}}
+@media(min-width:700px) and (max-width:1023px){.lm3-channels{grid-template-columns:repeat(2,minmax(0,1fr))}.lm3-card:nth-child(3){grid-column:1/-1}}
+@media(max-width:599px){html body #market-signal.lm3:not(#x){padding-top:64px!important;padding-bottom:64px!important}.lm3-flow{margin-top:32px}.lm3-channels{gap:16px}}
+html body #market-signal .lm3-body:not(#x){position:static!important;transform:none!important;margin:40px auto 0!important;max-width:760px;text-align:center;opacity:1!important}
+html body #market-signal .lm3-hub:not(#x){margin-top:64px!important}
+html body #market-signal .lm3-art:not(#x),html body #market-signal .lm3-pts:not(#x){border-color:#f6c8b533!important}
+html body #market-signal .lm3-browser:not(#x),html body #market-signal .lm3-phone:not(#x),html body #market-signal .lm3-card:nth-child(3) .lm3-tile:not(#x){border-color:#f6c8b559!important}
+html body #market-signal .lm3-pts:not(#x){border-color:#f6c8b5aa!important}
+html body #market-signal .lm3-ico:not(#x),html body #market-signal .lm3-hub-ic:not(#x){border-color:#f6c8b566!important}
+html body #market-signal .lm3 header:not(#x),html body #market-signal header:not(#x){position:static!important;opacity:1!important;transform:none!important}
