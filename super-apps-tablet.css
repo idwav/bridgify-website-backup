@@ -1,0 +1,59 @@
+/* Super apps and consumer platforms on a standard tablet (iPad upright, 600-900px; owner's choices of 22 Nov 2026).
+   Spacing only from Tom's tablet table (section 80, head>content 48, card gap 24). Every section fills one screen under the 64px header; the FAQ is unchanged.
+   Phone and desktop are untouched. */
+.sa-tabs{display:none}
+@media (min-width:600px) and (max-width:900px){
+  /* 1 · Hero */
+  html body:not(#bf-lab) section#section-1:not(#x){padding-top:128px!important;padding-bottom:48px!important;min-height:100svh!important;box-sizing:border-box!important;align-content:center!important;align-items:center!important}
+  /* 2 · How to add tours and activities: the two items side by side, half the width each */
+  html body #section-2:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body section#section-2.sc-how .sc-info-grid:not(#x):not(#y){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:24px!important;height:auto!important}
+  html body section#section-2.sc-how .sc-info-item:not(#x):not(#y){display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;gap:20px!important;height:auto!important;padding:56px 32px!important;min-height:300px!important;border:1px solid #1d121026!important;border-radius:16px!important;background:#fff8f166!important}
+  html body section#section-2.sc-how .sc-info-grid>.sc-info-item:not(#x):not(#y){margin:0!important}
+  html body section#section-2.sc-how .sc-info-item>*:not(#x):not(#y){margin:0!important;width:auto!important;max-width:none!important}
+  html body section#section-2.sc-how .sc-info-item h3:not(#x):not(#y){font-size:30px!important;line-height:1.2!important}
+  html body section#section-2.sc-how .sc-info-item p:not(#x):not(#y){font-size:18px!important;line-height:1.5!important}
+  html body section#section-2.sc-how .sc-info-icon:not(#x):not(#y){transform:scale(1.25)!important;transform-origin:left center!important}
+  html body section#section-2.sc-how .sc-info-heading:not(#x):not(#y){margin-bottom:0!important;padding-bottom:0!important}
+  html body section#section-2.sc-how .sc-info-grid:not(#x):not(#y){margin-top:48px!important;padding:0!important;translate:none!important}
+  html body section#section-2.sc-how .sc-info-inner:not(#x):not(#y){row-gap:0!important}
+  html body section#section-2.sc-how .sc-info-heading h2 span:not(#x):not(#y){display:block!important}
+  /* 3 · Connect experiences: three numbered tabs, text left, phone right (the steps advance by themselves, see super-apps-tablet.js) */
+  html body #section-3:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body section#section-3.sc-section .up-story-track:not(#x),html body section#section-3.sc-section .up-story-sticky:not(#x):not(#y){height:auto!important;position:static!important;min-height:0!important}
+  html body section#section-3.sc-section .up-story-sticky:not(#x):not(#y){display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;column-gap:24px!important;row-gap:0!important;align-items:start!important}
+  html body section#section-3.sc-section .up-story-text:not(#x):not(#y){display:contents!important}
+  html body section#section-3.sc-section .sc-eyebrow:not(#x){grid-column:1/-1!important;grid-row:1!important}
+  html body section#section-3.sc-section .sc-heading:not(#x):not(#y){grid-column:1/-1!important;grid-row:2!important;margin-bottom:40px!important;width:auto!important;max-width:none!important}
+  html body section#section-3.sc-section .up-story-steps:not(#x):not(#y){grid-column:1/-1!important;grid-row:3!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;margin:0 0 24px!important;height:auto!important}
+  html body section#section-3.sc-section .up-story-steps>*:not(#x):not(#y){display:flex!important;justify-content:center!important;align-items:center!important;height:48px!important;padding:0 8px!important;border:1px solid #f6c8b555!important;border-radius:999px!important;background:#160e0b!important;color:#EEE9DE!important;font:700 12px/1 Sofia,sans-serif!important;letter-spacing:.08em!important;text-transform:uppercase!important;white-space:nowrap!important}
+  html body section#section-3.sc-section .up-story-steps>[aria-selected=true]:not(#x):not(#y),html body section#section-3.sc-section .up-story-steps>.is-active:not(#x):not(#y){background:linear-gradient(105deg,#ff9862,#f46649)!important;border-color:transparent!important;color:#180F10!important;-webkit-text-fill-color:#180F10!important}
+  html body section#section-3.sc-section .up-story-copies:not(#x):not(#y){grid-column:1!important;grid-row:4!important;height:auto!important}
+  html body section#section-3.sc-section .up-story-phone:not(#x):not(#y){grid-column:2!important;grid-row:4/6!important;width:100%!important}
+  html body section#section-3.sc-section .sc-foot:not(#x):not(#y){grid-column:1!important;grid-row:5!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;align-self:end!important;gap:24px!important;height:auto!important;margin:40px 0 0!important}
+  html body section#section-3.sc-section .up-story-copies h3:not(#x):not(#y){font-size:28px!important;line-height:1.2!important;margin:0 0 16px!important}
+  html body section#section-3.sc-section .up-story-copies p:not(#x):not(#y),html body section#section-3.sc-section .sc-foot p:not(#x):not(#y){font-size:16px!important;line-height:1.5!important}
+  html body section#section-3.sc-section .sc-foot p:not(#x):not(#y){width:auto!important;max-width:none!important;height:auto!important}
+  /* 4 · Choose how experiences fit your platform: the two products side by side, same height */
+  html body section.xc:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+    /* Choose how experiences fit your platform: the two products side by side, same height (replaces the one-at-a-time tabs; owner's choice, 22 Nov 2026) */  html body section.xc:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+    html body section.xc .xc-head:not(#x){margin-bottom:48px!important}
+    html body section.xc .xc-grid:not(#x){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:24px!important;align-items:stretch!important}
+    html body section.xc .xc-card:not(#x){display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
+    html body section.xc .xc-grid>.xc-card:not(#x):not(#y){margin:0!important;position:static!important;top:auto!important;min-width:0!important;overflow:hidden!important}
+    html body section.xc .xc-vis:not(#x){zoom:1!important;width:100%!important;max-width:none!important;height:272px!important;flex:0 0 auto!important;container-type:inline-size}
+    html body section.xc .xc-vis>.xc-code:not(#x),html body section.xc .xc-vis>.xc-link:not(#x),html body section.xc .xc-vis>.xc-app:not(#x){translate:0 58px!important}
+    html body section.xc .xc-vis>.xc-app:not(#x):not(#y){translate:0 51px!important}
+    html body section.xc .xc-vis>.xc-badge:not(#x){translate:0 2px!important}
+    html body section.xc .xc-swatches:not(#x){top:22px!important;right:36px!important;gap:7px!important;z-index:4!important}
+    html body section.xc .xc-swatches i:not(#x){width:11px!important;height:11px!important;border:2px solid #f1ebe2!important;box-shadow:0 0 0 1px #18101033!important}
+    html body section.xc .xc-swatches i.is-on:not(#x){box-shadow:0 0 0 1.5px #180f10!important}
+    html body section.xc .xc-body:not(#x){flex-direction:column!important;align-items:flex-start!important;gap:16px!important;padding:24px!important}
+    html body section.xc .xc-body h3:not(#x){font-size:22px!important;margin:0!important}
+    html body section.xc .xc-body:not(#x){flex:1 1 auto!important;justify-content:space-between!important}
+    html body section.xc .xc-card:not(#x){height:auto!important;align-self:stretch!important}
+    html body section.xc .xc-grid:not(#x){grid-auto-rows:1fr!important}
+    html body section.xc .xc-cta:not(#x){width:auto!important;max-width:100%!important;white-space:normal!important}
+    html body section.xc .xc-card:not(#x):not(#y){visibility:visible!important;opacity:1!important;pointer-events:auto!important;grid-area:auto!important}
+    html body section.xc .ot-tabs:not(#x),html body section.xc .ly-tabs:not(#x),html body section.xc .ht-tabs:not(#x),html body section.xc .at-tabs:not(#x),html body section.xc .tt-tabs:not(#x){display:none!important}
+}
