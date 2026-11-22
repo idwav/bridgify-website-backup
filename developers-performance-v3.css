@@ -39,3 +39,12 @@ html body #performance .dp3-safe li:not(#x){display:flex;align-items:center;gap:
 @media(max-width:599px){html body #performance.dp3:not(#x){padding-top:64px!important;padding-bottom:64px!important}html body #performance .dp3-moments:not(#x){margin-top:32px!important;gap:16px}.dp3-safe{gap:16px}html body #performance .dp3-card:not(#x){padding:24px!important}}
 @media(prefers-reduced-motion:reduce){.dp3-steps::after{animation:none;opacity:0}}
 .dp3-retry{position:absolute;top:14px;right:16px}
+
+/* wiring is drawn by developers-performance-wires.js with the site's wire; the CSS connectors, nodes and pulse are removed */
+html body #performance.dp3:not(#x){position:relative}
+.dp3-step::before,.dp3-step::after,.dp3-node,.dp3-steps::after{display:none!important}
+.dp3-steps{gap:56px!important}
+.dp3-wires{position:absolute;left:0;top:0;pointer-events:none;overflow:visible;z-index:2}
+html body #performance .dp3-moments:not(#x){gap:40px!important}
+html body #performance .dp3-safe:not(#x){margin-top:48px!important}
+@media(max-width:700px){.dp3-steps{gap:32px!important}html body #performance .dp3-moments:not(#x){gap:40px!important}}
