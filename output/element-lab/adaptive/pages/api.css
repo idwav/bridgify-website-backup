@@ -208,3 +208,5 @@
   html body #integration .am-heading>.am-actions{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:12px!important;width:auto!important;min-width:0!important;max-width:100%!important;margin:32px 0 0!important;padding:0!important;border:0!important}
   html body #integration .am-heading>.am-actions>a{flex:none!important;min-width:0!important;max-width:100%!important;width:auto!important;white-space:normal!important;text-align:left!important;justify-content:flex-start!important}
 }
+/* hero code demo on phones: the language tabs and Copy are 44px tall (MOBILE-RULES L1); they were 36px */
+@media (max-width:599px){ html body #top.api-hero-code :is(.ahc-tabs button,.ahc-copybtn):not(#ad-x):not(#ad-y):not(#ad-z){min-height:44px!important} }
