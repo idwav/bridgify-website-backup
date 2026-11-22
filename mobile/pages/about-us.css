@@ -112,3 +112,24 @@
   html.ad-wm-seq #top .wm:not(.wm-s5) .wm-cap{opacity:0}
   html.ad-wm-seq #top .wm .wm-brands::before{transition:opacity .5s}
 }
+
+/* About hero on phones, the three partner tiles (owner, 22 Nov 2026): in the site's glass language instead of a
+   solid box with a full coral frame: translucent fill with the soft coral glow, the 30% frame (line and edge highlights
+   x 0.22, as every display box), no icons, a smaller tile, and short connector lines so they sit close under Bridgify.
+   The site's glow script sets a full-strength border colour inline on the tiles, so the frame is set here with !important. */
+@media (max-width:599px){
+  html body #top .wm-brand:not(#ad-x):not(#ad-y):not(#nf1):not(#nf2):not(#nf3):not(#nf4){
+    min-height:40px!important;padding:9px 6px!important;gap:0!important;border-radius:12px!important;
+    border:1px solid rgba(246,200,181,.127)!important;border-color:rgba(246,200,181,.127)!important;
+    background:linear-gradient(145deg,rgba(94,52,40,.42),rgba(30,20,20,.34) 70%)!important;
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+    box-shadow:rgba(255,241,218,.117) 0 1px 1px 0 inset,rgba(255,153,123,.073) 0 -1px 1px 0 inset,rgba(244,102,73,.2) 0 0 18px 0!important}
+  html body #top .wm-brand>svg:not(#ad-x){display:none!important}
+  html body #top .wm-brand>b:not(#ad-x){font-size:14px!important;line-height:18px!important}
+  /* closer to Bridgify: 20px from the hub to the tiles, the joining lines 10px */
+  html body #top .wm-brands:not(#ad-x):not(#ad-y){margin-top:20px!important;gap:8px!important}
+  html body #top .wm-hub::after{height:10px!important}
+  html body #top .wm-brands::before{top:-10px!important}
+  html body #top .wm-brand::before{height:10px!important}
+  html body #top .wm-cap:not(#ad-x):not(#ad-y){margin-top:10px!important}
+}
