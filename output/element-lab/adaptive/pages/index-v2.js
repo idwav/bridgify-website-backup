@@ -19,56 +19,32 @@
     const steps = $$('.wy-step', wy), tabs = $$('.wy-tab', wy);
     const wyTabs = A.tabs(wy, steps, {existing: tabs, when: matchMedia('(max-width:900px)')});
 
-    /* Phones only (owner, 22 Nov 2026): once the section is on screen the steps move on by themselves every 2 seconds
-       (Aggregate, Normalize, Distribute, Personalize, then again). Tapping a step still works and restarts the 2 seconds.
-       Off with reduced motion, in a background tab and when the section is off screen. */
+    /* Phones only (owner, 22 Nov 2026): while the step buttons are on screen the steps move on by themselves every
+       2 seconds (Aggregate, Normalize, Distribute, Personalize, then again). Tapping a step still works and restarts the
+       2 seconds. When the reader scrolls on and the buttons leave the screen (to look at a diagram, or past the section),
+       the current step stays, so nothing changes under the reader. Off with reduced motion and in a background tab. */
     const phone = matchMedia('(max-width:599px)'), still = matchMedia('(prefers-reduced-motion: reduce)');
     if (wyTabs && steps.length > 1) {
-      let timer = 0, inView = false;
+      let timer = 0, on = false;
       const current = () => Math.max(0, tabs.findIndex(t => t.getAttribute('aria-selected') === 'true'));
-      const stop = () => { clearInterval(timer); timer = 0; };
-      const start = () => {
-        stop();
-        if (!inView || !phone.matches || still.matches || document.hidden) return;
-        timer = setInterval(() => wyTabs.show((current() + 1) % steps.length), 2000);
-      };
-      new IntersectionObserver(es => { inView = es[0].isIntersecting; start(); }, {rootMargin: '-30% 0px -30% 0px'}).observe(wy);
       const bar = tabs[0] && tabs[0].parentElement;
-      if (bar) bar.addEventListener('click', () => setTimeout(start, 0), true);
-      steps.forEach(st => st.addEventListener('touchend', () => setTimeout(start, 0), {passive: true}));
-      document.addEventListener('visibilitychange', start);
-      phone.addEventListener('change', start); still.addEventListener('change', start);
-
-      /* The page must not jump while the steps change: the steps area keeps the height of the tallest step. */
-      const box = steps[0].parentElement;
-      let lastW = 0;
-      const fit = () => {
-        if (!phone.matches) { box.style.minHeight = ''; lastW = 0; return; }
-        if (innerWidth === lastW && box.style.minHeight) return;
-        lastW = innerWidth;
-        // the area also holds more than the step itself: measure what it adds, then size for the tallest step
-        box.style.minHeight = '';
-        const act = steps.find(st => st.classList.contains('ad-on')) || steps[0];
-        const extra = box.offsetHeight - act.offsetHeight;
-        let max = 0;
-        steps.forEach(st => {
-          const on = st.classList.contains('ad-on');
-          if (!on) { st.style.setProperty('display', 'block', 'important'); st.style.visibility = 'hidden'; }
-          max = Math.max(max, st.offsetHeight);
-          if (!on) { st.style.display = ''; st.style.visibility = ''; }
-        });
-        if (max) box.style.minHeight = (max + extra) + 'px';
+      const live = () => {
+        if (!phone.matches || still.matches || document.hidden || !bar) return false;
+        const t = bar.getBoundingClientRect();
+        return t.top > -t.height / 2 && t.bottom < innerHeight * 0.85;
       };
-      // photos in hidden steps would load only when shown and make that step taller: load them now, re-measure as they arrive
-      if (phone.matches) $$('img', box).forEach(im => { im.loading = 'eager'; if (!im.complete) im.addEventListener('load', () => { lastW = 0; fit(); }, {once: true}); });
-      // and never let a step that turns out taller push the page: the height only grows
-      const grow = () => { if (phone.matches && box.offsetHeight > (parseFloat(box.style.minHeight) || 0)) box.style.minHeight = box.offsetHeight + 'px'; };
-      const show0 = wyTabs.show; wyTabs.show = i => { show0(i); requestAnimationFrame(grow); setTimeout(grow, 500); };
-      if (bar) bar.addEventListener('click', () => { requestAnimationFrame(grow); setTimeout(grow, 500); }, true);
-      // a demo can also grow while it plays (Personalize switches traveller profiles): catch that too
-      if ('ResizeObserver' in window) new ResizeObserver(() => requestAnimationFrame(grow)).observe(box);
-      fit(); addEventListener('load', () => { lastW = 0; fit(); });
-      let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(fit, 200); });
+      const restart = () => {
+        clearInterval(timer); timer = 0; on = live();
+        if (on) timer = setInterval(() => { if (live()) wyTabs.show((current() + 1) % steps.length); else check(); }, 2000);
+      };
+      const check = () => { if (live() !== on) restart(); };
+      let raf = 0; const onScroll = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; check(); }); };
+      addEventListener('scroll', onScroll, {passive: true}); addEventListener('resize', onScroll);
+      if (bar) bar.addEventListener('click', () => setTimeout(restart, 0), true);
+      steps.forEach(st => st.addEventListener('touchend', () => setTimeout(restart, 0), {passive: true}));
+      document.addEventListener('visibilitychange', check);
+      phone.addEventListener('change', check); still.addEventListener('change', check);
+      check();
     }
 
     /* Phones: each supply source in the Aggregate step shows a small photo instead of its icon, frameless and without
