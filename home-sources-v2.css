@@ -1,0 +1,9 @@
+/* Home, "Global supply through one integration.": stays as it was (light, numbers separated by thin lines). Only two changes: the top and bottom margins equal the side margin (the content line, --try-margin), and the link is our standard coral button. */
+@media(min-width:600px){
+html body #sources.trust-strip:not(#x){padding-top:var(--try-margin)!important;padding-bottom:var(--try-margin)!important}
+}
+@media(min-width:600px){
+html body #sources .trust-footnote a:not(#x){border:0!important;border-radius:11px!important;background:linear-gradient(105deg,#ff9862,#f46649)!important;color:#180f10!important;padding:0 22px!important;min-height:52px;gap:12px!important;box-shadow:inset 0 1px 1px #ffd8bd88,0 8px 24px #f4664926!important}
+html body #sources .trust-footnote a:hover:not(#x){background:linear-gradient(105deg,#ff9862,#f46649)!important;transform:translateY(-2px);box-shadow:inset 0 1px 1px #ffd8bd88,0 12px 30px #f4664947!important}
+html body #sources .trust-footnote .trust-link-arrow:not(#x){width:auto!important;height:auto!important;background:none!important;color:inherit!important;font-size:18px!important}
+}
