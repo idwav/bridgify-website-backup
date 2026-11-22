@@ -18,11 +18,7 @@ window.BridgifyRoles = {
     ],
     [
      "actions",
-     "div.career-actions > a.career-cta"
-    ],
-    [
-     "link",
-     "div.career-actions > a.career-link"
+     "div.career-hero-copy > div.career-actions"
     ],
     [
      "content",
