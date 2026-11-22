@@ -569,10 +569,10 @@
   html body #home.bv2-hero{padding-bottom:20px!important}
   .ad-hero-flow{position:relative;width:100%;height:176px;flex:none}
   .ad-hero-flow svg.hf-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-  .ad-hero-flow svg.hf-wires{transition:opacity .45s cubic-bezier(.45,0,.2,1)}
   .ad-hero-flow .hf-wires path{fill:none;stroke:#d8b8a8;stroke-opacity:.6;stroke-width:1.2}
   .ad-hero-flow .hf-wires path.hf-o{stroke:#F46649;stroke-opacity:.9;stroke-width:1.5}
   .ad-hero-flow .hf-wires circle{fill:#FFB59E;filter:drop-shadow(0 0 4px #F46649)}
+  .ad-hero-flow .hf-wires circle.hf-end{fill:#fff3ea;stroke:#F46649;stroke-width:2;filter:drop-shadow(0 0 4px #F46649)}
   .ad-hero-flow .hf-card{position:absolute;left:0;top:0;display:flex;align-items:center;gap:7px;padding:5px 10px 5px 5px;box-sizing:border-box;
     border-radius:10px;background:linear-gradient(135deg,#3a2622,#1d1415 70%);box-shadow:0 0 0 1px rgba(246,200,181,.28),0 8px 18px rgba(0,0,0,.5);
     white-space:nowrap;overflow:hidden;transform-origin:0 0;
@@ -586,6 +586,12 @@
   .ad-hero-flow.hf-org .hf-card.hf-tile span{opacity:0}
   .ad-hero-flow.hf-org .hf-card.hf-tile img{width:100%;height:100%;border-radius:13px}
   .ad-hero-flow.hf-org .hf-card.hf-out{opacity:0}
+  /* three tangle cards become the rows inside YourBrand: photo only, on the app's row tint */
+  .ad-hero-flow.hf-org .hf-card.hf-row{padding:4px;border-radius:8px;background:rgba(255,226,198,.07);box-shadow:none}
+  .ad-hero-flow.hf-org .hf-card.hf-row span{opacity:0}
+  .ad-hero-flow.hf-org .hf-card.hf-row img{width:24px;height:24px}
+  .ad-hero-flow .hf-card{z-index:2}
+  .ad-hero-flow .hf-wires path{transition:stroke .6s,stroke-opacity .6s,stroke-width .6s}
   .ad-hero-flow :is(.hf-hub,.hf-chip,.hf-app){position:absolute;opacity:0;transform:translateY(6px);transition:opacity .6s cubic-bezier(.45,0,.2,1),transform .6s cubic-bezier(.45,0,.2,1)}
   .ad-hero-flow.hf-org .hf-hub{opacity:1;transform:none;transition-delay:.45s}
   .ad-hero-flow.hf-org .hf-app{opacity:1;transform:none;transition-delay:.65s}
@@ -598,11 +604,6 @@
     box-shadow:0 0 0 1px rgba(244,102,73,.7);font:600 11px/1 Sofia,sans-serif;color:#EEE9DE;white-space:nowrap}
   .ad-hero-flow .hf-app{box-sizing:border-box;border-radius:14px;background:#1d1213;box-shadow:0 0 0 1px rgba(244,102,73,.55),0 12px 26px rgba(0,0,0,.5);padding:9px 7px;display:flex;flex-direction:column;gap:7px}
   .ad-hero-flow .hf-app b{font:500 11px/1 Sofia,sans-serif;color:#EEE9DE;padding:1px 2px 2px}
-  .ad-hero-flow .hf-app i{display:grid;grid-template-columns:24px 1fr;gap:6px;align-items:center;border-radius:8px;background:rgba(255,226,198,.06);padding:4px}
-  .ad-hero-flow .hf-app i img{width:24px;height:24px;border-radius:6px;object-fit:cover;display:block}
-  .ad-hero-flow .hf-app i u{display:flex;flex-direction:column;gap:4px}
-  .ad-hero-flow .hf-app i u::before,.ad-hero-flow .hf-app i u::after{content:"";height:3px;border-radius:2px;background:rgba(238,233,222,.45);width:90%}
-  .ad-hero-flow .hf-app i u::after{width:55%;background:#F46649}
 }
 
 /* ---------- Round 4 after review on the phone (17 Nov 2026) ---------- */
