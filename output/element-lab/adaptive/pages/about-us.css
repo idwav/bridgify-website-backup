@@ -84,3 +84,31 @@
   html body #story :is(.ab-chapters>li,.ms>.ms-s){transition:scale .4s cubic-bezier(.45,0,.2,1),opacity .4s cubic-bezier(.45,0,.2,1)}
   html body #story :is(.ab-chapters>li,.ms>.ms-s).ad-covered:not(#ad-x):not(#ad-y){scale:.94;opacity:0!important}
 }
+
+/* About hero on phones (owner, 22 Nov 2026): the "1M+ tours, attractions, activities and events" line comes first,
+   under the small facts and above the map; the map, Bridgify and the three partner tiles are tighter, so the whole
+   scene fits one screen; and the scene comes in last (about-us.js): the line, then the map with its pins one by one,
+   then Bridgify, then the tiles one by one, then the caption. Reduced motion: shown at once. */
+@media (max-width:599px){
+  html body #top .wm:not(#ad-x):not(#ad-y){row-gap:0!important;grid-template-rows:none!important}
+  html body #top .wm-map:not(#ad-x):not(#ad-y){display:flex!important;flex-direction:column!important;margin-top:0!important;margin-bottom:0!important;position:relative}
+  html body #top .wm-map>img:not(#ad-x){order:1;width:100%!important;height:auto!important;max-height:120px;object-fit:contain}
+  html body #top .wm-count:not(#ad-x):not(#ad-y){order:0;position:static!important;transform:none!important;margin:0 0 4px!important;width:auto!important}
+  html body #top .wm-pin{margin-top:var(--wm-pin-dy,0px)}
+  html body #top .wm-hub:not(#ad-x):not(#ad-y){margin-top:16px!important;padding:10px 16px!important;min-height:0!important;height:auto!important}
+  html body #top .wm-hub .ab-mark{width:26px!important;height:24px!important}
+  html body #top .wm-brands:not(#ad-x):not(#ad-y){margin-top:32px!important}
+  html body #top .wm-brand:not(#ad-x):not(#ad-y){min-height:64px!important;padding:10px 6px!important;gap:6px!important}
+  html body #top .wm-cap:not(#ad-x):not(#ad-y){margin-top:12px!important}
+}
+@media (max-width:599px) and (prefers-reduced-motion:no-preference){
+  html.ad-wm-seq #top .wm :is(.wm-count,.wm-map>img,.wm-pin,.wm-hub,.wm-brand,.wm-cap){transition:opacity .6s cubic-bezier(.45,0,.2,1),translate .6s cubic-bezier(.45,0,.2,1),scale .5s cubic-bezier(.45,0,.2,1)}
+  html.ad-wm-seq #top .wm:not(.wm-s1) .wm-count{opacity:0;translate:0 12px}
+  html.ad-wm-seq #top .wm:not(.wm-s2) .wm-map>img{opacity:0}
+  html.ad-wm-seq #top .wm .wm-pin:not(.wm-in){opacity:0;scale:.2}
+  html.ad-wm-seq #top .wm:not(.wm-s3) .wm-hub,html.ad-wm-seq #top .wm:not(.wm-s3) .wm-hub::after{opacity:0;translate:0 10px}
+  html.ad-wm-seq #top .wm:not(.wm-s4) .wm-brands::before{opacity:0}
+  html.ad-wm-seq #top .wm .wm-brand:not(.wm-in){opacity:0;translate:0 12px}
+  html.ad-wm-seq #top .wm:not(.wm-s5) .wm-cap{opacity:0}
+  html.ad-wm-seq #top .wm .wm-brands::before{transition:opacity .5s}
+}
