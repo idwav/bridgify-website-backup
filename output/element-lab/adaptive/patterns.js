@@ -241,14 +241,17 @@
       const c = getComputedStyle(a); if (/hidden|auto|scroll/.test(c.overflowX + c.overflowY)) a.style.setProperty('overflow', 'clip', 'important');
     }
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    const steps = o.steps || 2, per = () => Math.round(innerHeight * (o.per || .5));
+    /* o.vh: the height to lay out against (default innerHeight); a page can pass the small viewport so Safari's moving
+       toolbar does not move the stage or change the scroll per step */
+    const VH = () => (o.vh ? o.vh() : innerHeight);
+    const steps = o.steps || 2, per = () => Math.round(VH() * (o.per || .5));
     const head = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ad-header-h')) || 64;
     let last = -1, raf = 0, top = 0;
     const layout = () => {
       const on = MQ.mobile.matches && !reduced.matches;
       w.classList.toggle('is-on', on);
       if (!on) { w.style.height = ''; st.style.top = ''; return; }
-      top = Math.max(head() + 12, Math.round((innerHeight - st.offsetHeight) / 2));
+      top = Math.max(head() + 12, Math.round((VH() - st.offsetHeight) / 2));
       st.style.top = top + 'px';
       w.style.height = (st.offsetHeight + per() * (steps - 1)) + 'px';
       tick();
