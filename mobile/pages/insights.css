@@ -45,3 +45,15 @@
   html body .blog-card h3:not(#ad-x):not(#ad-y),html body .blog-card h3 a:not(#ad-x){overflow:visible!important;display:block!important;-webkit-line-clamp:unset!important;white-space:normal!important}
   html body .blog-card .blog-category:not(#ad-x){overflow:visible!important;white-space:normal!important}
 }
+
+/* Owner, 22 Nov 2026 (phones):
+   - the hero (intro and the Latest article card) fits the first screen: a shorter photo and a 20px card padding;
+   - About the Bridgify Blog is a plain section on the content line, no frame, fill or glow; the
+     spacing system gives it the 64px from the hero. */
+@media (max-width:599px){
+  html body .blog-feature .blog-feature-image:not(#ad-x):not(#ad-y),html body .blog-feature .blog-feature-image img:not(#ad-x):not(#ad-y){height:104px!important}
+  html body .blog-feature .blog-feature-copy:not(#ad-x):not(#ad-y):not(#ad-z){padding:20px!important}
+  html body .blog-about:not(#ad-x):not(#ad-y):not(#ad-z){padding-left:0!important;padding-right:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  html body .blog-about:not(#ad-x)::before,html body .blog-about:not(#ad-x)::after{content:none!important;display:none!important}
+  html body .blog-about>.brand-section-fade:not(#ad-x){display:none!important}
+}
