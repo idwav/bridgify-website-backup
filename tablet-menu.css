@@ -1,0 +1,118 @@
+/* Tablet menu (owner, 22 Nov 2026): on tablets (600-1023px) the header is the logo, "Book a demo" and a hamburger, always,
+   never the row of menu items. Same look and same menu sheet as the phone layer (copied from mobile/patterns.css, section 1);
+   phones keep getting theirs from the phone layer, desktop (1024+) is untouched. Loaded by tablet-menu.js. */
+@media (min-width:600px) and (max-width:1023px){:root{--ad-header-h:64px;--ad-touch:44px;--ad-gutter:32px}}
+/* ---------- 1. Compact header + menu sheet (shared, ≤1023) ---------- */
+.ad-menu-btn,.ad-menu{display:none}
+@media (min-width:600px) and (max-width:1023px){
+  html body header.top.site-header-common{
+    inset:10px 12px auto!important;min-height:0!important;height:var(--ad-header-h)!important;
+    padding:0 calc(var(--ad-gutter) - 12px)!important;flex-wrap:nowrap!important;gap:12px!important;align-items:center!important}
+  html body header.top.site-header-common>nav,
+  html body header.top.site-header-common .nav-login{display:none!important}
+  html body .site-header-common img.brand-logo-full{height:30px!important}
+  html body .site-header-common .nav-actions{margin-left:auto!important;gap:8px!important}
+  html body .site-header-common .nav-actions>a.nav-contact{
+    height:var(--ad-touch)!important;min-height:var(--ad-touch)!important;min-width:0!important;
+    padding-inline:16px!important;font-size:12px!important;letter-spacing:.08em!important}
+  .ad-menu-btn{display:grid;place-items:center;flex:none;width:var(--ad-touch);height:var(--ad-touch);
+    margin-right:-6px;padding:0;border:0;border-radius:11px;background:transparent;color:#FFF8F1;cursor:pointer}
+  .ad-menu-btn:focus-visible{outline:2px solid #F46649;outline-offset:2px}
+  .ad-menu-btn i{position:relative;display:block;width:22px;height:12px}
+  .ad-menu-btn i:before,.ad-menu-btn i:after{content:"";position:absolute;left:0;right:0;height:1.5px;border-radius:1px;background:currentColor;
+    transition:transform .35s cubic-bezier(.16,1,.3,1),top .35s cubic-bezier(.16,1,.3,1)}
+  .ad-menu-btn i:before{top:0}.ad-menu-btn i:after{top:10.5px}
+  .ad-menu-btn[aria-expanded="true"] i:before{top:5.25px;transform:rotate(45deg)}
+  .ad-menu-btn[aria-expanded="true"] i:after{top:5.25px;transform:rotate(-45deg)}
+
+  .ad-menu{position:fixed;inset:0;z-index:2147483000;display:flex;flex-direction:column;
+    padding:calc(var(--ad-header-h) + 26px) var(--ad-gutter) calc(24px + env(safe-area-inset-bottom));
+    background:#160F0D;color:#EEE9DE;overflow-y:auto;overscroll-behavior:contain;
+    opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .3s,transform .4s cubic-bezier(.16,1,.3,1),visibility 0s .4s}
+  .ad-menu.is-open{opacity:1;visibility:visible;transform:none;transition:opacity .3s,transform .4s cubic-bezier(.16,1,.3,1)}
+  html.ad-menu-lock,html.ad-menu-lock body{overflow:hidden!important}
+  html.ad-menu-lock header.top.site-header-common{z-index:2147483001!important;transform:none!important}
+  .ad-menu-group{border-bottom:1px solid #EEE9DE1f}
+  .ad-menu-group>summary,.ad-menu-row{display:flex;align-items:center;justify-content:space-between;min-height:56px;
+    font:550 15px/1.3 Sofia,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#EEE9DE;text-decoration:none;cursor:pointer;list-style:none}
+  .ad-menu-group>summary::-webkit-details-marker{display:none}
+  .ad-menu-group>summary:after{content:"+";font:300 24px/1 Sofia,sans-serif;color:#F46649;transition:transform .3s}
+  .ad-menu-group[open]>summary:after{transform:rotate(45deg)}
+  .ad-menu-row{border-bottom:1px solid #EEE9DE1f}
+  .ad-menu-row:after{content:"↗";color:#F46649;letter-spacing:0}
+  .ad-menu-links{display:grid;padding:0 0 14px}
+  .ad-menu-links a{display:flex;align-items:center;min-height:48px;font:400 17px/1.35 Sofia,sans-serif;color:#EEE9DEcc;text-decoration:none}
+  .ad-menu-links a:active,.ad-menu-links a:hover{color:#FFF8F1}
+  /* Current page (owner task, 21 Nov 2026): its group opens with the menu; the page and its group stay lit. */
+  .ad-menu-group.has-current>summary,.ad-menu-row[aria-current="page"]{color:#FFB194}
+  .ad-menu-links a[aria-current="page"]{color:#FFB194;gap:10px}
+  .ad-menu-links a[aria-current="page"]:before{content:"";width:5px;height:5px;border-radius:50%;background:#F46649;box-shadow:0 0 6px #F4664999}
+  .ad-menu-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;padding-top:28px}
+  .ad-menu-actions a{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:11px;
+    font:550 14px/1 Sofia,sans-serif;letter-spacing:.08em;text-decoration:none}
+  .ad-menu-actions a:first-child{border:1px solid #F46649;color:#EEE9DE}
+  .ad-menu-actions a:last-child{background:linear-gradient(135deg,#FF967B,#F46649);color:#180F10}
+  /* Owner note, 21 Nov 2026: in the menu LOG IN is the secondary action (transparent, coral border) and BOOK A DEMO
+     the primary. The shared button roles make the first of a pair primary, so the menu sets LOG IN back here. */
+  html body .ad-menu-actions a.brand-action:first-child{--brand-button-start:#f4664900;--brand-button-end:#f4664900;color:#FFF8F1!important;border-color:#F46649!important;box-shadow:none!important}
+  .ad-menu :focus-visible{outline:2px solid #F46649;outline-offset:2px}
+  .ad-menu:focus{outline:none}
+}
+@media (min-width:600px) and (max-width:1023px){
+  .ad-menu-actions{max-width:520px}
+  .ad-menu-links{grid-template-columns:1fr 1fr;column-gap:24px}
+}
+
+/* ===== Menu sheet, v2 (owner, 22 Nov 2026): actions on top, large group titles that slide open to their links ===== */
+@media (min-width:600px) and (max-width:1023px){
+  html body .tm-sheet{padding:calc(var(--ad-header-h) + 40px) 32px calc(32px + env(safe-area-inset-bottom))}
+  .tm-actions{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 40px}
+  .tm-actions a{display:flex;align-items:center;justify-content:center;min-height:56px;border-radius:11px;font:550 15px/1 Sofia,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+  .tm-actions a:first-child{border:1px solid #F46649;color:#EEE9DE}
+  .tm-actions a:last-child{background:linear-gradient(105deg,#ff9862,#f46649);color:#180F10;box-shadow:inset 0 1px 1px #ffd8bd88,0 8px 24px #f4664926}
+  .tm-group,.tm-row{border-top:1px solid #EEE9DE1f}
+  .tm-sheet>:last-child{border-bottom:1px solid #EEE9DE1f}
+  .tm-title,.tm-row{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:84px;padding:0;border:0;background:none;color:#EEE9DE;font:300 34px/1.2 Chillax,sans-serif;letter-spacing:-.02em;text-align:left;text-decoration:none;cursor:pointer}
+  .tm-title i{position:relative;flex:none;width:24px;height:24px}
+  .tm-title i:before,.tm-title i:after{content:"";position:absolute;left:3px;right:3px;top:11px;height:1.5px;border-radius:1px;background:#F46649;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+  .tm-title i:after{transform:rotate(90deg)}
+  .tm-group.is-open .tm-title i:after{transform:rotate(0)}
+  .tm-group.is-open>.tm-title,.tm-group.has-current>.tm-title,.tm-row[aria-current="page"]{color:#FFB194}
+  .tm-row:after{content:"↗";font:300 28px/1 Sofia,sans-serif;color:#F46649}
+  .tm-panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .5s cubic-bezier(.16,1,.3,1),visibility 0s .5s}
+  .tm-group.is-open>.tm-panel{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .5s cubic-bezier(.16,1,.3,1),visibility 0s}
+  .tm-links{min-height:0;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;column-gap:32px;opacity:0;transform:translateY(-8px);transition:opacity .35s,transform .5s cubic-bezier(.16,1,.3,1)}
+  .tm-group.is-open .tm-links{opacity:1;transform:none;padding-bottom:24px}
+  .tm-links a{display:flex;align-items:center;min-height:56px;border-top:1px solid #EEE9DE14;font:400 20px/1.35 Sofia,sans-serif;color:#EEE9DEcc;text-decoration:none}
+  .tm-links a:hover,.tm-links a:active{color:#FFF8F1}
+  .tm-links a[aria-current="page"]{color:#FFB194;gap:10px}
+  .tm-links a[aria-current="page"]:before{content:"";width:6px;height:6px;border-radius:50%;background:#F46649;box-shadow:0 0 6px #F4664999}
+  .tm-sheet :focus-visible{outline:2px solid #F46649;outline-offset:2px}
+}
+@media (min-width:600px) and (max-width:1023px){
+  /* Log in is the secondary action (transparent, coral border), Book a demo the primary: the shared button roles would make the first of a pair primary */
+  html body .tm-actions a:first-child:not(#x){--brand-button-start:#f4664900;--brand-button-end:#f4664900;background:none!important;color:#FFF8F1!important;border:1px solid #F46649!important;box-shadow:none!important}
+}
+@media (min-width:600px) and (max-width:1023px){
+  /* slimmer rows, like Developers: one thin line per group, and the links of an open group stack one under the other in small text */
+  .tm-title,.tm-row{min-height:68px;font:300 26px/1.2 Chillax,sans-serif}
+  .tm-row:after{font-size:22px}
+  .tm-title i{width:20px;height:20px}
+  .tm-title i:before,.tm-title i:after{left:2px;right:2px;top:9px}
+  .tm-links{grid-template-columns:1fr!important}
+  .tm-links a{min-height:48px;border-top:0;font:400 17px/1.35 Sofia,sans-serif}
+  .tm-group.is-open .tm-links{padding-bottom:16px}
+}
+@media (min-width:600px) and (max-width:1023px){
+  /* separators only: the site's shared button style frames every button, so the group titles are set back to plain thin rows here */
+  html body .tm-sheet .tm-title:not(#x),html body .tm-sheet .tm-title.brand-action:not(#x),html body .tm-sheet .tm-title.brand-coral-frame:not(#x){
+    --brand-button-start:#0000;--brand-button-end:#0000;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;outline-color:#F46649;
+    min-height:68px!important;padding:0!important;color:#EEE9DE!important;font:300 26px/1.2 Chillax,sans-serif!important;letter-spacing:-.02em!important;text-transform:uppercase;transform:none!important}
+  html body .tm-sheet .tm-group.is-open>.tm-title:not(#x),html body .tm-sheet .tm-group.has-current>.tm-title:not(#x){color:#FFB194!important}
+  html body .tm-sheet .tm-title:hover:not(#x){background:none!important;transform:none!important;box-shadow:none!important}
+}
+@media (min-width:600px) and (max-width:1023px){
+  /* a closed menu must not catch clicks: the open group's panel was set visible and stayed clickable (invisible) over the page, e.g. over tabs in the middle of OTAs */
+  html body .tm-sheet:not(.is-open):not(#x){pointer-events:none!important}
+  html body .tm-sheet:not(.is-open) .tm-panel,html body .tm-sheet:not(.is-open) .tm-links,html body .tm-sheet:not(.is-open) a,html body .tm-sheet:not(.is-open) button{visibility:hidden!important;pointer-events:none!important}
+}
