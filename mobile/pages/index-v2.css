@@ -759,3 +759,7 @@
   html body #home .bv2-hero-actions[data-bf-stack=column]:not(#ad-x):not(#ad-y):not(a):not(button){grid-template-columns:1fr!important}
   html body #home .bv2-hero-actions[data-bf-role=actions]:not(#ad-x):not(#ad-y)>:is(a,button){width:100%!important;max-width:none!important;flex:none!important;justify-content:center!important;text-align:center!important;padding:0 10px!important}
 }
+@media (max-width:359px){
+  /* iPhone SE: the pair does not fit one row with room inside each frame, so they stack, both full width (rule B4) */
+  html body #home .bv2-hero-actions[data-bf-role=actions]:not(#ad-x):not(#ad-y):not(a):not(button){grid-template-columns:1fr!important}
+}
