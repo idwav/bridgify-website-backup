@@ -1,0 +1,9 @@
+/* Home, "Three products. One connected layer.": the three product cards in the glass language (peach edge, corner lights, rim light, glow). Texts, spacing and the shared grid stay as they are. */
+html body #products .pr-card:not(#x){border:1px solid #f6c8b58c!important;border-radius:24px!important;background:radial-gradient(at 100% 0%,#ff89622e,#0000 26%),radial-gradient(at 0% 100%,#ff78532b,#0000 24%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 40px #f4664920,0 20px 50px #0006!important}
+html body #products .pr-card:is(:hover,:focus-visible):not(#x){border-color:#f6c8b5!important;box-shadow:inset 0 1px 1px #fff1da,inset 0 -1px 1px #ff997b99,0 0 2px #ffb09b88,0 0 50px #f4664940,0 24px 56px #0008!important}
+html body #products .pr-vis:not(#x){border-bottom:1px solid #f6c8b533!important;background:radial-gradient(70% 60% at 50% 40%,#ff896222,#0000 70%),#0f0908a8!important}
+html body #products .pr-card:focus-visible:not(#x){outline:none!important}
+/* White-Label card: the three colour dots sat half on the browser's corner and half on the card. They now live inside the browser's address bar, on its right, and the dots' dark ring is the bar's own colour. */
+html body #products .pr-swatches:not(#x){right:9.6cqw!important;top:9cqw!important;gap:1cqw!important}
+html body #products .pr-swatches i:not(#x){width:2.4cqw!important;height:2.4cqw!important;border:2px solid #f1ebe2!important;box-shadow:0 0 0 1px #18101026!important}
+html body #products .pr-swatches i.is-on:not(#x){box-shadow:0 0 0 1.5px #180f10!important}
