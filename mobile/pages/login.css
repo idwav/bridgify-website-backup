@@ -1,0 +1,10 @@
+/* login · adaptive layer (phones). Spacing between roles comes from system/tokens.css via the role map;
+   this file only puts the page on the shared 24px gutter (login.css gave it 18). */
+@media (max-width:599px){
+  html body main.login-page:not(#ad-x){padding-left:var(--ad-gutter)!important;padding-right:var(--ad-gutter)!important;box-sizing:border-box!important}
+}
+/* The octopus peeks over the card, so the 48px under the intro is measured to the octopus, not the card:
+   on phones it is a little smaller and rises 48px above the card (it rose 76 and covered the intro line). */
+@media (max-width:599px){
+  html body .login-card .login-mascot:not(#ad-x){width:min(50%,180px)!important;right:-3%!important;transform:translateY(-41%)!important}
+}
