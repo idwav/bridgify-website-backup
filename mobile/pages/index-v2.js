@@ -272,41 +272,77 @@
   addEventListener('scroll', ask, {passive: true}); addEventListener('resize', ask); A.MQ.mobile.addEventListener('change', ask); ask();
 })();
 
-/* Hero visual on phones: experiences → Bridgify → your app (see index-v2.css "Hero visual on phones").
-   Only words already in the desktop hero: "Bridgify", "YourBrand". Wires are drawn from the boxes' real
-   positions; dots travel along them. Still with reduced motion. */
+/* Hero visual on phones: Hub (index-v2.css "Hero visual on phones: Hub"). The cards are the desktop tangle's own
+   (.fn-tile: photo, name, type · price), so no words are added; "Bridgify", "1 integration" and "YourBrand" are the
+   desktop hero's too. The element keeps one size from the first paint, so nothing below it moves. It starts as the
+   tangle and settles into order once, shortly after the page shows; dots then run along the wires. Reduced motion:
+   ordered at once, no dots. */
 (() => {
   const A = window.BridgifyAdaptive; if (!A || !A.MQ.mobile.matches) return;
   const copy = document.querySelector('#home .bv2-hero-copy'); if (!copy || copy.querySelector('.ad-hero-flow')) return;
-  const src = ['assets/v2/08-colosseum-480.jpg', 'assets/v2/05-paris-food-tour-960.jpg', 'assets/v2/11-catamaran-480.jpg', 'assets/v2/16-live-music-960.jpg'].map(n => `<img src="${n}" alt="" width="48" height="48" decoding="async">`).join('');
+  const tiles = [...document.querySelectorAll('#home .fn-tile')].slice(0, 8); if (tiles.length < 4) return;
   const label = document.querySelector('#home .bv2-funnel')?.getAttribute('aria-label') || '';
   const el = document.createElement('div');
   el.className = 'ad-hero-flow'; el.setAttribute('role', 'img'); el.setAttribute('aria-label', label);
-  el.innerHTML = `<svg class="hf-wires" aria-hidden="true"></svg><div class="hf-src" aria-hidden="true">${src}</div>
-    <div class="hf-hub" aria-hidden="true"><i><img src="assets/bridgify-icon.svg" alt=""></i><span>Bridgify</span></div>
-    <div class="hf-app" aria-hidden="true"><b>YourBrand</b><i><img src="assets/v2/08-colosseum-960.jpg" alt=""><u></u></i><i><img src="assets/v2/13-santorini-960.jpg" alt=""><u></u></i></div>`;
-  copy.appendChild(el);
+  const cards = tiles.map(t => `<div class="hf-card" aria-hidden="true"><img src="${t.querySelector('img').getAttribute('src')}" alt="" decoding="async"><span>${t.querySelector('span').innerHTML}</span></div>`).join('');
+  const pick = [0, 2, 4, 6].map(i => tiles[i] && tiles[i].querySelector('img').getAttribute('src')).filter(Boolean);
+  el.innerHTML = `<svg class="hf-wires" aria-hidden="true"></svg>${cards}
+    <div class="hf-hub" aria-hidden="true"><img src="assets/bridgify-icon.svg" alt=""><span>Bridgify</span></div>
+    <div class="hf-chip" aria-hidden="true">1 integration</div>
+    <div class="hf-app" aria-hidden="true"><b>YourBrand</b>${pick.slice(0, 3).map(s => `<i><img src="${s}" alt=""><u></u></i>`).join('')}</div>`;
+  const p = copy.querySelector(':scope > p'); (p ? p.after(el) : copy.appendChild(el));
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const NS = 'http://www.w3.org/2000/svg';
-  const draw = () => {
-    const svg = el.querySelector('svg'), o = el.getBoundingClientRect(); if (!o.width) return;
-    const R = e => { const r = e.getBoundingClientRect(); return {l: r.left - o.left, r: r.right - o.left, t: r.top - o.top, b: r.bottom - o.top, cx: (r.left + r.right) / 2 - o.left, cy: (r.top + r.bottom) / 2 - o.top}; };
-    const imgs = [...el.querySelectorAll('.hf-src img')].map(R), hub = R(el.querySelector('.hf-hub i')), app = R(el.querySelector('.hf-app'));
-    const sx = imgs[1].r, hx = hub.l - 2, hy = hub.cy;
-    const ys = [imgs[1].t + 12, imgs[1].b - 12, imgs[3].t + 12, imgs[3].b - 12];
-    const paths = ys.map(y => `M${sx} ${y}C${(sx + hx) / 2} ${y} ${(sx + hx) / 2} ${hy} ${hx} ${hy}`);
-    paths.push(`M${hub.r + 2} ${hy}L${app.l} ${hy}`);
-    svg.setAttribute('viewBox', `0 0 ${o.width} ${o.height}`); svg.innerHTML = '';
-    paths.forEach((d, i) => {
-      const p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); p.id = 'hf-p' + i; svg.appendChild(p);
-      if (reduced) return;
-      const c = document.createElementNS(NS, 'circle'); c.setAttribute('r', i === 4 ? '2.6' : '2');
-      c.innerHTML = `<animateMotion dur="${i === 4 ? 1.4 : 2.2}s" begin="${i === 4 ? 2.0 : i * 0.55}s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#hf-p${i}"/></animateMotion>`;
-      svg.appendChild(c);
-    });
+  const NS = 'http://www.w3.org/2000/svg', H = 176, cs = [...el.querySelectorAll('.hf-card')];
+  const hub = el.querySelector('.hf-hub'), chip = el.querySelector('.hf-chip'), app = el.querySelector('.hf-app'), svg = el.querySelector('svg');
+  let org = false, geo = null;
+  const layout = () => {
+    const w = el.clientWidth; if (!w) return;
+    const t = Math.min(64, Math.floor((w * .42 - 8) / 2)), aw = Math.round(w * .25), tx = 2 * t + 8, mid = (tx + (w - aw)) / 2;
+    geo = {w, t, tiles: [[0, 4], [t + 8, 4], [0, t + 12], [t + 8, t + 12]], hub: {x: mid - 36, y: (2 * t + 16) / 2 + 4 - 44, w: 72, h: 88}, app: {x: w - aw, y: 0, w: aw, h: 150}};
+    const r = (i, a, b) => { const x = Math.sin(i * 12.9898 + a) * 43758.5453; return b * (x - Math.floor(x)); };
+    geo.chaos = cs.map((c, i) => ({x: (i % 3) * (w - 128) / 2 + r(i, 1, 24) - 12, y: i * (H - 40) / (cs.length - 1) + r(i, 2, 14) - 7, rot: r(i, 3, 22) - 11}));
+    Object.assign(hub.style, {left: geo.hub.x + 'px', top: geo.hub.y + 'px', width: geo.hub.w + 'px', height: geo.hub.h + 'px'});
+    Object.assign(app.style, {left: geo.app.x + 'px', top: geo.app.y + 'px', width: geo.app.w + 'px', height: geo.app.h + 'px'});
+    chip.style.left = Math.round(mid - 46) + 'px'; chip.style.top = (geo.hub.y + geo.hub.h + 16) + 'px';
+    place();
   };
-  requestAnimationFrame(draw); addEventListener('resize', () => requestAnimationFrame(draw));
-  el.querySelectorAll('img').forEach(i => i.complete || i.addEventListener('load', draw, {once: true}));
+  const place = () => {
+    if (!geo) return;
+    el.classList.toggle('hf-org', org);
+    cs.forEach((c, i) => {
+      const tl = org && i < 4 ? geo.tiles[i] : null, ch = geo.chaos[i];
+      c.classList.toggle('hf-tile', !!tl); c.classList.toggle('hf-out', org && !tl);
+      c.style.transform = tl ? `translate(${tl[0]}px,${tl[1]}px)` : `translate(${ch.x}px,${ch.y}px) rotate(${ch.rot}deg)${org ? ' scale(.85)' : ''}`;
+      c.style.width = tl ? geo.t + 'px' : ''; c.style.height = tl ? geo.t + 'px' : '';
+    });
+    wires();
+  };
+  const wires = () => {
+    svg.replaceChildren(); svg.setAttribute('viewBox', `0 0 ${geo.w} ${H}`);
+    const P = (d, o, id) => { const e = document.createElementNS(NS, 'path'); e.setAttribute('d', d); if (o) e.setAttribute('class', 'hf-o'); if (id) e.id = id; svg.append(e); return e; };
+    if (!org) {   // the tangle: every card wired to two others and to a knot under the middle
+      const ch = geo.chaos, kx = geo.w / 2, ky = H * .82;
+      ch.forEach((c, i) => { const a = ch[(i * 3 + 2) % ch.length], b = ch[(i + 5) % ch.length];
+        P(`M${c.x + 60} ${c.y + 18}C${c.x + 150} ${c.y + 90} ${a.x - 30} ${a.y + 110} ${kx + (i - 4) * 5} ${ky}`);
+        P(`M${c.x + 60} ${c.y + 18}C${c.x - 40} ${c.y + 70} ${b.x + 120} ${b.y - 30} ${b.x + 60} ${b.y + 18}`); });
+      return;
+    }
+    const t = geo.t, hx = geo.hub.x, hy = geo.hub.y + geo.hub.h / 2, ax = geo.app.x, ay = geo.app.y + 75;
+    const paths = [[t * 2 + 8, 4 + t / 2], [t * 2 + 8, t + 12 + t / 2]].map(([x, y]) => `M${x} ${y}C${(x + hx) / 2} ${y} ${(x + hx) / 2} ${hy} ${hx} ${hy}`);
+    paths.push(`M${hx + geo.hub.w} ${hy}C${(hx + geo.hub.w + ax) / 2} ${hy} ${(hx + geo.hub.w + ax) / 2} ${ay} ${ax} ${ay}`);
+    paths.forEach((d, i) => { P(d, true, 'hf-p' + i);
+      if (reduced) return;
+      const c = document.createElementNS(NS, 'circle'); c.setAttribute('r', i === 2 ? '2.6' : '2');
+      c.innerHTML = `<animateMotion dur="${i === 2 ? 1.4 : 2.2}s" begin="${i === 2 ? 1.2 : i * .6}s" repeatCount="indefinite"><mpath href="#hf-p${i}"/></animateMotion>`;
+      svg.append(c); });
+  };
+  if (reduced) org = true;
+  requestAnimationFrame(layout); addEventListener('resize', () => requestAnimationFrame(layout));
+  /* order: the cards move first; the tidy wires and their dots come in once the cards have settled */
+  if (!reduced) setTimeout(() => {
+    svg.style.opacity = '0';
+    setTimeout(() => { org = true; place(); svg.style.opacity = '0'; setTimeout(() => { svg.style.opacity = '1'; }, 750); }, 250);
+  }, 1400);
 })();
 
 /* Round 4: option 2 of the Global supply strip is on unless the link asks for the previous one (&src1).

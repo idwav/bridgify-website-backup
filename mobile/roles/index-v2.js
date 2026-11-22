@@ -17,16 +17,16 @@ window.BridgifyRoles = {
      "div.bv2-hero-copy > p"
     ],
     [
+     "visual",
+     "div.bv2-hero-copy > div.ad-hero-flow"
+    ],
+    [
      "actions",
      "#start"
     ],
     [
      "link",
      "div.bv2-hero-actions > a"
-    ],
-    [
-     "visual",
-     "div.bv2-hero-copy > div.ad-hero-flow"
     ]
    ],
    "hero": true
