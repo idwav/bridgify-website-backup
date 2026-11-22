@@ -18,6 +18,12 @@
   if (wy) {
     const steps = $$('.wy-step', wy), tabs = $$('.wy-tab', wy);
     A.tabs(wy, steps, {existing: tabs, when: matchMedia('(max-width:900px)')});
+    /* Phones: the step boxes sit in one sideways row; keep the active one centred. */
+    const row = $('.wy-tabs', wy);
+    if (row) new MutationObserver(() => {
+      const c = tabs.find(t => t.getAttribute('aria-selected') === 'true');
+      if (c && row.scrollWidth > row.clientWidth) row.scrollTo({left: c.offsetLeft - row.offsetLeft - (row.clientWidth - c.offsetWidth) / 2, behavior: 'smooth'});
+    }).observe(row, {subtree: true, attributes: true, attributeFilter: ['aria-selected']});
   }
 
   /* 6 · Products: three cards in a horizontal scroller with a peek of the next one. */
