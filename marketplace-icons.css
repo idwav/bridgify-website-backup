@@ -20,4 +20,5 @@ html body #section-4 .wo-op:not(#x){padding:24px!important;gap:16px!important}
 html body #section-5 .launch-timeline:not(#x){padding:var(--bf-card-pad,24px)!important}
 html body #build-or-buy article h3:not(#x){margin-bottom:var(--bf-gap-text-text,16px)!important}
 }
-@media(min-width:600px){html body #section-4 .wo-op>*:not(#x){margin-top:0!important;margin-bottom:0!important}html body #section-4 .wo-op:not(#x){display:flex!important;flex-direction:column!important;justify-content:flex-start}}
+/* tablets and the upright iPad Pro only (owner, 22 Nov 2026): on desktop this column layout made Bridgify runs five tall centred blocks */
+@media(min-width:600px) and (max-width:1024px){html body #section-4 .wo-op>*:not(#x){margin-top:0!important;margin-bottom:0!important}html body #section-4 .wo-op:not(#x){display:flex!important;flex-direction:column!important;justify-content:flex-start}}

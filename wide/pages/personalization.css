@@ -57,6 +57,21 @@
   html body:not(#bf-lab) :is(#section-2 div.intent-heading > p, #section-4 div.embed-heading > p) { align-self: start !important; max-width: 560px !important; width: 100% !important; justify-self: end !important; margin-left: auto !important; }
 }
 
+/* From one good suggestion to a full day, desktop only, above 1024 (owner, 22 Nov 2026): the day plan was taller than the screen.
+   Smaller photos and tighter stops, so the heading, the starting suggestion and the whole day fit one screen.
+   iPads (600-1024) keep their layout. */
+@media (min-width: 1025px) {
+  html body #day-itinerary .day-start .day-museum, html body #day-itinerary .day-start .day-museum img { height: 180px !important; }
+  html body #day-itinerary .day-plan .day-progress { margin-top: 8px !important; }
+  html body #day-itinerary .day-stop { grid-template-columns: 148px minmax(0, 1fr) !important; padding: 10px !important; column-gap: 16px !important; margin-top: 10px !important; align-items: center !important; }
+  html body #day-itinerary .day-stop .day-museum, html body #day-itinerary .day-stop > img, html body #day-itinerary .day-stop .day-museum img { width: 148px !important; height: 104px !important; min-height: 0 !important; }
+  html body #day-itinerary .day-stop-copy { height: auto !important; }
+  html body #day-itinerary .day-stop-copy p { margin: 2px 0 0 !important; font-size: 15px !important; line-height: 22px !important; }
+  html body #day-itinerary .day-stop .day-period { margin-bottom: 4px !important; }
+  html body #day-itinerary .day-stop .day-period svg { width: 20px !important; height: 20px !important; }
+  html body #day-itinerary .day-stop h3 { font-size: 22px !important; line-height: 1.25 !important; margin: 0 0 2px !important; }
+}
+
 /* ---- ink-fonts.css ---- */
 /* Title ink and font faces, tablet and desktop (19 Nov 2026, owner: "colours on the font, something in the gradient
    and the weight"). Measured in type-audit/ (accents.py, faces.py) at 1440: only 21 of 86 emphasised title words used
@@ -218,7 +233,7 @@
   html body #section-3 > div:nth-child(1) > h2:nth-child(2) { margin-top: 16px !important; margin-bottom: 0px !important; }
   html body #section-3 > div:nth-child(1) > p:nth-child(3) { margin-top: 24px !important; margin-bottom: 0px !important; }
   html body #section-3 > div:nth-child(2) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; border-top-width: 0px !important; }
-  html body #section-3 > div:nth-child(2) > div:nth-child(2) { margin-top: -108px !important; }
+  html body #section-3 > div:nth-child(2) > div:nth-child(2) { margin-top: 48px !important; }
   html body #section-3 > div:nth-child(2) > div:nth-child(3) { margin-bottom: 0px !important; }
   html body #section-4 { padding-top: 80px !important; padding-bottom: 80px !important; row-gap: 0px !important; }
   html body #section-4 > div:nth-child(1) { margin-top: 0px !important; margin-bottom: 0px !important; padding-top: 0px !important; padding-bottom: 0px !important; row-gap: 0px !important; }
