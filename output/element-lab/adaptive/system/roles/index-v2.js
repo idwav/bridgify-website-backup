@@ -22,11 +22,7 @@ window.BridgifyRoles = {
     ],
     [
      "actions",
-     "#start"
-    ],
-    [
-     "link",
-     "div.bv2-hero-actions > a"
+     "div.bv2-hero-actions"
     ]
    ],
    "hero": true

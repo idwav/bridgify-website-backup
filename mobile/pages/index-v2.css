@@ -733,3 +733,11 @@
   html body #wy-norm .nm-card .nm-body b:not(#ad-x):not(#ad-y):not(#ad-z){line-height:1.35!important}
   html body #wy-norm .nm-card .nm-meta:not(#ad-x):not(#ad-y):not(#ad-z){margin-top:8px!important}
 }
+
+/* Home hero on phones (owner, 22 Nov 2026): "See how it works" is the secondary button beside "Book a demo": one row,
+   equal widths (rhythm.js arranges the row; actions.css sizes it), the coral outline of every secondary button. */
+@media (max-width:599px){
+  html body #home .bv2-hero-actions>a[data-bf-kind=secondary]:not(#ad-x):not(#ad-y){border:1px solid #F46649!important;background:transparent!important;color:#EEE9DE!important;
+    box-shadow:none!important;text-decoration:none!important;white-space:nowrap!important;font-weight:550!important}
+  html body #home .bv2-hero-actions>a[data-bf-kind=secondary]::after{content:none!important}
+}
