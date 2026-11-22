@@ -1,7 +1,7 @@
-// "Who does what" on iPads (600-1023px): like on the phone, one panel at a time with a two-button switch (You build / Bridgify manages). Phones get the same from the phone layer; wider screens keep both panels and the wiring.
+// "Who does what" on iPads (600-1023px and the iPad Pro held upright): like on the phone, one panel at a time with a two-button switch (You build / Bridgify manages). Phones get the same from the phone layer; wider screens keep both panels and the wiring.
 (() => {
   const root = document.querySelector('#integration'); if (!root) return;
-  const mq = matchMedia('(min-width:600px) and (max-width:1023px)');
+  const mq = matchMedia('(min-width:600px) and (max-width:1023px), (min-width:1024px) and (max-aspect-ratio:1/1)');
   const panels = [...root.querySelectorAll('.am-build,.am-managed')], anchor = root.querySelector('.am-panel'); if (panels.length < 2 || !anchor) return;
   const bar = document.createElement('div'); bar.className = 'it-seg'; bar.setAttribute('role', 'tablist'); bar.setAttribute('aria-label', 'Who does what');
   const labels = panels.map(p => (p.querySelector('h3,h4')?.textContent || '').replace(/:$/, '').replace(/\s+/g, ' ').trim());
