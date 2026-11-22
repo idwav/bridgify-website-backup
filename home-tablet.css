@@ -1,59 +1,52 @@
-/* Home on a standard tablet (iPad upright, 600-900px; owner's choices of 22 Nov 2026): every section fills one screen under the 64px header,
-   no half sections and no long ones. Why Bridgify and Products show one part at a time with tabs; Opportunity's two panels sit side by side;
-   Security and FAQ share one screen; Results is not pinned. Desktop and phone are untouched (everything here is inside the media query). */
+/* Home on a standard tablet (iPad upright, 600-900px; owner's choices of 22 Nov 2026).
+   Every spacing here is a token of Tom's table for 600-1023px (wide/tokens.css, SPACING-GRID-PLAN.md): section 80, label>title 16, title>text 24,
+   head>control 40, control>content 24, head>content 48, text>actions 40, card gap 24, card padding 24. No other numbers.
+   Sections fill one screen under the 64px header; Why Bridgify and Products show one part at a time (tabs) in a box whose size never changes;
+   Opportunity's panels sit side by side; Security + FAQ share a screen; Results is a half section, not pinned. Desktop and phone are untouched. */
 .ht-tabs{display:none}
 @media (min-width:600px) and (max-width:900px){
-  /* one screen = viewport minus header, content centred, equal space above and below */
-  html body #personalization:not(#x),html body #audiences:not(#x),html body #opportunity-study:not(#x),html body #why-bridgify:not(#x),html body #products:not(#x),html body #marketplace-results:not(#x),html body .ht-merge:not(#x){
-    min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important}
-  /* 1 · Hero: less padding on top so it is exactly one screen */
+  /* one screen = viewport minus header, content centred, section padding 80 above and below */
+  html body #personalization:not(#x),html body #audiences:not(#x),html body #opportunity-study:not(#x),html body #why-bridgify:not(#x),html body #products:not(#x),html body .ht-merge:not(#x){
+    min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  /* 1 · Hero */
   html body #home.hero:not(#x){padding-top:76px!important;padding-bottom:80px!important;min-height:100svh!important}
   /* 3 · Opportunity: the two panels side by side */
-  html body #opportunity-study:not(#x){padding-top:40px!important;padding-bottom:40px!important}
-  html body #opportunity-study .pb-head:not(#x){margin-bottom:16px!important}
-  html body #opportunity-study .pb-bar:not(#x){margin-top:0!important;margin-bottom:16px!important}
-  html body #opportunity-study .pb-panels:not(#x){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
-  html body #opportunity-study .pb-panel:not(#x){padding:16px!important}
-  /* 4 · Why Bridgify: one step at a time */
-  html body #why-bridgify:not(#x){padding-top:56px!important;padding-bottom:56px!important}
-  html body #why-bridgify .wy-sticky:not(#x){gap:16px!important}
-  html body #why-bridgify .wy-body:not(#x){display:block!important}
-  html body #why-bridgify .wy-step:not(#x){margin-top:0!important}
-  html body #why-bridgify .wy-step:not(.ht-on):not(#x){display:none!important}
-  html body #why-bridgify .wy-copy:not(#x){margin-bottom:16px!important}
-  /* 6 · Products: one product at a time */
-  html body #products:not(#x){padding-top:56px!important;padding-bottom:56px!important}
-  html body #products .pr-grid:not(#x){display:block!important}
-  html body #products .pr-card:not(.ht-on):not(#x){display:none!important}
-  /* 8 · Results: not pinned */
+  html body #opportunity-study .pb-head:not(#x){margin-bottom:24px!important}
+  html body #opportunity-study .pb-bar:not(#x){margin-top:0!important;margin-bottom:24px!important}
+  html body #opportunity-study .pb-panels:not(#x){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:24px!important}
+  html body #opportunity-study .pb-panel:not(#x){padding:24px!important}
+  /* 4 + 6 · Why Bridgify and Products: all parts sit in the same cell, so the box is as big as the biggest part and never changes when you switch */
+  html body #why-bridgify .wy-sticky:not(#x){display:block!important;gap:0!important}
+  html body #why-bridgify .wy-head:not(#x),html body #products .pr-head:not(#x){display:block!important}
+  html body #why-bridgify .wy-head h2:not(#x),html body #products .pr-head h2:not(#x){margin-bottom:0!important}
+  html body #why-bridgify .ht-tabs:not(#x),html body #products .ht-tabs:not(#x){margin:40px 0 24px!important}
+  html body #products .pr-head:not(#x){margin-bottom:0!important}
+  html body #why-bridgify .wy-body:not(#x),html body #products .pr-grid:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-template-areas:none!important;grid-template-rows:none!important;column-gap:0!important;row-gap:0!important}
+  html body #why-bridgify .wy-step:not(#x),html body #products .pr-card:not(#x){grid-area:1/1!important;margin:0!important;display:block!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+  html body #why-bridgify .wy-step.ht-on:not(#x),html body #products .pr-card.ht-on:not(#x){visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+  html body #why-bridgify .wy-step .wy-copy:not(#x){margin-bottom:24px!important;min-height:var(--ht-copy-h,0)!important}
+  html body #why-bridgify .wy-copy h4:not(#x){margin-bottom:16px!important}
+  html body #why-bridgify .wy-visual:not(#x){width:100%!important;max-width:none!important;justify-self:stretch!important}
+  /* 3 · Personalization: on the content line (32px), full width; the two cards under the words keep a gap */
+  html body #personalization:not(#x){padding-left:32px!important;padding-right:32px!important}
+  html body #personalization > *:not(#x){width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}
+  html body #personalization .intent-field:not([data-field=context]):not(#x){min-width:112px!important;padding-left:14px!important;padding-right:14px!important}
+  /* 8 · Results: a half section, not pinned; the lowest plate runs to the bottom edge and is cut there; the plates are spaced a little */
+  html body #marketplace-results:not(#x){padding-bottom:0!important}
   html body #marketplace-results.v2e-scroll-ready:not(#x){height:auto!important;overflow:hidden!important}
   html body #marketplace-results .v2e-stage:not(#x){position:relative!important;top:auto!important}
+  html body #marketplace-results .v2e-plane-unit[data-plane="front"]:not(#x){translate:0 0}
+  html body #marketplace-results .v2e-plane-unit[data-plane="back"]:not(#x){translate:0 50px}
+  html body #marketplace-results .v2e-plane-unit[data-plane="bottom"]:not(#x){translate:0 100px}
   /* 9-10 · Security + FAQ on one screen */
   html body .ht-merge #security:not(#x),html body .ht-merge #faq:not(#x){min-height:0!important;padding-top:48px!important;padding-bottom:48px!important}
+  html body .ht-merge:not(#x){padding-top:0!important;padding-bottom:0!important}
   /* the text inside the Why Bridgify diagrams: never under 11px (MOBILE-RULES T5) */
   html body #why-bridgify :is(.ag-src small,.ag-engine small,.ag-out small,.ag-out span,.ag-out li,.nm-src,.nm-flag,.nm-meta span,.nm-meta em,.nm-status span,.ds-engine small,.ds-chrome span,.ds-bar span,.ds-tile small,.ds-tile span,.ds-label,.ps-head>span,.ps-ai,.ps-rank,.ps-match,.ps-body small,.ag-src b,.hm-node b,.ps-caption,.ps-prof):not(#x){font-size:max(11px,1.1cqw)!important}
   html body #why-bridgify :is(.nm-lockbar,.nm-lockbar span,.nm-fbody small,.nm-tags li,.nm-buy em,.nm-buy span):not(#x){font-size:max(12.3px,1.1cqw)!important}
   html body #why-bridgify :is(.nm-card .nm-src,.nm-card .nm-flag,.nm-card .nm-meta span,.nm-card .nm-meta em,.ds-kiosk .ds-tile span,.ds-kiosk .ds-tile small):not(#x){font-size:max(11.8px,1.1cqw)!important}
-  /* 1 · Why Bridgify and Products: room between the title, the tabs and the text under them (they were pressed against each other) */
-  html body #why-bridgify .wy-head h2:not(#x),html body #products .pr-head h2:not(#x){margin-bottom:0!important}
-  html body #why-bridgify .wy-head:not(#x),html body #products .pr-head:not(#x){display:block!important}
-  html body #why-bridgify .ht-tabs:not(#x),html body #products .ht-tabs:not(#x){margin:24px 0 0!important}
-  html body #why-bridgify .wy-sticky:not(#x){gap:24px!important}
-  html body #products .pr-head:not(#x){margin-bottom:24px!important}
-  /* 2 · Personalization: the content starts and ends on the content line like every other section (32px), full width */
-  html body #personalization:not(#x){padding-left:32px!important;padding-right:32px!important}
-  html body #personalization > *:not(#x){width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}
-  /* 4 · Results: the stage is as tall as the screen, so the lowest plate runs to the bottom edge of the section and is cut there; the plates are spaced apart */
-  html body #marketplace-results .v2e-stage:not(#x){width:100%!important;height:calc(100svh - 64px)!important;aspect-ratio:auto!important}
-  html body #marketplace-results .v2e-art:not(#x){height:70%!important}
-  html body #marketplace-results .v2e-layer-scene:not(#x){width:140%!important;left:-20%!important}
-  html body #marketplace-results .v2e-plane-unit[data-plane="front"]:not(#x){translate:0 -330px}
-  html body #marketplace-results .v2e-plane-unit[data-plane="back"]:not(#x){translate:0 -150px}
-  html body #marketplace-results .v2e-plane-unit[data-plane="bottom"]:not(#x){translate:0 110px}
-  /* 3 · Personalization: the two cards under the words keep a clear gap between them */
-  html body #personalization .intent-field:not([data-field=context]):not(#x){min-width:112px!important;padding-left:14px!important;padding-right:14px!important}
   /* tab bar */
-  .ht-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;position:relative;z-index:5}
+  .ht-tabs{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:5}
   .ht-tabs button{height:40px;padding:0 18px;border:1px solid #f6c8b5aa;border-radius:999px;background:#160e0b;color:#EEE9DE;font:550 14px/1 Sofia,sans-serif;cursor:pointer;transition:background .3s,color .3s}
   .ht-tabs button[aria-selected=true]{background:linear-gradient(105deg,#ff9862,#f46649);border-color:transparent;color:#180F10}
 }

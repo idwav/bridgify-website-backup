@@ -22,5 +22,14 @@
   }
   tabs('#why-bridgify', '.wy-step', '.wy-head', ['Aggregate', 'Normalize', 'Distribute', 'Personalize']);
   tabs('#products', '.pr-card', '.pr-head', ['Experiences API', 'White-Label Marketplace', 'AIyelet']);
-  merge(); MQ.addEventListener('change', merge);
+  // every Why Bridgify step keeps the text block of the tallest step, so the diagram under it never moves when you switch
+  function syncCopy() {
+    const why = $('#why-bridgify'); if (!why) return;
+    why.style.setProperty('--ht-copy-h', '0px');
+    if (!MQ.matches) return;
+    const h = Math.max(0, ...$$('.wy-copy', why).map(e => e.getBoundingClientRect().height));
+    why.style.setProperty('--ht-copy-h', Math.ceil(h) + 'px');
+  }
+  syncCopy(); addEventListener('resize', syncCopy); addEventListener('load', syncCopy); document.fonts && document.fonts.ready.then(syncCopy);
+  merge(); MQ.addEventListener('change', () => { merge(); syncCopy(); });
 })();
