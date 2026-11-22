@@ -29,6 +29,7 @@
       --bf-gap-to-actions: var(--bf-space-32);  /* text or title → buttons */
       --bf-gap-to-link: var(--bf-space-16);     /* text or buttons → a text link; measured to the link's text */
       --bf-gap-actions-inner: var(--bf-space-12); /* button ↔ button */
+      --bf-gap-actions-hero: var(--bf-space-8); /* hero button ↔ button: short buttons side by side (owner, 22 Nov 2026) */
       --bf-gap-to-control: var(--bf-space-32);  /* heading → tabs */
       --bf-gap-control-content: var(--bf-space-16);
       --bf-gap-to-content: var(--bf-space-32);  /* heading → cards, demo, list; content → content */
