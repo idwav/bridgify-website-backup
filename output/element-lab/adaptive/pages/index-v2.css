@@ -700,3 +700,14 @@
   html body #audiences .audience-icon:not(#ad-x):not(#ad-y){width:28px!important;height:28px!important}
   html body #audiences .audience-card:not(#ad-x):not(#ad-y){padding-left:12px!important;grid-template-columns:28px minmax(0,1fr)!important;column-gap:16px!important}
 }
+
+/* Why Bridgify, Normalize cards on phones (owner, 22 Nov 2026): the text inside the three small source cards was too
+   dense. The source label runs tighter (it touched the card edge), every block gets 9px inside the card edge, and the
+   lines and rows have room between them. Sizes stay at the 11-13px floor. */
+@media (max-width:599px){
+  html body #wy-norm .nm-card .nm-src:not(#ad-x):not(#ad-y):not(#ad-z){display:block!important;letter-spacing:.06em!important;line-height:1.35!important;padding:9px 9px 8px!important}
+  html body #wy-norm .nm-card .nm-flag:not(#ad-x):not(#ad-y):not(#ad-z){display:block!important;margin-top:4px!important;letter-spacing:.06em!important}
+  html body #wy-norm .nm-card .nm-body:not(#ad-x):not(#ad-y):not(#ad-z){padding:9px 9px 10px!important}
+  html body #wy-norm .nm-card .nm-body b:not(#ad-x):not(#ad-y):not(#ad-z){line-height:1.35!important}
+  html body #wy-norm .nm-card .nm-meta:not(#ad-x):not(#ad-y):not(#ad-z){margin-top:8px!important}
+}
