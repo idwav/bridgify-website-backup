@@ -1,0 +1,76 @@
+/* Loyalty, rewards and financial services on a standard tablet (iPad upright, 600-900px; owner's choices of 22 Nov 2026).
+   Spacing only from Tom's tablet table (section 80, label>title 16, title>text 24, head>control 40, control>content 24, card gap 24).
+   Every section fills one screen under the 64px header. Phone and desktop are untouched. */
+.ly-tabs{display:none}
+@media (min-width:600px) and (max-width:900px){
+  /* 1 · Hero */
+  html body #section-1:not(#x){padding-top:128px!important;padding-bottom:24px!important;min-height:100svh!important}
+  html body #section-1 .lr-demo:not(#x){zoom:.78}
+  /* 2 · Points aren't a marketing budget: points above the redemption, full width, the wire runs top to bottom */
+  html body #section-2:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #section-2 .lp-demo:not(#x){grid-template-columns:minmax(0,1fr)!important;gap:0!important}
+  html body #section-2 .lp-ledger:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;grid-template-areas:"sm res" "bal res" "ft sl"!important;column-gap:24px!important;align-content:start!important;height:auto!important}
+  html body #section-2 .lp-ledger>small:not(#x){grid-area:sm!important}
+  html body #section-2 .lp-ledger>strong:not(#x){grid-area:bal!important}
+  html body #section-2 .lp-ledger .lp-result:not(#x){grid-area:res!important}
+  html body #section-2 .lp-ledger .lp-redemption-slider:not(#x){grid-area:sl!important;align-self:end!important}
+  html body #section-2 .lp-ledger .lp-ledger-foot:not(#x){grid-area:ft!important;align-self:end!important}
+  html body #section-2 .lp-transfer:not(#x){height:40px!important;justify-content:center!important}
+  html body #section-2 .lp-transfer svg:not(#x){width:30px!important;height:40px!important}
+  html body #section-2 .lp-transfer span:not(#x){top:10px!important;left:calc(50% + 24px)!important;width:auto!important}
+  html body #section-2 .lp-copy:not(#x){width:100%!important;max-width:none!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:24px!important}
+  html body #section-2 header:not(#x){margin-bottom:24px!important}
+  html body #section-2 .lp-ledger:not(#x),html body #section-2 .lp-reward:not(#x){height:auto!important;min-height:0!important}
+  html body #section-2 .lp-ledger:not(#x){padding:24px!important}
+  html body #section-2 .lp-reward>img:not(#x){height:100%!important;max-height:none!important;object-fit:cover!important}
+  /* 3 · Experiences for cardholders: three tabs in a row, text left, preview right, not pinned */
+  html body #section-3:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #section-3 .lu-pin:not(#x),html body #section-3 .lu-sticky:not(#x){position:static!important;height:auto!important;min-height:0!important}
+  html body #section-3 .lu-layout:not(#x){display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;column-gap:24px!important;row-gap:24px!important;align-items:start!important}
+  html body #section-3 .lu-choices:not(#x),html body #section-3 .lu-tabs:not(#x),html body #section-3 .lu-choice:not(#x){display:contents!important}
+  html body #section-3 .lu-tabs button:not(#x){grid-row:1!important;width:100%!important;height:48px!important;min-height:0!important;border-radius:999px!important;justify-content:center!important;padding:0 16px!important;white-space:nowrap!important}
+  html body #section-3 .lu-tabs button>svg:last-child:not(#x){display:none!important}
+  html body #section-3 .lu-explanation-inner:not(#x){padding:0!important}
+  html body #section-3 .lu-explanation-inner>h3:not(#x){margin-top:0!important}
+  html body #section-3 .lu-preview:not(#x){margin:0!important}
+  html body #section-3 .lu-choice:nth-child(1) button:not(#x){grid-column:1/3!important}
+  html body #section-3 .lu-choice:nth-child(2) button:not(#x){grid-column:3/5!important}
+  html body #section-3 .lu-choice:nth-child(3) button:not(#x){grid-column:5/7!important}
+  html body #section-3 .lu-explanation:not(#x){grid-area:2/1/3/4!important;display:block!important;grid-template-rows:none!important;opacity:1!important;overflow:visible!important;max-height:none!important;transition:opacity .4s ease!important}
+  html body #section-3 .lu-choice:not(.is-active) .lu-explanation:not(#x){visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+  html body #section-3 .lu-panels:not(#x){grid-area:2/4/3/7!important}
+  html body #section-3 .lu-sticky>h2:not(#x){margin-bottom:40px!important}
+  html body #section-3 .lu-tabs button,html body #section-3 .lu-tabs button span:not(#x){font:550 14px/1 Sofia,sans-serif!important;letter-spacing:0!important}
+  html body #section-3 .lu-explanation:not(#x),html body #section-3 .lu-panels:not(#x){align-self:center!important}
+  /* 4 · Choose a marketplace or integrate: one product at a time (same as OTAs) */
+  html body section.xc:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body section.xc .xc-grid:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:0!important}
+  html body section.xc .xc-card:not(#x){grid-area:1/1!important;margin:0!important;position:static!important;top:auto!important}
+  html body section.xc .xc-swatches:not(#x){top:53px!important;right:69px!important;z-index:4!important;gap:10px!important}
+  html body section.xc .xc-swatches i:not(#x){width:16px!important;height:16px!important;border:2px solid #f1ebe2!important;box-shadow:0 0 0 1px #18101026!important}
+  html body section.xc .xc-swatches i.is-on:not(#x){box-shadow:0 0 0 1.5px #180f10!important}
+  html body section.xc .xc-card:not(.ly-on):not(#x){visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+  html body section.xc .xc-card:not(#x){transition:opacity .6s cubic-bezier(.45,0,.2,1),visibility 0s!important}
+  html body section.xc .xc-card:not(.ly-on):not(#x){transition:opacity .6s cubic-bezier(.45,0,.2,1),visibility 0s linear .6s!important}
+  /* 5 · We started here: one under the other */
+  html body:not(#bf-lab) section#we-started-here.lf-section.lp-origin:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #we-started-here .lp-feature-grid:not(#x){grid-template-columns:minmax(0,1fr)!important;gap:24px!important}
+  html body #we-started-here .lp-feature:not(#x){grid-column:auto!important;width:auto!important;border-left:0!important;border-right:0!important}
+  /* 6 · Market signal: one device at a time, 01-03 tabs directly above the frame */
+  html body #market-signal:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #market-signal .lm4-stage:not(#x){height:auto!important}
+  html body #market-signal .lm4-cols:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:0!important;height:auto!important}
+  html body #market-signal .lm4-col:not(#x){grid-area:1/1!important;margin:0!important;zoom:.86;transition:opacity .6s cubic-bezier(.45,0,.2,1),transform .6s cubic-bezier(.45,0,.2,1),visibility 0s linear .6s!important}
+  html body #market-signal .lm4-col:not(.ly-on):not(#x){visibility:hidden!important;opacity:0!important;transform:translateY(10px)!important;pointer-events:none!important}
+  html body #market-signal .lm4-col.ly-on:not(#x){visibility:visible!important;opacity:1!important;transform:none!important;transition:opacity .6s cubic-bezier(.45,0,.2,1),transform .6s cubic-bezier(.45,0,.2,1),visibility 0s!important}
+  html body #market-signal .lm4-chip:not(#x){display:none!important}
+  /* tab bars */
+  .ly-tabs{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:5}
+  html body .ly-tabs button:not(#x){height:40px!important;padding:0 18px!important;border:1px solid #f6c8b5aa!important;border-radius:999px!important;background:#160e0b!important;box-shadow:none!important;color:#EEE9DE!important;font:550 14px/1 Sofia,sans-serif!important;cursor:pointer;transition:background .3s,color .3s}
+  html body .ly-tabs button[aria-selected=true]:not(#x){background:linear-gradient(105deg,#ff9862,#f46649)!important;border-color:transparent!important;color:#180F10!important}
+  .ly-tabs[data-for=xc]{margin:40px 0 24px}
+  .ly-tabs[data-for=ms]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0 0 -16px}  /* the section's own 40px gap + -16 = 24 to the frame */
+  html body .ly-tabs[data-for=ms] button:not(#x){height:48px!important;padding:0 12px!important;border-color:#f6c8b555!important;font:700 13px/1 Sofia,sans-serif!important;letter-spacing:.12em!important;text-transform:uppercase;display:flex!important;justify-content:center;align-items:center;gap:10px}
+  html body .ly-tabs[data-for=ms] button[aria-selected=true]:not(#x){border-color:transparent!important}
+  .ly-tabs[data-for=ms] button i{font-style:normal;opacity:.7}
+}
