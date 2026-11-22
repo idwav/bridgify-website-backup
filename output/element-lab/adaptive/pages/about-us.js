@@ -39,3 +39,35 @@
   addEventListener('scroll', ask, {passive: true}); addEventListener('resize', ask); A.MQ.mobile.addEventListener('change', ask);
   ask();
 })();
+
+/* About hero on phones: the scene comes in last (about-us.css). It waits until the hero copy has come in and the scene
+   is on screen, then: the 1M+ line, the map, its pins one by one, Bridgify, the three tiles one by one, the caption. */
+(() => {
+  const A = window.BridgifyAdaptive; if (!A || !A.MQ.mobile.matches) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const wm = document.querySelector('#top .wm'); if (!wm) return;
+  document.documentElement.classList.add('ad-wm-seq');
+  const pins = [...wm.querySelectorAll('.wm-pin')], brands = [...wm.querySelectorAll('.wm-brand')];
+  let done = false;
+  const play = () => {
+    if (done) return; done = true;
+    const at = (ms, f) => setTimeout(f, ms);
+    at(0, () => wm.classList.add('wm-s1'));
+    at(450, () => wm.classList.add('wm-s2'));
+    pins.forEach((p, i) => at(750 + i * 120, () => p.classList.add('wm-in')));
+    const t3 = 750 + pins.length * 120 + 150;
+    at(t3, () => wm.classList.add('wm-s3'));
+    at(t3 + 450, () => wm.classList.add('wm-s4'));
+    brands.forEach((b, i) => at(t3 + 550 + i * 160, () => b.classList.add('wm-in')));
+    at(t3 + 550 + brands.length * 160 + 200, () => wm.classList.add('wm-s5'));
+  };
+  /* after the hero copy's own entrance (about 1.4s), and once the scene's top is on screen */
+  const t0 = performance.now();
+  const check = () => {
+    if (done) return;
+    const r = wm.getBoundingClientRect();
+    if (performance.now() - t0 > 1400 && r.top < innerHeight * .9) play();
+  };
+  addEventListener('scroll', check, {passive: true}); setTimeout(check, 1450);
+  setTimeout(() => { if (!done && wm.getBoundingClientRect().top < innerHeight) play(); }, 4000);
+})();
