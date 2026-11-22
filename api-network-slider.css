@@ -108,3 +108,7 @@
 @media (max-width:900px){
   #network .an-split{grid-template-columns:minmax(0,1fr);gap:36px}
 }
+/* iPad on its side and small laptops (901-1179px): the two columns stay as they were; only the animation on the right is smaller (410px wide, about 590px tall). It was 538 x 771px, taller than the screen. */
+@media (min-width:901px) and (max-width:1179px){
+  #network .an-split .nz-wrap{width:min(100%,410px);justify-self:end}
+}
