@@ -55,3 +55,9 @@ html body #marketplace-results .v2e-wire-nodes circle:not(#x){r:5.5px;filter:dro
   html body #marketplace-results .v2e-stage:not(#x){padding-bottom:32px!important;overflow-x:clip!important;overflow-y:visible!important}
   html body #marketplace-results.v2e-enterprise:not(#x){overflow-x:clip!important;overflow-y:visible!important}
 }
+
+/* upright tablets: a static section (no pin), the planes assembled, the wire and its dots shown, even space above and below */
+@media(min-width:721px) and (max-aspect-ratio:1/1){
+  html body #marketplace-results.v2e-enterprise:not(.v2e-scroll-ready):not(#x){padding-top:48px!important;padding-bottom:48px!important;height:auto!important;overflow:hidden!important}
+  html body #marketplace-results:not(.v2e-scroll-ready) .v2e-open-wires,html body #marketplace-results:not(.v2e-scroll-ready) .v2e-wire-nodes,html body #marketplace-results:not(.v2e-scroll-ready) .v2e-wire-pulses{display:block!important}
+}

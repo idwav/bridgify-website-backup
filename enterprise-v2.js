@@ -7,6 +7,8 @@
   const planes = [...section.querySelectorAll('.v2e-plane-unit')];
   const dots = [...section.querySelectorAll('.v2e-proof-dots i')];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  // upright tablets: the scene is wide and the screen is tall, so pinning it leaves the screen mostly empty. The section is static there, with the planes already assembled (as on phones).
+  const upright = matchMedia('(min-width:721px) and (max-aspect-ratio:1/1)');
   const batches = {
     art: { visible: false, started: false, animations: [], floats: [] },
     proof: { visible: false, started: false, animations: [] }
@@ -48,8 +50,8 @@
   function setupLayers() {
     tracks.forEach(track => track.cancel());
     tracks = [];
-    section.classList.toggle('v2e-scroll-ready', !reduced.matches);
-    if (reduced.matches) { section.dataset.layerState = 'assembled'; return; }
+    section.classList.toggle('v2e-scroll-ready', !reduced.matches && !upright.matches);
+    if (reduced.matches || upright.matches) { section.dataset.layerState = 'assembled'; return; }
     const fromX = [-30, 22, -8], fromY = [140, 55, -34];
     tracks = planes.map((plane, i) => {
       const track = plane.animate([
@@ -140,6 +142,7 @@
     sync();
   }, { threshold: .2 }).observe(art);
   document.addEventListener('visibilitychange', () => { sync(); queueLayers(); });
+  upright.addEventListener('change', setupLayers);
   reduced.addEventListener('change', () => {
     setupLayers();
     if (!reduced.matches) {
