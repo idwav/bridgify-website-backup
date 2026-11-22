@@ -24,6 +24,44 @@
       const c = tabs.find(t => t.getAttribute('aria-selected') === 'true');
       if (c && row.scrollWidth > row.clientWidth) row.scrollTo({left: c.offsetLeft - row.offsetLeft - (row.clientWidth - c.offsetWidth) / 2, behavior: 'smooth'});
     }).observe(row, {subtree: true, attributes: true, attributeFilter: ['aria-selected']});
+    /* Phones: scroll-driven (owner decision, 21 Nov 2026; design system pattern.pinned-steps). The step row and the
+       active step hold on screen and the page's scroll moves through the four steps; after the last the page goes on.
+       A tap on a step scrolls to it. */
+    const body = $('.wy-body', wy);
+    if (body && row && A.MQ.mobile.matches) {
+      /* One stage height for all four steps (the screen under the header), so nothing jumps between steps; a step's
+         diagram is zoomed down only when it would not fit under its copy. */
+      const head = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ad-header-h')) || 64;
+      const H = () => innerHeight - head() - 24;
+      const fitStep = () => {
+        const s = steps.find(e => e.offsetHeight > 0), v = s && $('.wy-visual', s);
+        if (!v) return;
+        /* scale (not zoom): the diagrams size parts of themselves from their own width, so zoom does not shrink them evenly */
+        v.style.scale = ''; v.style.transformOrigin = ''; v.style.marginBottom = '';
+        const room = body.getBoundingClientRect().bottom - 8 - v.getBoundingClientRect().top, nat = v.offsetHeight;
+        if (nat > room) {
+          const k = room / nat;
+          v.style.scale = k.toFixed(3); v.style.transformOrigin = 'top center';
+          v.style.setProperty('margin-bottom', -Math.ceil(nat * (1 - k)) + 'px', 'important');
+        }
+      };
+      let scrollStep = 0, p = null;
+      body.style.setProperty('height', H() + 'px', 'important');
+      p = A.pin([body], {steps: tabs.length, per: .5, className: 'ad-wy-pin', onStep: i => {
+        scrollStep = i; tabs[i].click(); fitStep();
+      }});
+      if (p) {
+        /* A tap is handled before it reaches the buttons (capture listener elsewhere), so follow the selection: a step
+           chosen by tap, not by scroll, scrolls the page to that step. */
+        new MutationObserver(() => {
+          const i = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
+          if (i > -1 && i !== scrollStep && p.wrap.classList.contains('is-on')) p.go(i);
+          requestAnimationFrame(fitStep);
+        }).observe(row, {subtree: true, attributes: true, attributeFilter: ['aria-selected']});
+        addEventListener('resize', () => { body.style.setProperty('height', H() + 'px', 'important'); fitStep(); });
+        addEventListener('load', fitStep); fitStep();
+      }
+    }
   }
 
   /* 6 · Products: three cards in a horizontal scroller with a peek of the next one. */
