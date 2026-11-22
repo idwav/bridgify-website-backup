@@ -1,0 +1,7 @@
+/* demo · adaptive layer (phones). Spacing between roles comes from system/tokens.css via the role map;
+   the divider under the intro keeps its place in the middle of the 48px gap to the form (the role map
+   removes the intro's own bottom padding, which put the line against the text). */
+@media (max-width:599px){
+  html body #demo-hero:not(#ad-x){border-bottom:0!important;position:relative!important;top:auto!important}
+  html body #demo-hero:not(#ad-x)::after{content:"";position:absolute;left:0;right:0;bottom:-24px;height:1px;background:var(--line,#ffffff1f)}
+}

@@ -1,0 +1,5 @@
+/* job · adaptive layer (phones). Spacing between roles comes from system/tokens.css via the role map;
+   this file only gives the two hero buttons (Apply, Copy link) equal widths in their row. */
+@media (max-width:599px){
+  html body #job-hero .jl-actions:not(#ad-x) > :is(a,button){flex:1 1 0!important;min-width:0!important;width:auto!important}
+}
