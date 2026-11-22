@@ -461,7 +461,7 @@
   html body div:nth-child(4) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) { margin-top: 48px !important; margin-bottom: 0px !important; row-gap: 16px !important; column-gap: 16px !important; }
 }
 @media (min-width: 1024px) and (max-width: 1151px) {
-  html body #section-2 > div:nth-child(1) > header:nth-child(1) > p:nth-child(2) { margin-top: 43.5289px !important; }
+  html body #section-2 > div:nth-child(1) > header:nth-child(1) > p:nth-child(2) { margin-top: 42.9349px !important; }
   html body #section-2 > div:nth-child(1) > section:nth-child(2) > nav:nth-child(1) { margin-top: -75px !important; }
   html body #section-3 > header:nth-child(1) > p:nth-child(2) { margin-top: 43.4929px !important; }
   html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 43.6089px !important; }
@@ -469,7 +469,7 @@
   html body #build-or-buy > header:nth-child(1) > p:nth-child(2) { margin-top: 43.6089px !important; }
 }
 @media (min-width: 1152px) and (max-width: 1359px) {
-  html body #section-2 > div:nth-child(1) > header:nth-child(1) > p:nth-child(2) { margin-top: 43.8033px !important; }
+  html body #section-2 > div:nth-child(1) > header:nth-child(1) > p:nth-child(2) { margin-top: 42.9009px !important; }
   html body #section-2 > div:nth-child(1) > section:nth-child(2) > nav:nth-child(1) { margin-top: -45px !important; }
   html body #section-3 > header:nth-child(1) > p:nth-child(2) { margin-top: 43.8033px !important; }
   html body #section-4 > header:nth-child(1) > p:nth-child(2) { margin-top: 43.9217px !important; }

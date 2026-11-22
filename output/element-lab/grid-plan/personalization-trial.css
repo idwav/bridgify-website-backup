@@ -54,9 +54,3 @@
   html body:not(#bf-lab) :is(#section-2 div.intent-heading, #section-4 div.embed-heading) { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; column-gap: 32px !important; align-items: start !important; padding-left: 0 !important; padding-right: 0 !important; }
   html body:not(#bf-lab) :is(#section-2 div.intent-heading > p, #section-4 div.embed-heading > p) { align-self: start !important; max-width: 560px !important; width: 100% !important; justify-self: end !important; margin-left: auto !important; }
 }
-/* Desktop hero (above 1250): personalization-hero.js lays the frame page out like the other heroes and measures it;
-   the section (and its iframe) is as tall as label-to-buttons or the AIyelet frame, plus section-y (19 Nov 2026). */
-@media (min-width: 1251px) {
-  html body:not(#bf-lab) section.ai-live-hero#section-1[style*="--bf-ai-h"] { height: var(--bf-ai-h) !important; min-height: 0 !important; }
-  html body:not(#bf-lab) section.ai-live-hero#section-1[style*="--bf-ai-h"] iframe { height: 100% !important; }
-}
