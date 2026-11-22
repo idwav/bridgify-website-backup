@@ -30,21 +30,82 @@
        through the four steps; after the last the page goes on. A tap on a step scrolls to it. */
     const body = $('.wy-body', wy);
     if (body && row && A.MQ.mobile.matches) {
-      /* One stage height for all four steps (the screen under the header), so nothing jumps between steps; a step's
-         diagram is zoomed down only when it would not fit under its copy. */
+      /* One stage height for all four steps (the screen under the header), so nothing jumps between steps. One frame for
+         all four diagrams (owner, 22 Nov 2026): the frame starts and ends on the same lines in every step, edge to edge;
+         it is drawn on the diagram's holder (.wy-visual) in the diagram's own frame style, and only the diagram inside
+         is scaled, when it would not fit. */
       const head = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ad-header-h')) || 64;
       const H = () => innerHeight - head() - 24;
+      const FRAME = ['border', 'border-radius', 'background-image', 'background-color', 'box-shadow'];
+      const visuals = steps.map(s => $('.wy-visual', s)), stages = visuals.map(v => v && $('.hm-stage', v));
+      const copies = steps.map(s => $('.wy-copy', s));
+      let line = 0, measured = false;
+      const unframe = () => visuals.forEach((v, i) => {
+        if (!v) return; const st = stages[i];
+        FRAME.concat(['height', 'display', 'align-items', 'justify-content']).forEach(k => v.style.removeProperty(k));
+        if (copies[i]) copies[i].style.removeProperty('padding-bottom');
+        if (st) {
+          st.classList.remove('ad-wy-bare'); ['scale', 'translate', 'flex'].forEach(k => st.style.removeProperty(k));
+          if ('adMt' in st.dataset) { st.style.removeProperty('margin-top'); if (st.dataset.adMt) st.style.setProperty('margin-top', st.dataset.adMt, 'important'); delete st.dataset.adMt; }
+        }
+        delete v.dataset.adFramed;
+      });
+      /* Same top line: every frame starts 24px under the longest step text (Aggregate, with its link), measured from
+         the top of the stage. */
+      const GAP = 24, PAD = 8;
+      /* layout positions (offsetTop chain), not getBoundingClientRect: the step's fade-in moves it with a transform
+         while it is being measured */
+      const Y = el => { let t = 0; for (let e = el; e; e = e.offsetParent) t += e.offsetTop; return t; };
+      const measure = () => {
+        unframe(); const off = [];
+        /* each step in turn, in its real place (synchronous, so nothing is painted in between) */
+        steps.forEach((s, i) => {
+          steps.forEach((t, j) => t.style.setProperty('display', j === i ? 'block' : 'none', 'important'));
+          const kids = copies[i] ? [...copies[i].children].filter(e => e.offsetHeight) : [];
+          if (kids.length) off.push(Math.max(...kids.map(e => Y(e) + e.offsetHeight)) - Y(body));
+        });
+        steps.forEach(t => t.style.removeProperty('display'));
+        line = Math.max(...off) + GAP; measured = true;
+      };
       const fitStep = () => {
-        const s = steps.find(e => e.offsetHeight > 0), v = s && $('.wy-visual', s);
-        if (!v) return;
         const on = p && p.wrap.classList.contains('is-on');
-        /* scale (not zoom): the diagrams size parts of themselves from their own width, so zoom does not shrink them evenly */
-        v.style.scale = ''; v.style.transformOrigin = ''; v.style.marginBottom = '';
-        const room = body.getBoundingClientRect().bottom - 8 - v.getBoundingClientRect().top, nat = v.offsetHeight;
-        if (on && nat > room) {
-          const k = room / nat;
-          v.style.scale = k.toFixed(3); v.style.transformOrigin = 'top center';
-          v.style.setProperty('margin-bottom', -Math.ceil(nat * (1 - k)) + 'px', 'important');
+        if (!on) { if (measured) { unframe(); measured = false; } return; }
+        if (!measured) measure();
+        visuals.forEach((v, i) => {
+          const st = stages[i]; if (!v || !st || v.dataset.adFramed) return;
+          const g = getComputedStyle(st);
+          FRAME.forEach(k => v.style.setProperty(k, g.getPropertyValue(k), 'important'));
+          /* the spacing script puts the gap under the text on the diagram (inline): the frame holds that gap now */
+          st.dataset.adMt = st.style.getPropertyValue('margin-top'); st.style.setProperty('margin-top', '0px', 'important');
+          st.classList.add('ad-wy-bare'); v.dataset.adFramed = '1';
+        });
+        const i = steps.findIndex(e => e.offsetHeight > 0), s = steps[i], v = visuals[i], st = stages[i], c = copies[i];
+        if (!v || !st) return;
+        if (c) for (let n = 0; n < 3; n++) { /* move the frame to the shared line (margins may stop collapsing: repeat) */
+          const cur = parseFloat(c.style.paddingBottom) || 0, gap = line - (Y(v) - Y(body));
+          if (Math.abs(gap) <= .5) break;
+          c.style.setProperty('padding-bottom', Math.max(0, cur + gap) + 'px', 'important');
+        }
+        const h = Math.floor(Y(body) + body.offsetHeight - 8 - Y(v));
+        v.style.setProperty('height', h + 'px', 'important');
+        v.style.setProperty('display', 'flex', 'important'); v.style.setProperty('align-items', 'flex-start', 'important');
+        v.style.setProperty('justify-content', 'center', 'important');
+        st.style.setProperty('flex', 'none', 'important');
+        /* the diagram's visible extent (labels that hang below its box included), read through its current scale */
+        const k0 = parseFloat(st.style.scale) || 1, sTop = st.getBoundingClientRect().top; let hi = Infinity, lo = -Infinity;
+        st.querySelectorAll('*').forEach(e => { const r = e.getBoundingClientRect(); if (r.height && r.width && getComputedStyle(e).visibility !== 'hidden') { hi = Math.min(hi, r.top); lo = Math.max(lo, r.bottom); } });
+        if (!isFinite(hi)) { hi = sTop; lo = sTop + st.offsetHeight * k0; }
+        hi = (hi - sTop) / k0; lo = (lo - sTop) / k0;
+        const natH = lo - hi, room = h - 2 - PAD * 2;
+        const k = Math.min(1, room / natH, v.clientWidth / st.offsetWidth);
+        st.style.setProperty('scale', k.toFixed(3), 'important');
+        /* the stage scales from its top edge; move it so the content's top lands where centring puts it */
+        const dy = (h - 2 - natH * k) / 2 - hi * k;
+        st.style.setProperty('translate', '0 ' + dy.toFixed(1) + 'px', 'important');
+        /* diagrams finish their entrance and fill in (Personalize adds lines to its cards): fit again as they settle */
+        if (!fitStep.again) {
+          (fitStep.t || []).forEach(clearTimeout);
+          fitStep.t = [700, 1800, 3600].map(ms => setTimeout(() => { fitStep.again = 1; fitStep(); fitStep.again = 0; }, ms));
         }
       };
       let scrollStep = 0, p = null;
@@ -60,7 +121,7 @@
           if (i > -1 && i !== scrollStep && p.wrap.classList.contains('is-on')) p.go(i);
           requestAnimationFrame(fitStep);
         }).observe(row, {subtree: true, attributes: true, attributeFilter: ['aria-selected']});
-        addEventListener('resize', () => { body.style.setProperty('--wy-stage-h', H() + 'px'); fitStep(); });
+        addEventListener('resize', () => { body.style.setProperty('--wy-stage-h', H() + 'px'); measured = false; unframe(); fitStep(); });
         addEventListener('load', fitStep); fitStep();
       }
     }

@@ -93,3 +93,32 @@
     const [g, i] = seq[k % seq.length]; k++; const b = btn(g, i); if (b) b.click();
   }, 2200);
 })();
+
+/* Owner, 22 Nov 2026 (phones): the store window in "From discovery to checkout" is as tall as its tallest screen, and the
+   phone preview's background in "Your brand, your markets" runs the width of the settings card above it. */
+(() => {
+  const A = window.BridgifyAdaptive; if (!A || !A.MQ.mobile.matches) return;
+  const root = document.documentElement;
+  const screens = document.querySelector('#section-2 .screens');
+  const tourFit = () => {
+    if (!screens || !A.MQ.mobile.matches) return;
+    let hi = 0;
+    screens.querySelectorAll('article.screen').forEach(a => {
+      const t = a.getBoundingClientRect().top;
+      a.querySelectorAll('*').forEach(e => { const g = getComputedStyle(e); if (g.display === 'none') return;
+        const r = e.getBoundingClientRect(); if (r.height) hi = Math.max(hi, r.bottom - t); });
+    });
+    if (hi) root.style.setProperty('--ad-tour-h', Math.ceil(hi + 20) + 'px');
+  };
+  const stage = document.querySelector('#section-3 .wl-preview-stage'), card = document.querySelector('#section-3 .wl-controls');
+  const stageFit = () => {
+    if (!stage || !card || !A.MQ.mobile.matches) return;
+    const z = parseFloat(getComputedStyle(stage).zoom) || 1, cs = getComputedStyle(card);
+    /* lengths on the zoomed stage are multiplied by its zoom: divide, so it renders at the card's width and radius */
+    root.style.setProperty('--ad-stage-w', (card.getBoundingClientRect().width / z).toFixed(1) + 'px');
+    root.style.setProperty('--ad-stage-r', (parseFloat(cs.borderTopLeftRadius) / z).toFixed(1) + 'px');
+    root.style.setProperty('--ad-stage-mt', (24 / z).toFixed(1) + 'px');
+  };
+  const fit = () => { tourFit(); stageFit(); };
+  fit(); addEventListener('load', () => setTimeout(fit, 300)); addEventListener('resize', fit);
+})();

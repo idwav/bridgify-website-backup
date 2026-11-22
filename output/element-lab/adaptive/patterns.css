@@ -353,3 +353,8 @@
     border-color:#F46649!important;background:linear-gradient(125deg,rgba(244,102,73,.22),rgba(244,102,73,.08))!important;color:#FFF8F1!important}
   html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y)>:is(button,[role=tab]):focus-visible{outline:2px solid #F46649!important;outline-offset:2px}
 }
+
+/* Footer, phones (owner, 22 Nov 2026): the tagline in full brand coral (it read as see-through in the lighter #f88260). */
+@media (max-width:599px){
+  html body .bf-footer #bf-footer-title span:not(#ad-z){color:#F46649!important}
+}

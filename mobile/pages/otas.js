@@ -52,3 +52,30 @@
   const ask = () => { if (!raf) raf = requestAnimationFrame(paint); };
   addEventListener('scroll', ask, {passive: true}); addEventListener('resize', ask); A.MQ.mobile.addEventListener('change', ask); ask();
 })();
+
+/* Enterprise multi-source on phones: the diagram builds with the scroll (otas.css). p runs 0 -> 1 while the diagram's
+   top travels from 90% to 35% of the screen. Wires are drawn with a dash that shortens; otas-supply.js rebuilds them on
+   resize, so their length is set again on every frame. */
+(() => {
+  const A = window.BridgifyAdaptive; if (!A) return;
+  const sc = document.querySelector('#section-2 [data-sc]'); if (!sc) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const seg = (p, a, b) => Math.max(0, Math.min(1, (p - a) / (b - a)));
+  let raf = 0;
+  const paint = () => {
+    raf = 0;
+    const on = A.MQ.mobile.matches && !reduced.matches;
+    sc.classList.toggle('ad-sc-build', on);
+    const paths = [...sc.querySelectorAll('.sc-wires path')];
+    if (!on) { paths.forEach(p => { p.style.strokeDasharray = ''; p.style.strokeDashoffset = ''; }); sc.classList.remove('ad-sc-full'); return; }
+    const r = sc.getBoundingClientRect(), h = innerHeight, p = seg(h * 0.9 - r.top, 0, h * 0.55);
+    const w1 = seg(p, 0, .3), hub = seg(p, .25, .4), w2 = seg(p, .4, .55), exp = seg(p, .5, .72), count = seg(p, .72, .88);
+    paths.forEach((path, i) => { path.setAttribute('pathLength', '1'); path.style.strokeDasharray = '1 1'; path.style.strokeDashoffset = String(1 - (i === paths.length - 1 ? w2 : w1)); });
+    sc.style.setProperty('--sc-hub', hub.toFixed(3)); sc.style.setProperty('--sc-exp', exp.toFixed(3)); sc.style.setProperty('--sc-count', count.toFixed(3));
+    sc.classList.toggle('ad-sc-full', p >= .99);
+  };
+  const ask = () => { if (!raf) raf = requestAnimationFrame(paint); };
+  addEventListener('scroll', ask, {passive: true}); addEventListener('resize', ask); A.MQ.mobile.addEventListener('change', ask);
+  new MutationObserver(ask).observe(sc.querySelector('.sc-wires'), {childList: true});
+  ask();
+})();
