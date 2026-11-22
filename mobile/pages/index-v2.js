@@ -272,41 +272,118 @@
   addEventListener('scroll', ask, {passive: true}); addEventListener('resize', ask); A.MQ.mobile.addEventListener('change', ask); ask();
 })();
 
-/* Hero visual on phones: experiences → Bridgify → your app (see index-v2.css "Hero visual on phones").
-   Only words already in the desktop hero: "Bridgify", "YourBrand". Wires are drawn from the boxes' real
-   positions; dots travel along them. Still with reduced motion. */
+/* Hero visual on phones: Hub (index-v2.css "Hero visual on phones: Hub"). The cards are the desktop tangle's own
+   (.fn-tile: photo, name, type · price), so no words are added; "Bridgify", "1 integration" and "YourBrand" are the
+   desktop hero's too. One scene turns into the next with the same pieces (owner, 22 Nov 2026): the tangle's cards
+   become the 2x2 of photos and the rows inside YourBrand, the last card leaves; the tangle's own lines straighten
+   into the four wires (several lines merge into one, the rest fade out); only Bridgify, "1 integration" and the
+   YourBrand frame come in. The element keeps one size from the first paint, so nothing below it moves. Dots then
+   run along the wires. Reduced motion: ordered at once, no dots. */
 (() => {
   const A = window.BridgifyAdaptive; if (!A || !A.MQ.mobile.matches) return;
   const copy = document.querySelector('#home .bv2-hero-copy'); if (!copy || copy.querySelector('.ad-hero-flow')) return;
-  const src = ['assets/v2/08-colosseum-480.jpg', 'assets/v2/05-paris-food-tour-960.jpg', 'assets/v2/11-catamaran-480.jpg', 'assets/v2/16-live-music-960.jpg'].map(n => `<img src="${n}" alt="" width="48" height="48" decoding="async">`).join('');
+  const tiles = [...document.querySelectorAll('#home .fn-tile')].slice(0, 8); if (tiles.length < 8) return;
   const label = document.querySelector('#home .bv2-funnel')?.getAttribute('aria-label') || '';
   const el = document.createElement('div');
   el.className = 'ad-hero-flow'; el.setAttribute('role', 'img'); el.setAttribute('aria-label', label);
-  el.innerHTML = `<svg class="hf-wires" aria-hidden="true"></svg><div class="hf-src" aria-hidden="true">${src}</div>
-    <div class="hf-hub" aria-hidden="true"><i><img src="assets/bridgify-icon.svg" alt=""></i><span>Bridgify</span></div>
-    <div class="hf-app" aria-hidden="true"><b>YourBrand</b><i><img src="assets/v2/08-colosseum-960.jpg" alt=""><u></u></i><i><img src="assets/v2/13-santorini-960.jpg" alt=""><u></u></i></div>`;
-  copy.appendChild(el);
+  const cards = tiles.map(t => `<div class="hf-card" aria-hidden="true"><img src="${t.querySelector('img').getAttribute('src')}" alt="" decoding="async"><span>${t.querySelector('span').innerHTML}</span></div>`).join('');
+  el.innerHTML = `<svg class="hf-wires" aria-hidden="true" data-managed-contacts></svg>
+    <div class="hf-hub" aria-hidden="true"><img src="assets/bridgify-icon.svg" alt=""><span>Bridgify</span></div>
+    <div class="hf-chip" aria-hidden="true">1 integration</div>
+    <div class="hf-app" aria-hidden="true"><b>YourBrand</b></div>${cards}`;
+  const p = copy.querySelector(':scope > p'); (p ? p.after(el) : copy.appendChild(el));
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const NS = 'http://www.w3.org/2000/svg';
-  const draw = () => {
-    const svg = el.querySelector('svg'), o = el.getBoundingClientRect(); if (!o.width) return;
-    const R = e => { const r = e.getBoundingClientRect(); return {l: r.left - o.left, r: r.right - o.left, t: r.top - o.top, b: r.bottom - o.top, cx: (r.left + r.right) / 2 - o.left, cy: (r.top + r.bottom) / 2 - o.top}; };
-    const imgs = [...el.querySelectorAll('.hf-src img')].map(R), hub = R(el.querySelector('.hf-hub i')), app = R(el.querySelector('.hf-app'));
-    const sx = imgs[1].r, hx = hub.l - 2, hy = hub.cy;
-    const ys = [imgs[1].t + 12, imgs[1].b - 12, imgs[3].t + 12, imgs[3].b - 12];
-    const paths = ys.map(y => `M${sx} ${y}C${(sx + hx) / 2} ${y} ${(sx + hx) / 2} ${hy} ${hx} ${hy}`);
-    paths.push(`M${hub.r + 2} ${hy}L${app.l} ${hy}`);
-    svg.setAttribute('viewBox', `0 0 ${o.width} ${o.height}`); svg.innerHTML = '';
-    paths.forEach((d, i) => {
-      const p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); p.id = 'hf-p' + i; svg.appendChild(p);
-      if (reduced) return;
-      const c = document.createElementNS(NS, 'circle'); c.setAttribute('r', i === 4 ? '2.6' : '2');
-      c.innerHTML = `<animateMotion dur="${i === 4 ? 1.4 : 2.2}s" begin="${i === 4 ? 2.0 : i * 0.55}s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#hf-p${i}"/></animateMotion>`;
-      svg.appendChild(c);
-    });
+  const NS = 'http://www.w3.org/2000/svg', H = 176, cs = [...el.querySelectorAll('.hf-card')];
+  const hub = el.querySelector('.hf-hub'), chip = el.querySelector('.hf-chip'), app = el.querySelector('.hf-app'), svg = el.querySelector('svg');
+  const ROLE = ['tile', 'tile', 'tile', 'tile', 'row', 'row', 'row', 'out'];
+  let org = false, geo = null, paths = [], anim = 0;
+  const layout = () => {
+    const w = el.clientWidth; if (!w) return;
+    const t = Math.min(64, Math.floor((w * .42 - 8) / 2)), aw = Math.round(w * .25), tx = 2 * t + 8, mid = (tx + (w - aw)) / 2;
+    geo = {w, t, tiles: [[0, 4], [t + 8, 4], [0, t + 12], [t + 8, t + 12]], hub: {x: mid - 36, y: (2 * t + 16) / 2 + 4 - 44, w: 72, h: 88}, app: {x: w - aw, y: 0, w: aw, h: 150}};
+    geo.rows = [0, 1, 2].map(i => [geo.app.x + 6, 30 + i * 38, aw - 12, 32]);
+    const r = (i, a, b) => { const x = Math.sin(i * 12.9898 + a) * 43758.5453; return b * (x - Math.floor(x)); };
+    geo.chaos = cs.map((c, i) => ({x: (i % 3) * (w - 128) / 2 + r(i, 1, 24) - 12, y: i * (H - 40) / (cs.length - 1) + r(i, 2, 14) - 7, rot: r(i, 3, 22) - 11}));
+    Object.assign(hub.style, {left: geo.hub.x + 'px', top: geo.hub.y + 'px', width: geo.hub.w + 'px', height: geo.hub.h + 'px'});
+    Object.assign(app.style, {left: geo.app.x + 'px', top: geo.app.y + 'px', width: geo.app.w + 'px', height: geo.app.h + 'px'});
+    geo.chip = {x: Math.round(mid - 46), y: geo.hub.y + geo.hub.h + 16};
+    chip.style.left = geo.chip.x + 'px'; chip.style.top = geo.chip.y + 'px';
+    build(); place(true);
   };
-  requestAnimationFrame(draw); addEventListener('resize', () => requestAnimationFrame(draw));
-  el.querySelectorAll('img').forEach(i => i.complete || i.addEventListener('load', draw, {once: true}));
+  /* the lines: the tangle's 16 curves (each card wired to two others and to a knot under the middle) */
+  const tangle = () => { const ch = geo.chaos, kx = geo.w / 2, ky = H * .82, out = [];
+    ch.forEach((c, i) => { const a = ch[(i * 3 + 2) % ch.length], b = ch[(i + 5) % ch.length];
+      out.push([c.x + 60, c.y + 18, c.x + 150, c.y + 90, a.x - 30, a.y + 110, kx + (i - 4) * 5, ky]);
+      out.push([c.x + 60, c.y + 18, c.x - 40, c.y + 70, b.x + 120, b.y - 30, b.x + 60, b.y + 18]); });
+    return out; };
+  /* ...and the four wires they become: the two photo rows into Bridgify, Bridgify into YourBrand, Bridgify down to "1 integration" */
+  const tidy = () => { const t = geo.t, hx = geo.hub.x, hy = geo.hub.y + geo.hub.h / 2, hr = hx + geo.hub.w, ax = geo.app.x, ay = geo.app.y + 75, hc = hx + geo.hub.w / 2, hb = geo.hub.y + geo.hub.h;
+    const C = (x1, y1, x2, y2) => [x1, y1, (x1 + x2) / 2, y1, (x1 + x2) / 2, y2, x2, y2];
+    return [C(2 * t + 8, 4 + t / 2, hx, hy), C(2 * t + 8, t + 12 + t / 2, hx, hy), C(hr, hy, ax, ay), [hc, hb, hc, hb + 6, hc, geo.chip.y - 6, hc, geo.chip.y]]; };
+  const D = v => `M${v[0]} ${v[1]}C${v[2]} ${v[3]} ${v[4]} ${v[5]} ${v[6]} ${v[7]}`;
+  const build = () => {
+    svg.replaceChildren(); svg.setAttribute('viewBox', `0 0 ${geo.w} ${H}`);
+    paths = tangle().map((v, i) => { const e = document.createElementNS(NS, 'path'); e.setAttribute('d', D(v)); svg.append(e); return {e, from: v}; });
+  };
+  const place = instant => {
+    el.classList.toggle('hf-org', org);
+    cs.forEach((c, i) => {
+      const role = org ? ROLE[i] : null, ch = geo.chaos[i], k = role === 'tile' ? geo.tiles[i] : role === 'row' ? geo.rows[i - 4] : null;
+      c.classList.toggle('hf-tile', role === 'tile'); c.classList.toggle('hf-row', role === 'row'); c.classList.toggle('hf-out', role === 'out');
+      if (instant) c.style.transition = 'none';
+      c.style.transform = k ? `translate(${k[0]}px,${k[1]}px)` : `translate(${ch.x}px,${ch.y}px) rotate(${ch.rot}deg)${role === 'out' ? ' scale(.85)' : ''}`;
+      c.style.width = role === 'tile' ? geo.t + 'px' : role === 'row' ? k[2] + 'px' : '';
+      c.style.height = role === 'tile' ? geo.t + 'px' : role === 'row' ? k[3] + 'px' : '';
+      if (instant) { void c.offsetWidth; c.style.transition = ''; }
+    });
+    if (org) morph(instant);
+  };
+  /* every tangle line glides into the wire it belongs to (line i -> wire i % 4); lines 8 and on fade out on the way */
+  const morph = instant => {
+    const to = tidy(); cancelAnimationFrame(anim);
+    const t0 = performance.now(), dur = instant ? 0 : 1100, ease = u => u < .5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+    const step = now => {
+      const u = dur ? Math.min(1, (now - t0) / dur) : 1, k = ease(u);
+      paths.forEach((pa, i) => { const target = to[i % 4], v = pa.from.map((a, j) => a + (target[j] - a) * k);
+        pa.e.setAttribute('d', D(v)); pa.e.classList.toggle('hf-o', k > .55 && i < 4); pa.e.style.opacity = i < 4 ? '1' : String(1 - k); });
+      if (u < 1) anim = requestAnimationFrame(step); else dots(to);
+    };
+    anim = requestAnimationFrame(step);
+  };
+  const dots = to => {
+    paths.slice(4).forEach(pa => pa.e.remove()); paths = paths.slice(0, 4);
+    paths.forEach((pa, i) => { pa.e.id = 'hf-p' + i; pa.e.classList.add('hf-o'); pa.from = to[i]; });
+    /* the site's wire contacts (brand-consistency.js), drawn here once the wires are still: a light dot at each end */
+    svg.querySelectorAll('.hf-end').forEach(c => c.remove());
+    const ends = new Map(); to.forEach(v => [[v[0], v[1]], [v[6], v[7]]].forEach(([x, y]) => ends.set(Math.round(x) + ',' + Math.round(y), [x, y])));
+    ends.forEach(([x, y]) => { const c = document.createElementNS(NS, 'circle'); c.setAttribute('class', 'hf-end'); c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', '3'); svg.append(c); });
+    if (reduced) return;
+    paths.forEach((pa, i) => { const c = document.createElementNS(NS, 'circle'); c.setAttribute('r', i === 2 ? '2.6' : '2');
+      c.innerHTML = `<animateMotion dur="${i === 2 ? 1.4 : i === 3 ? 1 : 2.2}s" begin="${i === 2 ? 1.2 : i * .6}s" repeatCount="indefinite"><mpath href="#hf-p${i}"/></animateMotion>`; svg.append(c); });
+  };
+  if (reduced) org = true;
+  requestAnimationFrame(layout); addEventListener('resize', () => requestAnimationFrame(layout));
+  if (reduced) return;
+  /* order of appearance (owner, 22 Nov 2026): the hero copy arrives first (label, title, paragraph); once the
+     paragraph is in, the tangle fades in, sorts itself, and only then do the buttons come up. The hidden states are
+     set before the first paint (html.ad-hf-seq), so nothing flashes; a fallback timer shows everything if the
+     paragraph's entrance never reports. */
+  const root = document.documentElement, acts = document.querySelector('#home .bv2-hero-actions');
+  root.classList.add('ad-hf-seq');
+  /* the hero's own entrance (hero-v2.js) animates the button row in with the copy; an animation overrides CSS, so
+     on phones that one is cancelled and the row comes in last, after the visual has sorted itself */
+  const stopRowEntrance = () => acts && acts.getAnimations().forEach(a => { if (!(a instanceof CSSTransition)) a.cancel(); });
+  stopRowEntrance(); [60, 200, 500, 1000].forEach(ms => setTimeout(stopRowEntrance, ms));
+  let started = false;
+  const go = () => {
+    if (started) return; started = true;
+    el.classList.add('hf-in');
+    setTimeout(() => { org = true; place(false); }, 1100);
+    setTimeout(() => acts && acts.classList.add('hf-acts-in'), 1100 + 1400);
+  };
+  const para = p, settled = () => { if (!para) return true; const c = getComputedStyle(para); return parseFloat(c.opacity) > .97 && (c.transform === 'none' || /1, 0, 0, 1, 0, 0\)$/.test(c.transform) || Math.abs(parseFloat((c.transform.match(/,\s*([-\d.]+)\)$/) || [0, 0])[1])) < 1); };
+  const t0 = performance.now(), wait = () => { if (settled() || performance.now() - t0 > 4000) go(); else requestAnimationFrame(wait); };
+  requestAnimationFrame(wait);
 })();
 
 /* Round 4: option 2 of the Global supply strip is on unless the link asks for the previous one (&src1).
