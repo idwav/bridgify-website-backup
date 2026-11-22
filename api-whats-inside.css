@@ -76,3 +76,7 @@
 
 /* One screen tall, content centred (same rhythm as the other full-screen sections) */
 @media(min-width:801px){#whats-inside.ex-section{min-height:100svh;display:flex;flex-direction:column;justify-content:center}}
+/* upright iPads (tall screens, 801px and wider): the section is as tall as its content with even space above and below, instead of filling a whole 1194-1366px screen that leaves a huge gap above and below */
+@media(min-width:801px) and (max-aspect-ratio:1/1){
+  html body #whats-inside.ex-section:not(#x){min-height:0!important}
+}
