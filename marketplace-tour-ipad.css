@@ -8,4 +8,5 @@
   html body #section-2.market-product-tour .stages button b:not(#x),html body #section-2.market-product-tour .stages small:not(#x){display:none!important}
   html body #section-2.market-product-tour .stages button::before,html body #section-2.market-product-tour .stages button::after{left:0;right:0;top:auto;bottom:0;width:auto;height:2px}
   html body #section-2.market-product-tour .presentation:not(#x){transform:none!important;width:100%!important;max-width:none!important;margin:0!important}
+  html body:not(#bf-lab) #section-2.market-product-tour:not(#x):not(#y)::after{display:none!important;height:0!important}
 }
