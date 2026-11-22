@@ -1,5 +1,8 @@
 # Bridgify project guidance
 
+New here, or starting a session: read `START-HERE.md` first (setup, the every-screen preview page, the checks, the
+prompt). Phone, tablet and desktop are one job: see all of them while you work (`scripts/qa/preview.html`).
+
 The active homepage is Version 2: edit `index-v2.html` and its V2 assets for future homepage work. Preview it at `http://localhost:8080/?version=2`. The user requested that `index.html` remain the Version 1 reference; only change V1 when explicitly requested. Routing maintenance shared by both versions is allowed. `/?version=2` is the canonical local review URL; `?v=2` and direct V2 document links are aliases. Preserve `version=2` through internal pages and return-home links using `homepage-version.js`. Do not create another homepage copy for routine edits.
 
 Before designing or changing any visual section, read `DESIGN.md` in this directory. It records the user's brand decisions and the Stōkt / EnduroSat reference standard. Apply it to layout, typography, illustration and motion; do not interpret “at their level” as merely changing a background or adding glow.

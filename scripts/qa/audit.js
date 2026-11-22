@@ -18,7 +18,8 @@
   [...document.querySelectorAll('section')].filter(s => !s.parentElement.closest('section')).forEach(s => secEls.push(s));
   const ft = document.querySelector('footer.bf-footer, body > footer, .bf-site-footer, footer'); if (ft && !secEls.includes(ft) && !ft.closest('section')) secEls.push(ft);
   const keyOf = (s, i) => s.id ? '#' + s.id : (s.tagName.toLowerCase() + (s.classList[0] ? '.' + s.classList[0] : '') + ':' + i);
-  const sections = secEls.filter(vis).map((s, i) => ({ key: keyOf(s, i), el: s, rect: R(s) }));
+  const used = {};
+  const sections = secEls.filter(vis).map((s, i) => { let k = keyOf(s, i); used[k] = (used[k] || 0) + 1; if (used[k] > 1) k += '~' + used[k]; return { key: k, el: s, rect: R(s) }; });
   const secOf = e => { const s = sections.find(x => x.el.contains(e)); return s ? s.key : '(page)'; };
 
   const issues = []; const add = (type, level, e, msg, extra) => issues.push({ type, level, section: e ? secOf(e) : '(page)', sel: e ? sel(e) : '', text: e ? txt(e) : '', msg, rect: e ? R(e) : null, ...(extra || {}) });
@@ -29,7 +30,14 @@
 
   // text leaves: visible elements with their own text
   const all = [...document.body.querySelectorAll('*')].filter(e => !['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEMPLATE', 'svg', 'path'].includes(e.tagName));
-  const leaves = all.filter(e => [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim().length > 1) && vis(e) && !hiddenUp(e)).slice(0, 2500);
+  // the answer inside a closed FAQ item is not on screen, even while its box still exists
+  const closedDetails = e => { const d = e.closest('details'); return !!(d && !d.open && !e.closest('summary')); };
+  // text meant only for screen readers (sr-only / visually-hidden: a 1px box, clipped) is not a visible problem
+  const srOnly = e => { for (let p = e; p && p !== document.body; p = p.parentElement) { const c = getComputedStyle(p), b = p.getBoundingClientRect();
+    if ((b.width <= 2 || b.height <= 2) && /(hidden|clip)/.test(c.overflow + c.clip + c.clipPath)) return true;
+    if ((c.clip && c.clip !== 'auto') || /inset\(50%\)/.test(c.clipPath)) return true;
+    if (/(^|\s|-)(sr-only|visually-hidden|screen-reader|sr)(\s|$|-)/.test(typeof p.className === 'string' ? p.className : '')) return true; } return false; };
+  const leaves = all.filter(e => [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim().length > 1) && vis(e) && !hiddenUp(e) && !srOnly(e) && !closedDetails(e)).slice(0, 2500);
   const clips = e => { for (let p = e.parentElement; p && p !== document.documentElement; p = p.parentElement) { const c = getComputedStyle(p);
     if (/(hidden|clip|auto|scroll)/.test(c.overflowX + c.overflowY)) return p; } return null; };
 
@@ -40,8 +48,9 @@
     // 3 text cut by its own box
     const ov = c.overflowX + c.overflowY;
     if (/(hidden|clip)/.test(ov) && (e.scrollWidth > e.clientWidth + 1 || e.scrollHeight > e.clientHeight + 2) && e.clientHeight > 0) {
+      // shortened on purpose (… or a line clamp, usually with Read more) is design, not a bug
       const intended = c.textOverflow === 'ellipsis' || (c.webkitLineClamp && c.webkitLineClamp !== 'none');
-      add('clipped', intended ? 'warn' : 'error', e, intended ? 'text shortened with … / line clamp' : `text cut: content ${e.scrollWidth}×${e.scrollHeight} in a ${e.clientWidth}×${e.clientHeight} box`);
+      if (!intended) add('clipped', 'error', e, `text cut: content ${e.scrollWidth}×${e.scrollHeight} in a ${e.clientWidth}×${e.clientHeight} box`);
     }
     // 4 text cut by a clipping parent
     const cp = clips(e);

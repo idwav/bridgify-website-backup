@@ -152,6 +152,7 @@ def main():
     ap.add_argument('--base', default='origin/main'); ap.add_argument('--pages'); ap.add_argument('--all', action='store_true')
     ap.add_argument('--full', action='store_true'); ap.add_argument('--webkit', action='store_true'); ap.add_argument('--motion', action='store_true')
     ap.add_argument('--phone-rules', action='store_true'); ap.add_argument('--out')
+    ap.add_argument('--audit', action='store_true', help='check the site as it is (no before/after): the list of bugs')
     a = ap.parse_args()
     try:
         git('fetch', '-q', 'origin')
@@ -162,12 +163,13 @@ def main():
         print('No page is affected by your changes (vs %s). Use --pages or --all.' % a.base); return 0
     stamp = datetime.datetime.now().strftime('%Y%m%d-%H%M')
     out = a.out or os.path.join(ROOT, 'output', 'qa-review', stamp); os.makedirs(os.path.join(out, 'img'), exist_ok=True)
-    tmp = tempfile.mkdtemp(prefix='qa-base-')
-    git('worktree', 'add', '-q', '--detach', tmp, a.base)
-    sides = {'before': serve(tmp), 'after': serve(ROOT)}
+    tmp = None if a.audit else tempfile.mkdtemp(prefix='qa-base-')
+    if tmp:
+        git('worktree', 'add', '-q', '--detach', tmp, a.base)
+    sides = {'after': serve(ROOT)} if a.audit else {'before': serve(tmp), 'after': serve(ROOT)}
     widths = FULL if a.full else WIDTHS
     engines = ['chromium'] + (['webkit'] if a.webkit else [])
-    print(f'Comparing {a.base} → your working copy · pages: {", ".join(pages)} · widths: {", ".join(str(w) for w, _ in widths)}')
+    print(('Audit of your working copy' if a.audit else f'Comparing {a.base} → your working copy') + f' · pages: {", ".join(pages)} · widths: {", ".join(str(w) for w, _ in widths)}')
     data, cache = [], {}
     try:
         with sync_playwright() as p:
@@ -175,16 +177,23 @@ def main():
                 br = getattr(p, eng).launch()
                 for page in pages:
                     for w, h in (widths if eng == 'chromium' else [(390, 844), (1440, 900)]):
-                        res = {s: visit(br, sides[s], page, w, h, a.motion) for s in sides}
+                        try:
+                            res = {s: visit(br, sides[s], page, w, h, a.motion) for s in sides}
+                        except Exception as e:   # one page failing must not lose the whole report
+                            print(f'  {page} {eng} {w}: could not check ({str(e)[:120]})'); continue
+                        if a.audit:
+                            res['before'] = ({'sections': [], 'issues': [], 'links': []}, {})
                         if w == 1440 and eng == 'chromium':
                             res['after'][0]['issues'] += check_links(sides['after'], res['after'][0]['links'], cache)
-                            res['before'][0]['issues'] += check_links(sides['before'], res['before'][0]['links'], {})
+                            if not a.audit:
+                                res['before'][0]['issues'] += check_links(sides['before'], res['before'][0]['links'], {})
                         data.append(compare(page, eng, w, res, out))
                         d = data[-1]
                         print(f"  {page:<32} {eng:<8} {w:>5}  changed {len(d['changed']):>2}/{len(d['secs'])}  new errors {d['new_err']}  new warnings {d['new_warn']}")
                 br.close()
     finally:
-        subprocess.run(['git', 'worktree', 'remove', '--force', tmp], cwd=ROOT)
+        if tmp:
+            subprocess.run(['git', 'worktree', 'remove', '--force', tmp], cwd=ROOT)
     phone = run_phone_rules(pages, sides['after']) if a.phone_rules else None
     write_report(out, a, pages, files, data, phone)
     print(f'\nReport: {os.path.join(out, "index.html")}\nSummary for the PR: {os.path.join(out, "summary.md")}')
@@ -200,12 +209,14 @@ def compare(page, eng, w, res, out):
     slug = re.sub(r'[^a-z0-9]+', '-', f'{page}-{eng}-{w}'.lower())
     for k, s in enumerate(A['sections']):
         key = s['key']; ap_ = ashots.get(key); bp = bshots.get(key)
-        if not ap_:
+        if not ap_ or not os.path.exists(ap_):
             continue
+        if bp and not os.path.exists(bp):
+            bp = None
         box = None
         ia = Image.open(ap_).convert('RGB'); ib = Image.open(bp).convert('RGB') if bp else None
         if ib is None:
-            pct = 100.0
+            pct = 0.0 if not B['sections'] else 100.0   # audit mode has no 'before'
         elif ib.size != ia.size:
             pct = 100.0
         else:
@@ -285,6 +296,8 @@ def write_report(out, a, pages, files, data, phone):
             md.append(f"- {'❌' if i['level'] == 'error' else '⚠️'} {d['page']} @{d['w']}{' WebKit' if d['eng'] == 'webkit' else ''} · {i['section']} · {i['type']}: {i['msg']} {('· `' + i['sel'] + '`') if i['sel'] else ''}{f' · ×{n}' if n > 1 else ''}")
     if phone:
         md += ['', '**Phone rules (MOBILE-RULES.md)**', ''] + [f"- {k}: {'✅ 0 issues' if not v else '❌ ' + '; '.join(v)[:300]}" for k, v in phone.items()]
+    if a.audit:
+        md = [l.replace('New errors', 'Errors').replace('new warnings', 'warnings').replace('**New problems**', '**Problems found**').replace('Before/after + QA', 'Site audit') for l in md]
     open(os.path.join(out, 'summary.md'), 'w').write('\n'.join(md) + '\n')
 
     h = [f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QA review {E(os.path.basename(out))}</title><style>{CSS}</style></head><body>',
@@ -340,7 +353,11 @@ const f=()=>{const c=document.getElementById('onlychg').checked,n=document.getEl
 document.querySelectorAll('details.sec').forEach(d=>{d.style.display=(c&&d.dataset.chg==='0'&&d.dataset.new==='0')||(n&&d.dataset.new==='0')?'none':''});
 document.querySelectorAll('li[data-new]').forEach(l=>{l.style.display=n&&l.dataset.new==='0'?'none':''})};
 document.querySelectorAll('header input').forEach(i=>i.onchange=f);f();</script></body></html>""")
-    open(os.path.join(out, 'index.html'), 'w').write('\n'.join(h))
+    page = '\n'.join(h)
+    if a.audit:   # no before/after: every problem is simply what the site has today
+        page = page.replace('>NEW<', '>FOUND<').replace("<span class='chg'>changed</span> ", '').replace('Before / after + QA', 'Site audit').replace('>after<', '><')
+        page = page.replace('new errors', 'errors').replace('new warnings', 'warnings').replace('only changed sections', 'only sections with problems')
+    open(os.path.join(out, 'index.html'), 'w').write(page)
 
 
 if __name__ == '__main__':

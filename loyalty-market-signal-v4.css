@@ -1,0 +1,234 @@
+/* Loyalty, "Banks are building travel brands": one light stage with three devices rising out of a dark strip (site, app, card), all showing the same reward; the strip says why: every points program needs rewards worth redeeming. Sizes in the stage's own units, so it scales with the screen. */
+html body #market-signal.lm4:not(#x){position:relative;height:auto!important;min-height:0!important;padding-top:96px!important;padding-bottom:96px!important;background:#160f0d;display:flex;flex-direction:column;gap:40px}
+.lm4 .lm4-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:end;max-width:none;margin:0}
+html body #market-signal.lm4 h2:not(#x){color:#EEE9DE!important;margin:20px 0 0}
+html body #market-signal.lm4 h2 .lm4-ink:not(#x){font-style:normal;background:linear-gradient(110deg,#F46649 0%,#FF967B 23%,#FFE2C6 43%,#F88B72 60%,#F46649 78%,#FFB49A 100%)!important;background-size:240%!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important;color:transparent!important}
+@media(prefers-reduced-motion:no-preference){.lm4 h2 .lm4-ink{animation:lm4-ink 8s ease-in-out infinite}}
+@keyframes lm4-ink{50%{background-position:100% 0}}
+html body #market-signal .lm4-body:not(#x){margin:0;max-width:none;text-align:left;font:400 16px/1.55 Sofia,sans-serif;color:#D7C9BD;position:static;opacity:1;transform:none}
+/* the stage: light inside, peach glass edge */
+html body #market-signal .lm4-stage:not(#x){position:relative;container-type:inline-size;display:flex;flex-direction:column;height:clamp(440px,38vw,540px);overflow:hidden;border:1px solid #f6c8b5!important;border-radius:28px;background:radial-gradient(60% 70% at 20% 0%,#ffe2cf,#0000 70%),radial-gradient(60% 70% at 85% 10%,#ffd3bd88,#0000 70%),linear-gradient(180deg,#fff6ee,#f7e6da);box-shadow:inset 0 1px 1px #fff,0 0 3vw #f4664926,0 1.6vw 3.6vw #0008}
+.lm4-cols{position:relative;flex:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:0 4cqw}
+.lm4-col{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding-top:3cqw}
+.lm4-col+.lm4-col::before{content:"";position:absolute;left:0;top:3cqw;bottom:0;width:1px;background:linear-gradient(#f4664900,#f4664933 30%,#f4664933 70%,#f4664900)}
+.lm4-chip{display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 18px 0 6px;border:1px solid #f4664955;border-radius:999px;background:#fffaf6;font:550 14px/1 Sofia,sans-serif;color:#180F10;box-shadow:0 6px 16px #f4664918}
+.lm4-ico{width:28px;height:28px;padding:6px;box-sizing:border-box;border-radius:50%;background:#f4664918;color:#F46649}
+.lm4 .icon-node{fill:#fff1e7;stroke:none}
+.lm4 .lm4-ico .icon-node{fill:#F46649}
+.lm4-mark{display:inline-block;width:14px;height:14px;border-radius:4px;background:#F46649;flex:none}
+/* shared mock UI (light) */
+.lm4-nav{display:flex;align-items:center;gap:8px;padding:8px 14px}
+.lm4-nav em{font:600 12px/1 Sofia,sans-serif;font-style:normal;color:#180F10}
+.lm4-nav span{width:28px;height:5px;border-radius:3px;background:#18101022}.lm4-nav span:first-of-type,.lm4-nav b{margin-left:auto}
+.lm4-nav b{font:500 10px/1 Sofia,sans-serif;color:#786B64}
+.lm4-tile{overflow:hidden;border:1px solid #18101018;border-radius:12px;background:#fff}
+.lm4-tile img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.lm4-tile div{padding:10px 12px 12px}
+.lm4-tile small{display:block;font:550 10px/1.3 Sofia,sans-serif;letter-spacing:.14em;color:#C2432A}
+.lm4-tile b{display:block;margin-top:2px;font:550 14px/1.3 Sofia,sans-serif;color:#180F10}
+.lm4-tile span{display:inline-block;margin-top:8px;padding:5px 11px;border-radius:999px;background:linear-gradient(105deg,#ff9862,#f46649);font:550 12px/1 Sofia,sans-serif;color:#180F10}
+/* laptop: only the top of the screen, rising from the strip */
+.lm4-laptop{width:min(94%,32cqw);margin-top:auto}
+.lm4-lscreen{border:6px solid #1b1210;border-bottom:0;border-radius:14px 14px 0 0;background:#fffaf6;overflow:hidden;box-shadow:0 -1px 0 #f4664944,0 20px 40px #6a2a1a33;height:clamp(220px,21cqw,300px)}
+.lm4-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1px solid #18101014;background:#f1ebe2}
+.lm4-bar i{width:7px;height:7px;border-radius:50%;background:#d7cbbd}.lm4-bar span{margin-left:8px;padding:3px 12px;border-radius:6px;background:#fff;font:500 11px/1 Sofia,sans-serif;color:#786B64}
+.lm4-lscreen .lm4-tile{display:grid;grid-template-columns:44% 1fr;margin:4px 14px 0}
+.lm4-lscreen .lm4-tile img{height:100%;aspect-ratio:auto;min-height:100px}
+/* phone: top part, bezel and island */
+.lm4-phone{position:relative;width:min(64%,19cqw);margin-top:auto;padding:7px 7px 0;border-radius:34px 34px 0 0;background:#0a0605;box-shadow:0 0 0 3px #1b1210,0 -1px 0 3px #f4664933,0 20px 40px #6a2a1a44;background-clip:padding-box;height:clamp(280px,26cqw,360px);overflow:hidden}
+.lm4-phone::before{content:"";position:absolute;inset:7px 7px 0;border-radius:28px 28px 0 0;background:#fffaf6}
+.lm4-phone>*{position:relative}
+.lm4-island{position:absolute!important;left:50%;top:14px;width:44px;height:13px;border-radius:8px;background:#000;transform:translateX(-50%);z-index:2}
+.lm4-status{display:flex;justify-content:space-between;align-items:center;padding:14px 20px 0;height:34px}
+.lm4-status em{font:600 10px/1 Sofia,sans-serif;font-style:normal;color:#180F10}.lm4-status span{width:18px;height:8px;border-radius:3px;border:1px solid #180F1088}
+.lm4-phone .lm4-nav{padding:6px 16px}
+.lm4-phone .lm4-tile{margin:4px 14px 0}
+/* credit card, with the redemption arriving above it */
+.lm4-cardwrap{position:relative;width:min(90%,25cqw);margin-top:auto;display:flex;flex-direction:column;gap:12px}
+.lm4-toast{display:flex;align-items:center;gap:12px;padding:8px 14px 8px 8px;border:1px solid #f4664955;border-radius:16px;background:#fff;box-shadow:0 14px 28px #6a2a1a33}
+.lm4-toast img{width:46px;height:46px;border-radius:10px;object-fit:cover;flex:none}
+.lm4-toast b{display:block;font:550 13px/1.3 Sofia,sans-serif;color:#180F10}
+.lm4-toast span{display:inline-block;margin-top:4px;padding:3px 9px;border-radius:999px;background:linear-gradient(105deg,#ff9862,#f46649);font:550 11px/1.2 Sofia,sans-serif;color:#180F10}
+.lm4-credit{display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:1.586;padding:18px 20px;border-radius:18px 18px 0 0;background:radial-gradient(at 100% 0%,#ff9a7a66,#0000 55%),radial-gradient(at 0% 100%,#f4664944,#0000 50%),linear-gradient(135deg,#3a2019,#150b09);box-shadow:inset 0 1px 1px #fff1daaa,0 -1px 0 #f4664955,0 20px 40px #6a2a1a44;height:clamp(130px,11.5cqw,170px);overflow:hidden;aspect-ratio:auto}
+.lm4-ctop{display:flex;align-items:center;justify-content:space-between}
+.lm4-ctop .lm4-mark{width:20px;height:20px;border-radius:6px}
+.lm4-cnet{position:relative;width:34px;height:22px}
+.lm4-cnet::before,.lm4-cnet::after{content:"";position:absolute;top:0;width:22px;height:22px;border-radius:50%;background:#f6c8b555}
+.lm4-cnet::before{left:0}.lm4-cnet::after{right:0;background:#f4664988}
+.lm4-chipic{display:none}
+.lm4-cpts small{display:block;font:550 10px/1 Sofia,sans-serif;letter-spacing:.14em;color:#FFB194}
+.lm4-cpts strong{display:block;margin-top:4px;font:300 28px/1 Chillax,sans-serif;color:#FFF8F1}.lm4-cpts strong span{font-size:13px;color:#F46649}
+/* the dark strip: why this matters */
+.lm4-strip{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:20px;padding:20px 4cqw;border-top:1px solid #f4664966;background:radial-gradient(at 100% 0%,#ff896230,#0000 50%),linear-gradient(115deg,#fff8f10e,#0000 50%),#150d0bf8}
+.lm4-strip::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,#0000,#f6c8b5,#0000)}
+.lm4-hub-ic{display:grid;place-items:center;width:52px;height:52px;border:1px solid #f6c8b5;border-radius:50%;background:#160e0bf0;color:#F46649;box-shadow:0 0 22px #f4664955}
+.lm4-hub-ic svg{width:26px;height:26px}.lm4-hub-ic .icon-node{fill:#fff1e7}
+.lm4-strip small{display:block;font:550 12px/1.4 Sofia,sans-serif;letter-spacing:.15em;color:#F46649}
+.lm4-strip h3{margin:4px 0 0;font:300 var(--type-card,clamp(24px,2.2vw,28px))/1.25 Chillax,sans-serif;letter-spacing:-.02em;color:#EEE9DE}
+.lm4-strip p{margin:0;font:400 16px/1.5 Sofia,sans-serif;color:#D7C9BD}
+/* contact rings where each device meets the strip */
+.lm4-col::after{content:"";position:absolute;left:50%;bottom:-5px;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;background:#EEE9DE;border:1.5px solid #F46649;z-index:3;box-shadow:0 0 10px #F46649}
+/* one screen on desktop */
+@media(min-width:1280px) and (min-height:700px){
+html body #market-signal.lm4:not(#x){min-height:calc(100vh - 64px);box-sizing:border-box;justify-content:center;padding-top:40px!important;padding-bottom:40px!important;gap:28px}
+html body #market-signal .lm4-stage:not(#x){height:clamp(400px,calc(100vh - 64px - 80px - 215px),560px)}
+}
+@media(max-width:1023px){
+.lm4 .lm4-head{grid-template-columns:minmax(0,1fr);gap:20px}
+html body #market-signal.lm4:not(#x){padding-top:80px!important;padding-bottom:80px!important}
+html body #market-signal .lm4-stage:not(#x){height:auto}
+.lm4-cols{grid-template-columns:minmax(0,1fr);padding:0 24px;gap:0}
+.lm4-col{padding:32px 0 0;min-height:360px}
+.lm4-col+.lm4-col::before{left:10%;right:10%;top:0;bottom:auto;width:auto;height:1px;background:#f4664933}
+.lm4-laptop{width:min(92%,420px)}.lm4-phone{width:210px}.lm4-cardwrap{width:min(92%,320px)}
+.lm4-strip{grid-template-columns:auto minmax(0,1fr);padding:20px 24px}.lm4-strip p{grid-column:1/-1}
+}
+@media(max-width:599px){html body #market-signal.lm4:not(#x){padding-top:64px!important;padding-bottom:64px!important}}
+
+/* ===== v4: living devices ===== */
+/* laptop reads as a laptop: camera, thick lid, hinge and a slice of the base */
+.lm4-lscreen{position:relative;border-width:9px 9px 0 9px!important;border-radius:16px 16px 0 0!important;overflow:hidden}
+.lm4-cam{position:absolute;left:50%;top:-6px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#3a2a24;z-index:3}
+.lm4-hinge{position:absolute;left:-6%;right:-6%;bottom:0;height:12px;border-radius:0 0 14px 14px;background:linear-gradient(#d9cfc7,#a79a90);box-shadow:0 -1px 0 #fff8 inset,0 6px 14px #6a2a1a44}
+.lm4-hinge::before{content:"";position:absolute;left:50%;top:0;width:18%;height:5px;margin-left:-9%;border-radius:0 0 8px 8px;background:#8d8076}
+.lm4-laptop{position:relative}
+.lm4-lscreen{height:clamp(240px,23cqw,320px)!important}
+.lm4-more{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 14px 0}
+.lm4-more img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:8px;border:1px solid #18101018}
+/* cursor */
+.lm4-cursor{position:absolute;z-index:4;width:18px;height:18px;left:12%;top:70%;opacity:0;transition:left 1s cubic-bezier(.45,0,.2,1),top 1s cubic-bezier(.45,0,.2,1),opacity .3s}
+/* phone reads as a phone */
+.lm4-phone{box-shadow:0 0 0 3px #26191a,0 0 0 4px #f4664955,0 -1px 0 4px #f4664933,0 22px 44px #6a2a1a55!important}
+.lm4-side{position:absolute;width:3px;border-radius:2px 0 0 2px;background:#26191a;z-index:3}
+.lm4-side.s1{left:-7px;top:90px;height:30px}.lm4-side.s2{right:-7px;top:110px;height:54px;border-radius:0 2px 2px 0}
+.lm4-tap{position:absolute!important;z-index:5;width:34px;height:34px;margin:-17px 0 0 -17px;left:70%;top:230px;border-radius:50%;background:#f4664966;opacity:0;transform:scale(.3);pointer-events:none}
+.lm4-phone{height:clamp(320px,29cqw,400px)!important}
+/* the Redeem button inside each tile */
+.lm4-btn{display:grid;position:relative;margin-top:8px;margin-left:8px;vertical-align:middle;padding:0!important;background:none!important;border-radius:9px}
+.lm4-tile div{display:flex;flex-wrap:wrap;align-items:center}
+.lm4-tile div small,.lm4-tile div b{flex:0 0 100%}
+.lm4-btn{display:inline-grid}
+.lm4-btn em{grid-area:1/1;display:flex;align-items:center;justify-content:center;height:28px;padding:0 14px;border-radius:9px;font:550 12px/1 Sofia,sans-serif;font-style:normal;transition:opacity .25s cubic-bezier(.45,0,.2,1),transform .25s cubic-bezier(.45,0,.2,1)}
+.lm4-btn em:first-child{background:#180F10;color:#FFF8F1}
+.lm4-btn em:last-child{background:#9fd0a6;color:#0f2a14;opacity:0;transform:scale(.9)}
+.lm4-tile span{margin-top:8px}
+/* sequence states, set by the script */
+.lm4-stage[data-s~="site-move"] .lm4-cursor{opacity:1;left:30%;top:56%}
+.lm4-stage[data-s~="site-click"] .lm4-cursor{transform:scale(.85)}
+.lm4-stage[data-s~="site-done"] .lm4-lscreen .lm4-btn em:first-child,.lm4-stage[data-s~="app-done"] .lm4-phone .lm4-btn em:first-child{opacity:0;transform:scale(.9)}
+.lm4-stage[data-s~="site-done"] .lm4-lscreen .lm4-btn em:last-child,.lm4-stage[data-s~="app-done"] .lm4-phone .lm4-btn em:last-child{opacity:1;transform:none}
+.lm4-stage[data-s~="app-tap"] .lm4-tap{animation:lm4-tap .7s cubic-bezier(.45,0,.2,1)}
+@keyframes lm4-tap{0%{opacity:0;transform:scale(.3)}40%{opacity:1}100%{opacity:0;transform:scale(1.6)}}
+.lm4-toast{transform:translateY(-14px);opacity:0;transition:transform .5s cubic-bezier(.45,0,.2,1),opacity .4s cubic-bezier(.45,0,.2,1)}
+.lm4-stage[data-s~="card-toast"] .lm4-toast{transform:none;opacity:1}
+.lm4-credit{transition:box-shadow .5s cubic-bezier(.45,0,.2,1)}
+.lm4-stage[data-s~="card-pay"] .lm4-credit{box-shadow:inset 0 1px 1px #fff1daaa,0 -1px 0 #f4664955,0 0 40px #f466499a,0 20px 40px #6a2a1a44}
+/* each device gently breathes while it waits, so it never sits dead */
+@media(prefers-reduced-motion:no-preference){
+.lm4-laptop{animation:lm4-float 7s cubic-bezier(.45,0,.55,1) infinite}
+.lm4-phone{animation:lm4-float 6s cubic-bezier(.45,0,.55,1) infinite .8s}
+.lm4-cardwrap{animation:lm4-float 6.5s cubic-bezier(.45,0,.55,1) infinite 1.6s}
+}
+@keyframes lm4-float{50%{transform:translateY(-6px)}}
+/* the page inside the laptop scrolls a little */
+.lm4-lscreen .lm4-tile{transition:transform .9s cubic-bezier(.45,0,.2,1)}
+.lm4-stage[data-s~="site-done"] .lm4-more{transform:translateY(-6px)}
+html body #market-signal .lm4-more img:not(#x),html body #market-signal .lm4-tile:not(#x){border-color:#18101018!important}
+html body #market-signal .lm4-toast:not(#x){border-color:#f6c8b5!important}
+
+/* ===== v5: only the screens, centred, nothing cut ===== */
+/* the stage fills the screen under the header; chips on top, the three screens centred in their columns, the dark strip below with its own height */
+html body #market-signal .lm4-stage:not(#x){height:auto!important;flex:1 1 auto;min-height:400px;overflow:hidden}
+@media(min-width:1280px) and (min-height:700px){
+html body #market-signal.lm4:not(#x){min-height:calc(100vh - 64px)!important;max-height:none}
+html body #market-signal .lm4-stage:not(#x){height:auto!important}
+}
+.lm4-cols{flex:1 1 auto;min-height:0;padding:0 4cqw}
+.lm4-col{justify-content:flex-start;padding-top:28px;align-items:center}
+.lm4-col>.lm4-chip{flex:none}
+.lm4-col>:not(.lm4-chip){margin:auto 0!important;zoom:var(--z,1)}
+.lm4-col::after{display:none}
+.lm4-strip{flex:none;padding:22px 4cqw}
+/* screens only: no bezel, hinge, base or crop */
+.lm4-hinge,.lm4-cam,.lm4-side{display:none!important}
+.lm4-laptop{width:min(92%,430px)!important}
+.lm4-lscreen{height:auto!important;border:1px solid #f4664944!important;border-radius:16px!important;padding-bottom:12px;box-shadow:0 22px 44px #6a2a1a40!important}
+html body #market-signal .lm4-lscreen:not(#x){border-color:#f4664955!important}
+.lm4-phone{width:230px!important;height:auto!important;padding:6px 6px 8px!important;border-radius:36px!important;overflow:visible!important}
+.lm4-phone::before{inset:6px 6px 8px!important;border-radius:30px!important}
+.lm4-phone .lm4-tile{margin-bottom:8px}
+.lm4-cardwrap{width:min(92%,330px)!important}
+.lm4-credit{height:auto!important;aspect-ratio:1.586!important;border-radius:18px!important;overflow:hidden}
+.lm4-tap{top:68%!important}
+.lm4-cursor{top:60%}
+.lm4-stage[data-s~="site-move"] .lm4-cursor{top:62%!important}
+/* bigger screens get bigger devices, so the stage never looks empty */
+@media(min-width:1700px){.lm4-col{--z:1.25}}
+@media(min-width:2200px){.lm4-col{--z:1.5}}
+@media(min-height:1100px) and (min-width:1280px){.lm4-col{--z:1.25}}
+@media(min-width:1280px) and (max-width:1439px){.lm4-col{--z:.9}}
+@media(max-width:1023px){.lm4-col{min-height:0;padding-bottom:32px;--z:1}}
+@media(min-width:1700px) and (min-height:1100px){.lm4-col{--z:1.55}}
+
+/* ===== v6: nothing moves when something happens; our buttons, our spacing (8px grid), our type ===== */
+.lm4-tile div{display:grid!important;grid-template-columns:auto auto;justify-content:start;align-content:start;gap:8px 12px;padding:16px!important}
+.lm4-tile div small,.lm4-tile div b{grid-column:1/-1;flex:none}
+.lm4-tile small{font:550 12px/1.4 Sofia,sans-serif!important;letter-spacing:.15em!important}
+.lm4-tile b{margin:0!important;font:500 16px/1.35 Sofia,sans-serif!important}
+.lm4-tile span{margin:0!important;display:inline-flex;align-items:center;height:36px;padding:0 14px!important;border-radius:999px!important;font:550 14px/1 Sofia,sans-serif!important}
+.lm4-btn{display:inline-grid!important;margin:0!important;width:112px;height:36px}
+.lm4-btn em{height:36px!important;width:112px;padding:0!important;border-radius:11px!important;font:550 14px/1 Sofia,sans-serif!important}
+.lm4-btn em:first-child{background:linear-gradient(105deg,#ff9862,#f46649)!important;color:#180F10!important;box-shadow:inset 0 1px 1px #ffd8bd88,0 6px 16px #f4664933}
+.lm4-btn em:last-child{background:#9fd0a6!important;color:#0f2a14!important}
+/* phone: the button takes its own full row, so the price pill and the button never jostle */
+.lm4-phone .lm4-tile div{grid-template-columns:1fr}
+.lm4-phone .lm4-btn,.lm4-phone .lm4-btn em{width:100%}
+.lm4-phone .lm4-tile span{justify-self:start}
+/* site: pill and button on one row, button never wraps */
+.lm4-lscreen .lm4-tile div{grid-template-columns:auto 112px}
+/* fixed rhythm in the shared pieces */
+.lm4-nav{padding:12px 16px}
+.lm4-nav em{font:550 14px/1 Sofia,sans-serif}
+.lm4-bar{padding:12px 16px}
+.lm4-bar span{font:500 12px/1 Sofia,sans-serif}
+.lm4-lscreen .lm4-tile{margin:0 16px!important}
+.lm4-more{margin:16px!important;gap:16px!important}
+.lm4-lscreen{padding-bottom:0!important}
+.lm4-phone .lm4-nav{padding:8px 20px}
+.lm4-phone .lm4-tile{margin:8px 16px 16px!important}
+.lm4-status{padding:16px 24px 0!important;height:40px!important}
+.lm4-toast{gap:16px;padding:12px 16px 12px 12px;border-radius:16px}
+.lm4-toast b{font:500 16px/1.35 Sofia,sans-serif}
+.lm4-toast span{display:inline-flex;align-items:center;height:28px;margin-top:8px;padding:0 12px;font:550 12px/1 Sofia,sans-serif}
+.lm4-cardwrap{gap:16px!important}
+.lm4-credit{padding:24px!important}
+.lm4-cpts small{font:550 12px/1.4 Sofia,sans-serif}
+.lm4-cpts strong{font:300 var(--type-card,28px)/1.2 Chillax,sans-serif}
+/* the number keeps its width, so counting down never shifts the card */
+.lm4-n{display:inline-block;min-width:4.4ch;font-variant-numeric:tabular-nums}
+
+.lm4-cursor{left:var(--sx,10%)!important;top:var(--sy,70%)!important;transition:left 1s cubic-bezier(.45,0,.2,1),top 1s cubic-bezier(.45,0,.2,1),opacity .3s,transform .2s!important}
+.lm4-stage[data-s~="site-move"] .lm4-cursor{left:var(--tx,30%)!important;top:var(--ty,62%)!important;opacity:1}
+.lm4-tap{left:var(--px,70%)!important}
+
+/* v6b: one column inside every tile (pill, then button), no breathing animation, a guaranteed gap under the chip */
+.lm4-tile div,.lm4-lscreen .lm4-tile div,.lm4-phone .lm4-tile div{grid-template-columns:1fr!important}
+.lm4-tile span{justify-self:start;white-space:nowrap}
+.lm4-lscreen .lm4-tile{grid-template-columns:40% 1fr!important}
+.lm4-btn{justify-self:start}
+.lm4-phone .lm4-btn{justify-self:stretch}
+.lm4-laptop,.lm4-phone,.lm4-cardwrap{animation:none!important}
+.lm4-col{gap:24px}
+.lm4-col>:not(.lm4-chip){margin:auto 0 !important}
+@media(max-height:950px) and (min-width:1280px){.lm4-col{--z:.82}}
+@media(max-height:780px) and (min-width:1280px){.lm4-col{--z:.7}}
+.lm4-col{padding-bottom:24px!important}
+/* the three thumbnails under the laptop's reward stay put when Redeem is pressed */
+.lm4-stage[data-s~="site-done"] .lm4-more,.lm4-more{transform:none!important;transition:none!important}
+.lm4-lscreen .lm4-tile{transform:none!important;transition:none!important}
+
+/* Phones (owner, 22 Nov 2026): no text under 11px in the demo (MOBILE-RULES T5). The phone's status time and the site's
+   points line were 10px; the eyebrow labels on the tile and the card go to the same floor. */
+@media(max-width:599px){
+html body #market-signal :is(.lm4-status em,.lm4-nav b,.lm4-tile small,.lm4-cpts small):not(#x){font-size:11px!important}
+}

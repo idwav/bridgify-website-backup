@@ -57,15 +57,15 @@ window.BridgifyRoles = {
     ],
     [
      "text",
-     "div > p"
+     "div.dev-heading > div > p"
     ],
     [
      "actions",
-     "div > a.btn"
+     "div.dev-heading > div > a.btn"
     ],
     [
      "content",
-     "div.dev-performance-panel"
+     "div.dp6-grid"
     ]
    ]
   },

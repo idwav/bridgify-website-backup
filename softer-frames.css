@@ -1,0 +1,45 @@
+/* Softer frames (owner, 22 Nov 2026): the big display boxes keep their frame at about 30% of its former strength on screen,
+   and photos have no frame at all, so they sit in the page like the Seine River Cruise card.
+   Boxes: the 1px light line, the light/coral edge highlights and the thin 2px glow around the edge are multiplied by about 0.22, which measures as about 30% of the old frame on screen; each box keeps its own outer
+   shadow and fill. Device mock-ups (phones, browser windows, app screens) and the small cards inside a box are unchanged.
+   The four :not(#nfN) lift these rules above the page and brand styles that set the frame with ids and !important. */
+
+/* display boxes: frame at 30% */
+html body #opportunity-study .pb-panel:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, rgba(244, 102, 73, 0.15) 0px 0px 40px 0px, rgba(0, 0, 0, 0.4) 0px 20px 50px 0px!important}
+html body #why-bridgify .hm-stage:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, rgba(244, 102, 73, 0.15) 0px 0px 40px 0px, rgba(0, 0, 0, 0.4) 0px 20px 50px 0px!important}
+html body .am-build:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, rgba(244, 102, 73, 0.24) 0px 0px 46px 0px, rgba(0, 0, 0, 0.533) 0px 24px 60px 0px!important}
+html body .am-managed:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, rgba(244, 102, 73, 0.24) 0px 0px 46px 0px, rgba(0, 0, 0, 0.533) 0px 24px 60px 0px!important}
+html body .en-card:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, rgba(244, 102, 73, 0.2) 0px 0px 46px 0px, rgba(0, 0, 0, 0.4) 0px 24px 60px 0px!important}
+html body .wl-controls:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(232, 185, 162, 0.219)!important;box-shadow:rgba(93, 52, 35, 0.1) 0px 20px 44px 0px!important}
+html body .match-controls:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, rgba(244, 102, 73, 0.24) 0px 0px 46px 0px, rgba(0, 0, 0, 0.533) 0px 24px 60px 0px!important}
+html body .match-deck:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, rgba(244, 102, 73, 0.24) 0px 0px 46px 0px, rgba(0, 0, 0, 0.533) 0px 24px 60px 0px!important}
+html body .hm-stay:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, rgba(244, 102, 73, 0.2) 0px 0px 46px 0px, rgba(0, 0, 0, 0.4) 0px 24px 60px 0px!important}
+html body .hm-map:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.073) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.044) 0px -1px 1px 0px inset, rgba(0, 0, 0, 0.4) 0px 18px 40px 0px, rgba(244, 102, 73, 0.15) 0px 0px 32px 0px!important}
+html body .lp-ledger:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 255, 255, 0.219) 0px 1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, rgba(80, 52, 44, 0.11) 0px 14px 34px 0px!important}
+@media (max-width:599px){html body .lp-ledger:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(244, 102, 73, 0.07)!important;box-shadow:rgba(255, 248, 241, 0.219) 0px 1px 0px 0px inset, rgba(80, 52, 44, 0.047) 0px 15px 35px 0px!important}}
+html body .lp-reward:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 255, 255, 0.219) 0px 1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, rgba(80, 52, 44, 0.11) 0px 14px 34px 0px, rgba(244, 102, 73, 0.25) 0px 0px 0px 0px!important}
+@media (max-width:599px){html body .lp-reward:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(244, 102, 73, 0.07)!important;box-shadow:rgba(255, 248, 241, 0.219) 0px 1px 0px 0px inset, rgba(80, 52, 44, 0.07) 0px 12px 24px 0px, rgba(244, 102, 73, 0.2) 0px 0px 0px 0px!important}}
+html body .ms:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, rgba(244, 102, 73, 0.2) 0px 0px 46px 0px, rgba(0, 0, 0, 0.4) 0px 24px 60px 0px!important}
+@media (max-width:599px){html body .ms:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(244, 102, 73, 0.07)!important;box-shadow:rgba(255, 216, 189, 0.059) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.4) 0px 18px 40px 0px!important}}
+html body .cr-panel:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.073) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.044) 0px -1px 1px 0px inset, rgba(0, 0, 0, 0.4) 0px 18px 40px 0px, rgba(244, 102, 73, 0.15) 0px 0px 32px 0px!important}
+html body .cm-stage:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.073) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.044) 0px -1px 1px 0px inset, rgba(0, 0, 0, 0.4) 0px 18px 40px 0px, rgba(244, 102, 73, 0.15) 0px 0px 32px 0px!important}
+
+/* photos: no frame */
+html body #section-1 article > img.brand-coral-frame:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:transparent!important}
+html body .ms-srcs > figure:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:transparent!important}
+html body .ms-few > figure:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:transparent!important}
+html body .cpp3-partners > figure:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:transparent!important}
+html body .ys-photo:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:transparent!important}
+html body img.ad-photo:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:transparent!important}
+
+/* Hotels, "Make experiences part of the stay" (owner, 22 Nov 2026): the previews get the same 30% frame as the rest of
+   the site instead of none (this replaces the 21 Nov "quiet frames" for these elements). The windows keep their glow. */
+html body #section-3 :is(.hs-mail-window,.hj-device):not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, 0 0 46px #f4664933, 0 24px 60px #0006!important}
+html body #section-3 :is(.hs-email-letter,.hj-checkin,.hj-app-experience,.hj-options>div,.hj-app-stay):not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important}
+
+/* Developers, "What makes a tours and activities API high performing?" (owner, 22 Nov 2026): the big screen panel and the
+   three journey boxes (Search, Checkout, Monitoring) take the same 30% frame. A box that is lit in the story keeps a
+   brighter edge, also at 30% of its old strength, and its own glow. The screen inside the panel (a device) is unchanged. */
+html body #performance .dp6-stage:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, 0 0 3vw #f4664920, 0 1.6vw 3.6vw #0006!important}
+html body #performance .dp6-box:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.073) 0px 1px 1px 0px inset!important}
+html body #performance .dp6-box.is-lit:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.3)!important;box-shadow:rgba(255, 241, 218, 0.2) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.14) 0px -1px 1px 0px inset, 0 0 34px #f4664944, 0 1.2vw 3vw #0006!important}
