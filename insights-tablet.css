@@ -1,0 +1,9 @@
+/* Insights on a standard tablet (iPad upright, 600-900px; 23 Nov 2026). Only the list of posts is changed: the section fills one screen under the 64px header,
+   and the filters and the search sit on one baseline. Phone and desktop are untouched. */
+@media (min-width:600px) and (max-width:900px){
+  html body main.blog-main > section:not(.blog-about):not(.blog-feature):not(#x):not(#y){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body main.blog-main .blog-controls:not(#x):not(#y){align-items:flex-end!important;margin-bottom:24px!important}
+  html body main.blog-main .blog-filters:not(#x):not(#y){align-items:center!important}
+  html body main.blog-main .blog-count:not(#x):not(#y){margin:0 0 24px!important}
+  html body main.blog-main .blog-grid:not(#x):not(#y){zoom:.82}
+}
