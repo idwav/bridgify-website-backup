@@ -322,3 +322,34 @@
 @media (max-width:599px){
   @font-face{font-family:Chillax;src:url("/Chillax_Complete/Fonts/WEB/fonts/Chillax-Regular.woff2") format("woff2"),url("/Chillax_Complete/Fonts/OTF/Chillax-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
 }
+
+/* Step buttons on phones: one box style on every scroll-linked stepper (design system component.stepper.phone,
+   owner decision 21 Nov 2026). Number and uppercase label in a 40px box; the active step has a coral edge.
+   One row that scrolls sideways from edge to edge; the page scripts keep the active step centred. */
+@media (max-width:599px){
+  html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y){
+    display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:8px!important;overflow-x:auto!important;scrollbar-width:none;
+    grid-template-columns:none!important;width:auto!important;height:auto!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;
+    margin-inline:calc(var(--ad-gutter) * -1)!important;padding:0 var(--ad-gutter)!important;scroll-padding-inline:var(--ad-gutter)}
+  html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y)::-webkit-scrollbar{display:none}
+  html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y)::before,
+  html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y)::after{display:none!important}
+  html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y)>:is(button,[role=tab]){
+    flex:none!important;flex-direction:row!important;display:inline-flex!important;align-items:center!important;justify-content:flex-start!important;gap:8px!important;
+    width:auto!important;min-width:0!important;max-width:none!important;height:40px!important;min-height:40px!important;margin:0!important;padding:0 14px!important;
+    border:1px solid rgba(246,200,181,.32)!important;border-radius:10px!important;background:rgba(33,23,26,.6)!important;box-shadow:none!important;opacity:1!important;
+    color:#A99D94!important;font:550 13px/1 Sofia,sans-serif!important;letter-spacing:.12em!important;text-transform:uppercase!important;text-align:left!important;white-space:nowrap!important;
+    transition:border-color .3s,background .3s,color .3s}
+  html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y)>:is(button,[role=tab]) *{
+    display:inline!important;position:static!important;width:auto!important;height:auto!important;min-width:0!important;padding:0!important;margin:0!important;border:0!important;
+    background:none!important;box-shadow:none!important;opacity:1!important;transform:none!important;font:inherit!important;letter-spacing:inherit!important;color:inherit!important}
+  html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y)>:is(button,[role=tab]) :is(b,.hs-number,.jp-number):not(#ad-z){
+    color:#F7957B!important;font-weight:600!important;letter-spacing:.04em!important}
+  html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y)>:is(button,[role=tab])::before,
+  html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y)>:is(button,[role=tab])::after,
+  html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y)>:is(button,[role=tab]) *::before,
+  html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y)>:is(button,[role=tab]) *::after{display:none!important}
+  html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y)>:is([aria-selected="true"],.is-active){
+    border-color:#F46649!important;background:linear-gradient(125deg,rgba(244,102,73,.22),rgba(244,102,73,.08))!important;color:#FFF8F1!important}
+  html body :is(#why-bridgify .wy-tabs,#section-3 .hs-steps,#section-3 .al-touchpoints,#section-3 .up-story-steps):not(#ad-x):not(#ad-y)>:is(button,[role=tab]):focus-visible{outline:2px solid #F46649!important;outline-offset:2px}
+}
