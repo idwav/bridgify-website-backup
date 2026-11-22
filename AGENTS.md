@@ -25,7 +25,9 @@ The repository owner approves everything that reaches `main`; `main` is what the
 3. Before any visual change, read `DESIGN.md`, `TYPOGRAPHY.md`, `WORKFLOW.md` and, for phones, `MOBILE-RULES.md`.
    Copy comes only from Copy v4. Do not change `index.html` (Version 1) unless asked.
 4. Small commits with a clear message. Keep the branch current with `git pull origin main` before opening a PR.
-5. Before opening a PR: check the pages you changed in the browser at 390, 768, 834, 1024 and 1440 (no horizontal
+5. Before opening a PR: run `python3 scripts/qa/review.py` (before/after of every affected section at 390, 768, 1024 and
+   1440, plus the full QA checks; see WORKFLOW.md §5b), fix every NEW error, paste its `summary.md` into the PR and
+   show the owner the before/after pictures. Also check the pages you changed in the browser at 390, 768, 834, 1024 and 1440 (no horizontal
    scroll, no cut text, no console errors); run `python3 scripts/sync-footer.py --check` and
    `python3 scripts/sync-mobile.py --check`; for phone work run
    `python3 output/element-lab/adaptive/system/verify.py --pages <changed pages>` and include the result.
