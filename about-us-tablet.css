@@ -6,6 +6,4 @@
   html body:not(#bf-lab) section#top:not(#x):not(#y){padding-top:128px!important;padding-bottom:48px!important;min-height:100svh!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
   /* 2 · How we started */
   html body:not(#bf-lab) section#our-story:not(#x):not(#y){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
-  /* 4 · HBX Group */
-  html body:not(#bf-lab) section#hbx:not(#x):not(#y){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
 }
