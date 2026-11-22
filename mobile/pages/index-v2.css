@@ -634,10 +634,10 @@
   html body #marketplace-results .nb2-stats>div:not(.nb2-main) dt{min-height:2.6em}
 }
 
-/* Why Bridgify, scroll-driven on phones: every step's text sits the same distance under the step row as the first
-   step's (rhythm gives only the first paragraph its 16px), so the text does not jump between steps. */
+/* Why Bridgify, scroll-driven on phones: every step's text sits the same distance under the step row (24px, owner
+   22 Nov 2026; rhythm gave only the first paragraph a gap), so the text does not jump between steps. */
 @media (max-width:599px){
-  html body #why-bridgify .ad-wy-pin .wy-step .wy-copy > p{margin-top:16px!important}
+  html body #why-bridgify .ad-wy-pin .wy-step .wy-copy > p{margin-top:24px!important}
   html body #why-bridgify .ad-wy-pin.is-on .wy-body{height:var(--wy-stage-h)!important}
   /* One frame for all four diagrams: the frame is drawn on .wy-visual (index-v2.js), the diagram inside has none. */
   html body #why-bridgify .ad-wy-pin.is-on .wy-visual{box-sizing:border-box!important;overflow:visible!important}

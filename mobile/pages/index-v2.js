@@ -35,7 +35,13 @@
          it is drawn on the diagram's holder (.wy-visual) in the diagram's own frame style, and only the diagram inside
          is scaled, when it would not fit. */
       const head = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ad-header-h')) || 64;
-      const H = () => innerHeight - head() - 24;
+      /* The stage height comes from the small viewport (100svh): on an iPhone the visible height changes whenever
+         Safari's toolbar shrinks or grows during the scroll, and a stage sized from innerHeight changed size between
+         steps (owner, 22 Nov 2026). */
+      const probe = document.createElement('div');
+      probe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:100svh;visibility:hidden;pointer-events:none';
+      document.body.append(probe);
+      const H = () => (probe.offsetHeight || innerHeight) - head() - 24;
       const FRAME = ['border', 'border-radius', 'background-image', 'background-color', 'box-shadow'];
       const visuals = steps.map(s => $('.wy-visual', s)), stages = visuals.map(v => v && $('.hm-stage', v));
       const copies = steps.map(s => $('.wy-copy', s));
@@ -56,8 +62,11 @@
       /* layout positions (offsetTop chain), not getBoundingClientRect: the step's fade-in moves it with a transform
          while it is being measured */
       const Y = el => { let t = 0; for (let e = el; e; e = e.offsetParent) t += e.offsetTop; return t; };
+      /* 24px between the step row and every step's text (owner, 22 Nov 2026); the spacing script writes the first
+         step's gap on the element itself, so it is set here too */
+      const textGap = () => copies.forEach(c => { const t = c && c.querySelector(':scope > p'); if (t) t.style.setProperty('margin-top', '24px', 'important'); });
       const measure = () => {
-        unframe(); const off = [];
+        unframe(); textGap(); const off = [];
         /* each step in turn, in its real place (synchronous, so nothing is painted in between) */
         steps.forEach((s, i) => {
           steps.forEach((t, j) => t.style.setProperty('display', j === i ? 'block' : 'none', 'important'));
@@ -81,6 +90,9 @@
         });
         const i = steps.findIndex(e => e.offsetHeight > 0), s = steps[i], v = visuals[i], st = stages[i], c = copies[i];
         if (!v || !st) return;
+        /* the spacing script re-applies its own inline gaps on every resize (Safari's toolbar sends one while it moves):
+           put the text gap and the diagram's zero margin back first */
+        textGap(); stages.forEach(x => x && x.classList.contains('ad-wy-bare') && x.style.setProperty('margin-top', '0px', 'important'));
         if (c) for (let n = 0; n < 3; n++) { /* move the frame to the shared line (margins may stop collapsing: repeat) */
           const cur = parseFloat(c.style.paddingBottom) || 0, gap = line - (Y(v) - Y(body));
           if (Math.abs(gap) <= .5) break;
@@ -110,7 +122,7 @@
       };
       let scrollStep = 0, p = null;
       body.style.setProperty('--wy-stage-h', H() + 'px');
-      p = A.pin([body], {steps: tabs.length, per: .5, className: 'ad-wy-pin', onStep: i => {
+      p = A.pin([body], {steps: tabs.length, per: .5, className: 'ad-wy-pin', vh: () => probe.offsetHeight || innerHeight, onStep: i => {
         scrollStep = i; tabs[i].click(); fitStep();
       }});
       if (p) {
@@ -121,7 +133,13 @@
           if (i > -1 && i !== scrollStep && p.wrap.classList.contains('is-on')) p.go(i);
           requestAnimationFrame(fitStep);
         }).observe(row, {subtree: true, attributes: true, attributeFilter: ['aria-selected']});
-        addEventListener('resize', () => { body.style.setProperty('--wy-stage-h', H() + 'px'); measured = false; unframe(); fitStep(); });
+        let lastH = H(), lastW = innerWidth;
+        addEventListener('resize', () => {
+          /* Safari's toolbar moving fires resize without changing the small viewport: keep everything as it is then */
+          const h = H(); if (h === lastH && innerWidth === lastW) { setTimeout(() => { fitStep.again = 1; fitStep(); fitStep.again = 0; }, 80); return; }
+          lastH = h; lastW = innerWidth;
+          body.style.setProperty('--wy-stage-h', h + 'px'); measured = false; unframe(); fitStep();
+        });
         addEventListener('load', fitStep); fitStep();
       }
     }
