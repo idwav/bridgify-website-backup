@@ -363,7 +363,27 @@
   };
   if (reduced) org = true;
   requestAnimationFrame(layout); addEventListener('resize', () => requestAnimationFrame(layout));
-  if (!reduced) setTimeout(() => { org = true; place(false); }, 1400);
+  if (reduced) return;
+  /* order of appearance (owner, 22 Nov 2026): the hero copy arrives first (label, title, paragraph); once the
+     paragraph is in, the tangle fades in, sorts itself, and only then do the buttons come up. The hidden states are
+     set before the first paint (html.ad-hf-seq), so nothing flashes; a fallback timer shows everything if the
+     paragraph's entrance never reports. */
+  const root = document.documentElement, acts = document.querySelector('#home .bv2-hero-actions');
+  root.classList.add('ad-hf-seq');
+  /* the hero's own entrance (hero-v2.js) animates the button row in with the copy; an animation overrides CSS, so
+     on phones that one is cancelled and the row comes in last, after the visual has sorted itself */
+  const stopRowEntrance = () => acts && acts.getAnimations().forEach(a => { if (!(a instanceof CSSTransition)) a.cancel(); });
+  stopRowEntrance(); [60, 200, 500, 1000].forEach(ms => setTimeout(stopRowEntrance, ms));
+  let started = false;
+  const go = () => {
+    if (started) return; started = true;
+    el.classList.add('hf-in');
+    setTimeout(() => { org = true; place(false); }, 1100);
+    setTimeout(() => acts && acts.classList.add('hf-acts-in'), 1100 + 1400);
+  };
+  const para = p, settled = () => { if (!para) return true; const c = getComputedStyle(para); return parseFloat(c.opacity) > .97 && (c.transform === 'none' || /1, 0, 0, 1, 0, 0\)$/.test(c.transform) || Math.abs(parseFloat((c.transform.match(/,\s*([-\d.]+)\)$/) || [0, 0])[1])) < 1); };
+  const t0 = performance.now(), wait = () => { if (settled() || performance.now() - t0 > 4000) go(); else requestAnimationFrame(wait); };
+  requestAnimationFrame(wait);
 })();
 
 /* Round 4: option 2 of the Global supply strip is on unless the link asks for the previous one (&src1).

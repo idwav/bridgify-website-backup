@@ -741,3 +741,12 @@
     box-shadow:none!important;text-decoration:none!important;white-space:nowrap!important;font-weight:550!important}
   html body #home .bv2-hero-actions>a[data-bf-kind=secondary]::after{content:none!important}
 }
+
+/* Home hero on phones, order of appearance (owner, 22 Nov 2026; index-v2.js): copy first, then the visual's tangle
+   fades in and sorts itself, then the buttons rise in. Reduced motion: none of this, everything shows. */
+@media (max-width:599px) and (prefers-reduced-motion:no-preference){
+  html.ad-hf-seq body #home .ad-hero-flow:not(.hf-in){opacity:0}
+  html.ad-hf-seq body #home .ad-hero-flow{transition:opacity .7s cubic-bezier(.45,0,.2,1)}
+  html.ad-hf-seq body #home .bv2-hero-actions:not(.hf-acts-in){opacity:0;translate:0 20px}
+  html.ad-hf-seq body #home .bv2-hero-actions{transition:opacity .75s cubic-bezier(.45,0,.2,1),translate .75s cubic-bezier(.45,0,.2,1)}
+}
