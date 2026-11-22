@@ -45,6 +45,16 @@
   html body #why-bridgify :is(.ag-src small,.ag-engine small,.ag-out small,.ag-out span,.ag-out li,.nm-src,.nm-flag,.nm-meta span,.nm-meta em,.nm-status span,.ds-engine small,.ds-chrome span,.ds-bar span,.ds-tile small,.ds-tile span,.ds-label,.ps-head>span,.ps-ai,.ps-rank,.ps-match,.ps-body small,.ag-src b,.hm-node b,.ps-caption,.ps-prof):not(#x){font-size:max(11px,1.1cqw)!important}
   html body #why-bridgify :is(.nm-lockbar,.nm-lockbar span,.nm-fbody small,.nm-tags li,.nm-buy em,.nm-buy span):not(#x){font-size:max(12.3px,1.1cqw)!important}
   html body #why-bridgify :is(.nm-card .nm-src,.nm-card .nm-flag,.nm-card .nm-meta span,.nm-card .nm-meta em,.ds-kiosk .ds-tile span,.ds-kiosk .ds-tile small):not(#x){font-size:max(11.8px,1.1cqw)!important}
+  /* 6 · Products: Experiences API and White-Label side by side, AIyelet full width underneath (replaces the one-at-a-time tabs; owner's choice, 22 Nov 2026) */
+  html body #products .ht-tabs:not(#x){display:none!important}
+  html body #products .pr-head:not(#x){margin-bottom:0!important}
+  html body #products .pr-grid:not(#x):not(#y){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-areas:none!important;gap:24px!important;margin-top:48px!important;height:auto!important}
+  html body #products .pr-grid>.pr-card:not(#x):not(#y){grid-area:auto!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;margin:0!important;display:flex!important;flex-direction:column!important;overflow:hidden!important;min-width:0!important;height:auto!important}
+  html body #products .pr-grid>.pr-card:nth-child(3):not(#x):not(#y){grid-column:1/-1!important;flex-direction:row!important;align-items:stretch!important}
+  html body #products .pr-vis:not(#x):not(#y){background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important;margin:0!important}
+  html body #products .pr-vis:not(#x){zoom:.46;width:768px!important;max-width:none!important;height:504px!important;flex:0 0 auto!important}
+  html body #products .pr-grid>.pr-card:nth-child(3) .pr-vis:not(#x){zoom:.5;width:768px!important}
+  html body #products .pr-body:not(#x){padding:24px!important;flex:1 1 auto!important;display:flex!important;flex-direction:column!important;justify-content:center!important;gap:12px!important}
   /* tab bar */
   .ht-tabs{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:5}
   .ht-tabs button{height:40px;padding:0 18px;border:1px solid #f6c8b5aa;border-radius:999px;background:#160e0b;color:#EEE9DE;font:550 14px/1 Sofia,sans-serif;cursor:pointer;transition:background .3s,color .3s}
