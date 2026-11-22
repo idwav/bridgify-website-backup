@@ -42,3 +42,16 @@ html body #marketplace-results #v2e-plane-data circle:not(#x){opacity:.3!importa
 /* wire: brighter, glowing, with a halo on every node */
 html body #marketplace-results .v2e-open-wires:not(#x){stroke-width:2!important;opacity:1!important;filter:drop-shadow(0 0 4px #F46649) drop-shadow(0 0 10px #f4664966)}
 html body #marketplace-results .v2e-wire-nodes circle:not(#x){r:5.5px;filter:drop-shadow(0 0 5px #F46649) drop-shadow(0 0 12px #F46649)}
+
+/* ===== screen fit: the pinned scene sits in the middle of the visible area (under the 64px header), with equal space above and below, on iPads upright and on its side; the scroll length is unchanged ===== */
+@media(min-width:721px){
+  html body #marketplace-results.v2e-scroll-ready:not(#x){--v2e-pad:max(0px,calc((100svh - 64px - var(--v2e-stage-h,100svh)) / 2));box-sizing:border-box;padding-top:var(--v2e-pad)!important;padding-bottom:var(--v2e-pad)!important;height:calc(var(--v2e-stage-h,100svh) + 85svh + 2 * var(--v2e-pad))!important}
+  html body #marketplace-results.v2e-scroll-ready .v2e-stage:not(#x){top:calc(64px + var(--v2e-pad))!important}
+}
+/* phones: the planes at the bottom of the picture are not cut; there is room under the art for them */
+@media(max-width:720px){
+  html body #marketplace-results .v2e-art:not(#x){overflow:visible!important;margin-bottom:24px!important}
+  html body #marketplace-results.v2e-scroll-ready:not(#x){overflow:visible!important}
+  html body #marketplace-results .v2e-stage:not(#x){padding-bottom:32px!important;overflow-x:clip!important;overflow-y:visible!important}
+  html body #marketplace-results.v2e-enterprise:not(#x){overflow-x:clip!important;overflow-y:visible!important}
+}
