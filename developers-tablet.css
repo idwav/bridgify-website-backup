@@ -4,6 +4,9 @@
 @media (min-width:600px) and (max-width:900px){
   /* 1 · Hero (the code window) */
   html body:not(#bf-lab) section#section-1:not(#x):not(#y){padding-top:128px!important;padding-bottom:48px!important;min-height:100svh!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+  html body:not(#bf-lab) section#section-1.dev-hero:not(#x):not(#y){padding-left:32px!important;padding-right:32px!important}
+  html body:not(#bf-lab) section#section-1 .dev-code-copy:not(#x):not(#y){margin-left:0!important;margin-right:0!important;width:100%!important;max-width:none!important;align-self:stretch!important}
+  html body:not(#bf-lab) section#section-1 .dev-code-copy>*:not(#x):not(#y){margin-left:0!important}
   /* 2 · Find what you need */
   html body:not(#bf-lab) section#section-2:not(#x):not(#y){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
 }
