@@ -111,3 +111,8 @@
   html body .tm-sheet .tm-group.is-open>.tm-title:not(#x),html body .tm-sheet .tm-group.has-current>.tm-title:not(#x){color:#FFB194!important}
   html body .tm-sheet .tm-title:hover:not(#x){background:none!important;transform:none!important;box-shadow:none!important}
 }
+@media (min-width:600px) and (max-width:1023px){
+  /* a closed menu must not catch clicks: the open group's panel was set visible and stayed clickable (invisible) over the page, e.g. over tabs in the middle of OTAs */
+  html body .tm-sheet:not(.is-open):not(#x){pointer-events:none!important}
+  html body .tm-sheet:not(.is-open) .tm-panel,html body .tm-sheet:not(.is-open) .tm-links,html body .tm-sheet:not(.is-open) a,html body .tm-sheet:not(.is-open) button{visibility:hidden!important;pointer-events:none!important}
+}
