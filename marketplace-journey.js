@@ -39,7 +39,7 @@ const arrival=F.arrival(local);
 buttons.forEach((button,i)=>button.style.setProperty('--tour-arrival',i===stage?arrival:0));
 panels.forEach((panel,i)=>panel.style.setProperty('--tour-arrival',i===stage?arrival:0));
 }
-const wide=matchMedia('(min-width:801px)');
+const wide=matchMedia('(min-width:801px) and (min-aspect-ratio:1/1)');   // upright iPads play by themselves like the phone: no scroll story
 
 function span(){return Math.max(1,track.offsetHeight-sticky.offsetHeight)}
 function timeAt(p){const s=Math.min(3,Math.floor(p*4)),f=p*4-s,end=s<3?starts[s+1]:cycle;return starts[s]+f*(end-starts[s])}
