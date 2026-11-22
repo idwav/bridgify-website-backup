@@ -93,3 +93,13 @@
   /* Log in is the secondary action (transparent, coral border), Book a demo the primary: the shared button roles would make the first of a pair primary */
   html body .tm-actions a:first-child:not(#x){--brand-button-start:#f4664900;--brand-button-end:#f4664900;background:none!important;color:#FFF8F1!important;border:1px solid #F46649!important;box-shadow:none!important}
 }
+@media (min-width:600px) and (max-width:1023px){
+  /* slimmer rows, like Developers: one thin line per group, and the links of an open group stack one under the other in small text */
+  .tm-title,.tm-row{min-height:68px;font:300 26px/1.2 Chillax,sans-serif}
+  .tm-row:after{font-size:22px}
+  .tm-title i{width:20px;height:20px}
+  .tm-title i:before,.tm-title i:after{left:2px;right:2px;top:9px}
+  .tm-links{grid-template-columns:1fr!important}
+  .tm-links a{min-height:48px;border-top:0;font:400 17px/1.35 Sofia,sans-serif}
+  .tm-group.is-open .tm-links{padding-bottom:16px}
+}
