@@ -624,3 +624,21 @@
   html body #marketplace-results .nb2-stats>div:not(.nb2-main) dd{font-size:46px!important}
   html body #marketplace-results .nb2-stats>div:not(.nb2-main) dt{min-height:2.6em}
 }
+
+/* Global supply (#sources) on phones, by MOBILE-RULES: 64 section, 24 gutter, title 28/32, "Part of HBX Group." 15/24 at 8 under the title,
+   figures 34 in three equal columns that start on one line (S11) with 32 between the rows (S7), captions 14/20,
+   24 from the figures to the closing sentence (S2b), sentence 15/24, link 15/24 at 16 under the sentence (S5), note 13/20 at 16 under the link. */
+@media (max-width:599px){
+  html body section#sources.trust-strip:not(#ad-x):not(#ad-y){grid-template-columns:repeat(3,minmax(0,1fr))!important;column-gap:16px!important;row-gap:0!important;padding-top:64px!important;padding-bottom:64px!important}
+  html body #sources .trust-copy:not(#ad-x):not(#ad-y){margin:0!important;padding:0!important}
+  html body #sources .trust-copy p:not(#ad-x):not(#ad-y){margin:8px 0 0!important;font:400 15px/24px Sofia,sans-serif!important}
+  html body #sources .trust-stat:not(#ad-x):not(#ad-y),html body #sources .trust-stat:nth-of-type(n+5):not(#ad-x):not(#ad-y){grid-column:span 1!important;align-self:start!important;margin:0!important;padding:0!important;border:0!important;gap:8px!important;justify-content:flex-start!important}
+  /* the page's spacing engine sets the margins (32 above the first row, 24 above the closing lines); the second row gets its 32 as padding */
+  html body #sources .trust-stat:nth-of-type(n+5):not(#ad-x):not(#ad-y){padding-top:32px!important}
+  html body #sources .trust-stat strong:not(#ad-x):not(#ad-y){font-size:34px!important;line-height:1!important;display:block!important;margin:0!important}
+  html body #sources .trust-stat>span:not(#ad-x):not(#ad-y){font:400 14px/20px Sofia,sans-serif!important;letter-spacing:0!important}
+  html body #sources .trust-footnote:not(#ad-x):not(#ad-y){padding:0!important;border:0!important;font:400 15px/24px Sofia,sans-serif!important}
+  html body #sources .trust-footnote>p:not(#ad-x):not(#ad-y){margin:0!important;font:400 15px/24px Sofia,sans-serif!important}
+  html body #sources .trust-footnote>a:not(#ad-x):not(#ad-y){margin:6px 0 0!important;font:550 15px/24px Sofia,sans-serif!important}
+  html body #sources .trust-footnote>small:not(#ad-x):not(#ad-y){margin:6px 0 0!important;font:400 13px/20px Sofia,sans-serif!important}
+}
