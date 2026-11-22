@@ -141,3 +141,34 @@ html body #performance .dp6-box:not(#x){padding:10px 12px 8px}
 .dp6-box .dp6-row>div:last-child{grid-template-columns:minmax(150px,.44fr) minmax(0,1fr)}
 .dp6-box .dp6-row p{font-size:14px;line-height:1.3}
 .dp6-box ol{gap:0}
+
+/* ===== v7: boxes light up in turn; rows separated by hairlines; Book under each price; scenes slide ===== */
+/* a box is lit only while its part of the story runs, and the wire carries the light on to the next one */
+html body #performance .dp6-box:not(.is-lit):not(#x){border-color:#f6c8b533!important;box-shadow:inset 0 1px 1px #fff1da22!important}
+.dp6-box:not(.is-lit) .dp6-box-h{opacity:.6}
+html body #performance .dp6-box.is-lit:not(#x){border-color:#f6c8b5!important;box-shadow:inset 0 1px 1px #fff1daaa,inset 0 -1px 1px #ff997b77,0 0 34px #f4664944,0 1.2vw 3vw #0006!important}
+.dp6-box{transition:border-color .5s cubic-bezier(.45,0,.2,1),box-shadow .5s cubic-bezier(.45,0,.2,1)}
+/* rows share one box and are divided by fine lines (no boxes inside boxes) */
+.dp6-box ol{gap:0!important}
+.dp6-box .dp6-beat+.dp6-beat{border-top:1px solid #f6c8b52e}
+html body #performance .dp6-box .dp6-beat.is-on .dp6-row:not(#x){background:none!important;box-shadow:none!important}
+.dp6-box .dp6-beat.is-on{background:linear-gradient(90deg,#f466491f,#0000 70%);border-radius:10px}
+.dp6-box .dp6-row{padding:8px 10px 8px 4px}
+.dp6-wire-lit{filter:drop-shadow(0 0 4px #F46649)}
+/* three Book buttons, one per card */
+.dp6-book{display:inline-flex;align-items:center;justify-content:center;height:30px;margin-top:10px;width:100%;border-radius:9px;background:linear-gradient(105deg,#ff9862,#f46649);font:550 13px/1 Sofia,sans-serif;color:#180F10;box-shadow:inset 0 1px 1px #ffd8bd88,0 6px 16px #f4664933;position:static;opacity:0;transform:translateY(6px);transition:opacity .25s cubic-bezier(.45,0,.2,1),transform .25s cubic-bezier(.45,0,.2,1),box-shadow .2s}
+.dp6-stage:is([data-beat="2"]) .dp6-book{opacity:1;transform:none;transition-delay:.85s}
+.dp6-stage[data-beat="2"].is-press .dp6-card:first-child .dp6-book{transform:scale(.94);box-shadow:inset 0 1px 1px #ffd8bd88,0 0 0 6px #f4664955}
+.dp6-stage:is([data-beat="3"],[data-beat="4"],[data-beat="5"],[data-beat="6"],[data-beat="7"]) .dp6-book{opacity:1;transform:none;transition-delay:0s}
+/* scenes slide */
+.dp6-b{transform:translateX(36px)}
+.dp6-stage:is([data-beat="3"],[data-beat="4"],[data-beat="5"],[data-beat="6"],[data-beat="7"]) .dp6-a{transform:translateX(-36px)}
+.dp6-scene{transition:opacity .35s cubic-bezier(.45,0,.2,1),transform .45s cubic-bezier(.45,0,.2,1)}
+.dp6-steps li .dp6-live{margin-left:auto}
+.dp6-steps li:not(.s1) .dp6-live{display:none}
+.dp6-stage:is([data-beat="3"],[data-beat="4"],[data-beat="5"],[data-beat="6"],[data-beat="7"]) .dp6-steps .s1 .dp6-live{background:none;border:1px solid #9fd0a6;color:#9fd0a6;transition-delay:.6s}
+.dp6-card .dp6-price{font-variant-numeric:tabular-nums}
+.dp6-box .dp6-row{padding:4px 10px 4px 4px}
+.dp6-box .dp6-row>div:last-child{grid-template-columns:minmax(190px,.46fr) minmax(0,1fr)}
+html body #performance .dp6-box:not(#x){padding:8px 12px 6px}
+.dp6-beats{gap:18px!important}
