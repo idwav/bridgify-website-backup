@@ -48,3 +48,14 @@ html body #performance .dp4-safe:not(#x){margin-top:24px!important}
 @media(max-width:640px){.dp4-search{grid-template-columns:minmax(0,1fr);row-gap:12px}.dp4-mock-top,.dp4-mock-bottom,.dp4-note.n1,.dp4-note.n2{grid-column:1}.dp4-mock-top{grid-row:1}.dp4-note.n1{grid-row:2;margin-left:0}.dp4-mock-bottom{grid-row:3;border-radius:6px 6px 16px 16px}.dp4-note.n2{grid-row:4}.dp4-note::before,.dp4-note::after{display:none}.dp4-mock-top{border-radius:16px 16px 6px 6px}html body #performance .dp4-grid .dp4-card:not(#x){padding:24px!important}}
 @media(prefers-reduced-motion:reduce){.dp4-mock-bottom,.dp4-note.n2,.dp4-stage{animation:none}}
 @media(min-width:641px){.dp4-note b{white-space:nowrap}.dp4-note small{max-width:26ch}}
+
+/* Brand type scale (TYPOGRAPHY.md): inner headings 24-28 (token), body 16, secondary 14-16, eyebrow/tags 12. Copy only from Copy v4, so the card carries no extra sentences. */
+html body #performance .dp4-card header:not(#x){margin-bottom:32px}
+.dp4-note b,.dp4-stage b{font:550 16px/1.4 Sofia,sans-serif!important}
+.dp4-mock-top b{font:550 16px/1.4 Sofia,sans-serif}.dp4-mock-top small{font-size:14px}
+.dp4-mock-bottom b{font:300 24px/1.2 Chillax,sans-serif}
+.dp4-note,.dp4-stage{min-height:72px}
+.dp4-flow{gap:32px}
+.dp4-search{row-gap:16px}
+.dp4-note.n1,.dp4-note.n2{align-self:stretch;align-items:center}
+.dp4-note.n1,.dp4-note.n2{align-self:center!important}
