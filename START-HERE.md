@@ -22,6 +22,11 @@ python3 -m http.server 8080
 
 ## 2 · While you work: every screen at once
 
+**The quickest way:** run `bash scripts/qa/open-preview.command <page>`, for example `bash scripts/qa/open-preview.command hotels`. You can also double-click `scripts/qa/open-preview.command` in Finder to open the home page. It finds or starts a small local server for the site folder (from port 8765 up, skipping ports other apps use) and opens the page in the browser.
+
+**For Claude:** when the user asks to "open the five screens", "show me all the screens" or "תפתח לי את 5 המסכים" for a page, run that command with the page name, for example `index-v2`, `hotels` or `airlines`. Then tell the user that it is open in their browser.
+
+
 Open **http://localhost:8080/scripts/qa/preview.html?page=index-v2**. Change the `page=` part for another page, or pick it from the menu.
 
 - It shows the same page on five screens side by side:

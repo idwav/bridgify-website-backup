@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Every screen at once</title>
-<!-- Work on a page while seeing it on phone, tablets and desktop together (owner, 22 Nov 2026).
+<!-- Quickest way in: bash scripts/qa/open-preview.command <page>  (or double-click it in Finder).
+     Work on a page while seeing it on phone, tablets and desktop together (owner, 22 Nov 2026).
      Serve the repo root locally (python3 -m http.server 8080) and open
      http://localhost:8080/scripts/qa/preview.html?page=hotels
      Each screen is a real-size frame of the page, scaled down to fit. Coming back to this tab after saving a file
@@ -63,7 +64,7 @@ function build() {
   wrap.innerHTML = ''; frames = [];
   // 'fit': every screen at the same height, all of them across the window; bigger/big scroll sideways
   const gaps = 14 * (SCREENS.length + 1), ratio = SCREENS.reduce((t, s) => t + s.w / s.h, 0);
-  const H = Math.min(innerHeight - 110, (innerWidth - gaps) / ratio) * +$('#zoom').value;
+  const H = Math.min(innerHeight - 110, (document.documentElement.clientWidth - gaps - 2 * SCREENS.length) / ratio) * +$('#zoom').value;   // clientWidth: the vertical scrollbar takes no room from the screens
   for (const s of SCREENS) {
     const scale = H / s.h;
     const el = document.createElement('div'); el.className = 'scr';
