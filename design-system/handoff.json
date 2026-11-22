@@ -356,6 +356,14 @@
   {
    "topic": "Build stack",
    "question": "Which framework will the developers use? It decides the tokens format and how the animations are handed over."
+  },
+  {
+   "topic": "Press images",
+   "question": "Three Press cards hotlink images from other news sites (Travolution, Travel Daily News, Hotel Business) and those sites block them. Host the images on the Bridgify site, or supply them."
+  },
+  {
+   "topic": "Real devices",
+   "question": "Phone and tablet work is checked in desktop Chromium and WebKit at 320 to 1920px and in the iOS Simulator, not on a physical iPhone or iPad. Check on real devices before launch."
   }
  ]
 }

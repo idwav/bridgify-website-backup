@@ -46,7 +46,7 @@
   {
    "id": "A7",
    "area": "Buttons",
-   "check": "One primary per group; buttons of one group share one width; phone buttons 40px with a 44px tap area; arrows are always ↗."
+   "check": "One primary per group; arrows are always ↗; phone buttons 40px with a 44px tap area. Content sections: buttons of one group share one width. Phone heroes: short buttons side by side when they fit, otherwise stacked (B4h); home hero buttons at equal widths, stacked at 359px and below."
   },
   {
    "id": "A8",
@@ -82,6 +82,21 @@
    "id": "A14",
    "area": "Browsers",
    "check": "Checked in Safari on iPhone, Chrome on Android, and Chrome, Safari and Firefox on desktop."
+  },
+  {
+   "id": "A15",
+   "area": "Header menu",
+   "check": "A hamburger is in the header at every width up to 1023px on every page (40px on phones, 44px on tablets) and opens the full menu; no hamburger from 1024px. Check it again after any change to tablet-menu.css or the phone layer."
+  },
+  {
+   "id": "A16",
+   "area": "Entrance",
+   "check": "Every section except the hero enters with the scroll on desktop, tablet and phone, and none stays hidden after a full scroll to the end of the page."
+  },
+  {
+   "id": "A17",
+   "area": "Layers",
+   "check": "scripts/sync-mobile.py --check and scripts/sync-footer.py --check pass, and nothing in mobile/ or wide/ was edited by hand."
   }
  ],
  "process": [

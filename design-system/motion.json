@@ -1,5 +1,5 @@
 {
- "$description": "Every animation on the live site (21 Nov 2026), found by scanning all 16 pages at 1440 and 390. Each entry: what moves and when, the CSS animations measured in the browser, the source files that build it, and a viewer that runs it alone with the site's own code (serve the repo root, then open design-system/motion/view.html).",
+ "$description": "Every animation on the live site (21 Nov 2026; phone and tablet changes added 22 Nov 2026), found by scanning all 16 pages at 1440 and 390. Each entry: what moves and when, the CSS animations measured in the browser, the source files that build it, and a viewer that runs it alone with the site's own code (serve the repo root, then open design-system/motion/view.html).",
  "global": [
   {
    "name": "Coral ink in headings",
@@ -13,11 +13,12 @@
   },
   {
    "name": "Entrance",
-   "what": "Sections and their blocks fade and rise into place once, when they come into view.",
-   "timing": "opacity 0.9s + translate 0.9s, cubic-bezier(.22,1,.36,1); blocks may stagger",
+   "what": "Sections and their blocks fade and rise into place once, when they come into view. Every section enters this way on desktop, tablet and phone: scroll-reveal-all.js adds the entrance to sections the page scripts leave without one (40px rise, 24px on phones, tied to scroll, one block after another); it skips the hero, sections with their own entrance and pinned stories.",
+   "timing": "opacity 0.9s + translate 0.9s, cubic-bezier(.22,1,.36,1); blocks may stagger; scroll-reveal-all.js: scroll-linked, no time tail",
    "files": [
     "brand-flow-motion.js",
-    "brand-consistency.css"
+    "brand-consistency.css",
+    "scroll-reveal-all.js"
    ],
    "reduced_motion": "no movement, shown at once"
   },
@@ -51,9 +52,10 @@
    "title": "Bringing the world’s experiences to the brands people use, and the right ones to",
    "pattern": "hero-demo",
    "desktop": "moves",
-   "phone": "still",
+   "phone": "moves",
    "behaviour": [
-    "JavaScript-driven loop"
+    "JavaScript-driven loop",
+    "phone: the hero scene opens after the copy, in order: the 1M+ line, the map, the pins, Bridgify, the three partner tiles, the caption"
    ],
    "css_animations": [],
    "files": [
@@ -76,9 +78,10 @@
    "title": "From fragmented supply to the right experience for every customer.",
    "pattern": "pinned-steps",
    "desktop": "moves",
-   "phone": "still",
+   "phone": "moves",
    "behaviour": [
-    "scroll-driven (pinned) on desktop"
+    "scroll-driven (pinned) on desktop",
+    "phone: each chapter is one card with its own diagram, held in the middle of the screen; the next card rises over it"
    ],
    "css_animations": [],
    "files": [
@@ -452,9 +455,10 @@
    "title": "What makes a tours and activities API high performing?",
    "pattern": "text-visual",
    "desktop": "moves",
-   "phone": "still",
+   "phone": "moves",
    "behaviour": [
-    "scroll-driven (pinned) on desktop"
+    "scroll-driven (pinned) on desktop",
+    "phone: the screen stays, the step boxes stack over its lower part as you scroll"
    ],
    "css_animations": [],
    "files": [
@@ -616,7 +620,8 @@
    "desktop": "moves",
    "phone": "moves",
    "behaviour": [
-    "subtle motion"
+    "subtle motion",
+    "phone: the Hub sorts itself from the tangle into order, then the buttons rise in (label, title and intro, tangle, sort, buttons)"
    ],
    "css_animations": [],
    "files": [
@@ -714,7 +719,8 @@
    "phone": "moves",
    "behaviour": [
     "scroll-driven (pinned) on desktop",
-    "entrance when it comes into view"
+    "entrance when it comes into view",
+    "phone: scroll-driven, one frame size while Safari's toolbar moves, each frame starts under its own step's text"
    ],
    "css_animations": [
     "transform · 0.9s · once · cubic-bezier(0.16, 1, 0.3, 1)",
