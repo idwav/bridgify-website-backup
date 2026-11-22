@@ -84,3 +84,18 @@
   html body #section-3 .rc-context>span b{color:#FFB59E!important}
   html body #section-3 .rc-screens:not(#ad-x){padding-right:0!important}
 }
+
+/* Enterprise multi-source on phones (owner, 22 Nov 2026): no world map; the diagram is tighter so it fits one screen
+   (sources, Bridgify, the experiences, then the 1M+ line), and it builds as the reader scrolls: the three sources
+   first, then the wires draw into Bridgify, Bridgify appears, the wire runs down, the experiences arrive and the 1M+
+   line closes it (otas.js sets --sc-* from the scroll). With reduced motion everything shows at once. */
+@media (max-width:599px){
+  html body #section-2 .sc-map:not(#ad-x){display:none!important}
+  html body #section-2 .sc-hub:not(#ad-x):not(#ad-y){margin-top:32px!important}
+  html body #section-2 .sc-exps:not(#ad-x):not(#ad-y){margin-top:24px!important}
+  html body #section-2 .sc-count:not(#ad-x):not(#ad-y){margin-top:16px!important}
+  html body #section-2 .sc.ad-sc-build .sc-hub{opacity:var(--sc-hub,0);translate:0 calc((1 - var(--sc-hub,0)) * 12px)}
+  html body #section-2 .sc.ad-sc-build .sc-exp{opacity:var(--sc-exp,0);translate:0 calc((1 - var(--sc-exp,0)) * 16px)}
+  html body #section-2 .sc.ad-sc-build .sc-count:not(#ad-x){opacity:calc(var(--sc-count,0) * 1)!important}
+  html body #section-2 .sc.ad-sc-build:not(.ad-sc-full) .sc-wires circle{opacity:0!important}
+}
