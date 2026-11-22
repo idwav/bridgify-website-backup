@@ -49,30 +49,39 @@
 }
 @media (max-width:599px) and (prefers-reduced-motion:reduce){ html body #section-1 .ahc-visual{--dv-open:1} html body #section-1 .dev-code-copy{position:static!important} }
 
-/* What good looks like · proposal (owner, 22 Nov 2026): on desktop the steps sit beside the screen; on a phone they
-   were below a tall, mostly empty screen, never on screen together. Now the screen pins small under the header and the
-   three boxes (Search, Checkout, Monitoring) rise one over the other beneath it as the reader scrolls. The box on top is
-   the one the screen plays (developers.js). With reduced motion nothing pins. */
+/* What good looks like on phones (owner, 22 Nov 2026). On desktop the steps sit beside the screen; on a phone the
+   screen comes first, at full size, pinned under the header, and the step box sits on a layer above it, at the bottom
+   of the phone, covering the screen's lower part (about 96px: the cards' Book buttons). Scrolling brings Checkout up
+   over Search and Monitoring over Checkout; the box in front is the one the screen plays (developers.js). The screen
+   text keeps its own size (no scaling) and every scene starts at the top, so nothing is cut. Reduced motion: no pinning. */
 @media (max-width:599px) and (prefers-reduced-motion:no-preference){
+  html body #performance{--dp6m-top:calc(var(--ad-header-h) + 16px);--dp6m-stage:min(calc(100svh - var(--dp6m-top) - 88px), 460px);--dp6m-over:96px}
   html body #performance .dp6-grid:not(#ad-x):not(#ad-y){display:flex!important;flex-direction:column!important;gap:16px!important}
-  html body #performance .dp6-stage:not(#ad-x):not(#ad-y){order:-1;position:sticky!important;top:calc(var(--ad-header-h) + 16px)!important;z-index:5!important;
-    min-height:0!important;height:var(--dp6m-stage,248px)!important;padding:10px!important;background-color:#140d0c!important}
-  /* the screen keeps its desktop layout, drawn at 66% so the whole window (top bar and content) fits */
-  html body #performance .dp6-stage .dp6-frame:not(#ad-x){inset:14px!important;zoom:.66}
-  /* compact rows, so the tallest box (Checkout) fits between the screen and the bottom of the phone */
+  html body #performance .dp6-stage:not(#ad-x):not(#ad-y){order:-1;position:sticky!important;top:var(--dp6m-top)!important;z-index:1!important;
+    min-height:0!important;height:var(--dp6m-stage)!important;padding:10px!important;background-color:#140d0c!important}
+  html body #performance .dp6-stage .dp6-frame:not(#ad-x){inset:10px!important}
+  html body #performance .dp6-stage .dp6-scene:not(#ad-x):not(#ad-y){justify-content:flex-start!important;bottom:auto!important}
+  html body #performance .dp6-wires{display:none!important}
+  html body #performance .dp6-beats:not(#ad-x):not(#ad-y){display:flow-root!important;position:relative;z-index:2}
+  /* each box rests at the bottom of the phone, and always overlaps the screen by --dp6m-over (--dp6m-h: its height, from developers.js) */
+  html body #performance .dp6-box:not(#ad-x):not(#ad-y){position:sticky!important;z-index:2;
+    top:min(calc(100svh - var(--dp6m-h,170px) - 16px), calc(var(--dp6m-top) + var(--dp6m-stage) - var(--dp6m-over)))!important;
+    margin:0!important;background-color:#170f0d!important;box-shadow:0 -34px 30px -4px #120b09f2!important}
+  /* compact rows, so Checkout (the tallest box) still leaves the top of the screen in view */
   html body #performance .dp6-box .dp6-row b:not(#ad-x){font-size:15px!important;line-height:20px!important}
   html body #performance .dp6-box .dp6-row p:not(#ad-x){font-size:14px!important;line-height:20px!important;margin:2px 0 0!important}
   html body #performance .dp6-box .dp6-beat:not(#ad-x):not(#ad-y){padding-top:6px!important;padding-bottom:6px!important;min-height:0!important}
   html body #performance .dp6-box .dp6-ic:not(#ad-x){width:32px!important;height:32px!important}
-  /* a box that the next one covers steps back and fades, so only the box being played shows */
+  /* a covered box steps back and fades, so only the box being played shows */
   html body #performance .dp6-box{transition:scale .4s cubic-bezier(.45,0,.2,1),opacity .4s cubic-bezier(.45,0,.2,1)}
   html body #performance .dp6-box.is-covered{scale:.94;opacity:0}
-  html body #performance .dp6-wires{display:none!important}
-  html body #performance .dp6-beats:not(#ad-x):not(#ad-y){display:flow-root!important}
-  html body #performance .dp6-box:not(#ad-x):not(#ad-y){position:sticky!important;top:calc(var(--ad-header-h) + 16px + var(--dp6m-stage,248px) + 12px)!important;
-    margin:0!important;background-color:#170f0d!important}
-  /* scroll room: each box arrives 40% of a screen after the one before it, and the last one holds for 30% before the
-     section moves on (as space before a box and after the stack: a sticky box's own margin would cut its hold short) */
+  /* scroll room: each box arrives 40% of a screen after the one before, and the last one holds for 30% (as space
+     before a box and after the stack: a sticky box's own margin would cut its hold short) */
   html body #performance .dp6-box+.dp6-box:not(#ad-x):not(#ad-y){margin-top:40vh!important}
   html body #performance .dp6-beats::after{content:"";display:block;height:30vh}
+  /* the screen's step names stay on one line on narrow phones (iPhone SE) */
+  html body #performance .dp6-steps li:not(#ad-x){white-space:nowrap!important}
+}
+@media (max-width:359px) and (prefers-reduced-motion:no-preference){
+  html body #performance .dp6-steps li:not(#ad-x){letter-spacing:.04em!important;padding:0 12px!important;gap:8px!important}
 }
