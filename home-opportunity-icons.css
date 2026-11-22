@@ -1,5 +1,5 @@
-/* Opportunity list icons: same size as before, coral 1.5 stroke with the light dot on the stroke; every row the same height, icon centred on the row */
-html body #opportunity-study .pb-facts li svg.hm-ico:not(#x){width:20px!important;height:20px!important;flex:none!important;color:#F46649!important;stroke:#F46649!important;stroke-width:1.5!important}
+/* Opportunity list icons: coral 1.5 stroke with the light dot on the stroke, at the top left of each paragraph, all on one line across the row; same size on every screen */
+html body #opportunity-study .pb-facts li svg.hm-ico:not(#x){width:20px!important;height:20px!important;flex:none!important;margin-top:2px!important;color:#F46649!important;stroke:#F46649!important;stroke-width:1.5!important}
 html body #opportunity-study .pb-facts .hm-ico .icon-node:not(#x){fill:#fff1e7!important;stroke:none!important}
-html body #opportunity-study .pb-facts li:not(#x){align-items:center!important}
-@media (max-width:599px){html body #opportunity-study .pb-facts li:not(#x){min-height:68px!important;box-sizing:border-box}}
+html body #opportunity-study .pb-facts li:not(#x){align-items:flex-start!important}
+html body #opportunity-study .pb-facts:not(#x){align-items:start!important}
