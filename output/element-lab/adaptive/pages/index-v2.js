@@ -36,17 +36,18 @@
       const fitStep = () => {
         const s = steps.find(e => e.offsetHeight > 0), v = s && $('.wy-visual', s);
         if (!v) return;
+        const on = p && p.wrap.classList.contains('is-on');
         /* scale (not zoom): the diagrams size parts of themselves from their own width, so zoom does not shrink them evenly */
         v.style.scale = ''; v.style.transformOrigin = ''; v.style.marginBottom = '';
         const room = body.getBoundingClientRect().bottom - 8 - v.getBoundingClientRect().top, nat = v.offsetHeight;
-        if (nat > room) {
+        if (on && nat > room) {
           const k = room / nat;
           v.style.scale = k.toFixed(3); v.style.transformOrigin = 'top center';
           v.style.setProperty('margin-bottom', -Math.ceil(nat * (1 - k)) + 'px', 'important');
         }
       };
       let scrollStep = 0, p = null;
-      body.style.setProperty('height', H() + 'px', 'important');
+      body.style.setProperty('--wy-stage-h', H() + 'px');
       p = A.pin([body], {steps: tabs.length, per: .5, className: 'ad-wy-pin', onStep: i => {
         scrollStep = i; tabs[i].click(); fitStep();
       }});
@@ -58,7 +59,7 @@
           if (i > -1 && i !== scrollStep && p.wrap.classList.contains('is-on')) p.go(i);
           requestAnimationFrame(fitStep);
         }).observe(row, {subtree: true, attributes: true, attributeFilter: ['aria-selected']});
-        addEventListener('resize', () => { body.style.setProperty('height', H() + 'px', 'important'); fitStep(); });
+        addEventListener('resize', () => { body.style.setProperty('--wy-stage-h', H() + 'px'); fitStep(); });
         addEventListener('load', fitStep); fitStep();
       }
     }
