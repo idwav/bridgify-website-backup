@@ -639,4 +639,26 @@
 @media (max-width:599px){
   html body #why-bridgify .ad-wy-pin .wy-step .wy-copy > p{margin-top:16px!important}
   html body #why-bridgify .ad-wy-pin.is-on .wy-body{height:var(--wy-stage-h)!important}
+  /* One frame for all four diagrams: the frame is drawn on .wy-visual (index-v2.js), the diagram inside has none. */
+  html body #why-bridgify .ad-wy-pin.is-on .wy-visual{box-sizing:border-box!important;overflow:visible!important}
+  html body #why-bridgify .ad-wy-pin.is-on .hm-stage.ad-wy-bare:not(#ad-z):not(#ad-y):not(#ad-x):not(#ad-w):not(#ad-v){border-color:transparent!important;background:none!important;box-shadow:none!important;width:100%!important;margin:0!important;transform-origin:50% 0}
+  html body #why-bridgify .ad-wy-pin.is-on .hm-stage.ad-wy-bare::before,html body #why-bridgify .ad-wy-pin.is-on .hm-stage.ad-wy-bare::after{border-color:transparent!important;box-shadow:none!important}
+}
+
+/* CTA "Tell us who your customers are", phones (owner, 22 Nov 2026):
+   - the big box takes the site's 30% frame (softer-frames.css did not list it): line and edge highlights × 0.22;
+   - the inner "Your customers are" card gets a still lighter edge;
+   - the audience chips scroll out from under the card's own edge instead of being cut short past it. */
+@media (max-width:599px){
+  html body #home-cta .hc2-box:not(#ad-z):not(#ad-y){border-color:rgba(246,200,181,.127)!important;box-shadow:rgba(255,241,218,.117) 0 1px 1px 0 inset,rgba(255,153,123,.073) 0 -1px 1px 0 inset,rgba(244,102,73,.125) 0 0 11.7px 0,rgba(0,0,0,.4) 0 20px 50px 0!important}
+  html body #home-cta .hc2-demo:not(#ad-z):not(#ad-y){border-color:rgba(246,200,181,.088)!important;box-shadow:rgba(255,241,218,.073) 0 1px 1px 0 inset,rgba(255,153,123,.044) 0 -1px 1px 0 inset!important}
+  html body #home-cta .hc2-pick:not(#ad-z):not(#ad-y){margin-inline:-16px!important;padding-inline:16px!important;scroll-padding-inline:16px}
+}
+
+/* Footer on the home page, phones (owner, 22 Nov 2026): the footer title starts 64px after the CTA section (S9); it was 94,
+   because the home page has no recurring CTA but kept its empty holder's 48px gap and the shell's 10px. */
+@media (max-width:599px){
+  html body .bf-cta-shell:not(#ad-z){margin-bottom:0!important}
+  html body .bf-footer-shell:not(#ad-z){padding-top:0!important}
+  html body .bf-footer:not(#ad-z){padding-top:60px!important}
 }
