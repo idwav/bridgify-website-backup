@@ -22,6 +22,7 @@ html body .cb-card:not(#x){border:1px solid #f6c8b5!important}
 html body .cb-photo:not(#x),html body .cb-team span:not(#x){border:1px solid #f6c8b5aa!important}
 /* it moves with the pointer: the card swings left and right about the cord's top, and settles with a small overshoot */
 @media(hover:hover) and (min-width:1101px){
-html body .cb-swing:not(#x){animation:none!important;transform:rotate(var(--r,0deg));transition:transform 1.4s cubic-bezier(.2,1.6,.4,1)}
-html body .cb-swing.is-moving:not(#x){transition:transform .45s cubic-bezier(.22,.61,.36,1)}
+html body .cb-swing:not(#x){animation:none!important;transition:none!important;will-change:transform}
+html body .cb-card:not(#x)::before{animation:none!important;transform:translateX(calc(var(--sheen,0) * 60%))}
 }
+
