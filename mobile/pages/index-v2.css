@@ -53,6 +53,15 @@
   html body #why-bridgify.ad-tabs-on .wy-tab b{font-size:13px}
 }
 @keyframes ad-fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* Phones: the supply sources in Aggregate are frameless, with no shape or gradient behind them, and a small photo in place
+   of the icon (owner, 22 Nov 2026). The photo element is added on phones only (pages/index-v2.js). */
+.ad-src-photo{display:none}
+@media (max-width:599px){
+  html body #why-bridgify .ag-src-body:not(#a):not(#b):not(#c){border-color:transparent!important;background:none!important;box-shadow:none!important;gap:9px!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  html body #why-bridgify .ag-src-body:not(#a):not(#b):not(#c)::before,html body #why-bridgify .ag-src-body:not(#a):not(#b):not(#c)::after{display:none!important}
+  html body #why-bridgify .ag-src-body .hm-ico:not(#a):not(#b){display:none!important}
+  html body #why-bridgify .ad-src-photo{display:block;flex:none;width:32px;height:32px;border-radius:8px;background:center/cover no-repeat;box-shadow:0 2px 8px #0006}
+}
 @media (prefers-reduced-motion:reduce){html body #why-bridgify .wy-step.ad-on{animation:none!important}}
 
 /* ---------- 6 · Products: a swipeable row of three cards ---------- */
