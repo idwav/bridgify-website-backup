@@ -26,3 +26,25 @@ html body #section-3 .rc-panel:not(#x){zoom:.68}
 html body #section-2 .ms-layout:not(#x){zoom:.8}
 html body #section-1 .ys-ticket:not(#x){zoom:.8}
 }
+
+/* ===== v3: the glass recipe on the hero ticket, the content line, even spacing in the aggregation ===== */
+/* hero ticket: our glass (peach edge, corner lights, rim light, glow) and it sits on the content line like every other block */
+html body[data-copy-page="otas"] .ys-hero .ys-ticket:not(#x){width:auto!important;max-width:none!important;margin-left:0!important;margin-right:0!important;align-self:stretch;border:1px solid #f6c8b58c!important;border-radius:24px!important;background:radial-gradient(at 100% 0%,#ff89622e,#0000 30%),radial-gradient(at 0% 100%,#ff785324,#0000 28%),linear-gradient(115deg,#fff8f10c,#0000 45%,#fff8f108),#140d0bf2!important;box-shadow:inset 0 1px 1px #fff1da88,inset 0 -1px 1px #ff997b55,0 0 3vw #f4664920,0 1.6vw 3.6vw #0006!important}
+html body[data-copy-page="otas"] .ys-ticket :is(.ys-already,.ys-bridge,.ys-days,.ys-retain,.ys-booked>div,[class*="ys-"]){border-color:#f6c8b533}
+html body[data-copy-page="otas"] .ys-ticket .ys-bridge:not(#x),html body[data-copy-page="otas"] .ys-ticket .ys-day:not(#x){border-color:#f6c8b559}
+html body[data-copy-page="otas"] .ys-ticket :is(.ys-notch,.ys-ticket-notch,[class*="notch"]):not(#x){display:none!important}
+/* aggregation: even vertical rhythm from the 8px table (title to text 24, text to buttons 40; visual rows 48 / 48 / 16 / 24) */
+@media(min-width:1024px){
+html body #section-2 .ms-head h2:not(#x){margin-bottom:0!important}
+html body #section-2 .ms-head h2 + p:not(#x){margin-top:24px!important}
+html body #section-2 .ms-head>div:last-child:not(#x){margin-top:40px!important}
+html body #section-2 .sc:not(#x){justify-content:flex-start!important;gap:0!important}
+html body #section-2 .sc-hub:not(#x){margin-top:48px!important}
+html body #section-2 .sc-exps:not(#x){margin-top:48px!important}
+html body #section-2 .sc-count:not(#x){margin-top:16px!important}
+html body #section-2 .sc-map:not(#x){margin-top:24px!important}
+}
+/* ticket: no dashed dividers and no punched notches, the four parts are separated by space alone */
+html body[data-copy-page="otas"] .ys-ticket :is(.ys-bridge,.ys-day,.ys-retain):not(#x){border-left:0!important}
+html body[data-copy-page="otas"] .ys-ticket:not(#x)::before,html body[data-copy-page="otas"] .ys-ticket:not(#x)::after{display:none!important}
+html body[data-copy-page="otas"] .ys-ticket :is(.ys-bridge,.ys-day,.ys-retain,.ys-booked):not(#x)::before,html body[data-copy-page="otas"] .ys-ticket :is(.ys-bridge,.ys-day,.ys-retain,.ys-booked):not(#x)::after{display:none!important}
