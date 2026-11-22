@@ -62,4 +62,25 @@
   html body #section-4 .xc-swatches:not(#x){top:53px!important;right:69px!important;z-index:4!important;gap:10px!important}
   html body #section-4 .xc-swatches i:not(#x){width:16px!important;height:16px!important;border:2px solid #f1ebe2!important;box-shadow:0 0 0 1px #18101026!important}
   html body #section-4 .xc-swatches i.is-on:not(#x){box-shadow:0 0 0 1.5px #180f10!important}
+  /* Choose how experiences fit your platform: the two products side by side, same height (replaces the one-at-a-time tabs; owner's choice, 22 Nov 2026) */
+  html body section.xc:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #section-4.xc .xc-head:not(#x){margin-bottom:48px!important}
+  html body #section-4.xc .xc-grid:not(#x):not(#y){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:24px!important;align-items:stretch!important}
+  html body #section-4.xc .xc-card:not(#x){display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
+  html body #section-4.xc .xc-grid>.xc-card:not(#x):not(#y){margin:0!important;position:static!important;top:auto!important;min-width:0!important;overflow:hidden!important}
+  html body #section-4.xc .xc-vis:not(#x){zoom:1!important;width:100%!important;max-width:none!important;height:272px!important;flex:0 0 auto!important;container-type:inline-size}
+  html body #section-4.xc .xc-vis>.xc-code:not(#x),html body #section-4.xc .xc-vis>.xc-link:not(#x),html body #section-4.xc .xc-vis>.xc-app:not(#x){translate:0 58px!important}
+  html body #section-4.xc .xc-vis>.xc-app:not(#x):not(#y){translate:0 51px!important}
+  html body #section-4.xc .xc-vis>.xc-badge:not(#x){translate:0 2px!important}
+  html body #section-4.xc .xc-swatches:not(#x){top:22px!important;right:36px!important;gap:7px!important;z-index:4!important}
+  html body #section-4.xc .xc-swatches i:not(#x){width:11px!important;height:11px!important;border:2px solid #f1ebe2!important;box-shadow:0 0 0 1px #18101033!important}
+  html body #section-4.xc .xc-swatches i.is-on:not(#x){box-shadow:0 0 0 1.5px #180f10!important}
+  html body #section-4.xc .xc-body:not(#x){flex-direction:column!important;align-items:flex-start!important;gap:16px!important;padding:24px!important}
+  html body #section-4.xc .xc-body h3:not(#x){font-size:22px!important;margin:0!important}
+  html body #section-4.xc .xc-body:not(#x){flex:1 1 auto!important;justify-content:space-between!important}
+  html body #section-4.xc .xc-card:not(#x){height:auto!important;align-self:stretch!important}
+  html body #section-4.xc .xc-grid:not(#x):not(#y){grid-auto-rows:1fr!important}
+  html body #section-4.xc .xc-cta:not(#x){width:auto!important;max-width:100%!important;white-space:normal!important}
+  html body #section-4.xc .xc-card:not(#x):not(#y){visibility:visible!important;opacity:1!important;pointer-events:auto!important;grid-area:auto!important}
+  html body #section-4.xc .ot-tabs:not(#x),html body #section-4.xc .ly-tabs:not(#x),html body #section-4.xc .ht-tabs:not(#x),html body #section-4.xc .at-tabs:not(#x),html body #section-4.xc .tt-tabs:not(#x){display:none!important}
 }
