@@ -1,0 +1,17 @@
+/* Careers on a standard tablet (iPad upright, 600-900px; written 22 Nov 2026 from the rules agreed on the other pages).
+   Spacing only from Tom's tablet table (hero top 64 under the header, section 80). Short sections fill one screen under the 64px header; long scrolling parts
+   (lists, articles, the news grid, the performance animation) are left as they are. Phone and desktop are untouched. */
+@media (min-width:600px) and (max-width:900px){
+  /* 1 · Hero */
+  html body:not(#bf-lab) section#top:not(#x):not(#y){padding-top:128px!important;padding-bottom:48px!important;min-height:100svh!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+  /* 2 · Why now */
+  html body:not(#bf-lab) section#why-now:not(#x):not(#y){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  /* 3 · Your work reaches millions */
+  html body:not(#bf-lab) section#reach:not(#x):not(#y){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  /* 4 · What makes Bridgify Bridgify */
+  html body:not(#bf-lab) section#what-makes-bridgify:not(#x):not(#y){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  /* 5 · The problems you will work on */
+  html body:not(#bf-lab) section#problems:not(#x):not(#y){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  /* 6 · Open roles */
+  html body:not(#bf-lab) section#open-roles:not(#x):not(#y){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+}
