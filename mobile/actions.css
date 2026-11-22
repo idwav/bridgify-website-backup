@@ -33,3 +33,18 @@
   html body [data-bf-role=link][data-bf-tone=light]:not(#ad-x):not(#ad-y) { color: #C2462E !important; }
   html body [data-bf-role=link]:not(#ad-x):not(#ad-y)::before, html body [data-bf-role=link]:not(#ad-x):not(#ad-y)::after { content: none !important; }
 }
+
+/* Hero buttons on phones (owner, 22 Nov 2026): short, as wide as the label, side by side; a pair that does not fit the
+   row stacks and stays short. Same 40px height and 15px text; 12px side padding and a 14px arrow so more pairs fit. */
+@media (max-width: 599px) {
+  html body [data-bf-hero]:not(#ad-x):not(#ad-y) :is([data-bf-kind=primary],[data-bf-kind=secondary]),
+  html body [data-bf-hero]:not(#ad-x):not(#ad-y):is([data-bf-kind=primary],[data-bf-kind=secondary]) {
+    flex: none !important; width: max-content !important; max-width: 100% !important; min-width: 0 !important; padding: 0 12px !important; gap: 6px !important; white-space: nowrap !important;
+  }
+  html body [data-bf-hero]:not(#ad-x):not(#ad-y) :is([data-bf-kind=primary],[data-bf-kind=secondary]) svg,
+  html body [data-bf-hero]:not(#ad-x):not(#ad-y):is([data-bf-kind=primary],[data-bf-kind=secondary]) svg { width: 14px !important; height: 14px !important; flex: none !important; }
+  html body [data-bf-role=actions][data-bf-hero]:not(#ad-x):not(#ad-y):not(a):not(button) { display: flex !important; flex-wrap: nowrap !important; justify-content: flex-start !important; width: 100% !important; }
+  html body [data-bf-role=actions][data-bf-hero][data-bf-stack=row]:not(#ad-x):not(#ad-y) { flex-direction: row !important; align-items: center !important; }
+  html body [data-bf-role=actions][data-bf-hero][data-bf-stack=column]:not(#ad-x):not(#ad-y) { flex-direction: column !important; align-items: flex-start !important; }
+  html body [data-bf-role=actions][data-bf-hero]:not(#ad-x):not(#ad-y) > * { flex: none !important; width: max-content !important; }
+}

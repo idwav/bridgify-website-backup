@@ -55,8 +55,20 @@
   const mark = (el, k, v) => { marks.push([el, k]); el.dataset[k] = v; };
   // buttons in a row: one primary at most, the rest secondary; equal widths, side by side only if both labels fit
   const buttons = el => el.matches('a,button') ? [el] : [...el.querySelectorAll(':scope > a, :scope > button')].filter(shown);
-  const arrange = row => {
+  const arrange = (row, hero) => {
     const bs = buttons(row); bs.forEach((b, i) => mark(b, 'bfKind', /primary/.test(b.className) || (i === 0 && bs.length > 1 && !/secondary|alt/.test(b.className)) ? 'primary' : 'secondary'));
+    /* hero buttons (owner, 22 Nov 2026): short, as wide as their label, side by side when the pair fits the row;
+       a pair that does not fit stacks, still short */
+    if (hero) {
+      mark(row, 'bfHero', '1');
+      if (bs.length < 2 || row.matches('a,button')) return;
+      const nat = bs.map(b => b.getBoundingClientRect().width), cs = getComputedStyle(row);
+      /* room up to the content line (24px gutter), whatever the row's own box is (some rows run the full screen) */
+      const edge = document.documentElement.clientWidth - (parseFloat(tok('gutter')) || 24) - bs[0].getBoundingClientRect().left;
+      const inner = Math.min(row.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight), edge), gap = parseFloat(tok('gap-actions-hero')) || 8;
+      mark(row, 'bfStack', nat.reduce((x, y) => x + y, 0) + gap * (bs.length - 1) <= inner + .5 ? 'row' : 'column');
+      return;
+    }
     if (bs.length < 2 || row.matches('a,button')) return;
     const nat = bs.map(b => { const w = b.style.width; b.style.setProperty('width', 'max-content', 'important'); const n = b.getBoundingClientRect().width; b.style.width = w; return n; });
     const cs = getComputedStyle(row), inner = row.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight), gap = parseFloat(tok('gap-actions-inner'));
@@ -105,7 +117,8 @@
           set(el, 'row-gap', tok('gap-actions-inner')); set(el, 'column-gap', tok('gap-actions-inner'));
           set(el, 'justify-content', 'flex-start'); set(el, 'margin-left', '0px');
         } else ['margin-left', 'margin-right'].forEach(p => set(el, p, '0px'));
-        arrange(el);
+        arrange(el, S.hero);
+        if (S.hero && !el.matches('a,button')) { set(el, 'row-gap', tok('gap-actions-hero')); set(el, 'column-gap', tok('gap-actions-hero')); }
       }));
       // each gap between consecutive items
       for (let k = 1; k < items.length; k++) {

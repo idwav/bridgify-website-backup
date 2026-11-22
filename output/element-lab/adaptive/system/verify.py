@@ -37,7 +37,7 @@ RULES = [
  ('B1', 'Button = action, link = go and read; a link is never drawn as a button', 'check.py', r'drawn as a button'),
  ('B2', 'At most one primary button per group; every button has a kind', 'check.py', r'primary button|has no kind'),
  ('B3', 'Buttons 40px tall, full frame', 'check.py', r'tall \(want 40\)|uneven frame'),
- ('B4', 'Buttons of one group share one width', 'check.py', r'differ in width'),
+ ('B4', 'Buttons of one group share one width (heroes: as wide as the label, B4h)', 'check.py', r'differ in width'),
  ('T1', 'Hero, section and closing titles 28px Chillax 400', 'fit.py titleRoles', None),
  ('T2', 'Section label → title measured on every page (16 ±2)', 'fit.py labelGaps', None),
  ('T3', 'Key figures at least 28px', 'fit.py smallFigures', None),
