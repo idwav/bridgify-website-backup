@@ -1,0 +1,44 @@
+/* AIyelet personalization on a standard tablet (iPad upright, 600-900px; owner's choices of 22 Nov 2026).
+   Spacing only from Tom's tablet table (section 80, head>content 48, card gap 24). Every section fills one screen under the 64px header.
+   The FAQ is unchanged. Phone and desktop are untouched. */
+@media (min-width:600px) and (max-width:900px){
+  /* 1 · Hero: the chat demo fills one screen (its calmer animation lives in personalization-ai-hero.html, same width range) */
+  html body #section-1:not(#x),html body #section-1 iframe:not(#x){height:1194px!important;min-height:0!important}
+  /* 2 · Start with what the traveler has in mind */
+  html body #section-2:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  /* 3 · Match: the whole animation top to bottom, wires run down (see the vertical branch in personalization-match.js) */
+  html body #section-3:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #section-3 .match-head:not(#x){margin-bottom:48px!important}
+  html body #section-3 .match-workspace:not(#x){grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto!important;row-gap:28px!important;column-gap:0!important}
+  html body #section-3 .match-controls:not(#x){width:auto!important;height:auto!important}
+  html body #section-3 .match-fields:not(#x){display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important;height:auto!important}
+  html body #section-3 .match-engine:not(#x){justify-self:center!important;width:auto!important;min-width:260px!important;height:auto!important;padding:16px 32px!important}
+  html body #section-3 .match-deck:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;column-gap:24px!important;row-gap:16px!important;width:auto!important;height:auto!important}
+  html body #section-3 .match-deck>.match-panel-head:not(#x){grid-column:1/-1!important}
+  html body #section-3 .match-queue:not(#x){display:grid!important;gap:8px!important;height:auto!important}
+  html body #section-3 .match-stage:not(#x){height:250px!important;min-height:0!important}
+  html body #section-3 .match-row:not(#x){min-height:0!important;padding-top:4px!important;padding-bottom:4px!important}
+  html body #section-3 .match-engine:not(#x){display:flex!important;align-items:center!important;gap:20px!important;padding:12px 28px!important;min-width:0!important;text-align:left!important}
+  html body #section-3 .match-engine>*:not(#x){margin:0!important}
+  html body #section-3 .match-row img:not(#x){width:28px!important;height:28px!important}
+  html body #section-3 .match-queue>li:not(#x){height:36px!important;min-height:0!important;padding-top:0!important;padding-bottom:0!important;align-items:center!important}
+  /* 4 · Inside your product */
+  html body #section-4:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #section-4 .embed-shell:not(#x){zoom:.83}
+  /* 5 · One suggestion to a full day: a wire runs down from the suggestion into the day, three stops in a row */
+  html body #day-itinerary:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #day-itinerary .day-layout:not(#x){grid-template-columns:minmax(0,1fr)!important;gap:0!important}
+  html body #day-itinerary .day-start:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;column-gap:24px!important;align-items:start!important;height:auto!important}
+  html body #day-itinerary .day-start>:not(.day-museum):not(#x){grid-column:2!important}
+  html body #day-itinerary .day-start>.day-museum:not(#x){grid-column:1!important;grid-row:1/8!important;height:100%!important;min-height:170px!important}
+  html body #day-itinerary .day-plan:not(#x){margin-top:0!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;column-gap:16px!important;height:auto!important}
+  html body #day-itinerary .day-plan>:not(.day-stop):not(#x){grid-column:1/-1!important}
+  html body #day-itinerary .day-stop:not(#x){grid-template-columns:minmax(0,1fr)!important;height:auto!important;gap:12px!important}
+  html body #day-itinerary .day-stop .day-museum:not(#x){height:96px!important;width:100%!important}
+  html body #day-itinerary .day-branches:not(#x){display:block!important;position:relative!important;width:100%!important;height:72px!important;margin:0!important;background:radial-gradient(circle at 50% 0,#fff8f1 0 2.5px,#f46649 3px 3.5px,transparent 4px),radial-gradient(circle at 50% 100%,#fff8f1 0 2.5px,#f46649 3px 3.5px,transparent 4px)!important}
+  html body #day-itinerary .day-branches svg:not(#x){display:none!important}
+  html body #day-itinerary .day-branches:not(#x)::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(#f46649,#f46649aa)}
+  html body #day-itinerary .day-branches:not(#x)::after{content:'';position:absolute;left:calc(50% - 4px);top:-4px;width:9px;height:9px;border-radius:50%;background:#fff8f1;border:1px solid #f46649;box-shadow:0 0 12px #f46649;animation:dayflow 3.2s cubic-bezier(.45,0,.2,1) infinite}
+  @keyframes dayflow{0%{top:-4px;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:calc(100% - 4px);opacity:0}}
+  html body #day-itinerary .day-layout:not(#x){zoom:.8}
+}
