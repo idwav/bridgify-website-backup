@@ -1,0 +1,11 @@
+/* Marketplace "From discovery to checkout, under your brand" on upright iPads (801px and wider, portrait): the same arrangement as the phone: the four steps in one row above the store mock-up, which then spans the full content width at its real size. No scroll story, no empty space around it. */
+@media (min-width:801px) and (max-aspect-ratio:1/1){
+  html body #section-2.market-product-tour:not(#x){min-height:0!important;padding-top:80px!important;padding-bottom:80px!important;justify-content:flex-start!important}
+  html body #section-2.market-product-tour .mpt-sticky:not(#x){position:static!important;height:auto!important}
+  html body #section-2.market-product-tour .tour:not(#x){grid-template-columns:1fr!important;gap:24px!important;margin-top:32px!important}
+  html body #section-2.market-product-tour .stages:not(#x){display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:8px!important;padding:0!important;margin:0!important;justify-content:stretch!important}
+  html body #section-2.market-product-tour .stages button:not(#x){display:flex!important;justify-content:center!important;align-items:center!important;min-height:48px!important;padding:0 8px!important;font-size:15px!important;text-align:center}
+  html body #section-2.market-product-tour .stages button b:not(#x),html body #section-2.market-product-tour .stages small:not(#x){display:none!important}
+  html body #section-2.market-product-tour .stages button::before,html body #section-2.market-product-tour .stages button::after{left:0;right:0;top:auto;bottom:0;width:auto;height:2px}
+  html body #section-2.market-product-tour .presentation:not(#x){transform:none!important;width:100%!important;max-width:none!important;margin:0!important}
+}
