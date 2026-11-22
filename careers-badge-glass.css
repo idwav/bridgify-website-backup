@@ -1,0 +1,28 @@
+/* Careers hero badge: it now hangs from somewhere. On desktop the strap rises out from under the header (it used to end in mid-air) and the badge swings from that point; the clip is a lit metal clasp over a slot in the card; the card is glass with an inner frame, our person icon (1.5 stroke, light dot on the stroke) instead of a flat blob, and a soft reflection on the floor. Phone and tablet keep their approved hanging. */
+@media(min-width:1101px){
+html body .cb:not(#x){align-self:stretch;justify-content:center;padding-bottom:0}
+html body .cb-swing:not(#x){margin-top:-100vh;transform-origin:50% calc(100vh - 140px)}
+html body .cb-strap:not(#x){height:calc(100vh + clamp(70px,12vh,120px))!important}
+}
+html body .cb-clip:not(#x){width:34%;height:26px;border-radius:8px;border:1px solid #f6c8b5aa;background:linear-gradient(180deg,#5a3d38,#241716 55%,#3a2725);box-shadow:inset 0 1px 1px #fff1daaa,inset 0 -1px 1px #ff997b66,0 6px 14px #0008}
+html body .cb-card:not(#x){border-radius:22px;border-color:#f6c8b5aa;box-shadow:inset 0 1px 1px #fff1daaa,inset 0 -1px 1px #ff997b88,0 0 40px #f4664926,0 30px 70px #000a}
+html body .cb-photo:not(#x){border:1px solid #f6c8b5aa;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96' fill='none'><circle cx='48' cy='37' r='13' stroke='%23ffb194' stroke-width='2.4'/><path d='M22 80a26 26 0 0 1 52 0' stroke='%23ffb194' stroke-width='2.4' stroke-linecap='round'/><circle cx='48' cy='24' r='2.6' fill='%23fff1e7'/></svg>") center/62% no-repeat,radial-gradient(circle at 50% 30%,#ff98622e,#0000 62%),linear-gradient(160deg,#3a2522,#1d1314)}
+html body .cb-line:not(#x){background:linear-gradient(90deg,#f6c8b540,#eee9de22)}
+html body .cb-team span:not(#x){border-color:#f6c8b566}
+html body .cb-glow:not(#x){width:90%;height:30%;bottom:-6%;background:radial-gradient(ellipse,#f466494a,#0000 70%);filter:blur(16px)}
+
+/* The cord: two fine coral lines that rise from the top edge and meet at the clasp (a lanyard seen from the front), in the same 1.5px coral line as our wires. */
+html body .cb-strap:not(#x){width:0!important;background:none!important;box-shadow:none!important;border-radius:0;position:relative}
+html body .cb-strap:not(#x)::before,html body .cb-strap:not(#x)::after{content:"";position:absolute;left:0;bottom:0;width:1.5px;height:100%;background:linear-gradient(to top,#f6c8b5,#f46649 45%,#f4664900);transform-origin:50% 100%;filter:drop-shadow(0 0 4px #f4664966)}
+html body .cb-strap:not(#x)::before{transform:rotate(-2.6deg)}
+html body .cb-strap:not(#x)::after{transform:rotate(2.6deg)}
+@media(max-width:1100px){html body .cb-strap:not(#x)::before{transform:rotate(-5deg)}html body .cb-strap:not(#x)::after{transform:rotate(5deg)}}
+/* One stroke like every other glass edge: the same peach 1px edge on the card, the photo ring and the three chips. */
+html body .cb-card:not(#x){border:1px solid #f6c8b5!important}
+html body .cb-photo:not(#x),html body .cb-team span:not(#x){border:1px solid #f6c8b5aa!important}
+/* it moves with the pointer: the card swings left and right about the cord's top, and settles with a small overshoot */
+@media(hover:hover) and (min-width:1101px){
+html body .cb-swing:not(#x){animation:none!important;transition:none!important;will-change:transform}
+html body .cb-card:not(#x)::before{animation:none!important;transform:translateX(calc(var(--sheen,0) * 60%))}
+}
+
