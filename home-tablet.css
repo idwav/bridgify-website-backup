@@ -9,7 +9,7 @@
   html body #personalization:not(#x),html body #audiences:not(#x),html body #opportunity-study:not(#x),html body #why-bridgify:not(#x),html body #products:not(#x),html body .ht-merge:not(#x){
     min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
   /* 1 · Hero */
-  html body #home.hero:not(#x){padding-top:76px!important;padding-bottom:80px!important;min-height:100svh!important}
+  html body #home.hero:not(#x){padding-top:128px!important;padding-bottom:32px!important;min-height:100svh!important}  /* 64 header + 64 hero-top (Tom) */
   /* 3 · Opportunity: the two panels side by side */
   html body #opportunity-study .pb-head:not(#x){margin-bottom:24px!important}
   html body #opportunity-study .pb-bar:not(#x){margin-top:0!important;margin-bottom:24px!important}
