@@ -30,3 +30,27 @@
 }
 /* the announcement is a framed card, not a section: card padding, not 64px section padding */
 @media (max-width:599px){ html body .nr-release:not(#ad-x):not(#ad-y){padding:24px 20px!important} }
+
+/* ===== Owner, 22 Nov 2026: the Press hero like every other hero, the page fits the phone and reads easily ===== */
+@media (max-width:599px){
+  /* Hero: label 48 under the bar (shared rule), then title, text, and the C10 interview 48 under the text, so the label,
+     the title, the text and the whole video are in the first screen (390x664 visible). The hero ends 64 above About. */
+  /* the interview card: its words get the card padding, so "Watch the interview" no longer sits on the card's edge */
+  html body .nr-feature .nr-feature-copy:not(#ad-x):not(#ad-y){padding:24px 20px!important}
+  /* About and the announcement are one section in the role map: 64 above the About title, 32 from the link to the card, 64 below it. */
+  html body .nr-hero:not(#ad-x):not(#ad-y){display:block!important;gap:0!important}
+  html body .nr-hero-context:not(#ad-x):not(#ad-y){display:block!important;gap:0!important;margin:0!important}
+  html body .nr-about:not(#ad-x):not(#ad-y){padding:0!important;margin:0!important}
+  html body .nr-coverage:not(#ad-x):not(#ad-y){margin-top:0!important}
+  /* Filters: one sideways row from edge to edge instead of three rows of pills */
+  html body .nr-filters:not(#ad-x):not(#ad-y){display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;gap:8px!important;margin-left:-24px!important;margin-right:-24px!important;padding:0 24px 4px!important;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  html body .nr-filters::-webkit-scrollbar{display:none}
+  html body .nr-filters>button:not(#ad-x){flex:none!important;min-height:44px!important;white-space:nowrap!important}
+  /* News cards: the summary is two lines with no Read more (the whole card already opens the article) */
+  html body .nr-coverage .nr-card-copy>p:not(#ad-x):not(#ad-y){display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
+  html body .nr-coverage .nr-card-copy>.ad-more{display:none!important}
+  /* six articles at a time; "Show more articles" opens the next six (press.js) */
+  html body .nr-coverage .nr-card.ad-later:not(#ad-x){display:none!important}
+  html body .nr-coverage .ad-show-more:not(#ad-x){display:flex!important;align-items:center;justify-content:center;gap:8px;width:100%;height:40px;border:1px solid #f46649;border-radius:11px;background:transparent;color:#fff8f1;font:550 15px/1 Sofia,sans-serif;cursor:pointer}
+  html body .nr-coverage .ad-show-more[hidden]{display:none!important}
+}
