@@ -12,7 +12,7 @@
     const T = { cycle: 8200, travel: 1500, gap: 130, second: 2600, gap2: 260 };
     const build = () => {
       svg?.remove(); svg = null; paths = []; dots = [];
-      if (innerWidth <= 1100) return;
+      if (innerWidth < 600 || (innerWidth > 900 && innerWidth <= 1100)) return;  // wires also on the iPad (600-900)
       const box = wm.getBoundingClientRect(), r = 10, h = hub.getBoundingClientRect();
       svg = mk('svg', { class: 'wm-wires', width: box.width, height: box.height, viewBox: `0 0 ${box.width} ${box.height}`, 'aria-hidden': 'true' }, svg ? null : wm);
       const hx = h.left + h.width / 2 - box.left, ht = h.top - box.top, hb = h.bottom - box.top;
