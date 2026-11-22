@@ -19,9 +19,17 @@
   const paint = () => {
     raf = 0;
     const on = A.MQ.mobile.matches && !reduced.matches;
+    /* the header hides while scrolling down and comes back on the way up: centre in the whole screen, but never above
+       where the header ends when it shows (its height + its 8px offset), so a card never moves when the header does */
+    const hd = document.querySelector('header.top'), head = (hd ? hd.offsetHeight : 52) + 8 + 8;
     lis.forEach((li, i) => {
-      if (on) { st[i].style.setProperty('--ab-lih', li.offsetHeight + 'px'); const sh = st[i].offsetHeight + 'px'; li.style.setProperty('--ab-sh', sh); st[i].style.setProperty('--ab-sh', sh); }
-      else ['--ab-lih', '--ab-sh'].forEach(k => { st[i].style.removeProperty(k); li.style.removeProperty(k); });
+      if (on) {
+        st[i].style.setProperty('--ab-lih', li.offsetHeight + 'px'); const sh = st[i].offsetHeight + 'px'; li.style.setProperty('--ab-sh', sh); st[i].style.setProperty('--ab-sh', sh);
+        /* centred in the screen: the card (chapter + diagram) gets equal space above and below */
+        const card = li.offsetHeight + st[i].offsetHeight, ctop = Math.round(Math.max(head, (innerHeight - card) / 2)) + 'px';
+        li.style.setProperty('--ab-ctop', ctop); st[i].style.setProperty('--ab-ctop', ctop);
+      }
+      else ['--ab-lih', '--ab-sh', '--ab-ctop'].forEach(k => { st[i].style.removeProperty(k); li.style.removeProperty(k); });
     });
     let n = 0;
     if (on) lis.forEach((li, i) => { if (li.getBoundingClientRect().top <= (parseFloat(getComputedStyle(li).top) || 0) + 40) n = i; });
