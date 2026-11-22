@@ -21,3 +21,9 @@ html body .nr-card:not(#x):focus-within{border-color:#f6c8b5!important;box-shado
 html body .nr-card .nr-link:focus-visible:not(#x){outline:none}
 html body .nr-card:hover .nr-link span:not(#x){transform:translate(2px,-2px)}
 html body .nr-card .nr-link span:not(#x){display:inline-block;transition:transform .4s cubic-bezier(.45,0,.2,1)}
+
+/* Press, "For press enquiries." (owner, 22 Nov 2026): the glass frame only from 1024. On phones and tablets the block
+   has no frame, so its heading starts on the content line like every other section heading. */
+@media (max-width:1023px){
+html body .nr-contact:not(#x):not(#y){border:0!important;border-radius:0!important;padding-left:0!important;padding-right:0!important;background:none!important;box-shadow:none!important}
+}
