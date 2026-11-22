@@ -41,11 +41,15 @@
   const next = () => {
     clearTimeout(timer); if (!visible || hold) return;
     timer = setTimeout(() => {
-      const n = (cur + 1) % beats.length, crossing = boxOf[n] !== boxOf[cur] && n !== 0;
+      // phones (mobile/pages/developers.js): the box on top of the stack is locked, so the screen repeats its own steps
+      const lock = root.dataset.lockBox; let n = (cur + 1) % beats.length;
+      if (lock !== undefined && boxOf[n] !== +lock) n = boxOf.indexOf(+lock);
+      const crossing = boxOf[n] !== boxOf[cur] && n !== 0 && lock === undefined;
       if (crossing) { fire(boxOf[cur]); boxes[boxOf[cur]].classList.remove('is-lit'); timer = setTimeout(() => { show(n); next(); }, PULSE); }
       else { show(n); next(); }
     }, STEP[cur]);
   };
+  root.addEventListener('dp6:box', e => { hold = false; clearTimeout(timer); show(boxOf.indexOf(e.detail)); next(); });
   beats.forEach((b, i) => b.addEventListener('click', () => { hold = true; clearTimeout(timer); show(i); setTimeout(() => { hold = false; next(); }, 4000); }));
   show(0);
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) { show(6); boxes.forEach(b => b.classList.add('is-lit')); return; }

@@ -2,19 +2,23 @@ window.BridgifyRoles = {
  "page": "insights",
  "sections": [
   {
-   "section": "header.blog-intro",
+   "section": ".blog-hero",
    "items": [
     [
      "label",
-     "div.eyebrow"
+     "header.blog-intro > div.eyebrow"
     ],
     [
      "title",
-     "h1"
+     "header.blog-intro > h1"
     ],
     [
      "text",
-     "p"
+     "header.blog-intro > p"
+    ],
+    [
+     "visual",
+     "section.blog-feature"
     ]
    ],
    "hero": true
@@ -23,12 +27,8 @@ window.BridgifyRoles = {
    "section": ".blog-feature",
    "items": [
     [
-     "visual",
-     "a.blog-feature-image"
-    ],
-    [
      "label",
-     "div.blog-feature-copy > div.eyebrow"
+     "div.eyebrow"
     ],
     [
      "title",
@@ -40,14 +40,14 @@ window.BridgifyRoles = {
     ],
     [
      "text",
-     "div.blog-feature-copy > div.blog-meta"
+     "div.blog-meta"
     ],
     [
      "link",
-     "div.blog-feature-copy > a.blog-link"
+     "a.blog-link"
     ]
    ],
-   "frame": ".blog-feature"
+   "frame": "div.blog-feature-copy"
   },
   {
    "section": ".blog-about",
@@ -64,7 +64,8 @@ window.BridgifyRoles = {
      "text",
      "div > p:last-of-type"
     ]
-   ]
+   ],
+   "frame": ".blog-about"
   },
   {
    "section": "section[aria-labelledby=\"blog-latest\"]",

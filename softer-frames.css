@@ -43,3 +43,11 @@ html body #section-3 :is(.hs-email-letter,.hj-checkin,.hj-app-experience,.hj-opt
 html body #performance .dp6-stage:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, 0 0 3vw #f4664920, 0 1.6vw 3.6vw #0006!important}
 html body #performance .dp6-box:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.073) 0px 1px 1px 0px inset!important}
 html body #performance .dp6-box.is-lit:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.3)!important;box-shadow:rgba(255, 241, 218, 0.2) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.14) 0px -1px 1px 0px inset, 0 0 34px #f4664944, 0 1.2vw 3vw #0006!important}
+
+/* Insights (owner, 22 Nov 2026): the Latest article card, the About card and the post cards take the same 30% frame
+   (border and edge highlights × 0.22). Hover still brightens a card; "Coming soon" cards keep their dashed line, softer. */
+html body .blog-main .blog-feature:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.117) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.073) 0px -1px 1px 0px inset, 0 0 3vw #f4664920, 0 1.6vw 3.6vw #0006!important}
+html body .blog-main .blog-about:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.077)!important;box-shadow:rgba(255, 241, 218, 0.073) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.044) 0px -1px 1px 0px inset!important}
+html body .blog-main .blog-card:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.077)!important;box-shadow:rgba(255, 241, 218, 0.073) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.044) 0px -1px 1px 0px inset, 0 1vw 2.4vw #0005!important}
+html body .blog-main .blog-card:not(.is-soon):hover:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.3)!important}
+html body .blog-main .blog-card.is-soon:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.044)!important}

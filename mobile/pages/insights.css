@@ -29,3 +29,19 @@
   html body .blog-card h3:not(#ad-x){grid-column:2;grid-row:2}
   html body .blog-card .blog-card-copy>:not(.blog-category):not(h3):not(#ad-x){grid-column:1 / -1}
 }
+
+/* Phone fixes (owner, 22 Nov 2026). The hero is the intro and the Latest article card (48 between them, S8); the
+   sections meet only through their own 64px padding (S9); the About card keeps a 24px inner padding like the other
+   cards; Latest insights shows one card per row, so the photo sits beside the category and the full title. */
+@media (max-width:599px){
+  html body .blog-main:not(#ad-x):not(#ad-y){display:block!important;row-gap:0!important}
+  html body .blog-main>:is(.blog-hero,section):not(#ad-x):not(#ad-y){margin-top:0!important;margin-bottom:0!important}
+  html body .blog-hero:not(#ad-x):not(#ad-y){display:block!important;min-height:0!important}
+  html body .blog-hero>header.blog-intro:not(#ad-x):not(#ad-y){padding:0!important;min-height:0!important}
+  html body .blog-feature .blog-feature-copy:not(#ad-x):not(#ad-y){padding:24px!important}
+  html body .blog-about:not(#ad-x):not(#ad-y){padding:24px!important}
+  html body .blog-grid:not(#ad-x):not(#ad-y){display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
+  html body .blog-card:not(#ad-x):not(#ad-y){width:auto!important;min-height:0!important;height:auto!important}
+  html body .blog-card h3:not(#ad-x):not(#ad-y),html body .blog-card h3 a:not(#ad-x){overflow:visible!important;display:block!important;-webkit-line-clamp:unset!important;white-space:normal!important}
+  html body .blog-card .blog-category:not(#ad-x){overflow:visible!important;white-space:normal!important}
+}
