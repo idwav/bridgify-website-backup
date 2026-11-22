@@ -1,0 +1,66 @@
+/* Hotels on a standard tablet (iPad upright, 600-900px; owner's choices of 22 Nov 2026).
+   Spacing only from Tom's tablet table (section 80, head>content 48, card gap 24, control>content 24). Every section fills one screen under the 64px header; the FAQ is unchanged.
+   Phone and desktop are untouched. */
+.ht-tabs{display:none}
+@media (min-width:600px) and (max-width:900px){
+  /* 1 · Hero */
+  html body #section-1:not(#x){padding-top:128px!important;padding-bottom:24px!important;min-height:100svh!important}
+  /* 2 · Offer local experiences: Supply, Content, Payments one under the other, then the card, all full width */
+  html body #section-2:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #section-2 .hr-columns:not(#x){grid-template-columns:minmax(0,1fr)!important;row-gap:24px!important;column-gap:0!important}
+  html body #section-2 .hr-managed:not(#x){width:auto!important;height:auto!important}
+  html body #section-2 .hr-managed:not(#x){row-gap:16px!important;gap:16px!important}
+  html body #section-2 .hr-managed>ul:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:0!important;height:auto!important}
+  html body #section-2 .hr-managed>ul>li:not(#x){height:auto!important;min-height:0!important;padding-top:14px!important;padding-bottom:14px!important;font-size:26px!important}
+  html body #section-2 .hr-managed>ul>li *:not(#x){font-size:inherit!important}
+  html body #section-2 .hr-managed>ul>li svg:not(#x){width:28px!important;height:28px!important}
+  html body #section-2 .hr-brand:not(#x){width:auto!important;height:auto!important}
+  html body #section-2 .hr-experience:not(#x){width:100%!important}
+  /* 3 · Make experiences part of the stay: three numbered tabs, a full-width preview of one size, not pinned (steps advance by themselves, see hotels-tablet.js) */
+  html body #section-3:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #section-3 .hs-sticky:not(#x){position:static!important;height:auto!important;min-height:0!important;width:100%!important;align-self:stretch!important;max-width:none!important;box-sizing:border-box!important}
+  html body #section-3 .hs-steps:not(#x){display:grid!important;grid-template-columns:1fr 1fr 1.5fr!important;gap:8px!important;height:auto!important;margin:24px 0 24px!important}
+  html body #section-3 .hs-steps>button:not(#x){letter-spacing:.12em!important;text-transform:uppercase!important;display:flex!important;justify-content:center!important;align-items:center!important;gap:10px!important;height:48px!important;min-height:0!important;padding:0 12px!important;border:1px solid #f6c8b555!important;border-radius:999px!important;background:#160e0b!important;color:#EEE9DE!important;font:700 13px/1 Sofia,sans-serif!important;text-align:center!important;white-space:nowrap!important}
+  html body #section-3 .hs-steps>button[aria-selected=true]:not(#x){background:linear-gradient(105deg,#ff9862,#f46649)!important;border-color:transparent!important;color:#180F10!important}
+  html body #section-3 .hs-steps>button:not(#x)::before,html body #section-3 .hs-steps>button:not(#x)::after{display:none!important}
+  html body #section-3 .hs-steps>button strong:not(#x){font:inherit!important;letter-spacing:inherit!important;color:inherit!important;line-height:1!important}
+  html body #section-3 .hs-steps .hs-number:not(#x){width:auto!important;min-width:0!important;margin:0!important;opacity:.7;position:static!important;left:auto!important;top:auto!important;transform:none!important;height:auto!important;line-height:1!important;align-self:center!important;font:700 13px/1 Sofia,sans-serif!important;letter-spacing:.12em!important;color:inherit!important;display:block!important;padding:0!important;border:0!important;background:none!important}
+  html body #section-3 .hs-steps>button>span:not(#x){display:block!important;width:auto!important;flex:0 0 auto!important;height:auto!important;border:0!important;border-radius:0!important;background:none!important}
+  html body #section-3 .hs-preview:not(#x),html body #section-3 .hs-panel:not([hidden]):not(#x),html body #section-3 .hs-mail-window:not(#x){height:600px!important;min-height:0!important}
+  html body #section-3 .hs-preview:not(#x){width:100%!important;max-width:none!important;margin:0!important;justify-self:stretch!important;padding-left:0!important;padding-right:0!important}
+  html body #section-3 .hs-panel:not(#x),html body #section-3 .hs-mail-window:not(#x),html body #section-3 .hj-device:not(#x){width:100%!important;max-width:none!important;margin:0!important;box-sizing:border-box!important}
+  /* 4 · Fit into your guest journey: one product at a time (same as OTAs and Loyalty) */
+  html body section.xc:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body section.xc .xc-grid:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:0!important}
+  html body section.xc .xc-card:not(#x){grid-area:1/1!important;margin:0!important;position:static!important;top:auto!important}
+  html body section.xc .xc-swatches:not(#x){top:53px!important;right:69px!important;z-index:4!important;gap:10px!important}
+  html body section.xc .xc-swatches i:not(#x){width:16px!important;height:16px!important;border:2px solid #f1ebe2!important;box-shadow:0 0 0 1px #18101026!important}
+  html body section.xc .xc-swatches i.is-on:not(#x){box-shadow:0 0 0 1.5px #180f10!important}
+  html body section.xc .xc-card:not(.ht-on):not(#x){visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+  html body section.xc .xc-card:not(#x){transition:opacity .6s cubic-bezier(.45,0,.2,1),visibility 0s!important}
+  html body section.xc .xc-card:not(.ht-on):not(#x){transition:opacity .6s cubic-bezier(.45,0,.2,1),visibility 0s linear .6s!important}
+  .ht-tabs{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:5;margin:40px 0 24px}
+  html body .ht-tabs button:not(#x){height:40px!important;padding:0 18px!important;border:1px solid #f6c8b5aa!important;border-radius:999px!important;background:#160e0b!important;box-shadow:none!important;color:#EEE9DE!important;font:550 14px/1 Sofia,sans-serif!important;cursor:pointer;transition:background .3s,color .3s}
+  html body .ht-tabs button[aria-selected=true]:not(#x){background:linear-gradient(105deg,#ff9862,#f46649)!important;border-color:transparent!important;color:#180F10!important}
+  /* Choose how experiences fit your platform: the two products side by side, same height (replaces the one-at-a-time tabs; owner's choice, 22 Nov 2026) */
+  html body section.xc:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body section.xc .xc-head:not(#x){margin-bottom:48px!important}
+  html body section.xc .xc-grid:not(#x){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:24px!important;align-items:stretch!important}
+  html body section.xc .xc-card:not(#x){display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
+  html body section.xc .xc-grid>.xc-card:not(#x):not(#y){margin:0!important;position:static!important;top:auto!important;min-width:0!important;overflow:hidden!important}
+  html body section.xc .xc-vis:not(#x){zoom:1!important;width:100%!important;max-width:none!important;height:272px!important;flex:0 0 auto!important;container-type:inline-size}
+  html body section.xc .xc-vis>.xc-code:not(#x),html body section.xc .xc-vis>.xc-link:not(#x),html body section.xc .xc-vis>.xc-app:not(#x){translate:0 58px!important}
+  html body section.xc .xc-vis>.xc-app:not(#x):not(#y){translate:0 51px!important}
+  html body section.xc .xc-vis>.xc-badge:not(#x){translate:0 2px!important}
+  html body section.xc .xc-swatches:not(#x){top:22px!important;right:36px!important;gap:7px!important;z-index:4!important}
+  html body section.xc .xc-swatches i:not(#x){width:11px!important;height:11px!important;border:2px solid #f1ebe2!important;box-shadow:0 0 0 1px #18101033!important}
+  html body section.xc .xc-swatches i.is-on:not(#x){box-shadow:0 0 0 1.5px #180f10!important}
+  html body section.xc .xc-body:not(#x){flex-direction:column!important;align-items:flex-start!important;gap:16px!important;padding:24px!important}
+  html body section.xc .xc-body h3:not(#x){font-size:22px!important;margin:0!important}
+  html body section.xc .xc-body:not(#x){flex:1 1 auto!important;justify-content:space-between!important}
+  html body section.xc .xc-card:not(#x){height:auto!important;align-self:stretch!important}
+  html body section.xc .xc-grid:not(#x){grid-auto-rows:1fr!important}
+  html body section.xc .xc-cta:not(#x){width:auto!important;max-width:100%!important;white-space:normal!important}
+  html body section.xc .xc-card:not(#x):not(#y){visibility:visible!important;opacity:1!important;pointer-events:auto!important;grid-area:auto!important}
+  html body section.xc .ot-tabs:not(#x),html body section.xc .ly-tabs:not(#x),html body section.xc .ht-tabs:not(#x),html body section.xc .at-tabs:not(#x),html body section.xc .tt-tabs:not(#x){display:none!important}
+}
