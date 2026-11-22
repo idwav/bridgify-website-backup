@@ -29,3 +29,15 @@ html body #performance.dp3:not(#x){padding-bottom:clamp(56px,7vw,96px)}
 @media(prefers-reduced-motion:reduce){.dp3-steps::after{animation:none;opacity:0}}
 .dp3-card{display:flex;flex-direction:column}
 .dp3-steps{flex:1;grid-auto-rows:1fr}
+
+/* Spacing from the table (SPACING-GRID-PLAN): section padding equal above and below (96 desktop, 80 tablet, 64 phone), label to title 20, heading block to content 48, content to content 24, card padding 32. Sizes stay on the brand tokens. */
+html body #performance.dp3:not(#x){padding-top:96px!important;padding-bottom:96px!important}
+html body #performance.dp3 .dev-heading:not(#x){margin-bottom:0!important}
+html body #performance .dp3-moments:not(#x){margin-top:48px!important;gap:24px!important}
+html body #performance .dp3-safe:not(#x){margin-top:24px!important;gap:24px!important}
+html body #performance .dp3-card:not(#x){padding:32px!important}
+html body #performance .dp3-card header:not(#x){margin-bottom:32px!important}
+html body #performance .dp3-steps:not(#x){gap:16px!important}
+@media(max-width:1023px){html body #performance.dp3:not(#x){padding-top:80px!important;padding-bottom:80px!important}}
+@media(max-width:599px){html body #performance.dp3:not(#x){padding-top:64px!important;padding-bottom:64px!important}html body #performance .dp3-moments:not(#x){margin-top:32px!important;gap:16px!important}html body #performance .dp3-safe:not(#x){gap:16px!important}html body #performance .dp3-card:not(#x){padding:24px!important}}
+html body #performance .dp3-steps:not(#x){grid-auto-rows:auto!important;align-content:start!important}
