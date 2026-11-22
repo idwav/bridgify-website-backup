@@ -85,7 +85,7 @@ function load(keep) {
         const d = fr.f.contentDocument, w = fr.f.contentWindow;
         const over = d.documentElement.scrollWidth - w.innerWidth;
         fr.note.innerHTML = over > 1 ? `<span class="err">sideways scroll ${over}px</span>` : '<span class="m">no sideways scroll</span>';
-        w.addEventListener('error', e => { fr.note.innerHTML += ` <span class="err">JS error: ${String(e.message).slice(0, 60)}</span>`; });
+        w.addEventListener('error', e => { if (/ResizeObserver/.test(String(e.message))) return; fr.note.innerHTML += ` <span class="err">JS error: ${String(e.message).slice(0, 60)}</span>`; });
       } catch (e) {}
       if (--left === 0) { fillSections(); if (sec) { secSel.value = sec; go(sec); } status(''); }
     };
@@ -119,7 +119,7 @@ function status(t) { $('#status').textContent = t; }
 function sync() { const u = new URL(location); u.searchParams.set('page', pageSel.value.split('?')[0]); u.searchParams.set('size', $('#zoom').value); history.replaceState(null, '', u); }
 
 pageSel.onchange = () => { secSel.value = ''; sync(); load(); };
-secSel.onchange = () => go(secSel.value);
+secSel.onchange = () => { go(secSel.value); setTimeout(() => go(secSel.value), 500); setTimeout(() => go(secSel.value), 1500); };   // again after late layout (images, entrance animations), so every screen lands on the same section
 $('#reload').onclick = () => load(true);
 $('#zoom').onchange = () => { sync(); build(); };
 addEventListener('focus', () => { if ($('#auto').checked) load(true); });
