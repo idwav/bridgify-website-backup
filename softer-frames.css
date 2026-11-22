@@ -36,3 +36,10 @@ html body img.ad-photo:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:tran
    the site instead of none (this replaces the 21 Nov "quiet frames" for these elements). The windows keep their glow. */
 html body #section-3 :is(.hs-mail-window,.hj-device):not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, 0 0 46px #f4664933, 0 24px 60px #0006!important}
 html body #section-3 :is(.hs-email-letter,.hj-checkin,.hj-app-experience,.hj-options>div,.hj-app-stay):not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important}
+
+/* Developers, "What makes a tours and activities API high performing?" (owner, 22 Nov 2026): the big screen panel and the
+   three journey boxes (Search, Checkout, Monitoring) take the same 30% frame. A box that is lit in the story keeps a
+   brighter edge, also at 30% of its old strength, and its own glow. The screen inside the panel (a device) is unchanged. */
+html body #performance .dp6-stage:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.127) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.101) 0px -1px 1px 0px inset, rgba(255, 176, 155, 0.073) 0px 0px 2px 0px, 0 0 3vw #f4664920, 0 1.6vw 3.6vw #0006!important}
+html body #performance .dp6-box:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.127)!important;box-shadow:rgba(255, 241, 218, 0.073) 0px 1px 1px 0px inset!important}
+html body #performance .dp6-box.is-lit:not(#nf1):not(#nf2):not(#nf3):not(#nf4){border-color:rgba(246, 200, 181, 0.3)!important;box-shadow:rgba(255, 241, 218, 0.2) 0px 1px 1px 0px inset, rgba(255, 153, 123, 0.14) 0px -1px 1px 0px inset, 0 0 34px #f4664944, 0 1.2vw 3vw #0006!important}

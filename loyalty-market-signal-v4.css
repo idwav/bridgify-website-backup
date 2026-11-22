@@ -226,3 +226,9 @@ html body #market-signal .lm4-lscreen:not(#x){border-color:#f4664955!important}
 /* the three thumbnails under the laptop's reward stay put when Redeem is pressed */
 .lm4-stage[data-s~="site-done"] .lm4-more,.lm4-more{transform:none!important;transition:none!important}
 .lm4-lscreen .lm4-tile{transform:none!important;transition:none!important}
+
+/* Phones (owner, 22 Nov 2026): no text under 11px in the demo (MOBILE-RULES T5). The phone's status time and the site's
+   points line were 10px; the eyebrow labels on the tile and the card go to the same floor. */
+@media(max-width:599px){
+html body #market-signal :is(.lm4-status em,.lm4-nav b,.lm4-tile small,.lm4-cpts small):not(#x){font-size:11px!important}
+}
