@@ -1,0 +1,50 @@
+/* Developers, "What good looks like", graphic version. Search: a real result card with its parts called out (what is cached, what is asked live). Checkout: three stages, with the booking showing timeout, retry, booked. Underneath, the three promises. Peach glass, standard coral button, 1.5 icons with a light dot. */
+html body #performance.dp4 .dp4-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:48px}
+html body #performance .dp4-grid .dp4-card:not(#x){display:flex;flex-direction:column;padding:32px!important;border:1px solid #f6c8b58c!important;border-radius:24px;background:radial-gradient(at 100% 0%,#ff89622e,#0000 34%),radial-gradient(at 0% 100%,#ff785324,#0000 30%),linear-gradient(115deg,#fff8f10e,#0000 50%),#150d0bf2!important;box-shadow:inset 0 1px 1px #fff1da88,inset 0 -1px 1px #ff997b55,0 0 3vw #f4664920,0 1.6vw 3.6vw #0006!important}
+.dp4-card header{display:flex;align-items:center;gap:14px}
+.dp4-num{font:550 13px/1 Sofia,sans-serif;letter-spacing:.14em;color:#F46649}
+.dp4-card header .dev-icon{width:40px;height:40px;padding:9px;box-sizing:border-box;border:1px solid #f6c8b566;border-radius:50%;color:#F46649;background:#160e0bf0}
+.dp4-card h3{margin:0;font:300 var(--type-card,clamp(24px,2.2vw,32px))/1.2 Chillax,sans-serif;letter-spacing:-.02em;color:#EEE9DE}
+.dp4-lead{margin:16px 0 28px;font:400 17px/1.5 Sofia,sans-serif;color:#D7C9BD}
+.dp4 .dev-icon{color:#F46649}.dp4 .icon-node{fill:#fff1e7;stroke:none}
+.dp4-tag{margin-left:auto;flex:none;padding:5px 12px;border-radius:999px;font:550 12px/1 Sofia,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.dp4-tag.is-static{border:1px solid #f6c8b580;color:#D7C9BD}
+.dp4-tag.is-live{background:linear-gradient(105deg,#ff9862,#f46649);color:#180F10}
+/* Search: result card + callouts on the same rows */
+.dp4-search{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);grid-template-rows:auto auto;column-gap:48px;row-gap:12px;align-items:stretch;flex:1}
+.dp4-mock{display:contents}
+.dp4-mock-top,.dp4-mock-bottom{position:relative;border:1px solid #f6c8b559;background:radial-gradient(at 100% 0%,#ff89622a,#0000 50%),linear-gradient(115deg,#fff8f10c,#0000 60%),#130b09f0;box-shadow:inset 0 1px 1px #fff1da44}
+.dp4-mock-top{grid-column:1;grid-row:1;display:flex;flex-direction:column;border-radius:16px 16px 6px 6px;overflow:hidden}
+.dp4-mock-top img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.dp4-mock-top div{padding:14px 16px}.dp4-mock-top b{display:block;font:550 18px/1.3 Sofia,sans-serif;color:#FFF8F1}.dp4-mock-top small{display:block;margin-top:4px;font:400 14px/1.3 Sofia,sans-serif;color:#C7B5A5}
+.dp4-mock-bottom{grid-column:1;grid-row:2;display:flex;align-items:center;justify-content:space-between;padding:16px;border-radius:6px 6px 16px 16px;border-color:#f6c8b5!important;box-shadow:inset 0 1px 1px #fff1da88,0 0 22px #f4664930}
+.dp4-mock-bottom span{font:500 16px/1 Sofia,sans-serif;color:#D7C9BD}.dp4-mock-bottom b{font:300 26px/1 Chillax,sans-serif;color:#FFF8F1}
+.dp4-avail{padding:6px 12px;border-radius:999px;background:#f466491f;color:#FFB194!important;font-size:14px!important}
+.dp4-notes{display:contents}
+.dp4-note{position:relative;display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid #f6c8b559;border-radius:16px;background:radial-gradient(at 100% 0%,#ff89622a,#0000 50%),linear-gradient(115deg,#fff8f10c,#0000 60%),#130b09f0}
+.dp4-note.n1{grid-column:2;grid-row:1;align-self:center}
+.dp4-note.n2{grid-column:2;grid-row:2;align-self:center;border-color:#f6c8b5;box-shadow:inset 0 1px 1px #fff1da88,0 0 22px #f4664930}
+.dp4-note::before{content:"";position:absolute;right:100%;top:50%;width:48px;height:1.5px;background:linear-gradient(90deg,#f6c8b5aa,#F46649)}
+.dp4-note::after{content:"";position:absolute;right:calc(100% + 48px);top:50%;width:9px;height:9px;margin:-4.5px -4.5px 0 0;border-radius:50%;background:#EEE9DE;border:1.5px solid #F46649}
+.dp4-note .dev-icon,.dp4-stage .dev-icon{flex:none;width:40px;height:40px;padding:9px;box-sizing:border-box;border:1px solid #f6c8b566;border-radius:12px;background:#160e0bf0}
+.dp4-note b,.dp4-stage b{display:block;font:500 clamp(17px,1.4vw,19px)/1.3 Sofia,sans-serif;color:#FFF8F1}
+.dp4-note small,.dp4-stage small{display:block;margin-top:3px;font:400 14px/1.35 Sofia,sans-serif;color:#C7B5A5}
+/* Checkout: three stages on one wire */
+.dp4-flow{position:relative;display:grid;gap:28px;margin:0;padding:0;list-style:none;flex:1;align-content:space-between}
+.dp4-flow::before{content:"";position:absolute;left:39px;top:36px;bottom:36px;width:1.5px;background:linear-gradient(#F46649,#f6c8b5aa,#F46649)}
+.dp4-stage{position:relative;display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid #f6c8b559;border-radius:16px;background:radial-gradient(at 100% 0%,#ff89622a,#0000 50%),linear-gradient(115deg,#fff8f10c,#0000 60%),#130b09f0;z-index:1}
+.dp4-stage:nth-child(-n+2){border-color:#f6c8b5;box-shadow:inset 0 1px 1px #fff1da88,0 0 22px #f4664930}
+.dp4-seq{display:flex!important;align-items:center;gap:8px;flex-wrap:wrap}
+.dp4-seq span{padding:3px 9px;border-radius:999px;border:1px dashed #f6c8b5aa;font:500 12px/1.3 Sofia,sans-serif;color:#FFB194}
+.dp4-seq span.ok{border:1px solid #f6c8b5;background:#f466491f;color:#FFF8F1}
+.dp4-seq i{width:14px;height:1.5px;background:#F46649}
+/* promises */
+html body #performance .dp4-safe:not(#x){margin-top:24px!important}
+/* glow pulse on the live parts */
+@keyframes dp4-glow{50%{box-shadow:inset 0 1px 1px #fff1da88,0 0 34px #f4664955}}
+.dp4-mock-bottom,.dp4-note.n2,.dp4-stage:nth-child(-n+2){animation:dp4-glow 4.4s cubic-bezier(.45,0,.25,1) infinite}
+@media(max-width:1100px){.dp4-search{column-gap:40px}.dp4-note::before{width:40px}.dp4-note::after{right:calc(100% + 40px)}}
+@media(max-width:1023px){html body #performance.dp4 .dp4-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:640px){.dp4-search{grid-template-columns:minmax(0,1fr);row-gap:12px}.dp4-mock-top,.dp4-mock-bottom,.dp4-note.n1,.dp4-note.n2{grid-column:1}.dp4-mock-top{grid-row:1}.dp4-note.n1{grid-row:2;margin-left:0}.dp4-mock-bottom{grid-row:3;border-radius:6px 6px 16px 16px}.dp4-note.n2{grid-row:4}.dp4-note::before,.dp4-note::after{display:none}.dp4-mock-top{border-radius:16px 16px 6px 6px}html body #performance .dp4-grid .dp4-card:not(#x){padding:24px!important}}
+@media(prefers-reduced-motion:reduce){.dp4-mock-bottom,.dp4-note.n2,.dp4-stage{animation:none}}
+@media(min-width:641px){.dp4-note b{white-space:nowrap}.dp4-note small{max-width:26ch}}
