@@ -64,11 +64,11 @@ function build() {
   wrap.innerHTML = ''; frames = [];
   // 'fit': every screen at the same height, all of them across the window; bigger/big scroll sideways
   const gaps = 14 * (SCREENS.length + 1), ratio = SCREENS.reduce((t, s) => t + s.w / s.h, 0);
-  const H = Math.min(innerHeight - 110, (document.documentElement.clientWidth - gaps - 2 * SCREENS.length) / ratio) * +$('#zoom').value;   // clientWidth: the vertical scrollbar takes no room from the screens
+  const H = Math.min(innerHeight - 110, (document.documentElement.clientWidth - gaps - 4 * SCREENS.length) / ratio) * +$('#zoom').value;   // clientWidth: the vertical scrollbar takes no room from the screens
   for (const s of SCREENS) {
     const scale = H / s.h;
     const el = document.createElement('div'); el.className = 'scr';
-    el.innerHTML = `<div class="lab"><b>${s.name}</b><span>${s.w}×${s.h}</span></div><div class="box" style="width:${Math.round(s.w*scale)}px;height:${Math.round(s.h*scale)}px"><iframe width="${s.w}" height="${s.h}" style="transform:scale(${scale})"></iframe></div><div class="lab"><span class="note"></span></div>`;
+    el.innerHTML = `<div class="lab"><b>${s.name}</b><span>${s.w}×${s.h}</span></div><div class="box" style="width:${Math.ceil(s.w*scale)+2}px;height:${Math.ceil(s.h*scale)+2}px"><iframe width="${s.w}" height="${s.h}" style="transform:scale(${scale})"></iframe></div><div class="lab"><span class="note"></span></div>`;
     wrap.appendChild(el);
     const f = el.querySelector('iframe'); frames.push({f, s, note: el.querySelector('.note')});
   }
