@@ -80,6 +80,7 @@
         const on = p && p.wrap.classList.contains('is-on');
         if (!on) { if (measured) { unframe(); measured = false; } return; }
         if (!measured) measure();
+        soften();
         visuals.forEach((v, i) => {
           const st = stages[i]; if (!v || !st || v.dataset.adFramed) return;
           const g = getComputedStyle(st);
@@ -120,6 +121,24 @@
           fitStep.t = [700, 1800, 3600].map(ms => setTimeout(() => { fitStep.again = 1; fitStep(); fitStep.again = 0; }, ms));
         }
       };
+      /* The frames inside the four diagrams take the site's 30% frame too (owner, 22 Nov 2026): the light line and the
+         edge highlights × 0.22, worked out from each element's own frame; coral accents, fills and drop shadows stay. */
+      const SOFT = '.nm-card,.nm-final,.ag-engine,.ag-out,.ds-engine,.ds-dev,.ds-tile,.ps-prof,.ps-card';
+      const alpha = (c, k) => c.replace(/rgba?\(([^)]+)\)/g, (m, v) => { const p = v.split(',').map(x => parseFloat(x));
+        return `rgba(${p[0]}, ${p[1]}, ${p[2]}, ${((p.length > 3 ? p[3] : 1) * k).toFixed(3)})`; });
+      const light = c => { const m = c.match(/rgba?\(([^)]+)\)/); if (!m) return false; const p = m[1].split(',').map(parseFloat); return p[0] > 200 && p[1] > 150; };
+      const parts = s => { const out = []; let d = 0, cur = ''; for (const ch of s) { if (ch === '(') d++; if (ch === ')') d--; if (ch === ',' && !d) { out.push(cur.trim()); cur = ''; } else cur += ch; } if (cur.trim()) out.push(cur.trim()); return out; };
+      const soften = () => wy.querySelectorAll(SOFT).forEach(e => {
+        if (e.dataset.adSoft) return; const g = getComputedStyle(e); let done = false;
+        ['top', 'right', 'bottom', 'left'].forEach(side => { const c = g.getPropertyValue(`border-${side}-color`);
+          if (parseFloat(g.getPropertyValue(`border-${side}-width`)) && light(c)) { e.style.setProperty(`border-${side}-color`, alpha(c, .22), 'important'); done = true; } });
+        /* a frame that is not drawn yet (it comes in with the diagram's animation) is tried again on the next fit */
+        if (!done) return;
+        if (g.boxShadow && g.boxShadow !== 'none') e.style.setProperty('box-shadow', parts(g.boxShadow).map(x => {
+          const m = x.match(/^(rgba?\([^)]+\))\s+(.*)$/); if (!m) return x; const n = (m[2].match(/-?[\d.]+px/g) || []).map(parseFloat);
+          return (/inset/.test(m[2]) || (n[2] || 0) <= 2) && light(m[1]) ? `${alpha(m[1], .22)} ${m[2]}` : x; }).join(', '), 'important');
+        e.dataset.adSoft = '1';
+      });
       let scrollStep = 0, p = null;
       body.style.setProperty('--wy-stage-h', H() + 'px');
       p = A.pin([body], {steps: tabs.length, per: .5, className: 'ad-wy-pin', vh: () => probe.offsetHeight || innerHeight, onStep: i => {
