@@ -28,7 +28,7 @@
   addEventListener('scroll', ask, {passive: true}); addEventListener('resize', ask); A.MQ.mobile.addEventListener('change', ask); ask();
 })();
 
-/* What good looks like on phones: the box at the top of the stack is the one the screen plays (developers.css). */
+/* What good looks like on phones: the box in front is the one the screen plays (developers.css). */
 (() => {
   const A = window.BridgifyAdaptive; if (!A) return;
   const root = document.querySelector('#performance.dp6'); if (!root) return;
@@ -38,8 +38,8 @@
   const paint = () => {
     raf = 0;
     if (!A.MQ.mobile.matches || reduced.matches) { if (active !== -1) { delete root.dataset.lockBox; active = -1; boxes.forEach(b => b.classList.remove('is-covered')); } return; }
-    const stop = parseFloat(getComputedStyle(boxes[0]).top) || 0;
-    let n = 0; boxes.forEach((b, i) => { if (b.getBoundingClientRect().top <= stop + 48) n = i; });
+    boxes.forEach(b => b.style.setProperty('--dp6m-h', b.offsetHeight + 'px'));   // each box rests on the phone's bottom edge
+    let n = 0; boxes.forEach((b, i) => { if (b.getBoundingClientRect().top <= (parseFloat(getComputedStyle(b).top) || 0) + 48) n = i; });
     if (n === active) return;
     active = n; root.dataset.lockBox = n; boxes.forEach((b, i) => b.classList.toggle('is-covered', i < n));
     root.dispatchEvent(new CustomEvent('dp6:box', {detail: n}));
