@@ -203,3 +203,6 @@ html body #performance.dp6:not(#x){padding-top:80px!important;padding-bottom:80p
 html body #performance.dp6:not(#x){padding-top:64px!important;padding-bottom:64px!important}
 .dp6-stage{height:560px;min-height:560px!important}
 }
+
+/* no orange rule between "What good looks like" and "Access and support" */
+html body #access:not(#x),html body #performance:not(#x){border-top:0!important;border-bottom:0!important}
