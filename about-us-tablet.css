@@ -4,7 +4,7 @@
 .ab-tabs,.ab-cap{display:none}
 @media (min-width:600px) and (max-width:900px){
   /* 1 · Hero */
-  html body:not(#bf-lab) section#top:not(#x):not(#y){padding-top:128px!important;padding-bottom:48px!important;min-height:100svh!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+  html body:not(#bf-lab) section#top:not(#x):not(#y){padding-top:128px!important;padding-bottom:24px!important;min-height:100svh!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
   /* 3 · From fragmented supply: 01-03 buttons, the active step's text under them, its demo at natural size (switch by themselves, see about-us-tablet.js) */
   html body:not(#bf-lab) section#story:not(#x):not(#y){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
   html body:not(#bf-lab) #story .ab-pin:not(#x):not(#y){height:auto!important;position:static!important;display:block!important;padding:0 32px!important}
@@ -25,4 +25,6 @@
   html body:not(#bf-lab) #story .ms-s:not(.ab-on):not(#x):not(#y){visibility:hidden!important;opacity:0!important;pointer-events:none!important}
   html body:not(#bf-lab) #story .ms-s:not(#x):not(#y){transition:opacity .6s cubic-bezier(.45,0,.2,1),visibility 0s!important}
   html body:not(#bf-lab) #story .ms-s:not(.ab-on):not(#x):not(#y){transition:opacity .6s cubic-bezier(.45,0,.2,1),visibility 0s linear .6s!important}
+  /* 1 · Hero: the map on the same 32px line as the text, small enough that the whole hero is one screen */
+  html body:not(#bf-lab) section#top .wm:not(#x):not(#y){zoom:.62;width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
 }
