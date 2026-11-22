@@ -2,7 +2,29 @@ window.BridgifyRoles = {
  "page": "press",
  "sections": [
   {
-   "section": "header.nr-intro",
+   "section": ".nr-hero",
+   "items": [
+    [
+     "label",
+     "header.nr-intro > div.eyebrow"
+    ],
+    [
+     "title",
+     "header.nr-intro > h1"
+    ],
+    [
+     "text",
+     "header.nr-intro > p"
+    ],
+    [
+     "visual",
+     "section.nr-feature"
+    ]
+   ],
+   "hero": true
+  },
+  {
+   "section": ".nr-feature-copy",
    "items": [
     [
      "label",
@@ -10,43 +32,21 @@ window.BridgifyRoles = {
     ],
     [
      "title",
-     "h1"
-    ],
-    [
-     "text",
-     "p"
-    ]
-   ],
-   "hero": true
-  },
-  {
-   "section": ".nr-feature",
-   "items": [
-    [
-     "visual",
-     "a.nr-video"
-    ],
-    [
-     "label",
-     "div.nr-feature-copy > div.eyebrow"
-    ],
-    [
-     "title",
      "#nr-video-title"
     ],
     [
      "text",
-     "div.nr-feature-copy > p"
+     "p"
     ],
     [
      "actions",
-     "div.nr-feature-copy > a.btn"
+     "a.btn"
     ]
    ],
-   "frame": ".nr-feature"
+   "frame": ".nr-feature-copy"
   },
   {
-   "section": ".nr-about",
+   "section": ".nr-hero-context",
    "items": [
     [
      "title",
@@ -54,15 +54,19 @@ window.BridgifyRoles = {
     ],
     [
      "text",
-     "p:nth-child(2)"
+     ".nr-about > p:first-of-type"
     ],
     [
      "text",
-     "p:nth-child(3)"
+     ".nr-about > p:last-of-type"
     ],
     [
      "link",
-     "a.nr-link"
+     ".nr-about > a.nr-link"
+    ],
+    [
+     "content",
+     "section.nr-release"
     ]
    ]
   },
@@ -106,6 +110,10 @@ window.BridgifyRoles = {
     [
      "content",
      "div.nr-grid"
+    ],
+    [
+     "actions",
+     "button.ad-show-more"
     ]
    ]
   },

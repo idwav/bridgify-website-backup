@@ -38,3 +38,23 @@
     }});
   }
 })();
+
+/* Owner, 22 Nov 2026 (phones): Make experiences part of the stay. Each preview (the pre-arrival email, check-in, the app)
+   fits the held stage whole instead of being cut at its bottom: a preview taller than the stage is scaled down from its
+   top edge, centred. */
+(() => {
+  const A = window.BridgifyAdaptive; if (!A || !A.MQ.mobile.matches) return;
+  const pv = document.querySelector('#section-3 .hs-preview'); if (!pv) return;
+  const panels = [...pv.querySelectorAll('.hs-panel')];
+  const fit = () => {
+    const room = pv.clientHeight - 2;
+    panels.forEach(p => {
+      p.style.removeProperty('scale'); p.style.removeProperty('transform-origin');
+      const h = p.offsetHeight; if (!h || !room) return;
+      const k = Math.min(1, room / h);
+      if (k < 1) { p.style.setProperty('scale', k.toFixed(3), 'important'); p.style.setProperty('transform-origin', '50% 0', 'important'); }
+    });
+  };
+  fit(); addEventListener('resize', fit); addEventListener('load', () => setTimeout(fit, 300));
+  if (window.ResizeObserver) { const ro = new ResizeObserver(() => requestAnimationFrame(fit)); ro.observe(pv); panels.forEach(p => ro.observe(p)); }
+})();
