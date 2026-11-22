@@ -55,3 +55,6 @@ html body .hotel-responsibility .hr-columns :is(h3,h4){font-family:Chillax,sans-
 
 /* Shared 4% page margin on every width. */
 .hotel-responsibility{max-width:none}
+
+/* Bridgify column: Supply, Content and Payments are plain white text (no coral ink), sizes stay on the type scale */
+html body .hotel-responsibility .hr-managed strong,html body .hotel-responsibility .hr-managed li.is-current strong{color:#fff!important;background:none!important;-webkit-text-fill-color:#fff!important}
