@@ -642,3 +642,16 @@
   html body #sources .trust-footnote>a:not(#ad-x):not(#ad-y){margin:6px 0 0!important;font:550 15px/24px Sofia,sans-serif!important}
   html body #sources .trust-footnote>small:not(#ad-x):not(#ad-y){margin:6px 0 0!important;font:400 13px/20px Sofia,sans-serif!important}
 }
+
+/* Global supply on phones, round 2: lighter figures (Chillax 400, not 600), tighter rhythm like the desktop strip, and the standard coral button */
+@media (max-width:599px){
+  html body #sources .trust-stat strong:not(#ad-x):not(#ad-y){font-weight:400!important;font-size:32px!important;letter-spacing:-.02em!important}
+  html body #sources .trust-stat:not(#ad-x):not(#ad-y){gap:4px!important}
+  html body #sources .trust-stat:nth-of-type(-n+3):not(#ad-x):not(#ad-y){margin-top:24px!important}
+  html body #sources .trust-stat:nth-of-type(n+5):not(#ad-x):not(#ad-y){padding-top:24px!important}
+  html body #sources .trust-stat>span:not(#ad-x):not(#ad-y){font-size:13px!important;line-height:18px!important}
+  html body #sources .trust-footnote:not(#ad-x):not(#ad-y){margin-top:24px!important}
+  html body #sources .trust-footnote>a:not(#ad-x):not(#ad-y){display:inline-flex!important;align-items:center!important;gap:10px!important;box-sizing:border-box!important;height:40px!important;min-height:40px!important;margin:16px 0 0!important;padding:0 18px!important;border:0!important;border-radius:11px!important;background:linear-gradient(105deg,#ff9862,#f46649)!important;color:#180f10!important;font:550 15px/20px Sofia,sans-serif!important;text-decoration:none!important;box-shadow:inset 0 1px 1px #ffd8bd88,0 8px 24px #f4664926!important}
+  html body #sources .trust-footnote>a .trust-link-arrow:not(#x){width:auto!important;height:auto!important;background:none!important;color:inherit!important;font-size:16px!important}
+  html body #sources .trust-footnote>small:not(#ad-x):not(#ad-y){margin-top:16px!important}
+}
