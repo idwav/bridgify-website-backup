@@ -1,9 +1,20 @@
 /* Careers, "The problems you'd work on": the four problems are glass cards (peach edge, corner lights, rim light) instead of a hairline strip with a growing orange bar; the partner photos and the hub share the same glass edge; the icons carry our light dot on the stroke. Wires, texts and order are unchanged. */
 html body #problems .cpp3-grid:not(#x){border:0!important;column-gap:clamp(12px,1.4vw,20px)!important}
 html body #problems .cpp3-cell:not(#x){border:1px solid #f6c8b559!important;border-radius:22px!important;padding:clamp(22px,2vw,30px)!important;background:radial-gradient(at 100% 0%,#ff89622a,#0000 44%),radial-gradient(at 0% 100%,#ff785320,#0000 40%),linear-gradient(115deg,#fff8f10e,#0000 55%),#150d0bf2!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b40,0 1.2vw 3vw #0006!important}
-html body #problems .cpp3-cell:before:not(#x){display:none!important}
+html body #problems .cpp3-cell:not(#x)::before{display:none!important;content:none!important}
 html body #problems .cpp3-cell.is-lit:not(#x){border-color:#f6c8b5!important;box-shadow:inset 0 1px 1px #fff1daaa,inset 0 -1px 1px #ff997b77,0 0 3vw #f4664930,0 1.2vw 3vw #0006!important}
 html body #problems .cpp3-ic:not(#x){border:1px solid #f6c8b566!important;background:radial-gradient(at 100% 0%,#ff89622a,#0000 60%),#160e0bf0}
 html body #problems .cpp3-ic .icon-node:not(#x){fill:#fff1e7;stroke:none}
 html body #problems .cpp3-partners figure:not(#x){border:1px solid #f6c8b5aa!important;box-shadow:inset 0 1px 1px #fff1da88,0 0 2.4vw #f4664926,0 1.2vw 3vw #0007!important}
 @media(max-width:1000px){html body #problems .cpp3-grid:not(#x){row-gap:12px}}
+
+/* One tighter composition (desktop and tablet): the section is as tall as its content plus the content-line margin above and below, and the four steps of the tree sit at an even rhythm: title, 32px, hub, 40px, partners, 44px, problems. */
+@media(min-width:1001px){
+html body #problems.cpp3:not(#x){padding-top:var(--try-margin)!important;padding-bottom:var(--try-margin)!important}
+html body #problems .cpp-head:not(#x){margin-bottom:32px!important}
+html body #problems .cpp3-flow:not(#x){margin-top:0!important}
+html body #problems .cpp3-partners:not(#x){margin-top:40px!important;margin-bottom:0!important}
+html body #problems .cpp3-flow .cpp3-grid:not(#x){margin-top:44px!important;margin-bottom:0!important}
+html body #problems .cpp3-cell:not(#x){padding:22px clamp(18px,1.8vw,26px)!important}
+html body #problems .cpp3-cell h3:not(#x){padding-top:20px!important}
+}
