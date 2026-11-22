@@ -625,10 +625,9 @@
   html body #marketplace-results .nb2-stats>div:not(.nb2-main) dt{min-height:2.6em}
 }
 
-/* Who it's for on phones: the icon's stroke is no longer clipped by its box, and when a card shows its photo the photo and its dark wash reach 16px past the text column on both sides, so the icon never touches the picture's edge. The text keeps the 24px content line. */
+/* Who it's for on phones: the side margin stays 24px for every card, photo included (nothing reaches past it). The icon's stroke is no longer clipped, the icon is 28px, and each card keeps 12px inside its edge, so in the photo state the icon never touches the picture's edge. */
 @media (max-width:599px){
   html body #audiences .audience-icon svg:not(#ad-x):not(#ad-y){overflow:visible!important}
-  html body #audiences .audience-card:not(#ad-x):not(#ad-y){overflow:visible!important}
-  html body #audiences .audience-photo:not(#ad-x):not(#ad-y){inset:0 -16px!important;width:calc(100% + 32px)!important;max-width:none!important}
-  html body #audiences .audience-card:not(#ad-x):not(#ad-y)::before{inset:0 -16px!important}
+  html body #audiences .audience-icon:not(#ad-x):not(#ad-y){width:28px!important;height:28px!important}
+  html body #audiences .audience-card:not(#ad-x):not(#ad-y){padding-left:12px!important;grid-template-columns:28px minmax(0,1fr)!important;column-gap:16px!important}
 }
