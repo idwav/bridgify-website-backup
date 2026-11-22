@@ -63,3 +63,8 @@
   /* Passenger journey: the pinned tabs and phone sit on the section colour, not on a darker box. */
   html body #section-3 .ad-jp-pin .ad-pin-stage:not(#ad-x){background:transparent!important}
 }
+
+/* Hero journey card: "View experience ↗" / "View ticket ↗" stay on one line on narrow phones (QA 22 Nov 2026, broke at 360). */
+@media (max-width:599px){
+  html body .aj-action:not(#ad-x):not(#ad-y){white-space:nowrap!important;min-height:40px!important;padding:0 12px!important;font-size:15px!important;line-height:20px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important}
+}
