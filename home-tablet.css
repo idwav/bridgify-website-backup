@@ -34,6 +34,24 @@
   html body #why-bridgify :is(.ag-src small,.ag-engine small,.ag-out small,.ag-out span,.ag-out li,.nm-src,.nm-flag,.nm-meta span,.nm-meta em,.nm-status span,.ds-engine small,.ds-chrome span,.ds-bar span,.ds-tile small,.ds-tile span,.ds-label,.ps-head>span,.ps-ai,.ps-rank,.ps-match,.ps-body small,.ag-src b,.hm-node b,.ps-caption,.ps-prof):not(#x){font-size:max(11px,1.1cqw)!important}
   html body #why-bridgify :is(.nm-lockbar,.nm-lockbar span,.nm-fbody small,.nm-tags li,.nm-buy em,.nm-buy span):not(#x){font-size:max(12.3px,1.1cqw)!important}
   html body #why-bridgify :is(.nm-card .nm-src,.nm-card .nm-flag,.nm-card .nm-meta span,.nm-card .nm-meta em,.ds-kiosk .ds-tile span,.ds-kiosk .ds-tile small):not(#x){font-size:max(11.8px,1.1cqw)!important}
+  /* 1 · Why Bridgify and Products: room between the title, the tabs and the text under them (they were pressed against each other) */
+  html body #why-bridgify .wy-head h2:not(#x),html body #products .pr-head h2:not(#x){margin-bottom:0!important}
+  html body #why-bridgify .wy-head:not(#x),html body #products .pr-head:not(#x){display:block!important}
+  html body #why-bridgify .ht-tabs:not(#x),html body #products .ht-tabs:not(#x){margin:24px 0 0!important}
+  html body #why-bridgify .wy-sticky:not(#x){gap:24px!important}
+  html body #products .pr-head:not(#x){margin-bottom:24px!important}
+  /* 2 · Personalization: the content starts and ends on the content line like every other section (32px), full width */
+  html body #personalization:not(#x){padding-left:32px!important;padding-right:32px!important}
+  html body #personalization > *:not(#x){width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}
+  /* 4 · Results: the stage is as tall as the screen, so the lowest plate runs to the bottom edge of the section and is cut there; the plates are spaced apart */
+  html body #marketplace-results .v2e-stage:not(#x){width:100%!important;height:calc(100svh - 64px)!important;aspect-ratio:auto!important}
+  html body #marketplace-results .v2e-art:not(#x){height:70%!important}
+  html body #marketplace-results .v2e-layer-scene:not(#x){width:140%!important;left:-20%!important}
+  html body #marketplace-results .v2e-plane-unit[data-plane="front"]:not(#x){translate:0 -330px}
+  html body #marketplace-results .v2e-plane-unit[data-plane="back"]:not(#x){translate:0 -150px}
+  html body #marketplace-results .v2e-plane-unit[data-plane="bottom"]:not(#x){translate:0 110px}
+  /* 3 · Personalization: the two cards under the words keep a clear gap between them */
+  html body #personalization .intent-field:not([data-field=context]):not(#x){min-width:112px!important;padding-left:14px!important;padding-right:14px!important}
   /* tab bar */
   .ht-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;position:relative;z-index:5}
   .ht-tabs button{height:40px;padding:0 18px;border:1px solid #f6c8b5aa;border-radius:999px;background:#160e0b;color:#EEE9DE;font:550 14px/1 Sofia,sans-serif;cursor:pointer;transition:background .3s,color .3s}
