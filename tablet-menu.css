@@ -3,7 +3,10 @@
    phones keep getting theirs from the phone layer, desktop (1024+) is untouched. Loaded by tablet-menu.js. */
 @media (min-width:600px) and (max-width:1023px){:root{--ad-header-h:64px;--ad-touch:44px;--ad-gutter:32px}}
 /* ---------- 1. Compact header + menu sheet (shared, ≤1023) ---------- */
-.ad-menu-btn,.ad-menu{display:none}
+/* hidden by default on tablet and desktop only (600px and up): on phones the same two classes belong to the phone layer's
+   hamburger and menu sheet (mobile/patterns.css), and this file is loaded at every width, so an unconditional rule here
+   hid the phone hamburger (22 Nov 2026) */
+@media (min-width:600px){.ad-menu-btn,.ad-menu{display:none}}
 @media (min-width:600px) and (max-width:1023px){
   html body header.top.site-header-common{
     inset:10px 12px auto!important;min-height:0!important;height:var(--ad-header-h)!important;
