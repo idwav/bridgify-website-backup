@@ -750,3 +750,12 @@
   html.ad-hf-seq body #home .bv2-hero-actions:not(.hf-acts-in){opacity:0;translate:0 20px}
   html.ad-hf-seq body #home .bv2-hero-actions{transition:opacity .75s cubic-bezier(.45,0,.2,1),translate .75s cubic-bezier(.45,0,.2,1)}
 }
+
+/* Home hero on phones (owner, 22 Nov 2026): Book a demo and See how it works span the content width at equal widths,
+   side by side, the labels centred in each; a phone too narrow for both (iPhone SE) stacks them at full width.
+   Home only: other heroes keep the short buttons (actions.css, PR #125). */
+@media (max-width:599px){
+  html body #home .bv2-hero-actions[data-bf-role=actions]:not(#ad-x):not(#ad-y):not(a):not(button){display:grid!important;grid-template-columns:1fr 1fr!important;gap:12px!important;width:100%!important;justify-content:stretch!important}
+  html body #home .bv2-hero-actions[data-bf-stack=column]:not(#ad-x):not(#ad-y):not(a):not(button){grid-template-columns:1fr!important}
+  html body #home .bv2-hero-actions[data-bf-role=actions]:not(#ad-x):not(#ad-y)>:is(a,button){width:100%!important;max-width:none!important;flex:none!important;justify-content:center!important;text-align:center!important;padding:0 10px!important}
+}
