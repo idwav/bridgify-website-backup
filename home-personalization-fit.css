@@ -1,0 +1,13 @@
+/* Home, "Don't give travelers a library.": the section fills one screen under the header (the header is 64px) on desktops and tall windows, with the content block centred between the same top and bottom space; the look, the type and the Tom spacing inside are unchanged. */
+@media (min-width:1024px) and (min-height:700px){
+html body #personalization.v4-personal:not(#x){box-sizing:border-box!important;min-height:calc(100vh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+html body #personalization.v4-personal > *:not(#x){width:100%!important;max-width:none!important;box-sizing:border-box}
+}
+
+/* The two cards under the sentence sit exactly under their words: the script centres each card on its word, and a leftover 20px shift in home-intent-v2.css pushed them off (Romantic 27px left, Paris 26px right of its wire). */
+html body #personalization .intent-field[data-field=intent]:not(#x),html body #personalization .intent-field[data-field=destination]:not(#x){translate:none!important}
+/* "Meet AIyelet" is our standard coral button, the same as the primary button in the header and in the Sources section. */
+html body #personalization .home-intent-copy a.v4-text-link:not(#x){display:inline-flex!important;align-items:center!important;gap:12px!important;box-sizing:border-box!important;min-height:52px!important;padding:0 22px!important;border:0!important;border-radius:11px!important;background:linear-gradient(105deg,#ff9862,#f46649)!important;color:#180f10!important;font:550 16px/1.25 Sofia,sans-serif!important;text-decoration:none!important;box-shadow:inset 0 1px 1px #ffd8bd88,0 8px 24px #f4664926!important;transition:transform .3s,box-shadow .3s}
+html body #personalization .home-intent-copy a.v4-text-link:hover:not(#x){transform:translateY(-2px);box-shadow:inset 0 1px 1px #ffd8bd88,0 12px 30px #f4664947!important}
+html body #personalization .home-intent-copy a.v4-text-link svg:not(#x){width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+@media(max-width:599px){html body #personalization .home-intent-copy a.v4-text-link:not(#x){min-height:40px!important;padding:0 18px!important}}
