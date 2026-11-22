@@ -43,3 +43,43 @@
 @media (max-width:359px){
   html body #top .ab-proof>span:not(#ad-x):not(#ad-y){white-space:normal!important;flex:1 1 0!important;min-width:0!important}
 }
+
+/* Our mission on phones, option A (owner, 22 Nov 2026): each chapter sits with its own diagram as one card that fits
+   the screen (number, title and text on top, the diagram under them), and the next card rises over it as the reader
+   scrolls. Same markup as desktop: the copy column, the chapter list and the diagram box open up (display:contents)
+   and their pieces are put in order with `order`; the chapter (top of the card) and its diagram (bottom) are two
+   sticky pieces that move together, the diagram held just under its chapter (--ab-lih from about-us.js). A card that
+   the next one covers steps back and fades. Reduced motion: the cards simply follow one another. */
+@media (max-width:599px){
+  html body #story .ab-pin:not(#ad-x):not(#ad-y){display:flex!important;flex-direction:column!important;height:auto!important;align-items:stretch!important;gap:0!important;row-gap:0!important}
+  html body #story :is(.ab-label,.ab-btn):not(#ad-x):not(#ad-y){align-self:flex-start!important}
+  html body #story :is(.ab-pin-copy,.ab-chapters,.ms):not(#ad-x):not(#ad-y){display:contents!important}
+  html body #story .ab-label{order:0} html body #story #story-title{order:1}
+  /* the one-line mission and its link come right under the title, then the three cards */
+  html body #story .ab-line{order:2} html body #story .ab-btn{order:3}
+  html body #story .ab-chapters>li:nth-child(1){order:4} html body #story .ms-s1{order:5}
+  html body #story .ab-chapters>li:nth-child(2){order:6} html body #story .ms-s2{order:7}
+  html body #story .ab-chapters>li:nth-child(3){order:8} html body #story .ms-s3{order:9}
+  /* the card: chapter on top, diagram under it, one frame around both (30%, as every display box) */
+  html body #story .ab-chapters>li:not(#ad-x):not(#ad-y){opacity:1!important;--f:1!important;margin:0!important;padding:20px 16px 12px!important;
+    background:#160e0c!important;border:1px solid rgba(246,200,181,.127)!important;border-bottom:0!important;border-radius:20px 20px 0 0!important}
+  html body #story .ab-chapters>li *{opacity:1!important}
+  html body #story .ms>.ms-s:not(#ad-x):not(#ad-y){width:auto!important;margin:0!important;padding:4px 16px 16px!important;box-sizing:border-box!important;
+    background:#160e0c!important;border:1px solid rgba(246,200,181,.127)!important;border-top:0!important;border-radius:0 0 20px 20px!important;
+    opacity:1!important;visibility:visible!important;transform:none!important;inset:auto!important}
+  html body #story .ms>.ms-s>.ms-cap{display:none!important}
+}
+@media (max-width:599px) and (prefers-reduced-motion:no-preference){
+  html body #story{--ab-top:calc(var(--ad-header-h) + 16px)}
+  html body #story .ab-chapters>li:not(#ad-x):not(#ad-y){position:sticky!important;top:var(--ab-top)!important}
+  html body #story .ms>.ms-s:not(#ad-x):not(#ad-y){position:sticky!important;top:calc(var(--ab-top) + var(--ab-lih,140px))!important;box-shadow:0 18px 40px #0009!important}
+  html body #story .ab-chapters>li:nth-child(1),html body #story .ms-s1{z-index:1} html body #story .ab-chapters>li:nth-child(2),html body #story .ms-s2{z-index:2}
+  html body #story .ab-chapters>li:nth-child(3),html body #story .ms-s3{z-index:3}
+  html body #story .ab-chapters>li:not(:first-child):not(#ad-x):not(#ad-y){margin-top:46vh!important;box-shadow:0 -18px 40px #000c!important}
+  /* a chapter and its diagram leave together: the chapter's margin box reaches down over its diagram (--ab-sh, the
+     diagram's height; cards 2 and 3, card 1 is covered before it leaves), so the chapter stops holding exactly when its diagram does; the diagram's negative margin keeps the layout */
+  html body #story .ab-chapters>li:not(:first-child):not(#ad-x):not(#ad-y){margin-bottom:var(--ab-sh,0px)!important}
+  html body #story .ms>.ms-s:not(.ms-s1):not(#ad-x):not(#ad-y){margin-top:calc(-1 * var(--ab-sh,0px))!important}
+  html body #story :is(.ab-chapters>li,.ms>.ms-s){transition:scale .4s cubic-bezier(.45,0,.2,1),opacity .4s cubic-bezier(.45,0,.2,1)}
+  html body #story :is(.ab-chapters>li,.ms>.ms-s).ad-covered:not(#ad-x):not(#ad-y){scale:.94;opacity:0!important}
+}

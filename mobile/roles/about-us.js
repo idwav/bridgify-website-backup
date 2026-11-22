@@ -68,10 +68,6 @@ window.BridgifyRoles = {
      "#story-title"
     ],
     [
-     "content",
-     "div.ab-pin-copy > ol.ab-chapters"
-    ],
-    [
      "text",
      "div.ab-pin-copy > p.ab-line"
     ],
@@ -81,7 +77,15 @@ window.BridgifyRoles = {
     ],
     [
      "content",
-     "div.ab-pin > div.ms"
+     "ol.ab-chapters > li:first-child"
+    ],
+    [
+     "deco",
+     "ol.ab-chapters > li:not(:first-child)"
+    ],
+    [
+     "deco",
+     "div.ms > div.ms-s"
     ]
    ]
   },
