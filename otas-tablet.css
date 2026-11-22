@@ -58,4 +58,8 @@
   .ot-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:40px 0 24px;position:relative;z-index:5}
   .ot-tabs button{height:40px;padding:0 18px;border:1px solid #f6c8b5aa;border-radius:999px;background:#160e0b;color:#EEE9DE;font:550 14px/1 Sofia,sans-serif;cursor:pointer;transition:background .3s,color .3s}
   .ot-tabs button[aria-selected=true]{background:linear-gradient(105deg,#ff9862,#f46649);border-color:transparent;color:#180F10}
+  /* 4 · Embed, White-Label card: the three colour dots sit inside the browser's address bar, on its right, not above its corner */
+  html body #section-4 .xc-swatches:not(#x){top:53px!important;right:69px!important;z-index:4!important;gap:10px!important}
+  html body #section-4 .xc-swatches i:not(#x){width:16px!important;height:16px!important;border:2px solid #f1ebe2!important;box-shadow:0 0 0 1px #18101026!important}
+  html body #section-4 .xc-swatches i.is-on:not(#x){box-shadow:0 0 0 1.5px #180f10!important}
 }
