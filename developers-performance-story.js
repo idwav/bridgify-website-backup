@@ -1,18 +1,19 @@
-// Developers, "What good looks like": the story plays as six beats, each about 2.4 seconds, on repeat while on screen. Clicking a beat jumps to it.
+// Developers, "What good looks like": seven quick beats on repeat while on screen. Search types "Rome", results rise, prices land, Book is pressed, the price is checked (green), sent, timed out and retried, confirmed, and watched. The screen never changes size.
 (() => {
-  const root = document.querySelector('#performance.dp5'); if (!root) return;
-  const stage = root.querySelector('.dp5-stage'), beats = [...root.querySelectorAll('.dp5-beat')], list = root.querySelector('.dp5-beats');
-  const wire = document.createElement('i'); wire.className = 'dp5-wire'; list.prepend(wire);
-  const STEP = [2300, 2500, 2300, 3200, 2300, 2500], price = stage.querySelector('.dp5-sprice em');
-  let cur = 0, timer = 0, visible = false, manual = false;
+  const root = document.querySelector('#performance.dp6'); if (!root) return;
+  const stage = root.querySelector('.dp6-stage'), beats = [...root.querySelectorAll('.dp6-beat')], typed = root.querySelector('.dp6-typed');
+  const STEP = [1400, 2400, 1700, 1100, 2400, 1500, 2200], WORD = 'Rome';
+  let cur = 0, timer = 0, typing = 0, press = 0, visible = false, hold = false;
+  const type = () => { clearInterval(typing); let i = 0; typed.textContent = ''; typing = setInterval(() => { typed.textContent = WORD.slice(0, ++i); if (i >= WORD.length) clearInterval(typing); }, 160); };
   const show = n => {
-    cur = n; stage.dataset.beat = n + 1;
+    cur = n; stage.dataset.beat = n + 1; stage.classList.remove('is-press'); clearTimeout(press);
     beats.forEach((b, i) => b.classList.toggle('is-on', i === n));
-    if (n === 2 && price) { price.style.opacity = 0; price.style.transform = 'translateY(-6px)'; setTimeout(() => { price.textContent = '€39'; price.style.opacity = 1; price.style.transform = 'none'; }, 350); }
+    if (n === 0) type(); else typed.textContent = WORD;
+    if (n === 1) press = setTimeout(() => stage.classList.add('is-press'), 1900);
   };
-  const next = () => { clearTimeout(timer); if (!visible || manual) return; timer = setTimeout(() => { show((cur + 1) % beats.length); next(); }, STEP[cur]); };
-  beats.forEach((b, i) => b.addEventListener('click', () => { manual = true; clearTimeout(timer); show(i); setTimeout(() => { manual = false; next(); }, 6000); }));
+  const next = () => { clearTimeout(timer); if (!visible || hold) return; timer = setTimeout(() => { show((cur + 1) % beats.length); next(); }, STEP[cur]); };
+  beats.forEach((b, i) => b.addEventListener('click', () => { hold = true; clearTimeout(timer); show(i); setTimeout(() => { hold = false; next(); }, 4000); }));
   show(0);
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { show(6); return; }
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) next(); else clearTimeout(timer); }, { threshold: .3 }).observe(stage);
 })();
