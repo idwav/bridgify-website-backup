@@ -45,7 +45,7 @@
       const FRAME = ['border', 'border-radius', 'background-image', 'background-color', 'box-shadow'];
       const visuals = steps.map(s => $('.wy-visual', s)), stages = visuals.map(v => v && $('.hm-stage', v));
       const copies = steps.map(s => $('.wy-copy', s));
-      let line = 0, measured = false;
+      let lines = [], measured = false;
       const unframe = () => visuals.forEach((v, i) => {
         if (!v) return; const st = stages[i];
         FRAME.concat(['height', 'display', 'align-items', 'justify-content']).forEach(k => v.style.removeProperty(k));
@@ -56,8 +56,8 @@
         }
         delete v.dataset.adFramed;
       });
-      /* Same top line: every frame starts 24px under the longest step text (Aggregate, with its link), measured from
-         the top of the stage. */
+      /* Each frame starts 24px under its own step's text, as in Aggregate (owner, 22 Nov 2026; before, every frame
+         started under the longest text, which left a gap under the shorter ones), and ends on the stage's bottom line. */
       const GAP = 24, PAD = 8;
       /* layout positions (offsetTop chain), not getBoundingClientRect: the step's fade-in moves it with a transform
          while it is being measured */
@@ -71,10 +71,10 @@
         steps.forEach((s, i) => {
           steps.forEach((t, j) => t.style.setProperty('display', j === i ? 'block' : 'none', 'important'));
           const kids = copies[i] ? [...copies[i].children].filter(e => e.offsetHeight) : [];
-          if (kids.length) off.push(Math.max(...kids.map(e => Y(e) + e.offsetHeight)) - Y(body));
+          off[i] = kids.length ? Math.max(...kids.map(e => Y(e) + e.offsetHeight)) - Y(body) : 0;
         });
         steps.forEach(t => t.style.removeProperty('display'));
-        line = Math.max(...off) + GAP; measured = true;
+        lines = off.map(o => o + GAP); measured = true;
       };
       const fitStep = () => {
         const on = p && p.wrap.classList.contains('is-on');
@@ -95,7 +95,7 @@
            put the text gap and the diagram's zero margin back first */
         textGap(); stages.forEach(x => x && x.classList.contains('ad-wy-bare') && x.style.setProperty('margin-top', '0px', 'important'));
         if (c) for (let n = 0; n < 3; n++) { /* move the frame to the shared line (margins may stop collapsing: repeat) */
-          const cur = parseFloat(c.style.paddingBottom) || 0, gap = line - (Y(v) - Y(body));
+          const cur = parseFloat(c.style.paddingBottom) || 0, gap = lines[i] - (Y(v) - Y(body));
           if (Math.abs(gap) <= .5) break;
           c.style.setProperty('padding-bottom', Math.max(0, cur + gap) + 'px', 'important');
         }
@@ -104,17 +104,21 @@
         v.style.setProperty('display', 'flex', 'important'); v.style.setProperty('align-items', 'flex-start', 'important');
         v.style.setProperty('justify-content', 'center', 'important');
         st.style.setProperty('flex', 'none', 'important');
-        /* the diagram's visible extent (labels that hang below its box included), read through its current scale */
-        const k0 = parseFloat(st.style.scale) || 1, sTop = st.getBoundingClientRect().top; let hi = Infinity, lo = -Infinity;
-        st.querySelectorAll('*').forEach(e => { const r = e.getBoundingClientRect(); if (r.height && r.width && getComputedStyle(e).visibility !== 'hidden') { hi = Math.min(hi, r.top); lo = Math.max(lo, r.bottom); } });
-        if (!isFinite(hi)) { hi = sTop; lo = sTop + st.offsetHeight * k0; }
-        hi = (hi - sTop) / k0; lo = (lo - sTop) / k0;
-        const natH = lo - hi, room = h - 2 - PAD * 2;
-        const k = Math.min(1, room / natH, v.clientWidth / st.offsetWidth);
+        /* the diagram's visible extent, both ways (labels that hang below its box included), read through its current
+           scale and offset; it is then scaled to fill the frame's width (owner, 22 Nov 2026: Distribute and
+           Personalize were drawn small in the middle) as far as the frame's height allows, and centred */
+        const k0 = parseFloat(st.style.scale) || 1, sr = st.getBoundingClientRect(); let hi = Infinity, lo = -Infinity, le = Infinity, ri = -Infinity;
+        st.querySelectorAll('*').forEach(e => { const r = e.getBoundingClientRect(); if (r.height && r.width && getComputedStyle(e).visibility !== 'hidden' && getComputedStyle(e).opacity !== '0') {
+          hi = Math.min(hi, r.top); lo = Math.max(lo, r.bottom); le = Math.min(le, r.left); ri = Math.max(ri, r.right); } });
+        if (!isFinite(hi)) { hi = sr.top; lo = sr.top + st.offsetHeight * k0; le = sr.left; ri = sr.left + st.offsetWidth * k0; }
+        hi = (hi - sr.top) / k0; lo = (lo - sr.top) / k0; le = (le - sr.left) / k0; ri = (ri - sr.left) / k0;
+        const natH = lo - hi, natW = ri - le, room = h - 2 - PAD * 2, wroom = v.clientWidth - PAD * 4;
+        const k = Math.min(1.6, room / natH, wroom / natW);
         st.style.setProperty('scale', k.toFixed(3), 'important');
-        /* the stage scales from its top edge; move it so the content's top lands where centring puts it */
+        /* the stage scales from its top centre; move it so the content's box lands centred in the frame */
         const dy = (h - 2 - natH * k) / 2 - hi * k;
-        st.style.setProperty('translate', '0 ' + dy.toFixed(1) + 'px', 'important');
+        const cx = (le + ri) / 2, sw = st.offsetWidth, dx = (v.clientWidth / 2 - sw / 2) - (cx - sw / 2) * k;
+        st.style.setProperty('translate', dx.toFixed(1) + 'px ' + dy.toFixed(1) + 'px', 'important');
         /* diagrams finish their entrance and fill in (Personalize adds lines to its cards): fit again as they settle */
         if (!fitStep.again) {
           (fitStep.t || []).forEach(clearTimeout);
