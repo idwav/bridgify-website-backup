@@ -1,0 +1,64 @@
+/* White-Label Marketplace on a standard tablet (iPad upright, 600-900px; owner's choices of 22 Nov 2026).
+   Spacing only from Tom's tablet table (section 80, head>content 48, card gap 24). Every section fills one screen under the 64px header;
+   the pinned Tour (section 2) is unchanged. Phone and desktop are untouched. */
+@media (min-width:600px) and (max-width:900px){
+  /* 5 · Live in 3 days, 6 · Build or buy, 7 · Audiences: one screen, centred */
+  html body #section-5:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #build-or-buy:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #marketplace-audiences:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  /* 1 · Hero */
+  html body #section-1:not(#x){padding-top:128px!important;padding-bottom:24px!important;min-height:100svh!important}
+  html body #section-1 .market-demo:not(#x){zoom:.86}
+  html body #section-1 .market-demo .mp-weather:not(#x){border-radius:min(calc(var(--shape)/4 + 6px),18px)!important}
+  /* 3 · Your brand, your markets, your currencies: settings in one row, a preview container of fixed size */
+  html body #section-3:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #section-3 .wl-layout:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:24px!important}
+  html body #section-3 .wl-layout>*:not(#x){width:auto!important;min-width:0!important;margin:0!important}
+  html body #section-3 .wl-controls:not(#x){display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;column-gap:24px!important;row-gap:16px!important;padding:24px!important;align-items:start!important}
+  html body #section-3 .wl-controls>.wl-panel-title:not(#x),html body #section-3 .wl-controls>small:not(#x),html body #section-3 .wl-controls>*:not(.wl-group):not(#x){grid-column:1/-1!important}
+  html body #section-3 .wl-group:not(#x){min-width:0!important;padding:0!important;border:0!important;margin:0!important}
+  html body #section-3 .wl-group:first-of-type>div:not(#x){display:grid!important;grid-template-columns:1fr!important}
+  html body #section-3 .wl-preview-stage:not(#x){padding:24px!important}
+  html body #section-3 .wl-preview-stage:not(#x){zoom:.78}
+  html body #section-3 .wl-group button:not(#x){height:38px!important;min-height:0!important}
+  html body #section-3 .wl-preview-stage:not(#x){height:537px!important;min-height:0!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+  html body #section-3 .wl-preview[data-mode=app]:not(#x){zoom:.88;margin-top:0!important;margin-left:auto!important;margin-right:auto!important}
+  html body #section-3 .wl-heading:not(#x){margin-bottom:48px!important}
+  /* 4 · You bring / Bridgify runs: two lists, no tabs */
+  html body #section-4:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #section-4 .wo-stack:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:24px!important}
+  html body #section-4 .wo-seam:not(#x){display:none!important}
+  html body #section-4 .wo-chips:not(#x){display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important}
+  html body #section-4 .wo-ops:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:0!important}
+  html body #section-4 .wo-op:not(#x){display:grid!important;grid-template-columns:32px minmax(0,1fr) auto 190px!important;align-items:center!important;column-gap:24px!important;text-align:left!important;padding:16px 0!important;border-bottom:1px solid #d9b9a655!important;border-top:0!important}
+  html body #section-4 .wo-op:last-child:not(#x){border-bottom:0!important}
+  html body #section-4 .wo-op h3:not(#x),html body #section-4 .wo-op .wo-live:not(#x),html body #section-4 .wo-op small:not(#x){margin:0!important}
+  html body #section-4 .wo-op small:not(#x){text-align:right!important}
+  html body #section-4 .wo-chips:not(#x){grid-template-columns:minmax(0,1fr)!important;gap:0!important}
+  html body #section-4 .wo-chip:not(#x){padding-top:14px!important;padding-bottom:14px!important;min-height:0!important}
+  html body #section-4 .wo-op:not(#x){padding:12px 0!important}
+  /* 8 · Results: three measures stacked */
+  html body #marketplace-results:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #marketplace-results .results-inner:not(#x){display:block!important}
+  html body #marketplace-results .results-panel:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr)!important;grid-auto-rows:auto!important}
+  html body #marketplace-results .results-panel>article:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;grid-template-areas:"h v" "n v"!important;grid-template-rows:auto 1fr!important;column-gap:24px!important;align-items:center!important;padding:32px 24px!important;border-left:0!important;border-right:0!important;border-top:0!important;border-bottom:1px solid #d9b9a655!important;min-height:0!important}
+  html body #marketplace-results .results-panel>article:last-child:not(#x){border-bottom:0!important}
+  html body #marketplace-results .results-panel>article>h3:not(#x){grid-area:h!important;align-self:end!important}
+  html body #marketplace-results .results-panel>article>.results-value:not(#x){grid-area:n!important;align-self:start!important;order:0!important}
+  html body #marketplace-results .results-panel>article>.results-visual:not(#x){grid-area:v!important;order:0!important;justify-content:flex-start!important;height:auto!important}
+  /* 2 · Tour (From discovery to checkout): not pinned on the tablet; title and text, then 01-04 as one row of tabs, then the animation full width. One screen. */
+  html body:not(#bf-lab) #section-2.market-product-tour:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important;overflow:hidden!important}
+  html body:not(#bf-lab) #section-2.market-product-tour:not(#x)::after{display:none!important}
+  html body:not(#bf-lab) #section-2.market-product-tour .mpt-sticky:not(#x){position:static!important;top:auto!important}
+  html body:not(#bf-lab) #section-2.market-product-tour .mpt-sticky>header:not(#x){margin-bottom:48px!important}
+  html body:not(#bf-lab) #section-2 .tour:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr)!important;row-gap:24px!important}
+  html body:not(#bf-lab) #section-2 .stages:not(#x){display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important;width:100%!important;height:auto!important;margin:0!important;padding:0!important;align-self:start!important}
+  html body:not(#bf-lab) #section-2 .stages .contact,html body:not(#bf-lab) #section-2 .stages .tour-flow:not(#x){display:none!important}
+  html body:not(#bf-lab) #section-2 .stages button:not(#x){display:flex!important;justify-content:center!important;align-items:center!important;gap:10px!important;height:48px!important;min-height:0!important;padding:0 12px!important;border:1px solid #f6c8b555!important;border-radius:999px!important;background:#160e0b!important;color:#EEE9DE!important;transition:background .4s,color .4s!important}
+  html body:not(#bf-lab) #section-2 .stages button b:not(#x){color:inherit!important;opacity:.7}
+  html body:not(#bf-lab) #section-2 .stages button[aria-pressed=true]:not(#x){background:linear-gradient(105deg,#ff9862,#f46649)!important;border-color:transparent!important;color:#180F10!important}
+  html body:not(#bf-lab) #section-2 .stages button[aria-pressed=true] b:not(#x){opacity:1}
+  html body:not(#bf-lab) #section-2 .presentation:not(#x){width:100%!important}
+  html body:not(#bf-lab) #section-2 .stages button:not(#x)::before,html body:not(#bf-lab) #section-2 .stages button:not(#x)::after{display:none!important}
+  html body:not(#bf-lab) #section-2 :is(.presentation,.screens,.screen):not(#x){height:464px!important;min-height:0!important}  /* the frame is as tall as its tallest scene, so the animation sits snugly inside */
+}
