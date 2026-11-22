@@ -89,3 +89,26 @@
   /* Banks are building travel brands: the three box labels in bold */
   html body #market-signal .lm-source h3:not(#ad-x){font:600 15px/1.25 Sofia,sans-serif!important;color:#180f10!important;letter-spacing:0!important}
 }
+
+/* Experiences for cardholders on phones (owner, 22 Nov 2026):
+   - the three choices are the site's buttons, in one row: the chosen one filled coral (primary), the others clear with
+     a coral line (secondary), dark text on the cream section; no icons, so all three fit the row (tabs stay 44px tall);
+   - the chosen case's explanation (title, text, Read more, Book a demo) is visible: it had moved out of its tab and
+     kept the hidden state (opacity 0), which left an empty 240px block at the end of the section;
+   - the preview is as tall as its content (no empty band under the experience cards). */
+@media (max-width:599px){
+  html body #section-3 .lu-tabs:not(#ad-x):not(#ad-y){display:flex!important;flex-wrap:nowrap!important;gap:6px!important;width:100%!important}
+  html body #section-3 .lu-tabs .lu-choice:not(#ad-x){display:contents!important}
+  html body #section-3 .lu-tabs button:not(#ad-x):not(#ad-y){flex:1 1 auto!important;min-width:0!important;justify-content:center!important;
+    height:44px!important;min-height:44px!important;padding:0 clamp(6px,2.3vw,9px)!important;border-radius:999px!important;
+    background:transparent!important;border:1px solid #f46649!important;color:#180f10!important;-webkit-text-fill-color:#180f10!important;box-shadow:none!important;
+    font:600 clamp(12px,3.6vw,14px)/1.15 Sofia,sans-serif!important;letter-spacing:0!important;white-space:nowrap!important}
+  html body #section-3 .lu-tabs button svg:not(#ad-x){display:none!important}
+  /* the explanation lives under the preview; its empty stand-in in the row would take the full width */
+  html body #section-3 .lu-tabs .lu-explanation:not(#ad-x):not(#ad-y){display:none!important}
+  html body #section-3 .lu-tabs .lu-choice.is-active button:not(#ad-x):not(#ad-y){background:linear-gradient(110deg,#ff9862,#f46649)!important;border-color:transparent!important;
+    box-shadow:0 6px 16px rgba(244,102,73,.25)!important}
+  html body #section-3 .ad-lu-exp .lu-explanation.ad-on:not(#ad-x):not(#ad-y){opacity:1!important;grid-template-rows:1fr!important}
+  html body #section-3 :is(.lu-panels,.lu-panel,.lu-preview):not(#ad-x):not(#ad-y){height:auto!important;min-height:0!important}
+}
+@media (max-width:339px){ html body #section-3 .lu-tabs button:not(#ad-x):not(#ad-y){white-space:normal!important;text-align:center!important} }
