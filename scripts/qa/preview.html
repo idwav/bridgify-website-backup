@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Every screen at once</title>
+<!-- Work on a page while seeing it on phone, tablets and desktop together (owner, 22 Nov 2026).
+     Serve the repo root locally (python3 -m http.server 8080) and open
+     http://localhost:8080/scripts/qa/preview.html?page=hotels
+     Each screen is a real-size frame of the page, scaled down to fit. Coming back to this tab after saving a file
+     reloads every screen at the same section. Not part of the public site (scripts/ is not deployed). -->
+<style>
+:root{--bg:#120b0a;--panel:#1f1514;--line:#3a2b29;--ink:#eee9de;--mute:#b5a79c;--coral:#f46649}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:13px/1.4 -apple-system,system-ui,sans-serif}
+header{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:8px 14px;border-bottom:1px solid var(--line);background:var(--panel)}
+header b{font-size:14px}
+select,button,label{font:inherit;color:inherit;background:#2a1e1c;border:1px solid var(--line);border-radius:7px;padding:4px 8px}
+button{cursor:pointer}button:hover{border-color:var(--coral)}
+.m{color:var(--mute)}
+#screens{display:flex;gap:14px;align-items:flex-start;padding:12px 14px;overflow-x:auto;height:calc(100% - 50px)}
+.scr{flex:none;display:flex;flex-direction:column;gap:6px}
+.scr .lab{display:flex;justify-content:space-between;gap:8px;color:var(--mute);font-size:12px}
+.scr .lab b{color:var(--ink);font-weight:600}
+.box{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:8px;background:#000}
+.box iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;background:#fff}
+.warn{color:#ffbe2e}.err{color:#ff6b6b}
+</style>
+</head>
+<body>
+<header>
+  <b>Every screen at once</b>
+  <label>Page <select id="page"></select></label>
+  <label>Section <select id="sec"><option value="">top</option></select></label>
+  <button id="reload" title="Reload every screen, keep the section">Reload all</button>
+  <label><input type="checkbox" id="auto" checked> reload when I come back to this tab</label>
+  <label>Size <select id="zoom"><option value="1">fit</option><option value="1.5">bigger</option><option value="2">big</option></select></label>
+  <span class="m" id="status"></span>
+</header>
+<div id="screens"></div>
+<script>
+const PAGES = ['index-v2','api','marketplace','personalization','developers','otas','airlines','hotels','loyalty-finance',
+  'travel-technology','super-apps','about-us','careers','contact','press','insights','demo','login',
+  'job?role=senior-backend-engineer','blog-aggregation','blog-infrastructure'];
+// the screens we work against: the phone, a regular iPad, the iPad Pro held upright and on its side, and a laptop
+const SCREENS = [
+  {name:'Phone', w:390, h:844},
+  {name:'iPad upright', w:834, h:1194},
+  {name:'iPad Pro upright', w:1024, h:1366},
+  {name:'iPad / laptop on its side', w:1024, h:768},
+  {name:'Desktop', w:1440, h:900}];
+const q = new URLSearchParams(location.search);
+const $ = s => document.querySelector(s);
+const pageSel = $('#page'), secSel = $('#sec'), wrap = $('#screens');
+PAGES.forEach(p => pageSel.add(new Option(p.split('?')[0], p)));
+pageSel.value = PAGES.find(p => p.split('?')[0] === (q.get('page') || 'index-v2')) || 'index-v2';
+$('#zoom').value = q.get('size') || '1';
+const root = location.pathname.replace(/scripts\/qa\/preview\.html$/, '');
+const urlOf = p => { const [n, qs] = p.split('?'); return `${root}${n}.html?${qs ? qs + '&' : ''}version=2&t=${Date.now()}`; };
+let frames = [];
+
+function build() {
+  wrap.innerHTML = ''; frames = [];
+  // 'fit': every screen at the same height, all of them across the window; bigger/big scroll sideways
+  const gaps = 14 * (SCREENS.length + 1), ratio = SCREENS.reduce((t, s) => t + s.w / s.h, 0);
+  const H = Math.min(innerHeight - 110, (innerWidth - gaps) / ratio) * +$('#zoom').value;
+  for (const s of SCREENS) {
+    const scale = H / s.h;
+    const el = document.createElement('div'); el.className = 'scr';
+    el.innerHTML = `<div class="lab"><b>${s.name}</b><span>${s.w}×${s.h}</span></div><div class="box" style="width:${Math.round(s.w*scale)}px;height:${Math.round(s.h*scale)}px"><iframe width="${s.w}" height="${s.h}" style="transform:scale(${scale})"></iframe></div><div class="lab"><span class="note"></span></div>`;
+    wrap.appendChild(el);
+    const f = el.querySelector('iframe'); frames.push({f, s, note: el.querySelector('.note')});
+  }
+  load();
+}
+
+function load(keep) {
+  const sec = keep ? secSel.value : '';
+  status(`loading ${pageSel.value}…`);
+  let left = frames.length;
+  for (const fr of frames) {
+    fr.f.onload = () => {
+      try {
+        const d = fr.f.contentDocument, w = fr.f.contentWindow;
+        const over = d.documentElement.scrollWidth - w.innerWidth;
+        fr.note.innerHTML = over > 1 ? `<span class="err">sideways scroll ${over}px</span>` : '<span class="m">no sideways scroll</span>';
+        w.addEventListener('error', e => { fr.note.innerHTML += ` <span class="err">JS error: ${String(e.message).slice(0, 60)}</span>`; });
+      } catch (e) {}
+      if (--left === 0) { fillSections(); if (sec) { secSel.value = sec; go(sec); } status(''); }
+    };
+    fr.f.src = urlOf(pageSel.value);
+  }
+}
+
+function fillSections() {
+  const d = frames[frames.length - 1].f.contentDocument; if (!d) return;
+  const cur = secSel.value; secSel.length = 1;
+  [...d.querySelectorAll('section[id], footer')].filter(s => !s.parentElement.closest('section')).forEach(s => {
+    const h = s.querySelector('h1,h2'); const id = s.id || 'footer';
+    const t = h ? h.innerText.replace(/\s+/g, ' ').trim().slice(0, 40) : '';
+    secSel.add(new Option(`${id}${t ? ' · ' + t : ''}`, id));
+  });
+  secSel.value = cur;
+}
+
+function go(id) {
+  for (const {f} of frames) {
+    try {
+      const d = f.contentDocument, w = f.contentWindow;
+      if (!id) { w.scrollTo({top: 0, behavior: 'instant'}); continue; }
+      const el = id === 'footer' ? d.querySelector('footer') : d.getElementById(id);
+      if (el) w.scrollTo({top: el.getBoundingClientRect().top + w.scrollY - 70, behavior: 'instant'});
+    } catch (e) {}
+  }
+}
+
+function status(t) { $('#status').textContent = t; }
+function sync() { const u = new URL(location); u.searchParams.set('page', pageSel.value.split('?')[0]); u.searchParams.set('size', $('#zoom').value); history.replaceState(null, '', u); }
+
+pageSel.onchange = () => { secSel.value = ''; sync(); load(); };
+secSel.onchange = () => go(secSel.value);
+$('#reload').onclick = () => load(true);
+$('#zoom').onchange = () => { sync(); build(); };
+addEventListener('focus', () => { if ($('#auto').checked) load(true); });
+addEventListener('resize', () => { clearTimeout(window._r); window._r = setTimeout(build, 300); });
+build();
+</script>
+</body>
+</html>

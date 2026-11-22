@@ -141,6 +141,8 @@ its findings before acting on them.
 Every change, by any person or model, ends with a before/after review of every screen it can affect, and the
 owner sees it before anything is merged.
 
+0. While you work, keep `scripts/qa/preview.html?page=<page>` open: the page on phone, iPad upright, iPad Pro upright,
+   iPad on its side and desktop at once (START-HERE.md §2). `review.py --audit --all` lists every problem on the site.
 1. Run `python3 scripts/qa/review.py` from your branch. It finds the pages your change affects (against
    `origin/main`), opens each one before and after at 390, 768, 1024 and 1440, and photographs every section.
    Add `--full` for 360, 834, 1280 and 1920 as well, `--webkit` for Safari's engine, and `--phone-rules` for the
