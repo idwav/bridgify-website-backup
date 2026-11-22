@@ -34,7 +34,7 @@
     slot.classList.toggle('is-on', t >= 5.1);
   };
   const snap = () => { root.classList.add('cj-snap'); apply(); void root.offsetWidth; requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove('cj-snap'))); };
-  const pinMQ = matchMedia('(min-width:1024px) and (min-height:640px) and (prefers-reduced-motion: no-preference)'), sec = root.closest('section');
+  const pinMQ = matchMedia('(min-width:1024px) and (min-height:640px) and (min-aspect-ratio:1/1) and (prefers-reduced-motion: no-preference)'), sec = root.closest('section');
   const pinned = () => pinMQ.matches && !reduce;
   const live = () => playing && visible && !reduce && !document.hidden && !pinned();
   const frame = now => {

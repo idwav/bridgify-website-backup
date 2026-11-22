@@ -173,3 +173,16 @@
   html body section#customer-experience>.cj:not(#x){position:sticky;top:96px;width:100%;--stage:clamp(520px,calc(100svh - 192px),760px)}
   html body main.shell:not(#x){overflow:clip!important}
 }
+
+/* iPad Pro held upright (901px and wider, portrait): the same layout as the upright iPad: copy, then the stage, then the controls, then the steps, in one column, no scroll pin; it plays by itself. */
+@media (min-width:901px) and (max-aspect-ratio:1/1){
+  .cj{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-template-areas:"copy" "stage" "ctl" "side";--stage:560px}
+  .cj-copy{margin-bottom:24px}
+  .cj-side{padding-top:8px}
+  html body section#customer-experience:not(#x){height:auto!important;min-height:0!important;display:block;padding-top:80px!important;padding-bottom:80px!important}
+  html body section#customer-experience>.cj:not(#x){position:static!important;top:auto!important;--stage:560px}
+  html body #customer-experience .cj-side:not(#x){align-self:start;padding-top:8px}
+}
+@media (min-width:901px) and (max-aspect-ratio:1/1){
+  html body section#customer-experience.cj-section:not(#x):not(#y),html body #customer-experience:not(#x):not(#y):not(#z){padding-top:80px!important;padding-bottom:80px!important}
+}
