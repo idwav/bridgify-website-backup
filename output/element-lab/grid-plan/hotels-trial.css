@@ -35,7 +35,7 @@
   html body:not(#bf-lab) section#section-1 { min-height: 0 !important; height: auto !important; justify-content: flex-start !important; padding-top: calc(88px + var(--bf-hero-top)) !important; padding-bottom: var(--bf-section-y) !important; }
 }
 @media (min-width: 1024px) {
-  html body:not(#bf-lab) section#section-1 { padding-bottom: var(--bf-section-y) !important; }
+  html body:not(#bf-lab) section#section-1 { min-height: 0 !important; justify-content: flex-start !important; padding-top: calc(88px + var(--bf-hero-top)) !important; padding-bottom: var(--bf-section-y) !important; }
 }
 /* "Offer local experiences" was a screen tall on large screens (content 101px from the edges at 1920) */
 @media (min-width: 1024px) {

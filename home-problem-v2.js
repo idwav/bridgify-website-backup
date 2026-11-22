@@ -117,11 +117,13 @@
     let d;
     const after = () => d && d.refresh();
     wires(chaos, () => [
-      ...cs.map((s, i) => ({from: {el: s, side: 'b'}, to: {el: capp, side: 't', fx: .1 + .2 * i}, at: 1 + i * .12, dots: 1, dur: 2.8})),
-      ...cs.map((s, i) => ({from: {el: s, side: 'b', fx: .7}, to: {el: capp, side: 't', fx: .14 + .18 * PERM[i]}, at: 1.4 + i * .12, dots: 0}))
+      /* each supplier has its own line into the app (evenly spaced), plus one cross-line from the same supplier to another slot: the tangle is on purpose, but every contact sits on a card edge and the curves are short */
+      ...cs.map((s, i) => ({from: {el: s, side: 'b', fx: .35}, to: {el: capp, side: 't', fx: .1 + .2 * i}, at: 1 + i * .12, dots: 1, dur: 2.8, k: .045})),
+      ...cs.map((s, i) => ({from: {el: s, side: 'b', fx: .65}, to: {el: capp, side: 't', fx: .14 + .18 * PERM[i]}, at: 1.4 + i * .12, dots: 0, k: .045}))
     ], after);
     wires(order, () => [
-      ...os.map((s, i) => ({from: {el: s, side: 'b'}, to: {el: node, side: 't', fx: .18 + .16 * i}, at: 1 + i * .08, dots: 1, dur: 2})),
+      /* five clean lines, one per supplier: straight down from the supplier's centre, an even S into its own slot on the Bridgify box */
+      ...os.map((s, i) => ({from: {el: s, side: 'b'}, to: {el: node, side: 't', fx: .1 + .2 * i}, at: 1 + i * .08, dots: 1, dur: 2, k: .05})),
       {from: {el: node, side: 'b'}, to: {el: oapp, side: 't'}, at: 2.4, main: true, dots: 2, dur: 1.4}
     ], after);
     d = demo(root, {dur: 9, loop: true, phases: [[3.7, 'flag']],

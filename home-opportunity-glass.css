@@ -1,0 +1,110 @@
+/* Home, "Your customers already book experiences. Just not with you.": the glass language (peach edge, corner lights, translucent body, rim light), the gap between the two panels from the table (card gap 32 desktop / 24 tablet), the bar and the panels on the same 32 rhythm. Texts and colours stay. */
+html body #opportunity-study .pb-panel:not(#x){border:1px solid #f6c8b594!important;border-radius:24px!important;background:radial-gradient(at 100% 0%,#ff89622e,#0000 24%),radial-gradient(at 0% 100%,#ff78532b,#0000 22%),linear-gradient(115deg,#fff8f10c,#0000 40%,#fff8f108),#140d0bf2!important;box-shadow:inset 0 1px 1px #fff1da94,inset 0 -1px 1px #ff997b75,0 0 2px #ffb09b55,0 0 40px #f4664926,0 20px 50px #0006!important}
+html body #opportunity-study .pb-bar:not(#x){border:1px solid #f6c8b594!important;border-radius:16px!important;background:radial-gradient(at 100% 0%,#ff89622e,#0000 40%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 0 22px #f4664926!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+html body #opportunity-study :is(.pb-app,.pb-sup,.pb-bridgify,.pb-hub,.pb-card,.pb-app ul li):not(#x){border-color:#f6c8b57a!important}
+html body #opportunity-study .pb-app:not(#x){background:radial-gradient(at 100% 0%,#ff896238,#0000 48%),linear-gradient(115deg,#fff8f114,#0000 60%),#160e0b88!important;box-shadow:inset 0 1px 1px #fff1da55,inset 0 -1px 1px #ff997b33,0 6px 18px #0004!important}
+html body #opportunity-study :is(.pb-facts,.pb-app-bar):not(#x){border-color:#f6c8b52e!important}
+@media(min-width:1024px){html body #opportunity-study .pb-panels:not(#x){gap:var(--bf-card-gap,32px)!important;column-gap:var(--bf-card-gap,32px)!important}}
+@media(min-width:601px) and (max-width:1023px){html body #opportunity-study .pb-panels:not(#x){gap:var(--bf-card-gap,24px)!important}}
+
+/* Inside the two panels: padding from the card token, supplier row flush with the content edges (it was inset 12px), the facts rows the same height in both panels, breathing room under the last line of the app card */
+@media(min-width:1024px){
+html body #opportunity-study .pb-panel:not(#x){padding:var(--bf-card-pad,32px)!important}
+html body #opportunity-study .pb-sup:not(#x){width:18.4cqw!important}
+html body #opportunity-study .pb-sup[style*="--i:0"]{--x:0cqw!important}
+html body #opportunity-study .pb-sup[style*="--i:1"]{--x:20.4cqw!important}
+html body #opportunity-study .pb-sup[style*="--i:2"]{--x:40.8cqw!important}
+html body #opportunity-study .pb-sup[style*="--i:3"]{--x:61.2cqw!important}
+html body #opportunity-study .pb-sup[style*="--i:4"]{--x:81.6cqw!important}
+html body #opportunity-study .pb-facts:not(#x){min-height:70px;margin-top:24px!important}
+html body #opportunity-study .pb-order .pb-app:not(#x){padding-bottom:12px}
+}
+@media(min-width:1024px){html body #opportunity-study .pb-merged:not(#x){margin:0!important;padding:4px 16px 12px!important}
+html body #opportunity-study .pb-app-order:not(#x){top:27.5cqw!important}}
+html body #opportunity-study .pb-app-order:not(#x){border-color:#f6c8b5aa!important}
+
+html body #opportunity-study .hm-wire:not(#x){stroke-width:1.5;opacity:.85}
+html body #opportunity-study .hm-chaos-wire,html body #opportunity-study .pb-chaos .hm-wire:not(#x){stroke:#c9a698;opacity:.7}
+html body #opportunity-study .hm-contact:not(#x){r:3;fill:#eee9de;stroke:#f46649;stroke-width:1.5}
+
+/* Even margins: every container has the same space on all four sides (32), measured to the text, not to the line box. The freed height opens the diagram. */
+@media(min-width:1024px){
+html body #opportunity-study .pb-panel h4:not(#x){line-height:1!important;margin:0 0 20px!important}
+html body #opportunity-study .pb-panel:not(#x){padding:32px!important}
+html body #opportunity-study .pb-facts:not(#x){margin-top:20px!important;min-height:0!important}
+html body #opportunity-study .pb-facts li:not(#x){line-height:1.35;padding-bottom:0!important}
+html body #opportunity-study .pb-bar:not(#x){padding:20px 64px 20px 32px!important}
+html body #opportunity-study .pb-stage:not(#x){height:58cqw!important}
+}
+/* Bridgify, easier to read: a bigger box, a clearer label, and the one-line result under it in full size */
+@media(min-width:1024px){
+html body #opportunity-study .pb-order .pb-node:not(#x){left:35cqw!important;width:30cqw!important;top:15cqw!important;height:14cqw!important;border-width:1px;box-shadow:inset 0 1px 1px #fff1da55,0 0 28px #f4664955!important}
+html body #opportunity-study .pb-node b:not(#x){font-size:3.4cqw!important}
+html body #opportunity-study .pb-node small:not(#x){font-size:1.7cqw!important;letter-spacing:.14em;color:#ffd8bd!important}
+html body #opportunity-study .pb-order .pb-app-order:not(#x){top:32cqw!important}
+html body #opportunity-study .pb-merged:not(#x){font-size:1.8cqw!important}
+html body #opportunity-study .pb-chaos .pb-app-chaos:not(#x){top:25cqw!important;bottom:0!important}
+}
+/* facts stay on the same line at the bottom of both panels (same 32 under the last line), and the app card is only as tall as its content */
+@media(min-width:1024px){
+html body #opportunity-study .pb-panel:not(#x){display:flex;flex-direction:column}
+html body #opportunity-study .pb-panel .hm-wrap{flex:1 1 auto}
+html body #opportunity-study .pb-facts:not(#x){margin-top:auto!important;padding-top:20px}
+html body #opportunity-study .pb-order .pb-app-order:not(#x){bottom:auto!important;height:auto!important;min-height:0!important}
+}
+
+/* Screen ratio: the section is one screen tall (at least the window) and its content is centred in it; it grows only when the content is taller */
+@media(min-width:1024px){html body #opportunity-study:not(#x){min-height:100svh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center}}
+/* the diagram never gets shorter than its own content (the app card has a fixed text size) */
+@media(min-width:1024px){html body #opportunity-study .pb-stage:not(#x){min-height:350px}html body #opportunity-study .pb-order .pb-app-order:not(#x){top:max(32cqw,170px)!important}}
+
+/* ---- Opened from the start and fitted to one screen (approved concept): both paragraphs visible and white, one slim bar, 24 gaps, facts in one row ---- */
+@media(min-width:1024px){
+html body #opportunity-study:not(#x){min-height:100svh;height:auto;box-sizing:border-box;padding:96px var(--try-margin,58px) 32px!important;display:flex;flex-direction:column;justify-content:flex-start;gap:24px;overflow:hidden}
+html body #opportunity-study .pb-head:not(#x){display:grid!important;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);column-gap:48px;align-items:start;margin:0!important}
+html body #opportunity-study h2:not(#x){font-size:clamp(30px,2.7vw,40px)!important;line-height:1.15!important;margin:0!important}
+html body #opportunity-study .pb-intro:not(#x){display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:0!important;width:100%!important;max-width:none!important;justify-self:stretch!important;padding:0!important;border:0!important}
+html body #opportunity-study .pb-intro p:not(#x){margin:0!important;font-size:15px!important;max-width:none!important;line-height:1.5!important;max-height:none!important;-webkit-line-clamp:unset!important;display:block!important;overflow:visible!important}
+html body #opportunity-study .pb-more[hidden]:not(#x){display:block!important}
+html body #opportunity-study .pb-toggle{display:none!important}
+html body #opportunity-study .pb-bar:not(#x){margin:24px 0 0!important;padding:14px 32px!important;display:flex;align-items:baseline;gap:16px;flex-wrap:nowrap}
+html body #opportunity-study .pb-bar b{font-size:20px!important;white-space:nowrap}
+html body #opportunity-study .pb-bar span{font-size:15px!important}
+html body #opportunity-study .pb-bar i{display:none}
+html body #opportunity-study .pb-panels:not(#x){gap:24px!important;margin:24px 0 0!important;flex:1 1 auto;min-height:0}
+html body #opportunity-study .pb-panel:not(#x){padding:24px 32px!important;display:flex;flex-direction:column;min-height:0}
+html body #opportunity-study .pb-panel h4:not(#x){font-size:24px!important;margin:0 0 12px!important}
+html body #opportunity-study .pb-panel .hm-wrap{flex:1 1 auto;min-height:0}
+html body #opportunity-study .pb-stage:not(#x){height:100%!important;min-height:0!important}
+html body #opportunity-study .pb-facts:not(#x){display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:12px 0 0!important;padding-top:12px!important;min-height:0!important}
+html body #opportunity-study .pb-facts li:not(#x){font-size:14px!important;line-height:1.35!important}
+}
+
+html body #opportunity-study .pb-intro p:not(#x){color:#fff!important;opacity:1!important}
+/* opened from the start on desktop only; phones and tablets keep Read more (round 4, 22 Nov 2026) */
+@media(min-width:1024px){html body #opportunity-study .pb-more[hidden]:not(#x){display:block!important}
+html body #opportunity-study .pb-toggle{display:none!important}}
+/* final tightening on the live page */
+html body #opportunity-study.pb2 .pb-intro p:not(#x):not(#y),html body #opportunity-study.pb2 .pb-intro .pb-more:not(#x):not(#y){color:#fff!important;opacity:1!important}
+@media(min-width:1024px){
+html body #opportunity-study .pb-bar:not(#x){padding:12px 28px!important;align-items:center!important}
+html body #opportunity-study .pb-bar span:not(#x){font-size:14px!important;line-height:1.35!important}
+html body #opportunity-study .pb-bar b:not(#x){font-size:18px!important}
+html body #opportunity-study .pb-panel h4:not(#x){margin:0 0 8px!important}
+html body #opportunity-study .pb-facts:not(#x){margin-top:8px!important;padding-top:10px!important}
+html body #opportunity-study .pb-chaos .pb-app li:not(#x){padding-top:3px!important;padding-bottom:3px!important;min-height:0!important}
+html body #opportunity-study .pb-chaos .pb-app ul:not(#x){gap:5px!important}
+}
+/* the diagram is centred between the title and the facts; the YourBrand cards are only as tall as their rows */
+@media(min-width:1024px){
+html body #opportunity-study .pb-panel .hm-wrap:not(#x){display:flex;flex-direction:column;justify-content:center}
+html body #opportunity-study .pb-chaos .pb-app-chaos:not(#x){bottom:auto!important;height:auto!important}
+html body #opportunity-study .pb-stage:not(#x){min-height:0!important}
+}
+
+@media(min-width:1024px){html body #opportunity-study:not(#x){height:auto!important;min-height:100svh!important;overflow:visible!important}}
+
+/* both panels have the same facts height (three lines), so the two diagrams sit on the same line */
+@media(min-width:1024px){html body #opportunity-study .pb-facts:not(#x){min-height:76px!important;align-items:start}}
+/* the card must not animate its position when the diagram is fitted */
+html body #opportunity-study .pb-app:not(#x){transition-property:opacity,box-shadow,border-color!important}
