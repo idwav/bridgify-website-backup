@@ -750,3 +750,33 @@
   html.ad-hf-seq body #home .bv2-hero-actions:not(.hf-acts-in){opacity:0;translate:0 20px}
   html.ad-hf-seq body #home .bv2-hero-actions{transition:opacity .75s cubic-bezier(.45,0,.2,1),translate .75s cubic-bezier(.45,0,.2,1)}
 }
+
+/* Why Bridgify on phones (owner, 22 Nov 2026): the diagrams fill the frame's width. Distribute and Personalize were
+   laid out taller than the frame, so they were scaled down to a narrow column in the middle; their phone layouts are
+   now shorter, so index-v2.js scales them up to the frame's width.
+   - Distribute: the same three channels, closer together (the website a little shorter): 122cqw tall instead of 160.
+   - Personalize: the six ranked picks as compact cards, photo beside the name, two per row. */
+@media (max-width:599px){
+  html body #why-bridgify .hm-stage.ds:not(#ad-x):not(#ad-y){height:122cqw!important}
+  html body #why-bridgify .ds-engine:not(#ad-x):not(#ad-y){top:2cqw!important}
+  html body #why-bridgify .ds-split:not(#ad-x):not(#ad-y){left:47.5cqw!important;top:20cqw!important}
+  html body #why-bridgify .ds-phone:not(#ad-x):not(#ad-y){left:5cqw!important;top:28cqw!important;width:34cqw!important;height:47cqw!important}
+  html body #why-bridgify .ds-phone .ds-screen{overflow:hidden!important}
+  html body #why-bridgify .ds-kiosk:not(#ad-x):not(#ad-y){left:53cqw!important;top:29cqw!important;width:42cqw!important;height:27cqw!important}
+  html body #why-bridgify .ds-web:not(#ad-x):not(#ad-y){left:5cqw!important;top:84cqw!important;width:90cqw!important;height:31cqw!important}
+  html body #why-bridgify .ds-web .ds-screen{overflow:hidden!important}
+  /* the website's two experience tiles: wide, short photos, so the row ends inside the browser frame */
+  html body #why-bridgify .ds-web .ds-tile img:not(#ad-x){aspect-ratio:16/5!important}
+  html body #why-bridgify .ds-web h5:not(#ad-x):not(#ad-y){margin:1.6cqw 2.6cqw 1.4cqw!important}
+  html body #why-bridgify .ds-web .ds-tile small{display:none!important}
+
+  html body #why-bridgify #wy-pers .ps-caption:not(#ad-x):not(#ad-y){font-size:15px!important;line-height:1.4!important;margin:8px 0 10px!important}
+  html body #why-bridgify #wy-pers .ps-grid:not(#ad-x):not(#ad-y){grid-template-columns:1fr 1fr!important;gap:8px!important;height:auto!important}
+  html body #why-bridgify #wy-pers .ps-card:not(#ad-x):not(#ad-y){display:grid!important;grid-template-columns:52px minmax(0,1fr)!important;align-items:center!important;column-gap:8px!important;padding:6px!important;height:auto!important;min-height:0!important}
+  html body #why-bridgify #wy-pers .ps-thumb:not(#ad-x):not(#ad-y){width:52px!important;height:52px!important;aspect-ratio:1!important;border-radius:8px!important;overflow:hidden!important}
+  html body #why-bridgify #wy-pers .ps-thumb img{width:100%!important;height:100%!important;object-fit:cover!important}
+  html body #why-bridgify #wy-pers .ps-rank:not(#ad-x):not(#ad-y){top:3px!important;left:3px!important;font-size:10px!important;padding:1px 4px!important}
+  html body #why-bridgify #wy-pers .ps-body:not(#ad-x):not(#ad-y){padding:0!important;min-width:0!important;gap:2px!important}
+  html body #why-bridgify #wy-pers .ps-body b:not(#ad-x):not(#ad-y){font-size:13px!important;line-height:1.25!important}
+  html body #why-bridgify #wy-pers .ps-body small:not(#ad-x):not(#ad-y),html body #why-bridgify #wy-pers .ps-match:not(#ad-x):not(#ad-y){font-size:11px!important;line-height:1.3!important}
+}
