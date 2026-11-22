@@ -40,11 +40,7 @@ window.BridgifyRoles = {
     ],
     [
      "text",
-     "div.blog-meta"
-    ],
-    [
-     "link",
-     "a.blog-link"
+     "div.blog-feature-copy > div.ad-feature-foot"
     ]
    ],
    "frame": "div.blog-feature-copy"
