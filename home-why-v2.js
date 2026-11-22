@@ -88,7 +88,10 @@
         const p1 = anchor(box, s.from), p2 = anchor(box, s.to, p1);
         const k = s.k != null ? s.k * box.width : Math.max(24, Math.hypot(p2.x - p1.x, p2.y - p1.y) * .42);
         const [ax, ay] = NORMAL[p1.side], [bx, by] = NORMAL[p2.side];
-        const d = `M${p1.x} ${p1.y}C${p1.x + ax * k} ${p1.y + ay * k} ${p2.x + bx * k} ${p2.y + by * k} ${p2.x} ${p2.y}`;
+        const r = box.width * .04;
+        const d = s.elbow
+          ? `M${p1.x} ${p1.y}H${p2.x - r}Q${p2.x} ${p1.y} ${p2.x} ${p1.y + r}V${p2.y}`
+          : `M${p1.x} ${p1.y}C${p1.x + ax * k} ${p1.y + ay * k} ${p2.x + bx * k} ${p2.y + by * k} ${p2.x} ${p2.y}`;
         const g = svgEl('g', {class: 'hm-wg', 'data-at': s.at ?? 0}, svg);
         const pid = `wyw${id}-${i}`;
         svgEl('path', {d, id: pid, class: 'hm-wire' + (s.main ? ' is-main' : ''), pathLength: 1}, g);
@@ -120,7 +123,7 @@
     const t = centre(target, stage);
     items.forEach(i => { const c = centre(i, stage); i.style.setProperty(px, `${t.x - c.x}px`); i.style.setProperty(py, `${t.y - c.y}px`); });
   };
-  const narrow = w => w < 620;
+  const narrow = w => w < 540;
 
   /* ---------- 4.1 Aggregate ---------- */
   function aggregate(stage) {
@@ -133,7 +136,7 @@
          {from: {el: engine, side: 'b'}, to: {el: out, side: 't'}, at: 3.4, main: true, dots: 2, dur: 1.4}]
       : [...srcs.map((s, i) => ({from: {el: s, side: 'r'}, to: {el: funnel, side: 'l', match: 'y', contact: false}, at: .8 + i * .1, dots: 1, dur: 2})),
          {from: {el: funnel, side: 'r', contact: false}, to: {el: engine, side: 'l'}, at: 1.6, main: true, dots: 2, dur: 1.4},
-         {from: {el: engine, side: 'r'}, to: {el: out, side: 'l', fy: .3}, at: 3.4, main: true, dots: 2, dur: 1.4}],
+         {from: {el: engine, side: 'r'}, to: {el: out, side: 'l'}, at: 3.4, main: true, dots: 2, dur: 1.4}],
       () => { aim(stage, bodies, engine); d && d.refresh(); });
     const fmt = n => n.toLocaleString('en-US');
     d = demo(stage, {dur: 10, loop: true,
@@ -165,8 +168,8 @@
          {from: {el: split, side: 'b', contact: false}, to: {el: web, side: 't'}, at: 2.1, dots: 2, dur: 1.8, k: .2}]
       : [{from: {el: engine, side: 'r'}, to: {el: split, side: 'l', contact: false}, at: .5, main: true, dots: 2, dur: 1.2},
          {from: {el: split, side: 'r', contact: false}, to: {el: web, side: 'l'}, at: 1.5, dots: 2, dur: 1.6},
-         {from: {el: split, side: 'r', contact: false}, to: {el: phone, side: 'l', fy: .4}, at: 1.8, dots: 2, dur: 1.6},
-         {from: {el: split, side: 'r', contact: false}, to: {el: kiosk, side: 't', fx: .3}, at: 2.1, dots: 2, dur: 1.8, k: .03}],
+         {from: {el: split, side: 'r', contact: false}, to: {el: phone, side: 'l'}, at: 1.8, dots: 2, dur: 1.6},
+         {from: {el: split, side: 'r', contact: false}, to: {el: kiosk, side: 't'}, at: 2.1, dots: 2, dur: 1.8, elbow: true}],
       () => d && d.refresh());
     d = demo(stage, {dur: 4.6});
     return d;
