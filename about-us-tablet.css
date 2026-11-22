@@ -1,7 +1,28 @@
 /* About us on a standard tablet (iPad upright, 600-900px; written 22 Nov 2026 from the rules agreed on the other pages).
    Spacing only from Tom's tablet table (hero top 64 under the header, section 80). Short sections fill one screen under the 64px header; long scrolling parts
    (lists, articles, the news grid, the performance animation) are left as they are. Phone and desktop are untouched. */
+.ab-tabs,.ab-cap{display:none}
 @media (min-width:600px) and (max-width:900px){
   /* 1 · Hero */
   html body:not(#bf-lab) section#top:not(#x):not(#y){padding-top:128px!important;padding-bottom:48px!important;min-height:100svh!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+  /* 3 · From fragmented supply: 01-03 buttons, the active step's text under them, its demo at natural size (switch by themselves, see about-us-tablet.js) */
+  html body:not(#bf-lab) section#story:not(#x):not(#y){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body:not(#bf-lab) #story .ab-pin:not(#x):not(#y){height:auto!important;position:static!important;display:block!important;padding:0 32px!important}
+  html body:not(#bf-lab) #story .ab-pin-copy:not(#x):not(#y){height:auto!important;display:block!important}
+  html body:not(#bf-lab) #story .ms:not(#x):not(#y){display:grid!important;grid-template-columns:minmax(0,1fr)!important;height:auto!important;margin:0!important}
+  html body:not(#bf-lab) #story .ms-s:not(#x):not(#y){grid-area:1/1!important;height:auto!important;min-height:0!important;margin:0!important}
+  html body:not(#bf-lab) #story .ab-pin-copy>.ab-line:not(#x):not(#y){display:inline-block!important;width:calc(100% - 340px)!important;max-width:none!important;margin:0 0 48px!important;vertical-align:middle}
+  html body:not(#bf-lab) #story .ab-pin-copy>.ab-btn:not(#x):not(#y){float:right!important;margin:0 0 48px!important}
+  html body:not(#bf-lab) #story .ab-label+h2:not(#x):not(#y){margin-top:16px!important;margin-bottom:0!important}
+  /* 01-03 buttons, same language as Hotels / Loyalty / Airlines */
+  .ab-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:40px 0 24px;position:relative;z-index:5}
+  html body .ab-tabs button:not(#x){height:48px!important;padding:0 10px!important;border:1px solid #f6c8b555!important;border-radius:999px!important;background:#160e0b!important;color:#EEE9DE!important;font:700 12px/1 Sofia,sans-serif!important;letter-spacing:.08em!important;text-transform:uppercase;cursor:pointer;display:flex!important;justify-content:center;align-items:center;gap:8px;white-space:nowrap;transition:background .4s,color .4s}
+  html body .ab-tabs button[aria-selected=true]:not(#x){background:linear-gradient(105deg,#ff9862,#f46649)!important;border-color:transparent!important;color:#180F10!important}
+  .ab-tabs button i{font-style:normal;opacity:.7}
+  .ab-cap{display:block;margin:0 0 24px;font:400 16px/1.5 Sofia,sans-serif;color:#eee9de;min-height:48px;transition:opacity .4s ease}
+  html body:not(#bf-lab) #story .ab-pin-copy>.ab-line:not(#x):not(#y),html body:not(#bf-lab) #story .ab-pin-copy>.ab-btn:not(#x):not(#y){margin-bottom:48px!important}
+  html body:not(#bf-lab) #story .ab-chapters.ab-hidden:not(#x):not(#y){display:none!important}
+  html body:not(#bf-lab) #story .ms-s:not(.ab-on):not(#x):not(#y){visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+  html body:not(#bf-lab) #story .ms-s:not(#x):not(#y){transition:opacity .6s cubic-bezier(.45,0,.2,1),visibility 0s!important}
+  html body:not(#bf-lab) #story .ms-s:not(.ab-on):not(#x):not(#y){transition:opacity .6s cubic-bezier(.45,0,.2,1),visibility 0s linear .6s!important}
 }
