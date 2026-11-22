@@ -624,3 +624,11 @@
   html body #marketplace-results .nb2-stats>div:not(.nb2-main) dd{font-size:46px!important}
   html body #marketplace-results .nb2-stats>div:not(.nb2-main) dt{min-height:2.6em}
 }
+
+/* Who it's for on phones: the icon's stroke is no longer clipped by its box, and when a card shows its photo the photo and its dark wash reach 16px past the text column on both sides, so the icon never touches the picture's edge. The text keeps the 24px content line. */
+@media (max-width:599px){
+  html body #audiences .audience-icon svg:not(#ad-x):not(#ad-y){overflow:visible!important}
+  html body #audiences .audience-card:not(#ad-x):not(#ad-y){overflow:visible!important}
+  html body #audiences .audience-photo:not(#ad-x):not(#ad-y){inset:0 -16px!important;width:calc(100% + 32px)!important;max-width:none!important}
+  html body #audiences .audience-card:not(#ad-x):not(#ad-y)::before{inset:0 -16px!important}
+}
