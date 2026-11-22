@@ -108,11 +108,7 @@
 @media (max-width:900px){
   #network .an-split{grid-template-columns:minmax(0,1fr);gap:36px}
 }
-/* iPad on its side and small laptops: the two columns stay as they were. 1024-1179px: the animation gets the width it needs for its wide layout (621px, about 410px tall) instead of being squeezed into a 538px column that switches it to the tall phone layout (771px). 901-1023px: a smaller animation (410px). */
-@media (min-width:1024px) and (max-width:1179px){
-  #network .an-split{grid-template-columns:minmax(0,1fr) 621px;gap:32px}
-  #network .an-split .nz-wrap{width:100%}
-}
-@media (min-width:901px) and (max-width:1023px){
+/* iPad on its side and small laptops (901-1179px): the two columns stay as they were; only the animation on the right is smaller (410px wide, about 590px tall). It was 538 x 771px, taller than the screen. */
+@media (min-width:901px) and (max-width:1179px){
   #network .an-split .nz-wrap{width:min(100%,410px);justify-self:end}
 }
