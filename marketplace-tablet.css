@@ -60,4 +60,5 @@
   html body:not(#bf-lab) #section-2 .stages button[aria-pressed=true] b:not(#x){opacity:1}
   html body:not(#bf-lab) #section-2 .presentation:not(#x){width:100%!important}
   html body:not(#bf-lab) #section-2 .stages button:not(#x)::before,html body:not(#bf-lab) #section-2 .stages button:not(#x)::after{display:none!important}
+  html body:not(#bf-lab) #section-2 :is(.presentation,.screens,.screen):not(#x){height:464px!important;min-height:0!important}  /* the frame is as tall as its tallest scene, so the animation sits snugly inside */
 }
