@@ -57,3 +57,12 @@
   html body .blog-about:not(#ad-x)::before,html body .blog-about:not(#ad-x)::after{content:none!important;display:none!important}
   html body .blog-about>.brand-section-fade:not(#ad-x){display:none!important}
 }
+/* (cont.) the author and "Read article" share one row, so the hero also fits with Safari's toolbar in view */
+@media (max-width:599px){
+  html body .blog-feature .blog-feature-image:not(#ad-x):not(#ad-y):not(#ad-z),html body .blog-feature .blog-feature-image img:not(#ad-x):not(#ad-y):not(#ad-z){height:56px!important}
+  html body .blog-feature .blog-feature-copy:not(#ad-x):not(#ad-y):not(#ad-w){padding:12px 20px 8px!important}
+}
+@media (max-width:599px){
+  html body .blog-feature .ad-feature-foot .blog-link:not(#ad-x):not(#ad-y):not(#ad-z){align-items:center!important;padding:10px 0!important}
+  html body .blog-feature .ad-feature-foot:not(#ad-x){align-items:center!important}
+}
