@@ -1,0 +1,38 @@
+/* Airlines on a standard tablet (iPad upright, 600-900px; owner's choices of 22 Nov 2026).
+   Spacing only from Tom's tablet table (section 80, head>control 40, control>content 24, card gap 24). Every section fills one screen under the 64px header; the FAQ is unchanged.
+   Phone and desktop are untouched. */
+.at-tabs{display:none}
+@media (min-width:600px) and (max-width:900px){
+  /* 1 · Hero */
+  html body:not(#bf-lab) section#section-1:not(#x){padding-top:128px!important;padding-bottom:48px!important;min-height:100svh!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+  /* 2 · Earn beyond the flight */
+  html body #section-2:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  /* 3 · Help passengers plan: numbered tabs in one row, text left, phone right (the steps advance by themselves, see airlines-tablet.js) */
+  html body #section-3:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body #section-3 .jp-sticky:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;column-gap:24px!important;row-gap:0!important;height:auto!important;position:static!important;align-items:center!important}
+  html body #section-3 .jp-copy:not(#x){display:contents!important}
+  html body #section-3 .al-journey-heading:not(#x){grid-column:1/-1!important;grid-row:1!important;margin-bottom:40px!important}
+  html body #section-3 .al-touchpoints:not(#x){grid-column:1/-1!important;grid-row:2!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important;margin:0 0 24px!important;height:auto!important}
+  html body #section-3 .al-touchpoints>button:not(#x){display:flex!important;flex-direction:row!important;grid-template-columns:none!important;justify-content:center!important;align-items:center!important;gap:10px!important;height:48px!important;min-height:0!important;padding:0 8px!important;border:1px solid #f6c8b555!important;border-radius:999px!important;background:#160e0b!important;color:#EEE9DE!important;font:700 11px/1 Sofia,sans-serif!important;letter-spacing:.06em!important;text-transform:uppercase!important;text-align:center!important;white-space:nowrap!important}
+  html body #section-3 .al-touchpoints>button[aria-selected=true]:not(#x),html body #section-3 .al-touchpoints>button.is-active:not(#x),html body #section-3 .al-touchpoints>button[aria-current=true]:not(#x){background:linear-gradient(105deg,#ff9862,#f46649)!important;border-color:transparent!important;color:#180F10!important}
+  html body #section-3 .al-touchpoints>button:not(#x)::before,html body #section-3 .al-touchpoints>button:not(#x)::after{display:none!important}
+  html body #section-3 .al-touchpoints>button .jp-number:not(#x),html body #section-3 .al-touchpoints>button[aria-selected=true] .jp-number:not(#x),html body #section-3 .al-touchpoints>button.is-active .jp-number:not(#x){width:auto!important;min-width:0!important;margin:0!important;padding:0!important;font:700 11px/1 Sofia,sans-serif!important;letter-spacing:.06em!important;color:inherit!important;-webkit-text-fill-color:currentColor!important;opacity:.75;position:static!important;display:block!important;border:0!important;background:none!important}
+  html body #section-3 .al-touchpoints>button>span:not(.jp-number):not(#x){display:block!important;width:auto!important;font:inherit!important;color:inherit!important;letter-spacing:inherit!important;text-align:center!important}
+  html body #section-3 .jp-preview:not(#x){grid-column:2!important;grid-row:3!important;width:100%!important;max-width:none!important}
+  html body #section-3 .al-loyalty:not(#x){grid-column:1!important;grid-row:3!important;width:100%!important;height:auto!important;align-self:center!important;border:0!important;padding-top:0!important;margin:0!important}
+  html body #section-3 .al-loyalty:not(#x)::before,html body #section-3 .al-loyalty:not(#x)::after,html body #section-3 .al-miles>div+div:not(#x)::before{display:none!important;content:none!important}
+  html body #section-3 .al-touchpoints>button[aria-selected=true]:not(#x),html body #section-3 .al-touchpoints>button[aria-selected=true] span:not(#x){color:#180F10!important;-webkit-text-fill-color:#180F10!important;opacity:1!important}
+  /* 4 · Offer experiences through your own channels: one product at a time (same as OTAs, Loyalty, Hotels) */
+  html body section.xc:not(#x){min-height:calc(100svh - 64px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;padding-top:80px!important;padding-bottom:80px!important}
+  html body section.xc .xc-grid:not(#x){display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:0!important}
+  html body section.xc .xc-card:not(#x){grid-area:1/1!important;margin:0!important;position:static!important;top:auto!important}
+  html body section.xc .xc-swatches:not(#x){top:53px!important;right:69px!important;z-index:4!important;gap:10px!important}
+  html body section.xc .xc-swatches i:not(#x){width:16px!important;height:16px!important;border:2px solid #f1ebe2!important;box-shadow:0 0 0 1px #18101026!important}
+  html body section.xc .xc-swatches i.is-on:not(#x){box-shadow:0 0 0 1.5px #180f10!important}
+  html body section.xc .xc-card:not(.at-on):not(#x){visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+  html body section.xc .xc-card:not(#x){transition:opacity .6s cubic-bezier(.45,0,.2,1),visibility 0s!important}
+  html body section.xc .xc-card:not(.at-on):not(#x){transition:opacity .6s cubic-bezier(.45,0,.2,1),visibility 0s linear .6s!important}
+  .at-tabs{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:5;margin:40px 0 24px}
+  html body .at-tabs button:not(#x){height:40px!important;padding:0 18px!important;border:1px solid #f6c8b5aa!important;border-radius:999px!important;background:#160e0b!important;box-shadow:none!important;color:#EEE9DE!important;font:550 14px/1 Sofia,sans-serif!important;cursor:pointer;transition:background .3s,color .3s}
+  html body .at-tabs button[aria-selected=true]:not(#x){background:linear-gradient(105deg,#ff9862,#f46649)!important;border-color:transparent!important;color:#180F10!important}
+}
