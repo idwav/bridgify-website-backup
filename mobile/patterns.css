@@ -297,6 +297,8 @@
   html body .xc .xc-body h3:not(#ad-x){font:300 22px/1.2 Chillax,sans-serif!important;letter-spacing:-.44px!important;color:#EEE9DE!important;margin:0!important}
   html body .xc .xc-body .xc-desc:not(#ad-x){font:400 16px/1.55 Sofia,sans-serif!important;letter-spacing:-.3px;color:#D7C9BD!important;margin:12px 0 20px!important}
   html body .xc .xc-cta:not(#ad-x){min-height:0!important;padding:10px 0!important;margin:-10px 0!important;border:0!important;background:none!important;box-shadow:none!important;gap:10px!important;color:#EEE9DE!important;font:550 16px/1.25 Sofia,sans-serif!important}
+  /* title → its link: the token gap to the link's text (the link's 10px tap padding is not counted), QA 22 Nov 2026 */
+  html body .xc .xc-body h3+.xc-cta:not(#ad-x){margin-top:calc(var(--bf-gap-to-link,16px) - 10px)!important}
   html body .xc .xc-cta:not(#ad-x) i{width:auto!important;height:auto!important;background:none!important;color:#F46649!important;border-radius:0!important}
   html body .xc .xc-app:not(#ad-x){opacity:1!important;transform:none!important}
 }

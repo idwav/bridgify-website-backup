@@ -85,3 +85,8 @@
 @media (max-width:359px) and (prefers-reduced-motion:no-preference){
   html body #performance .dp6-steps li:not(#ad-x){letter-spacing:.04em!important;padding:0 12px!important;gap:8px!important}
 }
+
+/* What makes an API high performing: "Read the docs" is a phone button (40px, 15px text), not the desktop size (QA 22 Nov 2026). */
+@media (max-width:599px){
+  html body #performance a.dp3-cta:not(#ad-x):not(#ad-y){min-height:40px!important;height:40px!important;padding:0 16px!important;border-radius:10px!important;font-size:15px!important;line-height:20px!important;gap:8px!important}
+}
