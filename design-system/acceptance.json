@@ -1,0 +1,107 @@
+{
+ "$description": "How to check that a built page matches the spec. Every page passes all of these before it goes live.",
+ "widths": [
+  "360",
+  "390",
+  "430",
+  "600",
+  "768",
+  "834",
+  "1024",
+  "1280",
+  "1440",
+  "1920"
+ ],
+ "checks": [
+  {
+   "id": "A1",
+   "area": "Layout",
+   "check": "No horizontal scroll at any width; content starts and ends on the page margin (grid.margin)."
+  },
+  {
+   "id": "A2",
+   "area": "Layout",
+   "check": "Each section matches its pattern on desktop, tablet and phone (Patterns, Pages)."
+  },
+  {
+   "id": "A3",
+   "area": "Type",
+   "check": "Every text uses one of the 13 type roles; nothing outside illustrations is under 12px; body text 16px on every device."
+  },
+  {
+   "id": "A4",
+   "area": "Color",
+   "check": "Only the colour tokens are used; text meets the contrast listed in Color."
+  },
+  {
+   "id": "A5",
+   "area": "Spacing",
+   "check": "Space between elements comes only from the spacing tokens, per device."
+  },
+  {
+   "id": "A6",
+   "area": "Components",
+   "check": "Buttons, links, chips, cards, stepper, tabs, FAQ and icons match Components in every state (rest, hover, focus, pressed, disabled)."
+  },
+  {
+   "id": "A7",
+   "area": "Buttons",
+   "check": "One primary per group; arrows are always ↗; phone buttons 40px with a 44px tap area. Content sections: buttons of one group share one width. Phone heroes: short buttons side by side when they fit, otherwise stacked (B4h); home hero buttons at equal widths, stacked at 359px and below."
+  },
+  {
+   "id": "A8",
+   "area": "Motion",
+   "check": "Each animation in motion.json behaves as in its viewer on desktop and phone; pinned sections release after the last step; reduced motion is respected."
+  },
+  {
+   "id": "A9",
+   "area": "Copy",
+   "check": "Every visible text matches Copy v4; no text added or removed on phones."
+  },
+  {
+   "id": "A10",
+   "area": "Images",
+   "check": "Every image from assets.json is present, sharp at 2x, and has alt text."
+  },
+  {
+   "id": "A11",
+   "area": "SEO",
+   "check": "Title, description, canonical and structured data match handoff.json for every page; redirects and clean URLs work."
+  },
+  {
+   "id": "A12",
+   "area": "Accessibility",
+   "check": "Keyboard reaches every control with a visible focus; screen readers read headings in order."
+  },
+  {
+   "id": "A13",
+   "area": "Performance",
+   "check": "LCP < 2.5s, CLS < 0.1 on a mid-range phone; no layout jump on load."
+  },
+  {
+   "id": "A14",
+   "area": "Browsers",
+   "check": "Checked in Safari on iPhone, Chrome on Android, and Chrome, Safari and Firefox on desktop."
+  },
+  {
+   "id": "A15",
+   "area": "Header menu",
+   "check": "A hamburger is in the header at every width up to 1023px on every page (40px on phones, 44px on tablets) and opens the full menu; no hamburger from 1024px. Check it again after any change to tablet-menu.css or the phone layer."
+  },
+  {
+   "id": "A16",
+   "area": "Entrance",
+   "check": "Every section except the hero enters with the scroll on desktop, tablet and phone, and none stays hidden after a full scroll to the end of the page."
+  },
+  {
+   "id": "A17",
+   "area": "Layers",
+   "check": "scripts/sync-mobile.py --check and scripts/sync-footer.py --check pass, and nothing in mobile/ or wide/ was edited by hand."
+  }
+ ],
+ "process": [
+  "The developers send each finished page as a preview link.",
+  "The design team checks it against this list and the live reference, with before/after screenshots.",
+  "Changes go into the design system (a new version) before they go into the code."
+ ]
+}

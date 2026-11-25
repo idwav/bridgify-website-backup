@@ -7,3 +7,5 @@ dev.py
 *.md
 *.zip
 __pycache__
+# Developer handoff: the design system is shared by link, not published on the site.
+design-system

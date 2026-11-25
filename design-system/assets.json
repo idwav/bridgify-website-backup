@@ -1,0 +1,1245 @@
+{
+ "$description": "Every file the 16 pages load (network log at 1440 and 390, scrolled to the end), plus the icon set and logos. Paths are relative to the repo root.",
+ "summary": {
+  "files": 76,
+  "images": 47,
+  "vectors": 4,
+  "fonts": 7,
+  "external": 18,
+  "icons": 52
+ },
+ "files": [
+  {
+   "path": "Chillax_Complete/Fonts/OTF/Chillax-Light.otf",
+   "kind": "font",
+   "format": "otf",
+   "kb": 39,
+   "pages": [
+    "about-us",
+    "airlines",
+    "api",
+    "careers",
+    "contact",
+    "developers",
+    "hotels",
+    "index-v2",
+    "insights",
+    "loyalty-finance",
+    "marketplace",
+    "otas",
+    "personalization",
+    "press",
+    "super-apps",
+    "travel-technology"
+   ]
+  },
+  {
+   "path": "Chillax_Complete/Fonts/OTF/Chillax-Medium.otf",
+   "kind": "font",
+   "format": "otf",
+   "kb": 39,
+   "pages": [
+    "api",
+    "contact",
+    "developers",
+    "index-v2",
+    "insights",
+    "loyalty-finance",
+    "marketplace",
+    "press"
+   ]
+  },
+  {
+   "path": "Chillax_Complete/Fonts/OTF/Chillax-Regular.otf",
+   "kind": "font",
+   "format": "otf",
+   "kb": 37,
+   "pages": [
+    "personalization"
+   ]
+  },
+  {
+   "path": "Chillax_Complete/Fonts/OTF/Chillax-Semibold.otf",
+   "kind": "font",
+   "format": "otf",
+   "kb": 39,
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "path": "Chillax_Complete/Fonts/WEB/fonts/Chillax-Regular.woff2",
+   "kind": "font",
+   "format": "woff2",
+   "kb": 20,
+   "pages": [
+    "about-us",
+    "airlines",
+    "api",
+    "contact",
+    "developers",
+    "hotels",
+    "index-v2",
+    "insights",
+    "loyalty-finance",
+    "marketplace",
+    "otas",
+    "personalization",
+    "press",
+    "super-apps",
+    "travel-technology"
+   ]
+  },
+  {
+   "path": "Sofia_Sans/SofiaSans-VariableFont_wght.ttf",
+   "kind": "font",
+   "format": "ttf",
+   "kb": 334,
+   "pages": [
+    "about-us",
+    "airlines",
+    "api",
+    "careers",
+    "contact",
+    "developers",
+    "hotels",
+    "index-v2",
+    "insights",
+    "loyalty-finance",
+    "marketplace",
+    "otas",
+    "personalization",
+    "press",
+    "super-apps",
+    "travel-technology"
+   ]
+  },
+  {
+   "path": "assets/api-concert.png",
+   "kind": "image",
+   "format": "png",
+   "kb": 1997,
+   "pages": [
+    "personalization"
+   ],
+   "size": "1254×1254"
+  },
+  {
+   "path": "assets/bridgify-icon.svg",
+   "kind": "vector",
+   "format": "svg",
+   "kb": 9,
+   "pages": [
+    "api",
+    "index-v2",
+    "otas",
+    "travel-technology"
+   ]
+  },
+  {
+   "path": "assets/bridgify-logo-full.svg",
+   "kind": "vector",
+   "format": "svg",
+   "kb": 20,
+   "pages": [
+    "about-us",
+    "airlines",
+    "api",
+    "careers",
+    "contact",
+    "developers",
+    "hotels",
+    "index-v2",
+    "insights",
+    "loyalty-finance",
+    "marketplace",
+    "otas",
+    "personalization",
+    "press",
+    "super-apps",
+    "travel-technology"
+   ]
+  },
+  {
+   "path": "assets/bridgify-logo-tagline.webp",
+   "kind": "image",
+   "format": "webp",
+   "kb": 59,
+   "pages": [
+    "about-us",
+    "airlines",
+    "api",
+    "careers",
+    "contact",
+    "developers",
+    "hotels",
+    "index-v2",
+    "insights",
+    "loyalty-finance",
+    "marketplace",
+    "otas",
+    "personalization",
+    "press",
+    "super-apps",
+    "travel-technology"
+   ],
+   "size": "2000×678"
+  },
+  {
+   "path": "assets/bridgify-octopus-line.svg",
+   "kind": "vector",
+   "format": "svg",
+   "kb": 9,
+   "pages": [
+    "about-us",
+    "insights"
+   ]
+  },
+  {
+   "path": "assets/enterprise-reference-v2.png",
+   "kind": "image",
+   "format": "png",
+   "kb": 1456,
+   "pages": [
+    "index-v2"
+   ],
+   "size": "1672×941"
+  },
+  {
+   "path": "assets/fonts/sofia-regular.ttf",
+   "kind": "font",
+   "format": "ttf",
+   "kb": 156,
+   "pages": [
+    "loyalty-finance",
+    "super-apps"
+   ]
+  },
+  {
+   "path": "assets/hero-coral-planet.png",
+   "kind": "image",
+   "format": "png",
+   "kb": 1473,
+   "pages": [
+    "index-v2"
+   ],
+   "size": "1556×1011"
+  },
+  {
+   "path": "assets/hero-food.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 86,
+   "pages": [
+    "personalization"
+   ],
+   "size": "900×506"
+  },
+  {
+   "path": "assets/manage-approved-reference.png",
+   "kind": "image",
+   "format": "png",
+   "kb": 1688,
+   "pages": [
+    "api"
+   ],
+   "size": "1536×1024"
+  },
+  {
+   "path": "assets/ota-day-photo-reference.png",
+   "kind": "image",
+   "format": "png",
+   "kb": 1614,
+   "pages": [
+    "otas"
+   ],
+   "size": "1536×1024"
+  },
+  {
+   "path": "assets/travel-technology-embed-approved.png",
+   "kind": "image",
+   "format": "png",
+   "kb": 1477,
+   "pages": [
+    "travel-technology"
+   ],
+   "size": "1672×941"
+  },
+  {
+   "path": "assets/v2/01-seine-cruise-1600.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 713,
+   "pages": [
+    "airlines",
+    "hotels",
+    "marketplace",
+    "personalization"
+   ],
+   "size": "1600×1066"
+  },
+  {
+   "path": "assets/v2/02-louvre-1600.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 453,
+   "pages": [
+    "about-us",
+    "airlines",
+    "loyalty-finance",
+    "marketplace",
+    "personalization"
+   ],
+   "size": "1600×1066"
+  },
+  {
+   "path": "assets/v2/02-louvre-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 53,
+   "pages": [
+    "airlines",
+    "api",
+    "hotels",
+    "index-v2",
+    "loyalty-finance",
+    "travel-technology"
+   ],
+   "size": "480×320"
+  },
+  {
+   "path": "assets/v2/03-montmartre-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 360,
+   "pages": [
+    "personalization"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/04-eiffel-night-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 68,
+   "pages": [
+    "about-us",
+    "airlines",
+    "api",
+    "hotels",
+    "index-v2",
+    "personalization"
+   ],
+   "size": "480×320"
+  },
+  {
+   "path": "assets/v2/04-eiffel-night-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 285,
+   "pages": [
+    "personalization"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/05-paris-food-tour-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 210,
+   "pages": [
+    "index-v2",
+    "loyalty-finance",
+    "marketplace",
+    "otas",
+    "super-apps",
+    "travel-technology"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/06-wine-cheese-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 69,
+   "pages": [
+    "personalization"
+   ],
+   "size": "480×320"
+  },
+  {
+   "path": "assets/v2/06-wine-cheese-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 245,
+   "pages": [
+    "personalization"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/07-seine-dinner-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 55,
+   "pages": [
+    "about-us",
+    "airlines",
+    "api",
+    "hotels",
+    "index-v2",
+    "personalization",
+    "travel-technology"
+   ],
+   "size": "480×320"
+  },
+  {
+   "path": "assets/v2/07-seine-dinner-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 212,
+   "pages": [
+    "marketplace",
+    "personalization"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/08-colosseum-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 71,
+   "pages": [
+    "api",
+    "index-v2",
+    "loyalty-finance",
+    "otas",
+    "travel-technology"
+   ],
+   "size": "480×320"
+  },
+  {
+   "path": "assets/v2/08-colosseum-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 243,
+   "pages": [
+    "index-v2",
+    "loyalty-finance",
+    "marketplace"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/09-florence-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 73,
+   "pages": [
+    "index-v2",
+    "travel-technology"
+   ],
+   "size": "480×320"
+  },
+  {
+   "path": "assets/v2/09-florence-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 250,
+   "pages": [
+    "loyalty-finance"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/10-alps-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 72,
+   "pages": [
+    "api",
+    "index-v2",
+    "travel-technology"
+   ],
+   "size": "480×320"
+  },
+  {
+   "path": "assets/v2/10-alps-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 247,
+   "pages": [
+    "about-us"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/11-catamaran-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 54,
+   "pages": [
+    "index-v2",
+    "otas",
+    "super-apps",
+    "travel-technology"
+   ],
+   "size": "480×320"
+  },
+  {
+   "path": "assets/v2/11-catamaran-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 187,
+   "pages": [
+    "about-us",
+    "super-apps"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/12-london-eye-1600.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 529,
+   "pages": [
+    "hotels",
+    "marketplace",
+    "otas"
+   ],
+   "size": "1600×1066"
+  },
+  {
+   "path": "assets/v2/12-london-eye-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 65,
+   "pages": [
+    "hotels",
+    "index-v2",
+    "otas",
+    "travel-technology"
+   ],
+   "size": "480×320"
+  },
+  {
+   "path": "assets/v2/13-santorini-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 57,
+   "pages": [
+    "api",
+    "index-v2",
+    "otas"
+   ],
+   "size": "480×320"
+  },
+  {
+   "path": "assets/v2/13-santorini-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 196,
+   "pages": [
+    "index-v2"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/14-beach-club-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 69,
+   "pages": [
+    "index-v2",
+    "otas",
+    "super-apps"
+   ],
+   "size": "480×320"
+  },
+  {
+   "path": "assets/v2/16-live-music-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 144,
+   "pages": [
+    "airlines",
+    "index-v2",
+    "loyalty-finance",
+    "marketplace",
+    "otas",
+    "travel-technology"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/17-hotel-london-1600.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 408,
+   "pages": [
+    "hotels",
+    "index-v2",
+    "marketplace"
+   ],
+   "size": "1600×1066"
+  },
+  {
+   "path": "assets/v2/18-trip-planning-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 160,
+   "pages": [
+    "index-v2"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/19-airline-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 122,
+   "pages": [
+    "careers",
+    "index-v2",
+    "marketplace"
+   ],
+   "size": "960×540"
+  },
+  {
+   "path": "assets/v2/20-loyalty-payment-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 104,
+   "pages": [
+    "careers",
+    "index-v2",
+    "marketplace"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/21-traveltech-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 147,
+   "pages": [
+    "careers",
+    "index-v2"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/22-super-app-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 223,
+   "pages": [
+    "index-v2",
+    "marketplace"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/23-infrastructure-1200.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 299,
+   "pages": [
+    "insights"
+   ],
+   "size": "1200×800"
+  },
+  {
+   "path": "assets/v2/29-blog-infrastructure-1200.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 299,
+   "pages": [
+    "insights"
+   ],
+   "size": "1200×800"
+  },
+  {
+   "path": "assets/v2/31-waterpark-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 82,
+   "pages": [
+    "index-v2"
+   ],
+   "size": "480×270"
+  },
+  {
+   "path": "assets/v2/32-science-museum-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 86,
+   "pages": [
+    "index-v2"
+   ],
+   "size": "480×320"
+  },
+  {
+   "path": "assets/v2/33-old-town-480.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 76,
+   "pages": [
+    "super-apps"
+   ],
+   "size": "480×320"
+  },
+  {
+   "path": "assets/v2/food-wine-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 215,
+   "pages": [
+    "index-v2"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/v2/live-concert-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 159,
+   "pages": [
+    "index-v2",
+    "loyalty-finance",
+    "marketplace",
+    "otas",
+    "super-apps",
+    "travel-technology"
+   ],
+   "size": "960×540"
+  },
+  {
+   "path": "assets/v2/rome-food-tour-960.jpg",
+   "kind": "image",
+   "format": "jpg",
+   "kb": 180,
+   "pages": [
+    "api",
+    "index-v2"
+   ],
+   "size": "960×640"
+  },
+  {
+   "path": "assets/world-dots.svg",
+   "kind": "vector",
+   "format": "svg",
+   "kb": 121,
+   "pages": [
+    "about-us"
+   ]
+  },
+  {
+   "path": "https://cdn.hotelbeds.com/evolution/cms/prod/public/styles/hb_imgstyle_18_5/public/2026-05/HBX_Group_Bridgify_PR.jpg.webp?VersionId=Ju9MtekR4KIzPaaxxW8av4AYTq2nioSh",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://cdn.pulse2.com/cdn/2026/05/HBX-Group-Logo.jpeg",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://dw1.s81c.com//IMWUC/FeaturedImages/d3b0ce53-b3e9-46d7-b8dd-8a193aa17c05-L.Jpeg",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://i.ytimg.com/vi/3hO9va468aM/hqdefault.jpg",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://ik.imgkit.net/3vlqs5axxjf/PCWW/uploadedImages/Articles/News/2026/May/hbx%20bridgify%20acquisition.jpeg?tr=w-1200%2Cfo-auto",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://images.nomadlawyer.org/images/blog/travel-technology-news/2026/05/hbx-group-acquires-bridgify-may-2026.jpg",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://img.haarets.co.il/bs/00000192-421a-df88-a3fe-7f5a40510000/f5/30/857e9de44cd78fb6f3cc37608c87/58577295.JPG?precrop=1183,688,x0,y77&height=1116&width=1920",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://img.ice.co.il/giflib/news/rsPhoto/sz_236/rsz_615_346_5ice1682020.jpg",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://media.passportnews.co.il/media/Storage/69376_tumb_800X450.jpg",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://mediaoffice.ae/-/media/2020/oct/21-10/06/partner-logo-lockup---standard1.jpg?h=840&w=4705",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://moovit.com/wp-content/uploads/2020/04/header-realtime-6.jpg",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://pic1.calcalist.co.il/picserver3/crop_images/2026/05/13/ryAZN0b1fx/ryAZN0b1fx_0_50_2048_1153_0_large.jpg",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6846a07386ddbda3553ccce2/b28ed1062_A0DBE68C-F2B8-4F45-9541-DDD23837B0DD-scaled.jpg",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://res.cloudinary.com/jerrick/image/upload/d_642250b563292b35f27461a7.png,f_jpg,fl_progressive,q_auto,w_1024/69009ab73728d9001df37def.png",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://skift.com/wp-content/uploads/2026/05/tour-bus-in-sevilla-spain-via-isango-an-hbx-group-brand.jpg?resize=1024,683",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://static-main.moovit.com/wp-content/uploads/2020/04/header-realtime-6.jpg",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://ttgasia.2017.ttgasia.com/wp-content/uploads/sites/2/2026/05/lady-booking-travel-on-device-640.jpg",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  },
+  {
+   "path": "https://www.altexsoft.com/static/travel-news/2026/5/untitled-design-23-7d87b.png",
+   "kind": "external",
+   "pages": [
+    "press"
+   ]
+  }
+ ],
+ "icons": [
+  {
+   "id": "al-arrow",
+   "file": "design-system/assets/icons/al-arrow.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-arrow-up",
+   "file": "design-system/assets/icons/al-arrow-up.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-calendar",
+   "file": "design-system/assets/icons/al-calendar.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-check",
+   "file": "design-system/assets/icons/al-check.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-close",
+   "file": "design-system/assets/icons/al-close.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-code",
+   "file": "design-system/assets/icons/al-code.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-database",
+   "file": "design-system/assets/icons/al-database.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-gift",
+   "file": "design-system/assets/icons/al-gift.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-headphones",
+   "file": "design-system/assets/icons/al-headphones.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-home",
+   "file": "design-system/assets/icons/al-home.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-location",
+   "file": "design-system/assets/icons/al-location.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-mail",
+   "file": "design-system/assets/icons/al-mail.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-market",
+   "file": "design-system/assets/icons/al-market.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-menu",
+   "file": "design-system/assets/icons/al-menu.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-network",
+   "file": "design-system/assets/icons/al-network.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-phone",
+   "file": "design-system/assets/icons/al-phone.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-plane",
+   "file": "design-system/assets/icons/al-plane.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "al-user",
+   "file": "design-system/assets/icons/al-user.svg",
+   "pages": [
+    "airlines"
+   ]
+  },
+  {
+   "id": "fn-i-aggregator",
+   "file": "design-system/assets/icons/fn-i-aggregator.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "fn-i-app",
+   "file": "design-system/assets/icons/fn-i-app.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "fn-i-card",
+   "file": "design-system/assets/icons/fn-i-card.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "fn-i-direct",
+   "file": "design-system/assets/icons/fn-i-direct.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "fn-i-marketplace",
+   "file": "design-system/assets/icons/fn-i-marketplace.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "fn-i-site",
+   "file": "design-system/assets/icons/fn-i-site.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "fn-i-star",
+   "file": "design-system/assets/icons/fn-i-star.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "fn-i-supplier",
+   "file": "design-system/assets/icons/fn-i-supplier.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "i-cart",
+   "file": "design-system/assets/icons/i-cart.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "i-check",
+   "file": "design-system/assets/icons/i-check.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "i-family",
+   "file": "design-system/assets/icons/i-family.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "i-flask",
+   "file": "design-system/assets/icons/i-flask.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "i-heart",
+   "file": "design-system/assets/icons/i-heart.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "i-link",
+   "file": "design-system/assets/icons/i-link.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "i-lock",
+   "file": "design-system/assets/icons/i-lock.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "i-network",
+   "file": "design-system/assets/icons/i-network.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "i-solo",
+   "file": "design-system/assets/icons/i-solo.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "i-spark",
+   "file": "design-system/assets/icons/i-spark.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "i-store",
+   "file": "design-system/assets/icons/i-store.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "i-ticket",
+   "file": "design-system/assets/icons/i-ticket.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "i-waves",
+   "file": "design-system/assets/icons/i-waves.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "opx-icon-aggregate",
+   "file": "design-system/assets/icons/opx-icon-aggregate.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "opx-icon-app",
+   "file": "design-system/assets/icons/opx-icon-app.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "opx-icon-arrow",
+   "file": "design-system/assets/icons/opx-icon-arrow.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "opx-icon-cart",
+   "file": "design-system/assets/icons/opx-icon-cart.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "opx-icon-distribute",
+   "file": "design-system/assets/icons/opx-icon-distribute.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "opx-icon-global",
+   "file": "design-system/assets/icons/opx-icon-global.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "opx-icon-market",
+   "file": "design-system/assets/icons/opx-icon-market.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "opx-icon-normalize",
+   "file": "design-system/assets/icons/opx-icon-normalize.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "opx-icon-personalize",
+   "file": "design-system/assets/icons/opx-icon-personalize.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "opx-icon-rewards",
+   "file": "design-system/assets/icons/opx-icon-rewards.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "opx-icon-site",
+   "file": "design-system/assets/icons/opx-icon-site.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "opx-icon-suppliers",
+   "file": "design-system/assets/icons/opx-icon-suppliers.svg",
+   "pages": [
+    "index-v2"
+   ]
+  },
+  {
+   "id": "opx-icon-ticket",
+   "file": "design-system/assets/icons/opx-icon-ticket.svg",
+   "pages": [
+    "index-v2"
+   ]
+  }
+ ],
+ "logos": [
+  "assets/bridgify-favicon.svg",
+  "assets/bridgify-logo-coral.svg",
+  "assets/bridgify-logo-full.svg",
+  "assets/bridgify-logo-wordmark.svg"
+ ],
+ "fonts": {
+  "Chillax": "Chillax_Complete/Fonts (OTF; Light 300, Regular 400, Medium 500). Licence: check the Fontshare / Indian Type Foundry licence for web use.",
+  "Sofia Sans": "Sofia_Sans/SofiaSans-VariableFont_wght.ttf (variable 100–900). Open Font License."
+ },
+ "rules": [
+  "Photos: serve WebP or AVIF with a JPEG fallback, at 1x and 2x of the largest size they are shown at; lazy-load below the first screen.",
+  "Icons: one SVG sprite or inline SVG, stroke 1.5, coral 500, with the light dot (component.icon).",
+  "Every image needs alt text from Copy v4; decorative images get alt=\"\"."
+ ]
+}

@@ -1,5 +1,12 @@
 # Bridgify mobile rules (for development)
 
+> **Developer handoff (21 Nov 2026):** the design system in `design-system/` (tokens.json, the guide) is the source of
+> truth for the rebuild. Where this file differs, the design system wins. Changed by the owner's decisions: L2 (demos at
+> most 85% of the screen) is replaced by "a demo may be taller than the screen if it scrolls with the page"; card and list
+> names are Chillax 300 (24 cards, 18 lists), not Chillax 500 18–19; body text is 16px; buttons are 40px with a 44px
+> tap area; step buttons on phones are boxes; Why Bridgify is scroll-driven on phones.
+
+
 Status, 16 November 2026: agreed in the lab (`output/element-lab/adaptive/`), not on the live site. This file is the
 handoff: what the phone layout must do, why, and how to prove it does. Every rule has an ID; `system/verify.py` checks
 each one and writes the result to `output/element-lab/adaptive/system/compliance.md`.

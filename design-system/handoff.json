@@ -1,0 +1,369 @@
+{
+ "$description": "What the site needs beyond its look. Taken from the live pages and vercel.json on 21 Nov 2026.",
+ "copy": "Copy v4 is the only source of text. The live pages follow it; where a page and Copy v4 differ, Copy v4 wins.",
+ "seo": {
+  "index-v2": {
+   "title": "Bridgify | The Infrastructure Behind Travel Experiences",
+   "description": "Bridgify, part of HBX Group, is the world&#x27;s leading B2B travel experiences infrastructure: 1M+ tours, attractions and activities, matched to every customer.",
+   "canonical": "https://www.bridgify.io/",
+   "structured_data": [
+    "FAQPage",
+    "Organization"
+   ],
+   "open_graph": false
+  },
+  "api": {
+   "title": "Travel APIs for Tours, Attractions &amp; Activities | Bridgify",
+   "description": "The largest experiences catalog through one integration: 1M+ tours, attractions, activities and events, multi-source supply and real-time availability.",
+   "canonical": "https://www.bridgify.io/experiences-api",
+   "structured_data": [
+    "FAQPage"
+   ],
+   "open_graph": false
+  },
+  "marketplace": {
+   "title": "White-Label Travel Marketplace for Experiences | Bridgify",
+   "description": "Your branded marketplace for tours, attractions, activities and events. 1M+ experiences, search, checkout and payments. No developers needed. Live in 3 days.",
+   "canonical": "https://www.bridgify.io/white-label-marketplace",
+   "structured_data": [
+    "FAQPage"
+   ],
+   "open_graph": false
+  },
+  "personalization": {
+   "title": "AIyelet: AI Tour &amp; Experience Recommendations | Bridgify",
+   "description": "AIyelet recommends the right tours, attractions and activities to each traveler, using intent and context, inside your own product. By Bridgify.",
+   "canonical": "https://www.bridgify.io/aiyelet",
+   "structured_data": [
+    "FAQPage"
+   ],
+   "open_graph": false
+  },
+  "developers": {
+   "title": "Developers | Bridgify Experiences API Documentation",
+   "description": "Documentation for the Bridgify Experiences API: getting started, API reference and integration support for tours, attractions and activities.",
+   "canonical": "https://www.bridgify.io/developers",
+   "structured_data": [
+    "FAQPage"
+   ],
+   "open_graph": false
+  },
+  "otas": {
+   "title": "Tours &amp; Activities for OTAs | B2B Travel Platform | Bridgify",
+   "description": "Add 1M+ tours, attractions and events to your OTA through one integration: multi-source supply, real-time availability, your brand.",
+   "canonical": "https://www.bridgify.io/solutions/otas",
+   "structured_data": [
+    "FAQPage"
+   ],
+   "open_graph": false
+  },
+  "airlines": {
+   "title": "Destination Experiences for Airlines | Bridgify",
+   "description": "Offer destination experiences under your airline’s brand. One connected layer for 1M+ tours, attractions, activities and events across your passenger journey.",
+   "canonical": "https://www.bridgify.io/solutions/airlines",
+   "structured_data": [
+    "FAQPage"
+   ],
+   "open_graph": false
+  },
+  "hotels": {
+   "title": "Experiences API for Hotels: Tours &amp; Activities | Bridgify",
+   "description": "Add 1M+ tours, attractions and activities to your guest journey, digital concierge or PMS through one experiences API or a branded marketplace.",
+   "canonical": "https://www.bridgify.io/solutions/hotels",
+   "structured_data": [
+    "FAQPage"
+   ],
+   "open_graph": false
+  },
+  "loyalty-finance": {
+   "title": "Travel Rewards &amp; Experiences for Loyalty Programs | Bridgify",
+   "description": "Give members 1M+ tours, attractions and events to redeem points on, under your brand. A travel rewards marketplace or API, with payments built in.",
+   "canonical": "https://www.bridgify.io/solutions/loyalty-programs",
+   "structured_data": [
+    "FAQPage"
+   ],
+   "open_graph": false
+  },
+  "travel-technology": {
+   "title": "Add Experiences to B2B Travel Agency Software | Bridgify",
+   "description": "Embed 1M+ tours, attractions and events in your travel software, agency platform or tour-operator system through one API.",
+   "canonical": "https://www.bridgify.io/solutions/travel-technology",
+   "structured_data": [
+    "FAQPage"
+   ],
+   "open_graph": false
+  },
+  "super-apps": {
+   "title": "Travel Booking API for Super Apps &amp; Fintechs | Bridgify",
+   "description": "Add 1M+ bookable tours, attractions and events to your super app, wallet or mobility app through one travel booking API or a branded marketplace.",
+   "canonical": "https://www.bridgify.io/solutions/super-apps",
+   "structured_data": [
+    "FAQPage"
+   ],
+   "open_graph": false
+  },
+  "about-us": {
+   "title": "About Bridgify | B2B Traveltech Company, Part of HBX Group",
+   "description": "Bridgify is the world&#x27;s leading B2B travel experiences infrastructure, bringing 1M+ tours and attractions to the brands people use. Part of HBX Group.",
+   "canonical": "https://www.bridgify.io/about",
+   "structured_data": [],
+   "open_graph": false
+  },
+  "careers": {
+   "title": "Careers at Bridgify | Build the Future of Travel Experiences",
+   "description": "Join the team building the infrastructure behind travel experiences, used by banks, airlines and super apps. Open roles at Bridgify, part of HBX Group.",
+   "canonical": "https://www.bridgify.io/careers",
+   "structured_data": [],
+   "open_graph": false
+  },
+  "contact": {
+   "title": "Book a Demo | Bridgify Experiences API and White-Label",
+   "description": "Talk to Bridgify about adding 1M+ tours, attractions and experiences to your product through the Experiences API, White-Label Marketplace or AIyelet.",
+   "canonical": "https://www.bridgify.io/contact",
+   "structured_data": [],
+   "open_graph": false
+  },
+  "press": {
+   "title": "Bridgify in the Press | News and Announcements",
+   "description": "Coverage, interviews and announcements about Bridgify, part of HBX Group, and the business of travel experiences.",
+   "canonical": "https://www.bridgify.io/newsroom",
+   "structured_data": [],
+   "open_graph": false
+  },
+  "insights": {
+   "title": "Travel Experiences Insights | Bridgify",
+   "description": "Insights on experience supply, API integration, white-label marketplaces, personalization and loyalty from the Bridgify team, part of HBX Group.",
+   "canonical": "https://www.bridgify.io/blog",
+   "structured_data": [],
+   "open_graph": false
+  }
+ },
+ "routes": {
+  "redirects": [
+   {
+    "source": "/",
+    "has": [
+     {
+      "type": "query",
+      "key": "version",
+      "value": "3"
+     }
+    ],
+    "destination": "/index-v2.html?version=3",
+    "permanent": false
+   },
+   {
+    "source": "/",
+    "missing": [
+     {
+      "type": "query",
+      "key": "version",
+      "value": "1"
+     }
+    ],
+    "destination": "/index-v2.html?version=2",
+    "permanent": false
+   },
+   {
+    "source": "/index.html",
+    "has": [
+     {
+      "type": "query",
+      "key": "version",
+      "value": "3"
+     }
+    ],
+    "destination": "/index-v2.html?version=3",
+    "permanent": false
+   },
+   {
+    "source": "/index.html",
+    "missing": [
+     {
+      "type": "query",
+      "key": "version",
+      "value": "1"
+     }
+    ],
+    "destination": "/index-v2.html?version=2",
+    "permanent": false
+   },
+   {
+    "source": "/attractions-api",
+    "destination": "/experiences-api",
+    "permanent": true
+   },
+   {
+    "source": "/products",
+    "destination": "/#products",
+    "permanent": true
+   }
+  ],
+  "rewrites": [
+   {
+    "source": "/about",
+    "destination": "/about-us.html"
+   },
+   {
+    "source": "/experiences-api",
+    "destination": "/api.html"
+   },
+   {
+    "source": "/white-label-marketplace",
+    "destination": "/marketplace.html"
+   },
+   {
+    "source": "/aiyelet",
+    "destination": "/personalization.html"
+   },
+   {
+    "source": "/solutions/otas",
+    "destination": "/otas.html"
+   },
+   {
+    "source": "/solutions/airlines",
+    "destination": "/airlines.html"
+   },
+   {
+    "source": "/solutions/loyalty-programs",
+    "destination": "/loyalty-finance.html"
+   },
+   {
+    "source": "/solutions/travel-technology",
+    "destination": "/travel-technology.html"
+   },
+   {
+    "source": "/solutions/hotels",
+    "destination": "/hotels.html"
+   },
+   {
+    "source": "/solutions/super-apps",
+    "destination": "/super-apps.html"
+   },
+   {
+    "source": "/blog",
+    "destination": "/insights.html"
+   },
+   {
+    "source": "/newsroom",
+    "destination": "/press.html"
+   },
+   {
+    "source": "/login",
+    "destination": "/login.html"
+   },
+   {
+    "source": "/contact",
+    "destination": "/contact.html"
+   },
+   {
+    "source": "/developers",
+    "destination": "/developers.html"
+   },
+   {
+    "source": "/careers",
+    "destination": "/careers.html"
+   },
+   {
+    "source": "/book-a-demo",
+    "destination": "/demo.html"
+   }
+  ]
+ },
+ "forms": {
+  "contact": {
+   "form": "id=\"enquiry\" class=\"form\"",
+   "fields": [
+    "name",
+    "email",
+    "company",
+    "role",
+    "industry",
+    "product",
+    "markets",
+    "message"
+   ],
+   "submits_to": "not set"
+  },
+  "demo": {
+   "form": "class=\"apply-form\" id=\"demo-form\" novalidate",
+   "fields": [
+    "name",
+    "email",
+    "company",
+    "role",
+    "industry",
+    "product",
+    "markets",
+    "message"
+   ],
+   "submits_to": "not set"
+  },
+  "login": {
+   "form": "class=\"login-form\" id=\"login-form\" method=\"post\" action=\"\" data-auth-endpoint=\"\" novalidate",
+   "fields": [
+    "email",
+    "password",
+    "remember"
+   ],
+   "submits_to": "not set"
+  }
+ },
+ "analytics": {
+  "today": "Only the homepage loads Google tag (gtag) and Segment; no other page loads analytics."
+ },
+ "accessibility": [
+  "WCAG 2.2 AA: contrast (see Color), visible keyboard focus, 44px tap targets on phones, every control reachable by keyboard.",
+  "prefers-reduced-motion: every animation stops or shows its last frame.",
+  "One h1 per page; headings in order; FAQ answers readable without JavaScript."
+ ],
+ "performance": [
+  "Largest Contentful Paint under 2.5s on a mid-range phone over 4G.",
+  "Cumulative Layout Shift under 0.1 (no jump on load).",
+  "Animations run on transform and opacity; heavy demos start only when in view."
+ ],
+ "browsers": [
+  "Safari on iOS 16+",
+  "Chrome and Edge, last 2 versions",
+  "Firefox, last 2 versions",
+  "Safari on macOS 16+"
+ ],
+ "open_questions": [
+  {
+   "topic": "Forms",
+   "question": "Where should the Contact and Book a demo forms send (CRM, e-mail address, or an API)? Today no submit address is set."
+  },
+  {
+   "topic": "Log in",
+   "question": "Which system does Log in connect to? The form has no endpoint today."
+  },
+  {
+   "topic": "Analytics",
+   "question": "Which analytics and events should every page load? Today only the homepage loads gtag and Segment."
+  },
+  {
+   "topic": "Social sharing",
+   "question": "No page has Open Graph tags (the preview when a link is shared). Supply a share image and text per page, or one default."
+  },
+  {
+   "topic": "Domain",
+   "question": "Canonicals point to www.bridgify.io; confirm the production domain and the redirect from the old site."
+  },
+  {
+   "topic": "Fonts",
+   "question": "Confirm the Chillax licence covers web use on bridgify.io."
+  },
+  {
+   "topic": "Build stack",
+   "question": "Which framework will the developers use? It decides the tokens format and how the animations are handed over."
+  },
+  {
+   "topic": "Press images",
+   "question": "Three Press cards hotlink images from other news sites (Travolution, Travel Daily News, Hotel Business) and those sites block them. Host the images on the Bridgify site, or supply them."
+  },
+  {
+   "topic": "Real devices",
+   "question": "Phone and tablet work is checked in desktop Chromium and WebKit at 320 to 1920px and in the iOS Simulator, not on a physical iPhone or iPad. Check on real devices before launch."
+  }
+ ]
+}
