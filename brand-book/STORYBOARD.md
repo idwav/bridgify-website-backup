@@ -1,4 +1,4 @@
-# Bridgify brand book: storyboard v2 (for approval)
+# Bridgify brand book: storyboard v2 (approved by the owner, 25 Nov 2026, including the items marked proposed)
 
 **The book's form.** Each page is a full-screen spread holding one idea. On desktop and tablet the pages snap to the scroll. Phones scroll naturally, one spread per screen. A thin chapter index with a progress bar sits on the side, and the arrow keys turn the page.
 
