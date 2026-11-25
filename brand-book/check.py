@@ -33,9 +33,10 @@ allowed |= {norm('rgb({},{},{})'.format(*(int(h[i:i + 2], 16) for i in (1, 3, 5)
 # 8-digit hex in tokens (e.g. #FFFFFF14) are not used here; 3-digit shorthands are not allowed.
 
 problems = []
-for name in ('brand-book.css', 'template.html', 'index.html'):
+for name in ['brand-book.css', 'book.css', 'template.html', 'index.html'] + ['pages/' + f for f in sorted(os.listdir(os.path.join(HERE, 'pages')))]:
     text = open(os.path.join(HERE, name)).read()
     text = re.sub(r'<svg.*?</svg>', '', text, flags=re.S)          # approved logo / icon markup
+    text = re.sub(r'<!-- external-colors.*?<!-- /external-colors -->', '', text, flags=re.S)  # competitors' own colours, quoted
     text = re.sub(r'data-copy="[^"]*"', '', text)                    # copied icon SVG strings
     for c in COLOR.findall(text):
         if c.startswith('#') and len(c) == 4:
@@ -44,7 +45,7 @@ for name in ('brand-book.css', 'template.html', 'index.html'):
             problems.append(f'{name}: colour {c} is not in tokens.json')
 
 page = open(os.path.join(HERE, 'index.html')).read()
-css = open(os.path.join(HERE, 'brand-book.css')).read()
+css = open(os.path.join(HERE, 'brand-book.css')).read() + open(os.path.join(HERE, 'book.css')).read()
 refs = re.findall(r'(?:src|href)="([^"#][^"]*)"', page) + re.findall(r'url\("?([^")]+)"?\)', css)
 for r in refs:
     if r.startswith(('http', 'data:', 'mailto:')):

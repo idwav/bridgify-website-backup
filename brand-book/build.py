@@ -42,6 +42,11 @@ LOGOS = [
     ('favicon', 'assets/bridgify-favicon.svg', 'Favicon',
      'Browser tab and app icon, coral 500.'),
 ]
+EXTRA_PHOTOS = ['17-hotel-london-1600.jpg', '18-trip-planning-960.jpg', '19-airline-960.jpg', '20-loyalty-payment-960.jpg',
+                '21-traveltech-960.jpg', '22-super-app-960.jpg', '10-alps-960.jpg', '16-live-music-960.jpg',
+                'rome-food-tour-960.jpg', '15-maldives-960.jpg']
+HERO_CARDS = ['colosseum', 'food-tour', 'concert', 'catamaran', 'louvre', 'florence']
+SITE_SHOTS = ['index-v2-00-1440.jpg', 'index-v2-00-390.jpg', 'index-v2-04-1440.jpg', 'index-v2-03-390.jpg']
 PHOTOS = [
     ('08-colosseum-960.jpg', 'Colosseum'),
     ('05-paris-food-tour-960.jpg', 'Paris food tour'),
@@ -68,6 +73,12 @@ def plan_copies():
             pairs.append((os.path.join(DS, 'assets', 'icons', f), f'icons/{f}'))
     for f, _ in PHOTOS:
         pairs.append((os.path.join(ROOT, 'assets', 'v2', f), f'photos/{f}'))
+    for f in EXTRA_PHOTOS:
+        pairs.append((os.path.join(ROOT, 'assets', 'v2', f), f'photos/{f}'))
+    for f in HERO_CARDS:
+        pairs.append((os.path.join(ROOT, 'assets', 'hero-experiences', f + '.jpg'), f'cards/{f}.jpg'))
+    for f in SITE_SHOTS:
+        pairs.append((os.path.join(DS, 'img', 'pages', f), f'site/{f}'))
     for src, dst in OCTOPUS:
         pairs.append((os.path.join(ROOT, src), f'illustration/{dst}'))
     for f in FONTS:
@@ -116,7 +127,7 @@ DEV_WORDS = re.compile(r'\.js\b|\.css\b|\bTrap\b|MOBILE-RULES|\(owner|owner deci
 
 def client(text):
     """Keep the client-facing sentences of a design-system note; drop file names and build notes."""
-    text = re.sub(r'\s*\((?:[^()]*?(?:owner|see component|replaces|decided)[^()]*)\)', '', str(text), flags=re.I)
+    text = re.sub(r'\s*\((?:[^()]*?(?:owner|see component|replaces|decided|unchanged)[^()]*)\)', '', str(text), flags=re.I)
     parts = re.split(r'(?<=[.!?])\s+', text)
     keep = [p for p in parts if not DEV_WORDS.search(p)]
     return ' '.join(keep).strip()
@@ -390,6 +401,9 @@ def frag_breakpoints():
 # ------------------------------------------------------------------ build
 def render():
     tpl = open(os.path.join(HERE, 'template.html')).read()
+    pages_dir = os.path.join(HERE, 'pages')
+    pages = ''.join(open(os.path.join(pages_dir, f)).read() for f in sorted(os.listdir(pages_dir)) if f.endswith('.html'))
+    tpl = tpl.replace('{{PAGES}}', pages)
     icons, n_icons = frag_icons()
     frags = {
         'META': frag_meta(),
@@ -438,7 +452,7 @@ def render():
 def render_artifact(page):
     """The same page as a claude.ai artifact body: CSS, fonts and script inline; images stay as files beside it."""
     import base64
-    css = open(os.path.join(HERE, 'brand-book.css')).read()
+    css = open(os.path.join(HERE, 'brand-book.css')).read() + '\n' + open(os.path.join(HERE, 'book.css')).read()
     def font(m):
         f = m.group(1)
         data = base64.b64encode(open(os.path.join(HERE, f), 'rb').read()).decode()
