@@ -104,3 +104,9 @@
 .ahc-card::before{inset:-14px;z-index:-1;background:radial-gradient(70% 70% at 100% 0%,#ff896270,#0000 72%),radial-gradient(70% 70% at 0% 100%,#ff785360,#0000 72%);filter:blur(22px)}
 @keyframes ahcGlow{from{opacity:.45}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.ahc-code::after{animation:none}}
+
+/* Hero code demo on iPads and small laptops (600-1279px): the "Rendered in your app" card sits inside the code panel's bottom edge instead of hanging 78px below it, so it is never cut by the bottom of the screen, and the hero ends 32px under the panel. */
+@media (min-width:600px) and (max-width:1279px){
+  html body #top.api-hero-code .ahc-card:not(#x){bottom:16px!important;right:16px!important;z-index:6!important;background:linear-gradient(160deg,#2a1b16,#160e0b)!important}
+  html body #top.api-hero-code:not(#x){min-height:0!important;padding-bottom:40px!important}
+}
