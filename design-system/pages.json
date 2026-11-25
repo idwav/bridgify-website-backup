@@ -1,0 +1,641 @@
+{
+ "$description": "Every live page, section by section: the pattern it uses and today's screenshots (img/pages/<page>-<nn>-1440.jpg and -390.jpg). Copy comes from the live page, which follows Copy v4. Generated 21 Nov 2026 from the live site; check marks \"check\" where the pattern assignment should be confirmed.",
+ "pages": {
+  "index-v2": {
+   "name": "Home",
+   "url": "https://bridgify-website.vercel.app/?version=2",
+   "sections": [
+    {
+     "id": "home",
+     "title": "One connection. A million+ travel experiences, matched to every customer.",
+     "pattern": "hero-demo"
+    },
+    {
+     "id": "sources",
+     "title": "Global supply through one integration.",
+     "pattern": "stats"
+    },
+    {
+     "id": "opportunity-study",
+     "title": "Your customers already book experiences. Just not with you.",
+     "pattern": "compare"
+    },
+    {
+     "id": "why-bridgify",
+     "title": "Everything between global supply and your customer",
+     "pattern": "pinned-steps"
+    },
+    {
+     "id": "personalization",
+     "title": "Don't give travelers a library. Give them the right book.",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "products",
+     "title": "Three products. One connected layer.",
+     "pattern": "card-grid"
+    },
+    {
+     "id": "audiences",
+     "title": "Built for brands that already have the traveler",
+     "pattern": "card-grid"
+    },
+    {
+     "id": "marketplace-results",
+     "title": "What White-Label partners see",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "security",
+     "title": "Built for enterprise security",
+     "pattern": "feature-list"
+    },
+    {
+     "id": "faq",
+     "title": "Frequently asked questions",
+     "pattern": "faq"
+    },
+    {
+     "id": "home-cta",
+     "title": "Tell us who your customers are. We'll show you what they'd book.",
+     "pattern": "closing-cta"
+    }
+   ]
+  },
+  "api": {
+   "name": "Experiences API",
+   "url": "https://bridgify-website.vercel.app/api.html",
+   "sections": [
+    {
+     "id": "top",
+     "title": "Experiences API: one travel API for tours, attractions, activities and events",
+     "pattern": "hero-demo"
+    },
+    {
+     "id": "network",
+     "title": "Connect to multiple supplier networks through one API",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "whats-inside",
+     "title": "Keep the suppliers you use. Add the rest.",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "customer-experience",
+     "title": "Keep the customer experience in your product",
+     "pattern": "pinned-steps"
+    },
+    {
+     "id": "integration",
+     "title": "Your team builds the interface. We manage the supply layer.",
+     "pattern": "two-sides"
+    },
+    {
+     "id": "api-features",
+     "title": "What features should a tours and activities API include?",
+     "pattern": "feature-list"
+    },
+    {
+     "id": "enterprise",
+     "title": "one API, ready for enterprise scale",
+     "pattern": "feature-list"
+    },
+    {
+     "id": "faq",
+     "title": "Frequently asked questions",
+     "pattern": "faq"
+    },
+    {
+     "id": "",
+     "title": "Discuss your API integration.",
+     "pattern": "closing-cta"
+    }
+   ]
+  },
+  "marketplace": {
+   "name": "White-Label Marketplace",
+   "url": "https://bridgify-website.vercel.app/marketplace.html",
+   "sections": [
+    {
+     "id": "section-1",
+     "title": "White-label travel marketplace for tours, attractions and experiences",
+     "pattern": "hero-demo"
+    },
+    {
+     "id": "section-2",
+     "title": "From discovery to checkout, under your brand",
+     "pattern": "pinned-steps"
+    },
+    {
+     "id": "section-3",
+     "title": "Your brand, your markets, your currencies",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "section-4",
+     "title": "You bring the brand. We run everything behind it.",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "section-5",
+     "title": "Live in 3 days",
+     "pattern": "timeline"
+    },
+    {
+     "id": "build-or-buy",
+     "title": "Is it better to build or buy a travel experiences marketplace?",
+     "pattern": "compare"
+    },
+    {
+     "id": "marketplace-audiences",
+     "title": "For brands that want a store, not a project",
+     "pattern": "card-grid"
+    },
+    {
+     "id": "marketplace-results",
+     "title": "What White-Label Marketplace partners see",
+     "pattern": "stats"
+    },
+    {
+     "id": "faq",
+     "title": "Frequently asked questions",
+     "pattern": "faq"
+    },
+    {
+     "id": "",
+     "title": "Discuss your marketplace launch.",
+     "pattern": "closing-cta"
+    }
+   ]
+  },
+  "personalization": {
+   "name": "AIyelet",
+   "url": "https://bridgify-website.vercel.app/personalization.html",
+   "sections": [
+    {
+     "id": "section-1",
+     "title": "(hero)",
+     "pattern": "hero-demo"
+    },
+    {
+     "id": "section-2",
+     "title": "Start with what the traveler has in mind",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "section-3",
+     "title": "Match experiences to what travelers are looking for",
+     "pattern": "two-sides"
+    },
+    {
+     "id": "section-4",
+     "title": "AI-powered personalization for tours and activities, inside your product",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "day-itinerary",
+     "title": "From one good suggestion to a full day",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "faq",
+     "title": "Frequently asked questions",
+     "pattern": "faq"
+    },
+    {
+     "id": "",
+     "title": "Discuss personalization for your product.",
+     "pattern": "closing-cta"
+    }
+   ]
+  },
+  "developers": {
+   "name": "Developers",
+   "url": "https://bridgify-website.vercel.app/developers.html",
+   "sections": [
+    {
+     "id": "section-1",
+     "title": "Build with Bridgify",
+     "pattern": "hero-demo"
+    },
+    {
+     "id": "section-2",
+     "title": "Find what you need",
+     "pattern": "card-grid"
+    },
+    {
+     "id": "performance",
+     "title": "What makes a tours and activities API high performing?",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "access",
+     "title": "Talk to us about access and implementation",
+     "pattern": "text"
+    },
+    {
+     "id": "faq",
+     "title": "Frequently asked questions",
+     "pattern": "faq"
+    },
+    {
+     "id": "",
+     "title": "Tell us who your customers are. We'll show you what they'd book.",
+     "pattern": "closing-cta"
+    }
+   ]
+  },
+  "otas": {
+   "name": "OTAs and travel platforms",
+   "url": "https://bridgify-website.vercel.app/otas.html",
+   "sections": [
+    {
+     "id": "section-1",
+     "title": "You sold them the flight and the room. Now sell them the days in between.",
+     "pattern": "hero-center"
+    },
+    {
+     "id": "section-2",
+     "title": "Enterprise multi-source experiences aggregation for OTAs",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "section-3",
+     "title": "Recommend experiences throughout the trip",
+     "pattern": "demo-columns",
+     "check": true
+    },
+    {
+     "id": "section-4",
+     "title": "Embed it in your platform or launch a branded store",
+     "pattern": "card-grid"
+    },
+    {
+     "id": "faq",
+     "title": "Frequently asked questions",
+     "pattern": "faq"
+    },
+    {
+     "id": "",
+     "title": "Discuss adding experiences to your travel platform.",
+     "pattern": "closing-cta"
+    }
+   ]
+  },
+  "airlines": {
+   "name": "Airlines",
+   "url": "https://bridgify-website.vercel.app/airlines.html",
+   "sections": [
+    {
+     "id": "section-1",
+     "title": "Take your customer experience beyond the flight.",
+     "pattern": "hero-demo"
+    },
+    {
+     "id": "section-2",
+     "title": "Earn beyond the flight",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "section-3",
+     "title": "Help passengers plan what to do when they land.",
+     "pattern": "pinned-steps"
+    },
+    {
+     "id": "section-4",
+     "title": "Offer experiences through your own channels",
+     "pattern": "card-grid"
+    },
+    {
+     "id": "faq",
+     "title": "Frequently asked questions",
+     "pattern": "faq"
+    },
+    {
+     "id": "",
+     "title": "Plan your airline's experiences offering.",
+     "pattern": "closing-cta"
+    }
+   ]
+  },
+  "hotels": {
+   "name": "Hotels",
+   "url": "https://bridgify-website.vercel.app/hotels.html",
+   "sections": [
+    {
+     "id": "section-1",
+     "title": "Your guests didn’t travel for the room.",
+     "pattern": "hero-demo"
+    },
+    {
+     "id": "section-2",
+     "title": "Offer local experiences without managing each supplier.",
+     "pattern": "tabs-preview"
+    },
+    {
+     "id": "section-3",
+     "title": "Make experiences part of the stay",
+     "pattern": "pinned-steps"
+    },
+    {
+     "id": "section-4",
+     "title": "Fit experiences into your guest journey",
+     "pattern": "card-grid"
+    },
+    {
+     "id": "faq",
+     "title": "Frequently asked questions",
+     "pattern": "faq"
+    },
+    {
+     "id": "",
+     "title": "Plan your hotel's experiences offering.",
+     "pattern": "closing-cta"
+    }
+   ]
+  },
+  "loyalty-finance": {
+   "name": "Loyalty, rewards and financial services",
+   "url": "https://bridgify-website.vercel.app/loyalty-finance.html",
+   "sections": [
+    {
+     "id": "section-1",
+     "title": "Your members are sitting on points. Give them something worth spending them on.",
+     "pattern": "hero-demo"
+    },
+    {
+     "id": "section-2",
+     "title": "Points aren't a marketing budget. They're a bill.",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "section-3",
+     "title": "Experiences for cardholders, wallet users and members",
+     "pattern": "tabs-preview"
+    },
+    {
+     "id": "section-4",
+     "title": "Choose a marketplace or integrate into your product",
+     "pattern": "card-grid"
+    },
+    {
+     "id": "we-started-here",
+     "title": "We started here",
+     "pattern": "feature-list"
+    },
+    {
+     "id": "market-signal",
+     "title": "Banks are building travel brands. Every one of them needs redemption options.",
+     "pattern": "tabs-preview"
+    },
+    {
+     "id": "faq",
+     "title": "Frequently asked questions",
+     "pattern": "faq"
+    },
+    {
+     "id": "",
+     "title": "Discuss an experiences offering for your members.",
+     "pattern": "closing-cta"
+    }
+   ]
+  },
+  "travel-technology": {
+   "name": "Travel technology companies",
+   "url": "https://bridgify-website.vercel.app/travel-technology.html",
+   "sections": [
+    {
+     "id": "section-1",
+     "title": "Embed global experiences in the platform you're building",
+     "pattern": "hero-demo"
+    },
+    {
+     "id": "section-2",
+     "title": "How do I avoid integrating dozens of travel suppliers?",
+     "pattern": "compare"
+    },
+    {
+     "id": "section-3",
+     "title": "Add experience discovery and booking to your product",
+     "pattern": "demo-columns"
+    },
+    {
+     "id": "section-4",
+     "title": "Choose how to integrate and distribute experiences",
+     "pattern": "card-grid"
+    },
+    {
+     "id": "faq",
+     "title": "Frequently asked questions",
+     "pattern": "faq"
+    },
+    {
+     "id": "",
+     "title": "Discuss how experiences fit into your platform.",
+     "pattern": "closing-cta"
+    }
+   ]
+  },
+  "super-apps": {
+   "name": "Super apps and consumer platforms",
+   "url": "https://bridgify-website.vercel.app/super-apps.html",
+   "sections": [
+    {
+     "id": "section-1",
+     "title": "Bring travel experiences into the app people already use.",
+     "pattern": "hero-demo"
+    },
+    {
+     "id": "section-2",
+     "title": "How to add tours and activities to a super app",
+     "pattern": "feature-list"
+    },
+    {
+     "id": "section-3",
+     "title": "Connect experiences to what users are planning",
+     "pattern": "pinned-steps",
+     "check": true
+    },
+    {
+     "id": "section-4",
+     "title": "Choose how experiences fit your platform",
+     "pattern": "card-grid"
+    },
+    {
+     "id": "faq",
+     "title": "Frequently asked questions",
+     "pattern": "faq"
+    },
+    {
+     "id": "",
+     "title": "Discuss an experiences offering for your platform.",
+     "pattern": "closing-cta"
+    }
+   ]
+  },
+  "about-us": {
+   "name": "About",
+   "url": "https://bridgify-website.vercel.app/about-us.html",
+   "sections": [
+    {
+     "id": "top",
+     "title": "Bringing the world’s experiences to the brands people use, and the right ones to every cus",
+     "pattern": "hero-demo"
+    },
+    {
+     "id": "our-story",
+     "title": "We started because selling experiences was close to impossible.",
+     "pattern": "text"
+    },
+    {
+     "id": "story",
+     "title": "From fragmented supply to the right experience for every customer.",
+     "pattern": "pinned-steps",
+     "check": true
+    },
+    {
+     "id": "hbx",
+     "title": "Startup speed, HBX Group scale",
+     "pattern": "text"
+    },
+    {
+     "id": "",
+     "title": "See how Bridgify could work for your business.",
+     "pattern": "closing-cta"
+    }
+   ]
+  },
+  "careers": {
+   "name": "Careers",
+   "url": "https://bridgify-website.vercel.app/careers.html",
+   "sections": [
+    {
+     "id": "top",
+     "title": "Join the team building the future of travel experiences",
+     "pattern": "hero-demo"
+    },
+    {
+     "id": "why-now",
+     "title": "Travel experiences are where traveltech gets decided next",
+     "pattern": "timeline",
+     "check": true
+    },
+    {
+     "id": "reach",
+     "title": "Ship it on Monday. Millions can book it on Tuesday.",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "what-makes-bridgify",
+     "title": "What makes Bridgify Bridgify",
+     "pattern": "pinned-steps",
+     "check": true
+    },
+    {
+     "id": "problems",
+     "title": "The problems you'd work on",
+     "pattern": "feature-list"
+    },
+    {
+     "id": "open-roles",
+     "title": "Open roles",
+     "pattern": "role-list"
+    },
+    {
+     "id": "",
+     "title": "Don't see your role?",
+     "pattern": "closing-cta"
+    }
+   ]
+  },
+  "contact": {
+   "name": "Contact and book a demo",
+   "url": "https://bridgify-website.vercel.app/contact.html",
+   "sections": [
+    {
+     "id": "section-1",
+     "title": "Let's talk about your experiences offering",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "section-2",
+     "title": "A demo about your product, not ours",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "section-3",
+     "title": "A few details so the right person replies.",
+     "pattern": "form"
+    },
+    {
+     "id": "section-4",
+     "title": "What happens after you send this",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "section-5",
+     "title": "Not a partner yet?",
+     "pattern": "text"
+    }
+   ]
+  },
+  "press": {
+   "name": "Press",
+   "url": "https://bridgify-website.vercel.app/press.html",
+   "sections": [
+    {
+     "id": "",
+     "title": "Bridgify on C10.",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "",
+     "title": "About the Bridgify Newsroom.",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "",
+     "title": "HBX Group acquires Bridgify.",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "",
+     "title": "In the news.",
+     "pattern": "article-list"
+    },
+    {
+     "id": "",
+     "title": "For press enquiries.",
+     "pattern": "text"
+    }
+   ]
+  },
+  "insights": {
+   "name": "Insights",
+   "url": "https://bridgify-website.vercel.app/insights.html",
+   "sections": [
+    {
+     "id": "",
+     "title": "Multi-Source Aggregation vs Single-Source APIs: Why Enterprise Buyers Choose Breadth",
+     "pattern": "text-visual"
+    },
+    {
+     "id": "",
+     "title": "About the Bridgify Blog.",
+     "pattern": "text"
+    },
+    {
+     "id": "",
+     "title": "Latest insights.",
+     "pattern": "article-list"
+    },
+    {
+     "id": "",
+     "title": "Have an experiences project in mind?",
+     "pattern": "closing-cta"
+    }
+   ]
+  }
+ }
+}

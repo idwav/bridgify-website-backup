@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bridgify brand book</title>
+<meta name="description" content="The Bridgify brand book: why we exist, who we are, how we look and how the brand works in the world.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/logo/bridgify-favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="brand-book.css">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar" id="bar">
+  <a class="bar-logo" href="#cover" aria-label="Bridgify brand book, back to the cover">{{LOGO_WORDMARK}}</a>
+  <span class="bar-chapter t-nav" id="bar-chapter">Brand book</span>
+  <span class="bar-folio t-index" id="bar-folio" aria-hidden="true">00</span>
+  <button class="bar-menu" type="button" aria-expanded="false" aria-controls="toc" id="menu-btn">
+    <span class="t-nav">Contents</span><span class="burger" aria-hidden="true"><i></i><i></i></span>
+  </button>
+  <span class="bar-progress" aria-hidden="true"><i id="bar-progress"></i></span>
+</header>
+
+<nav class="toc" id="toc" aria-label="Contents">
+  <div class="toc-in">
+    <ol class="toc-chapters" id="toc-list"></ol>
+    <p class="toc-meta t-caption">{{META}}</p>
+  </div>
+</nav>
+
+<main id="main">
+{{PAGES}}
+</main>
+
+<pre id="css-tokens" hidden>{{TOKENS_CSS}}</pre>
+<div class="toast t-small" id="toast" role="status" aria-live="polite"></div>
+<script src="brand-book.js"></script>
+</body>
+</html>
