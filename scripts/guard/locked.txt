@@ -1,0 +1,48 @@
+# Files that hold the owner's approved global rules (19 Nov 2026). A PR that changes one of them fails the guard
+# unless the owner adds the label "owner-approved". Patterns are shell globs, relative to the repo root.
+
+# Brand system and the documents that define it
+DESIGN.md
+TYPOGRAPHY.md
+WORKFLOW.md
+MOBILE-RULES.md
+AGENTS.md
+CLAUDE.md
+brand-typography.css
+brand-consistency.css
+brand-consistency.js
+brand-section-labels.css
+brand-faq.css
+heading-align.css
+
+# Shared header and footer
+shared-navigation.css
+shared-navigation.js
+shared-footer.css
+shared-footer.js
+partials/*
+
+# Global sources of the tablet/desktop layer (page files <page>-trial.css and roles-<page>.js stay open)
+output/element-lab/grid-plan/shared-wide.css
+output/element-lab/grid-plan/buttons-wide.css
+output/element-lab/grid-plan/type-wide.css
+output/element-lab/grid-plan/tokens-wide.css
+output/element-lab/grid-plan/grid-vars.css
+output/element-lab/grid-plan/split-align.css
+output/element-lab/grid-plan/split-align.js
+output/element-lab/grid-plan/ink-fonts.css
+output/element-lab/grid-plan/header-compact.css
+output/element-lab/grid-plan/line-interim.css
+scripts/build-wide.py
+
+# Global sources of the phone layer
+output/element-lab/adaptive/system/*
+scripts/sync-mobile.py
+scripts/sync-footer.py
+
+# Hosting and the guard itself
+vercel.json
+.vercelignore
+scripts/guard/*
+.github/*
+.github/workflows/*
